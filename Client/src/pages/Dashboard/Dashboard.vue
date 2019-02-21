@@ -1,0 +1,178 @@
+<template>
+  <div class="row">
+    <!-- User Profile Section -->
+    <div class="col-lg-8 col-md-12 mb-4">
+      <user-card></user-card>
+    </div>
+    <!-- Notification Section -->
+    <div class="col-lg-4 col-md-12 mb-4">
+      <NotificationCard></NotificationCard>
+    </div>
+
+    <!-- Stats Cards Section -->
+    <div class="col-lg-3 col-md-6 ml-auto mr-auto" v-for="card in statsCards" :key="card.title">
+      <stats-card
+        :title="card.title"
+        :sub-title="card.subTitle"
+        :type="card.type"
+        :icon="card.icon"
+      >
+        <div slot="footer" v-html="card.footer"></div>
+      </stats-card>
+    </div>
+
+    <!-- Payment History Section -->
+    <div class="col-md-12 mb-4 text-center">
+      <PaymentHistory></PaymentHistory>
+    </div>
+
+    <!-- Todos Section -->
+    <!-- <div class="col-md-12 mb-4">
+      <NewTodo></NewTodo>
+    </div>-->
+    <!-- <div class="col-lg-12 col-md-12">
+      <card type="tasks" :header-classes="{ 'text-right': isRTL }">
+        <template slot="header">
+          <h4 class="title d-inline">Tasks</h4>
+        </template>
+        <div class="table-full-width table-responsive">
+          <task-list></task-list>
+        </div>
+      </card>
+    </div>-->
+    <!-- Add/Edit Tasks -->
+    <!-- <div class="col-lg-5">
+      <card title="Horizontal Form">
+        <h4 slot="header" class="card-title">Add / Edit Tasks</h4>
+        <br>
+        <form class="form-horizontal" @submit.prevent="updateTask">
+          <div class="row pb-3 mobileLeft">
+            <label class="col-md-3 col-form-label">Title</label>
+            <div class="col-md-9">
+              <base-input type="text" placeholder="Task Title" v-model="task.title"></base-input>
+            </div>
+          </div>
+          <div class="row mobileLeft">
+            <label class="col-md-3 col-form-label">Description</label>
+            <div class="col-lg-9">
+              <base-input type="text" placeholder="Short Description" v-model="task.description"></base-input>
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-md-3 col-form-label"></label>
+          </div>
+        </form>
+        <br>
+        <div class="row pb-2">
+          <label class="col-md-3 col-form-label"></label>
+          <div class="col-md-9">
+            <base-checkbox>Delete Task</base-checkbox>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9 offset-md-3 col-12">
+            <base-button class="mt-3" native-type="submit" type="primary">Save Task</base-button>
+          </div>
+        </div>
+        <br>
+      </card>
+    </div>-->
+  </div>
+</template>
+<script>
+import StatsCard from 'src/components/Cards/StatsCard';
+import UserCard from './Profile/UserCard.vue';
+import NotificationCard from './Notification/NotificationCard.vue';
+import PaymentHistory from './PaymentHistory/PaymentHistory.vue';
+
+export default {
+  components: {
+    StatsCard,
+    UserCard,
+    NotificationCard,
+    PaymentHistory
+  },
+  data() {
+    return {
+      task: {
+        title: '',
+        description: ''
+      },
+      statsCards: [
+        {
+          title: '7',
+          subTitle: 'My Courses',
+          type: 'warning',
+          icon: 'tim-icons icon-book-bookmark',
+          footer:
+            '<a href="/courses"><i class="tim-icons icon-bag-16"></i>View Courses</a>'
+        },
+        {
+          title: '43 / 724',
+          subTitle: 'Lessons Unlocked',
+          type: 'danger',
+          icon: 'tim-icons icon-molecule-40',
+          footer:
+            '<i class="tim-icons icon-video-66"></i>Total Lessons Available'
+        },
+        {
+          title: '27',
+          subTitle: 'Quizzes Available',
+          type: 'info',
+          icon: 'fas fa-university',
+          footer: '<i class="far fa-bookmark"></i> Good Job'
+        },
+        {
+          title: '+45 xP',
+          subTitle: 'Ask Arya xP Points',
+          type: 'primary',
+          icon: 'tim-icons icon-shape-star',
+          footer:
+            '<i class="tim-icons icon-sound-wave"></i></i> Progress To BEGINNER <span class="coloredLink">85%</span>  '
+        }
+      ]
+    };
+  },
+  computed: {
+    enableRTL() {
+      return this.$route.query.enableRTL;
+    },
+    isRTL() {
+      return this.$rtl.isRTL;
+    }
+  },
+  methods: {
+    updateTask() {
+      alert('Your data: ' + JSON.stringify(this.user));
+    }
+  },
+  mounted() {
+    this.i18n = this.$i18n;
+    if (this.enableRTL) {
+      this.i18n.locale = 'ar';
+      this.$rtl.enableRTL();
+    }
+  },
+  beforeDestroy() {
+    if (this.$rtl.isRTL) {
+      this.i18n.locale = 'en';
+      this.$rtl.disableRTL();
+    }
+  }
+};
+</script>
+<style>
+.coloredLink {
+  color: #de4dc7;
+  font-weight: 600;
+}
+
+.form-check input[type='checkbox'] + .form-check-sign::after {
+  background-color: #ff0000;
+}
+
+.form-horizontal .col-form-label,
+.form-horizontal .label-on-right {
+  text-align: left !important;
+}
+</style>
