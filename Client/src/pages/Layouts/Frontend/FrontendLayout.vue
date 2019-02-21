@@ -31,12 +31,16 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <div class="row d-flex justify-content-end">
-          <router-link to="login">
-            <base-button native-type="submit" type="success" class="btn-fill btn btn-sm">Login</base-button>
-          </router-link>
-          <router-link to="register">
-            <base-button native-type="submit" type="danger" class="btn-fill btn btn-sm">Register</base-button>
-          </router-link>
+          <div class="px-1">
+            <router-link to="login">
+              <base-button native-type="submit" type="success" class="btn-simple btn btn-sm">Login</base-button>
+            </router-link>
+          </div>
+          <div class="px-2">
+            <router-link to="register">
+              <base-button native-type="submit" type="danger" class="btn-simple btn btn-sm">Register</base-button>
+            </router-link>
+          </div>
         </div>
       </ul>
     </base-nav>
@@ -140,9 +144,13 @@ export default {
 
 @media (max-width: 768px) {
   .navbar-nav {
-    font-size: 17px;
+    font-size: 20px;
     color: white;
-    padding: 15px 0;
+    padding: 22px 0;
+  }
+  .navbar-nav li {
+    padding: 10px 1px !important;
+    border-bottom: 1px solid #3e3e70 !important;
   }
 }
 

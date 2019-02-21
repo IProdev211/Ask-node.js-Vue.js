@@ -2,7 +2,7 @@
   <div>
     <!-- Hero Section -->
     <vue-particles :lineLinked="false" :moveSpeed="2" :particleSize="2"></vue-particles>
-    <div class="hero-content">
+    <div class="hero-content-homepage">
       <div class="text-center container">
         <div class="row">
           <div class="col-md-12">
@@ -12,12 +12,13 @@
             </h1>
             <!-- All Courses Section -->
             <h2
-              class="d-flex justify-content-start my-5 section-header text-primary"
+              class="d-flex justify-content-start my-3 section-header-homepage text-primary"
             >Our Top Courses</h2>
             <!-- MOBILE -->
-            <div class="pt-4 MOBILE d-md-none">
+            <div class="pt-4 px-3 MOBILE d-md-none">
               <carousel
                 :navigationEnabled="true"
+                :paginationEnabled="false"
                 :loop="true"
                 navigationClickTargetSize
                 :speed="1200"
@@ -68,7 +69,7 @@
     </div>
 
     <!--Founder Section-->
-    <div class="founder-section">
+    <div class="founder-section-homepage">
       <founder-section></founder-section>
     </div>
 
@@ -102,8 +103,8 @@ export default {
 </script>
 
 
-<style scoped lang="scss">
-.hero-content {
+<style lang="scss">
+.hero-content-homepage {
   background: linear-gradient(
       135deg,
       rgba(199, 91, 216, 0.6),
@@ -122,13 +123,13 @@ export default {
   // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
   .hero-header {
     font-size: 3.4rem;
-    line-height: 3.7rem;
+    line-height: 4rem;
   }
   .special-colour {
     color: rgb(187, 255, 0);
   }
 }
-.founder-section {
+.founder-section-homepage {
   background: linear-gradient(180deg, #1e1e2f, rgb(86, 7, 133));
   // url(/img/frontend/founder-hero-bg-opt.png) no-repeat center;
   width: 100%;
@@ -149,32 +150,14 @@ export default {
   z-index: 0;
 }
 
-.VueCarousel-navigation-button .VueCarousel-navigation-next {
-  right: 18px;
-  font-size: 25px;
-  color: white;
-  transform: translateY(-50%) translateX(100%);
-  font-family: 'system';
+.VueCarousel {
+  .VueCarousel-navigation-button {
+    color: #fff !important;
+    font-size: 30px !important;
+  }
 }
-
-// .private-classes {
-//   background: linear-gradient(180deg, rgba(68, 31, 233, 0.9), #1e1e2f);
-//   width: 100%;
-//   padding-top: 60px;
-//   padding-bottom: 80px;
-//   min-height: 50vh;
-//   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 4vw));
-// }
-
-.section-header {
+.section-header-homepage {
   font-size: 1.5rem;
   color: white;
-}
-h2 {
-  margin-bottom: 5px !important;
-}
-p {
-  font-size: 15px;
-  padding-top: 13px;
 }
 </style>
