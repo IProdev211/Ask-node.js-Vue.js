@@ -42,7 +42,7 @@
 }
 
 .pricehighlight {
-  color: #4ace33be;
+  color: #4ace33;
   font-weight: 600;
 }
 

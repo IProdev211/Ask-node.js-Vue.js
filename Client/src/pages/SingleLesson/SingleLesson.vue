@@ -4,7 +4,7 @@
       <!-- Video Section -->
       <div class="col-md-12 card-background card-body text-center my-3">
         <div>
-          <route-bread-crumb />
+          <route-bread-crumb/>
         </div>
         <div class="row">
           <!-- Course Info DIV  -->
@@ -19,17 +19,18 @@
                   and much more!
                 </p>
               </div>
-              <hr />
+              <hr>
               <div class="head-section px-3">
-                <h4 class="pt-3 text-danger">
-                  To Access This Course Please Follow
-                  <router-link class="text-success font-weight-bold" to="buy"
-                    >This Purchase Link</router-link
-                  >.
+                <h4 v-if="notEnrolled" class="pt-3 text-danger">To Access This Course Please Follow
+                  <router-link class="text-success font-weight-bold" to="buy">This Purchase Link</router-link>.
+                </h4>
+                <h4 v-else class="pt-3 text-success">
+                  You Are
+                  <span class="font-weight-bold">Enrolled</span> on this Course
                 </h4>
               </div>
 
-              <hr />
+              <hr>
               <!-- COURSE LENGTH -->
               <div class="d-flex justify-content-between px-3 pt-2">
                 <div>
@@ -44,7 +45,9 @@
               <!-- COURSE CREATED AT -->
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
-                  <h5><i class="tim-icons icon-badge pr-2"></i>Created On:</h5>
+                  <h5>
+                    <i class="tim-icons icon-badge pr-2"></i>Created On:
+                  </h5>
                 </div>
                 <div>
                   <h5 class="bold">25/01/2019</h5>
@@ -64,7 +67,9 @@
               <!-- COURSE PRICE  -->
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
-                  <h5><i class="tim-icons icon-money-coins pr-2"></i>Price:</h5>
+                  <h5>
+                    <i class="tim-icons icon-money-coins pr-2"></i>Price:
+                  </h5>
                 </div>
                 <div>
                   <h5 class="bold">149,000 Tomans</h5>
@@ -74,7 +79,9 @@
               <!-- COURSE VIEWS  -->
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
-                  <h5><i class="tim-icons icon-single-02 pr-2"></i>Views:</h5>
+                  <h5>
+                    <i class="tim-icons icon-single-02 pr-2"></i>Views:
+                  </h5>
                 </div>
                 <div>
                   <h5 class="bold">1,542</h5>
@@ -84,15 +91,14 @@
               <!-- COURSE INSTRUCTOR -->
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
-                  <h5><i class="tim-icons icon-badge pr-2"></i>Instructor:</h5>
+                  <h5>
+                    <i class="tim-icons icon-badge pr-2"></i>Instructor:
+                  </h5>
                 </div>
                 <div>
                   <h5 class="bold">Arya Doroudian</h5>
                 </div>
               </div>
-              <!-- <div class="img my-2">
-                <img class="courseInstructorImage" src="/img/arya.png" alt>
-              </div>-->
             </div>
           </div>
           <!-- video element -->
@@ -103,31 +109,26 @@
                   src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4"
                   type="video/mp4"
                   size="720"
-                />
-                <track
-                  kind="captions"
-                  label="English"
-                  srclang="en"
-                  src="captions-en.vtt"
-                  default
-                />
+                >
+                <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default>
               </video>
             </vue-plyr>
           </div>
         </div>
         <p class="card-description py-3">
-          The only person who is educated is the one who has learned how to
-          learn and change.
+          "The only person who is educated is the one who has learned how to
+          learn and change - Carl Rogers"
         </p>
       </div>
       <!-- Timeline Unit Section -->
       <div class="col-md-12">
-        <h1 class="text-center text-success pt-4">Course Sections</h1>
+        <h1 class="text-center text-success pt-4">Course Lessons</h1>
         <time-line>
           <time-line-item badge-type="danger" badge-icon="fas fa-lock">
-            <span slot="header" class="badge badge-pill badge-danger"
-              >1 - Vocabulary Introduction</span
-            >
+            <span
+              slot="header"
+              class="badge badge-size badge-pill badge-danger"
+            >1 - Vocabulary Introduction</span>
             <p slot="content">
               Wifey made the best Father's Day meal ever. So thankful so happy
               so blessed. Thank you for making my family We just had fun with
@@ -136,19 +137,16 @@
               and 12th in downtown.
             </p>
             <h6 slot="footer">
-              <i class="ti-time"></i>
-              14 hours ago by
-              <span class="text-success">Ask Arya</span>
+              <i class="far fa-clock"></i>
+              Video Length -
+              <span class="text-success">12 Mins</span>
             </h6>
           </time-line-item>
-          <time-line-item
-            inverted
-            badge-type="success"
-            badge-icon="fas fa-lock"
-          >
-            <span slot="header" class="badge badge-pill badge-success"
-              >2 - Getting Started Introduction</span
-            >
+          <time-line-item inverted badge-type="success" badge-icon="fas fa-unlock">
+            <span
+              slot="header"
+              class="badge badge-size badge-pill badge-success"
+            >2 - Getting Started Introduction</span>
             <p slot="content">
               Thank God for the support of my wife and real friends. I also
               wanted to point out that it’s the first album to go number 1 off
@@ -157,15 +155,16 @@
               to like it....
             </p>
             <h6 slot="footer">
-              <i class="ti-time"></i>
-              14 hours ago by
-              <span class="text-success">Ask Arya</span>
+              <i class="far fa-clock"></i>
+              Video Length -
+              <span class="text-success">7 Mins</span>
             </h6>
           </time-line-item>
-          <time-line-item badge-type="success" badge-icon="fas fa-lock">
-            <span slot="header" class="badge badge-pill badge-success"
-              >2-1 - Countries and Nationalities</span
-            >
+          <time-line-item badge-type="success" badge-icon="fas fa-unlock">
+            <span
+              slot="header"
+              class="badge badge-size badge-pill badge-success"
+            >2-1 - Countries and Nationalities</span>
             <p slot="content">
               Tune into Big Boy's 92.3 I'm about to play the first single from
               Cruel Winter Tune into Big Boy's 92.3 I'm about to play the first
@@ -173,9 +172,9 @@
               jewelry and the whole style squad at Balmain and the Yeezy team.
             </p>
             <h6 slot="footer">
-              <i class="ti-time"></i>
-              14 hours ago by
-              <span class="text-success">Ask Arya</span>
+              <i class="far fa-clock"></i>
+              Video Length -
+              <span class="text-success">19 Mins</span>
             </h6>
           </time-line-item>
         </time-line>
@@ -183,12 +182,7 @@
 
       <!-- Button Notification -->
       <div class="col-md-2 ml-auto mr-auto my-3">
-        <base-button
-          type="primary"
-          block
-          @click.native="notifyVue('top', 'left')"
-          >Click Me</base-button
-        >
+        <base-button type="primary" block @click.native="notifyVue('top', 'left')">Click Me</base-button>
       </div>
     </div>
   </div>
@@ -204,6 +198,7 @@ export default {
   },
   data() {
     return {
+      notEnrolled: true,
       type: ['', 'info', 'success', 'warning', 'danger'],
       notifications: {
         topCenter: false
@@ -334,8 +329,6 @@ export default {
   color: #fff;
 }
 
-/* These files edited in Node Modules folder */
-
 .plyr__video-wrapper {
   border-radius: 25px;
 }
@@ -344,5 +337,10 @@ export default {
   background: #000;
   overflow: hidden;
   border-radius: 25px;
+}
+
+.badge-size {
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 </style>

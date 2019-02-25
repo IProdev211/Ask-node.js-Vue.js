@@ -8,8 +8,6 @@ yarn-error.log*
 test/unit/coverage
 .DS_Store
 
-package-lock.json
-
 # Editor directories and files
 .idea
 *.suo

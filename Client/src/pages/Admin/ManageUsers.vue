@@ -101,7 +101,7 @@
 <script>
 import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
-import manageusers from './manageusers';
+import manageusersoverviewdata from './manageusersoverviewdata';
 import Fuse from 'fuse.js';
 import swal from 'sweetalert2';
 
@@ -167,7 +167,7 @@ export default {
           minWidth: 120
         }
       ],
-      tableData: manageusers,
+      tableData: manageusersoverviewdata,
       searchedData: [],
       fuseSearch: null
     };

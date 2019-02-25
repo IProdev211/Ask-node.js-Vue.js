@@ -18,7 +18,7 @@
 
         <sidebar-item :link="{ name: $t('sidebar.courses'), icon: 'fas fa-graduation-cap' }">
           <sidebar-item :link="{ name: $t('View All Courses'), path: '/courses' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('single course'), path: '/singlecourse' }"></sidebar-item>
+          <sidebar-item :link="{ name: $t('single lesson'), path: '/singlelesson' }"></sidebar-item>
           <sidebar-item :link="{ name: $t('quiz'), path: '/quiz' }"></sidebar-item>
         </sidebar-item>
 

@@ -15,8 +15,8 @@ const Dashboard = () =>
 const Courses = () =>
   import( /* webpackChunkName: "extra" */ 'src/pages/Courses/Courses.vue');
 
-const SingleCourse = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/SingleCourse/SingleCourse.vue');
+const SingleLesson = () =>
+  import( /* webpackChunkName: "extra" */ 'src/pages/SingleLesson/SingleLesson.vue');
 
 const Quiz = () =>
   import( /* webpackChunkName: "extra" */ 'src/pages/Quiz/Quiz.vue');
@@ -163,10 +163,10 @@ const routes = [{
         }
       },
       {
-        path: 'singlecourse',
-        name: 'Single Course',
+        path: 'singlelesson',
+        name: 'Single Lesson',
         components: {
-          default: SingleCourse
+          default: SingleLesson
         }
       },
       {

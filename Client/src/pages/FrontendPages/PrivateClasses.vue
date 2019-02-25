@@ -34,6 +34,37 @@
 
         <div class="col-lg-4 col-sm-12 pt-3 px-3">
           <div class="pricing-box hover">
+            <div class="pricing-title bg-silver">
+              <h3 class="text-white titleSize py-3">Silver</h3>
+            </div>
+            <div class="pricing-price price-unit price">
+              <span class>175,000 Tomans</span>
+              <p class="py-0 my-0 smalltext">Per Session</p>
+            </div>
+            <div class="pricing-features">
+              <ul>
+                <li>Speaking Practice</li>
+                <li>Listening Practice</li>
+                <li>Vocabulary & Pronunciation Practice</li>
+                <li>Grammar Practice</li>
+                <li>Reading Practice</li>
+                <li>Placement Test</li>
+                <li>End of Course Certificate</li>
+              </ul>
+            </div>
+            <div class="pricing-action">
+              <a
+                href="https://www.askarya.ir/assets/AskArya-RegistrationForm.jpg"
+                target="_blank"
+                download="Register"
+                class="btn btn-lg btn-block btn-outline-primary"
+              >Register</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-12 pt-3 px-3">
+          <div class="pricing-box hover">
             <div class="pricing-title bg-gold">
               <h3 class="titleSize text-black py-3">Gold</h3>
             </div>
@@ -62,37 +93,6 @@
                 target="_blank"
                 download="Register"
                 class="btn btn-lg btn-block btn-askarya"
-              >Register</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-12 pt-5 px-3">
-          <div class="pricing-box hover">
-            <div class="pricing-title bg-silver">
-              <h3 class="text-white titleSize py-3">Silver</h3>
-            </div>
-            <div class="pricing-price price-unit price">
-              <span class>175,000 Tomans</span>
-              <p class="py-0 my-0 smalltext">Per Session</p>
-            </div>
-            <div class="pricing-features">
-              <ul>
-                <li>Speaking Practice</li>
-                <li>Listening Practice</li>
-                <li>Vocabulary & Pronunciation Practice</li>
-                <li>Grammar Practice</li>
-                <li>Reading Practice</li>
-                <li>Placement Test</li>
-                <li>End of Course Certificate</li>
-              </ul>
-            </div>
-            <div class="pricing-action">
-              <a
-                href="https://www.askarya.ir/assets/AskArya-RegistrationForm.jpg"
-                target="_blank"
-                download="Register"
-                class="btn btn-lg btn-block btn-outline-primary"
               >Register</a>
             </div>
           </div>

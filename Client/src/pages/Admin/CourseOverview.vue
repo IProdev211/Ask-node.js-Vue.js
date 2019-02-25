@@ -88,7 +88,7 @@
 <script>
 import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
-import users from './users';
+import courseoverviewdata from './courseoverviewdata';
 import swal from 'sweetalert2';
 
 export default {
@@ -157,7 +157,7 @@ export default {
           minWidth: 80
         }
       ],
-      tableData: users,
+      tableData: courseoverviewdata,
       searchedData: [],
       fuseSearch: null
     };
