@@ -31,15 +31,25 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <div class="row d-flex justify-content-end">
-          <div class="px-1">
-            <router-link to="login">
-              <base-button native-type="submit" type="success" class="btn-simple btn btn-sm">Login</base-button>
-            </router-link>
+          <div v-if="this.$root.$data.user !== undefined">
+            <div class="px-1">
+              <router-link to="dashboard">
+                <base-button native-type="submit" type="success" class="btn-simple btn btn-sm">Hey, {{this.$root.$data.user.name}}!</base-button>
+              </router-link>
+            </div>
           </div>
-          <div class="px-2">
-            <router-link to="register">
-              <base-button native-type="submit" type="danger" class="btn-simple btn btn-sm">Register</base-button>
-            </router-link>
+
+          <div v-else>
+            <div class="px-1">
+              <router-link to="login">
+                <base-button native-type="submit" type="success" class="btn-simple btn btn-sm">Login</base-button>
+              </router-link>
+            </div>
+            <div class="px-2">
+              <router-link to="register">
+                <base-button native-type="submit" type="danger" class="btn-simple btn btn-sm">Register</base-button>
+              </router-link>
+            </div>
           </div>
         </div>
       </ul>
