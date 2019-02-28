@@ -32,6 +32,19 @@ class authController extends controller {
 
         })(req , res);
     }
+    async register(req, res) {
+        if(! await this.validationData(req , res)) return;
+        passport.authenticate('local.register' , {failWithError: true}, (err, user) => {
+            if(err) return this.failed(err.message , res);
+            if(!user) return this.failed('خطایی در حین ثبت نام بوجود آمده', res , 500);
+            return res.json({
+                data : {
+                    user: HomeController.filterUserData(user),
+                },
+                status : 'success'
+            });
+        })(req, res);
+    }
 }
 
 module.exports = new authController();
