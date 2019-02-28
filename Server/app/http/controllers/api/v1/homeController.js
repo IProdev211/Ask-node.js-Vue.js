@@ -66,7 +66,7 @@ class homeController extends controller {
             createdAt : user.createdAt,
             vipTime : user.vipTime,
             vipType : user.vipType,
-            roles : user.roles.map(role => {
+            roles : user.roles ? user.roles.map(role => {
                 return {
                     name : role.name ,
                     label : role.label,
@@ -77,7 +77,7 @@ class homeController extends controller {
                         }
                     })
                 }
-            })
+            }) : undefined,
         }
     }
 }

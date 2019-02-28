@@ -1,9 +1,7 @@
 const controller = require('app/http/controllers/api/controller');
-const Course = require('app/models/course');
-const Episode = require('app/models/episode');
-const Comment = require('app/models/comment');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
+const HomeController = require("./homeController");
 
 class authController extends controller {
     
@@ -14,17 +12,18 @@ class authController extends controller {
             if(err) return this.failed(err.message , res);
             if(!user) return this.failed('چنین کاربری وجود ندارد', res , 404) 
 
-            req.login(user , { session : false } , (err) => {
+            req.login(user , { session : false } , async (err) => {
                 if(err) return this.failed(err.message , res);
 
                 // create token
                 const token = jwt.sign({ id : user.id } , config.jwt.secret_key , {
                     expiresIn : 60 * 60 * 24
                 });
-
+                user = await user.populate({ path : 'roles' , select : 'name label permissions' , populate : [ { path : 'permissions' }]}).execPopulate();
                 return res.json({
                     data : {
-                        token
+                        token,
+                        user: HomeController.filterUserData(user),
                     },
                     status : 'success'
                 })
