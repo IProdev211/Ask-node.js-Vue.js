@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="d-flex align-items-center">
-      <h1>Coming Soon</h1>
+    <div class="mt-5">
+      <h1>Coming Soon...</h1>
     </div>
   </div>
 </template>
