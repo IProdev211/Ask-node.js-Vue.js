@@ -39,7 +39,7 @@
             </div>
           </div>
 
-          <div v-else>
+          <div class="row" v-else>
             <div class="px-1">
               <router-link to="login">
                 <base-button native-type="submit" type="success" class="btn-simple btn btn-sm">Login</base-button>

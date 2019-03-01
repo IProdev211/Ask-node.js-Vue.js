@@ -28,7 +28,7 @@
     "terser": "^3.16.1",
     "tween.js": "^16.6.0",
     "vee-validate": "^2.1.7",
-    "vue": "^2.6.7",
+    "vue": "^2.6.8",
     "vue-carousel": "^0.18.0-alpha",
     "vue-chartjs": "^3.4.0",
     "vue-i18n": "^8.8.1",
@@ -50,7 +50,7 @@
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-i18n": "^0.5.2",
     "vue-particles": "^1.0.9",
-    "vue-template-compiler": "^2.6.7"
+    "vue-template-compiler": "^2.6.8"
   },
   "postcss": {
     "plugins": {
