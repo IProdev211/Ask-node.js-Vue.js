@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container pb-5">
     <h1 class="pb-5 founder-header text-danger">Our Founder</h1>
     <div class="row">
       <div class="col-md-4 py-4 text-center">
@@ -10,7 +10,7 @@
         >
       </div>
       <div class="col-md-8">
-        <h2 class="subheading2">Who’s the captain of this aircraft?</h2>
+        <h2 class="subheading2 text-info">Who’s the captain of this aircraft?</h2>
         <p>Hello everyone, my name is Arya Doroudian. I was born and raised in London and moved to Iran last year to pursue my flying career as a commercial airline pilot. I am a native speaker of both English and Persian, as well as an intermediate French speaker.
           <br>
           <br>I graduated in BEng Computer Network Security from Westminster University, London. I then moved on to study for my Commercial Pilot Licence at Oxford Aviation Academy, London. I currently hold a Frozen Air Transport Pilot Licence (EASA), as well as a Commercial Pilot licence & Instrument Rating (ICAO).
@@ -19,7 +19,7 @@
         </p>
         <div class="Education py-4">
           <hr class="hr-1">
-          <h2 class="subheading2">Education</h2>
+          <h2 class="subheading2 text-info">Education</h2>
           <p>
             <span class="font-weight-bold text-success">Air Transport Pilot Licence:</span> Frozen ATPL -
             <small>Oxford Aviation Academy, London</small>

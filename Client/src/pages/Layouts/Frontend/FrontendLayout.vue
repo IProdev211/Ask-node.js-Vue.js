@@ -32,10 +32,19 @@
       <ul class="navbar-nav ml-auto">
         <div class="row d-flex justify-content-end">
           <div v-if="this.$root.$data.user !== undefined">
-            <div class="px-1">
-              <router-link to="dashboard">
-                <base-button native-type="submit" type="success" class="btn-simple btn btn-sm">Hey, {{this.$root.$data.user.name}}!</base-button>
-              </router-link>
+            <div class="row">
+              <div class="px-1">
+                <p class="pt-2 usertitle">Hey, {{this.$root.$data.user.name}}!</p>
+              </div>
+              <div class="px-1">
+                <router-link to="dashboard">
+                  <base-button
+                    native-type="submit"
+                    type="danger"
+                    class="btn-simple btn btn"
+                  >Dashboard</base-button>
+                </router-link>
+              </div>
             </div>
           </div>
 
@@ -47,7 +56,11 @@
             </div>
             <div class="px-2">
               <router-link to="register">
-                <base-button native-type="submit" type="danger" class="btn-simple btn btn-sm">Register</base-button>
+                <base-button
+                  native-type="submit"
+                  type="danger"
+                  class="btn-simple btn btn-sm"
+                >Register</base-button>
               </router-link>
             </div>
           </div>
@@ -142,6 +155,10 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+.usertitle {
+  color: #2ae490;
+  font-weight: 600;
+}
 .navbar.navbar-transparent {
   background: #32325d !important;
   // background: linear-gradient(to right, #6411b8, #a200ff) !important;
