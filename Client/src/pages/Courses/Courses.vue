@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="unitHeader pt-3">
-      <h1 class="text-center pb-2 text-success">220 lessons • 13 Hours • 13 Courses
+    <div class="unitHeader pt-2">
+      <h1 class="text-center pb-2 text-success">220 lessons • 16 Hours • 8 Courses
         <br>
         <h3 class="text-danger pt-3">New content is added every week!</h3>
       </h1>

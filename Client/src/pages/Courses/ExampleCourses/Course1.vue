@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link to="singlecourse">
+    <router-link to="singlelesson">
       <div class="hover m-widget7 m-widget7--skin-dark widget-3">
         <div class="m-widget7__courseimage">
           <img class="m-widget7__courseimage" src="/img/notesCourse.png">
