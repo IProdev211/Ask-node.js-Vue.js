@@ -63,6 +63,9 @@ const Meetups = () =>
 const Contact = () =>
   import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Contact.vue');
 
+const BlogPost = () =>
+  import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Components/Blog/BlogPost/BlogPost.vue');
+
 //////////////////////////////////////////////////////////////////////
 ////////////////////////////////  PAGES //////////////////////////////
 
@@ -101,6 +104,12 @@ let frontendpages = {
       path: '/contact',
       name: 'Contact',
       component: Contact
+    },
+    ,
+    {
+      path: '/blogpost',
+      name: 'BlogPost',
+      component: BlogPost
     }
   ]
 };
