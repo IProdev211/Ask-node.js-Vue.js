@@ -1,6 +1,6 @@
 <template>
   <div class="blogBox">
-    <router-link to="/">
+    <router-link to="/blogpost">
       <div class="card">
         <img
           class="card-img-top"
