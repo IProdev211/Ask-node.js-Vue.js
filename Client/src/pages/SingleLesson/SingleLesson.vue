@@ -124,7 +124,7 @@
       <div class="col-md-12">
         <h1 class="text-center text-success pt-4">Course Lessons</h1>
         <time-line>
-          <time-line-item badge-type="danger" badge-icon="fas fa-lock">
+          <time-line-item inverted badge-type="danger" badge-icon="fas fa-lock">
             <span
               slot="header"
               class="badge badge-size badge-pill badge-danger"
@@ -160,7 +160,7 @@
               <span class="text-success">7 Mins</span>
             </h6>
           </time-line-item>
-          <time-line-item badge-type="success" badge-icon="fas fa-unlock">
+          <time-line-item inverted badge-type="success" badge-icon="fas fa-unlock">
             <span
               slot="header"
               class="badge badge-size badge-pill badge-success"
