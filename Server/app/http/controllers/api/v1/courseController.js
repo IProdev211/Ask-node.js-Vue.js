@@ -8,44 +8,64 @@ class courseController extends controller {
     
     async courses(req , res , next) {
         try {
-            let page = req.query.page || 1;
-            let courses = await Course.paginate({} , { page , sort : { createdAt : 1 } , limit : 12 , populate : [ { path : 'categories' } , { path : 'user'}] });
-
-            res.json({
-                data : this.filterCoursesData(courses),
-                status : 'success'
-            })
+            const page = req.query.page || 1;
+            const promises = [];
+            promises.push(Course.paginate({} , { 
+                page, 
+                sort : {
+                    createdAt : 1
+                },
+                limit : 12, 
+                populate : [
+                    { path : 'categories' },
+                    { path : 'user'}
+                ],
+            }));
+            promises.push(Episode.find({}, "time").exec());
+            const results = await Promise.all(promises);
+            const courses = results[0];
+            const episodes = results[1];
+            let seconds = 0;
+            for (const episode of episodes) {
+                const time = episode.time.split(":", 3);
+                for (let x = 0;x < time.length; x++) {
+                    seconds += parseInt(time[x]) * Math.pow(60, time.length - x - 1);
+                }
+            }
+            const data = { 
+                ...courses,
+                docs : courses.docs.map(this.filterCourse),
+                episodes: episodes.length,
+                seconds,
+            };
+            res.json(data);
 
         } catch (err) {
             this.failed(err.message , res);
         }
     }
 
-    filterCoursesData(courses) {
-        return { 
-            ...courses,
-            docs : courses.docs.map(course => {
+    filterCourse(course) {
+        return {
+            id : course.id,
+            title : course.title,
+            slug : course.slug,
+            body : course.body,
+            thumb : course.thumb,
+            type : course.type,
+            categories : course.categories.map(cate => {
                 return {
-                    id : course.id,
-                    title : course.title,
-                    slug : course.slug,
-                    body : course.body,
-                    image : course.thumb,
-                    categories : course.categories.map(cate => {
-                        return {
-                            name : cate.name,
-                            slug : cate.slug
-                        }
-                    }),
-                    user : {
-                        id : course.user.id,
-                        name : course.user.name
-                    },
-                    price : course.price,
-                    createdAt : course.createdAt
+                    name : cate.name,
+                    slug : cate.slug
                 }
-            })
-        }
+            }),
+            user : {
+                id : course.user.id,
+                name : course.user.name
+            },
+            price : course.price,
+            createdAt : course.createdAt
+        };
     }
 
     async singleCourse(req , res) {

@@ -1,17 +1,23 @@
 const controller = require('app/http/controllers/api/controller');
 const Payment = require('app/models/payment');
 const Course = require('app/models/course');
+const CourseController = require('./courseController');
 
 class homeController extends controller {
     async index(req, res) {
-        const topCourses = Course.find().limit(3).sort({viewCount: "desc"}).exec();
+        const topCourses = Course.find()
+            .populate("user", "id name")
+            .populate("categories", "name slug")
+            .limit(3)
+            .sort({viewCount: "desc"})
+            .exec();
         const user = req.user ? req.user.populate({ path : 'roles' , select : 'name label permissions' , populate : [ { path : 'permissions' }]}).execPopulate() : undefined;
         // const topBlogPosts = Posts.find().limit(8).sort({viewCount: "desc"}).exec();
         const topPosts = undefined;
         const results = await Promise.all([topCourses, user, topPosts]);
         return res.json({
             status: "success",
-            topCourses: results[0],
+            topCourses: results[0].map(CourseController.filterCourse),
             user: results[1] ? this.filterUserData(results[1]) : undefined,
             topPosts: results[2]
         });
