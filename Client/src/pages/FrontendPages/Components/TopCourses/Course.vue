@@ -13,7 +13,7 @@
             <img class="m-widget7__img" src="/img/arya.png" alt>
           </div>
           <div class="m-widget7__info">
-            <span class="m-widget7__username">Arya Doroudian</span>
+            <span class="m-widget7__username">{{ user.name }}</span>
             <br>
             <span class="m-widget7__time">{{ date }}</span>
           </div>
@@ -40,7 +40,7 @@
 import moment from "moment";
 
 export default {
-  props: ["title", "thumb", "time", "slug", "type", "price", "updatedAt"],
+  props: ["title", "thumb", "time", "slug", "type", "price", "updatedAt", "user"],
   computed: {
     date() {
       return moment(this.updatedAt).format("MM/DD/YYYY");
@@ -49,7 +49,7 @@ export default {
       if (this.type == "free") {
         return "Free!";
       }
-      return new Intl.NumberFormat().format(this.price) + " Tomans";
+      return new Intl.NumberFormat().format(parseInt(this.price.replace(",", ""), 10)) + " Tomans";
     }
   }
 }
