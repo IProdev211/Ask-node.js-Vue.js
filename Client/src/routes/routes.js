@@ -157,6 +157,7 @@ const routes = [{
     component: DashboardLayout,
     redirect: '/dashboard',
     name: 'Dashboard',
+    meta: { auth: true },
     children: [{
         path: 'dashboard',
         name: 'Dashboard',
@@ -172,7 +173,7 @@ const routes = [{
         }
       },
       {
-        path: 'singlelesson',
+        path: 'courses/:slug',
         name: 'Single Lesson',
         components: {
           default: SingleLesson
