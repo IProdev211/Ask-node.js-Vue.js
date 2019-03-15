@@ -11,7 +11,7 @@
               <base-input placeholder="Email" v-model="email" :required="true" :error="fieldErrors.email" addon-left-icon="tim-icons icon-email-85"></base-input>
               <base-input placeholder="Password" v-model="password" :required="true" :error="fieldErrors.password"  addon-left-icon="tim-icons icon-lock-circle"></base-input>
             </div>
-            <div class="GoogleSignin">
+            <div class="GoogleSignin pt-4">
               <router-link to="googlesignin">
                 <h4>
                   <i class="fab fa-google text-danger px-2"></i>Sign in With Google
@@ -26,6 +26,7 @@
             </p>
             <div slot="footer">
               <base-button type="primary" nativeType="submit" class="mb-3" size="lg" :loading="loading" block>Login</base-button>
+              <div class="d-flex justify-content-around">
               <div class="pull-left">
                 <h6>
                   <router-link class="link footer-link" to="/register">Create Account</router-link>
@@ -35,6 +36,7 @@
                 <h6>
                   <a href="/forgotpassword" class="link footer-link">Forgot Your Password?</a>
                 </h6>
+              </div>
               </div>
             </div>
           </card>

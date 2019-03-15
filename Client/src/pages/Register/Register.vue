@@ -20,24 +20,26 @@
             <base-input v-model="email" :required="true" :error="fieldErrors.email" placeholder="Email" addon-left-icon="tim-icons icon-email-85"></base-input>
             <base-input v-model="password" :required="true" :error="fieldErrors.password" placeholder="Password" addon-left-icon="tim-icons icon-lock-circle"></base-input>
 
-            <div class="GoogleSignin py-3">
-              <router-link to="googlesignin">
-                <h4>
-                  <i class="fab fa-google text-danger px-2"></i>Sign in With
-                  Google
-                </h4>
-              </router-link>
+            <div class="row d-flex justify-content-around">
+              <div class="GoogleSignin py-3">
+                <router-link to="googlesignin">
+                  <h4>
+                    <i class="fab fa-google text-danger px-2"></i>Sign in With
+                    Google
+                  </h4>
+                </router-link>
+              </div>
+              <base-checkbox v-model="terms" class="text-left pb-3" :class="{'has-danger': fieldErrors.terms !== undefined}">
+                I agree to the
+                <a href="#ASKARYATERMS">terms and conditions</a>.
+              </base-checkbox>
             </div>
-            <base-checkbox v-model="terms" class="text-left" :class="{'has-danger': fieldErrors.terms !== undefined}">
-              I agree to the
-              <a href="#ASKARYATERMS">terms and conditions</a>.
-            </base-checkbox>
 
             <base-button nativeType="submit" type="primary" :loading="loading" round block size="lg">Get Started</base-button>
           </form>
         </card>
       </div>
-      <div class="col-md-5 ml-auto mt-3 mb-5">
+      <div class="col-md-5 ml-auto mt-4 mb-5">
         <div class="info-area info-horizontal my-3">
           <div class="icon icon-warning">
             <i class="tim-icons icon-wifi"></i>
@@ -106,7 +108,7 @@ export default {
       let haveError = false;
 
       if (!this.name) {
-        this.fieldErrors.name = 'Your name required.';
+        this.fieldErrors.name = 'Your name is required.';
         haveError = true;
       }
       if (!this.email) {
@@ -144,7 +146,7 @@ export default {
         this.$root.$data.user = response.data.user;
         this.$notify({
           type: 'success',
-          message: `You successfully signed up!`,
+          message: `You have successfully signed up!`,
           icon: 'tim-icons icon-bell-55'
         });
         this.$router.push("dashboard");
