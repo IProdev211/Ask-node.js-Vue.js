@@ -7,18 +7,18 @@
         <div class="block block-two"></div>
         <div class="block block-three"></div>
         <div class="block block-four"></div>
-        <img class="avatar" src="/img/arya.png" alt="Users Profile Image">
+        <img class="avatar" :src="userAvatar" alt="Users Profile Image">
         <h2 class="title">
-          {{ user.fullname }}
+          {{ user.name }}
           <span class="description emailText px-1">{{ user.email }}</span>
         </h2>
         <p class="description font-weight-bold">
-          <i class="fas fa-check tick px-2"></i>Student -
-          <span class="tick description">ACTIVE</span>
+          <i class="fas fa-check tick px-2"></i>{{ user.admin ? "Admin" : "Student"}} -
+          <span class="description" :class="user.active ? 'tick' : 'cross'">{{ user.active ? "ACTIVE" : "NOT ACTIVE" }}</span>
         </p>
         <p class="description font-weight-bold">
           <i class="fas fa-times px-2 cross"></i>VIP Status -
-          <span class="cross description">NOT ACTIVE</span>
+          <span class="description" :class="isVIP ? 'tick' : 'cross'">{{ isVIP ? "ACTIVE" : "NOT ACTIVE" }}</span>
         </p>
         <div class="row d-flex justify-content-center">
           <div class="pt-3 px-2">
@@ -43,13 +43,20 @@
       <!-- Edit Profile Section -->
       <div class="editUserForm">
         <form v-if="showForm" @submit.prevent="updateProfile">
+          <p v-if="formErrors.length">
+            <b>Please correct the following error(s):</b>
+            <ul>
+              <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
+            </ul>
+          </p>
           <div class="row pt-3">
             <div class="col-md-3">
               <base-input
                 type="text"
                 label="Full Name"
                 placeholder="Your Name"
-                v-model="user.fullname"
+                v-model="name"
+                :error="fieldErrors.name"
               ></base-input>
             </div>
             <div class="col-md-3">
@@ -57,7 +64,8 @@
                 type="email"
                 label="Email Address"
                 placeholder="info@askarya.ir"
-                v-model="user.email"
+                v-model="email"
+                :error="fieldErrors.email"
               ></base-input>
             </div>
             <div class="col-md-4 pt-3">
@@ -85,35 +93,100 @@
   </section>
 </template>
 <script>
+import backend from "../../../backend";
 import { ImageUpload } from 'src/components/index';
+
 export default {
   components: {
     ImageUpload
   },
+  props: ["user"],
   data() {
     return {
       showForm: false,
-      user: {
-        fullname: 'Arya Doroudian',
-        email: 'info@askarya.ir'
-      }
+      formErrors: [],
+      loading: false,
+      fieldErrors: {},
+      name: this.$root.$data.user.name,
+      email: this.$root.$data.user.email,
+      lang: this.$root.$data.user.lang,
+      avatar: null,
+
     };
+  },
+  computed: {
+    isVIP() {
+      return (this.user.vipTime && new Date(this.user.vipTime) > new Date());
+    },
+    userAvatar() {
+      return this.user.avatar || '/img/default-avatar-OLD.png';
+    }
   },
   methods: {
     updateProfile() {
-      alert('Your data: ' + JSON.stringify(this.user));
+      this.fieldErrors = {};
+      this.formErrors = [];
+      let haveError = false;
+
+      if (!this.email) {
+        this.fieldErrors.email = 'Email required.';
+        haveError = true;
+      }
+      if (!this.name) {
+        this.fieldErrors.name = 'Name required.';
+        haveError = true;
+      }
+      if (haveError) {
+        return;
+      }
+      const errorHandler = (response) => {
+        if (response && response.data && response.data.status === "error") {
+          this.formErrors = Array.isArray(response.data.data) ? response.data.data : [response.data.data];
+          return;
+        };
+      }
+      this.loading = true;
+      var formData = new FormData();
+      formData.append("name", this.name);
+      formData.append("email", this.email);
+      formData.append("lang", this.lang);
+      if (this.avatar) {
+        formData.append("avatar", this.avatar, this.avatar.name);
+      }
+      backend.put("profile", formData).then((response) => {
+        this.loading = false;
+        if (response.data.status === "error") {
+          errorHandler(response);
+          return;
+        }
+        this.$root.$data.user = response.data.user;
+        this.$notify({
+          type: 'success',
+          message: `Your profile successfully update!`,
+          icon: 'tim-icons icon-bell-55'
+        });
+        this.$router.push("dashboard");
+      }).catch((error) => {
+        this.loading = false;
+        errorHandler(error.response);
+      });
     },
     changeLangFa() {
       this.i18n = this.$i18n;
       this.i18n.locale = 'fa';
       this.$rtl.enableRTL();
+      this.lang = "fa";
     },
     changeLangEn() {
       this.i18n = this.$i18n;
       this.i18n.locale = 'en';
       this.$rtl.disableRTL();
+      this.lang = "en";
+    },
+    onAvatarChange(file) {
+      this.avatar = file;
     }
-  }
+  },
 };
 </script>
 

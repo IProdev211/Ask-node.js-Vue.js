@@ -30,7 +30,7 @@
           aria-expanded="true"
         >
           <div class="photo">
-            <img src="/img/arya.png">
+            <img :src="userAvatar">
           </div>
           <b class="caret d-none d-lg-block d-xl-block"></b>
           <p class="d-lg-none">Profile</p>
@@ -69,6 +69,9 @@ export default {
     },
     isRTL() {
       return this.$rtl.isRTL;
+    },
+    userAvatar() {
+      return this.$root.$data.user.avatar || '/img/default-avatar-OLD.png';
     }
   },
   data() {

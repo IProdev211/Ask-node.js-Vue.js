@@ -6,14 +6,17 @@
 export default {
   methods: {
     initializeLayout() {
-      if (!this.$rtl.isRTL) {
-        // Just make sure rtl css is off when we are not on rtl
+      if (this.$root.$data.user && this.$root.$data.user.lang == "fa") {
+          this.$rtl.enableRTL();
+          this.$i18n.locale = 'fa';
+      } else {
+        this.$i18n.locale = 'en';
         this.$rtl.disableRTL();
       }
-    }
+    },
   },
   mounted() {
     this.initializeLayout();
-  }
+  },
 };
 </script>

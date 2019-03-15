@@ -36,7 +36,7 @@
 <script>
 import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
-import purchases from './purchases';
+import moment from "moment";
 import Fuse from 'fuse.js';
 
 export default {
@@ -72,17 +72,30 @@ export default {
       return this.searchedData.length > 0
         ? this.searchedData.length
         : this.tableData.length;
+    },
+    pagination() {
+      return {
+        perPage: 20,
+        currentPage: this.payments.page,
+        total: this.payments.total,
+      }
+    },
+    tableData() {
+      const data = [];
+      for (const payment of this.payments.docs) {
+        data.push({
+          id: payment.id,
+          product: payment.course ? payment.course.title : payment.vip ? "VIP subscription" : "",
+          price: new Intl.NumberFormat().format(parseInt(payment.price.toString().replace(",", ""), 10)),
+          date: new moment(payment.createdAt).format('L'),
+          status: payment.payment ? "Successfull" : "unsuccessful",
+        });
+      }
+      return data;
     }
   },
   data() {
     return {
-      pagination: {
-        perPage: 3,
-        currentPage: 1,
-        total: 0
-      },
-      searchQuery: '',
-      propsToSearch: ['product', 'price', 'date', 'status'],
       tableColumns: [
         {
           prop: 'product',
@@ -105,12 +118,11 @@ export default {
           minWidth: 135
         }
       ],
-      tableData: purchases,
       searchedData: [],
       fuseSearch: null
     };
   },
-
+  props: ["payments"],
   mounted() {
     // Fuse search initialization.
     this.fuseSearch = new Fuse(this.tableData, {

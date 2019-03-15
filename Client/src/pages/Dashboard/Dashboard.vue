@@ -2,7 +2,7 @@
   <div class="row">
     <!-- User Profile Section -->
     <div class="col-lg-8 col-md-12 mb-4">
-      <user-card></user-card>
+      <user-card :user="$root.$data.user"></user-card>
     </div>
     <!-- Notification Section -->
     <div class="col-lg-4 col-md-12 mb-4">
@@ -23,7 +23,7 @@
 
     <!-- Payment History Section -->
     <div class="col-md-12 mb-4 text-center">
-      <PaymentHistory></PaymentHistory>
+      <PaymentHistory :payments="payments"></PaymentHistory>
     </div>
 
     <!-- Todos Section -->
@@ -84,6 +84,7 @@ import StatsCard from 'src/components/Cards/StatsCard';
 import UserCard from './Profile/UserCard.vue';
 import NotificationCard from './Notification/NotificationCard.vue';
 import PaymentHistory from './PaymentHistory/PaymentHistory.vue';
+import backend from '../../backend';
 
 export default {
   components: {
@@ -98,67 +99,60 @@ export default {
         title: '',
         description: ''
       },
-      statsCards: [
-        {
-          title: '7',
-          subTitle: 'My Courses',
-          type: 'warning',
-          icon: 'tim-icons icon-book-bookmark',
-          footer:
-            '<a href="/courses"><i class="tim-icons icon-bag-16"></i>View Courses</a>'
-        },
-        {
-          title: '43 / 724',
-          subTitle: 'Lessons Unlocked',
-          type: 'danger',
-          icon: 'tim-icons icon-molecule-40',
-          footer:
-            '<i class="tim-icons icon-video-66"></i>Total Lessons Available'
-        },
-        {
-          title: '27',
-          subTitle: 'Quizzes Available',
-          type: 'info',
-          icon: 'fas fa-university',
-          footer: '<i class="far fa-bookmark"></i> Good Job'
-        },
-        {
-          title: '+45 xP',
-          subTitle: 'Ask Arya xP Points',
-          type: 'primary',
-          icon: 'tim-icons icon-shape-star',
-          footer:
-            '<i class="tim-icons icon-sound-wave"></i></i> Progress To BEGINNER <span class="coloredLink">85%</span>  '
-        }
-      ]
+      statsCards: [],
+      payments: {
+        docs: [],
+        total: 0,
+        page: 1,
+      },
     };
   },
-  computed: {
-    enableRTL() {
-      return this.$route.query.enableRTL;
-    },
-    isRTL() {
-      return this.$rtl.isRTL;
-    }
-  },
   methods: {
-    updateTask() {
-      alert('Your data: ' + JSON.stringify(this.user));
-    }
+    setStatsCards(courses, myEpisodes, totalEpisodes) {
+      this.statsCards = [
+          {
+            title: courses.toString(),
+            subTitle: 'My Courses',
+            type: 'warning',
+            icon: 'tim-icons icon-book-bookmark',
+            footer:
+              '<a href="/courses"><i class="tim-icons icon-bag-16"></i>View Courses</a>'
+          },
+          {
+            title: myEpisodes + ' / ' + totalEpisodes,
+            subTitle: 'Lessons Unlocked',
+            type: 'danger',
+            icon: 'tim-icons icon-molecule-40',
+            footer:
+              '<i class="tim-icons icon-video-66"></i>Total Lessons Available'
+          },
+          {
+            title: '27',
+            subTitle: 'Quizzes Available',
+            type: 'info',
+            icon: 'fas fa-university',
+            footer: '<i class="far fa-bookmark"></i> Good Job'
+          },
+          {
+            title: '+45 xP',
+            subTitle: 'Ask Arya xP Points',
+            type: 'primary',
+            icon: 'tim-icons icon-shape-star',
+            footer:
+              '<i class="tim-icons icon-sound-wave"></i></i> Progress To BEGINNER <span class="coloredLink">85%</span>  '
+          }
+        ];
+    },
+    getData() {
+      backend.get("dashboard").then((response) => {
+        this.setStatsCards(response.data.courses, response.data.episodes[0], response.data.episodes[1]);
+        this.payments = response.data.payments;
+      });
+    },
   },
   mounted() {
-    this.i18n = this.$i18n;
-    if (this.enableRTL) {
-      this.i18n.locale = 'ar';
-      this.$rtl.enableRTL();
-    }
+    this.getData();
   },
-  beforeDestroy() {
-    if (this.$rtl.isRTL) {
-      this.i18n.locale = 'en';
-      this.$rtl.disableRTL();
-    }
-  }
 };
 </script>
 <style>
