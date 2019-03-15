@@ -63,8 +63,8 @@ const Meetups = () =>
 const Contact = () =>
   import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Contact.vue');
 
-const BlogPost = () =>
-  import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Components/Blog/BlogPost/BlogPost.vue');
+const BlogPageSample = () =>
+  import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Components/Blog/BlogPageSample.vue');
 
 //////////////////////////////////////////////////////////////////////
 ////////////////////////////////  PAGES //////////////////////////////
