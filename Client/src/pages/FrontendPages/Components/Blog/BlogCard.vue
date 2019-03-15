@@ -1,19 +1,15 @@
 <template>
   <div class="blogBox">
-    <router-link to="/">
+    <router-link :to="{name: 'blog-post', params: {slug: slug}}">
       <div class="card">
-        <img
-          class="card-img-top"
-          src="/img/frontend/numbers-askarya.png"
-          alt="let's talk about numbers blog post image"
-        >
-        <div class="category">General</div>
+        <img class="card-img-top" :src="thumb" :alt="title">
+        <div class="category">{{ category }}</div>
         <div class="card-body">
-          <h3 class="card-title py-2">Let's talk about numbers.</h3>
+          <h3 class="card-title py-2">{{ title }}</h3>
           <div class="d-flex justify-content-between">
-            20 June 2018
+            {{ publishedAt }}
             <span>
-              <i class="fa fa-eye"></i> 53485 views
+              <i class="fa fa-eye"></i> {{viewCount}} views
             </span>
           </div>
         </div>
@@ -22,6 +18,18 @@
   </div>
 </template>
 
+<script>
+import moment from "moment";
+
+export default {
+  props: ["thumb", "category", "title", "createdAt", "viewCount"],
+  computed: {
+    publishedAt: function() {
+      return moment(this.createdAt).format("D MMMM YYYY");
+    }
+  }
+}
+</script>
 <style lang="scss" scoped>
 .blogBox {
   border-radius: 15px;

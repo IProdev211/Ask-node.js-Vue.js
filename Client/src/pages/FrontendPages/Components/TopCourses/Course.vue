@@ -3,31 +3,31 @@
     <router-link to="singlecourse">
       <div class="hover m-widget7 m-widget7--skin-dark widget-3">
         <div class="m-widget7__courseimage">
-          <img class="m-widget7__courseimage" src="/img/bdaycourse.png">
+          <img class="m-widget7__courseimage" :src="thumb">
         </div>
         <div class="course__name">
-          <h4 class="text-center pt-3">How to Congratulate People</h4>
+          <h4 class="text-center pt-3">{{ title }}</h4>
         </div>
         <div class="m-widget7__user">
           <div class="m-widget7__user-img">
             <img class="m-widget7__img" src="/img/arya.png" alt>
           </div>
           <div class="m-widget7__info">
-            <span class="m-widget7__username">Arya Doroudian</span>
+            <span class="m-widget7__username">{{ user.name }}</span>
             <br>
-            <span class="m-widget7__time">08/01/2019</span>
+            <span class="m-widget7__time">{{ date }}</span>
           </div>
         </div>
         <hr class="fadeline">
         <div class="bottom price d-flex justify-content-between px-4 pb-3">
           <div>
             <p class="pricehighlight">
-              <i class="tim-icons icon-money-coins pr-2"></i>99,000 Tomans
+              <i class="tim-icons icon-money-coins pr-2"></i> {{ formatedPrice }}
             </p>
           </div>
           <div>
             <p>
-              <i class="tim-icons icon-watch-time pr-2"></i>13:22:57
+              <i class="tim-icons icon-watch-time pr-2"></i> {{ time }}
             </p>
           </div>
         </div>
@@ -35,6 +35,26 @@
     </router-link>
   </div>
 </template>
+
+<script>
+import moment from "moment";
+
+export default {
+  props: ["title", "thumb", "time", "slug", "type", "price", "updatedAt", "user"],
+  computed: {
+    date() {
+      return moment(this.updatedAt).format("MM/DD/YYYY");
+    },
+    formatedPrice() {
+      if (this.type == "free") {
+        return "Free!";
+      }
+      return new Intl.NumberFormat().format(parseInt(this.price.replace(",", ""), 10)) + " Tomans";
+    }
+  }
+}
+
+</script>
 
 <style scoped>
 .outline {

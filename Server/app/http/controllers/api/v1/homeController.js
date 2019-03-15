@@ -1,12 +1,27 @@
 const controller = require('app/http/controllers/api/controller');
-const Course = require('app/models/course');
-const Episode = require('app/models/episode');
 const Payment = require('app/models/payment');
-const passport = require('passport');
-const jwt = require('jsonwebtoken');
+const Course = require('app/models/course');
+const CourseController = require('./courseController');
 
 class homeController extends controller {
-    
+    async index(req, res) {
+        const topCourses = Course.find()
+            .populate("user", "id name")
+            .populate("categories", "name slug")
+            .limit(3)
+            .sort({viewCount: "desc"})
+            .exec();
+        const user = req.user ? req.user.populate({ path : 'roles' , select : 'name label permissions' , populate : [ { path : 'permissions' }]}).execPopulate() : undefined;
+        // const topBlogPosts = Posts.find().limit(8).sort({viewCount: "desc"}).exec();
+        const topPosts = undefined;
+        const results = await Promise.all([topCourses, user, topPosts]);
+        return res.json({
+            status: "success",
+            topCourses: results[0].map(CourseController.filterCourse),
+            user: results[1] ? this.filterUserData(results[1]) : undefined,
+            topPosts: results[2]
+        });
+    }
     async user(req , res) {
         let user = await req.user.populate({ path : 'roles' , select : 'name label permissions' , populate : [ { path : 'permissions' }]}).execPopulate();
 
@@ -16,7 +31,7 @@ class homeController extends controller {
         })
     }
 
-    async history(req , res , next) {
+    async history(req , res) {
         try {
             let page = req.query.page || 1;
             let payments = await Payment.paginate({ user : req.user.id } , { page , sort : { createdAt : -1} , limit : 20 , populate : [ { path : 'course'} , { path : 'user' , select : 'name email'}]});
@@ -57,7 +72,7 @@ class homeController extends controller {
             createdAt : user.createdAt,
             vipTime : user.vipTime,
             vipType : user.vipType,
-            roles : user.roles.map(role => {
+            roles : user.roles ? user.roles.map(role => {
                 return {
                     name : role.name ,
                     label : role.label,
@@ -68,7 +83,7 @@ class homeController extends controller {
                         }
                     })
                 }
-            })
+            }) : undefined,
         }
     }
 }

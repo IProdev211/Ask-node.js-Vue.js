@@ -14,20 +14,20 @@
     <!--Contact Section-->
     <div class="container text-center pt-5">
       <div class="row">
-        <div class="col-md-6 iconSection text-left px-4 section-padding-medium">
+        <div class="col-md-6 iconSection text-left px-4 pt-4">
           <p class="lead pt-4">
             <a href="https://t.me/AskAryaSomething" class="li-ic">
-              <i class="fab fa-telegram mr-4 icon-text"></i>@AskAryaSomething
+              <i class="fab fa-telegram mx-5 icon-text"></i>@AskAryaSomething
             </a>
           </p>
           <p class="lead pt-4">
             <a href="tel:+989032227796" class="fb-ic">
-              <i class="fa fa-phone mr-4 icon-text"></i>(+98) 0903 222 7796
+              <i class="fa fa-phone mx-5 icon-text"></i>(+98) 0903 222 7796
             </a>
           </p>
           <p class="lead pt-4">
             <a href="mailto:info@askarya.ir" class="fb-ic">
-              <i class="fa fa-envelope mr-4 icon-text"></i>info@askarya.ir
+              <i class="fa fa-envelope mx-5 icon-text"></i>info@askarya.ir
             </a>
           </p>
         </div>

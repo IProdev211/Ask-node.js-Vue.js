@@ -2,7 +2,7 @@
   <div>
     <div class="private-classes-background">
       <div class="container">
-        <h2 class="subheading text-danger pt-3">Our Private Classes</h2>
+        <h2 class="subheading text-danger">Our Private Classes</h2>
         <div class="private-classes pb-2">
           <div class="row pricing">
             <div class="col-lg-4 col-sm-12 pt-3 px-3">
@@ -10,8 +10,8 @@
                 <div class="pricing-title bg-bronze">
                   <h3 class="text-white titleSize py-3">Bronze</h3>
                 </div>
-                <div class="pricing-price">
-                  <span class>125,000 Tomans</span>
+                <div class="pricing-field">
+                  <span class="price">125,000 Tomans</span>
                   <p class="py-0 my-0 smalltext">Per Session</p>
                 </div>
                 <div class="pricing-features pt-3">
@@ -39,8 +39,8 @@
                 <div class="pricing-title bg-silver">
                   <h3 class="text-white titleSize py-3">Silver</h3>
                 </div>
-                <div class="pricing-price">
-                  <span class>175,000 Tomans</span>
+                <div class="pricing-field">
+                  <span class="price">175,000 Tomans</span>
                   <p class="py-0 my-0 smalltext">Per Session</p>
                 </div>
                 <div class="pricing-features pt-3">
@@ -70,8 +70,8 @@
                 <div class="pricing-title bg-gold">
                   <h3 class="titleSize text-black py-3">Gold</h3>
                 </div>
-                <div class="pricing-price">
-                  <span>200,000 Tomans</span>
+                <div class="pricing-field">
+                  <span class="price">200,000 Tomans</span>
                   <p class="py-0 my-0 smalltext">Per Session</p>
                 </div>
                 <div class="pricing-features pt-3">
@@ -139,10 +139,10 @@
 
 <style lang="scss" scoped>
 .private-classes-background {
-  background: linear-gradient(180deg, #1e1e2f, rgb(141, 89, 237));
+  background: linear-gradient(180deg, #1a1a29, rgb(141, 89, 237));
   width: 100%;
   padding-top: 60px;
-  padding-bottom: 80px;
+  padding-bottom: 100px;
   min-height: 50vh;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
 }
@@ -191,10 +191,14 @@ ul {
     font-size: 1.7rem;
   }
 
-  .pricing-price {
+  .pricing-field {
     position: relative;
     padding: 16px 0;
     color: #fff;
+  }
+
+  .price {
+    font-size: 1.7rem;
   }
 
   .pricing-price:after {
