@@ -3,6 +3,7 @@ const Course = require('app/models/course');
 const Episode = require('app/models/episode');
 const Category = require('app/models/category');
 const Payment = require('app/models/payment');
+const config = require('config');
 const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
@@ -73,13 +74,13 @@ class courseController extends controller {
             let params = {
                 MerchantID : '55d9c87e-4e89-11e7-8857-005056a205be',
                 Amount : course.price,
-                CallbackURL : 'http://localhost:3001/courses/payment/checker',
+                CallbackURL : `${config.siteurl}/courses/payment/checker`,
                 Description : `بابت خرید دوره ${course.title}`,
                 Email : req.user.email
             };
 
             let options = this.getUrlOption(
-                'https://www.zarinpal.com/pg/rest/WebGate/PaymentRequest.json' ,
+                'https://sandbox.zarinpal.com/pg/rest/WebGate/PaymentRequest.json' ,
                  params
                 );
 
@@ -94,7 +95,7 @@ class courseController extends controller {
 
                     await payment.save();
 
-                    res.redirect(`https://www.zarinpal.com/pg/StartPay/${data.Authority}`)
+                    res.redirect(`https://sandbox.zarinpal.com/pg/StartPay/${data.Authority}`)
                 })
                 .catch(err => res.json(err.message));
         } catch (err) {
@@ -125,7 +126,7 @@ class courseController extends controller {
                 Authority : req.query.Authority
             }
 
-            let options = this.getUrlOption('https://www.zarinpal.com/pg/rest/WebGate/PaymentVerification.json' , params)
+            let options = this.getUrlOption('https://sandbox.zarinpal.com/pg/rest/WebGate/PaymentVerification.json' , params)
 
             request(options)
                 .then(async data => {

@@ -11,8 +11,10 @@ const userSchema = Schema({
     email : { type : String , unique : true  ,required : true},
     password : { type : String ,  required : true },
     rememberToken : { type : String , default : null },
+    avatar : { type : String , default : null },
     vipTime : { type : Date , default : new Date().toISOString() },
     vipType : { type : String , default : 'month' },
+    lang : { type : String , default : 'en' },
     learning : [{ type : Schema.Types.ObjectId , ref : 'Course'}],
     roles : [{ type : Schema.Types.ObjectId , ref : 'Role'}],
 } , { timestamps : true , toJSON : { virtuals : true } });

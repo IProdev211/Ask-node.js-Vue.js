@@ -66,12 +66,15 @@ class homeController extends controller {
     filterUserData(user) {
         return {
             id : user.id,
+            active : user.active,
             admin : user.admin,
             name : user.name,
             email : user.email,
             createdAt : user.createdAt,
             vipTime : user.vipTime,
             vipType : user.vipType,
+            lang : user.lang,
+            avatar : user.avatar,
             roles : user.roles ? user.roles.map(role => {
                 return {
                     name : role.name ,
