@@ -19,7 +19,7 @@ module.exports = {
 
   pluginOptions: {
     i18n: {
-      locale: 'en',
+      locale: 'fa',
       fallbackLocale: 'en',
       localeDir: 'locales',
       enableInSFC: false
@@ -88,6 +88,6 @@ module.exports = {
         target: 'http://localhost:3000',
       },
     }
-    
+
   }
 };
