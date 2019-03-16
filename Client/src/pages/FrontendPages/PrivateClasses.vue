@@ -2,7 +2,7 @@
   <div>
     <div class="private-classes-background">
       <div class="container">
-        <h2 class="subheading text-danger">Our Private Classes</h2>
+        <h2 class="subheading text-danger pt-3">Our Private Classes</h2>
         <div class="private-classes pb-2">
           <div class="row pricing">
             <div class="col-lg-4 col-sm-12 pt-3 px-3">
@@ -141,7 +141,7 @@
 .private-classes-background {
   background: linear-gradient(180deg, #1a1a29, rgb(141, 89, 237));
   width: 100%;
-  padding-top: 60px;
+  padding-top: 20px;
   padding-bottom: 100px;
   min-height: 50vh;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));

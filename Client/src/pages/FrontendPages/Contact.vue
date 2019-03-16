@@ -3,7 +3,7 @@
     <!--Intro Section-->
     <div class="introSection text-center">
       <div class="container">
-        <h1 class="hero-header text-danger">Contact Us</h1>
+        <h1 class="hero-header text-danger pt-2">Contact Us</h1>
         <p
           class="header-sub pt-3"
         >We are pleased that we were able to awaken your interest in Ask Arya English.</p>
