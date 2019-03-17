@@ -19,6 +19,9 @@
         <router-link class="nav-item" tag="li" to="/home">
           <a class="nav-link">Home</a>
         </router-link>
+        <router-link class="nav-item" tag="li" to="/ourcourses">
+          <a class="nav-link">Our Courses</a>
+        </router-link>
         <router-link class="nav-item" tag="li" to="/privateclasses">
           <a class="nav-link">Private Classes</a>
         </router-link>

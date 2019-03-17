@@ -63,6 +63,9 @@ const Meetups = () =>
 const Contact = () =>
   import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Contact.vue');
 
+const OurCourses = () =>
+  import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/OurCourses.vue');
+
 const BlogPageSample = () =>
   import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Components/Blog/BlogPageSample.vue');
 
@@ -105,7 +108,11 @@ let frontendpages = {
       name: 'Contact',
       component: Contact
     },
-    ,
+    {
+      path: '/ourcourses',
+      name: 'OurCourses',
+      component: OurCourses
+    }, ,
     {
       path: '/blogpagesample',
       name: 'BlogPageSample',
@@ -157,7 +164,9 @@ const routes = [{
     component: DashboardLayout,
     redirect: '/dashboard',
     name: 'Dashboard',
-    meta: { auth: true },
+    meta: {
+      auth: true
+    },
     children: [{
         path: 'dashboard',
         name: 'Dashboard',

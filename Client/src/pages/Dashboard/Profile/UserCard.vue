@@ -162,7 +162,7 @@ export default {
         this.$root.$data.user = response.data.user;
         this.$notify({
           type: 'success',
-          message: `Your profile successfully update!`,
+          message: `Your profile has been successfully updated!`,
           icon: 'tim-icons icon-bell-55'
         });
         this.$router.push("dashboard");
