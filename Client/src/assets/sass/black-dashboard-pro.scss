@@ -9,7 +9,7 @@
 @import "dashboard/custom/mixins";
 @import "~bootstrap/scss/mixins";
 
- // Bootstrap components
+// Bootstrap components
 
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
@@ -44,43 +44,42 @@
 @import "~bootstrap/scss/utilities";
 @import "~bootstrap/scss/print";
 
- // Custom components
+// Custom components
 
- @import "dashboard/custom/reboot.scss";
- @import "dashboard/custom/global.scss";
- @import "dashboard/custom/utilities.scss";
- @import "dashboard/custom/alerts.scss";
- @import "dashboard/custom/avatars.scss";
- @import "dashboard/custom/badge.scss";
- @import "dashboard/custom/buttons.scss";
- @import "dashboard/custom/close.scss";
- @import "dashboard/custom/custom-forms.scss";
- @import "dashboard/custom/dropdown.scss";
- @import "dashboard/custom/footer.scss";
- @import "dashboard/custom/forms.scss";
- @import "dashboard/custom/grid.scss";
- @import "dashboard/custom/icons.scss";
- @import "dashboard/custom/images.scss";
- @import "dashboard/custom/input-group.scss";
- @import "dashboard/custom/info-areas.scss";
- @import "dashboard/custom/modal.scss";
- @import "dashboard/custom/nav.scss";
- @import "dashboard/custom/navbar.scss";
- @import "dashboard/custom/pagination.scss";
- @import "dashboard/custom/tabs.scss";
- @import "dashboard/custom/pills.scss";
- @import "dashboard/custom/popover.scss";
- @import "dashboard/custom/progress.scss";
- @import "dashboard/custom/type.scss";
- @import "dashboard/custom/tables";
- @import "dashboard/custom/checkboxes-radio";
- @import "dashboard/custom/fixed-plugin";
- @import "dashboard/custom/sidebar-and-main-panel.scss";
- @import "dashboard/custom/misc.scss";
- @import "dashboard/custom/rtl.scss";
- @import "dashboard/custom/timeline.scss";
+@import "dashboard/custom/reboot.scss";
+@import "dashboard/custom/global.scss";
+@import "dashboard/custom/utilities.scss";
+@import "dashboard/custom/alerts.scss";
+@import "dashboard/custom/avatars.scss";
+@import "dashboard/custom/badge.scss";
+@import "dashboard/custom/buttons.scss";
+@import "dashboard/custom/close.scss";
+@import "dashboard/custom/custom-forms.scss";
+@import "dashboard/custom/dropdown.scss";
+@import "dashboard/custom/footer.scss";
+@import "dashboard/custom/forms.scss";
+@import "dashboard/custom/grid.scss";
+@import "dashboard/custom/icons.scss";
+@import "dashboard/custom/images.scss";
+@import "dashboard/custom/input-group.scss";
+@import "dashboard/custom/info-areas.scss";
+@import "dashboard/custom/modal.scss";
+@import "dashboard/custom/nav.scss";
+@import "dashboard/custom/navbar.scss";
+@import "dashboard/custom/pagination.scss";
+@import "dashboard/custom/tabs.scss";
+@import "dashboard/custom/pills.scss";
+@import "dashboard/custom/popover.scss";
+@import "dashboard/custom/progress.scss";
+@import "dashboard/custom/type.scss";
+@import "dashboard/custom/tables";
+@import "dashboard/custom/checkboxes-radio";
+@import "dashboard/custom/fixed-plugin";
+@import "dashboard/custom/sidebar-and-main-panel.scss";
+@import "dashboard/custom/misc.scss";
+@import "dashboard/custom/timeline.scss";
 
- // Vendor / Plugins
+// Vendor / Plugins
 
 @import "dashboard/custom/vendor/plugin-datetimepicker.scss";
 @import "dashboard/custom/vendor/plugin-nouislider.scss";
@@ -131,3 +130,7 @@
 @import "dashboard/custom/cards/card-subcategories";
 @import "dashboard/custom/cards/card-testimonials";
 @import "dashboard/custom/cards/card-wizard";
+
+// RTL
+
+@import "dashboard/custom/rtl.scss";

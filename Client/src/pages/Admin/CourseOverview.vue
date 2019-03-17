@@ -1,19 +1,20 @@
 <template>
-  <div class="content">
-    <div class="col-md-8 ml-auto mr-auto">
+  <div>
+    <div class>
       <h2 class="text-center">Courses Overview</h2>
       <p class="text-center">
         Here is a list of all active courses on this site
-        <a href="/courses" target="_blank">ALL COURSES</a>
+        <a
+          href="/courses"
+          target="_blank"
+        >ALL COURSES</a>
       </p>
     </div>
-    <div class="row mt-5">
-      <div class="col-12">
+    <div class="mt-5">
+      <div>
         <card card-body-classes="table-full-width">
           <div>
-            <div
-              class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
-            >
+            <div class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap">
               <el-select
                 class="select-primary mb-3 pagination-select"
                 v-model="pagination.perPage"
@@ -69,9 +70,7 @@
             class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
           >
             <div class>
-              <p class="card-category">
-                Showing {{ from + 1 }} to {{ to }} of {{ total }} entries
-              </p>
+              <p class="card-category">Showing {{ from + 1 }} to {{ to }} of {{ total }} entries</p>
             </div>
             <base-pagination
               class="pagination-no-border"

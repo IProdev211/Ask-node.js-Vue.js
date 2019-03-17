@@ -1,100 +1,94 @@
 <template>
-  <div class="content">
-    <div class="col-md-8 ml-auto mr-auto">
+  <div class>
+    <div>
       <h2 class="text-center">Manage Users</h2>
     </div>
-    <div class="row mt-5">
-      <div class="col-12">
-        <card card-body-classes="table-full-width">
-          <div>
-            <div
-              class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
+    <div class="mt-5">
+      <card card-body-classes="table-full-width">
+        <div>
+          <div class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap">
+            <el-select
+              class="select-primary mb-3 pagination-select"
+              v-model="pagination.perPage"
+              placeholder="Per page"
             >
-              <el-select
-                class="select-primary mb-3 pagination-select"
-                v-model="pagination.perPage"
-                placeholder="Per page"
-              >
-                <el-option
-                  class="select-primary"
-                  v-for="item in pagination.perPageOptions"
-                  :key="item"
-                  :label="item"
-                  :value="item"
-                ></el-option>
-              </el-select>
+              <el-option
+                class="select-primary"
+                v-for="item in pagination.perPageOptions"
+                :key="item"
+                :label="item"
+                :value="item"
+              ></el-option>
+            </el-select>
 
-              <base-input>
-                <el-input
-                  type="search"
-                  class="mb-3 search-input"
-                  clearable
-                  prefix-icon="el-icon-search"
-                  placeholder="Search records"
-                  v-model="searchQuery"
-                  aria-controls="datatables"
-                ></el-input>
-              </base-input>
-            </div>
-            <el-table :data="queriedData">
-              <el-table-column
-                v-for="column in tableColumns"
-                :key="column.label"
-                :min-width="column.minWidth"
-                :prop="column.prop"
-                :label="column.label"
-              ></el-table-column>
-              <el-table-column :min-width="135" align="right" label="Actions">
-                <div slot-scope="props">
-                  <base-button
-                    @click.native="handleEdit(props.$index, props.row)"
-                    class="edit btn-link"
-                    type="warning"
-                    size="sm"
-                    icon
-                  >
-                    <i class="tim-icons icon-pencil"></i>
-                  </base-button>
-                  <base-button
-                    @click.native="handlePassword(props.$index, props.row)"
-                    class="btn-link"
-                    type="info"
-                    size="sm"
-                    icon
-                  >
-                    <i class="fas fa-key"></i>
-                  </base-button>
-                  <base-button
-                    @click.native="handleDelete(props.$index, props.row)"
-                    class="remove btn-link"
-                    type="danger"
-                    size="sm"
-                    icon
-                  >
-                    <i class="tim-icons icon-simple-remove"></i>
-                  </base-button>
-                </div>
-              </el-table-column>
-            </el-table>
+            <base-input>
+              <el-input
+                type="search"
+                class="mb-3 search-input"
+                clearable
+                prefix-icon="el-icon-search"
+                placeholder="Search records"
+                v-model="searchQuery"
+                aria-controls="datatables"
+              ></el-input>
+            </base-input>
           </div>
-          <div
-            slot="footer"
-            class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
-          >
-            <div class>
-              <p class="card-category">
-                Showing {{ from + 1 }} to {{ to }} of {{ total }} entries
-              </p>
-            </div>
-            <base-pagination
-              class="pagination-no-border"
-              v-model="pagination.currentPage"
-              :per-page="pagination.perPage"
-              :total="total"
-            ></base-pagination>
+          <el-table :data="queriedData">
+            <el-table-column
+              v-for="column in tableColumns"
+              :key="column.label"
+              :min-width="column.minWidth"
+              :prop="column.prop"
+              :label="column.label"
+            ></el-table-column>
+            <el-table-column :min-width="135" align="right" label="Actions">
+              <div slot-scope="props">
+                <base-button
+                  @click.native="handleEdit(props.$index, props.row)"
+                  class="edit btn-link"
+                  type="warning"
+                  size="sm"
+                  icon
+                >
+                  <i class="tim-icons icon-pencil"></i>
+                </base-button>
+                <base-button
+                  @click.native="handlePassword(props.$index, props.row)"
+                  class="btn-link"
+                  type="info"
+                  size="sm"
+                  icon
+                >
+                  <i class="fas fa-key"></i>
+                </base-button>
+                <base-button
+                  @click.native="handleDelete(props.$index, props.row)"
+                  class="remove btn-link"
+                  type="danger"
+                  size="sm"
+                  icon
+                >
+                  <i class="tim-icons icon-simple-remove"></i>
+                </base-button>
+              </div>
+            </el-table-column>
+          </el-table>
+        </div>
+        <div
+          slot="footer"
+          class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
+        >
+          <div class>
+            <p class="card-category">Showing {{ from + 1 }} to {{ to }} of {{ total }} entries</p>
           </div>
-        </card>
-      </div>
+          <base-pagination
+            class="pagination-no-border"
+            v-model="pagination.currentPage"
+            :per-page="pagination.perPage"
+            :total="total"
+          ></base-pagination>
+        </div>
+      </card>
     </div>
   </div>
 </template>
