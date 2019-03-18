@@ -18,5 +18,14 @@
     "createEpisode": "ایجاد جلسه",
     "editEpisode": "ویرایش جلسه",
     "createQuiz": "ایجاد امتحان"
+  },
+  "dashboard": {
+    "PurchaseHistory": "وضعیت پرداخت",
+    "vipStatus": "وضعیت عضویت ویژه",
+    "vipAccess": "شارژ VIP",
+    "editProfile": "ویرایش مشخصات",
+    "notifications": "اطلاعیه"
   }
 }
+
+

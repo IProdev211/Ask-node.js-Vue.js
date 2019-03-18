@@ -1,6 +1,6 @@
 <template>
   <card card-body-classes="table-full-width">
-    <h3 slot="header" class="card-title">Purchase History</h3>
+    <h3 slot="header" class="card-title">{{ $t('dashboard.PurchaseHistory') }}</h3>
     <div>
       <div
         class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"

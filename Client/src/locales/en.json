@@ -18,5 +18,12 @@
     "createEpisode": "Create Episode",
     "editEpisode": "Edit Episode",
     "createQuiz": "Create Quiz"
+  },
+  "dashboard": {
+    "PurchaseHistory": "Purchase History",
+    "vipStatus": "VIP Status",
+    "vipAccess": "VIP Access",
+    "editProfile": "Edit Profile",
+    "notifications": "Notifications"
   }
 }

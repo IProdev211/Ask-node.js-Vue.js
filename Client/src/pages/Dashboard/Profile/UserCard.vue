@@ -3,13 +3,14 @@
     <card class="card-user">
       <p class="card-text"></p>
       <div class="author">
-        <div class="block block-one"></div>
+        <!-- <div class="block block-one"></div>
         <div class="block block-two"></div>
         <div class="block block-three"></div>
-        <div class="block block-four"></div>
+        <div class="block block-four"></div> -->
         <img class="avatar" :src="userAvatar" alt="Users Profile Image">
         <h2 class="title">
           {{ user.name }}
+          <br>
           <span class="description emailText px-1">{{ user.email }}</span>
         </h2>
         <p class="description font-weight-bold">
@@ -17,7 +18,7 @@
           <span class="description" :class="user.active ? 'tick' : 'cross'">{{ user.active ? "ACTIVE" : "NOT ACTIVE" }}</span>
         </p>
         <p class="description font-weight-bold">
-          <i class="fas fa-times px-2 cross"></i>VIP Status -
+          <i class="fas fa-times px-2 cross"></i>{{ $t('dashboard.vipStatus') }} -
           <span class="description" :class="isVIP ? 'tick' : 'cross'">{{ isVIP ? "ACTIVE" : "NOT ACTIVE" }}</span>
         </p>
         <div class="row d-flex justify-content-center">
@@ -26,7 +27,7 @@
               @click="showForm = !showForm"
               native-type="submit"
               class="btn-fill btn btn-sm"
-            >Edit Profile</base-button>
+            >{{ $t('dashboard.editProfile') }}</base-button>
           </div>
           <div class="pt-3 px-2">
             <router-link to="allcourses">
@@ -34,7 +35,7 @@
                 native-type="submit"
                 type="primary"
                 class="btn-fill btn btn-sm"
-              >VIP Access</base-button>
+              >{{ $t('dashboard.vipAccess') }}</base-button>
             </router-link>
           </div>
         </div>

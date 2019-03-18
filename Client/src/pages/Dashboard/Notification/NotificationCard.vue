@@ -1,6 +1,6 @@
 <template>
   <div class="card container">
-    <h4 class="title py-2">Notifications</h4>
+    <h4 class="title d-flex justify-content-start py-2">{{ $t('dashboard.notifications') }}</h4>
     <div class="main py-3">
       <p class="py-1">- New Lesson Added To - Grammar Course 1</p>
       <p class="py-1">
