@@ -24,8 +24,8 @@ const Quiz = () =>
 const CourseOverview = () =>
   import( /* webpackChunkName: "extra" */ 'src/pages/Admin/CourseOverview.vue');
 
-const Xp = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/Xp/Xp.vue');
+const Points = () =>
+  import( /* webpackChunkName: "extra" */ 'src/pages/Points/Points.vue');
 
 const EpisodeOverview = () =>
   import( /* webpackChunkName: "extra" */ 'src/pages/Admin/EpisodeOverview.vue');
@@ -245,10 +245,10 @@ const routes = [{
         }
       },
       {
-        path: 'xp',
-        name: 'Xp',
+        path: 'points',
+        name: 'Points',
         components: {
-          default: Xp
+          default: Points
         }
       },
       {

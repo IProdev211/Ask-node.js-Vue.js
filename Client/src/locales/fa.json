@@ -4,8 +4,19 @@
     "shortTitle": "پنل کاربری",
     "dashboard": "پنل کاربری",
     "courses": "دوره ها",
+    "points": "امتیاز",
+    "ViewAllCourses": "دوره‌ ها",
+    "singleLesson": "یک جلسه",
+    "quiz": "امتحان",
     "adminSection": "پنل مدیریت",
-    "pages": "صفحات",
-    "userProfile": " ملف تعريفي للمستخدم "
+    "userProfile": "پنل کاربری",
+    "manageUsers": "کاربران سایت",
+    "courseOverview": "دوره ها",
+    "createCourse": "ایجاد دوره",
+    "editCourse": "ویرایش دوره",
+    "episodeOverview": "بخش دوره‌ها",
+    "createEpisode": "ایجاد جلسه",
+    "editEpisode": "ویرایش جلسه",
+    "createQuiz": "ایجاد امتحان"
   }
 }

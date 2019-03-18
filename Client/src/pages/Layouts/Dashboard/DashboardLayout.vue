@@ -17,28 +17,28 @@
         ></sidebar-item>
 
         <sidebar-item :link="{ name: $t('sidebar.courses'), icon: 'fas fa-graduation-cap' }">
-          <sidebar-item :link="{ name: $t('View All Courses'), path: '/courses' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('single lesson'), path: '/singlelesson' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('quiz'), path: '/quiz' }"></sidebar-item>
+          <sidebar-item :link="{ name: $t('sidebar.ViewAllCourses'), path: '/courses' }"></sidebar-item>
+          <sidebar-item :link="{ name: $t('sidebar.singleLesson'), path: '/singlelesson' }"></sidebar-item>
+          <sidebar-item :link="{ name: $t('sidebar.quiz'), path: '/quiz' }"></sidebar-item>
         </sidebar-item>
 
         <sidebar-item
           :link="{
-            name: $t('xP Points'),
+            name: $t('sidebar.points'),
             icon: 'fas fa-gem',
-            path: '/xp'
+            path: '/points'
           }"
         ></sidebar-item>
 
         <sidebar-item :link="{ name: $t('sidebar.adminSection'), icon: 'fas fa-tools' }">
-          <sidebar-item :link="{ name: $t('manage users'), path: '/manageusers' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('course overview'), path: '/courseoverview' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('episode overview'), path: '/episodeoverview' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('create course'), path: '/createcourse' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('edit course'), path: '/editcourse' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('create episode'), path: '/createepisode' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('edit episode'), path: '/editepisode' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('create quiz'), path: '/createquiz' }"></sidebar-item>
+          <sidebar-item :link="{ name: $t('sidebar.manageUsers'), path: '/manageusers' }"></sidebar-item>
+          <sidebar-item :link="{ name: $t('sidebar.courseOverview'), path: '/courseoverview' }"></sidebar-item>
+          <sidebar-item :link="{ name: $t('sidebar.episodeOverview'), path: '/episodeoverview' }"></sidebar-item>
+          <sidebar-item :link="{ name: $t('sidebar.createCourse'), path: '/createcourse' }"></sidebar-item>
+          <sidebar-item :link="{ name: $t('sidebar.editCourse'), path: '/editcourse' }"></sidebar-item>
+          <sidebar-item :link="{ name: $t('sidebar.createEpisode'), path: '/createepisode' }"></sidebar-item>
+          <sidebar-item :link="{ name: $t('sidebar.editEpisode'), path: '/editepisode' }"></sidebar-item>
+          <sidebar-item :link="{ name: $t('sidebar.createQuiz'), path: '/createquiz' }"></sidebar-item>
         </sidebar-item>
       </template>
     </side-bar>
@@ -128,7 +128,8 @@ export default {
   .active
   a
   .sidebar-normal {
-  font-weight: 400;
+  font-weight: 600;
+  font-size: 1.2rem;
   color: white;
 }
 

@@ -4,8 +4,19 @@
     "shortTitle": "Ask Arya Dashboard",
     "dashboard": "Dashboard",
     "courses": "Courses",
+    "points": "xP Points",
+    "ViewAllCourses": "All Courses",
+    "singleLesson": "Single Lesson",
+    "quiz": "Quiz",
     "adminSection": "Admin Section",
-    "pages": "Pages",
-    "userProfile": "User Profile"
+    "userProfile": "User Profile",
+    "manageUsers": "Manage Users",
+    "courseOverview": "Course Overview",
+    "createCourse": "Create Course",
+    "editCourse": "Edit Course",
+    "episodeOverview": "Episode Overview",
+    "createEpisode": "Create Episode",
+    "editEpisode": "Edit Episode",
+    "createQuiz": "Create Quiz"
   }
 }
