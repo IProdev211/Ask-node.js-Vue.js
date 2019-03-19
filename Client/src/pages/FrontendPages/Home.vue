@@ -6,14 +6,13 @@
       <div class="text-center container">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="hero-header pb-5">
-              Want to Speak Like an English
-              <span class="font-weight-bold text-success">Native</span>?
-            </h1>
+            <h1
+              class="hero-header font-weight-bold text-success pb-5"
+            >{{ $t('frontendHome.heroMessage') }}</h1>
             <!-- All Courses Section -->
             <h2
               class="d-flex justify-content-start my-3 section-header-homepage text-primary"
-            >Our Top Courses</h2>
+            >{{ $t('frontendHome.TopCourses') }}</h2>
             <!-- MOBILE -->
             <div class="pt-4 px-3 MOBILE d-md-none">
               <carousel
@@ -52,12 +51,12 @@
                 </slide>
               </carousel>
             </div>
-            <router-link to="courses">
+            <router-link to="ourcourses">
               <base-button
                 native-type="submit"
                 type="success"
                 class="btn btn-primary btn-simple"
-              >All Our Courses</base-button>
+              >{{ $t('frontendHome.AllCourses') }}</base-button>
             </router-link>
           </div>
         </div>

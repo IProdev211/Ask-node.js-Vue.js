@@ -134,7 +134,8 @@ export default {
 }
 
 .sidebar .nav li.active > a:not([data-toggle='collapse']) p {
-  font-weight: 400;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 $scaleSize: 0.95;

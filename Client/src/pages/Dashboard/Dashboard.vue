@@ -103,56 +103,59 @@ export default {
       payments: {
         docs: [],
         total: 0,
-        page: 1,
-      },
+        page: 1
+      }
     };
   },
   methods: {
     setStatsCards(courses, myEpisodes, totalEpisodes) {
       this.statsCards = [
-          {
-            title: courses.toString(),
-            subTitle: 'My Courses',
-            type: 'warning',
-            icon: 'tim-icons icon-book-bookmark',
-            footer:
-              '<a href="/courses"><i class="tim-icons icon-bag-16"></i>View Courses</a>'
-          },
-          {
-            title: myEpisodes + ' / ' + totalEpisodes,
-            subTitle: 'Lessons Unlocked',
-            type: 'danger',
-            icon: 'tim-icons icon-molecule-40',
-            footer:
-              '<i class="tim-icons icon-video-66"></i>Total Lessons Available'
-          },
-          {
-            title: '27',
-            subTitle: 'Quizzes Available',
-            type: 'info',
-            icon: 'fas fa-university',
-            footer: '<i class="far fa-bookmark"></i> Good Job'
-          },
-          {
-            title: '+45 xP',
-            subTitle: 'Ask Arya xP Points',
-            type: 'primary',
-            icon: 'tim-icons icon-shape-star',
-            footer:
-              '<i class="tim-icons icon-sound-wave"></i></i> Progress To BEGINNER <span class="coloredLink">85%</span>  '
-          }
-        ];
+        {
+          title: courses.toString(),
+          subTitle: 'دوره های در حال یادگیری',
+          type: 'warning',
+          icon: 'tim-icons icon-book-bookmark',
+          footer:
+            '<a href="/courses"><i class="tim-icons icon-bag-16"></i> دوره‌های آموزشی</a>'
+        },
+        {
+          title: myEpisodes + ' / ' + totalEpisodes,
+          subTitle: 'درس های باز شده',
+          type: 'danger',
+          icon: 'tim-icons icon-molecule-40',
+          footer: '<i class="tim-icons icon-video-66"></i> مجموع درس های موجود'
+        },
+        {
+          title: '27',
+          subTitle: 'امتحان ها',
+          type: 'info',
+          icon: 'fas fa-university',
+          footer: '<i class="far fa-bookmark"></i> Good Job'
+        },
+        {
+          title: '+45 xP',
+          subTitle: 'Ask Arya xP Points',
+          type: 'primary',
+          icon: 'tim-icons icon-shape-star',
+          footer:
+            '<i class="tim-icons icon-sound-wave"></i></i> Progress To BEGINNER <span class="coloredLink">85%</span>  '
+        }
+      ];
     },
     getData() {
-      backend.get("dashboard").then((response) => {
-        this.setStatsCards(response.data.courses, response.data.episodes[0], response.data.episodes[1]);
+      backend.get('dashboard').then(response => {
+        this.setStatsCards(
+          response.data.courses,
+          response.data.episodes[0],
+          response.data.episodes[1]
+        );
         this.payments = response.data.payments;
       });
-    },
+    }
   },
   mounted() {
     this.getData();
-  },
+  }
 };
 </script>
 <style>

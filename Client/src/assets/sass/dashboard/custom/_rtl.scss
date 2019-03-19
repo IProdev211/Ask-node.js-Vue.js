@@ -1,8 +1,17 @@
 .rtl {
   font-family: 'IranSans';
 
+  * {
+    text-align: right;
+  }
 
+  .btn {
+    font-family: IranSans;
+  }
 
+  .card-stats .numbers .card-category {
+    font-size: 0.9rem;
+  }
 
   .sidebar,
   .bootstrap-navbar {
@@ -300,5 +309,9 @@
 
   .rtl .navbar .dropdown-menu {
     width: 200px !important;
+  }
+
+  .text-center-custom {
+    text-align: center !important;
   }
 }

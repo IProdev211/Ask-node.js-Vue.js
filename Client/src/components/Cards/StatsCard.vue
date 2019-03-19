@@ -3,19 +3,21 @@
     <div class="row">
       <div class="col-5" v-if="$slots.icon || icon">
         <div class="info-icon text-center" :class="`icon-${type}`">
-          <slot name="icon"> <i :class="icon"></i> </slot>
+          <slot name="icon">
+            <i :class="icon"></i>
+          </slot>
         </div>
       </div>
       <div class="col-7" v-if="$slots.content || title || subTitle">
         <div class="numbers">
           <slot>
-            <p v-if="subTitle" class="card-category">{{ subTitle }}</p>
+            <p v-if="subTitle" class="card-category pb-2">{{ subTitle }}</p>
             <h3 v-if="title" class="card-title">{{ title }}</h3>
           </slot>
         </div>
       </div>
     </div>
-    <div class="stats" slot="footer" v-if="$slots.footer">
+    <div class="stats d-flex justify-content-start" slot="footer" v-if="$slots.footer">
       <slot name="footer"></slot>
     </div>
   </card>
@@ -39,4 +41,4 @@ export default {
   }
 };
 </script>
-<style></style>
+<style scoped></style>

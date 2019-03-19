@@ -17,23 +17,23 @@
       </div>-->
       <ul class="navbar-nav">
         <router-link class="nav-item" tag="li" to="/home">
-          <a class="nav-link">Home</a>
+          <a class="nav-link">{{ $t('frontendNavbar.Home') }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/ourcourses">
-          <a class="nav-link">Our Courses</a>
+          <a class="nav-link">{{ $t('frontendNavbar.OurCourses') }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/privateclasses">
-          <a class="nav-link">Private Classes</a>
+          <a class="nav-link">{{ $t('frontendNavbar.PrivateClasses') }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/meetups">
-          <a class="nav-link">Meetups</a>
+          <a class="nav-link">{{ $t('frontendNavbar.Meetups') }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/contact">
-          <a class="nav-link">Contact Us</a>
+          <a class="nav-link">{{ $t('frontendNavbar.Contact') }}</a>
         </router-link>
       </ul>
-      <ul class="navbar-nav ml-auto">
-        <div class="row d-flex justify-content-end">
+      <ul class="navbar-nav mr-auto">
+        <div class="row">
           <div v-if="this.$root.$data.user !== undefined">
             <div class="row">
               <div class="px-1">
