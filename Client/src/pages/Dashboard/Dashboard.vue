@@ -134,7 +134,7 @@ export default {
         },
         {
           title: '+45 xP',
-          subTitle: 'Ask Arya xP Points',
+          subTitle: 'سیستم امتیاز اسک آریا',
           type: 'primary',
           icon: 'tim-icons icon-shape-star',
           footer:

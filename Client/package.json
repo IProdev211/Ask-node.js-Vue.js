@@ -29,7 +29,6 @@
     "tween.js": "^16.6.0",
     "vee-validate": "^2.2.0",
     "vue": "^2.6.9",
-    "vue-carousel": "^0.18.0-alpha",
     "vue-chartjs": "^3.4.2",
     "vue-i18n": "^8.9.0",
     "vue-plyr": "^5.1.3",

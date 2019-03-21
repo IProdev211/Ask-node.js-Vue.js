@@ -1,7 +1,8 @@
 <template>
   <div class="container">
-    <div class="mt-5">
-      <h1>Coming Soon...</h1>
+    <div class="mt-5 text-center">
+      <h1 class="display-1 text-danger">به زودی برمیگردیم</h1>
+      <h3>سایت در حال تعمیر است :)</h3>
     </div>
   </div>
 </template>

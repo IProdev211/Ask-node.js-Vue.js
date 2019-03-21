@@ -3,62 +3,26 @@
     <!-- Hero Section -->
     <vue-particles :lineLinked="false" :moveSpeed="2" :particleSize="2"></vue-particles>
     <div class="hero-content-homepage">
-      <div class="text-center container">
+      <div class="container">
+        <h1 class="hero-header text-center pb-5">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
+        <h2
+          class="d-flex justify-content-start my-4 section-header-homepage"
+        >دوره‌های پیشنهادی اسک آریا</h2>
         <div class="row">
-          <div class="col-md-12">
-            <h1
-              class="hero-header font-weight-bold text-success pb-5"
-            >{{ $t('frontendHome.heroMessage') }}</h1>
-            <!-- All Courses Section -->
-            <h2
-              class="d-flex justify-content-start my-3 section-header-homepage"
-            >{{ $t('frontendHome.TopCourses') }}</h2>
-            <!-- MOBILE -->
-            <div class="pt-4 px-3 MOBILE d-md-none">
-              <carousel
-                :navigationEnabled="true"
-                :paginationEnabled="false"
-                :loop="true"
-                navigationClickTargetSize
-                :speed="1200"
-                :perPage="1"
-              >
-                <slide
-                  class="col-lg-3 col-md-4 mb-4"
-                  v-for="course in topCourses"
-                  v-bind:key="course.id"
-                >
-                  <Course v-bind="course"></Course>
-                </slide>
-              </carousel>
-            </div>
-            <!-- DESKTOP -->
-            <div class="pt-4 DESKTOP d-none d-md-block">
-              <carousel
-                :navigationEnabled="true"
-                :paginationEnabled="false"
-                :loop="true"
-                navigationClickTargetSize
-                :speed="1200"
-                :perPage="3"
-              >
-                <slide
-                  class="col-lg-4 col-md-6 mb-4"
-                  v-for="course in topCourses"
-                  v-bind:key="course.id"
-                >
-                  <Course v-bind="course"></Course>
-                </slide>
-              </carousel>
-            </div>
-            <router-link to="ourcourses">
-              <base-button
-                native-type="submit"
-                type="success"
-                class="btn btn-primary btn-simple"
-              >{{ $t('frontendHome.AllCourses') }}</base-button>
-            </router-link>
+          <!-- Top Courses -->
+          <div class="col-lg-4 col-md-6 mb-4" v-for="course in topCourses" v-bind:key="course.id">
+            <Course v-bind="course"></Course>
           </div>
+        </div>
+
+        <div class="text-center">
+          <router-link to="ourcourses">
+            <base-button
+              native-type="submit"
+              type="success"
+              class="btn btn-primary btn-simple"
+            >دوره های آموزشی</base-button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -77,7 +41,6 @@
 </template>
 
 <script>
-import { Carousel, Slide } from 'vue-carousel';
 import FounderSection from './Components/FounderSection/FounderSection.vue';
 import Course from './Components/TopCourses/Course.vue';
 import BlogSection from './Components/Blog/BlogSection.vue';
@@ -100,8 +63,6 @@ export default {
   },
   watch() {},
   components: {
-    Carousel,
-    Slide,
     FounderSection,
     Course,
     BlogSection
@@ -129,8 +90,9 @@ export default {
   z-index: 999;
   // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
   .hero-header {
-    font-size: 3.4rem;
-    line-height: 4rem;
+    font-size: 2.6rem;
+    color: #2ae490;
+    line-height: 3.1rem;
   }
   .special-colour {
     color: rgb(187, 255, 0);
@@ -164,7 +126,7 @@ export default {
   }
 }
 .section-header-homepage {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: white;
 }
 </style>

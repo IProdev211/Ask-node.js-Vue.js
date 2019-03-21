@@ -1,6 +1,6 @@
 <template>
   <div class="home-blog container pt-5">
-    <h1 class="pb-5 section-header text-danger">Our Blog Posts</h1>
+    <h1 class="pb-5 section-header text-danger text-right">پست های وبلاگ</h1>
     <div class="row px-4">
       <div class="card-deck">
         <div class="col-lg-3 col-md-6 py-2 pb-4" v-for="post in posts" v-bind:key="post.id">
@@ -14,7 +14,7 @@
 <script>
 import BlogCard from './BlogCard.vue';
 export default {
-  props: ["posts"],
+  props: ['posts'],
   components: {
     BlogCard
   }

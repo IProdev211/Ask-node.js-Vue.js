@@ -1,10 +1,5 @@
 <template>
-  <el-tooltip
-    content="Sidebar toggle"
-    effect="light"
-    :open-delay="300"
-    placement="right"
-  >
+  <el-tooltip content="Sidebar toggle" effect="light" :open-delay="300" placement="right">
     <button
       class="minimize-sidebar btn btn-link btn-just-icon"
       @click="minimizeSidebar"
@@ -24,8 +19,8 @@ export default {
     minimizeSidebar() {
       // Remove this code if you don't want to display notifications while minimizing sidebar
       let isMinimizedText = this.$sidebar.isMinimized
-        ? 'activated'
-        : 'deactivated';
+        ? 'فعال شده'
+        : 'غیرفعال شده است';
       this.$notify({
         type: 'danger',
         message: `Sidebar mini ${isMinimizedText}...`,

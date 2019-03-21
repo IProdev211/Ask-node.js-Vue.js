@@ -2,9 +2,7 @@
   <card card-body-classes="table-full-width">
     <h3 slot="header" class="card-title">{{ $t('dashboard.PurchaseHistory') }}</h3>
     <div>
-      <div
-        class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
-      ></div>
+      <div class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"></div>
       <el-table :data="queriedData">
         <el-table-column
           v-for="column in tableColumns"
@@ -20,9 +18,7 @@
       class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
     >
       <div class>
-        <p class="card-category">
-          Showing {{ from + 1 }} to {{ to }} of {{ total }} entries
-        </p>
+        <p class="card-category">Showing {{ from + 1 }} to {{ to }} of {{ total }} entries</p>
       </div>
       <base-pagination
         class="pagination-no-border"
@@ -36,7 +32,7 @@
 <script>
 import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
-import moment from "moment";
+import moment from 'moment';
 import Fuse from 'fuse.js';
 
 export default {
@@ -77,18 +73,24 @@ export default {
       return {
         perPage: 20,
         currentPage: this.payments.page,
-        total: this.payments.total,
-      }
+        total: this.payments.total
+      };
     },
     tableData() {
       const data = [];
       for (const payment of this.payments.docs) {
         data.push({
           id: payment.id,
-          product: payment.course ? payment.course.title : payment.vip ? "VIP subscription" : "",
-          price: new Intl.NumberFormat().format(parseInt(payment.price.toString().replace(",", ""), 10)),
+          product: payment.course
+            ? payment.course.title
+            : payment.vip
+            ? 'VIP subscription'
+            : '',
+          price: new Intl.NumberFormat().format(
+            parseInt(payment.price.toString().replace(',', ''), 10)
+          ),
           date: new moment(payment.createdAt).format('L'),
-          status: payment.payment ? "Successfull" : "unsuccessful",
+          status: payment.payment ? 'موفق' : 'ناموفق'
         });
       }
       return data;
@@ -99,22 +101,22 @@ export default {
       tableColumns: [
         {
           prop: 'product',
-          label: 'Product',
+          label: 'محصول',
           minWidth: 150
         },
         {
           prop: 'date',
-          label: 'Date',
+          label: 'تاریخ',
           minWidth: 110
         },
         {
           prop: 'price',
-          label: 'Price',
+          label: 'قیمت',
           minWidth: 90
         },
         {
           prop: 'status',
-          label: 'Status',
+          label: 'وضعیت',
           minWidth: 135
         }
       ],
@@ -122,7 +124,7 @@ export default {
       fuseSearch: null
     };
   },
-  props: ["payments"],
+  props: ['payments'],
   mounted() {
     // Fuse search initialization.
     this.fuseSearch = new Fuse(this.tableData, {

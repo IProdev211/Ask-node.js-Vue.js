@@ -1,9 +1,9 @@
 .rtl {
   font-family: 'IranSans';
 
-  * {
-    text-align: right;
-  }
+  // * {
+  //   text-align: right;
+  // }
 
   .btn {
     font-family: IranSans;
@@ -11,6 +11,10 @@
 
   .card-stats .numbers .card-category {
     font-size: 0.9rem;
+  }
+
+  .text-rtl {
+    direction: rtl;
   }
 
   .sidebar,
@@ -273,7 +277,7 @@
 
       .btn {
         margin-right: 0;
-        padding: 0;
+        // padding: 0;
 
         i {
           margin-left: 4px;

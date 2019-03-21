@@ -1,36 +1,18 @@
 <template>
   <div class="pt-4" id="contactSection">
     <!--Intro Section-->
-    <div class="introSection text-center">
+    <div class="introSection text-center pb-3">
       <div class="container">
-        <h1 class="hero-header text-danger pt-2">Contact Us</h1>
-        <p
-          class="header-sub pt-3"
-        >We are pleased that we were able to awaken your interest in Ask Arya English.</p>
-        <p class="header-sub pt-1">Don't hesitate to contact us :)</p>
+        <h1 class="hero-header text-danger pt-2">تماس با ما</h1>
+        <h3
+          class="pt-3"
+        >ما بسیار خوشحالیم که تونستیم نظرتون رو جلب کنیم. پس دست به کار بشید و همین الان با ما تماس بگیرید :)</h3>
       </div>
     </div>
 
     <!--Contact Section-->
     <div class="container text-center pt-5">
       <div class="row">
-        <div class="col-md-6 iconSection text-left px-4 pt-4">
-          <p class="lead pt-4">
-            <a href="https://t.me/AskAryaSomething" class="li-ic">
-              <i class="fab fa-telegram mx-5 icon-text"></i>@AskAryaSomething
-            </a>
-          </p>
-          <p class="lead pt-4">
-            <a href="tel:+989032227796" class="fb-ic">
-              <i class="fa fa-phone mx-5 icon-text"></i>(+98) 0903 222 7796
-            </a>
-          </p>
-          <p class="lead pt-4">
-            <a href="mailto:info@askarya.ir" class="fb-ic">
-              <i class="fa fa-envelope mx-5 icon-text"></i>info@askarya.ir
-            </a>
-          </p>
-        </div>
         <div class="col-md-6 text-center d-none d-md-block">
           <img
             src="img/frontend/askaryaunderground.svg"
@@ -38,6 +20,26 @@
             height="300"
             alt="Ask Arya london underground logo"
           >
+        </div>
+        <div class="col-md-6 iconSection text-left px-4 pt-4">
+          <p class="lead pt-4">
+            <a href="https://t.me/AskAryaSomething" class="li-ic">
+              AskAryaSomething@
+              <i class="fab fa-telegram mx-5 icon-text"></i>
+            </a>
+          </p>
+          <p class="lead pt-4 text-rtl">
+            <a href="tel:+989032227796" class="fb-ic">
+              (+98) 0903 222 7796
+              <i class="fa fa-phone mx-5 icon-text"></i>
+            </a>
+          </p>
+          <p class="lead pt-4">
+            <a href="mailto:info@askarya.ir" class="fb-ic">
+              info@askarya.ir
+              <i class="fa fa-envelope mx-5 icon-text"></i>
+            </a>
+          </p>
         </div>
       </div>
     </div>

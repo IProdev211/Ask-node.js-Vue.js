@@ -2,25 +2,25 @@
   <div>
     <div class="private-classes-background">
       <div class="container">
-        <h2 class="subheading text-danger pt-3">Our Private Classes</h2>
-        <div class="private-classes pb-2">
+        <h1 class="text-center pt-5">کلاس های خصوصی ما</h1>
+        <div class="private-classes">
           <div class="row pricing">
             <div class="col-lg-4 col-sm-12 pt-3 px-3">
               <div class="pricing-box hover">
                 <div class="pricing-title bg-bronze">
-                  <h3 class="text-white titleSize py-3">Bronze</h3>
+                  <h3 class="text-white titleSize py-3">برنز</h3>
                 </div>
                 <div class="pricing-field">
-                  <span class="price">125,000 Tomans</span>
-                  <p class="py-0 my-0 smalltext">Per Session</p>
+                  <span class="price">۱۲۵,۰۰۰ تومان</span>
+                  <p class="py-0 my-0 smalltext">هر جلسه</p>
                 </div>
                 <div class="pricing-features pt-3">
                   <ul>
-                    <li>Speaking Practice</li>
-                    <li>Listening Practice</li>
-                    <li>Vocabulary & Pronunciation Practice</li>
-                    <li>Placement Test</li>
-                    <li>End of Course Certificate</li>
+                    <li>تمرین مکالمه</li>
+                    <li>تمرین لیسنینگ</li>
+                    <li>تمرین لغات و تلفظ</li>
+                    <li>برگزاری آزمون تعیین سطح</li>
+                    <li>گواهی پایان دوره</li>
                   </ul>
                 </div>
                 <div class="pricing-action">
@@ -37,21 +37,22 @@
             <div class="col-lg-4 col-sm-12 pt-3 px-3">
               <div class="pricing-box hover">
                 <div class="pricing-title bg-silver">
-                  <h3 class="text-white titleSize py-3">Silver</h3>
+                  <h3 class="text-white titleSize py-3">سيلور</h3>
                 </div>
                 <div class="pricing-field">
-                  <span class="price">175,000 Tomans</span>
-                  <p class="py-0 my-0 smalltext">Per Session</p>
+                  <span class="price">۱۷۵,۰۰۰ تومان</span>
+                  <p class="py-0 my-0 smalltext">هر جلسه</p>
                 </div>
                 <div class="pricing-features pt-3">
                   <ul>
-                    <li>Speaking Practice</li>
-                    <li>Listening Practice</li>
-                    <li>Vocabulary & Pronunciation Practice</li>
-                    <li>Grammar Practice</li>
-                    <li>Reading Practice</li>
-                    <li>Placement Test</li>
-                    <li>End of Course Certificate</li>
+                    <li>تمرین مکالمه</li>
+                    <li>تمرین لغات، تلفظ و گرامر</li>
+                    <li>تمرین لیسنینگ</li>
+                    <li>خواندن کتاب و مجلات</li>
+                    <li>برگزاری ۲ آزمون در طول ترم</li>
+                    <li>آمادگی آزمون های ايلتس و تافل</li>
+                    <li>برگزاری آزمون تعیین سطح</li>
+                    <li>گواهی پایان دوره</li>
                   </ul>
                 </div>
                 <div class="pricing-action">
@@ -68,25 +69,25 @@
             <div class="col-lg-4 col-sm-12 pt-3 px-3">
               <div class="pricing-box hover">
                 <div class="pricing-title bg-gold">
-                  <h3 class="titleSize text-black py-3">Gold</h3>
+                  <h3 class="titleSize text-black py-3">گلد</h3>
                 </div>
                 <div class="pricing-field">
-                  <span class="price">200,000 Tomans</span>
-                  <p class="py-0 my-0 smalltext">Per Session</p>
+                  <span class="price">۲۰۰,۰۰۰ تومان</span>
+                  <p class="py-0 my-0 smalltext">هر جلسه</p>
                 </div>
                 <div class="pricing-features pt-3">
                   <ul>
-                    <li>Free Discussion Practice</li>
-                    <li>Listening Practice</li>
-                    <li>Vocab & Pronunciation Practice</li>
-                    <li>2 Custom Exams During Length of Course</li>
-                    <li>Placement Test</li>
-                    <li>Critiquing Movies & Talk Shows</li>
-                    <li>Test Preparation - IELTS/TOEFL</li>
-                    <li>Mock Aviation English Test</li>
-                    <li>Learn Key Native Speaking Techniques</li>
-                    <li>Resume/CV Consultation</li>
-                    <li>End of Course Certificate</li>
+                    <li>بحث آزاد</li>
+                    <li>تمرين ليسنينگ و مكالمه</li>
+                    <li>يادگيری لغات، تلفظ و گرامر</li>
+                    <li>برگزاری ۲ آزمون در طول ترم</li>
+                    <li>برگزاری آزمون تعين سطح</li>
+                    <li>نقد فيلم و تاک شو ها</li>
+                    <li>آمادگی آزمون های ايلتس و تافل</li>
+                    <li>آزمون آزمایشی زبان انگلیسی هوانوردی</li>
+                    <li>آموزش و تمرین نکات کلیدی و کاربردی مکالمه</li>
+                    <li>کمک به ترجمه انواع رزومه جهت مهاجرت</li>
+                    <li>گواهی پایان دوره</li>
                   </ul>
                 </div>
                 <div class="pricing-action">
@@ -104,33 +105,26 @@
       </div>
     </div>
     <!-- FREE DISCUSSION SECTION -->
-    <div class="freeDiscussion container pt-3">
-      <h2 class="my-5 text-danger">Our Free Discussion Classes</h2>
+    <div class="freeDiscussion container pt-3 text-right">
+      <h2 class="my-5 text-danger">کلاس های بحث آزاد</h2>
       <div class="py-5">
-        <h2>
-          Not Seeing the
-          <strong class="text-success">Results</strong> You Want?
-        </h2>
-        <p
-          class="py-3"
-        >It has been a few months since you have started your English classes. So far, things are going well. You feel great and have already seen some improvements in your English speaking and general English skills. Then it happens. All of a sudden, your learning progress stops. You are not seeing results. No matter how hard you study, you cannot seem to progress to the next level. Your motivation starts to drop, and you feel stuck and hopeless.
+        <h2 class="text-success">آیا تغییرات مورد نظر را در خودتان نمیبینید؟</h2>
+        <p class="py-3">
+          یک چند ماهی هست که کلاس های زبانت رو شروع کردی. خب تا یک جاهایی خوب پیش میره، شما حس میکنید که در مکالمه، لغات و گرامر دارید پیشرفت میکنید.
           <br>
-          <br>Chances are this scenario has happened to you at least once. This is a common occurrence with language students, and not only are they annoying, they are flat out discouraging.
+          <br>اما این حس مقطعی هست، و ناگهان پیشرفت زبان شما کم میشه و دیگه حس اون تغییرات مثبت در شما ایجاد نمیشه، انگار که هر چه بیشتر درس بخونید باز هم پیشرفتی نمیبینی و نمیتونی خودتو به سطح بالاتر برسونی، اونجاست که انگیزه ی شما به عنوان زبان آموز کم میشه و نا امید میشید.
+          <br>
+          <br>به احتمال خیلی زیاد این داستان برای شما هم اتفاق افتاده، داستانی که گفته شد عموما برای اکثر زبان آموزان ها اتفاق میافتد. که هم داستان کلافه کننده ای هست و بیشتر از آن نا امید کننده.
         </p>
       </div>
 
       <div class="py-3">
-        <h2>
-          The Solution? Ask Arya’s
-          <strong class="text-success">Free Discussion Groups</strong>.
-        </h2>
-        <p
-          class="py-3"
-        >Ask Arya’s aim is to teach you how to practically and effectively use the English you have learnt or are currently learning in everyday situations. Most students mistakenly believe that attending language classes are sufficient enough to learn a language fully. However, this is not the case as explained above.
+        <h2 class="text-success">راه حل؟ کلاس های بحث آزاد اسک آریا.</h2>
+        <p class="py-3">
+          هدف اسک آریا یاددهی درست و اصولی به زبان آموزان است، آموختن با برنامه اصولی و کارآمد.
+          به احتمال زیاد تا به حال بسیاری از شما در کلاس های آموزش زبان شرکت کرده اید و یا اکنون هم در حال گذراندن دوره های مربوط به خود هستید، اما بعد از مدتی متوجه عدم پیشرفت خود شده اید، چرا که بسیاری از زبان آموزان به اشتباه فکر میکنند شرکت در این کلاس ها کافی بوده و با تکیه بر آن سعی در ارتقاء سطح زبان خود دارند، در صورتی که این تنها کافی نیست.
           <br>
-          <br>In order to properly understand and utilise what you have learned in theory, you need to practice it in a productive learning environment, with a fully capable and experienced Native English speaker.
-          <br>
-          <br>In our Free Discussion groups, language learners can practice what they have learnt, under the correct supervision of Native English speakers. In addition, not only will you cover conversations and discussions, various other topics will be covered, such as: critiquing films, critiquing books (novels, poetry, history, etc.), writing letters (job related and personal), and much more. In all of these learning programs, you will learn by practicing real world examples and scenarios.
+          <br>زبان آموز برای درک درست مفاهیم زبان، یادگیری کاربردی جملات و اصطلاحات نیاز به تمرین در محیطی سازنده همراه با استادی نیتیو و با تجربه دارد. ما این محیط را برای شما فراهم کرده ایم.
         </p>
       </div>
     </div>
@@ -141,8 +135,7 @@
 .private-classes-background {
   background: linear-gradient(180deg, #1a1a29, rgb(141, 89, 237));
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 100px;
+  padding-bottom: 150px;
   min-height: 50vh;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
 }
@@ -163,7 +156,7 @@ ul {
 }
 
 .private-classes {
-  padding-top: 50px;
+  padding-top: 30px;
   .pricing {
     position: relative;
   }

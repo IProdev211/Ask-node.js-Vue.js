@@ -1,36 +1,34 @@
 <template>
   <div class="container pb-5">
-    <h1 class="pb-5 founder-header text-danger text-center">{{ $t('frontendHome.OurFounder') }}</h1>
+    <h1 class="pb-5 founder-header text-danger text-right">بنیانگذار ما</h1>
     <div class="row">
-      <div class="col-md-8">
-        <h2 class="subheading2 text-info">{{ $t('frontendHome.WhosFounder') }}</h2>
+      <div class="col-md-8 text-right">
+        <h2 class="subheading2 text-info">کاپیتان این پرواز چه کسی است؟</h2>
         <p>
-          {{ $t('frontendHome.WhosFounder1') }}
+          با سلام، بنیان گذار اسک آریا آقای آریا درودیان هستند، اکثر دوران زندگی و تحصیل خود را در لندن گذرانده است. وی دو سال اخیر برای ادامه زندگی و اتمام دوره خلبانی خود به ایران سفر کرد و ساکن شد. آریا درودیان در اصل یک نیتیو دو زبانه انگلیسی فارسی است، همچنین در زمینه زبان فرانسه نیز تبحر دارد.
           <br>
+          <br>وی فارغ التحصیل رشته امنیت شبکه از دانشگاه Westminster University لندن است. برای گذراندن دوره خلبانی به ایران سفر کرد و در حال حاظر دارای مدرک EASA ATPL و ICAO CPL میباشد.
           <br>
-          {{ $t('frontendHome.WhosFounder2') }}
-          <br>
-          <br>
-          {{ $t('frontendHome.WhosFounder3') }}
+          <br>آریا درودیان همواره مشتاق سفر و به دست آوردن تجارب جدید است، او بنا به این علاقه به بیشتر کشور های دنیا سفر کرده و با زبان های رسمی مختلف دنیا آشناست.
         </p>
         <div class="Education py-4">
           <hr class="hr-1">
-          <h2 class="subheading2 text-info">{{ $t('frontendHome.Education') }}</h2>
+          <h2 class="subheading2 text-info">تحصیلات</h2>
           <p>
-            <span class="font-weight-bold text-success">Air Transport Pilot Licence:</span> Frozen ATPL -
-            <small>Oxford Aviation Academy, London</small>
+            <span>خلبان مسافربری (ATPL) -</span>
+            <small>دانشکده خلبانی آکسفورد - لندن</small>
           </p>
           <p>
-            <span class="font-weight-bold text-success">Degree:</span> Bachelors of Engineering, Computer Network Security-
-            <small>Westminster University, London</small>
+            <span>لیسانس مهندسی امنیت شبکه کامپیوتر -</span>
+            <small>دانشگاه وستمینیستر (Westminister University) - لندن</small>
           </p>
           <p>
-            <span class="font-weight-bold text-success">A-levels:</span> Business, Persian, Mathematics, & ICT -
-            <small>William Morris Sixth Form, London</small>
+            <span>فوق دیپلم کسب و کار، زبان فارسی، ریاضیات و حسابداری -</span>
+            <small>پیش دانشگاهی ویلیام موریس (William Morris Sixth Form) - لندن</small>
           </p>
           <p>
-            <span class="font-weight-bold text-success">GCSE's:</span> Mathematics, Science, English, French, Persian, ICT, Geography, & History -
-            <small>Holland Park Secondary School, London</small>
+            <span>دیپلم ریاضیات، ریاضیات (آمار)، علوم پایه، انگلیسی، فرانسوی، فارسی، کامپیوتر، و تاریخ -</span>
+            <small>دبیرستان هلند پارک (Holland Park School) - لندن</small>
           </p>
         </div>
       </div>

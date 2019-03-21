@@ -14,12 +14,12 @@
           <span class="description emailText px-1">{{ user.email }}</span>
         </h2>
         <p class="description font-weight-bold">
-          <i class="fas fa-check tick px-2"></i>{{ user.admin ? "Admin" : "Student"}} -
-          <span class="description" :class="user.active ? 'tick' : 'cross'">{{ user.active ? "ACTIVE" : "NOT ACTIVE" }}</span>
+          <i class="fas fa-check tick px-2"></i>{{ user.admin ? "مدیر" : "دانشجو"}} -
+          <span class="description" :class="user.active ? 'tick' : 'cross'">{{ user.active ? "فعال" : "غیر فعال" }}</span>
         </p>
         <p class="description font-weight-bold">
           <i class="fas fa-times px-2 cross"></i>{{ $t('dashboard.vipStatus') }} -
-          <span class="description" :class="isVIP ? 'tick' : 'cross'">{{ isVIP ? "ACTIVE" : "NOT ACTIVE" }}</span>
+          <span class="description" :class="isVIP ? 'tick' : 'cross'">{{ isVIP ? "فعال" : "غیر فعال" }}</span>
         </p>
         <div class="row d-flex justify-content-center">
           <div class="pt-3 px-2">
@@ -207,6 +207,6 @@ export default {
 }
 .cross {
   color: #ff0000;
-  /* font-weight: 600; */
+  font-weight: 600;
 }
 </style>

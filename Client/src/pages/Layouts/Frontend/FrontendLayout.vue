@@ -36,18 +36,16 @@
         <div class="row">
           <div v-if="this.$root.$data.user !== undefined">
             <div class="row">
-              <div class="px-1">
-                <p class="pt-2 usertitle">Hey, {{this.$root.$data.user.name}}!</p>
+              <div class="pl-3">
+                <p class="pt-2 usertitle">سلام، {{this.$root.$data.user.name}}</p>
               </div>
-              <div class="px-1">
-                <router-link to="dashboard">
-                  <base-button
-                    native-type="submit"
-                    type="danger"
-                    class="btn-simple btn btn"
-                  >Dashboard</base-button>
-                </router-link>
-              </div>
+              <router-link to="dashboard">
+                <base-button
+                  native-type="submit"
+                  type="danger"
+                  class="btn-simple btn"
+                >ورود به پنل کاربری</base-button>
+              </router-link>
             </div>
           </div>
 
