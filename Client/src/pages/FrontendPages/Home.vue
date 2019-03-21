@@ -11,7 +11,7 @@
             >{{ $t('frontendHome.heroMessage') }}</h1>
             <!-- All Courses Section -->
             <h2
-              class="d-flex justify-content-start my-3 section-header-homepage text-primary"
+              class="d-flex justify-content-start my-3 section-header-homepage"
             >{{ $t('frontendHome.TopCourses') }}</h2>
             <!-- MOBILE -->
             <div class="pt-4 px-3 MOBILE d-md-none">
