@@ -2,7 +2,7 @@
   <div>
     <div class="private-classes-background">
       <div class="container">
-        <h1 class="text-center pt-5">کلاس های خصوصی ما</h1>
+        <h1 class="text-center display-3 text-danger pt-5">کلاس های خصوصی ما</h1>
         <div class="private-classes">
           <div class="row pricing">
             <div class="col-lg-4 col-sm-12 pt-3 px-3">

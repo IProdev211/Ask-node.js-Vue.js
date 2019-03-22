@@ -117,7 +117,7 @@ export default {
         {
           prop: 'status',
           label: 'وضعیت',
-          minWidth: 135
+          minWidth: 90
         }
       ],
       searchedData: [],

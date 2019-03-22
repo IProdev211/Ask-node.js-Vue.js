@@ -4,7 +4,7 @@
       v-model="showMenu"
       type="dark"
       :transparent="true"
-      menu-classes="px-5"
+      menu-classes
       class="auth-navbar fixed-top"
     >
       <div slot="brand" class="navbar-wrapper">
@@ -12,24 +12,21 @@
           <img src="/img/askarya-logo.png" width="110" alt="Ask Arya Logo">
         </router-link>
       </div>
-      <!-- <div slot="brand" class="navbar-wrapper">
-        <a class="navbar-brand" href="/" v-if="title">{{ title }}</a>
-      </div>-->
       <ul class="navbar-nav">
         <router-link class="nav-item" tag="li" to="/home">
-          <a class="nav-link">{{ $t('frontendNavbar.Home') }}</a>
+          <a class="nav-link">{{ 'خانه' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/ourcourses">
-          <a class="nav-link">{{ $t('frontendNavbar.OurCourses') }}</a>
+          <a class="nav-link">{{ 'دوره های ما' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/privateclasses">
-          <a class="nav-link">{{ $t('frontendNavbar.PrivateClasses') }}</a>
+          <a class="nav-link">{{ 'کلاس های خصوصی' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/meetups">
-          <a class="nav-link">{{ $t('frontendNavbar.Meetups') }}</a>
+          <a class="nav-link">{{ 'میت آپ' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/contact">
-          <a class="nav-link">{{ $t('frontendNavbar.Contact') }}</a>
+          <a class="nav-link">{{ 'تماس با ما' }}</a>
         </router-link>
       </ul>
       <ul class="navbar-nav mr-auto">
@@ -52,16 +49,12 @@
           <div class="row" v-else>
             <div class="px-1">
               <router-link to="login">
-                <base-button native-type="submit" type="success" class="btn-simple btn btn-sm">Login</base-button>
+                <base-button native-type="submit" type="success" class="btn-simple btn btn-sm">ورود</base-button>
               </router-link>
             </div>
             <div class="px-2">
               <router-link to="register">
-                <base-button
-                  native-type="submit"
-                  type="danger"
-                  class="btn-simple btn btn-sm"
-                >Register</base-button>
+                <base-button native-type="submit" type="danger" class="btn-simple btn btn-sm">عضویت</base-button>
               </router-link>
             </div>
           </div>
@@ -79,9 +72,10 @@
         <footer class="footer">
           <div class="container-fluid">
             <div class="copyright">
-              &copy; {{ year }}, made with
-              <i class="tim-icons icon-heart-2"></i> by
-              <a href="https://askarya.ir" target="_blank">Ask Arya</a>
+              &copy; طراحی و تولید شده توسط
+              <a href="https://askarya.ir" target="_blank">اسک آریا</a>، با افتخار در ایران
+              <i class="tim-icons icon-heart-2"></i>
+              سال ١٣٩٧
             </div>
           </div>
         </footer>
@@ -177,7 +171,7 @@ export default {
     padding: 22px 0;
   }
   .navbar-nav li {
-    padding: 10px 1px !important;
+    padding: 10px 0 !important;
     border-bottom: 1px solid #3e3e70 !important;
   }
 }

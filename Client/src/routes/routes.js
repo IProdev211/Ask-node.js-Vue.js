@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import DashboardLayout from 'src/pages/Layouts/Dashboard/DashboardLayout.vue';
-import AuthLayout from 'src/pages/Layouts/Auth/AuthLayout.vue';
+// import AuthLayout from 'src/pages/Layouts/Auth/AuthLayout.vue';
 // Frontend Layout
 import FrontendLayout from 'src/pages/Layouts/Frontend/FrontendLayout.vue';
 // GeneralViews
@@ -112,25 +112,13 @@ let frontendpages = {
       path: '/ourcourses',
       name: 'OurCourses',
       component: OurCourses
-    }, ,
+    },
     {
       path: '/blogpagesample',
       name: 'BlogPageSample',
       component: BlogPageSample
-    }
-  ]
-};
-
-
-//////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
-
-
-let authPages = {
-  path: '/',
-  component: AuthLayout,
-  name: 'Authentication',
-  children: [{
+    },
+    {
       path: '/login',
       name: 'Login',
       component: Login
@@ -148,6 +136,33 @@ let authPages = {
   ]
 };
 
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+
+// let authPages = {
+//   path: '/',
+//   component: AuthLayout,
+//   name: 'Authentication',
+//   children: [{
+//       path: '/login',
+//       name: 'Login',
+//       component: Login
+//     },
+//     {
+//       path: '/register',
+//       name: 'Register',
+//       component: Register
+//     },
+//     {
+//       path: '/lock',
+//       name: 'Lock',
+//       component: Lock
+//     }
+//   ]
+// };
+
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
@@ -157,7 +172,7 @@ const routes = [{
     name: 'Home'
   },
   frontendpages,
-  authPages,
+  // authPages,
 
   {
     path: '/',

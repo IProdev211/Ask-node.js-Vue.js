@@ -1,11 +1,12 @@
 <template>
   <div class="container">
-    <div class="col-lg-5 col-md-9 ml-auto mr-auto">
+    <div class="row">
+    <div class="col-lg-5 col-md-9 ml-auto mr-auto pt-5">
         <form @submit="checkForm">
           <card class="card-login">
             <template slot="header">
-              <img src="img/card-primary.png" alt />
-              <h2 class="card-title text-white py-2 px-2">Login</h2>
+              <img class="card-img" src="img/card-primary.png" alt="Card image" />
+              <h4 class="card-title py-1 px-4 text-white">ورود</h4>
             </template>
             <div>
               <base-input placeholder="Email" v-model="email" :required="true" :error="fieldErrors.email" addon-left-icon="tim-icons icon-email-85"></base-input>
@@ -41,6 +42,7 @@
             </div>
           </card>
         </form>
+    </div>
     </div>
   </div>
 </template>

@@ -4,36 +4,30 @@
       v-model="showMenu"
       type="white"
       :transparent="true"
-      menu-classes="justify-content-end"
+      menu-classes="justify-content-start"
       class="auth-navbar fixed-top"
     >
-      <div slot="brand" class="navbar-wrapper">
-        <a class="navbar-brand" href="/" v-if="title">{{ title }}</a>
-      </div>
+      <router-link to="/">
+        <img src="/img/askarya-logo.png" width="110" alt="Ask Arya Logo">
+      </router-link>
 
       <ul class="navbar-nav">
-        <router-link class="nav-item" tag="li" to="/dashboard">
-          <a class="nav-link text-primary">
-            <i class="tim-icons icon-minimal-left"></i> Back to Dashboard
-          </a>
+        <router-link class="nav-item" tag="li" to="/home">
+          <a class="nav-link">{{ 'خانه' }}</a>
         </router-link>
-        <router-link class="nav-item" tag="li" to="/register">
-          <a class="nav-link">
-            <i class="tim-icons icon-laptop"></i> Register
-          </a>
+        <router-link class="nav-item" tag="li" to="/ourcourses">
+          <a class="nav-link">{{ 'دوره های ما' }}</a>
+        </router-link>
+        <router-link class="nav-item" tag="li" to="/privateclasses">
+          <a class="nav-link">{{ 'کلاس های خصوصی' }}</a>
+        </router-link>
+        <router-link class="nav-item" tag="li" to="/meetups">
+          <a class="nav-link">{{ 'میت آپ' }}</a>
+        </router-link>
+        <router-link class="nav-item" tag="li" to="/contact">
+          <a class="nav-link">{{ 'تماس با ما' }}</a>
         </router-link>
 
-        <router-link class="nav-item" tag="li" to="/login">
-          <a class="nav-link">
-            <i class="tim-icons icon-single-02"></i> Login
-          </a>
-        </router-link>
-
-        <router-link class="nav-item" tag="li" to="/courses">
-          <a class="nav-link">
-            <i class="tim-icons icon-atom"></i> Courses
-          </a>
-        </router-link>
         <!-- 
         <router-link class="nav-item" tag="li" to="/lock">
           <a class="nav-link">
@@ -41,8 +35,29 @@
           </a>
         </router-link>-->
       </ul>
+      <ul class="navbar-nav mr-auto">
+        <router-link class="nav-item pl-3" tag="li" to="/dashboard">
+          <a class="nav-link text-primary">
+            <i class="far fa-user pl-3"></i> پنل کاربری
+            <i class="tim-icons icon-minimal-left"></i>
+          </a>
+        </router-link>
+      </ul>
     </base-nav>
-
+    <!-- 
+    <div class="Message container text-center">
+      <h1 class="display-1 text-danger">صفحه مورد نظر پیدا نشد</h1>
+      <h3 class="display-2">خطای ۴۰۴</h3>
+      <div class="pt-3 px-2">
+        <router-link to="/">
+          <base-button
+            native-type="submit"
+            type="success"
+            class="btn btn-simple"
+          >{{ 'مشاهده صفحه اصلی' }}</base-button>
+        </router-link>
+      </div>
+    </div>-->
     <div class="wrapper wrapper-full-page">
       <div class="full-page" :class="pageClass">
         <div class="content">
@@ -52,38 +67,11 @@
         </div>
         <footer class="footer">
           <div class="container-fluid">
-            <!-- <nav>
-              <ul class="nav">
-                <li class="nav-item">
-                  <a
-                    href="http://askarya.ir"
-                    target="_blank"
-                    rel="noopener"
-                    class="nav-link"
-                  >Ask Arya</a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    href="http://askarya.ir"
-                    target="_blank"
-                    rel="noopener"
-                    class="nav-link"
-                  >About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a
-                   href="http://askarya.ir"                      
-                    target="_blank"
-                    rel="noopener"
-                    class="nav-link"
-                  >Blog</a>
-                </li>
-              </ul>
-            </nav>-->
             <div class="copyright">
-              &copy; {{ year }}, made with
-              <i class="tim-icons icon-heart-2"></i> by
-              <a href="https://askarya.ir" target="_blank">Ask Arya</a>
+              &copy; طراحی و تولید شده توسط
+              <a href="https://askarya.ir" target="_blank">اسک آریا</a>، با افتخار در ایران
+              <i class="tim-icons icon-heart-2"></i>
+              سال ١٣٩٧
             </div>
           </div>
         </footer>
@@ -158,6 +146,12 @@ export default {
 };
 </script>
 <style lang="scss">
+.nav-item {
+  font-size: 1.2rem;
+}
+.Message {
+  padding-top: 30vh;
+}
 .navbar.auth-navbar {
   top: 0;
 }

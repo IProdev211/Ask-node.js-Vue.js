@@ -1,9 +1,9 @@
 <template>
-  <div class="pt-4" id="contactSection">
+  <div class="pt-5" id="contactSection">
     <!--Intro Section-->
-    <div class="introSection text-center pb-3">
+    <div class="introSection text-center pt-4">
       <div class="container">
-        <h1 class="hero-header text-danger pt-2">تماس با ما</h1>
+        <h1 class="display-2 text-danger pt-2">تماس با ما</h1>
         <h3
           class="pt-3"
         >ما بسیار خوشحالیم که تونستیم نظرتون رو جلب کنیم. پس دست به کار بشید و همین الان با ما تماس بگیرید :)</h3>
@@ -47,14 +47,6 @@
 </template>
 
 <style scoped>
-.hero-header {
-  font-size: 2.5rem;
-}
-
-.header-sub {
-  font-size: 1.1rem;
-}
-
 #contactSection .iconSection a,
 #contactSection .iconSection i,
 #contactSection .iconSection p {

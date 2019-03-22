@@ -1,45 +1,65 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-md-7 mr-auto">
+      <div class="pt-5 col-md-7 mr-auto ml-auto">
         <card class="card-register">
           <template slot="header">
             <img class="card-img" src="img/card-primary.png" alt="Card image" />
-            <h4 class="card-title py-1 px-4 text-white">Register</h4>
+            <h4 class="card-title py-1 px-4 text-white">فرم عضویت</h4>
           </template>
-
           <form @submit="checkForm" id="register-form">
             <p v-if="formErrors.length">
-              <b>Please correct the following error(s):</b>
+              <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
               <ul>
                 <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
               </ul>
             </p>
 
-            <base-input v-model="name" :required="true" :error="fieldErrors.name" placeholder="Full Name" addon-left-icon="tim-icons icon-single-02"></base-input>
-            <base-input v-model="email" :required="true" :error="fieldErrors.email" placeholder="Email" addon-left-icon="tim-icons icon-email-85"></base-input>
-            <base-input v-model="password" :required="true" :error="fieldErrors.password" placeholder="Password" addon-left-icon="tim-icons icon-lock-circle"></base-input>
+            <label>نام و نام خانوادگی</label>
+            <base-input 
+              v-model="name" 
+              :required="true" 
+              :error="fieldErrors.name" 
+              placeholder="نام و نام خانوادگی">
+            </base-input>
+
+          <label >پست الکترونیک</label>
+            <base-input
+              v-model="email" 
+              :required="true" 
+              :error="fieldErrors.email" 
+              placeholder="پست الکترونیک">
+            </base-input>
+
+            <label>کلمه عبور</label>
+            <base-input
+              v-model="password" 
+              :required="true" 
+              :error="fieldErrors.password" 
+              placeholder="کلمه عبور">
+            </base-input>
 
             <div class="row d-flex justify-content-around">
-              <div class="GoogleSignin py-3">
+              <div class="text-center py-3">
                 <router-link to="googlesignin">
+                  <i class="fab fa-google icon pb-4"></i>
                   <h4>
-                    <i class="fab fa-google text-danger px-2"></i>Sign in With
-                    Google
+                    شما میتوانید بدون ثبت نام با اکانت گوگل وارد سایت شوید
                   </h4>
+                  
                 </router-link>
               </div>
-              <base-checkbox v-model="terms" class="text-left pb-3" :class="{'has-danger': fieldErrors.terms !== undefined}">
+              <!-- <base-checkbox v-model="terms" class="text-left pb-3" :class="{'has-danger': fieldErrors.terms !== undefined}">
                 I agree to the
                 <a href="#ASKARYATERMS">terms and conditions</a>.
-              </base-checkbox>
+              </base-checkbox> -->
             </div>
 
             <base-button nativeType="submit" type="primary" :loading="loading" round block size="lg">Get Started</base-button>
           </form>
         </card>
       </div>
-      <div class="col-md-5 ml-auto mt-4 mb-5">
+      <!-- <div class="col-md-5 ml-auto mt-4 mb-5">
         <div class="info-area info-horizontal my-3">
           <div class="icon icon-warning">
             <i class="tim-icons icon-wifi"></i>
@@ -76,7 +96,7 @@
             </p>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -119,10 +139,10 @@ export default {
         this.fieldErrors.password = 'Password required.';
         haveError = true;
       }
-      if (!this.terms) {
-        this.fieldErrors.terms = 'Accepting our terms is required for using Aradask services!';
-        haveError = true;
-      }
+      // if (!this.terms) {
+      //   this.fieldErrors.terms = 'Accepting our terms is required for using Aradask services!';
+      //   haveError = true;
+      // }
       if (haveError) {
         return;
       }
@@ -146,7 +166,7 @@ export default {
         this.$root.$data.user = response.data.user;
         this.$notify({
           type: 'success',
-          message: `You have successfully signed up!`,
+          message: `شما با موفقیت ثبت نام کردید!`,
           icon: 'tim-icons icon-bell-55'
         });
         this.$router.push("dashboard");
@@ -159,9 +179,17 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+ 
+.icon {
+font-size: 1.8rem;
+color: #D557D9
 
-.GoogleSignin :hover {
-  color: #fd5d93;
 }
+.icon:hover {
+  color: #00ffaa;
+  transform: rotate(-30deg);
+
+}
+
 </style>

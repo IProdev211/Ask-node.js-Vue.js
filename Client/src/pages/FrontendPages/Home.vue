@@ -4,7 +4,9 @@
     <vue-particles :lineLinked="false" :moveSpeed="2" :particleSize="2"></vue-particles>
     <div class="hero-content-homepage">
       <div class="container">
-        <h1 class="hero-header text-center pb-5">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
+        <h1
+          class="display-2 text-success text-center pb-5"
+        >آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
         <h2
           class="d-flex justify-content-start my-4 section-header-homepage"
         >دوره‌های پیشنهادی اسک آریا</h2>
@@ -89,11 +91,7 @@ export default {
   min-height: 100vh;
   z-index: 999;
   // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
-  .hero-header {
-    font-size: 2.6rem;
-    color: #2ae490;
-    line-height: 3.1rem;
-  }
+
   .special-colour {
     color: rgb(187, 255, 0);
   }
