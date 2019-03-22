@@ -166,7 +166,7 @@ export default {
 }
 
 .navbar-nav {
-  font-size: 17px;
+  font-size: 1.2rem;
   color: white;
 }
 

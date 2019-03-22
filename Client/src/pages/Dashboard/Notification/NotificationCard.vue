@@ -13,8 +13,33 @@
         </p>
       </div>
     </div>
+
+    <base-pagination
+      class="pagination-no-border"
+      v-model="pagination.currentPage"
+      :per-page="pagination.perPage"
+      :total="total"
+    ></base-pagination>
   </div>
 </template>
+<script>
+import { BasePagination } from 'src/components';
+
+export default {
+  components: {
+    BasePagination
+  },
+  computed: {
+    pagination() {
+      return {
+        perPage: 5,
+        currentPage: 0,
+        total: 0
+      };
+    }
+  }
+};
+</script>
 
 <style scoped>
 .title {

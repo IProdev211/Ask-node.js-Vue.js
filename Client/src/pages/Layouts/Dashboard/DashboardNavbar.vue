@@ -14,7 +14,7 @@
       <a class="navbar-brand" href="/">اسک آریا</a>
     </div>
 
-    <ul class="navbar-nav" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'">
+    <ul class="navbar-nav text-right" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'">
       <base-dropdown
         tag="li"
         :menu-on-right="!$rtl.isRTL"

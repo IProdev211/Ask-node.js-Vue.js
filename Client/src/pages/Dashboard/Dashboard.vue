@@ -112,7 +112,7 @@ export default {
       this.statsCards = [
         {
           title: courses.toString(),
-          subTitle: 'دوره های در حال یادگیری',
+          subTitle: 'دوره های من',
           type: 'warning',
           icon: 'tim-icons icon-book-bookmark',
           footer:
@@ -134,7 +134,7 @@ export default {
         },
         {
           title: '+45 xP',
-          subTitle: 'سیستم امتیاز اسک آریا',
+          subTitle: 'امتیاز اسک آریا',
           type: 'primary',
           icon: 'tim-icons icon-shape-star',
           footer:
