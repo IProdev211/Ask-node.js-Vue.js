@@ -1,6 +1,6 @@
 <template>
   <card card-body-classes="table-full-width">
-    <h3 slot="header" class="card-title">{{ $t('dashboard.PurchaseHistory') }}</h3>
+    <h3 slot="header" class="card-title">{{ 'وضعیت پرداخت' }}</h3>
     <div>
       <div class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"></div>
       <el-table :data="queriedData">
@@ -17,9 +17,9 @@
       slot="footer"
       class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
     >
-      <div class>
+      <!-- <div class>
         <p class="card-category">Showing {{ from + 1 }} to {{ to }} of {{ total }} entries</p>
-      </div>
+      </div>-->
       <base-pagination
         class="pagination-no-border"
         v-model="pagination.currentPage"

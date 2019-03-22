@@ -3,10 +3,10 @@
     <card class="card-user">
       <p class="card-text"></p>
       <div class="author">
-        <!-- <div class="block block-one"></div>
+        <div class="block block-one"></div>
         <div class="block block-two"></div>
         <div class="block block-three"></div>
-        <div class="block block-four"></div> -->
+        <div class="block block-four"></div>
         <img class="avatar" :src="userAvatar" alt="Users Profile Image">
         <h2 class="title">
           {{ user.name }}
@@ -18,7 +18,7 @@
           <span class="description" :class="user.active ? 'tick' : 'cross'">{{ user.active ? "فعال" : "غیر فعال" }}</span>
         </p>
         <p class="description font-weight-bold">
-          <i class="fas fa-times px-2 cross"></i>{{ $t('dashboard.vipStatus') }} -
+          <i class="fas fa-times px-2 cross"></i>{{ 'وضعیت عضویت ویژه' }} -
           <span class="description" :class="isVIP ? 'tick' : 'cross'">{{ isVIP ? "فعال" : "غیر فعال" }}</span>
         </p>
         <div class="row d-flex justify-content-center">
@@ -27,7 +27,7 @@
               @click="showForm = !showForm"
               native-type="submit"
               class="btn-fill btn btn-sm"
-            >{{ $t('dashboard.editProfile') }}</base-button>
+            >{{ 'ویرایش مشخصات' }}</base-button>
           </div>
           <div class="pt-3 px-2">
             <router-link to="allcourses">
@@ -35,7 +35,7 @@
                 native-type="submit"
                 type="primary"
                 class="btn-fill btn btn-sm"
-              >{{ $t('dashboard.vipAccess') }}</base-button>
+              >{{ 'شارژ VIP' }}</base-button>
             </router-link>
           </div>
         </div>
@@ -45,7 +45,7 @@
       <div class="editUserForm">
         <form v-if="showForm" @submit.prevent="updateProfile">
           <p v-if="formErrors.length">
-            <b>Please correct the following error(s):</b>
+            <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
             <ul>
               <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
             </ul>
@@ -130,11 +130,11 @@ export default {
       let haveError = false;
 
       if (!this.email) {
-        this.fieldErrors.email = 'Email required.';
+        this.fieldErrors.email = 'ایمیل مورد نیاز';
         haveError = true;
       }
       if (!this.name) {
-        this.fieldErrors.name = 'Name required.';
+        this.fieldErrors.name = 'نام مورد نیاز';
         haveError = true;
       }
       if (haveError) {
@@ -163,7 +163,7 @@ export default {
         this.$root.$data.user = response.data.user;
         this.$notify({
           type: 'success',
-          message: `Your profile has been successfully updated!`,
+          message: `مشخصات شما با موفقیت به روز شده!`,
           icon: 'tim-icons icon-bell-55'
         });
         this.$router.push("dashboard");

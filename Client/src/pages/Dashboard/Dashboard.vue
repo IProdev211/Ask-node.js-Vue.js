@@ -130,7 +130,7 @@ export default {
           subTitle: 'امتحان ها',
           type: 'info',
           icon: 'fas fa-university',
-          footer: '<i class="far fa-bookmark"></i> Good Job'
+          footer: '<i class="far fa-bookmark"></i> تعداد امتحانات که موجود هستن'
         },
         {
           title: '+45 xP',
@@ -138,7 +138,7 @@ export default {
           type: 'primary',
           icon: 'tim-icons icon-shape-star',
           footer:
-            '<i class="tim-icons icon-sound-wave"></i></i> Progress To BEGINNER <span class="coloredLink">85%</span>  '
+            '<i class="tim-icons icon-sound-wave"></i></i> مرحله ی بعد BEGINNER <span class="coloredLink">85%</span>  '
         }
       ];
     },

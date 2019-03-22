@@ -21,7 +21,7 @@
             alt="Ask Arya london underground logo"
           >
         </div>
-        <div class="col-md-6 iconSection text-left px-4 pt-4">
+        <div class="col-md-6 iconSection text-left px-4 pt-5">
           <p class="lead pt-4">
             <a href="https://t.me/AskAryaSomething" class="li-ic">
               AskAryaSomething@
@@ -30,7 +30,7 @@
           </p>
           <p class="lead pt-4 text-rtl">
             <a href="tel:+989032227796" class="fb-ic">
-              (+98) 0903 222 7796
+              09032227796
               <i class="fa fa-phone mx-5 icon-text"></i>
             </a>
           </p>

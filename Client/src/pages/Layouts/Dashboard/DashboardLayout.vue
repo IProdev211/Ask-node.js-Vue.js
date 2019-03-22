@@ -2,43 +2,39 @@
   <div class="wrapper" :class="{ 'nav-open': $sidebar.showSidebar }">
     <notifications></notifications>
     <sidebar-fixed-toggle-button/>
-    <side-bar
-      :background-color="sidebarBackground"
-      :short-title="$t('sidebar.shortTitle')"
-      :title="$t('sidebar.title')"
-    >
+    <side-bar :background-color="sidebarBackground" :short-title="'پنل کاربری'" :title="'داشبورد'">
       <template slot="links">
         <sidebar-item
           :link="{
-            name: $t('sidebar.dashboard'),
+            name: 'پنل کاربری',
             icon: 'far fa-user',
             path: '/dashboard'
           }"
         ></sidebar-item>
 
-        <sidebar-item :link="{ name: $t('sidebar.courses'), icon: 'fas fa-graduation-cap' }">
-          <sidebar-item :link="{ name: $t('sidebar.ViewAllCourses'), path: '/courses' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('sidebar.singleLesson'), path: '/singlelesson' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('sidebar.quiz'), path: '/quiz' }"></sidebar-item>
+        <sidebar-item :link="{ name: 'دوره ها', icon: 'fas fa-graduation-cap' }">
+          <sidebar-item :link="{ name: 'دوره‌ ها', path: '/courses' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'یک جلسه', path: '/singlelesson' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'امتحان', path: '/quiz' }"></sidebar-item>
         </sidebar-item>
 
         <sidebar-item
           :link="{
-            name: $t('sidebar.points'),
+            name: 'امتیاز',
             icon: 'fas fa-gem',
             path: '/points'
           }"
         ></sidebar-item>
 
-        <sidebar-item :link="{ name: $t('sidebar.adminSection'), icon: 'fas fa-tools' }">
-          <sidebar-item :link="{ name: $t('sidebar.manageUsers'), path: '/manageusers' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('sidebar.courseOverview'), path: '/courseoverview' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('sidebar.episodeOverview'), path: '/episodeoverview' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('sidebar.createCourse'), path: '/createcourse' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('sidebar.editCourse'), path: '/editcourse' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('sidebar.createEpisode'), path: '/createepisode' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('sidebar.editEpisode'), path: '/editepisode' }"></sidebar-item>
-          <sidebar-item :link="{ name: $t('sidebar.createQuiz'), path: '/createquiz' }"></sidebar-item>
+        <sidebar-item :link="{ name: 'پنل مدیریت', icon: 'fas fa-tools' }">
+          <sidebar-item :link="{ name: 'کاربران سایت', path: '/manageusers' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'دوره ها', path: '/courseoverview' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'بخش دوره‌ها', path: '/episodeoverview' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'ایجاد دوره', path: '/createcourse' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'ویرایش دوره', path: '/editcourse' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'ایجاد جلسه', path: '/createepisode' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'ویرایش جلسه', path: '/editepisode' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'ایجاد امتحان', path: '/createquiz' }"></sidebar-item>
         </sidebar-item>
       </template>
     </side-bar>

@@ -11,7 +11,7 @@
           <span class="navbar-toggler-bar bar3"></span>
         </button>
       </div>
-      <a class="navbar-brand" href="/">{{ routeName }}</a>
+      <a class="navbar-brand" href="/">اسک آریا</a>
     </div>
 
     <ul class="navbar-nav" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'">
@@ -33,17 +33,17 @@
             <img :src="userAvatar">
           </div>
           <b class="caret d-none d-lg-block d-xl-block"></b>
-          <p class="d-lg-none">Profile</p>
+          <p class="d-lg-none">پنل کاربری</p>
         </a>
         <li class="nav-link">
-          <a href="/" class="nav-item dropdown-item">Profile</a>
+          <a href="/" class="nav-item dropdown-item">پنل کاربری</a>
         </li>
         <li class="nav-link">
-          <a href="courses" class="nav-item dropdown-item">Courses</a>
+          <a href="courses" class="nav-item dropdown-item">دوره های آموزشی</a>
         </li>
         <div class="dropdown-divider"></div>
         <li class="nav-link">
-          <a href="/" class="nav-item dropdown-item">Logout</a>
+          <a href="/" class="nav-item dropdown-item">خروج</a>
           <!-- <router-link class="nav-item dropdown-item" to="/">Logout</router-link> -->
         </li>
       </base-dropdown>
