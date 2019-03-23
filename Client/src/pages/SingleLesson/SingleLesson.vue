@@ -12,22 +12,18 @@
             <div class="hover m-widget7 m-widget7--skin-dark infoBox">
               <!-- COURSE HEADER / LEARNING OBJECTIVES -->
               <div class="head-section px-3">
-                <h2 class="card-title pt-3">Introduction into Grammar</h2>
-                <p class="lead">
-                  In this lecture you will learn the fundamentals of the English
-                  language. We will cover: nouns, verbs, adjectives, adverbs,
-                  and much more!
-                </p>
+                <h2 class="card-title py-3">مقدمه ای بر گرامر</h2>
+                <p
+                  class="lead"
+                >در این سخنرانی شما اصول زبان انگلیسی را خواهید آموخت. ما اسم ها، فعل ها، صفت ها، اعراض ها و خیلی بیشتر را پوشش خواهیم داد.</p>
               </div>
               <hr>
               <div class="head-section px-3">
-                <h4 v-if="notEnrolled" class="pt-3 text-danger">To Access This Course Please Follow
-                  <router-link class="text-success font-weight-bold" to="buy">This Purchase Link</router-link>.
+                <h4 v-if="notEnrolled" class="pt-3 text-danger">
+                  برای دسترسی به این درس لطفا این لینک
+                  <router-link class="text-success font-weight-bold" to="buy">خرید</router-link>را دنبال کنید.
                 </h4>
-                <h4 v-else class="pt-3 text-success">
-                  You Are
-                  <span class="font-weight-bold">Enrolled</span> on this Course
-                </h4>
+                <h4 v-else class="pt-3 text-success">شما کاملا به این دوره برای همیشه دسترسی دارید.</h4>
               </div>
 
               <hr>
@@ -35,7 +31,7 @@
               <div class="d-flex justify-content-between px-3 pt-2">
                 <div>
                   <h5>
-                    <i class="tim-icons icon-watch-time pr-2"></i>Course Length:
+                    <i class="tim-icons icon-watch-time pr-2"></i>طول دوره:
                   </h5>
                 </div>
                 <div>
@@ -46,7 +42,7 @@
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
                   <h5>
-                    <i class="tim-icons icon-badge pr-2"></i>Created On:
+                    <i class="tim-icons icon-badge pr-2"></i>ایجاد شده در:
                   </h5>
                 </div>
                 <div>
@@ -57,7 +53,7 @@
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
                   <h5>
-                    <i class="tim-icons icon-puzzle-10 pr-2"></i>Prerequisites:
+                    <i class="tim-icons icon-puzzle-10 pr-2"></i>پیش نیازها:
                   </h5>
                 </div>
                 <div>
@@ -68,7 +64,7 @@
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
                   <h5>
-                    <i class="tim-icons icon-money-coins pr-2"></i>Price:
+                    <i class="tim-icons icon-money-coins pr-2"></i>قیمت:
                   </h5>
                 </div>
                 <div>
@@ -80,7 +76,7 @@
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
                   <h5>
-                    <i class="tim-icons icon-single-02 pr-2"></i>Views:
+                    <i class="tim-icons icon-single-02 pr-2"></i>تعداد شرکت کنندگان:
                   </h5>
                 </div>
                 <div>
@@ -92,7 +88,7 @@
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
                   <h5>
-                    <i class="tim-icons icon-badge pr-2"></i>Instructor:
+                    <i class="tim-icons icon-badge pr-2"></i>معلم:
                   </h5>
                 </div>
                 <div>
@@ -122,41 +118,33 @@
       </div>
       <!-- Timeline Unit Section -->
       <div class="col-md-12">
-        <h1 class="text-center text-success pt-4">Course Lessons</h1>
-        <time-line>
+        <h1 class="text-center text-success pt-4">درسهای دوره</h1>
+        <time-line class="text-right">
           <time-line-item inverted badge-type="danger" badge-icon="fas fa-lock">
             <span
               slot="header"
               class="badge badge-size badge-pill badge-danger"
             >1 - Vocabulary Introduction</span>
-            <p slot="content">
-              Wifey made the best Father's Day meal ever. So thankful so happy
-              so blessed. Thank you for making my family We just had fun with
-              the “future” theme !!! It was a fun night all together ... The
-              always rude Kanye Show at 2am Sold Out Famous viewing @ Figueroa
-              and 12th in downtown.
-            </p>
+            <p
+              slot="content"
+            >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه مجله در ستون.</p>
             <h6 slot="footer">
               <i class="far fa-clock"></i>
-              Video Length -
+              طول قسمت:
               <span class="text-success">12 Mins</span>
             </h6>
           </time-line-item>
-          <time-line-item inverted badge-type="success" badge-icon="fas fa-unlock">
+          <time-line-item badge-type="success" badge-icon="fas fa-unlock">
             <span
               slot="header"
               class="badge badge-size badge-pill badge-success"
             >2 - Getting Started Introduction</span>
-            <p slot="content">
-              Thank God for the support of my wife and real friends. I also
-              wanted to point out that it’s the first album to go number 1 off
-              of streaming!!! I love you Ellen and also my number one design
-              rule of anything I do from shoes to music to homes is that Kim has
-              to like it....
-            </p>
+            <p
+              slot="content"
+            >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه مجله در ستون.</p>
             <h6 slot="footer">
               <i class="far fa-clock"></i>
-              Video Length -
+              طول قسمت:
               <span class="text-success">7 Mins</span>
             </h6>
           </time-line-item>
@@ -165,15 +153,12 @@
               slot="header"
               class="badge badge-size badge-pill badge-success"
             >2-1 - Countries and Nationalities</span>
-            <p slot="content">
-              Tune into Big Boy's 92.3 I'm about to play the first single from
-              Cruel Winter Tune into Big Boy's 92.3 I'm about to play the first
-              single from Cruel Winter also to Kim’s hair and makeup Lorraine
-              jewelry and the whole style squad at Balmain and the Yeezy team.
-            </p>
+            <p
+              slot="content"
+            >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه مجله در ستون.</p>
             <h6 slot="footer">
               <i class="far fa-clock"></i>
-              Video Length -
+              طول قسمت:
               <span class="text-success">19 Mins</span>
             </h6>
           </time-line-item>
@@ -182,7 +167,7 @@
 
       <!-- Button Notification -->
       <div class="col-md-2 ml-auto mr-auto my-3">
-        <base-button type="primary" block @click.native="notifyVue('top', 'left')">Click Me</base-button>
+        <base-button type="primary" block @click.native="notifyVue('top', 'left')">Test Button</base-button>
       </div>
     </div>
   </div>

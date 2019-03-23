@@ -1,9 +1,13 @@
 .rtl {
   font-family: 'IranSans';
 
-  // * {
-  //   text-align: right;
-  // }
+  .text-ltr {
+    direction: ltr;
+  }
+
+  .text-rtl {
+    direction: rtl;
+  }
 
   .btn {
     font-family: IranSans;

@@ -203,6 +203,13 @@ const routes = [{
           default: SingleLesson
         }
       },
+      // {
+      //   path: 'SingleLesson/',
+      //   name: 'Single Lesson',
+      //   components: {
+      //     default: SingleLesson
+      //   }
+      // },
       {
         path: 'quiz',
         name: 'Quiz',

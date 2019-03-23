@@ -3,21 +3,20 @@
     <div class="row">
       <div class="col-md-4">
         <p class="px-4 my-4 vip-title text-black">
-          <i class="fas fa-unlock px-3"></i>VIP Access
+          VIP Access<i class="fas fa-unlock px-3"></i>
         </p>
       </div>
 
       <div class="col-md-5 my-auto">
-        <p class="px-4 my-auto vip-desc text-black">
-          <span class="font-weight-bold">1 Month</span> full access to
-          <span class="font-weight-bold">all</span> VIP content.
+        <p class="px-4 my-auto vip-desc text-center py-3 text-black">
+          <span class="font-weight-bold">۱ ماه</span> دسترسی کامل به
+          <span class="font-weight-bold">تمام</span> محتوای عضویت ویژه.
         </p>
       </div>
-
-      <div class="col-md-3 my-auto text-right px-3">
+      <div class="col-md-3 my-auto text-center px-3">
         <router-link to="buyVIP">
-          <base-button class="px-2 mb-2" type="danger">
-            <i class="tim-icons icon-money-coins pr-2"></i> 29,000 Tomans
+          <base-button class="mb-2" type="danger">
+            <i class="tim-icons icon-money-coins px-2"></i> ۲۹،۰۰۰ تومان‎ 
           </base-button>
         </router-link>
       </div>
@@ -41,6 +40,6 @@
 }
 
 .vip-desc {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 </style>

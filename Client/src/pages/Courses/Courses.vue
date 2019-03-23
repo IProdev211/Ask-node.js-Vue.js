@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div class="unitHeader pt-2">
-      <h1 class="text-center pb-2 text-success">{{ episodes }} lessons • {{ hours }} Hours • {{ total }} Courses
+      <h1 class="text-center pb-2 text-success text-ltr"> <span class="headerStyling">{{ episodes }}</span> lessons • <span class="headerStyling">{{ hours }}</span>  Hours • <span class="headerStyling">{{ total }}</span> Courses
         <br>
-        <h3 class="text-danger pt-3">New content is added every week!</h3>
+        <h3 class="text-danger pt-3 text-rtl">محتوای جدید هر هفته اضافه می شود!</h3>
       </h1>
     </div>
 
@@ -59,3 +59,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.headerStyling {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: rgb(56, 218, 164);
+}
+</style>
