@@ -5,7 +5,7 @@
         <!-- Table -->
         <div class="col-md-5 mb-5 pt-3">
           <div slot="header">
-            <h2 class="card-title text-center pb-3">Ask Arya xP Points System</h2>
+            <h2 class="card-title text-center pb-3">امتیاز اسک آریا</h2>
           </div>
           <el-table :data="tableData">
             <el-table-column min-width="65" label="Badge" align="center">
@@ -20,7 +20,7 @@
         <!-- Points System Explanation -->
         <div class="col-md-7 mb-5 pt-3">
           <div>
-            <h2 class="card-title text-center pb-3">How Does It Work?</h2>
+            <h2 class="card-title text-center pb-3">چگونه کار می کند؟</h2>
             <!-- video element -->
             <vue-plyr class="videoWidth videoPlayer pt-5 px-3">
               <video poster="poster.png" src="video.mp4">
@@ -33,17 +33,10 @@
               </video>
             </vue-plyr>
             <div class="container">
-              <p class="pt-5">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Tenetur doloremque aperiam cumque quaerat sit rem tempore, rerum
-                quis assumenda? Unde ducimus exercitationem voluptatum odio
-                modi, expedita, doloribus, asperiores maxime enim dicta.
+              <p class="pt-5 text-right">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                 <br>
-                <br>Eveniet dolor assumenda maxime molestias esse voluptatem
-                est molestiae corporis, rem adipisci est temporibus accusantium.
-                Excepturi quibusdam blanditiis, oloremque nostrum porro
-                excepturi eligendi non soluta quasi nam autem repudiandae neque
-                itaque amet atque, molestias aut eaque fugit voluptatem?
+                <br>تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در
               </p>
             </div>
           </div>

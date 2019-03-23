@@ -51,7 +51,7 @@
             </ul>
           </p>
           <div class="row pt-3">
-            <div class="col-md-3">
+            <div class="col-md-4">
               <base-input
                 type="text"
                 label="Full Name"
@@ -60,7 +60,7 @@
                 :error="fieldErrors.name"
               ></base-input>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <base-input
                 type="email"
                 label="Email Address"
@@ -69,25 +69,26 @@
                 :error="fieldErrors.email"
               ></base-input>
             </div>
-            <div class="col-md-4 pt-3">
+            <div class="col-md-3 pt-3">
               <image-upload
                 type="avatar"
-                select-text="Upload Profile Picture"
+                select-text="Profile Picture"
                 @change="onAvatarChange"
               />
             </div>
-            <div class="col-md-2 mt-3">
+            <div class="col-md-2 mt-3 mr-auto">
               <base-button
                 native-type="submit"
                 type="primary"
                 class="btn btn-success btn-simple btn-sm"
               >Save</base-button>
             </div>
+            <div class="btn-group col-md-3 mt-3">
+              <button @click="changeLangFa" class="btn btn-info btn-outline btn-sm">Farsi</button>
+              <button @click="changeLangEn" class="btn btn-info btn-outline btn-sm">English</button>
+            </div>
           </div>
-          <div class="btn-group pt-3">
-            <button @click="changeLangFa" class="btn btn-info btn-outline btn-sm">Farsi</button>
-            <button @click="changeLangEn" class="btn btn-info btn-outline btn-sm">English</button>
-          </div>
+          
         </form>
       </div>
     </card>

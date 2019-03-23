@@ -15,7 +15,7 @@
     </div>
 
     <base-pagination
-      class="pagination-no-border"
+      class="pagination-no-border mt-auto mr-auto"
       v-model="pagination.currentPage"
       :per-page="pagination.perPage"
       :total="total"

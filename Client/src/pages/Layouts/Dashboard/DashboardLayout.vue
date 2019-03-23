@@ -15,7 +15,7 @@
         <sidebar-item :link="{ name: 'دوره ها', icon: 'fas fa-graduation-cap' }">
           <sidebar-item :link="{ name: 'دوره‌ ها', path: '/courses' }"></sidebar-item>
           <sidebar-item :link="{ name: 'یک جلسه', path: '/singlelesson' }"></sidebar-item>
-          <sidebar-item :link="{ name: 'امتحان', path: '/quiz' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'امتحان ها', path: '/quiz' }"></sidebar-item>
         </sidebar-item>
 
         <sidebar-item
