@@ -28,8 +28,8 @@
 
         <sidebar-item :link="{ name: 'پنل مدیریت', icon: 'fas fa-tools' }">
           <sidebar-item :link="{ name: 'کاربران سایت', path: '/manageusers' }"></sidebar-item>
-          <sidebar-item :link="{ name: 'دوره ها', path: '/courseoverview' }"></sidebar-item>
-          <sidebar-item :link="{ name: 'بخش دوره‌ها', path: '/episodeoverview' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'مدیریت دوره ها', path: '/courseoverview' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'مدیریت جلسه ها', path: '/episodeoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'ایجاد دوره', path: '/createcourse' }"></sidebar-item>
           <sidebar-item :link="{ name: 'ویرایش دوره', path: '/editcourse' }"></sidebar-item>
           <sidebar-item :link="{ name: 'ایجاد جلسه', path: '/createepisode' }"></sidebar-item>

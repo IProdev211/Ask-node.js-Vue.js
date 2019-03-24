@@ -7,9 +7,7 @@
       <div class="col-12">
         <card card-body-classes="table-full-width">
           <div>
-            <div
-              class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
-            >
+            <div class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap">
               <el-select
                 class="select-primary mb-3 pagination-select"
                 v-model="pagination.perPage"
@@ -61,9 +59,7 @@
             class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
           >
             <div class>
-              <p class="card-category">
-                Showing {{ from + 1 }} to {{ to }} of {{ total }} entries
-              </p>
+              <p class="card-category">Showing {{ from + 1 }} to {{ to }} of {{ total }} entries</p>
             </div>
             <base-pagination
               class="pagination-no-border"
