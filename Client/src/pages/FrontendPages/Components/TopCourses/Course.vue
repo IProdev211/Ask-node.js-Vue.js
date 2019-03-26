@@ -8,14 +8,14 @@
         <div class="course__name">
           <h4 class="text-center pt-3">{{ title }}</h4>
         </div>
-        <div class="m-widget7__user">
-          <div class="m-widget7__user-img">
-            <img class="m-widget7__img" src="/img/arya.png" alt>
-          </div>
+        <div class="m-widget7__user mr-auto">
           <div class="m-widget7__info">
             <span class="m-widget7__username">{{ user.name }}</span>
             <br>
             <span class="m-widget7__time">{{ date }}</span>
+          </div>
+          <div class="m-widget7__user-img">
+            <img class="m-widget7__img" src="/img/arya.png" alt>
           </div>
         </div>
         <hr class="fadeline">

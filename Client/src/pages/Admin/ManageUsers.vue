@@ -1,5 +1,5 @@
 <template>
-  <div class>
+  <div class="text-ltr">
     <div>
       <h2 class="text-center">Manage Users</h2>
     </div>

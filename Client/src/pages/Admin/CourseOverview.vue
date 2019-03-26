@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class>
+  <div class="text-ltr">
+    <div>
       <h2 class="text-center">Courses Overview</h2>
       <p class="text-center">
         Here is a list of all active courses on this site

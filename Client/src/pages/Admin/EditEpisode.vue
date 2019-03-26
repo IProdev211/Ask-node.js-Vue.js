@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row text-ltr">
     <div class="col-md-12">
       <card class="stacked-form" title="Stacked Form">
         <h4 slot="header" class="card-title">Edit an Episode</h4>

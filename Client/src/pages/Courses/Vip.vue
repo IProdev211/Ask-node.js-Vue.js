@@ -10,7 +10,7 @@
       <div class="col-md-5 my-auto">
         <p class="px-4 my-auto vip-desc text-center py-3 text-black">
           <span class="font-weight-bold">۱ ماه</span> دسترسی کامل به
-          <span class="font-weight-bold">تمام</span> محتوای عضویت ویژه.
+          <span class="font-weight-bold">تمام</span> محتوای <span class="font-weight-bold">VIP.</span> 
         </p>
       </div>
       <div class="col-md-3 my-auto text-center px-3">

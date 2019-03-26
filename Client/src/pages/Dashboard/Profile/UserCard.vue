@@ -51,19 +51,19 @@
             </ul>
           </p>
           <div class="row pt-3">
-            <div class="col-md-4">
+            <div class="col-md-4 text-ltr">
               <base-input
                 type="text"
-                label="Full Name"
+                label="نام و نام خانوادگی"
                 placeholder="Your Name"
                 v-model="name"
                 :error="fieldErrors.name"
               ></base-input>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 text-ltr">
               <base-input
                 type="email"
-                label="Email Address"
+                label="آدرس ایمیل"
                 placeholder="info@askarya.ir"
                 v-model="email"
                 :error="fieldErrors.email"

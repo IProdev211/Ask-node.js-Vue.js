@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content text-ltr">
     <div class="col-md-8 ml-auto mr-auto">
       <h2 class="text-center">Episode Overview</h2>
     </div>
