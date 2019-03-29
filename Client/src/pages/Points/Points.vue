@@ -7,15 +7,17 @@
           <div slot="header">
             <h2 class="card-title text-center pb-3">امتیاز اسک آریا</h2>
           </div>
-          <el-table :data="tableData">
-            <el-table-column min-width="65" label="Badge" align="center">
-              <div class="photo" slot-scope="{ row }">
-                <img :src="row.img" alt="Table image">
-              </div>
-            </el-table-column>
-            <el-table-column min-width="100" prop="title" label="Title"></el-table-column>
-            <el-table-column min-width="85" prop="xp" label="xP"></el-table-column>
-          </el-table>
+          <div class="text-ltr">
+            <el-table :data="tableData">
+              <el-table-column min-width="65" label="Badge" align="center">
+                <div class="photo" slot-scope="{ row }">
+                  <img :src="row.img" alt="Table image">
+                </div>
+              </el-table-column>
+              <el-table-column min-width="100" prop="title" label="Title"></el-table-column>
+              <el-table-column min-width="85" prop="xp" label="xP"></el-table-column>
+            </el-table>
+          </div>
         </div>
         <!-- Points System Explanation -->
         <div class="col-md-7 mb-5 pt-3">

@@ -21,7 +21,7 @@
         >
       </div>
 
-      <div class="Education py-4 text-right">
+      <div class="Education container py-4 text-right">
         <hr class="hr-1">
         <h2 class="subheading2 text-info">تحصیلات</h2>
         <p class="CustomParagraph">

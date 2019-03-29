@@ -2,7 +2,7 @@
   <div class="home-blog container pt-5">
     <h1 class="pb-5 section-header text-danger text-right">پست های وبلاگ</h1>
     <div class="row px-4">
-      <div class="card-deck">
+      <div class="card-deck text-ltr">
         <div class="col-lg-3 col-md-6 py-2 pb-4" v-for="post in posts" v-bind:key="post.id">
           <BlogCard v-bind="post"></BlogCard>
         </div>

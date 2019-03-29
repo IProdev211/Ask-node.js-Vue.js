@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="copyright">
         &copy; طراحی و تولید شده توسط
-        <a href="https://askarya.ir" target="_blank">اسک آریا</a>، با افتخار در ایران
+        <a class="font-weight-bold" href="https://askarya.ir" target="_blank">اسک آریا</a>، با افتخار در ایران
         <i class="tim-icons icon-heart-2"></i>
         سال ١٣٩٧
       </div>
