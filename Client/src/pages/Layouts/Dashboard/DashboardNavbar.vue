@@ -36,7 +36,7 @@
           <p class="d-lg-none">پنل کاربری</p>
         </a>
         <li class="nav-link">
-          <a href="/" class="nav-item dropdown-item">پنل کاربری</a>
+          <a href="/dashboard" class="nav-item dropdown-item">پنل کاربری</a>
         </li>
         <li class="nav-link">
           <a href="courses" class="nav-item dropdown-item">دوره های آموزشی</a>
