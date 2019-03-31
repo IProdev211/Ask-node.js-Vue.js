@@ -1,35 +1,42 @@
 <template>
   <div>
     <router-link to="singlecourse">
-      <div class="hover m-widget7 m-widget7--skin-dark widget-3">
+      <div class="hover text-ltr m-widget7 m-widget7--skin-dark widget-3">
         <div class="m-widget7__courseimage">
           <img class="m-widget7__courseimage" :src="thumb">
         </div>
         <div class="course__name">
-          <h4 class="text-center pt-3">{{ title }}</h4>
+          <h4 class="text-center course-title pt-3">{{ title }}</h4>
         </div>
-        <div class="m-widget7__user mr-auto">
+        <div class="m-widget7__user">
+          <div class="m-widget7__user-img">
+            <img class="m-widget7__img" src="/img/arya.png" alt>
+          </div>
           <div class="m-widget7__info">
             <span class="m-widget7__username">{{ user.name }}</span>
             <br>
             <span class="m-widget7__time">{{ date }}</span>
           </div>
-          <div class="m-widget7__user-img">
-            <img class="m-widget7__img" src="/img/arya.png" alt>
-          </div>
         </div>
         <hr class="fadeline">
-        <div class="bottom price d-flex justify-content-between px-4 pb-3">
+        <div class="bottom price d-flex justify-content-between px-4 pt-1">
           <div>
             <p class="pricehighlight">
-              <i class="tim-icons icon-money-coins pr-2"></i> {{ formatedPrice }}
+              <i class="tim-icons icon-money-coins pr-2"></i>
+              {{ formatedPrice }}
             </p>
           </div>
           <div>
             <p>
-              <i class="tim-icons icon-watch-time pr-2"></i> {{ time }}
+              <i class="tim-icons icon-watch-time pr-2"></i>
+              {{ time }}
             </p>
           </div>
+        </div>
+        <hr class="fadeline2">
+
+        <div class="text-center">
+          <p class="buyCourseTitle pb-3">تهیه دوره‌</p>
         </div>
       </div>
     </router-link>
@@ -37,32 +44,46 @@
 </template>
 
 <script>
-import moment from "moment";
+import moment from 'moment';
 
 export default {
-  props: ["title", "thumb", "time", "slug", "type", "price", "updatedAt", "user"],
+  props: [
+    'title',
+    'thumb',
+    'time',
+    'slug',
+    'type',
+    'price',
+    'updatedAt',
+    'user'
+  ],
   computed: {
     date() {
-      return moment(this.updatedAt).format("MM/DD/YYYY");
+      return moment(this.updatedAt).format('MM/DD/YYYY');
     },
     formatedPrice() {
-      if (this.type == "free") {
-        return "Free!";
+      if (this.type == 'free') {
+        return 'Free!';
       }
-      return new Intl.NumberFormat().format(parseInt(this.price.replace(",", ""), 10)) + " Tomans";
+      return (
+        new Intl.NumberFormat().format(
+          parseInt(this.price.replace(',', ''), 10)
+        ) + ' Tomans'
+      );
     }
   }
-}
-
+};
 </script>
 
-<style scoped>
+
+<style lang="scss" scoped>
 .outline {
   border-radius: 25px;
 }
 
 .pricehighlight {
-  color: #4ace33;
+  font-size: 0.95rem;
+  color: #fff;
   font-weight: 600;
 }
 
@@ -72,6 +93,16 @@ export default {
     90deg,
     rgba(255, 0, 0, 0),
     rgb(145, 161, 145) 50%,
+    rgba(255, 0, 0, 0) 100%
+  );
+}
+
+.fadeline2 {
+  height: 1px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0),
+    rgba(181, 216, 181, 0.288) 50%,
     rgba(255, 0, 0, 0) 100%
   );
 }
@@ -104,6 +135,10 @@ export default {
 
 .m-widget7__title {
   text-align: center;
+}
+
+.course-title {
+  font-size: 1.4rem;
 }
 
 .m-widget7 .m-widget7__courseimage {
@@ -174,5 +209,14 @@ export default {
 
 .m-widget7.m-widget7--skin-dark .m-widget7__info .m-widget7__time {
   color: #fff;
+}
+.buyCourseTitle {
+  font-size: 1.1rem;
+}
+
+.buyCourseTitle:hover {
+  color: rgb(81, 202, 206);
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 </style>

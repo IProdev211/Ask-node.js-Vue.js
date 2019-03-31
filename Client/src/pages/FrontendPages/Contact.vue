@@ -4,9 +4,7 @@
     <div class="introSection text-center pt-4">
       <div class="container">
         <h1 class="display-2 text-danger pt-2">تماس با ما</h1>
-        <h3
-          class="pt-3"
-        >ما بسیار خوشحالیم که تونستیم نظرتون رو جلب کنیم. پس دست به کار بشید و همین الان با ما تماس بگیرید :)</h3>
+        <h3 class="pt-3">راه ارتباطی ما فقط از این سه طریق می باشد.</h3>
       </div>
     </div>
 
@@ -55,12 +53,14 @@
 }
 
 #contactSection .iconSection a:hover {
-  color: #eb2b36 !important;
+  color: rgb(81, 202, 206) !important;
 }
 
 #contactSection .iconSection a:hover,
-#contactSection .iconSection a:hover .fa::before {
-  color: #eb2b36;
+#contactSection .iconSection a:hover .fa::before,
+#contactSection .iconSection a:hover .fab::before {
+  color: rgb(81, 202, 206) !important;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {

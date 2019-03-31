@@ -29,7 +29,7 @@
                     target="_blank"
                     download="Register"
                     class="btn btn-lg btn-block btn-outline-primary"
-                  >Register</a>
+                  >ثبت نام</a>
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@
                     target="_blank"
                     download="Register"
                     class="btn btn-lg btn-block btn-outline-primary"
-                  >Register</a>
+                  >ثبت نام</a>
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@
                     target="_blank"
                     download="Register"
                     class="btn btn-lg btn-block btn-askarya"
-                  >Register</a>
+                  >ثبت نام</a>
                 </div>
               </div>
             </div>

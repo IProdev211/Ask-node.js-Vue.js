@@ -20,7 +20,7 @@
           <a class="nav-link">{{ 'دوره های ما' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/privateclasses">
-          <a class="nav-link">{{ 'کلاس های خصوصی' }}</a>
+          <a class="nav-link">{{ 'کلاس های حضوری' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/meetups">
           <a class="nav-link">{{ 'میت آپ' }}</a>
@@ -73,7 +73,11 @@
           <div class="container-fluid">
             <div class="copyright">
               &copy; طراحی و تولید شده توسط
-              <a class="font-weight-bold" href="https://askarya.ir" target="_blank">اسک آریا</a>، با افتخار در ایران
+              <a
+                class="font-weight-bold"
+                href="https://askarya.ir"
+                target="_blank"
+              >اسک آریا</a>، با افتخار در ایران
               <i class="tim-icons icon-heart-2"></i>
               سال ١٣٩٧
             </div>
