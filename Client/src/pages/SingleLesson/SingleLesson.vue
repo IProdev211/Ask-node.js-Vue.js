@@ -20,10 +20,10 @@
               <hr>
               <div class="head-section px-3">
                 <h4 v-if="notEnrolled" class="pt-3 text-danger">
-                  برای دسترسی به این درس لطفا این لینک
+                  برای دسترسی به این درس لطفا لینک
                   <router-link class="text-success font-weight-bold" to="buy">خرید</router-link>را دنبال کنید.
                 </h4>
-                <h4 v-else class="pt-3 text-success">شما کاملا به این دوره برای همیشه دسترسی دارید.</h4>
+                <h4 v-else class="pt-3 text-success">شما به طور کامل به این دوره دسترسی دارید.</h4>
               </div>
 
               <hr>
@@ -31,7 +31,7 @@
               <div class="d-flex justify-content-between px-3 pt-2">
                 <div>
                   <h5>
-                    <i class="tim-icons icon-watch-time pr-2"></i>طول دوره:
+                    <i class="tim-icons icon-watch-time pl-2"></i>طول دوره:
                   </h5>
                 </div>
                 <div>
@@ -42,7 +42,7 @@
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
                   <h5>
-                    <i class="tim-icons icon-badge pr-2"></i>ایجاد شده در:
+                    <i class="tim-icons icon-badge pl-2"></i>ایجاد شده در:
                   </h5>
                 </div>
                 <div>
@@ -53,7 +53,7 @@
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
                   <h5>
-                    <i class="tim-icons icon-puzzle-10 pr-2"></i>پیش نیازها:
+                    <i class="tim-icons icon-puzzle-10 pl-2"></i>پیش نیازها:
                   </h5>
                 </div>
                 <div>
@@ -64,7 +64,7 @@
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
                   <h5>
-                    <i class="tim-icons icon-money-coins pr-2"></i>قیمت:
+                    <i class="tim-icons icon-money-coins pl-2"></i>قیمت:
                   </h5>
                 </div>
                 <div>
@@ -76,7 +76,7 @@
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
                   <h5>
-                    <i class="tim-icons icon-single-02 pr-2"></i>تعداد شرکت کنندگان:
+                    <i class="tim-icons icon-single-02 pl-2"></i>تعداد شرکت کنندگان:
                   </h5>
                 </div>
                 <div>
@@ -88,7 +88,7 @@
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
                   <h5>
-                    <i class="tim-icons icon-badge pr-2"></i>معلم:
+                    <i class="tim-icons icon-badge pl-2"></i>معلم:
                   </h5>
                 </div>
                 <div>
@@ -117,52 +117,8 @@
         </p>
       </div>
       <!-- Timeline Unit Section -->
-      <div class="col-md-12">
-        <h1 class="text-center text-success pt-4">درسهای دوره</h1>
-        <time-line class="text-right">
-          <time-line-item inverted badge-type="danger" badge-icon="fas fa-lock">
-            <span
-              slot="header"
-              class="badge badge-size badge-pill badge-danger"
-            >1 - Vocabulary Introduction</span>
-            <p
-              slot="content"
-            >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه مجله در ستون.</p>
-            <h6 slot="footer">
-              <i class="far fa-clock"></i>
-              طول قسمت:
-              <span class="text-success">12 Mins</span>
-            </h6>
-          </time-line-item>
-          <time-line-item badge-type="success" badge-icon="fas fa-unlock">
-            <span
-              slot="header"
-              class="badge badge-size badge-pill badge-success"
-            >2 - Getting Started Introduction</span>
-            <p
-              slot="content"
-            >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه مجله در ستون.</p>
-            <h6 slot="footer">
-              <i class="far fa-clock"></i>
-              طول قسمت:
-              <span class="text-success">7 Mins</span>
-            </h6>
-          </time-line-item>
-          <time-line-item inverted badge-type="success" badge-icon="fas fa-unlock">
-            <span
-              slot="header"
-              class="badge badge-size badge-pill badge-success"
-            >2-1 - Countries and Nationalities</span>
-            <p
-              slot="content"
-            >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه مجله در ستون.</p>
-            <h6 slot="footer">
-              <i class="far fa-clock"></i>
-              طول قسمت:
-              <span class="text-success">19 Mins</span>
-            </h6>
-          </time-line-item>
-        </time-line>
+      <div class="col-md-12 pt-4">
+        <AllUnits></AllUnits>
       </div>
 
       <!-- Button Notification -->
@@ -173,17 +129,19 @@
   </div>
 </template>
 <script>
+import AllUnits from './Components/AllUnits.vue';
 import { TimeLine, TimeLineItem, RouteBreadCrumb } from 'src/components';
 
 export default {
   components: {
+    AllUnits,
     TimeLine,
     TimeLineItem,
     RouteBreadCrumb
   },
   data() {
     return {
-      notEnrolled: true,
+      notEnrolled: false,
       type: ['', 'info', 'success', 'warning', 'danger'],
       notifications: {
         topCenter: false

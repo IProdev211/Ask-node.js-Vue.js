@@ -196,20 +196,20 @@ const routes = [{
           default: Courses
         }
       },
-      {
-        path: 'courses/:slug',
-        name: 'Single Lesson',
-        components: {
-          default: SingleLesson
-        }
-      },
       // {
-      //   path: 'SingleLesson/',
+      //   path: 'courses/:slug',
       //   name: 'Single Lesson',
       //   components: {
       //     default: SingleLesson
       //   }
       // },
+      {
+        path: 'SingleLesson/',
+        name: 'Single Lesson',
+        components: {
+          default: SingleLesson
+        }
+      },
       {
         path: 'quiz',
         name: 'Quiz',
