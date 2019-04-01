@@ -1,40 +1,41 @@
 <template>
   <div>
     <router-link to="singlecourse">
-      <div class="hover text-ltr m-widget7 m-widget7--skin-dark widget-3">
+      <div class="hover m-widget7 m-widget7--skin-dark widget-3">
         <div class="m-widget7__courseimage">
           <img class="m-widget7__courseimage" :src="thumb">
         </div>
         <div class="course__name">
-          <h4 class="text-center course-title pt-3">{{ title }}</h4>
+          <h4 class="text-center course-title pt-4">{{ title }}</h4>
         </div>
-        <div class="m-widget7__user">
-          <div class="m-widget7__user-img">
-            <img class="m-widget7__img" src="/img/arya.png" alt>
+        <div class="m-widget7__course__info d-flex justify-content-between text-center pt-3">
+          <div>
+            <p class="courseTime">
+              {{ time }}۶۵۴
+              <br>
+              <span class="courseTimeSpan">دقیقه صوت و تصویر</span>
+            </p>
           </div>
-          <div class="m-widget7__info">
-            <span class="m-widget7__username">{{ user.name }}</span>
-            <br>
-            <span class="m-widget7__time">{{ date }}</span>
+
+          <div>
+            <p class="unitsAvailable">
+              ۱۳۶
+              <br>
+              <span class="unitsAvailableSpan">درس گفتار</span>
+            </p>
           </div>
         </div>
+
         <hr class="fadeline">
-        <div class="bottom price d-flex justify-content-between px-4 pt-1">
+        <div class="bottom price text-center pt-1">
           <div>
             <p class="pricehighlight">
               <i class="tim-icons icon-money-coins pr-2"></i>
               {{ formatedPrice }}
             </p>
           </div>
-          <div>
-            <p>
-              <i class="tim-icons icon-watch-time pr-2"></i>
-              {{ time }}
-            </p>
-          </div>
         </div>
         <hr class="fadeline2">
-
         <div class="text-center">
           <p class="buyCourseTitle pb-3">تهیه دوره‌</p>
         </div>
@@ -68,7 +69,7 @@ export default {
       return (
         new Intl.NumberFormat().format(
           parseInt(this.price.replace(',', ''), 10)
-        ) + ' Tomans'
+        ) + ' تومان '
       );
     }
   }
@@ -102,7 +103,7 @@ export default {
   background-image: linear-gradient(
     90deg,
     rgba(255, 0, 0, 0),
-    rgba(181, 216, 181, 0.288) 50%,
+    rgba(181, 216, 181, 0.226) 50%,
     rgba(255, 0, 0, 0) 100%
   );
 }
@@ -138,7 +139,8 @@ export default {
 }
 
 .course-title {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  color: #e0e0e0;
 }
 
 .m-widget7 .m-widget7__courseimage {
@@ -157,6 +159,7 @@ export default {
   display: table;
   margin-top: 0.35rem;
   margin-bottom: 1rem;
+  margin-left: 1.9rem;
 }
 
 .m-widget7 .m-widget7__user .m-widget7__user-img .m-widget7__img {
@@ -185,6 +188,30 @@ export default {
 .m-widget7 .m-widget7__button {
   text-align: center;
   margin-bottom: 1.85rem;
+}
+
+.m-widget7__course__info {
+  margin: 0 13%;
+}
+
+.courseTime {
+  color: rgb(189, 189, 189);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.courseTimeSpan {
+  font-size: 0.8rem;
+  color: #adadad;
+}
+
+.unitsAvailable {
+  color: rgb(189, 189, 189);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.unitsAvailableSpan {
+  font-size: 0.8rem;
+  color: #adadad;
 }
 
 .m-widget7 .m-widget7__description {
@@ -216,7 +243,6 @@ export default {
 
 .buyCourseTitle:hover {
   color: rgb(81, 202, 206);
-  font-size: 1.2rem;
   font-weight: 600;
 }
 </style>
