@@ -5,7 +5,7 @@
     <div class="hero-content-homepage">
       <div class="container">
         <h1
-          class="display-2 text-success text-center pb-5"
+          class="display-3 text-success text-center pb-5"
         >آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
         <h2
           class="d-flex justify-content-start my-4 section-header-homepage"

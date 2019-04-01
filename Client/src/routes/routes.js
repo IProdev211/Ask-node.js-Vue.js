@@ -48,6 +48,9 @@ const CreateQuiz = () =>
 const ManageUsers = () =>
   import( /* webpackChunkName: "extra" */ 'src/pages/Admin/ManageUsers.vue');
 
+  const CreateBlog = () =>
+  import( /* webpackChunkName: "extra" */ 'src/pages/Admin/CreateBlog.vue');
+
 //////////////////////////////////////////////////////////////////////
 ///////////////////////////// FRONTEND PAGES /////////////////////////
 
@@ -278,6 +281,13 @@ const routes = [{
         name: 'Manage Users',
         components: {
           default: ManageUsers
+        }
+      },
+      {
+        path: 'createblog',
+        name: 'Create Blog',
+        components: {
+          default: CreateBlog
         }
       }
     ]

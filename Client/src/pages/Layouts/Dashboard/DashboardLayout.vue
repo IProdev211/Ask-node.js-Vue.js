@@ -35,6 +35,7 @@
           <sidebar-item :link="{ name: 'ایجاد جلسه', path: '/createepisode' }"></sidebar-item>
           <sidebar-item :link="{ name: 'ویرایش جلسه', path: '/editepisode' }"></sidebar-item>
           <sidebar-item :link="{ name: 'ایجاد امتحان', path: '/createquiz' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'ایجاد وبلاگ', path: '/createblog' }"></sidebar-item>
         </sidebar-item>
       </template>
     </side-bar>

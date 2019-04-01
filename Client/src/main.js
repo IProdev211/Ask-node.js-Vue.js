@@ -5,6 +5,7 @@ import App from './App.vue';
 // router setup
 import router from './routes/router';
 import i18n from './i18n';
+import CKEditor from '@ckeditor/ckeditor5-vue';
 import backend from './backend';
 import VuePlyr from 'vue-plyr';
 import VueSweetalert2 from 'vue-sweetalert2';
@@ -12,6 +13,7 @@ import VueParticles from 'vue-particles';
 
 // plugin setup
 Vue.use(DashboardPlugin);
+Vue.use(CKEditor);
 Vue.use(VuePlyr);
 Vue.use(VueSweetalert2);
 Vue.use(VueParticles);
