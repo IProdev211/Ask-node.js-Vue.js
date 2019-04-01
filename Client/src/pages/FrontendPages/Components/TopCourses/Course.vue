@@ -8,7 +8,7 @@
         <div class="course__name">
           <h4 class="text-center course-title pt-4">{{ title }}</h4>
         </div>
-        <div class="m-widget7__course__info d-flex justify-content-between text-center pt-3">
+        <div class="m-widget7__course__info d-flex justify-content-between text-center pt-2">
           <div>
             <p class="courseTime">
               {{ time }}۶۵۴
@@ -27,7 +27,7 @@
         </div>
 
         <hr class="fadeline">
-        <div class="bottom price text-center pt-1">
+        <div class="text-center">
           <div>
             <p class="pricehighlight">
               <i class="tim-icons icon-money-coins pr-2"></i>
@@ -36,7 +36,7 @@
           </div>
         </div>
         <hr class="fadeline2">
-        <div class="text-center">
+        <div class="buyCourse text-center">
           <p class="buyCourseTitle pb-3">تهیه دوره‌</p>
         </div>
       </div>
@@ -79,11 +79,11 @@ export default {
 
 <style lang="scss" scoped>
 .outline {
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
 .pricehighlight {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #fff;
   font-weight: 600;
 }
@@ -93,7 +93,7 @@ export default {
   background-image: linear-gradient(
     90deg,
     rgba(255, 0, 0, 0),
-    rgb(145, 161, 145) 50%,
+    rgba(145, 161, 145, 0.705) 50%,
     rgba(255, 0, 0, 0) 100%
   );
 }
@@ -106,11 +106,6 @@ export default {
     rgba(181, 216, 181, 0.226) 50%,
     rgba(255, 0, 0, 0) 100%
   );
-}
-
-.price {
-  font-size: 0.8rem;
-  color: white;
 }
 
 .course-info {
@@ -139,8 +134,8 @@ export default {
 }
 
 .course-title {
-  font-size: 1.3rem;
-  color: #e0e0e0;
+  font-size: 1.2rem;
+  color: #f1f1f1;
 }
 
 .m-widget7 .m-widget7__courseimage {
@@ -191,12 +186,12 @@ export default {
 }
 
 .m-widget7__course__info {
-  margin: 0 13%;
+  margin: 0 15%;
 }
 
 .courseTime {
-  color: rgb(189, 189, 189);
-  font-size: 1.4rem;
+  color: rgb(207, 207, 207);
+  font-size: 1.2rem;
   font-weight: 600;
 }
 .courseTimeSpan {
@@ -205,8 +200,8 @@ export default {
 }
 
 .unitsAvailable {
-  color: rgb(189, 189, 189);
-  font-size: 1.4rem;
+  color: rgb(207, 207, 207);
+  font-size: 1.2rem;
   font-weight: 600;
 }
 .unitsAvailableSpan {
@@ -237,12 +232,16 @@ export default {
 .m-widget7.m-widget7--skin-dark .m-widget7__info .m-widget7__time {
   color: #fff;
 }
+
 .buyCourseTitle {
   font-size: 1.1rem;
+  color: rgb(119, 119, 247);
 }
 
-.buyCourseTitle:hover {
-  color: rgb(81, 202, 206);
-  font-weight: 600;
+.m-widget7:hover {
+  .buyCourseTitle {
+    color: rgb(81, 202, 206);
+    font-weight: 600;
+  }
 }
 </style>

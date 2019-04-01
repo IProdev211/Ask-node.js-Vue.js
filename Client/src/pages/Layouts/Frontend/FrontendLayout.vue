@@ -164,13 +164,13 @@ export default {
 }
 
 .navbar-nav {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: white;
 }
 
 @media (max-width: 768px) {
   .navbar-nav {
-    font-size: 20px;
+    font-size: 1rem;
     color: white;
     padding: 22px 0;
   }

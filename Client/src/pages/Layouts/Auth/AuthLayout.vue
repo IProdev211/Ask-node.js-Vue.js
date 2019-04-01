@@ -156,6 +156,12 @@ export default {
   top: 0;
 }
 
+@media (max-width: 768px) {
+  .nav-item {
+    font-size: 1rem;
+  }
+}
+
 $scaleSize: 0.8;
 @keyframes zoomIn8 {
   from {
