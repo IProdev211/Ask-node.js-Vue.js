@@ -3,16 +3,15 @@
     <div class="row">
       <div class="col-md-4 card">
         <!-- Quiz Name (Course Name) -->
-        <h5 class="card-header-custom">Grammar Bootcamp <span>Proper Noun Quiz</span></h5>
-        <div class="card-body">
-          <div class="row d-flex justify-content-between">
-            <div>
-              <p class="QuizScore">نمره: 14/20</p>
-            </div>
+        <div class="text-center">
+          <p class="quiz-title font-weight-bold">Proper Noun Quiz</p>
+          <hr class="fadeline">
+          <p class="quiz-subtitle">Grammar Bootcamp</p>
+        </div>
 
-            <div>
-              <a href="#" class="btn btn-primary btn-simple btn-sm">Start Quiz</a>
-            </div>
+        <div class="card-body text-center">
+          <div>
+            <a href="#" class="btn btn-primary btn-simple">Start Quiz</a>
           </div>
         </div>
       </div>
@@ -25,12 +24,51 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.card-header-custom {
+.card {
+  box-sizing: border-box;
+  $border: 2px;
+  color: #fff;
+  background: #000;
+  background-clip: padding-box; /* !importanté */
+  border: solid $border transparent; /* !importanté */
+  border-radius: 1em;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -$border; /* !importanté */
+    border-radius: inherit; /* !importanté */
+    background: linear-gradient(to top, #61d4ae, rgb(145, 209, 25));
+  }
+
+  background-color: rgb(31, 31, 48);
+}
+.fadeline {
+  height: 1px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0),
+    rgba(159, 201, 159, 0.466) 50%,
+    rgba(255, 0, 0, 0) 100%
+  );
+}
+.card {
+  border-radius: 25px;
+}
+.quiz-title {
   padding: 0.75rem 1.25rem;
-  margin-bottom: 0;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   background-color: rgba(29, 29, 29, 0.03);
-  border-bottom: 1px solid rgba(158, 158, 158, 0.253);
+}
+
+.quiz-subtitle {
+  font-size: 1rem;
+  color: rgb(133, 133, 133);
 }
 
 .QuizScore {

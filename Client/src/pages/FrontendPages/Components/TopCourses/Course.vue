@@ -6,7 +6,7 @@
           <img class="m-widget7__courseimage" :src="thumb">
         </div>
         <div class="course__name">
-          <h4 class="text-center course-title pt-4">{{ title }}</h4>
+          <h4 class="text-center font-weight-bold course-title pt-4">{{ title }}</h4>
         </div>
         <div class="m-widget7__course__info d-flex justify-content-between text-center pt-2">
           <div>
@@ -114,7 +114,7 @@ export default {
 
 .widget-3 {
   background-color: #32325d;
-  /* padding: 20px 0; */
+  // padding: 20px 0;
   /* border: 1px solid #1d1d46; */
   border-radius: 25px;
 }

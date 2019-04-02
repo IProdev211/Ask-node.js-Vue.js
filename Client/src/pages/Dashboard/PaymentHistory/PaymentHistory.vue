@@ -106,17 +106,17 @@ export default {
         },
         {
           prop: 'date',
-          label: 'تاریخ',
+          label: 'تاریخ پرداخت',
           minWidth: 110
         },
         {
           prop: 'price',
-          label: 'قیمت',
+          label: 'مقدار پرداختی',
           minWidth: 90
         },
         {
           prop: 'status',
-          label: 'وضعیت',
+          label: 'وضعیت پرداخت',
           minWidth: 90
         }
       ],

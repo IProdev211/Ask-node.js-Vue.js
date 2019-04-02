@@ -1,24 +1,11 @@
 <template>
-  <div id="app">
-        <ckeditor :editor="editor" ... ></ckeditor>
-    </div>
+  <div>
+    <h1>Create Blog</h1>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: 'app',
-        components: {
-            // Use the <ckeditor> component in this view.
-            ckeditor: CKEditor.component
-        },
-        data() {
-            return {
-                editor: ClassicEditor,
 
-                // ...
-            };
-        }
-    }
 </script>
 
 <style>
