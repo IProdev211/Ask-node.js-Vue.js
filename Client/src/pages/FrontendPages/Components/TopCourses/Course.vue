@@ -30,7 +30,7 @@
         <div class="text-center">
           <div>
             <p class="pricehighlight">
-              <i class="tim-icons icon-money-coins pr-2"></i>
+              <i class="tim-icons icon-money-coins pl-2"></i>
               {{ formatedPrice }}
             </p>
           </div>
@@ -64,7 +64,7 @@ export default {
     },
     formatedPrice() {
       if (this.type == 'free') {
-        return 'Free!';
+        return 'رایگان';
       }
       return (
         new Intl.NumberFormat().format(
