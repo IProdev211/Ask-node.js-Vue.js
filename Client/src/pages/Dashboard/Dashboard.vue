@@ -25,58 +25,6 @@
     <div class="col-md-12 mb-4 text-center">
       <PaymentHistory :payments="payments"></PaymentHistory>
     </div>
-
-    <!-- Todos Section -->
-    <!-- <div class="col-md-12 mb-4">
-      <NewTodo></NewTodo>
-    </div>-->
-    <!-- <div class="col-lg-12 col-md-12">
-      <card type="tasks" :header-classes="{ 'text-right': isRTL }">
-        <template slot="header">
-          <h4 class="title d-inline">Tasks</h4>
-        </template>
-        <div class="table-full-width table-responsive">
-          <task-list></task-list>
-        </div>
-      </card>
-    </div>-->
-    <!-- Add/Edit Tasks -->
-    <!-- <div class="col-lg-5">
-      <card title="Horizontal Form">
-        <h4 slot="header" class="card-title">Add / Edit Tasks</h4>
-        <br>
-        <form class="form-horizontal" @submit.prevent="updateTask">
-          <div class="row pb-3 mobileLeft">
-            <label class="col-md-3 col-form-label">Title</label>
-            <div class="col-md-9">
-              <base-input type="text" placeholder="Task Title" v-model="task.title"></base-input>
-            </div>
-          </div>
-          <div class="row mobileLeft">
-            <label class="col-md-3 col-form-label">Description</label>
-            <div class="col-lg-9">
-              <base-input type="text" placeholder="Short Description" v-model="task.description"></base-input>
-            </div>
-          </div>
-          <div class="row">
-            <label class="col-md-3 col-form-label"></label>
-          </div>
-        </form>
-        <br>
-        <div class="row pb-2">
-          <label class="col-md-3 col-form-label"></label>
-          <div class="col-md-9">
-            <base-checkbox>Delete Task</base-checkbox>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-9 offset-md-3 col-12">
-            <base-button class="mt-3" native-type="submit" type="primary">Save Task</base-button>
-          </div>
-        </div>
-        <br>
-      </card>
-    </div>-->
   </div>
 </template>
 <script>
