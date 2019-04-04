@@ -4,14 +4,14 @@
     padding-bottom: $padding-base-horizontal;
 
     .card-header {
-      padding: 0 0 50px;
+      padding: 0;
       overflow: hidden;
 
       img {
         position: absolute;
         left: 0;
-        top: -15%;
-        width: 70%;
+        top: 0;
+        width: 58%;
       }
 
       .card-title {

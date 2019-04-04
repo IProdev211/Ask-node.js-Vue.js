@@ -47,12 +47,12 @@
           </div>
 
           <div class="row" v-else>
-            <div class="pr-4">
+            <div class="pr-3">
               <router-link to="register">
                 <base-button native-type="submit" type="success" class="btn-simple btn">عضویت</base-button>
               </router-link>
             </div>
-            <div class="pr-2">
+            <div class="pr-3">
               <router-link to="login">
                 <base-button native-type="submit" type="danger" class="btn-simple btn">ورود</base-button>
               </router-link>

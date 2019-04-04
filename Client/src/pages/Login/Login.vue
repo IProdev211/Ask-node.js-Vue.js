@@ -1,41 +1,57 @@
 <template>
   <div class="container">
     <div class="row">
-    <div class="col-lg-5 col-md-9 ml-auto mr-auto pt-5">
+    <div class="col-lg-5 col-md-9 ml-auto mr-auto pt-4">
         <form @submit="checkForm">
           <card class="card-login">
             <template slot="header">
               <img class="card-img" src="img/card-primary.png" alt="Card image" />
-              <h4 class="card-title py-1 px-4 text-white">ورود</h4>
+              <h4 class="card-title text-left py-1 px-4 text-white">ورود</h4>
+              <!-- <p class="container pt-3 text-center">با ورود به پنل کاربری میتوانید به سادگی به ویدیو های سایت دسترسی پیدا کنید و مقالات جدید را مطالعه کنید.</p> -->
             </template>
             <div>
-              <base-input placeholder="Email" v-model="email" :required="true" :error="fieldErrors.email" addon-left-icon="tim-icons icon-email-85"></base-input>
-              <base-input placeholder="Password" v-model="password" :required="true" :error="fieldErrors.password"  addon-left-icon="tim-icons icon-lock-circle"></base-input>
-            </div>
-            <div class="GoogleSignin pt-4">
+
+              <label class="pull-right font-weight-bold">پست الکترونیک</label>
+              <base-input placeholder="پست الکترونیک" 
+                v-model="email" 
+                :required="true" 
+                :error="fieldErrors.email">
+              </base-input>
+
+              <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
+              <base-input
+                placeholder="کلمه عبور" 
+                v-model="password" 
+                :required="true" 
+                :error="fieldErrors.password">
+              </base-input>
+            </div>     
+            
+            <div class="text-center pt-4">
+              <p>شما میتوانید با اکانت گوگل وارد سایت شوید</p>
               <router-link to="googlesignin">
-                <h4>
-                  <i class="fab fa-google text-danger px-2"></i>Sign in With Google
+                <h4 class="googleicon pt-2">
+                  <i class="fab fa-google text-danger"></i>
                 </h4>
               </router-link>
             </div>
-            <p v-if="formErrors.length">
-              <b>Please correct the following error(s):</b>
+            <p class="text-right" v-if="formErrors.length">
+              <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
               <ul>
                 <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
               </ul>
             </p>
             <div slot="footer">
-              <base-button type="primary" nativeType="submit" class="mb-3" size="lg" :loading="loading" block>Login</base-button>
+              <base-button type="primary" nativeType="submit" class="mb-3" size="lg" :loading="loading" block>ورود</base-button>
               <div class="d-flex justify-content-around">
-              <div class="pull-left">
-                <h6>
-                  <router-link class="link footer-link" to="/register">Create Account</router-link>
-                </h6>
-              </div>
               <div class="pull-right">
                 <h6>
-                  <a href="/forgotpassword" class="link footer-link">Forgot Your Password?</a>
+                  <a href="/forgotpassword" class="link footer-link">رمز عبور را فراموش کرده ام</a>
+                </h6>
+              </div>
+              <div class="pull-left">
+                <h6>
+                  <router-link class="link footer-link" to="/register">فرم عضویت</router-link>
                 </h6>
               </div>
               </div>
@@ -69,11 +85,11 @@ export default {
       let haveError = false;
 
       if (!this.email) {
-        this.fieldErrors.email = 'Email required.';
+        this.fieldErrors.email = 'ایمیل مورد نیاز است';
         haveError = true;
       }
       if (!this.password) {
-        this.fieldErrors.password = 'Password required.';
+        this.fieldErrors.password = 'رمز عبور مورد نیاز است';
         haveError = true;
       }
       if (haveError) {
@@ -98,7 +114,7 @@ export default {
         this.$root.$data.user = response.data.user;
         this.$notify({
           type: 'success',
-          message: `You successfully logged in!`,
+          message: `شما با موفقیت وارد شدید!`,
           icon: 'tim-icons icon-bell-55'
         });
         this.$router.push("dashboard");
@@ -118,7 +134,7 @@ export default {
   line-height: inherit;
   margin-left: 5px;
 }
-.GoogleSignin :hover {
-  color: #fd5d93;
+.googleicon {
+  font-size: 2rem;
 }
 </style>

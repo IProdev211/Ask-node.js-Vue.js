@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="pt-5 col-md-7 mr-auto ml-auto">
+      <div class="pt-3 col-md-7 mr-auto ml-auto">
         <card class="card-register">
           <template slot="header">
             <img class="card-img" src="img/card-primary.png" alt="Card image" />
@@ -15,7 +15,7 @@
               </ul>
             </p>
 
-            <label>نام و نام خانوادگی</label>
+            <label class="pull-right font-weight-bold pt-3">نام و نام خانوادگی</label>
             <base-input 
               v-model="name" 
               :required="true" 
@@ -23,7 +23,7 @@
               placeholder="نام و نام خانوادگی">
             </base-input>
 
-          <label >پست الکترونیک</label>
+          <label class="pull-right font-weight-bold pt-2" >پست الکترونیک</label>
             <base-input
               v-model="email" 
               :required="true" 
@@ -31,7 +31,7 @@
               placeholder="پست الکترونیک">
             </base-input>
 
-            <label>کلمه عبور</label>
+            <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
             <base-input
               v-model="password" 
               :required="true" 
@@ -44,7 +44,7 @@
                 <router-link to="googlesignin">
                   <i class="fab fa-google icon pb-4"></i>
                   <h4>
-                    شما میتوانید بدون ثبت نام با اکانت گوگل وارد سایت شوید
+                    شما میتوانید بدون ثبت نام با اکانت گوگل وارد سایت شوید.
                   </h4>
                   
                 </router-link>
@@ -55,7 +55,7 @@
               </base-checkbox> -->
             </div>
 
-            <base-button nativeType="submit" type="primary" :loading="loading" round block size="lg">Get Started</base-button>
+            <base-button nativeType="submit" type="primary" :loading="loading" round block size="lg">عضویت</base-button>
           </form>
         </card>
       </div>
@@ -188,8 +188,6 @@ color: #D557D9
 }
 .icon:hover {
   color: #00ffaa;
-  transform: rotate(-30deg);
-
 }
 
 </style>

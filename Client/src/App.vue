@@ -6,17 +6,12 @@
 export default {
   methods: {
     initializeLayout() {
-      if (this.$root.$data.user && this.$root.$data.user.lang == "fa") {
-          this.$rtl.enableRTL();
-          this.$i18n.locale = 'fa';
-      } else {
-        this.$i18n.locale = 'en';
-        this.$rtl.disableRTL();
-      }
-    },
+      this.$rtl.enableRTL();
+      this.$i18n.locale = 'fa';
+    }
   },
   mounted() {
     this.initializeLayout();
-  },
+  }
 };
 </script>

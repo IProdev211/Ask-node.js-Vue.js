@@ -85,41 +85,41 @@
     }
 }
 
-.has-success,
-.has-danger{
-    &:after{
-        font-family: 'nucleo';
-        content: "\ea1b";
-        display: inline-block;
-        position: absolute;
-        right: 20px;
-        top: 13px;
-        color: $success;
-        font-size: 11px;
-    }
+// .has-success,
+// .has-danger{
+//     &:after{
+//         font-family: 'nucleo';
+//         content: "\ea1b";
+//         display: inline-block;
+//         position: absolute;
+//         right: 20px;
+//         top: 13px;
+//         color: $success;
+//         font-size: 11px;
+//     }
 
-    &.form-control-lg{
-      &:after{
-        font-size: 13px;
-        top: 24px;
-      }
-    }
+//     &.form-control-lg{
+//       &:after{
+//         font-size: 13px;
+//         top: 24px;
+//       }
+//     }
 
-    &.has-label{
-      &:after{
-        top: 37px;
-      }
-    }
+//     &.has-label{
+//       &:after{
+//         top: 37px;
+//       }
+//     }
 
 
-    &.form-check:after{
-      display: none !important;
-    }
+//     &.form-check:after{
+//       display: none !important;
+//     }
 
-    &.form-check .form-check-label{
-      color: $success;
-    }
-}
+//     &.form-check .form-check-label{
+//       color: $success;
+//     }
+// }
 
 .has-danger{
   &:after{

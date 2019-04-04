@@ -4,7 +4,6 @@ import App from './App.vue';
 
 // router setup
 import router from './routes/router';
-import i18n from './i18n';
 import CKEditor from '@ckeditor/ckeditor5-vue';
 import backend from './backend';
 import VuePlyr from 'vue-plyr';
@@ -30,7 +29,6 @@ function start(data) {
     render: h => h(App),
     router,
     store,
-    i18n,
     data,
   });
 }
