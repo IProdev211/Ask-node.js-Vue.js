@@ -28,6 +28,7 @@
 
         <sidebar-item :link="{ name: 'پنل مدیریت', icon: 'fas fa-tools' }">
           <sidebar-item :link="{ name: 'کاربران سایت', path: '/manageusers' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'ویرایش کاربر', path: '/edituser' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت دوره ها', path: '/courseoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت جلسه ها', path: '/episodeoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'ایجاد دوره', path: '/createcourse' }"></sidebar-item>

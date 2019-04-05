@@ -10,79 +10,85 @@ import NotFound from 'src/pages/Layouts/NotFound/NotFoundPage.vue';
 ///////////////////////////// MY PAGES ///////////////////////////////
 
 const Dashboard = () =>
-  import( /* webpackChunkName: "dashboard" */ 'src/pages/Dashboard/Dashboard.vue');
+  import(/* webpackChunkName: "dashboard" */ 'src/pages/Dashboard/Dashboard.vue');
 
 const Courses = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/Courses/Courses.vue');
+  import(/* webpackChunkName: "extra" */ 'src/pages/Courses/Courses.vue');
 
 const SingleLesson = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/SingleLesson/SingleLesson.vue');
+  import(/* webpackChunkName: "extra" */ 'src/pages/SingleLesson/SingleLesson.vue');
 
 const Quiz = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/Quiz/Quiz.vue');
+  import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/Quiz.vue');
 
 const CourseOverview = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/Admin/CourseOverview.vue');
+  import(/* webpackChunkName: "extra" */ 'src/pages/Admin/CourseOverview.vue');
 
 const Points = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/Points/Points.vue');
+  import(/* webpackChunkName: "extra" */ 'src/pages/Points/Points.vue');
 
 const EpisodeOverview = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/Admin/EpisodeOverview.vue');
+  import(/* webpackChunkName: "extra" */ 'src/pages/Admin/EpisodeOverview.vue');
 
 const EditCourse = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/Admin/EditCourse.vue');
+  import(/* webpackChunkName: "extra" */ 'src/pages/Admin/EditCourse.vue');
 
 const CreateCourse = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/Admin/CreateCourse.vue');
+  import(/* webpackChunkName: "extra" */ 'src/pages/Admin/CreateCourse.vue');
 
 const EditEpisode = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/Admin/EditEpisode.vue');
+  import(/* webpackChunkName: "extra" */ 'src/pages/Admin/EditEpisode.vue');
 
 const CreateEpisode = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/Admin/CreateEpisode.vue');
+  import(/* webpackChunkName: "extra" */ 'src/pages/Admin/CreateEpisode.vue');
 
 const CreateQuiz = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/Admin/CreateQuiz.vue');
+  import(/* webpackChunkName: "extra" */ 'src/pages/Admin/CreateQuiz.vue');
 
 const ManageUsers = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/Admin/ManageUsers.vue');
+  import(/* webpackChunkName: "extra" */ 'src/pages/Admin/ManageUsers.vue');
 
-  const CreateBlog = () =>
-  import( /* webpackChunkName: "extra" */ 'src/pages/Admin/CreateBlog.vue');
+const EditUser = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/Admin/EditUser.vue');
+
+const CreateBlog = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/Admin/CreateBlog.vue');
 
 //////////////////////////////////////////////////////////////////////
 ///////////////////////////// FRONTEND PAGES /////////////////////////
 
 const Home = () =>
-  import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Home.vue');
+  import(/* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Home.vue');
 
 const PrivateClasses = () =>
-  import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/PrivateClasses.vue');
+  import(/* webpackChunkName: "pages" */ 'src/pages/FrontendPages/PrivateClasses.vue');
 
 const Meetups = () =>
-  import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Meetups.vue');
+  import(/* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Meetups.vue');
 
 const Contact = () =>
-  import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Contact.vue');
+  import(/* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Contact.vue');
 
 const OurCourses = () =>
-  import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/OurCourses.vue');
+  import(/* webpackChunkName: "pages" */ 'src/pages/FrontendPages/OurCourses.vue');
 
 const BlogPageSample = () =>
-  import( /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Components/Blog/BlogPageSample.vue');
+  import(/* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Components/Blog/BlogPageSample.vue');
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////// PAGES ///////////////////////////////
 
 const Login = () =>
-  import( /* webpackChunkName: "pages" */ 'src/pages/Login/Login.vue');
+  import(/* webpackChunkName: "pages" */ 'src/pages/Login/Login.vue');
 
 const Register = () =>
-  import( /* webpackChunkName: "pages" */ 'src/pages/Register/Register.vue');
+  import(/* webpackChunkName: "pages" */ 'src/pages/Register/Register.vue');
+
+const ForgotPassword = () =>
+  import(/* webpackChunkName: "pages" */ 'src/pages/Login/ForgotPassword.vue');
 
 const Lock = () =>
-  import( /* webpackChunkName: "pages" */ 'src/pages/Layouts/Lock/Lock.vue');
+  import(/* webpackChunkName: "pages" */ 'src/pages/Layouts/Lock/Lock.vue');
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -91,7 +97,8 @@ let frontendpages = {
   path: '/',
   component: FrontendLayout,
   name: 'Frontend',
-  children: [{
+  children: [
+    {
       path: '/home',
       name: 'Home',
       component: Home
@@ -127,6 +134,11 @@ let frontendpages = {
       component: Login
     },
     {
+      path: '/forgotpassword',
+      name: 'Forgot Password',
+      component: ForgotPassword
+    },
+    {
       path: '/register',
       name: 'Register',
       component: Register
@@ -139,10 +151,8 @@ let frontendpages = {
   ]
 };
 
-
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
 
 // let authPages = {
 //   path: '/',
@@ -169,7 +179,8 @@ let frontendpages = {
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const routes = [{
+const routes = [
+  {
     path: '/',
     redirect: '/home',
     name: 'Home'
@@ -185,7 +196,8 @@ const routes = [{
     meta: {
       auth: true
     },
-    children: [{
+    children: [
+      {
         path: 'dashboard',
         name: 'Dashboard',
         components: {
@@ -281,6 +293,13 @@ const routes = [{
         name: 'Manage Users',
         components: {
           default: ManageUsers
+        }
+      },
+      {
+        path: 'edituser',
+        name: 'Edit User',
+        components: {
+          default: EditUser
         }
       },
       {

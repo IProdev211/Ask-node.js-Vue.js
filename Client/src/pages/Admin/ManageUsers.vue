@@ -50,7 +50,10 @@
                   size="sm"
                   icon
                 >
+                <router-link to="/edituser">
                   <i class="tim-icons icon-pencil"></i>
+                </router-link>
+                  
                 </base-button>
                 <base-button
                   @click.native="handlePassword(props.$index, props.row)"
