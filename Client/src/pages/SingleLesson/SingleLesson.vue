@@ -12,7 +12,12 @@
             <div class="hover m-widget7 m-widget7--skin-dark infoBox">
               <!-- COURSE HEADER / LEARNING OBJECTIVES -->
               <div class="head-section px-3">
-                <h2 class="card-title py-3">مقدمه ای بر گرامر</h2>
+                <h2 class="card-title py-3">
+                  UNIT NAME GOES HERE
+                  <span>
+                    <h4 class="text-muted font-weight-bold pt-2">COURSE NAME GOES HERE</h4>
+                  </span>
+                </h2>
                 <p
                   class="lead"
                 >در این سخنرانی شما اصول زبان انگلیسی را خواهید آموخت. ما اسم ها، فعل ها، صفت ها، اعراض ها و خیلی بیشتر را پوشش خواهیم داد.</p>

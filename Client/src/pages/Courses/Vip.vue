@@ -3,20 +3,22 @@
     <div class="row">
       <div class="col-md-4">
         <p class="px-4 my-4 vip-title text-black">
-          VIP Access<i class="fas fa-unlock px-3"></i>
+          VIP Access
+          <i class="fas fa-unlock px-3"></i>
         </p>
       </div>
 
       <div class="col-md-5 my-auto">
         <p class="px-4 my-auto vip-desc text-center py-3 text-black">
           <span class="font-weight-bold">۱ ماه</span> دسترسی کامل به
-          <span class="font-weight-bold">تمام</span> محتوای <span class="font-weight-bold">VIP.</span> 
+          <span class="font-weight-bold">تمام</span> محتوای
+          <span class="font-weight-bold">VIP.</span>
         </p>
       </div>
       <div class="col-md-3 my-auto text-center px-3">
         <router-link to="buyVIP">
           <base-button class="mb-2" type="danger">
-            <i class="tim-icons icon-money-coins px-2"></i> ۲۹،۰۰۰ تومان‎ 
+            <i class="tim-icons icon-money-coins px-2"></i> ۲۹،۰۰۰ تومان‎
           </base-button>
         </router-link>
       </div>
