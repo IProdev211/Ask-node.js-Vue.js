@@ -3,21 +3,16 @@
     <div class="row">
       <!-- Video Section -->
       <div class="col-md-12 card-background card-body text-center my-3">
-        <div>
-          <route-bread-crumb/>
-        </div>
+        <h3 class="text-white text-center">UNIT NAME GOES HERE</h3>
         <div class="row">
           <!-- Course Info DIV  -->
           <div class="col-lg-3 col-md-12 col-sm-12 mb-3 container">
             <div class="hover m-widget7 m-widget7--skin-dark infoBox">
               <!-- COURSE HEADER / LEARNING OBJECTIVES -->
               <div class="head-section px-3">
-                <h2 class="card-title py-3">
-                  UNIT NAME GOES HERE
-                  <span>
-                    <h4 class="text-muted font-weight-bold pt-2">COURSE NAME GOES HERE</h4>
-                  </span>
-                </h2>
+                <p class="course-title font-weight-bold pt-3">UNIT NAME GOES HERE</p>
+                <p class="course-subtitle text-muted pb-4">COURSE NAME GOES HERE</p>
+
                 <p
                   class="lead"
                 >در این سخنرانی شما اصول زبان انگلیسی را خواهید آموخت. ما اسم ها، فعل ها، صفت ها، اعراض ها و خیلی بیشتر را پوشش خواهیم داد.</p>
@@ -32,17 +27,6 @@
               </div>
 
               <hr>
-              <!-- COURSE LENGTH -->
-              <div class="d-flex justify-content-between px-3 pt-2">
-                <div>
-                  <h5>
-                    <i class="tim-icons icon-watch-time pl-2"></i>طول دوره:
-                  </h5>
-                </div>
-                <div>
-                  <h5 class="bold">13:22:57</h5>
-                </div>
-              </div>
               <!-- COURSE CREATED AT -->
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
@@ -54,15 +38,15 @@
                   <h5 class="bold">25/01/2019</h5>
                 </div>
               </div>
-              <!-- COURSE PREREQUISITES  -->
-              <div class="d-flex justify-content-between px-3 pt-1">
+              <!-- COURSE LENGTH -->
+              <div class="d-flex justify-content-between px-3 pt-2">
                 <div>
                   <h5>
-                    <i class="tim-icons icon-puzzle-10 pl-2"></i>پیش نیازها:
+                    <i class="tim-icons icon-watch-time pl-2"></i>طول دوره:
                   </h5>
                 </div>
                 <div>
-                  <h5 class="bold">None</h5>
+                  <h5 class="bold">13:22:57</h5>
                 </div>
               </div>
               <!-- COURSE PRICE  -->
@@ -126,23 +110,22 @@
         <AllUnits></AllUnits>
       </div>
 
-      <!-- Button Notification -->
+      <!-- Button Notification
       <div class="col-md-2 ml-auto mr-auto my-3">
         <base-button type="primary" block @click.native="notifyVue('top', 'left')">Test Button</base-button>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 <script>
 import AllUnits from './Components/AllUnits.vue';
-import { TimeLine, TimeLineItem, RouteBreadCrumb } from 'src/components';
+import { TimeLine, TimeLineItem } from 'src/components';
 
 export default {
   components: {
     AllUnits,
     TimeLine,
-    TimeLineItem,
-    RouteBreadCrumb
+    TimeLineItem
   },
   data() {
     return {
@@ -185,6 +168,13 @@ export default {
   font-weight: 600;
 }
 
+.course-title {
+  font-size: 1.1rem;
+}
+
+.course-subtitle {
+  font-size: 0.8rem;
+}
 .course-info {
   border-top: 3px solid rgba(110, 85, 85, 0.473);
 }

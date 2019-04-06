@@ -83,12 +83,7 @@
                 class="btn btn-success btn-simple btn-sm"
               >Save</base-button>
             </div>
-            <div class="btn-group col-md-3 mt-3">
-              <button @click="changeLangFa" class="btn btn-info btn-outline btn-sm">Farsi</button>
-              <button @click="changeLangEn" class="btn btn-info btn-outline btn-sm">English</button>
-            </div>
           </div>
-          
         </form>
       </div>
     </card>
