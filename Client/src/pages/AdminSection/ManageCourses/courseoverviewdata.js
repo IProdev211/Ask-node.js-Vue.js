@@ -1,5 +1,4 @@
-export default [
-  {
+export default [{
     id: 1,
     courseName: 'Introduction Into Grammar',
     courseViews: '45',

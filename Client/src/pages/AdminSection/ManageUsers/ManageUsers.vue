@@ -50,12 +50,11 @@
                   size="sm"
                   icon
                 >
-                <router-link to="/edituser">
-                  <i class="tim-icons icon-pencil"></i>
-                </router-link>
-                  
+                  <router-link to="/edituser">
+                    <i class="tim-icons icon-pencil"></i>
+                  </router-link>
                 </base-button>
-                <base-button
+                <!-- <base-button
                   @click.native="handlePassword(props.$index, props.row)"
                   class="btn-link"
                   type="info"
@@ -63,7 +62,7 @@
                   icon
                 >
                   <i class="fas fa-key"></i>
-                </base-button>
+                </base-button>-->
                 <base-button
                   @click.native="handleDelete(props.$index, props.row)"
                   class="remove btn-link"
@@ -159,9 +158,14 @@ export default {
           minWidth: 250
         },
         {
+          prop: 'datejoined',
+          label: 'Date Joined',
+          minWidth: 80
+        },
+        {
           prop: 'amountspent',
           label: 'Amount Spent',
-          minWidth: 120
+          minWidth: 90
         }
       ],
       tableData: manageusersoverviewdata,

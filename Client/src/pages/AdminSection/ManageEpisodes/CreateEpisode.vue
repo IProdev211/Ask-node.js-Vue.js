@@ -7,25 +7,16 @@
           <div>
             <div class="row pb-4">
               <div class="col-md-3">
-                <base-input
-                  label="Episode Name"
-                  placeholder="Episode Name"
-                ></base-input>
+                <base-input label="Episode Name" placeholder="Episode Name"></base-input>
               </div>
               <div class="col-md-2">
-                <base-input
-                  label="Video Length"
-                  placeholder="Length"
-                ></base-input>
+                <base-input label="Video Length" placeholder="Length"></base-input>
               </div>
               <div class="col-md-2">
                 <base-input label="Unit No." placeholder="No."></base-input>
               </div>
               <div class="col-md-5">
-                <base-input
-                  label="Video Link"
-                  placeholder="Video Link"
-                ></base-input>
+                <base-input label="Video Link" placeholder="Video Link"></base-input>
               </div>
               <div class="col-md-4">
                 <base-input label="Unit Text" placeholder="Unit Text">
@@ -70,9 +61,7 @@
             </div>
 
             <div class="mt-5">
-              <base-button class="px-5" native-type="submit" type="primary"
-                >Create Episode</base-button
-              >
+              <base-button class="px-5" native-type="submit" type="primary">Create Episode</base-button>
             </div>
           </div>
         </form>
