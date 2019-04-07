@@ -156,6 +156,7 @@ export default {
 <style scoped lang="scss">
 .usertitle {
   color: #2ae490;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 .navbar.navbar-transparent {
@@ -163,8 +164,9 @@ export default {
   // background: linear-gradient(to right, #6411b8, #a200ff) !important;
 }
 
-.navbar-nav {
-  font-size: 1rem;
+.navbar-nav li {
+  font-size: 1.1rem;
+  padding: 0 12px;
   color: white;
 }
 

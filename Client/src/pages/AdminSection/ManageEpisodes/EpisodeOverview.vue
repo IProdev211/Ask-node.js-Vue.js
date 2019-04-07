@@ -1,86 +1,99 @@
 <template>
-  <div class="content text-ltr">
-    <div class="col-md-8 ml-auto mr-auto">
-      <h2 class="text-center">Episode Overview</h2>
-    </div>
-    <div class="row mt-5">
-      <div class="col-12">
-        <card card-body-classes="table-full-width">
-          <div>
-            <div class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap">
-              <el-select
-                class="select-primary mb-3 pagination-select"
-                v-model="pagination.perPage"
-                placeholder="Per page"
+  <section>
+    <div class="text-ltr">
+      <div>
+        <h2 class="text-center">Episode Overview</h2>
+      </div>
+      <div class="mt-5">
+        <div>
+          <card card-body-classes="table-full-width">
+            <div>
+              <div
+                class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
               >
-                <el-option
-                  class="select-primary"
-                  v-for="item in pagination.perPageOptions"
-                  :key="item"
-                  :label="item"
-                  :value="item"
-                ></el-option>
-              </el-select>
+                <el-select
+                  class="select-primary mb-3 pagination-select"
+                  v-model="pagination.perPage"
+                  placeholder="Per page"
+                >
+                  <el-option
+                    class="select-primary"
+                    v-for="item in pagination.perPageOptions"
+                    :key="item"
+                    :label="item"
+                    :value="item"
+                  ></el-option>
+                </el-select>
+              </div>
+              <el-table :data="queriedData">
+                <el-table-column
+                  v-for="column in tableColumns"
+                  :key="column.label"
+                  :min-width="column.minWidth"
+                  :prop="column.prop"
+                  :label="column.label"
+                ></el-table-column>
+                <el-table-column :min-width="105" align="center" label="Settings">
+                  <div slot-scope="props">
+                    <router-link to="editcourse">
+                      <base-button
+                        @click.native="handleEdit(props.$index, props.row)"
+                        class="edit btn-link"
+                        type="warning"
+                        size="sm"
+                        icon
+                      >
+                        <i class="tim-icons icon-pencil"></i>
+                      </base-button>
+                    </router-link>
+                    <router-link to="deletecourse">
+                      <base-button
+                        @click.native="handleDelete(props.$index, props.row)"
+                        class="remove btn-link"
+                        type="danger"
+                        size="sm"
+                        icon
+                      >
+                        <i class="tim-icons icon-simple-remove"></i>
+                      </base-button>
+                    </router-link>
+                  </div>
+                </el-table-column>
+              </el-table>
             </div>
-            <el-table :data="queriedData">
-              <el-table-column
-                v-for="column in tableColumns"
-                :key="column.label"
-                :min-width="column.minWidth"
-                :prop="column.prop"
-                :label="column.label"
-              ></el-table-column>
-              <el-table-column :min-width="105" align="center" label="Settings">
-                <div slot-scope="props">
-                  <base-button
-                    @click.native="handleEdit(props.$index, props.row)"
-                    class="edit btn-link"
-                    type="warning"
-                    size="sm"
-                    icon
-                  >
-                    <i class="tim-icons icon-pencil"></i>
-                  </base-button>
-                  <base-button
-                    @click.native="handleDelete(props.$index, props.row)"
-                    class="remove btn-link"
-                    type="danger"
-                    size="sm"
-                    icon
-                  >
-                    <i class="tim-icons icon-simple-remove"></i>
-                  </base-button>
-                </div>
-              </el-table-column>
-            </el-table>
-          </div>
-          <div
-            slot="footer"
-            class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
-          >
-            <div class>
-              <p class="card-category">Showing {{ from + 1 }} to {{ to }} of {{ total }} entries</p>
+            <div
+              slot="footer"
+              class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
+            >
+              <div class>
+                <p class="card-category">Showing {{ from + 1 }} to {{ to }} of {{ total }} entries</p>
+              </div>
+              <base-pagination
+                class="pagination-no-border"
+                v-model="pagination.currentPage"
+                :per-page="pagination.perPage"
+                :total="total"
+              ></base-pagination>
             </div>
-            <base-pagination
-              class="pagination-no-border"
-              v-model="pagination.currentPage"
-              :per-page="pagination.perPage"
-              :total="total"
-            ></base-pagination>
-          </div>
-        </card>
+          </card>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="pt-3">
+      <CreateEditEpisode></CreateEditEpisode>
+    </div>
+  </section>
 </template>
 <script>
+import CreateEditEpisode from './CreateEditEpisode';
 import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
-import courseoverviewdata from '../ManageCourses/courseoverviewdata';
+import episodeoverviewdata from './episodeoverviewdata';
 import swal from 'sweetalert2';
 
 export default {
   components: {
+    CreateEditEpisode,
     BasePagination,
     [Select.name]: Select,
     [Option.name]: Option,
@@ -122,10 +135,10 @@ export default {
         perPageOptions: [5, 10, 15],
         total: 0
       },
-      propsToSearch: ['courseName', 'comments', 'courseViews', 'courseType'],
+      propsToSearch: ['episodeName', 'comments', 'episodeViews', 'episodeType'],
       tableColumns: [
         {
-          prop: 'courseName',
+          prop: 'episodeName',
           label: 'Course Name',
           minWidth: 220
         },
@@ -135,17 +148,17 @@ export default {
           minWidth: 80
         },
         {
-          prop: 'courseViews',
+          prop: 'episodeViews',
           label: 'Course Views',
           minWidth: 80
         },
         {
-          prop: 'courseType',
+          prop: 'episodeType',
           label: 'Course Type',
           minWidth: 80
         }
       ],
-      tableData: users,
+      tableData: episodeoverviewdata,
       searchedData: [],
       fuseSearch: null
     };

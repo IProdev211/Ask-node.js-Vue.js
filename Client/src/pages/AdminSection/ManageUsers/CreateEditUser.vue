@@ -10,29 +10,32 @@
             <div class="row pt-2">
               <div class="col-md-12">
                 <div class="row">
-                  <div class="col-md-2">
-                    <img class="avatar" :src="userAvatar" alt="Users Profile Image">
+                  <div class="text-center col-md-12">
+                    <div class="pb-4">
+                      <img class="avatar" :src="userAvatar" alt="Users Profile Image">
+                    </div>
+                    <div class="py-4">
+                      <image-upload @change="onImageChange" select-text="Edit User Image"/>
+                    </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <base-input label="Edit User Full Name" placeholder="User Full Name"></base-input>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <base-input label="Edit User Email" placeholder="User Email"></base-input>
+                  </div>
+                  <div class="col-md-2">
+                    <base-input label="Edit User Password" placeholder="User Password"></base-input>
                   </div>
                   <div class="col-md-2">
                     <base-input label="Edit User xP Points" placeholder="xP"></base-input>
                   </div>
-                  <div class="col-md-4">
-                    <base-input label="Edit User Password" placeholder="User Password"></base-input>
-                  </div>
-                  <div class="col-md-2 pt-4">
-                    <image-upload @change="onImageChange" select-text="Edit User Profile Image"/>
-                  </div>
-                  <div class="col-md-5 py-4">
+
+                  <div class="col-md-2 py-4">
                     <el-select
                       class="select-primary text-ltr"
                       size="large"
-                      placeholder="VIP Account Access"
+                      placeholder="VIP Access"
                       v-model="selects.simple"
                     >
                       <el-option
@@ -46,9 +49,9 @@
                   </div>
 
                   <!-- User Stats  -->
-                  <div class="pt-4">
+                  <div class="container pt-4">
                     <!-- Enrolled Courses -->
-                    <div class="Enrolled-Courses col-md-12 pt-3">
+                    <div>
                       <p class="enrolled-on font-weight-bold">Courses Enrolled On:</p>
                       <ul>
                         <li class="enrolled-course">
@@ -59,23 +62,21 @@
                     </div>
 
                     <!-- VIP Membership -->
-                    <div class="col-md-12 pt-4">
+                    <div class="pt-4">
                       <p class="vip-on font-weight-bold">VIP Member:</p>
-                      <ul class="vip-status">
-                        <li>
-                          From:
-                          <span class="pr-4">14/12/2018</span>
-                          To:
-                          <span>14/02/2019</span>
-                        </li>
-                      </ul>
+                      <p class="vip-status">
+                        From:
+                        <span class="pr-4">14/12/2018</span>
+                        To:
+                        <span>14/02/2019</span>
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="mt-5 pull-right">
-              <base-button class="px-5" native-type="submit" type="primary">Edit User</base-button>
+              <base-button class="px-5" native-type="submit" type="primary">Create / Edit User</base-button>
             </div>
           </div>
         </form>
@@ -103,9 +104,9 @@ export default {
       selects: {
         simple: '',
         CourseType: [
-          { value: '1-Month VIP', label: '1-Month VIP Access' },
-          { value: '2-Month VIP', label: '2-Month VIP Access' },
-          { value: '3-Month VIP', label: '3-Month VIP Access' }
+          { value: '1-Month VIP', label: '1-Month Access' },
+          { value: '2-Month VIP', label: '2-Month Access' },
+          { value: '3-Month VIP', label: '3-Month Access' }
         ],
         multiple: 'ARS'
       }
@@ -132,7 +133,7 @@ export default {
   span {
     font-size: 0.8rem;
     padding-left: 10px;
-    color: rgb(141, 141, 141);
+    color: rgb(165, 165, 165);
   }
 }
 
@@ -143,7 +144,7 @@ export default {
   padding-top: 10px;
   span {
     padding-left: 3px;
-    color: rgb(141, 141, 141);
+    color: rgb(161, 161, 161);
   }
 }
 </style>

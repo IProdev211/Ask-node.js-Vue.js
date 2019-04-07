@@ -2,7 +2,9 @@
   <div class="row text-ltr">
     <div class="col-md-12">
       <card class="stacked-form" title="Stacked Form">
-        <span class="font-weight-bold pr-1">Add/Edit</span> Episode
+        <h4 slot="header" class="card-title">
+          <span class="font-weight-bold pr-1">Add/Edit</span> Episode
+        </h4>
         <form @submit.prevent>
           <div>
             <div class="row pb-4">
@@ -13,13 +15,13 @@
                 <base-input label="Video Length" placeholder="Length"></base-input>
               </div>
               <div class="col-md-2">
-                <base-input label="Unit No." placeholder="No"></base-input>
+                <base-input label="Unit No." placeholder="No."></base-input>
               </div>
               <div class="col-md-5">
                 <base-input label="Video Link" placeholder="Video Link"></base-input>
               </div>
               <div class="col-md-4">
-                <base-input label="Unit Text" placeholder="Unit Text">
+                <base-input label="Unit Description" placeholder="Unit Description">
                   <textarea class="form-control"></textarea>
                 </base-input>
               </div>
@@ -60,8 +62,8 @@
               </div>
             </div>
 
-            <div class="mt-5">
-              <base-button class="px-5" native-type="submit" type="primary">Edit Episode</base-button>
+            <div class="mt-5 pull-right">
+              <base-button class="px-5" native-type="submit" type="primary">Create / Edit Episode</base-button>
             </div>
           </div>
         </form>
@@ -93,9 +95,9 @@ export default {
           { value: 'Free', label: 'Free' }
         ],
         RelatedCourse: [
-          { value: 'Course 1', label: 'Course 1' },
-          { value: 'Course 2', label: 'Course 2' },
-          { value: 'Course 3', label: 'Course 3' }
+          { value: 'Course 1', label: 'COURSES SHOULD ALL SHOW HERE' },
+          { value: 'Course 2', label: 'COURSES SHOULD ALL SHOW HERE' },
+          { value: 'Course 3', label: 'COURSES SHOULD ALL SHOW HERE' }
         ],
         multiple: 'ARS'
       }
