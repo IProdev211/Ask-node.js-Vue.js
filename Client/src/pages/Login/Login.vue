@@ -10,21 +10,24 @@
               <!-- <p class="container pt-3 text-center">با ورود به پنل کاربری میتوانید به سادگی به ویدیو های سایت دسترسی پیدا کنید و مقالات جدید را مطالعه کنید.</p> -->
             </template>
             <div>
+              <div>
+                <label class="pull-right font-weight-bold">پست الکترونیک</label>
+                <base-input 
+                  v-model="email" 
+                  :required="true" 
+                  :error="fieldErrors.email">
+                </base-input>
+              </div>
 
-              <label class="pull-right font-weight-bold">پست الکترونیک</label>
-              <base-input placeholder="پست الکترونیک" 
-                v-model="email" 
-                :required="true" 
-                :error="fieldErrors.email">
-              </base-input>
-
-              <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
-              <base-input
-                placeholder="کلمه عبور" 
-                v-model="password" 
-                :required="true" 
-                :error="fieldErrors.password">
-              </base-input>
+              <div>
+                <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
+                <base-input
+                  type="password"
+                  v-model="password" 
+                  :required="true" 
+                  :error="fieldErrors.password">
+                </base-input>
+              </div>
             </div>     
             
             <div class="text-center pt-4">

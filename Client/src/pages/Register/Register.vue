@@ -33,6 +33,7 @@
 
             <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
             <base-input
+              type="password"
               v-model="password" 
               :required="true" 
               :error="fieldErrors.password" 

@@ -13,9 +13,10 @@ import VueParticles from 'vue-particles';
 // plugin setup
 Vue.use(DashboardPlugin);
 Vue.use(CKEditor);
-Vue.use(VuePlyr);
 Vue.use(VueSweetalert2);
 Vue.use(VueParticles);
+Vue.use(VuePlyr);
+
 
 import 'vue-plyr/dist/vue-plyr.css';
 import 'vue-sweetalert2/node_modules/sweetalert2/dist/sweetalert2.css';

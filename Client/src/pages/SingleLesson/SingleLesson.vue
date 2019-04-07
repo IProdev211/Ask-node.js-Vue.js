@@ -23,8 +23,6 @@
                   خرید را دنبال کنید.
                 </p>
                 <p v-else class="text-success">شما به طور کامل به این دوره دسترسی دارید.</p>
-
-                <button>kharid</button>
               </div>
 
               <hr>
@@ -85,6 +83,7 @@
                   <h5 class="bold">Arya Doroudian</h5>
                 </div>
               </div>
+              <base-button native-type="submit" class="btn-fill btn-success btn btn-sm">خرید</base-button>
             </div>
           </div>
           <!-- video element -->
@@ -132,6 +131,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.videoPlayer {
+  border-radius: 25px !important;
+}
 .card-background {
   background: #27293d;
   border-radius: 25px;
