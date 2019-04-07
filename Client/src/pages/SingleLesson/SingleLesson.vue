@@ -3,7 +3,6 @@
     <div class="row">
       <!-- Video Section -->
       <div class="col-md-12 card-background card-body text-center my-3">
-        <h3 class="text-white text-center">UNIT NAME GOES HERE</h3>
         <div class="row">
           <!-- Course Info DIV  -->
           <div class="col-lg-3 col-md-12 col-sm-12 mb-3 container">
@@ -18,12 +17,14 @@
                 >در این سخنرانی شما اصول زبان انگلیسی را خواهید آموخت. ما اسم ها، فعل ها، صفت ها، اعراض ها و خیلی بیشتر را پوشش خواهیم داد.</p>
               </div>
               <hr>
-              <div class="head-section px-3">
-                <h4 v-if="notEnrolled" class="pt-3 text-danger">
+              <div class="head-section purchase-status px-3">
+                <p v-if="notEnrolled" class="text-danger">
                   برای دسترسی به این درس لطفا لینک
-                  <router-link class="text-success font-weight-bold" to="buy">خرید</router-link>را دنبال کنید.
-                </h4>
-                <h4 v-else class="pt-3 text-success">شما به طور کامل به این دوره دسترسی دارید.</h4>
+                  خرید را دنبال کنید.
+                </p>
+                <p v-else class="text-success">شما به طور کامل به این دوره دسترسی دارید.</p>
+
+                <button>kharid</button>
               </div>
 
               <hr>
@@ -50,7 +51,7 @@
                 </div>
               </div>
               <!-- COURSE PRICE  -->
-              <div class="d-flex justify-content-between px-3 pt-1">
+              <div v-if="notEnrolled" class="d-flex justify-content-between px-3 pt-1">
                 <div>
                   <h5>
                     <i class="tim-icons icon-money-coins pl-2"></i>قیمت:
@@ -106,14 +107,9 @@
         </p>
       </div>
       <!-- Timeline Unit Section -->
-      <div class="col-md-12 pt-4">
+      <div class="col-md-12 pt-2">
         <AllUnits></AllUnits>
       </div>
-
-      <!-- Button Notification
-      <div class="col-md-2 ml-auto mr-auto my-3">
-        <base-button type="primary" block @click.native="notifyVue('top', 'left')">Test Button</base-button>
-      </div> -->
     </div>
   </div>
 </template>
@@ -129,41 +125,26 @@ export default {
   },
   data() {
     return {
-      notEnrolled: false,
-      type: ['', 'info', 'success', 'warning', 'danger'],
-      notifications: {
-        topCenter: false
-      }
+      notEnrolled: true
     };
-  },
-  methods: {
-    notifyVue(verticalAlign, horizontalAlign) {
-      let color = Math.floor(Math.random() * 4 + 1);
-      this.$notify({
-        message:
-          'Welcome to <b>Ask Arya</b> - A Beautiful Resource For Every Language Learner',
-        timeout: 3500,
-        icon: 'tim-icons icon-bell-55',
-        horizontalAlign: horizontalAlign,
-        verticalAlign: verticalAlign,
-        type: this.type[color]
-      });
-    }
   }
 };
 </script>
-<style scoped>
+
+<style lang="scss" scoped>
 .card-background {
   background: #27293d;
+  border-radius: 25px;
 }
 
-/* Course Info STYLES */
+.purchase-status {
+  font-size: 0.9rem;
+}
 .outline {
   border-radius: 25px;
 }
 
 .pricehighlight {
-  /* color: #3ec526c9; */
   font-size: 0.8rem;
   font-weight: 600;
 }

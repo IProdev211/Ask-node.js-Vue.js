@@ -8,7 +8,7 @@
         </div>
         <div class="UnitName pr-4">
           <router-link to="/singlelesson">
-            <p class="UnitName">Vocabulary Introduction</p>
+            <p class="UnitName text-right">Vocabulary Introduction</p>
           </router-link>
         </div>
       </div>
@@ -30,7 +30,7 @@
         </div>
         <div class="UnitName pr-4">
           <router-link to="/singlelesson">
-            <p class="UnitName">Grammar Introduction</p>
+            <p class="UnitName text-right">Grammar Introduction</p>
           </router-link>
         </div>
       </div>
@@ -52,7 +52,7 @@
         </div>
         <div class="UnitName pr-4">
           <router-link to="/singlelesson">
-            <p class="UnitName">Fateme's Introduction</p>
+            <p class="UnitName text-right">Fateme's Introduction</p>
           </router-link>
         </div>
       </div>
@@ -120,7 +120,7 @@ export default {};
 }
 
 .UnitName {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: rgb(158, 158, 158);
   margin-top: auto;
 }

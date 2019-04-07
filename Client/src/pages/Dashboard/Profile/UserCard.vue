@@ -30,7 +30,7 @@
             >{{ 'ویرایش مشخصات' }}</base-button>
           </div>
           <div class="pt-3 px-2">
-            <router-link to="allcourses">
+            <router-link to="courses">
               <base-button
                 native-type="submit"
                 type="primary"
@@ -52,18 +52,18 @@
           </p>
           <div class="row pt-3">
             <div class="col-md-4 text-ltr">
+              <label class="pull-right font-weight-bold">نام و نام خانوادگی</label>
               <base-input
                 type="text"
-                label="نام و نام خانوادگی"
                 placeholder="Your Name"
                 v-model="name"
                 :error="fieldErrors.name"
               ></base-input>
             </div>
             <div class="col-md-4 text-ltr">
+              <label class="pull-right font-weight-bold">پست الکترونیک</label>
               <base-input
                 type="email"
-                label="آدرس ایمیل"
                 placeholder="info@askarya.ir"
                 v-model="email"
                 :error="fieldErrors.email"
@@ -72,7 +72,7 @@
             <div class="col-md-3 pt-3">
               <image-upload
                 type="avatar"
-                select-text="Profile Picture"
+                select-text="+ آپلود عکس"
                 @change="onAvatarChange"
               />
             </div>
@@ -81,7 +81,7 @@
                 native-type="submit"
                 type="primary"
                 class="btn btn-success btn-simple btn-sm"
-              >Save</base-button>
+              >ذخیره</base-button>
             </div>
           </div>
         </form>
