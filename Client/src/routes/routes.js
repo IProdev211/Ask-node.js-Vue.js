@@ -27,29 +27,17 @@ const Points = () =>
 const CourseOverview = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageCourses/CourseOverview.vue');
 
-const CreateEditCourse = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageCourses/CreateEditCourse.vue');
-
 const EpisodeOverview = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageEpisodes/EpisodeOverview.vue');
-
-const CreateEditEpisode = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageEpisodes/CreateEditEpisode.vue');
 
 const ManageUsers = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageUsers/ManageUsers.vue');
 
-const CreateEditUser = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageUsers/CreateEditUser.vue');
-
-const CreateQuiz = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageQuizzes/CreateQuiz.vue');
-
 const BlogOverview = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageBlogs/BlogOverview.vue');
 
-const CreateBlog = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageBlogs/CreateBlog.vue');
+const QuizOverview = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageQuizzes/QuizOverview.vue');
 
 //////////////////////////////////////////////////////////////////////
 ///////////////////////////// FRONTEND PAGES /////////////////////////
@@ -244,45 +232,10 @@ const routes = [
         }
       },
       {
-        path: 'createeditcourse',
-        name: 'Create Edit Course',
-        components: {
-          default: CreateEditCourse
-        }
-      },
-      {
-        path: 'createeditepisode',
-        name: 'Create Edit Episode',
-        components: {
-          default: CreateEditEpisode
-        }
-      },
-      {
-        path: 'createquiz',
-        name: 'Create Quiz',
-        components: {
-          default: CreateQuiz
-        }
-      },
-      {
-        path: 'points',
-        name: 'Points',
-        components: {
-          default: Points
-        }
-      },
-      {
         path: 'manageusers',
         name: 'Manage Users',
         components: {
           default: ManageUsers
-        }
-      },
-      {
-        path: 'CreateEditUser',
-        name: 'Create Edit User',
-        components: {
-          default: CreateEditUser
         }
       },
       {
@@ -293,10 +246,17 @@ const routes = [
         }
       },
       {
-        path: 'createblog',
-        name: 'Create Blog',
+        path: 'quizoverview',
+        name: 'Quiz Overview',
         components: {
-          default: CreateBlog
+          default: QuizOverview
+        }
+      },
+      {
+        path: 'points',
+        name: 'Points',
+        components: {
+          default: Points
         }
       }
     ]

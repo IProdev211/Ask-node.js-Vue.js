@@ -31,7 +31,7 @@
           <sidebar-item :link="{ name: 'مدیریت دوره ها', path: '/courseoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت جلسه ها', path: '/episodeoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت وبلاگ ها', path: '/blogoverview' }"></sidebar-item>
-          <sidebar-item :link="{ name: 'ایجاد امتحان', path: '/createquiz' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'مدیریت امتحان ها', path: '/quizoverview' }"></sidebar-item>
         </sidebar-item>
       </template>
     </side-bar>
@@ -122,8 +122,13 @@ export default {
   a
   .sidebar-normal {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: white;
+}
+
+.rtl .sidebar .nav a {
+  font-size: 0.95rem;
+  color: rgb(216, 216, 216);
 }
 
 .sidebar .nav li.active > a:not([data-toggle='collapse']) p {

@@ -1,11 +1,13 @@
 <template>
-  <div>
-    <h1>Create Blog</h1>
-  </div>
+    <h1>Manage Quizzes</h1>
 </template>
 
 <script>
+export default {
+
+}
 </script>
 
 <style>
+
 </style>

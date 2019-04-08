@@ -5,10 +5,7 @@
         <h2 class="text-center">Blogs Overview</h2>
         <p class="text-center">
           Here is a list of all active courses on this site
-          <a
-            href="/home"
-            target="_blank"
-          >ALL Blogs</a>
+          <a href="/home" target="_blank">ALL Blogs</a>
         </p>
       </div>
       <div class="mt-5">
@@ -86,13 +83,13 @@
         </div>
       </div>
     </div>
-    <!-- <div class="pt-3">
-      <CreateEditCourse></CreateEditCourse>
-    </div> -->
+    <div class="pt-3">
+      <CreateEditBlog></CreateEditBlog>
+    </div>
   </section>
 </template>
 <script>
-// import CreateEditCourse from './CreateEditCourse';
+import CreateEditBlog from './CreateEditBlog';
 import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
 import blogoverviewdata from './blogoverviewdata';
@@ -100,7 +97,7 @@ import swal from 'sweetalert2';
 
 export default {
   components: {
-    // blogoverviewdata,
+    CreateEditBlog,
     BasePagination,
     [Select.name]: Select,
     [Option.name]: Option,
@@ -142,27 +139,17 @@ export default {
         perPageOptions: [5, 10, 15],
         total: 0
       },
-      propsToSearch: ['courseName', 'comments', 'courseViews', 'courseType'],
+      propsToSearch: ['blogName', 'blogViews'],
       tableColumns: [
         {
-          prop: 'courseName',
-          label: 'Course Name',
-          minWidth: 220
+          prop: 'blogName',
+          label: 'Blog Name',
+          minWidth: 200
         },
         {
-          prop: 'comments',
-          label: 'comments',
-          minWidth: 80
-        },
-        {
-          prop: 'courseViews',
-          label: 'Course Views',
-          minWidth: 80
-        },
-        {
-          prop: 'courseType',
-          label: 'Course Type',
-          minWidth: 80
+          prop: 'blogViews',
+          label: 'Blog Views',
+          minWidth: 120
         }
       ],
       tableData: blogoverviewdata,
