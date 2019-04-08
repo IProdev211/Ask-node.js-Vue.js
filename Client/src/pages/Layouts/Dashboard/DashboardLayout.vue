@@ -30,8 +30,8 @@
           <sidebar-item :link="{ name: 'کاربران سایت', path: '/manageusers' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت دوره ها', path: '/courseoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت جلسه ها', path: '/episodeoverview' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'مدیریت وبلاگ ها', path: '/blogoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'ایجاد امتحان', path: '/createquiz' }"></sidebar-item>
-          <sidebar-item :link="{ name: 'ایجاد وبلاگ', path: '/createblog' }"></sidebar-item>
         </sidebar-item>
       </template>
     </side-bar>

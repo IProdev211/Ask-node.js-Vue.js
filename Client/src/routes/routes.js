@@ -45,6 +45,9 @@ const CreateEditUser = () =>
 const CreateQuiz = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageQuizzes/CreateQuiz.vue');
 
+const BlogOverview = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageBlogs/BlogOverview.vue');
+
 const CreateBlog = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageBlogs/CreateBlog.vue');
 
@@ -280,6 +283,13 @@ const routes = [
         name: 'Create Edit User',
         components: {
           default: CreateEditUser
+        }
+      },
+      {
+        path: 'blogoverview',
+        name: 'Blog Overview',
+        components: {
+          default: BlogOverview
         }
       },
       {
