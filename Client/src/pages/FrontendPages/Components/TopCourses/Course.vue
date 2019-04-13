@@ -83,7 +83,7 @@ export default {
 }
 
 .pricehighlight {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #fff;
   font-weight: 600;
 }
@@ -190,22 +190,22 @@ export default {
 }
 
 .courseTime {
-  color: rgb(207, 207, 207);
+  color: rgb(219, 219, 219);
   font-size: 1.2rem;
   font-weight: 600;
 }
 .courseTimeSpan {
-  font-size: 0.8rem;
+  font-size: 0.73rem;
   color: #adadad;
 }
 
 .unitsAvailable {
-  color: rgb(207, 207, 207);
+  color: rgb(219, 219, 219);
   font-size: 1.2rem;
   font-weight: 600;
 }
 .unitsAvailableSpan {
-  font-size: 0.8rem;
+  font-size: 0.73rem;
   color: #adadad;
 }
 
