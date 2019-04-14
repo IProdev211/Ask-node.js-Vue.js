@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-    <div class="col-lg-5 col-md-9 ml-auto mr-auto pt-4">
+    <div class="col-lg-5 col-md-9 ml-auto mr-auto pt-3">
         <form @submit="checkForm">
           <card class="card-login">
             <template slot="header">
@@ -129,7 +129,8 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+
 .login-card {
   padding-top: 20%;
 }
@@ -140,4 +141,5 @@ export default {
 .googleicon {
   font-size: 2rem;
 }
+
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div class="container pt-4">
+  <div class="container py-4">
     <h1 class="text-center display-3 text-danger pt-5">آموزش های غیر حضوری</h1>
     <div class="row pt-5">
-      <div class="col-lg-4 col-md-6 mb-4" v-for="course in topCourses" v-bind:key="course.id">
+      <div class="col-lg-3 col-md-6 mb-4" v-for="course in topCourses" v-bind:key="course.id">
         <Course v-bind="course"></Course>
       </div>
     </div>

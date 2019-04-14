@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-5" id="contactSection">
+  <div class="py-3" id="contactSection">
     <!--Intro Section-->
     <div class="introSection text-center pt-4">
       <div class="container">
