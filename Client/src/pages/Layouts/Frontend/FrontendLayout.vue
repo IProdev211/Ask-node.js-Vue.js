@@ -75,7 +75,7 @@
               &copy; طراحی و تولید شده توسط
               <a
                 class="font-weight-bold"
-                href="https://askarya.ir"
+                href="/terms"
                 target="_blank"
               >اسک آریا</a>، با افتخار در ایران
               <i class="tim-icons icon-heart-2"></i>

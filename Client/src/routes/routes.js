@@ -60,6 +60,9 @@ const OurCourses = () =>
 const BlogPageSample = () =>
   import(/* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Components/Blog/BlogPageSample.vue');
 
+const Terms = () =>
+  import(/* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Components/Terms/Terms.vue');
+
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////// PAGES ///////////////////////////////
 
@@ -107,6 +110,11 @@ let frontendpages = {
       path: '/ourcourses',
       name: 'OurCourses',
       component: OurCourses
+    },
+    {
+      path: '/terms',
+      name: 'Terms',
+      component: Terms
     },
     {
       path: '/blogpagesample',
