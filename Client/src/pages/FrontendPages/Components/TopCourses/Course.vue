@@ -134,7 +134,7 @@ export default {
 }
 
 .course-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #f1f1f1;
 }
 
