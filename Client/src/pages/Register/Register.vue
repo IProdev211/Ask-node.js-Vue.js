@@ -14,31 +14,36 @@
                 <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
               </ul>
             </p>
+            <div class="row pt-5">
+              <div class="col-md-6">
+                <label class="pull-right font-weight-bold pt-2">نام و نام خانوادگی</label>
+                <base-input 
+                  v-model="name" 
+                  :required="true" 
+                  :error="fieldErrors.name">
+                </base-input>
+              </div>
+            
+              <div class="col-md-6">
+                <label class="pull-right font-weight-bold pt-2" >پست الکترونیک</label>
+                <base-input
+                  v-model="email" 
+                  :required="true" 
+                  :error="fieldErrors.email">
+                </base-input>
+              </div>
 
-            <label class="pull-right font-weight-bold pt-3">نام و نام خانوادگی</label>
-            <base-input 
-              v-model="name" 
-              :required="true" 
-              :error="fieldErrors.name" 
-              placeholder="نام و نام خانوادگی">
-            </base-input>
+              <div class="col-md-12">
+              <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
+                <base-input
+                  type="password"
+                  v-model="password" 
+                  :required="true" 
+                  :error="fieldErrors.password">
+                </base-input>
+              </div>
+            </div>
 
-          <label class="pull-right font-weight-bold pt-2" >پست الکترونیک</label>
-            <base-input
-              v-model="email" 
-              :required="true" 
-              :error="fieldErrors.email" 
-              placeholder="پست الکترونیک">
-            </base-input>
-
-            <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
-            <base-input
-              type="password"
-              v-model="password" 
-              :required="true" 
-              :error="fieldErrors.password" 
-              placeholder="کلمه عبور">
-            </base-input>
             <div class="text-right text-rtl">
               <base-checkbox v-model="terms" class="pb-3" :class="{'has-danger': fieldErrors.terms !== undefined}">
                 <router-link to="/terms">شرایط را قبول دارم</router-link>
