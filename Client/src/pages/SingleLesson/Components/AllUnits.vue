@@ -52,13 +52,35 @@
         </div>
         <div class="UnitName pr-4">
           <router-link to="/singlelesson">
-            <p class="UnitName text-right">Fateme's Introduction</p>
+            <p class="UnitName text-right">Pronoun Introduction</p>
           </router-link>
         </div>
       </div>
       <div class="left d-flex justify-content-between">
         <div class="pl-3">
           <p class="detail-price">نقدی</p>
+        </div>
+
+        <div>
+          <p class="detail-time">۷۲:۴۴</p>
+        </div>
+      </div>
+    </div>
+    <!-- UNIT 4 -->
+    <div class="UnitBox d-flex justify-content-between">
+      <div class="right d-flex justify-content-end">
+        <div class="UnitBadgeVIP">
+          <i class="fas fa-key"></i>
+        </div>
+        <div class="UnitName pr-4">
+          <router-link to="/singlelesson">
+            <p class="UnitName text-right">Verbs Introduction</p>
+          </router-link>
+        </div>
+      </div>
+      <div class="left d-flex justify-content-between">
+        <div class="pl-3">
+          <p class="detail-price">VIP Access</p>
         </div>
 
         <div>
@@ -117,6 +139,11 @@ export default {};
 .UnitBadgelocked {
   font-size: 1.5rem;
   color: #ac2451;
+}
+
+.UnitBadgeVIP {
+  font-size: 1.5rem;
+  color: #e7d800;
 }
 
 .UnitName {
