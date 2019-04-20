@@ -7,7 +7,7 @@
         </h4>
         <form @submit.prevent>
           <div>
-            <div class="row pb-4">
+            <div class="row py-4">
               <div class="col-md-3">
                 <base-input label="Episode Name" placeholder="Episode Name"></base-input>
               </div>
@@ -20,8 +20,8 @@
               <div class="col-md-5">
                 <base-input label="Video Link" placeholder="Video Link"></base-input>
               </div>
-              <div class="col-md-4">
-                <base-input label="Unit Description" placeholder="Unit Description">
+              <div class="col-md-6">
+                <base-input label="Unit Description (CKEditor 5)" placeholder="Unit Description">
                   <textarea class="form-control"></textarea>
                 </base-input>
               </div>
@@ -44,7 +44,7 @@
                   ></el-option>
                 </el-select>
               </div>
-              <div class="col-md-3 pt-4">
+              <div class="col-md-2 pt-4">
                 <el-select
                   class="select-primary"
                   size="large"

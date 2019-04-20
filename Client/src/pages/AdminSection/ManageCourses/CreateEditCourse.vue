@@ -20,7 +20,11 @@
                     <base-input label="xP Points" placeholder="xP"></base-input>
                   </div>
                   <div class="col-md-5">
-                    <base-input class="coursetext" label="Course Text" placeholder="Course Text">
+                    <base-input
+                      class="coursetext"
+                      label="Course Text (CKEditor 5)"
+                      placeholder="Course Text"
+                    >
                       <textarea class="form-control"></textarea>
                     </base-input>
                   </div>
