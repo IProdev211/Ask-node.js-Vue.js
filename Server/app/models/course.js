@@ -51,6 +51,12 @@ courseSchema.virtual('episodes' , {
     foreignField : 'course'
 })
 
+courseSchema.virtual('episodesCount', {
+    ref : 'Episode',
+    localField : '_id',
+    foreignField : 'course',
+    count: true,
+});
 
 courseSchema.virtual('comments' , {
     ref : 'Comment',
