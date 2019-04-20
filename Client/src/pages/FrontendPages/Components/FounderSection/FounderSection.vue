@@ -13,7 +13,7 @@
         </p>
       </div>
 
-      <div class="col-md-4 py-4 text-center">
+      <div class="col-md-5 py-4 text-center">
         <img
           class="rounded-circle img-fluid"
           src="img/frontend/aryapilot-askarya.png"
@@ -21,7 +21,7 @@
         >
       </div>
 
-      <div class="Education container py-4 text-right">
+      <!-- <div class="Education container py-4 text-right">
         <hr class="hr-1">
         <h2 class="subheading2 text-info">تحصیلات</h2>
         <p class="CustomParagraph">
@@ -40,7 +40,7 @@
           <span>دیپلم ریاضیات، ریاضیات (آمار)، علوم پایه، انگلیسی، فرانسوی، فارسی، کامپیوتر، و تاریخ -</span>
           <small>دبیرستان هلند پارک (Holland Park School) - لندن</small>
         </p>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
