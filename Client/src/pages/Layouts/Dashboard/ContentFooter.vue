@@ -25,15 +25,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.footer {
-  padding-right: 20%;
-}
+// .footer {
+//   padding-right: 20%;
+// }
 
-@media (min-width: 768px) {
-  .footer {
-    padding-right: 0;
-  }
-}
+// @media (min-width: 768px) {
+//   .footer {
+//     padding-right: 0;
+//   }
+// }
 </style>
 
 
