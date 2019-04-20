@@ -14,32 +14,41 @@
                 <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
               </ul>
             </p>
+            <div class="row pt-5">
+              <div class="col-md-6">
+                <label class="pull-right font-weight-bold pt-2">نام و نام خانوادگی</label>
+                <base-input 
+                  v-model="name" 
+                  :required="true" 
+                  :error="fieldErrors.name">
+                </base-input>
+              </div>
+            
+              <div class="col-md-6">
+                <label class="pull-right font-weight-bold pt-2" >پست الکترونیک</label>
+                <base-input
+                  v-model="email" 
+                  :required="true" 
+                  :error="fieldErrors.email">
+                </base-input>
+              </div>
 
-            <label class="pull-right font-weight-bold pt-3">نام و نام خانوادگی</label>
-            <base-input 
-              v-model="name" 
-              :required="true" 
-              :error="fieldErrors.name" 
-              placeholder="نام و نام خانوادگی">
-            </base-input>
+              <div class="col-md-12">
+              <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
+                <base-input
+                  type="password"
+                  v-model="password" 
+                  :required="true" 
+                  :error="fieldErrors.password">
+                </base-input>
+              </div>
+            </div>
 
-          <label class="pull-right font-weight-bold pt-2" >پست الکترونیک</label>
-            <base-input
-              v-model="email" 
-              :required="true" 
-              :error="fieldErrors.email" 
-              placeholder="پست الکترونیک">
-            </base-input>
-
-            <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
-            <base-input
-              type="password"
-              v-model="password" 
-              :required="true" 
-              :error="fieldErrors.password" 
-              placeholder="کلمه عبور">
-            </base-input>
-
+            <div class="text-right text-rtl">
+              <base-checkbox v-model="terms" class="pb-3" :class="{'has-danger': fieldErrors.terms !== undefined}">
+                <router-link to="/terms">شرایط را قبول دارم</router-link>
+              </base-checkbox>
+            </div>
             <div class="row d-flex justify-content-around">
               <div class="text-center py-3">
                 <router-link to="googlesignin">
@@ -47,15 +56,9 @@
                   <h4>
                     شما میتوانید بدون ثبت نام با اکانت گوگل وارد سایت شوید.
                   </h4>
-                  
                 </router-link>
-              </div>
-              <!-- <base-checkbox v-model="terms" class="text-left pb-3" :class="{'has-danger': fieldErrors.terms !== undefined}">
-                I agree to the
-                <a href="#ASKARYATERMS">terms and conditions</a>.
-              </base-checkbox> -->
+              </div>          
             </div>
-
             <base-button nativeType="submit" type="primary" :loading="loading" round block size="lg">عضویت</base-button>
           </form>
         </card>
@@ -129,21 +132,21 @@ export default {
       let haveError = false;
 
       if (!this.name) {
-        this.fieldErrors.name = 'Your name is required.';
+        this.fieldErrors.name = 'نام شما مورد نیاز است';
         haveError = true;
       }
       if (!this.email) {
-        this.fieldErrors.email = 'Email required.';
+        this.fieldErrors.email = 'ایمیل شما مورد نیاز است.';
         haveError = true;
       }
       if (!this.password) {
-        this.fieldErrors.password = 'Password required.';
+        this.fieldErrors.password = 'رمز عبور شما مورد نیاز است';
         haveError = true;
       }
-      // if (!this.terms) {
-      //   this.fieldErrors.terms = 'Accepting our terms is required for using Aradask services!';
-      //   haveError = true;
-      // }
+      if (!this.terms) {
+        this.fieldErrors.terms = 'پذیرش شرایط ما لازم است!';
+        haveError = true;
+      }
       if (haveError) {
         return;
       }
@@ -189,6 +192,10 @@ color: #D557D9
 }
 .icon:hover {
   color: #00ffaa;
+}
+
+a {
+  font-size: 1rem;
 }
 
 </style>

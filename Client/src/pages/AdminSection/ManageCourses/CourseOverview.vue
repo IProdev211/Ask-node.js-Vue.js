@@ -142,7 +142,7 @@ export default {
         perPageOptions: [5, 10, 15],
         total: 0
       },
-      propsToSearch: ['courseName', 'comments', 'courseViews', 'courseType'],
+      propsToSearch: ['courseName', 'comments', 'courseUsers', 'courseType'],
       tableColumns: [
         {
           prop: 'courseName',
@@ -155,8 +155,8 @@ export default {
           minWidth: 80
         },
         {
-          prop: 'courseViews',
-          label: 'Course Views',
+          prop: 'courseUsers',
+          label: 'Course Users',
           minWidth: 80
         },
         {

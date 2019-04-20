@@ -10,11 +10,21 @@
             <div class="row">
               <div class="col-md-10">
                 <div class="row">
-                  <div class="col-md-3">
+                  <div class="col-md-5">
                     <base-input label="Blog Name" placeholder="Blog Name"></base-input>
                   </div>
-                  <div class="col-md-9">
-                    <base-input class="blogtext" label="Blog Text (CKEditor5)" placeholder="Blog Text">
+                  <div class="col-md-3">
+                    <base-input label="Blog Author" placeholder="Blog Author"></base-input>
+                  </div>
+                  <div class="col-md-2 pt-3">
+                    <image-upload @change="onImageChange" select-text="Blog Image"/>
+                  </div>
+                  <div class="col-md-12 py-4">
+                    <base-input
+                      class="blogtext"
+                      label="Blog Text (CKEditor5)"
+                      placeholder="Blog Text"
+                    >
                       <textarea class="form-control"></textarea>
                     </base-input>
                   </div>
@@ -22,12 +32,8 @@
                     <h4 class="lead">Tags</h4>
                     <tags-input v-model="tags.dynamicTags"></tags-input>
                   </div>
-                  <div class="col-md-2 pt-4">
-                <image-upload @change="onImageChange" select-text="Blog Image"/>
-              </div>
                 </div>
               </div>
-              
             </div>
             <div class="mt-5 pull-right">
               <base-button class="px-5" native-type="submit" type="primary">Create / Edit Blog</base-button>
