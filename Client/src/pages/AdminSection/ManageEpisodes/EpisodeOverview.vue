@@ -27,6 +27,7 @@
               </div>
               <el-table :data="queriedData">
                 <el-table-column
+                  align="left"
                   v-for="column in tableColumns"
                   :key="column.label"
                   :min-width="column.minWidth"
@@ -135,26 +136,37 @@ export default {
         perPageOptions: [5, 10, 15],
         total: 0
       },
-      propsToSearch: ['episodeName', 'comments', 'episodeViews', 'episodeType'],
+      propsToSearch: [
+        'episodeName',
+        'episodeNumber',
+        'relatedCourse',
+        'episodeViews',
+        'episodeType'
+      ],
       tableColumns: [
         {
           prop: 'episodeName',
-          label: 'Course Name',
-          minWidth: 220
+          label: 'Episode Name',
+          minWidth: 150
         },
         {
-          prop: 'comments',
-          label: 'comments',
-          minWidth: 80
+          prop: 'relatedCourse',
+          label: 'Related Course',
+          minWidth: 150
+        },
+        {
+          prop: 'episodeNumber',
+          label: 'Episode No.',
+          minWidth: 70
         },
         {
           prop: 'episodeViews',
-          label: 'Course Views',
+          label: 'Episode Views',
           minWidth: 80
         },
         {
           prop: 'episodeType',
-          label: 'Course Type',
+          label: 'Episode Type',
           minWidth: 80
         }
       ],

@@ -20,7 +20,7 @@
               <div class="col-md-5">
                 <base-input label="Video Link" placeholder="Video Link"></base-input>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-12 py-3">
                 <base-input label="Unit Description (CKEditor 5)" placeholder="Unit Description">
                   <textarea class="form-control"></textarea>
                 </base-input>
@@ -28,23 +28,7 @@
               <div class="col-md-2">
                 <base-input label="xP Points" placeholder="xP"></base-input>
               </div>
-              <div class="col-md-2 pt-4">
-                <el-select
-                  class="select-primary"
-                  size="large"
-                  placeholder="Related Course"
-                  v-model="selects.course"
-                >
-                  <el-option
-                    v-for="option in selects.RelatedCourse"
-                    class="select-primary"
-                    :value="option.value"
-                    :label="option.label"
-                    :key="option.label"
-                  ></el-option>
-                </el-select>
-              </div>
-              <div class="col-md-2 pt-4">
+              <div class="col-md-5 pt-4">
                 <el-select
                   class="select-primary"
                   size="large"
@@ -53,6 +37,22 @@
                 >
                   <el-option
                     v-for="option in selects.CourseType"
+                    class="select-primary"
+                    :value="option.value"
+                    :label="option.label"
+                    :key="option.label"
+                  ></el-option>
+                </el-select>
+              </div>
+              <div class="col-md-3 pt-4">
+                <el-select
+                  class="select-primary"
+                  size="large"
+                  placeholder="Related Course"
+                  v-model="selects.course"
+                >
+                  <el-option
+                    v-for="option in selects.RelatedCourse"
                     class="select-primary"
                     :value="option.value"
                     :label="option.label"
