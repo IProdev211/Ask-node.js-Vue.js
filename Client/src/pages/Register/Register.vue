@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="pt-3 col-md-7 mr-auto ml-auto">
+      <div class="pt-4 col-md-7 mr-auto ml-auto">
         <card class="card-register">
           <template slot="header">
             <img class="card-img" src="img/card-primary.png" alt="Card image" />

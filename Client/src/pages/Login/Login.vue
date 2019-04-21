@@ -1,67 +1,67 @@
 <template>
   <div class="container">
     <div class="row">
-    <div class="col-lg-5 col-md-9 ml-auto mr-auto pt-3">
-        <form @submit="checkForm">
-          <card class="card-login">
-            <template slot="header">
-              <img class="card-img" src="img/card-primary.png" alt="Card image" />
-              <h4 class="card-title text-left py-1 px-4 text-white">ورود</h4>
-              <!-- <p class="container pt-3 text-center">با ورود به پنل کاربری میتوانید به سادگی به ویدیو های سایت دسترسی پیدا کنید و مقالات جدید را مطالعه کنید.</p> -->
-            </template>
-            <div>
+      <div class="col-lg-5 col-md-9 ml-auto mr-auto pt-4">
+          <form @submit="checkForm">
+            <card class="card-login">
+              <template slot="header">
+                <img class="card-img" src="img/card-primary.png" alt="Card image" />
+                <h4 class="card-title text-left py-1 px-4 text-white">ورود</h4>
+                <!-- <p class="container pt-3 text-center">با ورود به پنل کاربری میتوانید به سادگی به ویدیو های سایت دسترسی پیدا کنید و مقالات جدید را مطالعه کنید.</p> -->
+              </template>
               <div>
-                <label class="pull-right font-weight-bold">پست الکترونیک</label>
-                <base-input 
-                  v-model="email" 
-                  :required="true" 
-                  :error="fieldErrors.email">
-                </base-input>
-              </div>
+                <div>
+                  <label class="pull-right font-weight-bold">پست الکترونیک</label>
+                  <base-input 
+                    v-model="email" 
+                    :required="true" 
+                    :error="fieldErrors.email">
+                  </base-input>
+                </div>
 
-              <div>
-                <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
-                <base-input
-                  type="password"
-                  v-model="password" 
-                  :required="true" 
-                  :error="fieldErrors.password">
-                </base-input>
+                <div>
+                  <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
+                  <base-input
+                    type="password"
+                    v-model="password" 
+                    :required="true" 
+                    :error="fieldErrors.password">
+                  </base-input>
+                </div>
+              </div>     
+              
+              <div class="text-center pt-4">
+                <p>شما میتوانید با اکانت گوگل وارد سایت شوید</p>
+                <router-link to="googlesignin">
+                  <h4 class="googleicon pt-2">
+                    <i class="fab fa-google text-danger"></i>
+                  </h4>
+                </router-link>
               </div>
-            </div>     
-            
-            <div class="text-center pt-4">
-              <p>شما میتوانید با اکانت گوگل وارد سایت شوید</p>
-              <router-link to="googlesignin">
-                <h4 class="googleicon pt-2">
-                  <i class="fab fa-google text-danger"></i>
-                </h4>
-              </router-link>
-            </div>
-            <p class="text-right" v-if="formErrors.length">
-              <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
-              <ul>
-                <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
-              </ul>
-            </p>
-            <div slot="footer">
-              <base-button type="primary" nativeType="submit" class="mb-3" size="lg" :loading="loading" block>ورود</base-button>
-              <div class="d-flex justify-content-around">
-              <div class="pull-right">
-                <h6>
-                  <a href="/forgotpassword" class="link footer-link">رمز عبور را فراموش کرده ام</a>
-                </h6>
+              <p class="text-right" v-if="formErrors.length">
+                <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
+                <ul>
+                  <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
+                </ul>
+              </p>
+              <div slot="footer">
+                <base-button type="primary" nativeType="submit" class="mb-3" size="lg" :loading="loading" block>ورود</base-button>
+                <div class="d-flex justify-content-around">
+                <div class="pull-right">
+                  <h6>
+                    <a href="/forgotpassword" class="link footer-link">رمز عبور را فراموش کرده ام</a>
+                  </h6>
+                </div>
+                <div class="pull-left">
+                  <h6>
+                    <router-link class="link footer-link" to="/register">فرم عضویت</router-link>
+                  </h6>
+                </div>
+                </div>
               </div>
-              <div class="pull-left">
-                <h6>
-                  <router-link class="link footer-link" to="/register">فرم عضویت</router-link>
-                </h6>
-              </div>
-              </div>
-            </div>
-          </card>
-        </form>
-    </div>
+            </card>
+          </form>
+      </div>
     </div>
   </div>
 </template>
