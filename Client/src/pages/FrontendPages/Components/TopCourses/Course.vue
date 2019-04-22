@@ -198,7 +198,7 @@ export default {
 
 .courseTime {
   color: rgb(219, 219, 219);
-  padding-right: 1.2rem;
+  padding-right: 1rem;
   font-size: 1.2rem;
   font-weight: 600;
 }

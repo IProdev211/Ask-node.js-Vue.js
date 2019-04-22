@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <div class="unitHeader pt-2">
-      <h1 class="text-center pb-2 text-success text-ltr"> <span class="headerStyling">{{ episodes }}</span> lessons • <span class="headerStyling">{{ hours }}</span>  Hours • <span class="headerStyling">{{ total }}</span> Courses
+      <h1 class="text-center pb-2 text-success text-ltr">
+        <span class="headerStyling">{{ episodes }}</span> lessons •
+        <span class="headerStyling">{{ hours }}</span> Hours •
+        <span class="headerStyling">{{ total }}</span> Courses
         <br>
         <h3 class="text-danger pt-3 text-rtl">محتوای جدید هر هفته اضافه می شود!</h3>
       </h1>
@@ -32,10 +35,12 @@ export default {
       courses: [],
       page: 1,
       pages: 1,
-      isVIP: this.$root.$data.user && new Date(this.$root.$data.user.vipTime) > new Date(),
+      isVIP:
+        this.$root.$data.user &&
+        new Date(this.$root.$data.user.vipTime) > new Date(),
       total: 0,
       hours: 0,
-      episodes: 0,
+      episodes: 0
     };
   },
   methods: {
@@ -55,7 +60,7 @@ export default {
   },
   components: {
     Vip,
-    Course,
+    Course
   }
 };
 </script>

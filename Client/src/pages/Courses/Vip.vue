@@ -18,7 +18,7 @@
       <div class="col-md-3 my-auto text-center px-3">
         <router-link to="buyVIP">
           <base-button class="mb-2" type="danger">
-            <i class="tim-icons icon-money-coins px-2"></i> ۲۹،۰۰۰ تومان‎
+            <i class="tim-icons icon-money-coins px-2"></i> ۳۹،۰۰۰ تومان‎
           </base-button>
         </router-link>
       </div>
