@@ -64,5 +64,19 @@ courseSchema.virtual('comments' , {
     foreignField : 'course'
 })
 
+courseSchema.virtual('commentsCount' , {
+    ref : 'Comment',
+    localField : '_id',
+    foreignField : 'course',
+    count: true,
+});
+
+courseSchema.virtual('usersCount' , {
+    ref : 'User',
+    localField : '_id',
+    foreignField : 'learning',
+    count: true,
+});
+
 
 module.exports = mongoose.model('Course' , courseSchema);
