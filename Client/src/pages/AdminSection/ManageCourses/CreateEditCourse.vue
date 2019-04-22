@@ -8,16 +8,19 @@
         <form @submit.prevent>
           <div>
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <base-input label="Course Name" placeholder="Course Name"></base-input>
               </div>
               <div class="col-md-2">
                 <base-input label="Course Price" placeholder="Course Price"></base-input>
               </div>
               <div class="col-md-2">
-                <base-input label="xP Points" placeholder="xP"></base-input>
+                <base-input label="Old Price" placeholder="Old Price"></base-input>
               </div>
-              <div class="col-md-4 pt-4">
+              <div class="col-md-2">
+                <base-input label="xP" placeholder="xP"></base-input>
+              </div>
+              <div class="col-md-3 pt-4">
                 <el-select
                   class="select-primary"
                   size="large"
