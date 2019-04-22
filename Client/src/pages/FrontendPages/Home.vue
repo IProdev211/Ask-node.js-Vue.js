@@ -12,7 +12,7 @@
         >دوره‌های پیشنهادی اسک آریا</h2>
         <div class="row">
           <!-- Top Courses -->
-          <div class="col-lg-3 col-md-6 mb-4" v-for="course in topCourses" v-bind:key="course.id">
+          <div class="col-lg-4 col-md-6 mb-4" v-for="course in topCourses" v-bind:key="course.id">
             <Course v-bind="course"></Course>
           </div>
         </div>
