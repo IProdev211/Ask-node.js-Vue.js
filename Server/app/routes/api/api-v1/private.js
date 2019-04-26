@@ -30,5 +30,8 @@ router.post('/courses/:id/edit',
     courseValidator.handleUpdate(),
     courseController.update
 );
+router.post('/courses/:id/delete',
+    courseController.destroy
+);
 
 module.exports = router;

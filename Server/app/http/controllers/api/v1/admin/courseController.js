@@ -1,6 +1,7 @@
 const controller = require("app/http/controllers/api/controller");
 const Course = require('app/models/course');
 const path = require('path');
+const fs = require('fs');
 const sharp = require('sharp');
 
 class courseController extends controller {
@@ -120,6 +121,28 @@ class courseController extends controller {
 			data: {
 				course: this.filterCourseData(newCourse),
 			},
+			status: "success"
+		});
+	}
+	async destroy(req, res, next) {
+		this.isMongoId(res, req.params.id);
+
+		let course = await Course.findById(req.params.id).populate('episodes').exec();
+		if (!course) {
+			this.failed('چنین دوره ای وجود ندارد', res, 404);
+			return;
+		}
+
+		// delete episodes
+		course.episodes.forEach(episode => episode.remove());
+
+		// delete Images
+		Object.values(course.images).forEach(image => fs.unlinkSync(`./public${image}`));
+
+		// delete courses
+		course.remove();
+
+		return res.json({
 			status: "success"
 		});
     }

@@ -176,32 +176,47 @@ export default {
 			Swal({
 				title: 'Are you sure?',
 				text: `You won't be able to revert this!`,
-				type: 'warning',
-				showCancelButton: true,
-				confirmButtonClass: 'btn btn-success btn-fill',
-				cancelButtonClass: 'btn btn-danger btn-fill',
-				confirmButtonText: 'Yes, delete it!',
-				buttonsStyling: false
+				icon: 'warning',
+				buttons: {
+					cancel: "cancel",
+					catch: {
+						text: "Yes, delete it!",
+						value: true,
+					},
+				},
 			}).then(result => {
-				if (result.value) {
-					this.deleteRow(row);
-					Swal({
-						title: 'Deleted!',
-						text: `You deleted ${row.title}`,
-						type: 'success',
-						confirmButtonClass: 'btn btn-success btn-fill',
-						buttonsStyling: false
-					});
-				}
+				if (!result) return;
+				this.deleteRow(row);
 			});
 		},
 		deleteRow(row) {
-			let indexToDelete = this.tableData.findIndex(
-				tableRow => tableRow.id === row.id
-			);
-			if (indexToDelete >= 0) {
-				this.tableData.splice(indexToDelete, 1);
-			}
+			backend.post(`/courses/${row.id}/delete`).then((response) => {
+				if (response.data.status === "error") {
+					this.$notify({
+						type: 'error',
+						message: 'درخواست شما توسط سرور رد شد.',
+						icon: 'tim-icons icon-bell-55'
+					});
+					return;
+				}
+				const indexToDelete = this.tableData.findIndex(
+					tableRow => tableRow.id === row.id
+				);
+				if (indexToDelete >= 0) {
+					this.tableData.splice(indexToDelete, 1);
+				}
+				Swal({
+					title: 'Deleted!',
+					text: `You deleted ${row.title}`,
+					icon: 'success',
+				});
+			}).catch((error) => {
+					this.$notify({
+						type: 'error',
+						message: 'در حال حاظر سرور پاسخ درخواست شما را بدرستی ارسال نمیکند.',
+						icon: 'tim-icons icon-bell-55'
+					});
+			});
 		},
 		changePageListener(page) {
 			this.dataLoad(page);
