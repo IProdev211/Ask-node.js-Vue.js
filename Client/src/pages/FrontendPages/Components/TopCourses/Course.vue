@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4">
+  <div>
     <router-link :to="'courses/' + slug">
       <div class="CourseCard hover">
         <div>
