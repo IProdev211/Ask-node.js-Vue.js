@@ -24,5 +24,11 @@ router.post('/courses/create',
     courseValidator.handle(),
     courseController.store
 );
+router.post('/courses/:id/edit',
+    upload.single('images'),
+    convertFileToField.handle,
+    courseValidator.handleUpdate(),
+    courseController.update
+);
 
 module.exports = router;

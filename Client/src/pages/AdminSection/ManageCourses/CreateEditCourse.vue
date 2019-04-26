@@ -127,10 +127,6 @@ export default {
 		return {
 			fieldErrors: {},
 			formErrors: {},
-			images: {
-				regular: null,
-				avatar: null
-			},
 			selects: {
 				CourseType: [
 					{ value: 'Paid', label: 'Paid' },
@@ -185,13 +181,24 @@ export default {
 				};
 			}
 			this.loading = true;
-			const data = new FormData();
-			data.append("title", this.title);
-			data.append("type", this.type);
-			data.append("price", this.price);
-			data.append("images", this.images);
-			data.append("body", this.body);
-			data.append("tags", this.tags.join(" "));
+			let data;
+			if (this.images instanceof File) {
+				data = new FormData();
+				data.append("title", this.title);
+				data.append("type", this.type);
+				data.append("price", this.price);
+				data.append("images", this.images);
+				data.append("body", this.body);
+				data.append("tags", this.tags.join(" "));
+			} else {
+				data = {
+					title: this.title,
+					type: this.type,
+					price: this.price,
+					body: this.body,
+					tags: this.tags.join(" "),
+				};
+			}
 			const requestUrl = this.id !== undefined ? `/courses/${this.id}/edit` : "/courses/create";
 			backend.post(requestUrl, data).then((response) => {
 				this.loading = false;
@@ -218,7 +225,7 @@ export default {
 			this.type = "";
 			this.body = "";
 			this.price = "";
-			this.tags = "";
+			this.tags = [];
 		},
 		changeTypeListener(type) {
 			if (type.toLowerCase() == "free") {

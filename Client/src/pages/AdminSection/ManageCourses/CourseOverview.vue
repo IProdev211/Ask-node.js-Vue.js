@@ -87,7 +87,7 @@
 			</div>
 		</div>
 		<div class="pt-3">
-			<CreateEditCourse v-bind="course" @course="addNewCourseListener"></CreateEditCourse>
+			<CreateEditCourse v-bind="course" @course="courseActionListener"></CreateEditCourse>
 		</div>
 	</section>
 </template>
@@ -210,8 +210,18 @@ export default {
 			this.pagination.perPage = limit;
 			this.dataLoad(1,);
 		},
-		addNewCourseListener(course) {
-			this.tableData.push(course);
+		courseActionListener(course) {
+			if (this.course) {
+				for (const key in this.tableData) {
+					if (this.tableData[key] !== undefined) {
+						if (this.tableData[key].id == this.course.id) {
+							this.tableData[key] = course;
+						}
+					}
+				}
+			} else {
+				this.tableData.push(course);
+			}
 		}
 	},
 	mounted() {

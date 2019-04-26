@@ -96,6 +96,33 @@ class courseController extends controller {
 			status: "success"
 		});
 	}
+	async update(req, res, next) {
+		if (! await this.validationData(req, res)) return;
+		let objForUpdate = {};
+
+		// check image 
+		if (req.file) {
+			objForUpdate.images = this.imageResize(req.file);
+			objForUpdate.thumb = objForUpdate.images[480];
+		}
+
+		delete req.body.images;
+		objForUpdate.slug = this.slug(req.body.title);
+
+		const newCourse = await Course.findByIdAndUpdate(req.params.id, {
+			$set: { ...req.body,
+				...objForUpdate
+			}
+		}, {
+			new: true,
+		});
+		return res.json({
+			data: {
+				course: this.filterCourseData(newCourse),
+			},
+			status: "success"
+		});
+    }
 	imageResize(image) {
         const imageInfo = path.parse(image.path);
 
