@@ -8,7 +8,8 @@
         <div class="course__name">
           <h4 class="text-center font-weight-bold course-title pt-4">{{ title }}</h4>
         </div>
-        <div class="CourseCard__course__info d-flex justify-content-between text-center pt-2">
+        <hr class="fadeline">
+        <div class="CourseCard__course__info d-flex justify-content-between text-center">
           <div>
             <p class="courseTime">
               {{ minutes }}
@@ -193,7 +194,7 @@ export default {
 }
 
 .CourseCard__course__info {
-  margin: 0 15%;
+  margin: 0 20%;
 }
 
 .courseTime {
