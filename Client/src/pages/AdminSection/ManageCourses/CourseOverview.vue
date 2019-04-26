@@ -87,7 +87,7 @@
 			</div>
 		</div>
 		<div class="pt-3">
-			<CreateEditCourse></CreateEditCourse>
+			<CreateEditCourse v-bind="course" @course="courseActionListener"></CreateEditCourse>
 		</div>
 	</section>
 </template>
@@ -96,7 +96,7 @@ import CreateEditCourse from './CreateEditCourse';
 import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
 import courseoverviewdata from './courseoverviewdata';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert';
 import backend from '../../../backend';
 
 export default {
@@ -150,7 +150,8 @@ export default {
 			],
 			tableData: [],
 			searchedData: [],
-			fuseSearch: null
+			fuseSearch: null,
+			course: undefined,
 		};
 	},
 	methods: {
@@ -164,42 +165,58 @@ export default {
 			});
     	},
 		handleEdit(index, row) {
-			swal({
-				title: `You want to edit ${row.name}`,
+			Swal({
+				title: `You want to edit ${row.title}`,
 				buttonsStyling: false,
 				confirmButtonClass: 'btn btn-info btn-fill'
 			});
+			this.course = row;
 		},
 		handleDelete(index, row) {
-			swal({
+			Swal({
 				title: 'Are you sure?',
 				text: `You won't be able to revert this!`,
-				type: 'warning',
-				showCancelButton: true,
-				confirmButtonClass: 'btn btn-success btn-fill',
-				cancelButtonClass: 'btn btn-danger btn-fill',
-				confirmButtonText: 'Yes, delete it!',
-				buttonsStyling: false
+				icon: 'warning',
+				buttons: {
+					cancel: "cancel",
+					catch: {
+						text: "Yes, delete it!",
+						value: true,
+					},
+				},
 			}).then(result => {
-				if (result.value) {
-					this.deleteRow(row);
-					swal({
-						title: 'Deleted!',
-						text: `You deleted ${row.name}`,
-						type: 'success',
-						confirmButtonClass: 'btn btn-success btn-fill',
-						buttonsStyling: false
-					});
-				}
+				if (!result) return;
+				this.deleteRow(row);
 			});
 		},
 		deleteRow(row) {
-			let indexToDelete = this.tableData.findIndex(
-				tableRow => tableRow.id === row.id
-			);
-			if (indexToDelete >= 0) {
-				this.tableData.splice(indexToDelete, 1);
-			}
+			backend.post(`/courses/${row.id}/delete`).then((response) => {
+				if (response.data.status === "error") {
+					this.$notify({
+						type: 'error',
+						message: 'درخواست شما توسط سرور رد شد.',
+						icon: 'tim-icons icon-bell-55'
+					});
+					return;
+				}
+				const indexToDelete = this.tableData.findIndex(
+					tableRow => tableRow.id === row.id
+				);
+				if (indexToDelete >= 0) {
+					this.tableData.splice(indexToDelete, 1);
+				}
+				Swal({
+					title: 'Deleted!',
+					text: `You deleted ${row.title}`,
+					icon: 'success',
+				});
+			}).catch((error) => {
+					this.$notify({
+						type: 'error',
+						message: 'در حال حاظر سرور پاسخ درخواست شما را بدرستی ارسال نمیکند.',
+						icon: 'tim-icons icon-bell-55'
+					});
+			});
 		},
 		changePageListener(page) {
 			this.dataLoad(page);
@@ -207,6 +224,19 @@ export default {
 		changeLimitListener(limit) {
 			this.pagination.perPage = limit;
 			this.dataLoad(1,);
+		},
+		courseActionListener(course) {
+			if (this.course) {
+				for (const key in this.tableData) {
+					if (this.tableData[key] !== undefined) {
+						if (this.tableData[key].id == this.course.id) {
+							this.tableData[key] = course;
+						}
+					}
+				}
+			} else {
+				this.tableData.push(course);
+			}
 		}
 	},
 	mounted() {
