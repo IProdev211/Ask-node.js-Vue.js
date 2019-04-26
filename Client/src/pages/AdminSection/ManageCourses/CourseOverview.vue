@@ -87,7 +87,7 @@
 			</div>
 		</div>
 		<div class="pt-3">
-			<CreateEditCourse></CreateEditCourse>
+			<CreateEditCourse v-bind="course" @course="addNewCourseListener"></CreateEditCourse>
 		</div>
 	</section>
 </template>
@@ -96,7 +96,7 @@ import CreateEditCourse from './CreateEditCourse';
 import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
 import courseoverviewdata from './courseoverviewdata';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert';
 import backend from '../../../backend';
 
 export default {
@@ -150,7 +150,8 @@ export default {
 			],
 			tableData: [],
 			searchedData: [],
-			fuseSearch: null
+			fuseSearch: null,
+			course: undefined,
 		};
 	},
 	methods: {
@@ -164,14 +165,15 @@ export default {
 			});
     	},
 		handleEdit(index, row) {
-			swal({
-				title: `You want to edit ${row.name}`,
+			Swal({
+				title: `You want to edit ${row.title}`,
 				buttonsStyling: false,
 				confirmButtonClass: 'btn btn-info btn-fill'
 			});
+			this.course = row;
 		},
 		handleDelete(index, row) {
-			swal({
+			Swal({
 				title: 'Are you sure?',
 				text: `You won't be able to revert this!`,
 				type: 'warning',
@@ -183,9 +185,9 @@ export default {
 			}).then(result => {
 				if (result.value) {
 					this.deleteRow(row);
-					swal({
+					Swal({
 						title: 'Deleted!',
-						text: `You deleted ${row.name}`,
+						text: `You deleted ${row.title}`,
 						type: 'success',
 						confirmButtonClass: 'btn btn-success btn-fill',
 						buttonsStyling: false
@@ -207,6 +209,9 @@ export default {
 		changeLimitListener(limit) {
 			this.pagination.perPage = limit;
 			this.dataLoad(1,);
+		},
+		addNewCourseListener(course) {
+			this.tableData.push(course);
 		}
 	},
 	mounted() {
