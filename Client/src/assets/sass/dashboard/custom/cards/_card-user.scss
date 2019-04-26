@@ -10,7 +10,7 @@
     text-transform: none;
     margin-top: 25px;
 
-    a+p.description {
+    a + p.description {
       margin-top: -7px;
     }
 
@@ -35,10 +35,9 @@
 
       &.block-three {
         @include linear-gradient-right(rgba($primary, 0.6), rgba($primary, 0));
-        @include nc-rotate(170deg, 10);
+        @include nc-rotate(140deg, 10);
         margin-top: -70px;
         right: -45px;
-
       }
 
       &.block-four {
@@ -46,7 +45,6 @@
         @include nc-rotate(150deg, 10);
         margin-top: -25px;
         right: -45px;
-
       }
     }
   }

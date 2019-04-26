@@ -6,11 +6,11 @@
             <card class="card-login">
               <template slot="header">
                 <img class="card-img" src="img/card-primary.png" alt="Card image" />
-                <h4 class="card-title text-left py-1 px-4 text-white">ورود</h4>
+                <h4 class="card-title text-left px-4 text-white">ورود</h4>
                 <!-- <p class="container pt-3 text-center">با ورود به پنل کاربری میتوانید به سادگی به ویدیو های سایت دسترسی پیدا کنید و مقالات جدید را مطالعه کنید.</p> -->
               </template>
-              <div>
-                <div>
+              <div class="row mt-5">
+                <div class="col-md-7">
                   <label class="pull-right font-weight-bold">پست الکترونیک</label>
                   <base-input 
                     v-model="email" 
@@ -19,8 +19,8 @@
                   </base-input>
                 </div>
 
-                <div>
-                  <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
+                <div class="col-md-5">
+                  <label class="pull-right font-weight-bold">کلمه عبور</label>
                   <base-input
                     type="password"
                     v-model="password" 
@@ -31,12 +31,12 @@
               </div>     
               
               <div class="text-center pt-4">
-                <p>شما میتوانید با اکانت گوگل وارد سایت شوید</p>
                 <router-link to="googlesignin">
                   <h4 class="googleicon pt-2">
                     <i class="fab fa-google text-danger"></i>
                   </h4>
                 </router-link>
+                <p>شما میتوانید با اکانت گوگل وارد سایت شوید</p>
               </div>
               <p class="text-right" v-if="formErrors.length">
                 <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
