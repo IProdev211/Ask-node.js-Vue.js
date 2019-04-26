@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="px-4">
     <router-link :to="'courses/' + slug">
       <div class="CourseCard hover">
         <div>
@@ -13,7 +13,7 @@
             <p class="courseTime">
               {{ minutes }}
               <br>
-              <span class="courseTimeSpan">دقیقه صوت و تصویر</span>
+              <span class="courseTimeSpan">دقیقه تصویر</span>
             </p>
           </div>
           <div>
@@ -198,7 +198,7 @@ export default {
 
 .courseTime {
   color: rgb(219, 219, 219);
-  padding-right: 1rem;
+  padding-right: 0.7rem;
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -209,7 +209,7 @@ export default {
 
 .unitsAvailable {
   color: rgb(219, 219, 219);
-  padding-left: 1.2rem;
+  padding-left: 0.7rem;
   font-size: 1.2rem;
   font-weight: 600;
 }

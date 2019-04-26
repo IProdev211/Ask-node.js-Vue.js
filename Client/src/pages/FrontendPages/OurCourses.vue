@@ -3,10 +3,10 @@
     <h1 class="text-center display-3 text-danger pt-5">آموزش های غیر حضوری</h1>
     <p
       v-if="courses.length"
-      class="card-category"
+      class="card-category py-5"
     >Showing {{ from + 1 }} to {{ to }} of {{ totalItems }} entries</p>
-    <div class="row pt-2">
-      <div class="col-lg-3 col-md-6 mb-4" v-for="course in courses" v-bind:key="course.id">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4" v-for="course in courses" v-bind:key="course.id">
         <Course v-bind="course"></Course>
       </div>
     </div>
