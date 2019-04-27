@@ -42,5 +42,11 @@ router.post('/admin/users/create',
     userValidator.handle(),
     userController.store
 );
+router.post('/admin/users/:id/edit',
+    upload.single('avatar'),
+    convertFileToField.handle,
+    userValidator.handleUpdate(),
+    userController.update
+);
 
 module.exports = router;

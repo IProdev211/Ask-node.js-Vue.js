@@ -8,7 +8,7 @@
 						<span v-else>Add</span>
 					</span> User
 				</h4>
-				<form @submit="checkForm">
+				<form @submit="checkForm" autocomplete="off">
 					<div>
 						<div class="row pt-2">
 							<div class="col-md-12">
@@ -26,6 +26,7 @@
 										label="Edit User Full Name"
 										placeholder="User Full Name"
 										v-model="data.name"
+										autocomplete="off"
 										:error="fieldErrors.name">
 										</base-input>
 									</div>
@@ -34,6 +35,7 @@
 										label="Edit User Email"
 										placeholder="User Email"
 										v-model="data.email"
+										autocomplete="off"
 										:error="fieldErrors.email">
 										</base-input>
 									</div>
@@ -42,6 +44,7 @@
 										label="Edit User Password"
 										placeholder="User Password"
 										type="password"
+										autocomplete="off"
 										v-model="data.password"
 										:error="fieldErrors.password"
 										>
@@ -51,6 +54,7 @@
 										<base-input
 										label="Edit User xP Points"
 										placeholder="xP"
+										autocomplete="off"
 										v-model="data.xp"
 										:error="fieldErrors.xp"
 										>
@@ -277,7 +281,7 @@ export default {
 	},
 	watch: {
 		id: function(newValue, oldValue) {
-			thid.formErrors = [];
+			this.formErrors = [];
 			this.data.id = newValue;
 		},
 		name: function(newValue, oldValue) {

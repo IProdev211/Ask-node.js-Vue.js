@@ -55,6 +55,7 @@ class userController extends controller {
 			email: user.email,
 			avatar: user.avatar,
 			vipTime: user.vipTime,
+			createdAt: user.createdAt,
 			amountspent: payments.sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"),
 			learning: payments.courses,
 			xp: user.xp || 0,
@@ -86,9 +87,44 @@ class userController extends controller {
 			},
 			status: "success"
 		});
+	}
+	async update(req, res , next) {
+		if (! await this.validationData(req, res)) return;
+		const objForUpdate = {};
+		if (req.file) {
+			objForUpdate.avatar = this.getUrlImage(`${req.file.destination}/${req.file.filename}`);
+		}
+		delete req.body.file;		
+		const user = await User.findByIdAndUpdate(req.params.id, {
+			$set: { ...req.body,
+				...objForUpdate
+			}
+		}, {
+			new: true,
+		});
+		const userPayments = {
+			sum: 0,
+			courses: [],
+		};
+		const payments = await Payment.find({ user: user.id, payment: true }).populate("course");
+		for (const payment of payments) {
+			userPayments.sum += payment.price;
+			if (!payment.course) continue;
+			userPayments.courses.push({
+				id: payment.course.id,
+				title: payment.course.title,
+				signupDate: payment.updatedAt,
+			});
+		}
+		return res.json({
+			data: {
+				user: this.filterUserData(user, userPayments),
+			},
+			status: "success"
+		});
     }
 	getUrlImage(dir) {
-        return dir.substring(8);
+				return dir.substring(8);
 	}
 }
 

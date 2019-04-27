@@ -57,7 +57,7 @@ class userValidator extends validator {
 					}
 					const user = await User.findOne({
 						$and: [
-							{ $ne: { id: req.params.id } },
+							{ _id: { $ne: req.params.id } },
 							{ email: value },
 						],
 					});
@@ -82,14 +82,18 @@ class userValidator extends validator {
 
 			check('xp')
 				.custom(async (value , { req }) => {
-					if (value && value < 0)
+					if (value === undefined) return;
+					if (value < 0)
 						throw new Error('امتیاز کاربر نمیتواند کمتر از 0 باشد')
 				}),
 
 			check('password')
-				.isEmpty()
-				.isLength({ min : 8 })
-				.withMessage('کلمه عبور نمیتواند کمتر از 8 کاراکتر باشد')
+				.custom(async (value, { req }) => {
+					if (value === undefined) return;
+					if (value.length < 8) {
+						throw new Error('کلمه عبور نمیتواند کمتر از 8 کاراکتر باشد')
+					}
+				})
 		]
 	}
 

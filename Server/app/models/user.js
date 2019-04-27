@@ -31,10 +31,12 @@ userSchema.pre('save' , function(next) {
 });
 
 userSchema.pre('findOneAndUpdate' , function(next) {
-    let salt = bcrypt.genSaltSync(15);
-    let hash = bcrypt.hashSync(this.getUpdate().$set.password , salt);
-
-    this.getUpdate().$set.password = hash;
+    if (this.getUpdate().$set.password) {
+        let salt = bcrypt.genSaltSync(15);
+        let hash = bcrypt.hashSync(this.getUpdate().$set.password , salt);
+    
+        this.getUpdate().$set.password = hash;
+    }
     next();
 });
 

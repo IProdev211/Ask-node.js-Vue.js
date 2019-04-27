@@ -248,7 +248,17 @@ export default {
 			this.user = undefined;
 		},
 		userActionListener(user) {
-			this.tableData.push(user);
+			user.datejoined = this.date(user.createdAt);
+			if (this.user) {
+				for (const key in this.tableData) {
+					if (this.tableData[key] === undefined) continue;
+					if (this.tableData[key].id == this.user.id) {
+						this.tableData[key] = user;
+					}
+				}
+			} else {
+				this.tableData.push(user);
+			}
 		},
 	},
 	mounted() {
