@@ -11,7 +11,7 @@
         position: absolute;
         left: 0;
         top: 0;
-        width: 58%;
+        width: 50%;
       }
 
       .card-title {
@@ -43,7 +43,14 @@
     }
 
     &.card-plain {
-      @include input-coloured-bg($opacity-5, $white, $white, $transparent-bg, $opacity-1, $opacity-2);
+      @include input-coloured-bg(
+        $opacity-5,
+        $white,
+        $white,
+        $transparent-bg,
+        $opacity-1,
+        $opacity-2
+      );
 
       .input-group-addon,
       .form-group.no-border .input-group-addon,
@@ -53,7 +60,6 @@
     }
 
     &.card-white {
-
       background: $white;
 
       .card-header {
@@ -65,7 +71,6 @@
       @include form-control-placeholder(rgba($black, 0.4), 1);
 
       .has-danger {
-
         .form-control,
         .input-group-prepend .input-group-text {
           border-color: $danger-states;
@@ -88,10 +93,9 @@
 
       .form-group.no-border,
       .input-group.no-border {
-
         .form-control,
-        .form-control+.input-group-prepend .input-group-text,
-        .form-control+.input-group-append .input-group-text,
+        .form-control + .input-group-prepend .input-group-text,
+        .form-control + .input-group-append .input-group-text,
         .input-group-prepend .input-group-text,
         .input-group-append .input-group-text {
           background-color: $opacity-gray-3;
@@ -105,20 +109,15 @@
 
         .form-control {
           &:focus {
-
-            &+.input-group-prepend .input-group-text,
-            &+.input-group-append .input-group-text {
-
+            & + .input-group-prepend .input-group-text,
+            & + .input-group-append .input-group-text {
               background-color: $transparent-bg;
             }
           }
         }
-
-
       }
 
       .input-group[disabled] {
-
         .input-group-prepend .input-group-text,
         .input-group-append .input-group-text {
           background-color: $black;
@@ -133,7 +132,6 @@
       }
 
       .input-group-focus {
-
         .input-group-prepend .input-group-text,
         .input-group-append .input-group-text,
         .form-control {
@@ -142,10 +140,8 @@
         }
 
         &.no-border {
-
           .input-group-prepend .input-group-text,
           .input-group-append .input-group-text {
-
             background-color: $opacity-gray-5;
           }
         }
@@ -170,7 +166,6 @@
       .has-success.input-group-focus .input-group-prepend .input-group-text {
         border-color: darken($success, 10%);
       }
-
     }
   }
 
@@ -187,19 +182,18 @@
 }
 
 .full-page {
-
-  &>.content,
-  &>.footer {
+  & > .content,
+  & > .footer {
     position: relative;
     z-index: 4;
   }
 
-  &>.content {
+  & > .content {
     padding-bottom: 50px;
     padding-top: 150px;
   }
 
-  &>.content-custom {
+  & > .content-custom {
     padding-bottom: 50px;
     padding-top: 60px;
   }
@@ -228,8 +222,6 @@
     background-position: center center;
   }
 
-
-
   &.pricing-page {
     .description {
       margin-bottom: 65px;
@@ -248,7 +240,7 @@
       .icon {
         margin-top: 0;
 
-        >i {
+        > i {
           font-size: 2em;
         }
 
@@ -274,7 +266,6 @@
           margin-bottom: 20px;
         }
       }
-
     }
   }
 
@@ -288,19 +279,18 @@
 }
 
 @include media-breakpoint-down(sm) {
-
   .landing-page .section-story-overview .image-container:nth-child(2) {
     margin-left: 0;
     margin-bottom: 30px;
   }
 
   .login-page .card-login .card-header img {
-    width: 70%;
+    width: 65%;
   }
 }
 
 @include media-breakpoint-down(xs) {
-  .register-page .full-page>.content {
+  .register-page .full-page > .content {
     padding-top: 50px;
   }
 
@@ -311,8 +301,7 @@
   }
 }
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .pricing-page,
   .register-page,
   .login-page,
@@ -321,10 +310,9 @@
       display: none;
     }
   }
-
 }
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
   .register-page .full-page .content {
     .card-register {
       margin-top: 3rem !important;
@@ -333,7 +321,6 @@
 }
 
 @include media-breakpoint-down(md) {
-
   .lock-page,
   .login-page,
   .pricing-page,

@@ -8,12 +8,13 @@
         <div class="course__name">
           <h4 class="text-center font-weight-bold course-title pt-4">{{ title }}</h4>
         </div>
-        <div class="CourseCard__course__info d-flex justify-content-between text-center pt-2">
+        <hr class="fadeline">
+        <div class="CourseCard__course__info d-flex justify-content-between text-center">
           <div>
             <p class="courseTime">
               {{ minutes }}
               <br>
-              <span class="courseTimeSpan">دقیقه صوت و تصویر</span>
+              <span class="courseTimeSpan">دقیقه تصویر</span>
             </p>
           </div>
           <div>
@@ -193,12 +194,12 @@ export default {
 }
 
 .CourseCard__course__info {
-  margin: 0 15%;
+  margin: 0 20%;
 }
 
 .courseTime {
   color: rgb(219, 219, 219);
-  padding-right: 1rem;
+  padding-right: 0.7rem;
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -209,7 +210,7 @@ export default {
 
 .unitsAvailable {
   color: rgb(219, 219, 219);
-  padding-left: 1.2rem;
+  padding-left: 0.7rem;
   font-size: 1.2rem;
   font-weight: 600;
 }

@@ -54,7 +54,7 @@
 									></el-option>
 								</el-select>
 							</div>
-							<div class="col-md-12 py-3">
+							<div class="col-md-12 py-5">
 								<base-input
 									class="coursetext"
 									label="Course Text (CKEditor 5)"

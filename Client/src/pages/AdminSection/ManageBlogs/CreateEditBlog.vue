@@ -30,7 +30,11 @@
                   </div>
                   <div class="col-md-6">
                     <h4 class="lead">Tags</h4>
-                    <tags-input v-model="tags.dynamicTags"></tags-input>
+                    <tags-input v-model="tags.blogTags"></tags-input>
+                  </div>
+                  <div class="col-md-6">
+                    <h4 class="lead">Categories</h4>
+                    <tags-input v-model="tags.categoryTags"></tags-input>
                   </div>
                 </div>
               </div>
@@ -63,7 +67,8 @@ export default {
         avatar: null
       },
       tags: {
-        dynamicTags: ['Tag 1', 'Tag 2']
+        blogTags: ['Tag 1', 'Tag 2'],
+        categoryTags: ['Category 1', 'Category 2']
       }
     };
   },

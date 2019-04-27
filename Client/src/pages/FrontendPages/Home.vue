@@ -2,14 +2,14 @@
   <div>
     <!-- Hero Section -->
     <vue-particles :lineLinked="false" :moveSpeed="2" :particleSize="2"></vue-particles>
-    <div class="hero-content-homepage">
+    <section class="hero-content-homepage">
       <div class="container">
         <h1
-          class="display-3 text-success text-center pb-5"
+          class="display-3 text-success text-center py-3"
         >آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
         <h2
           class="d-flex justify-content-start my-4 section-header-homepage"
-        >دوره‌های پیشنهادی اسک آریا</h2>
+        >پیشنهادهای ویژه اسک آریا برای شما</h2>
         <div class="row">
           <!-- Top Courses -->
           <div class="col-lg-4 col-md-6 mb-4" v-for="course in topCourses" v-bind:key="course.id">
@@ -27,7 +27,7 @@
           </router-link>
         </div>
       </div>
-    </div>
+    </section>
 
     <!--Founder Section-->
     <div class="founder-section-homepage">
@@ -86,8 +86,8 @@ export default {
   background-position: center;
   position: relative;
   width: 100%;
-  padding-top: 60px;
-  padding-bottom: 85px;
+  // padding-top: 60px;
+  // padding-bottom: 55px;
   min-height: 100vh;
   z-index: 999;
   // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
