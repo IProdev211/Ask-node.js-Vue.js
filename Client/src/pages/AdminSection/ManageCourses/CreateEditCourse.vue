@@ -4,7 +4,7 @@
 			<card class="stacked-form">
 				<h4 slot="header" class="card-title">
 					<span class="font-weight-bold pr-1">
-						<span v-if="id">Edit</span>
+						<span v-if="data.id">Edit</span>
 						<span v-else>Add</span>
 					</span> Course
 				</h4>
@@ -15,25 +15,25 @@
 								<base-input
 									label="Course Name"
 									placeholder="Course Name"
-									v-model="title"
+									v-model="data.title"
 									:required="true" 
-									:error="fieldErrors.email">
+									:error="fieldErrors.title">
 								</base-input>
 							</div>
 							<div class="col-md-2">
 								<base-input
 									label="Course Price"
 									placeholder="Course Price"
-									v-model="price"
+									v-model="data.price"
 									:required="true" 
 									:error="fieldErrors.price">
 								</base-input>
 							</div>
 							<div class="col-md-2">
-								<base-input label="Old Price" placeholder="Old Price" v-model="oldPrice"></base-input>
+								<base-input label="Old Price" placeholder="Old Price" v-model="data.oldPrice"></base-input>
 							</div>
 							<div class="col-md-2">
-								<base-input label="xP" placeholder="xP" v-model="xp"></base-input>
+								<base-input label="xP" placeholder="xP" v-model="data.xp"></base-input>
 							</div>
 							<div class="col-md-3 pt-4">
 								<el-select
@@ -41,9 +41,8 @@
 									size="large"
 									label="Course Type"
 									placeholder="Course Type"
-									v-model="type"
+									v-model="data.type"
 									@change="changeTypeListener"
-									:required="true" 
 									:error="fieldErrors.type">
 									<el-option
 										v-for="option in selects.CourseType"
@@ -61,12 +60,12 @@
 									placeholder="Course Text"
 									:required="true" 
 									:error="fieldErrors.body">
-									<ckeditor :editor="ckeditor.editor" v-model="body" :config="ckeditor.editorConfig"></ckeditor>
+									<ckeditor :editor="ckeditor.editor" v-model="data.body" :config="ckeditor.editorConfig"></ckeditor>
 								</base-input>
 							</div>
 							<div class="col-md-5 pt-3">
 								<h4 class="lead">Tags</h4>
-								<tags-input v-model="tags"></tags-input>
+								<tags-input v-model="data.tags"></tags-input>
 							</div>
 							<div class="col-md-4 pt-5">
 								<image-upload
@@ -84,9 +83,9 @@
 						</div>
 						<div class="mt-5 pull-right">
 							<base-button class="px-5" native-type="submit" type="primary">
-								<span v-if="id">Edit </span> <span v-else>Create </span> <span class="ml-1">Course</span>
+								<span v-if="data.id">Edit </span> <span v-else>Create </span> <span class="ml-1">Course</span>
 							</base-button>
-							<base-button class="ml-2 px-5" native-type="button" @click="reset" type="light" v-if="id">
+							<base-button class="ml-2 px-5" native-type="button" @click="reset" type="light" v-if="data.id">
 								reset
 							</base-button>
 						</div>
@@ -142,6 +141,17 @@ export default {
 				},
 			},
 			images: {},
+			data: {
+				id: undefined,
+				title: "",
+				thump: "",
+				type: "",
+				body: "",
+				price: 0,
+				tags: [],
+				oldPrice: 0,
+				xp: 0,
+			}
 		};
 	},
 	methods: {
@@ -153,22 +163,32 @@ export default {
 			this.fieldErrors = {};
 			this.formErrors = [];
 			let haveError = false;
-			if (!this.title) {
+			if (!this.data.title) {
 				this.fieldErrors.title = 'عنوان مورد نیاز است';
 				haveError = true;
 			}
-			if (!this.type) {
-				this.fieldErrors.type = 'نوع درس مشخص نشده است';
+			if (!this.data.type) {
+				this.$notify({
+					type: 'warning',
+					message: 'نوع دوره مشخص نشده است',
+				});
 				haveError = true;
 			}
-			if (this.type == "Free") {
-				this.price = 0;
-			} else if (!this.price) {
-				this.fieldErrors.price = 'قیمت درس مشخص نشده است';
+			if (this.data.type.toLowerCase() == "free") {
+				this.data.price = 0;
+			} else if (!this.data.price) {
+				this.fieldErrors.price = 'قیمت دوره مشخص نشده است';
 				haveError = true;
 			}
-			if (!this.body) {
-				this.fieldErrors.body = 'توضیحات درس مورد نیاز است';
+			if (!this.data.body) {
+				this.fieldErrors.body = 'توضیحات دوره مورد نیاز است';
+				haveError = true;
+			}
+			if (! this.images instanceof File) {
+				this.$notify({
+					type: 'warning',
+					message: 'تصویر دوره مشخص نشده است',
+				});
 				haveError = true;
 			}
 			if (haveError) {
@@ -181,25 +201,14 @@ export default {
 				};
 			}
 			this.loading = true;
-			let data;
-			if (this.images instanceof File) {
-				data = new FormData();
-				data.append("title", this.title);
-				data.append("type", this.type);
-				data.append("price", this.price);
-				data.append("images", this.images);
-				data.append("body", this.body);
-				data.append("tags", this.tags.join(" "));
-			} else {
-				data = {
-					title: this.title,
-					type: this.type,
-					price: this.price,
-					body: this.body,
-					tags: this.tags.join(" "),
-				};
-			}
-			const requestUrl = this.id !== undefined ? `/courses/${this.id}/edit` : "/courses/create";
+			const data = new FormData();
+			data.append("title", this.data.title);
+			data.append("type", this.data.type);
+			data.append("price", this.data.price);
+			data.append("images", this.images);
+			data.append("body", this.data.body);
+			data.append("tags", this.data.tags.join(" "));
+			const requestUrl = this.id !== undefined ? `/admin/courses/${this.id}/edit` : "/admin/courses/create";
 			backend.post(requestUrl, data).then((response) => {
 				this.loading = false;
 				if (response.data.status === "error") {
@@ -219,19 +228,47 @@ export default {
 			});
 		},
 		reset() {
-			this.id = undefined;
-			this.title = "";
-			this.images = "";
-			this.type = "";
-			this.body = "";
-			this.price = "";
-			this.tags = [];
+			this.data.id = undefined;
+			this.data.title = "";
+			this.data.images = "";
+			this.data.type = "";
+			this.data.body = "";
+			this.data.price = "";
+			this.data.tags = [];
+			this.$emit('reset');
 		},
 		changeTypeListener(type) {
 			if (type.toLowerCase() == "free") {
-				this.price = 0;
+				this.data.price = 0;
+			} else if (this.price) {
+				this.data.price = this.price;
 			}
-		}
+		},
+	},
+	watch: {
+		id: function(newValue, oldValue) {
+			console.log("salam");
+			this.formErrors = [];
+			this.data.id = newValue;
+		},
+		title: function(newValue, oldValue) {
+			this.data.title = newValue;
+		},
+		type: function(newValue, oldValue) {
+			this.data.type = newValue;
+		},
+		body: function(newValue, oldValue) {
+			this.data.body = newValue;
+		},
+		price: function(newValue, oldValue) {
+			this.data.price = newValue;
+		},
+		oldPrice: function(newValue, oldValue) {
+			this.data.oldPrice = newValue;
+		},
+		xp: function(newValue, oldValue) {
+			this.data.xp = newValue;
+		},
 	}
 };
 </script>

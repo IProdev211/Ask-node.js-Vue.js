@@ -87,7 +87,7 @@
 			</div>
 		</div>
 		<div class="pt-3">
-			<CreateEditCourse v-bind="course" @course="courseActionListener"></CreateEditCourse>
+			<CreateEditCourse v-bind="course" @course="courseActionListener" @reset="reset"></CreateEditCourse>
 		</div>
 	</section>
 </template>
@@ -190,10 +190,10 @@ export default {
 			});
 		},
 		deleteRow(row) {
-			backend.post(`/courses/${row.id}/delete`).then((response) => {
+			backend.post(`/admin/courses/${row.id}/delete`).then((response) => {
 				if (response.data.status === "error") {
 					this.$notify({
-						type: 'error',
+						type: 'danger',
 						message: 'درخواست شما توسط سرور رد شد.',
 						icon: 'tim-icons icon-bell-55'
 					});
@@ -212,7 +212,7 @@ export default {
 				});
 			}).catch((error) => {
 					this.$notify({
-						type: 'error',
+						type: 'danger',
 						message: 'در حال حاظر سرور پاسخ درخواست شما را بدرستی ارسال نمیکند.',
 						icon: 'tim-icons icon-bell-55'
 					});
@@ -237,6 +237,9 @@ export default {
 			} else {
 				this.tableData.push(course);
 			}
+		},
+		reset() {
+			this.course = undefined;
 		}
 	},
 	mounted() {

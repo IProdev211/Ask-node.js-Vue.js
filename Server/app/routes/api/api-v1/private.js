@@ -20,19 +20,19 @@ router.put('/profile', upload.single("avatar"), convertFileToField.handle, profi
 // Admin section
 
 router.get('/admin/courses', /** gate.can('show-courses'), */courseController.index);
-router.post('/courses/create',
+router.post('/admin/courses/create',
     upload.single('images'),
     convertFileToField.handle,
     courseValidator.handle(),
     courseController.store
 );
-router.post('/courses/:id/edit',
+router.post('/admin/courses/:id/edit',
     upload.single('images'),
     convertFileToField.handle,
     courseValidator.handleUpdate(),
     courseController.update
 );
-router.post('/courses/:id/delete',
+router.post('/admin/courses/:id/delete',
     courseController.destroy
 );
 router.get('/admin/users', /** gate.can('show-users'), */userController.index);
