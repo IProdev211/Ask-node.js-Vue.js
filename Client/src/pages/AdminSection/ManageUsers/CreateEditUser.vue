@@ -271,8 +271,8 @@ export default {
 					message: this.id ? `کاربر با موفقیت ویرایش شد.` : 'کاربر با موفقیت اضافه شد.',
 					icon: 'tim-icons icon-bell-55'
 				});
-				this.reset();
 				this.$emit('user', response.data.data.user);
+				this.reset();
 			}).catch((error) => {
 				this.loading = false;
 				errorHandler(error.response);
