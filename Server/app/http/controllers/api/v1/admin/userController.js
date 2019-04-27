@@ -15,19 +15,30 @@ class userController extends controller {
 				],
 			}
 		}
-		const users = await User.paginate(filter , { page , sort : { createdAt : 1 } , limit : parseInt(limit, 10) } )
+		const users = await User.paginate(filter , {
+			page ,
+			sort : { createdAt : 1 } ,
+			limit : parseInt(limit, 10) ,
+		});
 		const docs = [];
 		const userIds = [];
+		const userPayments = {};
 		for (const user of users.docs) {
 			userIds.push(user.id);
+			userPayments[user.id] = {
+				sum: 0,
+				courses: [],
+			};
 		}
-		const payments = await Payment.find({ user: { $in: userIds }, payment: true }).exec();
-		const userPayments = {};
+		const payments = await Payment.find({ user: { $in: userIds }, payment: true }).populate("course");
 		for (const payment of payments) {
-			if (userPayments[payment.user] === undefined) {
-				userPayments[payment.user] = 0;
-			}
-			userPayments[payment.user] += payment.price;
+			userPayments[payment.user].sum += payment.price;
+			if (!payment.course) continue;
+			userPayments[payment.user].courses.push({
+				id: payment.course.id,
+				title: payment.course.title,
+				signupDate: payment.updatedAt,
+			});
 		}
 		for (const user of users.docs) {
 			docs.push(this.filterUserData(user, userPayments[user.id]));
@@ -37,14 +48,47 @@ class userController extends controller {
 			docs: docs,
 		});
 	}
-	filterUserData(user, sum = 0) {
+	filterUserData(user, payments) {
 		return {
+			id: user.id,
 			name: user.name,
 			email: user.email,
 			avatar: user.avatar,
 			vipTime: user.vipTime,
-			amountspent: sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"),
+			amountspent: payments.sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"),
+			learning: payments.courses,
+			xp: user.xp || 0,
 		}
+	}
+	async store(req , res) {
+		if (! await this.validationData(req, res)) return;
+		let avatar = "";
+		if (req.file) {
+			avatar = this.getUrlImage(`${req.file.destination}/${req.file.filename}`);
+		}
+		let { name , email , password, xp } = req.body;
+
+		let newUser = new User({ 
+			name: name,
+			email: email,
+			password: password,
+			xp: xp || 0,
+			avatar: avatar || null,
+		});
+
+		await newUser.save();
+		return res.json({
+			data: {
+				user: this.filterUserData(newUser, {
+					sum: 0,
+					courses: [],
+				}),
+			},
+			status: "success"
+		});
+    }
+	getUrlImage(dir) {
+        return dir.substring(8);
 	}
 }
 

@@ -7,6 +7,7 @@ const profileValidator = require("app/http/validators/profileValidator");
 const courseController = require('app/http/controllers/api/v1/admin/courseController');
 const userController = require('app/http/controllers/api/v1/admin/userController');
 const courseValidator = require('app/http/validators/courseValidator');
+const userValidator = require('app/http/validators/userValidator');
 const gate = require('app/helpers/gate');
 const upload = require('app/helpers/uploadImage');
 const convertFileToField = require('app/http/middleware/convertFileToField');
@@ -35,5 +36,11 @@ router.post('/courses/:id/delete',
     courseController.destroy
 );
 router.get('/admin/users', /** gate.can('show-users'), */userController.index);
+router.post('/admin/users/create',
+    upload.single('avatar'),
+    convertFileToField.handle,
+    userValidator.handle(),
+    userController.store
+);
 
 module.exports = router;

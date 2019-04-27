@@ -99,7 +99,7 @@
 			</div>
 		</div>
 		<div class="pt-2">
-			<CreateEditUser></CreateEditUser>
+			<CreateEditUser v-bind="user" @reset="reset" @user="userActionListener"></CreateEditUser>
 		</div>
 	</section>
 </template>
@@ -164,6 +164,7 @@ export default {
 				}
 			],
 			tableData: [],
+			user: {},
 		};
 	},
 	methods: {
@@ -189,6 +190,7 @@ export default {
 				buttonsStyling: false,
 				confirmButtonClass: 'btn btn-info btn-fill'
 			});
+			this.user = row;
 		},
 		handlePassword(index, row) {
 			Swal({
@@ -241,7 +243,13 @@ export default {
 		},
 		date(time) {
 			return moment(time).format('MM/DD/YYYY');
-		}
+		},
+		reset() {
+			this.user = undefined;
+		},
+		userActionListener(user) {
+			this.tableData.push(user);
+		},
 	},
 	mounted() {
 		this.dataLoad(1);

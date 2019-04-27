@@ -17,6 +17,7 @@ const userSchema = Schema({
     lang : { type : String , default : 'en' },
     learning : [{ type : Schema.Types.ObjectId , ref : 'Course'}],
     roles : [{ type : Schema.Types.ObjectId , ref : 'Role'}],
+    xp : { type : Number , default : 0 },
 } , { timestamps : true , toJSON : { virtuals : true } });
 
 userSchema.plugin(mongoosePaginate);
