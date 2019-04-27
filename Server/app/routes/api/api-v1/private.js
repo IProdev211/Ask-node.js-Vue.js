@@ -48,5 +48,8 @@ router.post('/admin/users/:id/edit',
     userValidator.handleUpdate(),
     userController.update
 );
+router.post('/admin/users/:id/delete',
+    userController.destroy
+);
 
 module.exports = router;

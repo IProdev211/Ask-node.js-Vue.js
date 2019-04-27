@@ -1,6 +1,7 @@
 const controller = require("app/http/controllers/api/controller");
 const User = require('app/models/user');
 const Payment = require('app/models/payment');
+const fs = require('fs');
 
 class userController extends controller {
 	async index(req , res) {
@@ -120,6 +121,23 @@ class userController extends controller {
 			data: {
 				user: this.filterUserData(user, userPayments),
 			},
+			status: "success"
+		});
+	}
+	async destroy(req, res, next) {
+		this.isMongoId(res, req.params.id);
+		let user = await User.findById(req.params.id).exec();
+		if (!user) {
+			this.failed('چنین کاربری وجود ندارد', res, 404);
+			return;
+		}
+		if (user.avatar) {
+			// delete avatar
+			fs.unlinkSync(`./public${user.avatar}`)
+		}
+		// delete user
+		user.remove();
+		return res.json({
 			status: "success"
 		});
     }

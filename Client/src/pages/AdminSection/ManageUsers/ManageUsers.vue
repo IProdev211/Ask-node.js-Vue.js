@@ -57,15 +57,6 @@
 											<i class="tim-icons icon-pencil"></i>
 										</router-link>
 									</base-button>
-									<!-- <base-button
-									@click.native="handlePassword(props.$index, props.row)"
-									class="btn-link"
-									type="info"
-									size="sm"
-									icon
-								>
-									<i class="fas fa-key"></i>
-									</base-button>-->
 									<base-button
 										@click.native="handleDelete(props.$index, props.row)"
 										class="remove btn-link"
@@ -192,44 +183,51 @@ export default {
 			});
 			this.user = row;
 		},
-		handlePassword(index, row) {
-			Swal({
-				title: `Edit User Password ${row.name}`,
-				buttonsStyling: false,
-				type: 'success',
-				confirmButtonClass: 'btn btn-success btn-fill'
-			});
-		},
 		handleDelete(index, row) {
 			Swal({
 				title: 'Are you sure?',
 				text: `You won't be able to revert this!`,
-				type: 'warning',
-				showCancelButton: true,
-				confirmButtonClass: 'btn btn-success btn-fill',
-				cancelButtonClass: 'btn btn-danger btn-fill',
-				confirmButtonText: 'Yes, delete it!',
-				buttonsStyling: false
+				icon: 'warning',
+				buttons: {
+					cancel: "cancel",
+					catch: {
+						text: "Yes, delete it!",
+						value: true,
+					},
+				},
 			}).then(result => {
-				if (result.value) {
-					this.deleteRow(row);
-					Swal({
-						title: 'Deleted!',
-						text: `You deleted ${row.name}`,
-						type: 'success',
-						confirmButtonClass: 'btn btn-success btn-fill',
-						buttonsStyling: false
-					});
-				}
+				if (!result) return;
+				this.deleteRow(row);
 			});
 		},
 		deleteRow(row) {
-			let indexToDelete = this.tableData.findIndex(
-				tableRow => tableRow.id === row.id
-			);
-			if (indexToDelete >= 0) {
-				this.tableData.splice(indexToDelete, 1);
-			}
+			backend.post(`/admin/users/${row.id}/delete`).then((response) => {
+				if (response.data.status === "error") {
+					this.$notify({
+						type: 'error',
+						message: 'درخواست شما توسط سرور رد شد.',
+						icon: 'tim-icons icon-bell-55'
+					});
+					return;
+				}
+				let indexToDelete = this.tableData.findIndex(
+					tableRow => tableRow.id === row.id
+				);
+				if (indexToDelete >= 0) {
+					this.tableData.splice(indexToDelete, 1);
+				}
+				Swal({
+					title: 'Deleted!',
+					text: `You deleted ${row.title}`,
+					icon: 'success',
+				});
+			}).catch((error) => {
+				this.$notify({
+					type: 'error',
+					message: 'در حال حاظر سرور پاسخ درخواست شما را بدرستی ارسال نمیکند.',
+					icon: 'tim-icons icon-bell-55'
+				});
+			});
 		},
 		changePageListener(page) {
 			if (page == this.pagination.currentPage) return;
