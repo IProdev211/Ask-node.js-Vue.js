@@ -1,6 +1,6 @@
 <template>
   <div class="container pb-5">
-    <h1 class="pb-5 founder-header text-danger text-right">بنیانگذار ما</h1>
+    <h3 class="pb-5 founder-header text-danger text-right">بنیانگذار ما</h3>
     <div class="row">
       <div class="col-md-7 text-right">
         <h2 class="subheading2 text-info">کاپیتان این پرواز چه کسی است؟</h2>
@@ -50,8 +50,8 @@
   font-size: 3.6rem;
 }
 .founder-header {
-  font-size: 1.5rem;
-  // color: white;
+  font-size: 1.4rem;
+  color: white !important;
 }
 .subheader-founder {
   font-size: 1rem;

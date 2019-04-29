@@ -15,7 +15,7 @@
               </ul>
             </p>
             <div class="row pt-5">
-              <div class="col-md-6">
+              <div class="col-md-6 text-ltr">
                 <label class="pull-right font-weight-bold pt-2">نام و نام خانوادگی</label>
                 <base-input 
                   v-model="name" 
@@ -24,7 +24,7 @@
                 </base-input>
               </div>
             
-              <div class="col-md-6">
+              <div class="col-md-6 text-ltr">
                 <label class="pull-right font-weight-bold pt-2" >پست الکترونیک</label>
                 <base-input
                   v-model="email" 
@@ -33,7 +33,7 @@
                 </base-input>
               </div>
 
-              <div class="col-md-12">
+              <div class="col-md-12 text-ltr">
               <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
                 <base-input
                   type="password"
