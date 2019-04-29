@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const mongoosePaginate = require('mongoose-paginate');
 const bcrypt = require('bcrypt');
+mongoose.set('useFindAndModify', false);
 
 const episodeSchema = Schema({
     course : { type : Schema.Types.ObjectId , ref : 'Course'},
@@ -20,7 +21,7 @@ episodeSchema.plugin(mongoosePaginate);
 
 episodeSchema.methods.typeToPersian = function() {
     switch (this.type) {
-        case 'cash':
+        case 'paid':
                 return 'نقدی'
             break;
         case 'vip':
@@ -34,13 +35,12 @@ episodeSchema.methods.typeToPersian = function() {
 
 episodeSchema.methods.download = function(check , user) {
     if(! check) return '#';
-
     let status = false;
     if(this.type == 'free') {
         status = true;
     } else if(this.type == 'vip') {
         status = user.isVip();
-    } else if(this.type == 'cash') {
+    } else if(this.type == 'paid') {
         status = user.checkLearning(this.course)
     }
 
@@ -55,6 +55,10 @@ episodeSchema.methods.download = function(check , user) {
     return status ? `/download/${this.id}?mac=${hash}&t=${timestamps}` : '#';
 }
 
+episodeSchema.methods.validateDownload = function(mac, t) {
+    const text = `aQTR@!#Fa#%!@%SDQGGASDF${this.id}${t}`;
+    return bcrypt.compareSync(text , mac);
+}
 episodeSchema.methods.path = function() {
     return `${this.course.path()}/${this.number}`;
 }

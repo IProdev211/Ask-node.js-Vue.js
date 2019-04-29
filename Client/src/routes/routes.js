@@ -215,7 +215,7 @@ const routes = [
 				}
 			},
 			{
-				path: 'SingleLesson/',
+				path: 'courses/episode/:id',
 				name: 'Single Lesson',
 				components: {
 					default: SingleLesson

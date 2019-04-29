@@ -3,6 +3,7 @@ const Course = require("app/models/course");
 const Episode = require("app/models/episode");
 const Comment = require("app/models/comment");
 const passport = require("passport");
+const request = require("request");
 
 class courseController extends controller {
 	async courses(req, res, next) {
@@ -97,7 +98,7 @@ class courseController extends controller {
 				res.json({
 					data: {
 						course: this.filterCourseData(course, user),
-						enrolled: user ? user.checkLearning() : false,
+						enrolled: user ? user.checkLearning(course.id) : false,
 						enrolledCount: course.usersCount,
 					},
 					status: "success"
@@ -128,25 +129,91 @@ class courseController extends controller {
 				name: course.user.name
 			},
 			episodes: course.episodes.map(episode => {
-				return {
-					time: episode.time,
-					downloadCount: episode.downloadCount,
-					viewCount: episode.viewCount,
-					commentCount: episode.commentCount,
-					id: episode.id,
-					title: episode.title,
-					body: episode.body,
-					type: episode.type,
-					number: episode.number,
-					createdAt: episode.createdAt,
-					download: episode.download(!!user, user)
-				};
+				return this.filterEpisodeData(episode, user);
 			}),
 			price: course.price,
 			createdAt: course.createdAt
 		};
 	}
-
+	filterEpisodeData(episode, user) {
+		return {
+			time: episode.time,
+			downloadCount: episode.downloadCount,
+			viewCount: episode.viewCount,
+			commentCount: episode.commentCount,
+			id: episode.id,
+			title: episode.title,
+			body: episode.body,
+			type: episode.type,
+			number: episode.number,
+			createdAt: episode.createdAt,
+			download: episode.download(!! user, user)
+		}
+	}
+	async singleEpisode(req, res) {
+		try {
+			const episode = await Episode.findByIdAndUpdate(req.params.id, {
+				$inc: { viewCount: 1 },
+			}).populate([
+				{
+					path: "course",
+					populate: [
+						{
+							path: "user",
+							select: "name"
+						},
+						{
+							path: "episodes",
+							match: { id: { $ne: req.params.id } },
+							options: { sort: { number: 1 } }
+						},
+						{
+							path: "categories",
+							select: "name slug"
+						},
+						{
+							path: "usersCount",
+						},
+					],
+				},
+			]);
+			if (! episode) return this.failed("چنین درسی یافت نشد", res, 404);
+			for (const key in episode.course.episodes) {
+				if (episode.course.episodes[key] == undefined) continue;
+				if (episode.course.episodes[key].id == episode.id) {
+					episode.course.episodes.splice(key, 1);
+					break;
+				}
+			}
+			passport.authenticate("jwt", { session: true }, (err, user, info) => {
+				res.json({
+					data: {
+						episode: this.filterEpisodeData(episode, user),
+						course: this.filterCourseData(episode.course, user),
+						enrolled: user ? user.checkLearning(episode.course.id) : false,
+						enrolledCount: episode.course.usersCount,
+					},
+					status: "success"
+				});
+			})(req, res);
+		} catch (err) {
+			this.failed(err.message, res);
+		}
+	}
+	async downloadEpisode(req, res) {
+		const mac = req.query.mac;
+		const t = req.query.t;
+		if (! mac || ! t || new Date() >= t) {
+			return this.failed("چنین درسی یافت نشد", res, 404);
+		}
+		const episode = await Episode.findById(req.params.id);
+		if (! episode || ! episode.validateDownload(mac, t)) {
+			return this.failed("چنین درسی یافت نشد", res, 404);
+		}
+		const reqo = request(episode.videoUrl);
+		req.pipe(reqo);
+		reqo.pipe(res);
+	}
 	async commentForSingleCourse(req, res) {
 		try {
 			let comments = await Comment.find({
