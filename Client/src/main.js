@@ -9,6 +9,7 @@ import backend from './backend';
 import VuePlyr from 'vue-plyr';
 import VueSweetalert2 from 'vue-sweetalert2';
 import VueParticles from 'vue-particles';
+import NProgress from "nprogress";
 
 // plugin setup
 Vue.use(DashboardPlugin);
@@ -16,10 +17,12 @@ Vue.use(CKEditor);
 Vue.use(VueSweetalert2);
 Vue.use(VueParticles);
 Vue.use(VuePlyr);
+Vue.use(NProgress);
 
 
 import 'vue-plyr/dist/vue-plyr.css';
 import 'vue-sweetalert2/node_modules/sweetalert2/dist/sweetalert2.css';
+import 'nprogress/nprogress.css';
 
 import store from './store';
 
