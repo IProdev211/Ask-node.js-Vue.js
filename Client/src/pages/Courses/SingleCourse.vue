@@ -88,7 +88,6 @@
 							<base-button v-if="notEnrolled && course.type.toLowerCase() == 'paid'" native-type="submit" class="btn-fill btn-success btn btn-sm">خرید</base-button>
 						</div>
 					</div>
-					<!-- video element -->
 					<div class="col-lg-9 col-md-12 col-sm-12 mb-3">
 						<AllUnits :episodes="course.episodes"></AllUnits>
 					</div>
@@ -149,10 +148,10 @@ export default {
 			return moment(this.course.createdAt).format('MM/DD/YYYY');
 		},
 		getCoursePrice() {
-			switch (this.course.type.toLowerCase) {
+			switch (this.course.type.toLowerCase()) {
 				case "free":
 					return "رایگان !";
-				case "paied":
+				case "paid":
 					return this.course.price + " تومان";
 				case "vip":
 					return "اکانت VIP نیاز است";
