@@ -4,7 +4,8 @@ const router = express.Router();
 const HomeController = require('app/http/controllers/api/v1/homeController');
 const DashboardController = require('app/http/controllers/api/v1/dashboardController');
 const profileValidator = require("app/http/validators/profileValidator");
-const courseController = require('app/http/controllers/api/v1/admin/courseController');
+const courseController = require('app/http/controllers/api/v1/courseController');
+const adminCourseController = require('app/http/controllers/api/v1/admin/courseController');
 const userController = require('app/http/controllers/api/v1/admin/userController');
 const courseValidator = require('app/http/validators/courseValidator');
 const userValidator = require('app/http/validators/userValidator');
@@ -17,23 +18,25 @@ router.get('/user/history' , HomeController.history);
 router.get('/dashboard', DashboardController.index);
 router.put('/profile', upload.single("avatar"), convertFileToField.handle, profileValidator.handle(), DashboardController.updateProfile);
 
+router.get('/courses/:slug', courseController.singleCourse);
+
 // Admin section
 
-router.get('/admin/courses', /** gate.can('show-courses'), */courseController.index);
+router.get('/admin/courses', /** gate.can('show-courses'), */adminCourseController.index);
 router.post('/admin/courses/create',
     upload.single('images'),
     convertFileToField.handle,
     courseValidator.handle(),
-    courseController.store
+    adminCourseController.store
 );
 router.post('/admin/courses/:id/edit',
     upload.single('images'),
     convertFileToField.handle,
     courseValidator.handleUpdate(),
-    courseController.update
+    adminCourseController.update
 );
 router.post('/admin/courses/:id/delete',
-    courseController.destroy
+    adminCourseController.destroy
 );
 router.get('/admin/users', /** gate.can('show-users'), */userController.index);
 router.post('/admin/users/create',

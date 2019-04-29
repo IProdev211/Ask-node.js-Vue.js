@@ -72,7 +72,7 @@ class courseController extends controller {
 
 	async singleCourse(req, res) {
 		try {
-			let course = await Course.findByIdAndUpdate(req.params.course, {
+			const course = await Course.findOneAndUpdate({ slug: req.params.slug }, {
 				$inc: { viewCount: 1 }
 			}).populate([
 				{
@@ -86,14 +86,20 @@ class courseController extends controller {
 				{
 					path: "categories",
 					select: "name slug"
+				},
+				{
+					path: "usersCount",
 				}
 			]);
 
 			if (!course) return this.failed("چنین دوره ای یافت نشد", res, 404);
-
-			passport.authenticate("jwt", { session: false }, (err, user, info) => {
+			passport.authenticate("jwt", { session: true }, (err, user, info) => {
 				res.json({
-					data: this.filterCourseData(course, user),
+					data: {
+						course: this.filterCourseData(course, user),
+						enrolled: user ? user.checkLearning() : false,
+						enrolledCount: course.usersCount,
+					},
 					status: "success"
 				});
 			})(req, res);
@@ -109,6 +115,8 @@ class courseController extends controller {
 			slug: course.slug,
 			body: course.body,
 			image: course.thumb,
+			type: course.type,
+			time: course.time,
 			categories: course.categories.map(cate => {
 				return {
 					name: cate.name,
