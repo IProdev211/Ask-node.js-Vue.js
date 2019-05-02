@@ -19,7 +19,7 @@ router.beforeResolve((to, from, next) => {
     }
   }
   if (needAuth && !router.app.$data.user) {
-    return next("login");
+    return next('login');
   }
   next();
 });

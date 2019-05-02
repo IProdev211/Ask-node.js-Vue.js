@@ -9,7 +9,7 @@ import backend from './backend';
 import VuePlyr from 'vue-plyr';
 import VueSweetalert2 from 'vue-sweetalert2';
 import VueParticles from 'vue-particles';
-import NProgress from "nprogress";
+import NProgress from 'nprogress';
 
 // plugin setup
 Vue.use(DashboardPlugin);
@@ -18,7 +18,6 @@ Vue.use(VueSweetalert2);
 Vue.use(VueParticles);
 Vue.use(VuePlyr);
 Vue.use(NProgress);
-
 
 import 'vue-plyr/dist/vue-plyr.css';
 import 'vue-sweetalert2/node_modules/sweetalert2/dist/sweetalert2.css';
@@ -33,10 +32,11 @@ function start(data) {
     render: h => h(App),
     router,
     store,
-    data,
+    data
   });
 }
-const defaultBlogPosts = [{
+const defaultBlogPosts = [
+  {
     id: '5c44hddb45f5f8340747961e4',
     slug: 'introduction-into-ielts',
     category: 'IELTS',
@@ -73,16 +73,18 @@ const defaultBlogPosts = [{
     viewCount: 48802
   }
 ];
-backend.get('/home').then(response => {
-  start({
-    user: response.data.user,
-    topCourses: response.data.topCourses,
-    //topPosts: response.data.topPosts,
-    topPosts: defaultBlogPosts
+backend
+  .get('/home')
+  .then(response => {
+    start({
+      user: response.data.user,
+      topCourses: response.data.topCourses,
+      //topPosts: response.data.topPosts,
+      topPosts: defaultBlogPosts
+    });
+  })
+  .catch(() => {
+    start({
+      user: undefined
+    });
   });
-
-}).catch(() => {
-  start({
-    user: undefined,
-  });
-});

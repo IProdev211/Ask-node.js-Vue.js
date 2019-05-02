@@ -1,10 +1,10 @@
 /* eslint-disable */
-import 'es6-promise/auto'
+import 'es6-promise/auto';
 
 export default (function initPollyFills() {
   if (!Array.prototype.find) {
     Object.defineProperty(Array.prototype, 'find', {
-      value: function (predicate) {
+      value: function(predicate) {
         // 1. Let O be ? ToObject(this value).
         if (this == null) {
           throw new TypeError('"this" is null or not defined');
@@ -47,10 +47,12 @@ export default (function initPollyFills() {
   }
   if (typeof Object.assign !== 'function') {
     // Must be writable: true, enumerable: false, configurable: true
-    Object.defineProperty(Object, "assign", {
-      value: function assign(target, varArgs) { // .length of function is 2
+    Object.defineProperty(Object, 'assign', {
+      value: function assign(target, varArgs) {
+        // .length of function is 2
         'use strict';
-        if (target == null) { // TypeError if undefined or null
+        if (target == null) {
+          // TypeError if undefined or null
           throw new TypeError('Cannot convert undefined or null to object');
         }
 
@@ -59,7 +61,8 @@ export default (function initPollyFills() {
         for (var index = 1; index < arguments.length; index++) {
           var nextSource = arguments[index];
 
-          if (nextSource != null) { // Skip over if undefined or null
+          if (nextSource != null) {
+            // Skip over if undefined or null
             for (var nextKey in nextSource) {
               // Avoid bugs when hasOwnProperty is shadowed
               if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
@@ -75,12 +78,12 @@ export default (function initPollyFills() {
     });
   }
   if (!String.prototype.startsWith) {
-    String.prototype.startsWith = function (search, pos) {
+    String.prototype.startsWith = function(search, pos) {
       return this.substr(!pos || pos < 0 ? 0 : +pos, search.length) === search;
     };
   }
   if (!String.prototype.includes) {
-    String.prototype.includes = function (search, start) {
+    String.prototype.includes = function(search, start) {
       'use strict';
       if (typeof start !== 'number') {
         start = 0;
@@ -93,4 +96,4 @@ export default (function initPollyFills() {
       }
     };
   }
-}())
+})();
