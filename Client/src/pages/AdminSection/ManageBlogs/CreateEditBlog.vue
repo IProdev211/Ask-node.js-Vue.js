@@ -42,8 +42,8 @@
 									<div class="col-md-12 py-4">
 										<base-input
 											class="blogtext"
-											label="Blog Text (CKEditor5)"
-											placeholder="Blog Text"
+											label="Blog Content"
+											placeholder="Blog Content Goes Here..."
 											:error="fieldErrors.content"
 										>
 											<ckeditor @ready="onEditorReady" :editor="ckeditor.editor" v-model="data.content" :config="ckeditor.editorConfig"></ckeditor>
