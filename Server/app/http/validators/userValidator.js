@@ -99,7 +99,7 @@ class userValidator extends validator {
 
 	
 	slug(title) {
-		return title.replace(/([^۰-۹آ-یa-z0-9]|-)+/g , "-")
+		return title.replace(/([^۰-۹آ-یa-z0-9]|-)+/gi, "-")
 	}
 }
 
