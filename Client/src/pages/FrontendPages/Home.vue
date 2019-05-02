@@ -1,21 +1,20 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <vue-particles :lineLinked="false" :moveSpeed="2" :particleSize="2"></vue-particles>
+    <vue-particles :lineLinked="false" :moveSpeed="3" :particleSize="2"></vue-particles>
     <section class="hero-content-homepage">
       <div class="container">
-        <h1
-          class="display-3 text-success text-center py-3"
-        >آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
-        <h3
-          class="d-flex justify-content-start my-4 section-header-homepage"
-        >پیشنهادهای ویژه اسک آریا برای شما</h3>
+        <h1 class="hero-title text-center pt-5">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
+
         <div class="row">
           <!-- Top Courses -->
-          <div class="col-lg-4 col-md-6 mb-4" v-for="course in topCourses" v-bind:key="course.id">
+          <div class="col-lg-4 col-md-6 mt-4" v-for="course in topCourses" v-bind:key="course.id">
             <Course v-bind="course"></Course>
           </div>
         </div>
+
+        <h3 class="text-center section-header-homepage">پیشنهادهای ویژه اسک آریا برای شما</h3>
+        <hr class="fadeline2">
 
         <div class="text-center py-3">
           <router-link to="ourcourses">
@@ -116,15 +115,23 @@ export default {
   overflow-y: hidden;
   z-index: 0;
 }
-
-.VueCarousel {
-  .VueCarousel-navigation-button {
-    color: #fff !important;
-    font-size: 30px !important;
-  }
+.hero-title {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #93edc7;
 }
 .section-header-homepage {
-  font-size: 1.2rem;
-  color: white;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.658);
+}
+
+.fadeline2 {
+  height: 1px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0),
+    rgba(181, 216, 181, 0.521) 50%,
+    rgba(255, 0, 0, 0) 100%
+  );
 }
 </style>
