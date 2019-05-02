@@ -21,7 +21,7 @@
 											<image-upload @change="onImageChange" :select-text="data.id ? 'Edit User Image' : 'Set User Image'"/>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-2">
 										<base-input
 										label="Edit User Full Name"
 										placeholder="User Full Name"
@@ -30,7 +30,7 @@
 										:error="fieldErrors.name">
 										</base-input>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-2">
 										<base-input
 										label="Edit User Email"
 										placeholder="User Email"
@@ -61,22 +61,39 @@
 										</base-input>
 									</div>
 
-									<div class="col-md-2 py-4">
-										<el-select
-											class="select-primary text-ltr"
-											size="large"
-											placeholder="VIP Access"
-											v-model="selects.simple"
+									<div class="col-md-2">
+										<base-input
+										label="VIP Valid From"
+										placeholder="VIP Valid From"
 										>
-											<el-option
-												v-for="option in selects.CourseType"
-												class="select-primary text-ltr"
-												:value="option.value"
-												:label="option.label"
-												:key="option.label"
-											></el-option>
-										</el-select>
+										</base-input>
 									</div>
+									
+									<div class="col-md-2">
+										<base-input
+										label="VIP Valid To"
+										placeholder="VIP Valid To"
+										>
+										</base-input>
+									</div>
+
+									<div class="col-md-4">
+										<base-input
+										label="Enroll Student on ... Course:"
+										placeholder="Select Course for student to be enrolled on..."
+										>
+										</base-input>
+									</div>
+
+									<div class="col-md-4">
+										<base-input
+										label="Enroll Student on ... Quiz:"
+										placeholder="Select Quiz for student to be enrolled on..."
+										>
+										</base-input>
+									</div>
+
+									
 									<div class="col-md-12 pt-5" v-if="formErrors.length">
 										<p class="text-right text-rtl">
 											<b>لطفا اشتباهات زیر را تصحیح کنید:</b>
