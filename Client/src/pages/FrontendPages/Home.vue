@@ -7,9 +7,9 @@
         <h1
           class="display-3 text-success text-center py-3"
         >آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
-        <h2
+        <h3
           class="d-flex justify-content-start my-4 section-header-homepage"
-        >پیشنهادهای ویژه اسک آریا برای شما</h2>
+        >پیشنهادهای ویژه اسک آریا برای شما</h3>
         <div class="row">
           <!-- Top Courses -->
           <div class="col-lg-4 col-md-6 mb-4" v-for="course in topCourses" v-bind:key="course.id">
@@ -17,7 +17,7 @@
           </div>
         </div>
 
-        <div class="text-center">
+        <div class="text-center py-3">
           <router-link to="ourcourses">
             <base-button
               native-type="submit"
@@ -124,7 +124,7 @@ export default {
   }
 }
 .section-header-homepage {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: white;
 }
 </style>
