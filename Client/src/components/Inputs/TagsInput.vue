@@ -14,7 +14,7 @@
 
     <input
       type="text"
-      placeholder="Add new tag"
+      :placeholder="placeholder"
       class="form-control input-new-tag"
       v-model="inputValue"
       ref="saveTagInput"
@@ -44,6 +44,10 @@ export default {
       type: String,
       default: 'primary',
       description: 'Tag type (primary|danger etc)'
+    },
+    placeholder: {
+      type: String,
+      default: 'Add new tag',
     }
   },
   model: {

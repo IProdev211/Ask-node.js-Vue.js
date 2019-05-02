@@ -9,6 +9,8 @@ const adminCourseController = require('app/http/controllers/api/v1/admin/courseC
 const userController = require('app/http/controllers/api/v1/admin/userController');
 const courseValidator = require('app/http/validators/courseValidator');
 const userValidator = require('app/http/validators/userValidator');
+const blogController = require('app/http/controllers/api/v1/admin/blogController');
+const blogValidator = require('app/http/validators/blogValidator');
 const gate = require('app/helpers/gate');
 const upload = require('app/helpers/uploadImage');
 const convertFileToField = require('app/http/middleware/convertFileToField');
@@ -55,6 +57,29 @@ router.post('/admin/users/:id/edit',
 );
 router.post('/admin/users/:id/delete',
     userController.destroy
+);
+router.get('/admin/blog/posts',
+    blogController.index
+);
+router.post('/admin/blog/posts/add',
+    upload.single('image'),
+    convertFileToField.handle,
+    blogValidator.handle(),
+    blogController.store
+);
+router.post('/admin/blog/posts/:id/edit',
+    upload.single('image'),
+    convertFileToField.handle,
+    blogValidator.handleUpdate(),
+    blogController.update
+);
+router.post('/admin/blog/posts/:id/delete',
+    blogController.destroy
+);
+router.post('/admin/blog/images/upload',
+    upload.single('file'),
+    convertFileToField.handle,
+    blogController.upload
 );
 
 module.exports = router;
