@@ -15,6 +15,5 @@ router.get('/courses' , CourseController.courses);
 
 router.post('/login' , loginValidator.handle() , AuthController.login);
 router.post('/register' , registerValidator.handle() , AuthController.register);
-router.post('/auth/bygoogle' , AuthController.byGoogle);
 
 module.exports = router;
