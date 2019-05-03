@@ -64,21 +64,23 @@ export default {
           type: 'warning',
           icon: 'tim-icons icon-book-bookmark',
           footer:
-            '<a href="/courses"><i class="tim-icons icon-bag-16"></i> دوره‌های آموزشی</a>'
+            '<a href="/courses"><i class="tim-icons icon-bag-16 pl-2"></i> در حال یادگیری</a>'
         },
         {
           title: myEpisodes + ' / ' + totalEpisodes,
           subTitle: 'درس های باز شده',
           type: 'danger',
           icon: 'tim-icons icon-molecule-40',
-          footer: '<i class="tim-icons icon-video-66"></i> مجموع درس های موجود'
+          footer:
+            '<i class="tim-icons icon-video-66 pl-2"></i> مجموع درس های موجود'
         },
         {
           title: '27',
           subTitle: 'امتحان ها',
           type: 'info',
           icon: 'fas fa-university',
-          footer: '<i class="far fa-bookmark"></i> تعداد امتحانات که موجود هستن'
+          footer:
+            '<i class="far fa-bookmark pl-2"></i> تعداد امتحانات که موجود هستن'
         },
         {
           title: '+45 xP',
@@ -86,7 +88,7 @@ export default {
           type: 'primary',
           icon: 'tim-icons icon-shape-star',
           footer:
-            '<i class="tim-icons icon-sound-wave"></i></i> مرحله ی بعد BEGINNER <span class="coloredLink">85%</span>  '
+            '<i class="tim-icons icon-sound-wave pl-2"></i></i> مرحله ی بعد BEGINNER <span class="coloredLink">85%</span>  '
         }
       ];
     },

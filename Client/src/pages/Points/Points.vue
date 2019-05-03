@@ -2,27 +2,12 @@
   <div>
     <card>
       <div class="row">
-        <!-- Table -->
-        <div class="col-md-5 mb-5 pt-3">
-          <div slot="header">
-            <h2 class="card-title text-center pb-3">امتیاز اسک آریا</h2>
-          </div>
-          <div class="text-ltr">
-            <el-table :data="tableData">
-              <el-table-column min-width="65" label="Badge" align="center">
-                <div class="photo" slot-scope="{ row }">
-                  <img :src="row.img" alt="Table image">
-                </div>
-              </el-table-column>
-              <el-table-column min-width="100" prop="title" label="Title"></el-table-column>
-              <el-table-column min-width="85" prop="xp" label="xP"></el-table-column>
-            </el-table>
-          </div>
-        </div>
         <!-- Points System Explanation -->
         <div class="col-md-7 mb-5 pt-3">
           <div>
-            <h2 class="card-title text-center pb-3">چگونه کار می کند؟</h2>
+            <div slot="header">
+              <h2 class="card-title text-center text-danger pb-3">امتیاز اسک آریا</h2>
+            </div>
             <!-- video element -->
             <vue-plyr class="videoWidth videoPlayer pt-5 px-3">
               <video poster="poster.png" src="video.mp4">
@@ -41,6 +26,20 @@
                 <br>تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در
               </p>
             </div>
+          </div>
+        </div>
+        <!-- Table -->
+        <div class="col-md-5 mb-5 pt-3">
+          <div class="text-ltr">
+            <el-table :data="tableData">
+              <el-table-column min-width="65" label="Badge" align="center">
+                <div class="photo" slot-scope="{ row }">
+                  <img :src="row.img" alt="Table image">
+                </div>
+              </el-table-column>
+              <el-table-column min-width="100" prop="title" label="Title"></el-table-column>
+              <el-table-column min-width="85" prop="xp" label="xP"></el-table-column>
+            </el-table>
           </div>
         </div>
         <!-- <div class="col-md-12 mb-4">

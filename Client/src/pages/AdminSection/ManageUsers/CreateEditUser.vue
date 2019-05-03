@@ -21,7 +21,7 @@
 											<image-upload @change="onImageChange" :select-text="data.id ? 'Edit User Image' : 'Set User Image'"/>
 										</div>
 									</div>
-									<div class="col-md-2">
+									<div class="col-md-4">
 										<base-input
 										label="Edit User Full Name"
 										placeholder="User Full Name"
@@ -30,7 +30,7 @@
 										:error="fieldErrors.name">
 										</base-input>
 									</div>
-									<div class="col-md-2">
+									<div class="col-md-3">
 										<base-input
 										label="Edit User Email"
 										placeholder="User Email"
@@ -39,7 +39,7 @@
 										:error="fieldErrors.email">
 										</base-input>
 									</div>
-									<div class="col-md-2">
+									<div class="col-md-3">
 										<base-input
 										label="Edit User Password"
 										placeholder="User Password"
@@ -357,4 +357,5 @@ export default {
 		height: 64px;
 	}
 }
+
 </style>
