@@ -12,11 +12,12 @@
           }"
         ></sidebar-item>
 
-        <sidebar-item :link="{ name: 'دوره ها', icon: 'fas fa-graduation-cap' }">
-          <sidebar-item :link="{ name: 'دوره‌ ها', path: '/courses' }"></sidebar-item>
-          <sidebar-item :link="{ name: 'یک جلسه', path: '/singlelesson' }"></sidebar-item>
-          <sidebar-item :link="{ name: 'امتحان ها', path: '/quiz' }"></sidebar-item>
-        </sidebar-item>
+        <sidebar-item :link="{ name: 'همه دوره‌ها', path: '/courses', icon: 'fas fa-university' }"></sidebar-item>
+        <sidebar-item
+          :link="{ name: 'در حال یادگیری', path: '/mycourses', icon: 'fas fa-graduation-cap' }"
+        ></sidebar-item>
+        <!-- <sidebar-item :link="{ name: 'یک جلسه', path: '/singlelesson' }"></sidebar-item> -->
+        <sidebar-item :link="{ name: 'امتحان ها', path: '/quiz', icon: 'far fa-check-square' }"></sidebar-item>
 
         <sidebar-item
           :link="{

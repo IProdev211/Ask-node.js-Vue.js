@@ -15,16 +15,21 @@
 							</div>
 							<hr>
 							<div class="head-section purchase-status px-3">
-								<p v-if="! notEnrolled || course.type.toLowerCase() == 'free'" class="text-success">
-									شما به طور کامل به این دوره دسترسی دارید.
-								</p>
-								<p v-else-if="notEnrolled && course.type.toLowerCase() == 'paid'" class="text-danger">
+								<p
+									v-if="! notEnrolled || course.type.toLowerCase() == 'free'"
+									class="text-success"
+								>شما به طور کامل به این دوره دسترسی دارید.</p>
+								<p
+									v-else-if="notEnrolled && course.type.toLowerCase() == 'paid'"
+									class="text-danger"
+								>
 									برای دسترسی به این درس لطفا لینک
 									خرید را دنبال کنید.
 								</p>
-								<p v-else-if="notEnrolled && course.type.toLowerCase() == 'vip'" class="text-danger">
-									برای دسترسی به این درس اکانت VIP تهیه کنید.
-								</p>
+								<p
+									v-else-if="notEnrolled && course.type.toLowerCase() == 'vip'"
+									class="text-danger"
+								>برای دسترسی به این درس اکانت VIP تهیه کنید.</p>
 							</div>
 
 							<hr>
@@ -36,7 +41,7 @@
 									</h5>
 								</div>
 								<div>
-									<h5 class="bold"> {{ getCourseCreatedAtDate() }} </h5>
+									<h5 class="bold">{{ getCourseCreatedAtDate() }}</h5>
 								</div>
 							</div>
 							<!-- COURSE LENGTH -->
@@ -119,7 +124,7 @@
 </template>
 <script>
 import AllUnits from '../SingleLesson/Components/AllUnits.vue';
-import moment from "moment";
+import moment from 'moment';
 import backend from '../../backend';
 import Swal from "sweetalert";
 import { Modal } from "src/components/index";
@@ -138,7 +143,7 @@ export default {
 				title: "",
 				slug: "",
 				body: "",
-				image: "",
+				image: "", 
 				categories: [],
 				type: "",
 				time: "",
