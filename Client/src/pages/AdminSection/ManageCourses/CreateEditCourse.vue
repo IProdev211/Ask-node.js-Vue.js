@@ -247,7 +247,6 @@ export default {
 	},
 	watch: {
 		id: function(newValue, oldValue) {
-			console.log("salam");
 			this.formErrors = [];
 			this.data.id = newValue;
 		},
@@ -268,6 +267,9 @@ export default {
 		},
 		xp: function(newValue, oldValue) {
 			this.data.xp = newValue;
+		},
+		tags: function(newValue, oldValue) {
+			this.data.tags = newValue;
 		},
 	}
 };
