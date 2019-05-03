@@ -29,6 +29,11 @@
                   </base-input>
                 </div>
               </div>     
+              <div class="text-right text-rtl">
+              <base-checkbox class="pb-3">
+                 <p>یادآوری ورود</p>
+              </base-checkbox>
+            </div>
               
               <div class="text-center pt-4">
                 <router-link to="googlesignin">
