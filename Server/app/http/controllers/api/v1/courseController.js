@@ -68,6 +68,7 @@ class courseController extends controller {
 				name: course.user.name
 			},
 			price: course.price,
+			oldPrice: course.oldPrice,
 			createdAt: course.createdAt,
 			time: course.time,
 			episodes: course.episodesCount,
@@ -133,6 +134,7 @@ class courseController extends controller {
 				return this.filterEpisodeData(episode, user);
 			}),
 			price: course.price,
+			oldPrice: course.oldPrice,
 			createdAt: course.createdAt
 		};
 	}

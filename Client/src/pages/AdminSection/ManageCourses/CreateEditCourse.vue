@@ -205,6 +205,7 @@ export default {
 			data.append("title", this.data.title);
 			data.append("type", this.data.type);
 			data.append("price", this.data.price);
+			data.append("oldPrice", this.data.oldPrice);
 			data.append("images", this.images);
 			data.append("body", this.data.body);
 			data.append("tags", this.data.tags.join(" "));
@@ -220,8 +221,8 @@ export default {
 					message: this.id ? `دوره با موفقیت ویرایش شد.` : 'دوره با موفقیت اضافه شد.',
 					icon: 'tim-icons icon-bell-55'
 				});
-				this.reset();
 				this.$emit('course', response.data.data.course);
+				this.reset();
 			}).catch((error) => {
 				this.loading = false;
 				errorHandler(error.response);

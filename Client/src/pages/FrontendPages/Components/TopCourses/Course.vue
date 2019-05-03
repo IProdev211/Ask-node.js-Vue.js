@@ -29,7 +29,7 @@
         <div class="text-center">
           <div class="row px-4">
             <div class="col-md-6">
-              <p class="oldPrice">84,999 تومان</p>
+              <p class="oldPrice" v-if="oldPrice > 0">{{ formatedOldPrice }}</p>
             </div>
             <div class="col-md-6 text-center">
               <p class="pricehighlight">{{ formatedPrice }}</p>
@@ -56,6 +56,7 @@ export default {
     'slug',
     'type',
     'price',
+    'oldPrice',
     'updatedAt',
     'user',
     'episodes'
@@ -71,6 +72,13 @@ export default {
       return (
         new Intl.NumberFormat().format(
           parseInt(this.price.replace(',', ''), 10)
+        ) + ' تومان '
+      );
+    },
+    formatedOldPrice() {
+      return (
+        new Intl.NumberFormat().format(
+          parseInt(this.oldPrice.replace(',', ''), 10)
         ) + ' تومان '
       );
     },
