@@ -2,6 +2,8 @@ const controller = require('app/http/controllers/api/controller');
 const Payment = require('app/models/payment');
 const Course = require('app/models/course');
 const CourseController = require('./courseController');
+const Post = require('app/models/blogPost');
+const blogController = require('./blogController');
 
 class homeController extends controller {
   async index(req, res) {
@@ -27,14 +29,26 @@ class homeController extends controller {
           })
           .execPopulate()
       : undefined;
-    // const topBlogPosts = Posts.find().limit(8).sort({viewCount: "desc"}).exec();
-    const topPosts = undefined;
-    const results = await Promise.all([topCourses, user, topPosts]);
+    const topBlogPosts = Post.find().limit(8).sort({viewCount: "desc"}).populate([
+      {
+        path: 'author',
+        select: 'id name',
+      },
+      {
+        path: 'tags',
+        select: 'name slug',
+      },
+      {
+        path: 'categories',
+        select: 'name slug',
+      },
+    ]).exec();
+    const results = await Promise.all([topCourses, user, topBlogPosts]);
     return res.json({
       status: 'success',
       topCourses: results[0].map(CourseController.filterCourse),
       user: results[1] ? this.filterUserData(results[1]) : undefined,
-      topPosts: results[2]
+      topPosts: results[2].map(blogController.filterData),
     });
   }
   async user(req, res) {

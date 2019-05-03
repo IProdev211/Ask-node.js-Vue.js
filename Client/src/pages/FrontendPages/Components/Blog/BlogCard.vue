@@ -1,15 +1,15 @@
 <template>
   <div class="blogBox">
-    <router-link :to="{name: 'blog-post', params: {slug: slug}}">
+    <router-link :to="`/blog/${slug}`">
       <div class="card">
-        <img class="card-img-top" :src="thumb" :alt="title">
-        <div class="category">{{ category }}</div>
+        <img class="card-img-top" :src="image" :alt="name">
+        <div class="category">{{ categories.pop().name }}</div>
         <div class="card-body">
-          <h3 class="card-title py-2">{{ title }}</h3>
+          <h3 class="card-title py-2">{{ name }}</h3>
           <div class="d-flex justify-content-between">
             {{ publishedAt }}
             <span>
-              <i class="fa fa-eye"></i> {{viewCount}} views
+              <i class="fa fa-eye"></i> {{views}} views
             </span>
           </div>
         </div>
@@ -22,7 +22,7 @@
 import moment from "moment";
 
 export default {
-  props: ["thumb", "category", "title", "createdAt", "viewCount"],
+  props: ["slug", "image", "tags", "categories", "name", "createdAt", "views"],
   computed: {
     publishedAt: function() {
       return moment(this.createdAt).format("D MMMM YYYY");

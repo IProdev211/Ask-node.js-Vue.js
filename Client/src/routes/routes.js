@@ -148,7 +148,7 @@ let frontendpages = {
       component: Terms
     },
     {
-      path: '/BlogPageLayout',
+      path: '/blog/:slug',
       name: 'BlogPageLayout',
       component: BlogPageLayout
     },
