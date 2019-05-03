@@ -9,7 +9,8 @@
           <div class="d-flex justify-content-between">
             {{ publishedAt }}
             <span>
-              <i class="fa fa-eye"></i> {{views}} views
+              <i class="fa fa-eye"></i>
+              {{views}} views
             </span>
           </div>
         </div>
@@ -19,16 +20,16 @@
 </template>
 
 <script>
-import moment from "moment";
+import moment from 'moment';
 
 export default {
-  props: ["slug", "image", "tags", "categories", "name", "createdAt", "views"],
+  props: ['slug', 'image', 'tags', 'categories', 'name', 'createdAt', 'views'],
   computed: {
     publishedAt: function() {
-      return moment(this.createdAt).format("D MMMM YYYY");
+      return moment(this.createdAt).format('D MMMM YYYY');
     }
   }
-}
+};
 </script>
 <style lang="scss" scoped>
 .blogBox {
