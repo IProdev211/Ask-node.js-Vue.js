@@ -106,4 +106,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.ck-editor__editable {
+  min-height: 300px;
+}
+</style>
+
