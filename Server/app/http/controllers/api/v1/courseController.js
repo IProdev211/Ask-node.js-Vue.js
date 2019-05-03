@@ -4,6 +4,9 @@ const Episode = require("app/models/episode");
 const Comment = require("app/models/comment");
 const passport = require("passport");
 const request = require("request");
+const ZarinpalCheckout = require('zarinpal-checkout');
+const Payment = require("app/models/payment");
+const User = require("app/models/user");
 
 class courseController extends controller {
 	async courses(req, res, next) {
@@ -92,18 +95,16 @@ class courseController extends controller {
 					path: "usersCount",
 				}
 			]);
-
-			if (!course) return this.failed("چنین دوره ای یافت نشد", res, 404);
-			passport.authenticate("jwt", { session: true }, (err, user, info) => {
-				res.json({
-					data: {
-						course: this.filterCourseData(course, user),
-						enrolled: user ? user.checkLearning(course.id) : false,
-						enrolledCount: course.usersCount,
-					},
-					status: "success"
-				});
-			})(req, res);
+			if (! course) return this.failed("چنین دوره ای یافت نشد", res, 404);
+			const user = await User.findById(req.user.id);
+			res.json({
+				data: {
+					course: this.filterCourseData(course, user),
+					enrolled: user.checkLearning(course.id),
+					enrolledCount: course.usersCount,
+				},
+				status: "success"
+			});
 		} catch (err) {
 			this.failed(err.message, res);
 		}
@@ -185,17 +186,16 @@ class courseController extends controller {
 					break;
 				}
 			}
-			passport.authenticate("jwt", { session: true }, (err, user, info) => {
-				res.json({
-					data: {
-						episode: this.filterEpisodeData(episode, user),
-						course: this.filterCourseData(episode.course, user),
-						enrolled: user ? user.checkLearning(episode.course.id) : false,
-						enrolledCount: episode.course.usersCount,
-					},
-					status: "success"
-				});
-			})(req, res);
+			const user = await User.findById(req.user.id);
+			res.json({
+				data: {
+					episode: this.filterEpisodeData(episode, user),
+					course: this.filterCourseData(episode.course, user),
+					enrolled: user.checkLearning(episode.course.id),
+					enrolledCount: episode.course.usersCount,
+				},
+				status: "success"
+			});
 		} catch (err) {
 			this.failed(err.message, res);
 		}
@@ -237,6 +237,87 @@ class courseController extends controller {
 		} catch (err) {
 			this.failed(err.message, res);
 		}
+	}
+	async buy(req, res) {
+		const course = await Course.findById(req.params.course);
+		if (! course) {
+			return this.failed("چنین دوره ای یافت نشد !", res, 404);
+		}
+		if (
+			course.price == 0 ||
+			(course.type == "vip" || course.type == "free")
+		) {
+			return this.failed("این دوره مخصوص اعضای ویژه یا رایگان است و قابل خریداری نیست .", res, 403);
+		}
+		if (await req.user.checkLearning(course)) {
+			return this.failed("شما قبلا در این دوره ثبت نام کرده اید .", res, 403);
+		}
+		const zarinpal = ZarinpalCheckout.create(config.service.zarinpal.merchant_id, true);
+		const price = parseInt(course.price.replace(/,/g, ""), 10);
+		zarinpal.PaymentRequest({
+			Amount: price,
+			CallbackURL: `${config.siteurl}/courses/payments/verification`,
+			Description: 'خرید دوره ' + course.title,
+		}).then(response => {
+			if (response.status === 100) {
+				const payment = new Payment({
+					user: req.user.id,
+					course: course.id,
+					resnumber: response.authority,
+					price: price,
+				});
+				payment.save((err) => {
+					if (err) {
+						return this.failed(err, res, 500);
+					}
+					return res.json({
+						redirect: response.url,
+						status: "success",
+					});
+				});
+			}
+		}).catch(err => {
+			return this.failed(err.errors, res, 500);
+		});
+	}
+	async verification(req, res) {
+		if (! req.body.status || req.body.status !== "OK") {
+			return this.failed("پرداخت شما با موفقیت انجام نشد", res, 500);
+		}
+		const payment = await Payment.findOne({
+			resnumber: req.body.authority
+		}).populate([
+			{ path: "course" },
+			{ path: "user" }
+		]).exec();
+
+		if (! payment.course) {
+			return this.failed("دوره ای که شما پرداخت کرده اید وجود ندارد", res, 500);
+		}
+		const zarinpal = ZarinpalCheckout.create(config.service.zarinpal.merchant_id, true);
+		zarinpal.PaymentVerification({
+			Amount: payment.price,
+			Authority: payment.resnumber,
+		}).then(response => {
+			if (response.status === 100) {
+				payment.user.learning.push(payment.course.id);
+				payment.user.save();
+				payment.payment = true;
+				payment.save();
+				return res.json({
+					course: {
+						id: payment.course.id,
+						slug: payment.course.slug,
+					},
+					message: "پرداخت شما با موفقیت انجام شد",
+					status: true,
+				});
+			} else {
+				return this.failed("پرداخت شما با موفقیت انجام نشد", res, 500);
+			}
+		}).catch(err => {
+			return this.failed(err.errors, res, 500);
+		});
 	}
 }
 

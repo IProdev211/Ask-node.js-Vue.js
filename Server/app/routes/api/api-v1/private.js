@@ -24,6 +24,9 @@ router.get('/courses/:slug', courseController.singleCourse);
 router.get('/courses/episode/:id', courseController.singleEpisode);
 router.get('/courses/episode/download/:id', courseController.downloadEpisode);
 
+router.post('/courses/:course/buy', courseController.buy);
+router.post('/courses/payments/verification', courseController.verification);
+
 // Admin section
 
 router.get('/admin/courses', /** gate.can('show-courses'), */adminCourseController.index);

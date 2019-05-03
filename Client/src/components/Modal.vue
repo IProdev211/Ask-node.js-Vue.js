@@ -131,6 +131,7 @@ export default {
   },
   methods: {
     closeModal() {
+      this.show = false;
       this.$emit('update:show', false);
       this.$emit('close');
     },
@@ -163,8 +164,13 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss">
 .modal.show {
   background-color: rgba(0, 0, 0, 0.3);
+  .close {
+    right: auto;
+    left: 0px;
+    top: 18px;  
+  }
 }
 </style>

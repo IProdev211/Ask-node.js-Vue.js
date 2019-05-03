@@ -85,7 +85,24 @@
 									<h5 class="bold">{{ course.user.name }}</h5>
 								</div>
 							</div>
-							<base-button v-if="notEnrolled && course.type.toLowerCase() == 'paid'" native-type="submit" class="btn-fill btn-success btn btn-sm">خرید</base-button>
+							<div v-if="notEnrolled && course.type.toLowerCase() == 'paid'">
+								<base-button @click="openBuyCourse" native-type="button" class="btn-fill btn-success btn btn-sm">خرید</base-button>
+								<modal ref="buymodal" centered="true" footerClasses="justify-content-center" type="notice">
+									<h5 slot="header" class="modal-title">خرید دوره {{ course.title }}</h5>
+									<div slog="body" class="text-right rtl">
+										<p>پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب</p>
+										<ul class="list-group">
+											<li class="list-group-item">
+												<strong class="float-right text-dark">قیمت دوره</strong>
+												<span class="float-left text-success">{{ getCoursePrice() }}</span>
+											</li>
+										</ul>
+									</div>
+									<div slot="footer" class="d-block w-100">
+										<base-button @click="buyCourseListener" native-type="button" :loading="loading" class="btn-block btn-success d-block w-100">پرداخت از درگاه</base-button>
+									</div>
+								</modal>
+							</div>
 						</div>
 					</div>
 					<div class="col-lg-9 col-md-12 col-sm-12 mb-3">
@@ -104,10 +121,13 @@
 import AllUnits from '../SingleLesson/Components/AllUnits.vue';
 import moment from "moment";
 import backend from '../../backend';
+import Swal from "sweetalert";
+import { Modal } from "src/components/index";
 
 export default {
 	components: {
 		AllUnits,
+		"modal": Modal,
 	},
 	data() {
 		return {
@@ -129,13 +149,15 @@ export default {
 				episodes: [],
 				price: "",
 				createdAt: "",
+				showModal: true,
+				loading: false,
+				verification: false,
 			}
 		};
 	},
 	methods: {
 		dataLoad() {
 			if (! this.$route.params.hasOwnProperty("slug")) {
-				console.error("404");
 				return;
 			}
 			backend.get(`courses/${this.$route.params.slug}/?api_token=${this.$root.$data.token}`).then((response) => {
@@ -143,6 +165,41 @@ export default {
 				this.notEnrolled = ! response.data.data.enrolled;
 				this.enrolledCount = response.data.data.enrolledCount;
 			});
+			return;
+			if (this.$route.query.hasOwnProperty('Authority') && this.$route.query.hasOwnProperty('Status')) {
+				const authority = this.$route.query.Authority;
+				const status = this.$route.query.Status;
+				if (status !== "OK") {
+					Swal({
+						title: 'تراکنش ناموفق',
+						text: `تراکنش شما با موفقیت پرداخت نشد. درصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی طی 48 ساعت آینده مرجوع خواهد شد`,
+						icon: 'warning',
+					});
+				} else {
+					backend.post(`courses/payments/verification`, {
+						status: status,
+						authority: authority,
+					}).then((response) => {
+						if (response.data.status === "error") {
+							Swal({
+								title: 'تراکنش ناموفق',
+								text: `تراکنش شما با موفقیت پرداخت نشد.<br>درصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی طی 48 ساعت آینده مرجوع خواهد شد`,
+								icon: 'warning',
+							});
+							return;
+						}
+						Swal({
+							title: 'تراکنش موفق',
+							text: `خرید دوره با موفقیت انجام شد.`,
+							icon: 'success',
+						});
+						this.enrolled = true;
+						this.enrolledCount++;
+					}).catch((err) => {
+						console.log("error", err);
+					});
+				}
+			}
 		},
 		getCourseCreatedAtDate() {
 			return moment(this.course.createdAt).format('MM/DD/YYYY');
@@ -156,7 +213,16 @@ export default {
 				case "vip":
 					return "اکانت VIP نیاز است";
 			}
-		}
+		},
+		openBuyCourse() {
+			this.$refs.buymodal.show = true;
+		},
+		buyCourseListener() {
+			this.loading = true;
+			backend.post(`courses/${this.course.id}/buy`).then(response => {
+				window.location.href = response.data.redirect;
+			});
+		},
 	},
 	mounted() {
 		this.dataLoad();
@@ -297,5 +363,10 @@ export default {
 .badge-size {
 	font-size: 0.9rem;
 	font-weight: 600;
+}
+.swal-modal {
+	.swal-text {
+		text-align: center;
+	}
 }
 </style>

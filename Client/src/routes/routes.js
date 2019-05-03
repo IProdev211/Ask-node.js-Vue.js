@@ -25,6 +25,9 @@ const SingleLesson = () =>
 const SingleCourse = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/Courses/SingleCourse.vue');
 
+const VerificationPayments = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/Courses/VerificationPayments.vue');
+
 const Quiz = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/Quiz.vue');
 
@@ -234,6 +237,13 @@ const routes = [
         name: 'Single Course',
         components: {
           default: SingleCourse
+        }
+      },
+      {
+        path: 'courses/payments/verification',
+        name: 'Single Course',
+        components: {
+          default: VerificationPayments
         }
       },
       {
