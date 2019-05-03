@@ -100,7 +100,7 @@ class courseController extends controller {
 			res.json({
 				data: {
 					course: this.filterCourseData(course, user),
-					enrolled: user.checkLearning(course.id),
+					enrolled: user.admin || user.checkLearning(course.id),
 					enrolledCount: course.usersCount,
 				},
 				status: "success"
@@ -191,7 +191,7 @@ class courseController extends controller {
 				data: {
 					episode: this.filterEpisodeData(episode, user),
 					course: this.filterCourseData(episode.course, user),
-					enrolled: user.checkLearning(episode.course.id),
+					enrolled: user.admin || user.checkLearning(episode.course.id),
 					enrolledCount: episode.course.usersCount,
 				},
 				status: "success"
