@@ -27,11 +27,13 @@
         </div>
         <hr class="fadeline">
         <div class="text-center">
-          <div>
-            <p class="pricehighlight">
-              <i class="tim-icons icon-money-coins pl-2"></i>
-              {{ formatedPrice }}
-            </p>
+          <div class="row px-4">
+            <div class="col-md-6">
+              <p class="oldPrice">84,999 تومان</p>
+            </div>
+            <div class="col-md-6 text-center">
+              <p class="pricehighlight">{{ formatedPrice }}</p>
+            </div>
           </div>
         </div>
         <hr class="fadeline2">
@@ -93,9 +95,16 @@ export default {
 }
 
 .pricehighlight {
-  font-size: 1rem;
-  color: #fff;
+  font-size: 1.1rem;
+  color: white;
   font-weight: 600;
+}
+
+.oldPrice {
+  font-size: 1rem;
+  color: rgb(206, 206, 206);
+  font-weight: 600;
+  text-decoration: line-through;
 }
 
 .fadeline {
