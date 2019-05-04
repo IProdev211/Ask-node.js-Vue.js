@@ -100,7 +100,6 @@
 import CreateEditUser from './CreateEditUser';
 import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
-import manageusersoverviewdata from './manageusersoverviewdata';
 import Fuse from 'fuse.js';
 import Swal from 'sweetalert';
 import backend from '../../../backend';

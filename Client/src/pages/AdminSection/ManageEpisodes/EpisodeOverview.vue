@@ -88,7 +88,6 @@
 import CreateEditEpisode from './CreateEditEpisode';
 import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
-import episodeoverviewdata from './episodeoverviewdata';
 import Swal from 'sweetalert';
 import backend from '../../../backend';
 

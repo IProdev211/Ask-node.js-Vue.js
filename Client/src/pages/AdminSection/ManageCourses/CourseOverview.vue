@@ -97,7 +97,6 @@
 import CreateEditCourse from './CreateEditCourse';
 import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
-import courseoverviewdata from './courseoverviewdata';
 import Swal from 'sweetalert';
 import backend from '../../../backend';
 
