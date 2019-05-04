@@ -7,10 +7,12 @@ const profileValidator = require("app/http/validators/profileValidator");
 const courseController = require('app/http/controllers/api/v1/courseController');
 const adminCourseController = require('app/http/controllers/api/v1/admin/courseController');
 const userController = require('app/http/controllers/api/v1/admin/userController');
+const adminEpisodeController = require('app/http/controllers/api/v1/admin/episodeController');
 const courseValidator = require('app/http/validators/courseValidator');
 const userValidator = require('app/http/validators/userValidator');
 const blogController = require('app/http/controllers/api/v1/admin/blogController');
 const blogValidator = require('app/http/validators/blogValidator');
+const episodeValidator = require('app/http/validators/episodeValidator');
 const gate = require('app/helpers/gate');
 const upload = require('app/helpers/uploadImage');
 const convertFileToField = require('app/http/middleware/convertFileToField');
@@ -83,6 +85,20 @@ router.post('/admin/blog/images/upload',
     upload.single('file'),
     convertFileToField.handle,
     blogController.upload
+);
+
+router.get('/admin/episodes', /** gate.can('show-episodes'), */adminEpisodeController.index);
+router.post('/admin/courses/:course/insert/episode/number', adminCourseController.getInsertEpisodeNumber);
+router.post('/admin/episodes/add',
+    episodeValidator.handle(),
+    adminEpisodeController.store
+);
+router.post('/admin/episodes/:episode/edit',
+    episodeValidator.handle(),
+    adminEpisodeController.update
+);
+router.post('/admin/episodes/:episode/delete',
+    adminEpisodeController.destroy
 );
 
 module.exports = router;

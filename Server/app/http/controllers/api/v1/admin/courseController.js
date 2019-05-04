@@ -3,20 +3,27 @@ const Course = require('app/models/course');
 const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
+const Episode = require('app/models/episode');
 
 class courseController extends controller {
 	async index(req, res) {
 		try {
 			const page = req.query.page || 1;
 			const limit = req.query.limit || 15;
-			const courses = await Course.paginate({},
+			let filter = {};
+			if (req.query.filter) {
+				filter = {
+					title: { $regex: req.query.filter, $options: 'i' }
+				};
+			}
+			const courses = await Course.paginate(filter,
 				{
 					page,
 					sort: {
 						createdAt: 1
 					},
 					limit: parseInt(limit, 10),
-					populate: [ { path: 'commentsCount'}, { path: 'usersCount' }, { path: 'Category' } ],
+					populate: [ { path: 'user' }, { path: 'commentsCount'}, { path: 'usersCount' }, { path: 'Category' } ],
 				}
 			);
 			const data = {
@@ -145,7 +152,20 @@ class courseController extends controller {
 		return res.json({
 			status: "success"
 		});
-    }
+	}
+	async getInsertEpisodeNumber(req, res) {
+		this.isMongoId(req, req.params.course);
+		const episode = await Episode.findOne({ course: req.params.course }, 'number').sort({ "number": -1 });
+		let number = 1;
+		if (episode) {
+			number = episode.number + 1;
+		}
+		return res.json({
+			number: number,
+			status: "success",
+		});
+
+	}
 	imageResize(image) {
         const imageInfo = path.parse(image.path);
 

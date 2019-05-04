@@ -15,6 +15,7 @@ const episodeSchema = Schema({
     downloadCount : { type : Number , default : 0 },
     viewCount : { type : Number , default : 0 },
     commentCount : { type : Number , default : 0 },
+    xp : { type : Number , default : 0 },
 } , { timestamps : true });
 
 episodeSchema.plugin(mongoosePaginate);
@@ -36,12 +37,16 @@ episodeSchema.methods.typeToPersian = function() {
 episodeSchema.methods.download = function(check , user) {
     if(! check) return '#';
     let status = false;
-    if(this.type == 'free') {
+    if (user.admin) {
         status = true;
-    } else if(this.type == 'vip') {
-        status = user.isVip();
-    } else if(this.type == 'paid') {
-        status = user.checkLearning(this.course)
+    } else {
+        if(this.type == 'free') {
+            status = true;
+        } else if(this.type == 'vip') {
+            status = user.isVip();
+        } else if(this.type == 'paid') {
+            status = user.checkLearning(this.course)
+        }
     }
 
     let timestamps = new Date().getTime() + 3600 * 1000 * 12;

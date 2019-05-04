@@ -12,7 +12,7 @@
 								<p class="course-title font-weight-bold pt-3">{{ episode.title }}</p>
 								<p class="course-subtitle text-muted pb-4">{{ course.title }}</p>
 
-								<p class="lead">{{ episode.body }}</p>
+								<div class="lead" v-html="episode.body"></div>
 							</div>
 							<div class="head-section purchase-status px-3" v-if="notEnrolled && episode.type.toLowerCase() != 'free'">
 								<hr>
