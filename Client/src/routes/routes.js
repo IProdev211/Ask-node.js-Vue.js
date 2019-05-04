@@ -109,9 +109,6 @@ const ForgotPassword = () =>
 const Lock = () =>
   import(/* webpackChunkName: "pages" */ 'src/pages/Layouts/Lock/Lock.vue');
 
-const GoogleSignCallback = () =>
-  import(/* webpackChunkName: "pages" */ 'src/pages/Layouts/GoogleSignCallback/GoogleSignCallback.vue');
-
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
@@ -174,11 +171,6 @@ let frontendpages = {
       path: '/lock',
       name: 'Lock',
       component: Lock
-    },
-    {
-      path: '/auth/google/callback',
-      name: 'GoogleSignCallback',
-      component: GoogleSignCallback
     }
   ]
 };
