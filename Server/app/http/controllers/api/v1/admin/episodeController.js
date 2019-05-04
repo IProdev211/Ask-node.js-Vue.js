@@ -99,6 +99,7 @@ class episodeController extends controller {
 			return;
 		}
 		const newData = {};
+		let number = req.body.number;
 		newData.number = Math.min(await this.getLastNumber(req.body.course), number);
 		delete req.body.number;
 		const newEpisode = await Episode.findByIdAndUpdate(req.params.episode, {
