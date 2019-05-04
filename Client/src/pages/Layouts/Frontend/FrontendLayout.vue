@@ -36,7 +36,7 @@
               <div class="pl-3">
                 <p class="pt-2 usertitle">خوش آمدید {{this.$root.$data.user.name}}</p>
               </div>
-              <router-link to="dashboard">
+              <router-link to="/dashboard">
                 <base-button
                   native-type="submit"
                   type="danger"
