@@ -170,41 +170,6 @@ export default {
 				this.notEnrolled = ! response.data.data.enrolled;
 				this.enrolledCount = response.data.data.enrolledCount;
 			});
-			return;
-			if (this.$route.query.hasOwnProperty('Authority') && this.$route.query.hasOwnProperty('Status')) {
-				const authority = this.$route.query.Authority;
-				const status = this.$route.query.Status;
-				if (status !== "OK") {
-					Swal({
-						title: 'تراکنش ناموفق',
-						text: `تراکنش شما با موفقیت پرداخت نشد. درصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی طی 48 ساعت آینده مرجوع خواهد شد`,
-						icon: 'warning',
-					});
-				} else {
-					backend.post(`courses/payments/verification`, {
-						status: status,
-						authority: authority,
-					}).then((response) => {
-						if (response.data.status === "error") {
-							Swal({
-								title: 'تراکنش ناموفق',
-								text: `تراکنش شما با موفقیت پرداخت نشد.<br>درصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی طی 48 ساعت آینده مرجوع خواهد شد`,
-								icon: 'warning',
-							});
-							return;
-						}
-						Swal({
-							title: 'تراکنش موفق',
-							text: `خرید دوره با موفقیت انجام شد.`,
-							icon: 'success',
-						});
-						this.enrolled = true;
-						this.enrolledCount++;
-					}).catch((err) => {
-						console.log("error", err);
-					});
-				}
-			}
 		},
 		getCourseCreatedAtDate() {
 			return moment(this.course.createdAt).format('MM/DD/YYYY');
