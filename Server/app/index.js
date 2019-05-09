@@ -34,7 +34,8 @@ module.exports = class Application {
     setMongoConnection() {
         mongoose.Promise = global.Promise;
         mongoose.connect(config.database.url, {
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            useCreateIndex: true,
         });
     }
 

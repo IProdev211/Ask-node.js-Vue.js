@@ -9,8 +9,8 @@ class dashboardController extends controller {
   async index(req, res) {
     let page = req.query.page || 1;
     const promises = [
-      Episode.count().exec(),
-      Episode.count({ _id: { $in: req.user.learning } }).exec(),
+      Episode.countDocuments().exec(),
+      Episode.countDocuments({ _id: { $in: req.user.learning } }).exec(),
       Payment.paginate(
         { user: req.user.id },
         {
