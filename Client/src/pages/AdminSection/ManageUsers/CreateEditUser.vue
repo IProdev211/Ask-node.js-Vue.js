@@ -103,27 +103,29 @@
 										</p>
 									</div>
 									<!-- User Stats  -->
-									<div class="container pt-4">
+									<div class="container pt-4"  v-if="data.id">
 										<!-- Enrolled Courses -->
-										<div v-if="data.learning.length">
+										<div>
 											<p class="enrolled-on font-weight-bold">Courses Enrolled On:</p>
-											<ul>
-												<li v-for="course of data.learning" :key="course" class="enrolled-course">
+											<ul v-if="data.learning.length">
+												<li v-for="course of data.learning" :key="course.id" class="enrolled-course">
 													{{ course.title }}
 													<span>{{ date(course.signupDate) }}</span>
 												</li>
 											</ul>
+											<p class="text-light" v-else> - </p>
 										</div>
 
 										<!-- VIP Membership -->
-										<div class="pt-4" v-if="data.vipTime">
+										<div class="pt-4">
 											<p class="vip-on font-weight-bold">VIP Member:</p>
-											<p class="vip-status">
+											<p class="vip-status" v-if="data.vipTime">
 												From:
 												<span class="pr-4">{{ vipFromDate() }}</span>
 												To:
 												<span>{{ vipToDate() }}</span>
 											</p>
+											<p class="text-light" v-else> - </p>
 										</div>
 									</div>
 								</div>
