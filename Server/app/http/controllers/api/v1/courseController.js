@@ -330,6 +330,27 @@ class courseController extends controller {
 			return this.failed(err.errors, res, 500);
 		});
 	}
+	async PurchasedCourses(req, res) {
+		const page = req.query.page || 1;
+		// Update User data
+		const user = await User.findById(req.user.id);
+		const courses = await Course.paginate({
+			_id: { $in: user.learning }
+		},
+			{
+				page,
+				sort: {
+					createdAt: 1
+				},
+				limit: 24,
+				populate: [{ path: "categories" }, { path: "user" }, { path: 'episodesCount' }],
+			}
+		);
+		res.json({
+			...courses,
+			docs: courses.docs.map(this.filterCourse),
+		});
+	}
 }
 
 module.exports = new courseController();

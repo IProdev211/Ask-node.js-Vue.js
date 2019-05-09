@@ -23,6 +23,7 @@ router.get('/dashboard', DashboardController.index);
 router.get('/dashboard/logs', DashboardController.logs);
 router.put('/profile', upload.single("avatar"), convertFileToField.handle, profileValidator.handle(), DashboardController.updateProfile);
 
+router.get('/courses/purchased', courseController.PurchasedCourses);
 router.get('/courses/:slug', courseController.singleCourse);
 router.get('/courses/episode/:id', courseController.singleEpisode);
 router.get('/courses/episode/download/:id', courseController.downloadEpisode);

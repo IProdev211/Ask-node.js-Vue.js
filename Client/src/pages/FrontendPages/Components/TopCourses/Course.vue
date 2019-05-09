@@ -25,8 +25,8 @@
             </p>
           </div>
         </div>
-        <hr class="fadeline">
-        <div class="text-center">
+        <hr class="fadeline" v-if="! purchased">
+        <div class="text-center" v-if="! purchased">
           <div class="row px-4">
             <div class="col-12 text-center" v-if="isVip">اعضای ویژه</div>
             <div class="col-md-6" v-if="! isVip">
@@ -38,7 +38,7 @@
           </div>
         </div>
         <hr class="fadeline2">
-        <div class="buyCourse text-center">
+        <div class="buyCourse text-center" v-if="! purchased">
           <p class="buyCourseTitle pb-3">تهیه دوره‌</p>
         </div>
       </div>
@@ -60,7 +60,8 @@ export default {
     'oldPrice',
     'updatedAt',
     'user',
-    'episodes'
+    'episodes',
+    'purchased',
   ],
   computed: {
     date() {
