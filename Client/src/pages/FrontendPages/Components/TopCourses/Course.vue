@@ -28,10 +28,11 @@
         <hr class="fadeline">
         <div class="text-center">
           <div class="row px-4">
-            <div class="col-md-6">
+            <div class="col-12 text-center" v-if="isVip">اعضای ویژه</div>
+            <div class="col-md-6" v-if="! isVip">
               <p class="oldPrice" v-if="oldPrice > 0">{{ formatedOldPrice }}</p>
             </div>
-            <div class="col-md-6 text-center">
+            <div class="col-md-6 text-center" v-if="! isVip">
               <p class="pricehighlight">{{ formatedPrice }}</p>
             </div>
           </div>
@@ -66,7 +67,7 @@ export default {
       return moment(this.updatedAt).format('MM/DD/YYYY');
     },
     formatedPrice() {
-      if (this.type == 'free') {
+      if (this.type.toLowerCase() == 'free') {
         return 'رایگان';
       }
       return (
@@ -91,6 +92,9 @@ export default {
         );
       }
       return minutes;
+    },
+    isVip() {
+      return this.type.toLowerCase() === 'vip';
     }
   }
 };
