@@ -1,14 +1,24 @@
 <template>
   <div class="container">
-    <div class="unitHeader pt-2">
-      <h1 class="text-center pb-2 text-success text-ltr">
-        <span class="headerStyling">{{ episodes }}</span> lessons •
-        <span class="headerStyling">{{ hours }}</span> Hours •
-        <span class="headerStyling">{{ total }}</span> Courses
-        <br>
-        <h3 class="text-danger pt-3 text-rtl">محتوای جدید هر هفته اضافه می شود!</h3>
-      </h1>
+    <div class="d-flex justify-content-around d-flex align-items-center text-center headerDigits">
+      <div>
+        <p class="headerStyling">{{ episodes }}</p>
+        <p>درس</p>
+      </div>
+
+      <div>
+        <p class="headerStyling">{{ hours }}</p>
+        <p>ساعت</p>
+      </div>
+
+      <div>
+        <p class="headerStyling">{{ total }}</p>
+        <p>دوره ها</p>
+      </div>
     </div>
+    <h3
+      class="headerDigitsText text-danger text-center py-4 text-rtl"
+    >محتوای جدید هر هفته اضافه می شود!</h3>
 
     <div class="row">
       <!-- Course Go Here  -->
@@ -66,9 +76,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.headerDigits {
+  padding: 0 28%;
+}
+
+@media only screen and (max-width: 650px) {
+  .headerDigits {
+    padding: 0 7%;
+  }
+  .headerDigitsText {
+    font-size: 1.12rem;
+  }
+}
 .headerStyling {
-  font-size: 2.8rem;
+  font-size: 3.1rem;
   font-weight: bold;
   color: rgb(56, 218, 164);
+  margin-bottom: 0 !important;
 }
 </style>

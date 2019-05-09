@@ -28,7 +28,7 @@
         <hr class="fadeline" v-if="! purchased">
         <div class="text-center" v-if="! purchased">
           <div class="row px-4">
-            <div class="col-12 text-center" v-if="isVip">اعضای ویژه</div>
+            <div class="col-12 text-center pricehighlight" v-if="isVip">اعضای ویژه</div>
             <div class="col-md-6" v-if="! isVip">
               <p class="oldPrice" v-if="oldPrice > 0">{{ formatedOldPrice }}</p>
             </div>
@@ -61,7 +61,7 @@ export default {
     'updatedAt',
     'user',
     'episodes',
-    'purchased',
+    'purchased'
   ],
   computed: {
     date() {
@@ -151,8 +151,8 @@ export default {
 
 .hover:hover,
 .hover:focus {
-  -webkit-box-shadow: 0 10px 30px -5px rgba(97, 97, 97, 0.144);
-  box-shadow: 0 15px 35px -5px rgba(7, 78, 45, 0.288);
+  -webkit-box-shadow: 0 10px 30px -5px rgba(141, 141, 141, 0.144);
+  box-shadow: 10px rgba(185, 185, 185, 0.089);
   transition: transform 0.6s;
   -webkit-transform: translateY(-6px);
   transform: translateY(-6px);
