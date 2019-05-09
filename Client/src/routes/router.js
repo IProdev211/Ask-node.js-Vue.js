@@ -18,7 +18,11 @@ router.beforeResolve((to, from, next) => {
       break;
     }
   }
-  if (needAuth && !router.app.$data.user) {
+  if (router.app.$data.user) {
+    if (to.name === 'Login' || to.name === 'Register' || to.name === 'Forgot Password' || to.name === 'Lock') {
+      return next('');
+    }
+  } else if (needAuth) {
     return next('login');
   }
   next();
