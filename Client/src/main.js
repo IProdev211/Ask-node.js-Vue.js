@@ -22,6 +22,7 @@ Vue.use(NProgress);
 import 'vue-plyr/dist/vue-plyr.css';
 import 'vue-sweetalert2/node_modules/sweetalert2/dist/sweetalert2.css';
 import 'nprogress/nprogress.css';
+import './assets/sass/nprogress.scss'
 
 import store from './store';
 
