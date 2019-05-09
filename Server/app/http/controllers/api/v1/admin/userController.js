@@ -56,6 +56,7 @@ class userController extends controller {
 			email: user.email,
 			avatar: user.avatar,
 			vipTime: user.vipTime,
+			vipFrom: user.vipFrom,
 			createdAt: user.createdAt,
 			amountspent: payments.sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"),
 			learning: payments.courses,

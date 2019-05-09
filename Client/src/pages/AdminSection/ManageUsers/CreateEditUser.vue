@@ -65,6 +65,8 @@
 										<base-input
 										label="VIP Valid From"
 										placeholder="VIP Valid From"
+										v-model="data.vipFrom"
+										:error="fieldErrors.vipFrom"
 										>
 										</base-input>
 									</div>
@@ -73,6 +75,8 @@
 										<base-input
 										label="VIP Valid To"
 										placeholder="VIP Valid To"
+										v-model="data.vipTime"
+										:error="fieldErrors.vipTime"
 										>
 										</base-input>
 									</div>
@@ -162,6 +166,7 @@ export default {
 		'xp',
 		'learning',
 		'vipTime',
+		'vipFrom',
 	],
 	components: {
 		[Option.name]: Option,
@@ -171,15 +176,6 @@ export default {
 	data() {
 		return {
 			image: {},
-			selects: {
-				simple: '',
-				CourseType: [
-					{ value: '1-Month VIP', label: '1-Month Access' },
-					{ value: '2-Month VIP', label: '2-Month Access' },
-					{ value: '3-Month VIP', label: '3-Month Access' }
-				],
-				multiple: 'ARS'
-			},
 			data: {
 				id: undefined,
 				avatar: undefined,
@@ -189,8 +185,8 @@ export default {
 				xp: undefined,
 				learning: [],
 				vipTime: undefined,
+				vipFrom: undefined,
 			},
-			isVIP: false,
 			fieldErrors: {},
 			formErrors: {},
 		};
@@ -221,11 +217,12 @@ export default {
 			this.data.xp = 0;
 			this.data.learning = [];
 			this.data.vipTime = "";
+			this.data.vipFrom = "";
 			this.image = undefined;
 			this.$emit("reset");
 		},
 		vipFromDate() {
-			return moment(this.data.vipTime).subtract(1, 'months').format('MM/DD/YYYY');
+			return moment(this.data.vipFrom).format('MM/DD/YYYY');
 		},
 		vipToDate() {
 			return moment(this.data.vipTime).format('MM/DD/YYYY');
@@ -247,6 +244,30 @@ export default {
 				this.fieldErrors.email = 'کلمه عبور مورد نیاز است';
 				haveError = true;
 			}
+			if (this.data.vipTime) {
+				if (! moment(this.data.vipTime).isValid()) {
+					this.fieldErrors.vipTime = 'مقدار وارد شده نامعتبر است.';
+					haveError = true;
+				}
+			} else {
+				this.fieldErrors.vipTime = 'مقدار وارد شده نامعتبر است.';
+				haveError = true;
+			}
+			if (this.data.vipFrom) {
+				if (! moment(this.data.vipFrom).isValid()) {
+					this.fieldErrors.vipFrom = 'مقدار وارد شده نامعتبر است.';
+					haveError = true;
+				}
+			} else {
+				this.fieldErrors.vipFrom = 'مقدار وارد شده نامعتبر است.';
+				haveError = true;
+			}
+			if (this.data.vipTime && this.data.vipFrom) {
+				if (moment(this.data.vipFrom).isAfter(this.data.vipTime)) {
+					this.fieldErrors.vipTime = 'مقدار وارد شده نامعتبر است.';
+					haveError = true;
+				}
+			}
 			if (haveError) {
 				return;
 			}
@@ -267,10 +288,14 @@ export default {
 				if (this.data.password) {
 					data.append("password", this.data.password);
 				}
+				data.append("vipTime", this.data.vipTime);
+				data.append("vipFrom", this.data.vipFrom);
 			} else {
 				data = {
 					name: this.data.name,
 					email: this.data.email,
+					vipTime: this.data.vipTime,
+					vipFrom: this.data.vipFrom,
 					xp: this.data.xp !== undefined ? this.data.xp : 0,
 				};
 				if (this.data.password) {
@@ -278,7 +303,7 @@ export default {
 				}
 			}
 			
-			const requestUrl = this.id !== undefined ? `/admin/users/${this.id}/edit` : "/admin/users/create";
+			const requestUrl = this.data.id !== undefined ? `/admin/users/${this.id}/edit` : "/admin/users/create";
 			backend.post(requestUrl, data).then((response) => {
 				this.loading = false;
 				if (response.data.status === "error") {
@@ -322,8 +347,18 @@ export default {
 			this.data.learning = newValue !== undefined ? newValue : [];
 		},
 		vipTime: function(newValue, oldValue) {
-			this.data.vipTime = newValue;
-			this.isVIP = (this.data.vipTime && new Date(this.data.vipTime) > new Date())
+			if (newValue === undefined) {
+				this.data.vipTime = undefined;
+				return;
+			}
+			this.data.vipTime = moment(newValue).format('YYYY/DD/MM');
+		},
+		vipFrom: function(newValue, oldValue) {
+			if (newValue === undefined) {
+				this.data.vipTime = undefined;
+				return;
+			}
+			this.data.vipFrom = moment(newValue).format('YYYY/DD/MM');
 		},
 	}
 };

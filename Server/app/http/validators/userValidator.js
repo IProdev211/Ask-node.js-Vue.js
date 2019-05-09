@@ -2,6 +2,7 @@ const validator = require('./validator');
 const { check } = require('express-validator/check');
 const User = require('app/models/user');
 const path = require('path');
+const moment = require('moment');
 
 class userValidator extends validator {
 	
@@ -45,6 +46,27 @@ class userValidator extends validator {
 				.withMessage('فیلد کلمه عبور نمیتواند خالی بماند')
 				.isLength({ min : 8 })
 				.withMessage('کلمه عبور نمیتواند کمتر از 8 کاراکتر باشد'),
+
+			check('vipTime')
+				.not().isEmpty()
+				.withMessage('فیلد زمان پایان VIP نمیتواند خالی بماند')
+				.custom(async (value, { req }) => {
+					const moment = moment(value);
+					if (! moment.isValid()) {
+						throw new Error('مقدار وارد شده برای پایان زمان VIP نامعتبر است.');
+					}
+					req.body.vipTime = moment.toISOString();
+				}),
+			check('vipFrom')
+				.not().isEmpty()
+				.withMessage('فیلد زمان شروع VIP نمیتواند خالی بماند')
+				.custom(async (value, { req }) => {
+					const moment = moment(value);
+					if (! moment.isValid()) {
+						throw new Error('مقدار وارد شده برای شروع زمان VIP نامعتبر است.');
+					}
+					req.body.vipFrom = moment.toISOString();
+				}),
 		]
 	}
 	handleUpdate() {
@@ -93,7 +115,27 @@ class userValidator extends validator {
 					if (value.length < 8) {
 						throw new Error('کلمه عبور نمیتواند کمتر از 8 کاراکتر باشد')
 					}
-				})
+				}),
+			check('vipTime')
+				.not().isEmpty()
+				.withMessage('فیلد زمان پایان VIP نمیتواند خالی بماند')
+				.custom(async (value, { req }) => {
+					value = moment(value, "YYYY/DD/MM");
+					if (! value.isValid()) {
+						throw new Error('مقدار وارد شده برای پایان زمان VIP نامعتبر است.');
+					}
+					req.body.vipTime = value.toDate().toISOString();
+				}),
+			check('vipFrom')
+				.not().isEmpty()
+				.withMessage('فیلد زمان شروع VIP نمیتواند خالی بماند')
+				.custom(async (value, { req }) => {
+					value = moment(value, "YYYY/DD/MM");
+					if (! value.isValid()) {
+						throw new Error('مقدار وارد شده برای شروع زمان VIP نامعتبر است.');
+					}
+					req.body.vipFrom = value.toDate().toISOString();
+				}),
 		]
 	}
 
