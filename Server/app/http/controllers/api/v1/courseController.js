@@ -7,6 +7,7 @@ const request = require("request");
 const ZarinpalCheckout = require('zarinpal-checkout');
 const Payment = require("app/models/payment");
 const User = require("app/models/user");
+const Log = require('app/models/log');
 
 class courseController extends controller {
 	async courses(req, res, next) {
@@ -306,6 +307,14 @@ class courseController extends controller {
 				payment.user.save();
 				payment.payment = true;
 				payment.save();
+				const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+				const buyCourseLog = new Log({
+					ip: ip,
+					user: payment.user.id,
+					type: 'buy_course',
+					title: ` با تشکر از حسن انتخاب شما, خرید دوره ${payment.course.title} با موفقیت انجام شد و هم اکنون می توانید بصورت کامل از این دوره استفاده کنید. `,
+				});
+				buyCourseLog.save();
 				return res.json({
 					course: {
 						id: payment.course.id,

@@ -20,6 +20,7 @@ const convertFileToField = require('app/http/middleware/convertFileToField');
 router.get('/user' , HomeController.user);
 router.get('/user/history' , HomeController.history);
 router.get('/dashboard', DashboardController.index);
+router.get('/dashboard/logs', DashboardController.logs);
 router.put('/profile', upload.single("avatar"), convertFileToField.handle, profileValidator.handle(), DashboardController.updateProfile);
 
 router.get('/courses/:slug', courseController.singleCourse);
