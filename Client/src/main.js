@@ -19,6 +19,7 @@ Vue.use(NProgress);
 
 import 'vue-plyr/dist/vue-plyr.css';
 import 'nprogress/nprogress.css';
+import './assets/sass/nprogress.scss'
 
 import store from './store';
 
