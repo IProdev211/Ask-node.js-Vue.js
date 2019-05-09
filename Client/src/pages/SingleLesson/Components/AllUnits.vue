@@ -1,9 +1,9 @@
 <template>
-	<section class="UnitSection" v-if="episodes.length">
+	<section class="UnitSection"  v-if="episodes.length" :style="scrollable ? {'overflow-y': 'auto'} : ''">
 		<!-- UNIT 1 -->
 		<div class="UnitBox d-flex justify-content-between" v-for="episode of episodes" :key="episode">
 			<div class="right d-flex justify-content-end">
-				<div class="UnitBadgeUnlocked">
+				<div :class="getUnitBadge(episode.type)">
 					<i :class="'fas ' + getEpisodeIcon(episode.type)"></i>
 				</div>
 				<div class="UnitName pr-4">
@@ -29,6 +29,8 @@
 export default {
 	props: [
 		'episodes',
+		'scrollable',
+		'maxepisodes'
 	],
 	methods: {
 		getEpisodeType(type) {
@@ -52,8 +54,25 @@ export default {
 				case "vip":
 					return "fa-key";
 			}
+		},
+		getUnitBadge(type) {
+			switch (type.toLowerCase()) {
+				case "free":
+					return "UnitBadgeUnlocked";
+				case "cash":
+				case "paid":
+					return "UnitBadgelocked";
+				case "vip":
+					return "UnitBadgeVIP";
+			}
 		}
 	},
+	mounted() {
+		if (this.scrollable) {
+			const height = (this.$el.querySelector(".UnitBox").clientHeight + 2) * this.maxepisodes;
+			this.$el.style["max-height"] = height + "px";
+		}
+	}
 };
 </script>
 
