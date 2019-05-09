@@ -168,18 +168,6 @@ export default {
         errorHandler(error.response);
       });
     },
-    changeLangFa() {
-      this.i18n = this.$i18n;
-      this.i18n.locale = 'fa';
-      this.$rtl.enableRTL();
-      this.lang = "fa";
-    },
-    changeLangEn() {
-      this.i18n = this.$i18n;
-      this.i18n.locale = 'en';
-      this.$rtl.disableRTL();
-      this.lang = "en";
-    },
     onAvatarChange(file) {
       this.avatar = file;
     }
