@@ -10,19 +10,19 @@ class dashboardController extends controller {
 	async index(req, res) {
 		let page = req.query.page || 1;
 		const promises = [
-			Episode.count().exec(),
-			Episode.count({ _id: { $in: req.user.learning } }).exec(),
+			Episode.countDocuments().exec(),
+			Episode.countDocuments({ _id: { $in: req.user.learning } }).exec(),
 			Payment.paginate(
 				{ user: req.user.id },
 				{
-					page: page,
-					sort: { createdAt: -1 },
-					limit: 20,
-					populate: {
-						path: "course",
-						select: "_id title images thumb price vip"
-					},
-					select: "_id createdAt price payment course"
+				page: page,
+				sort: { createdAt: -1 },
+				limit: 20,
+				populate: {
+					path: "course",
+					select: "_id title images thumb price vip"
+				},
+				select: "_id createdAt price payment course"
 				}
 			)
 		];

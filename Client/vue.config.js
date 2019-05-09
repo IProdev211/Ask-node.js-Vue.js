@@ -18,12 +18,6 @@ module.exports = {
   },
 
   pluginOptions: {
-    i18n: {
-      locale: 'fa',
-      fallbackLocale: 'en',
-      localeDir: 'locales',
-      enableInSFC: false
-    }
   },
 
   css: {
@@ -68,12 +62,6 @@ module.exports = {
     appleMobileWebAppStatusBarStyle: '#344675'
   },
   pluginOptions: {
-    i18n: {
-      locale: 'fa',
-      fallbackLocale: 'en',
-      localeDir: 'locales',
-      enableInSFC: false
-    }
   },
   css: {
     // Enable CSS source maps.

@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import DashboardLayout from 'src/pages/Layouts/Dashboard/DashboardLayout.vue';
-// import AuthLayout from 'src/pages/Layouts/Auth/AuthLayout.vue';
+import AuthLayout from 'src/pages/Layouts/Auth/AuthLayout.vue';
 // Frontend Layout
 import FrontendLayout from 'src/pages/Layouts/Frontend/FrontendLayout.vue';
 // GeneralViews
@@ -315,8 +315,16 @@ const routes = [
     ]
   },
   {
-    path: '*',
-    component: NotFound
+    path: "/",
+    component: AuthLayout,
+    children: [
+      {
+        path: '*',
+        components: {
+          default: NotFound
+        }
+      }
+    ]
   }
 ];
 

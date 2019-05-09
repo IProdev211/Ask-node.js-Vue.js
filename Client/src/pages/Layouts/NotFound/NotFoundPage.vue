@@ -1,5 +1,5 @@
 <template>
-  <auth-layout class="not-found-page">
+  <div class="not-found-page">
     <div class="Message container text-center">
       <h1 class="display-1 text-danger">صفحه مورد نظر پیدا نشد</h1>
       <h3 class="display-2">خطای ۴۰۴</h3>
@@ -13,16 +13,12 @@
         </router-link>
       </div>
     </div>
-  </auth-layout>
+  </div>
 </template>
 
 <script>
-import AuthLayout from 'src/pages/Layouts/Auth/AuthLayout.vue';
 
 export default {
-  components: {
-    AuthLayout
-  }
 };
 </script>
 <style lang="scss">

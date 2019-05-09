@@ -3,12 +3,12 @@ const router = express.Router();
 const RateLimit = require('express-rate-limit');
 const cors = require('cors');
 const apiLimiter = new RateLimit({
-  windowMs: 1000 * 60 * 5,
+  windowMs: 1000 * 60 * 1,
   max: 50,
-  // message : "درخواست شما زیاد بوده لطفا 15 دقیقه دیگر دوباره تلاش کنید"
+  // message : "درخواست شما زیاد بوده لطفا 1 دقیقه دیگر دوباره تلاش کنید"
   handler: function(req, res /*next*/) {
     res.json({
-      data: 'درخواست شما زیاد بوده لطفا 15 دقیقه دیگر دوباره تلاش کنید',
+      data: 'درخواست شما زیاد بوده لطفا 1 دقیقه دیگر دوباره تلاش کنید',
       status: 'error'
     });
   }

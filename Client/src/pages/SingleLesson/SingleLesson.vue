@@ -107,7 +107,7 @@
 			</div>
 			<!-- Timeline Unit Section -->
 			<div class="col-md-12 pt-2">
-				<AllUnits :episodes="course.episodes"></AllUnits>
+				<AllUnits :episodes="course.episodes" :scrollable="true" :maxepisodes="5"></AllUnits>
 			</div>
 		</div>
 	</div>
