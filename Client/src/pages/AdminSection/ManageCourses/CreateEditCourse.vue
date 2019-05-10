@@ -56,7 +56,7 @@
 							<div class="col-md-12 py-5">
 								<base-input
 									class="coursetext"
-									label="Course Text (CKEditor 5)"
+									label="Course Text"
 									placeholder="Course Text"
 									:required="true" 
 									:error="fieldErrors.body">
