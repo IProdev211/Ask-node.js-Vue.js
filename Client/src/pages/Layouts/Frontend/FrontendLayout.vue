@@ -14,19 +14,19 @@
       </div>
       <ul class="navbar-nav">
         <router-link class="nav-item" tag="li" to="/home">
-          <a class="nav-link">{{ 'خانه' }}</a>
+          <a :class="getNavClass('home')">{{ 'خانه' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/ourcourses">
-          <a class="nav-link">{{ 'دوره های ما' }}</a>
+          <a :class="getNavClass('ourcourses')">{{ 'دوره های ما' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/privateclasses">
-          <a class="nav-link">{{ 'کلاس های حضوری' }}</a>
+          <a :class="getNavClass('privateclasses')">{{ 'کلاس های حضوری' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/meetups">
-          <a class="nav-link">{{ 'میت آپ' }}</a>
+          <a :class="getNavClass('meetups')">{{ 'میت آپ' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/contact">
-          <a class="nav-link">{{ 'تماس با ما' }}</a>
+          <a :class="getNavClass('contact')">{{ 'تماس با ما' }}</a>
         </router-link>
       </ul>
       <ul class="navbar-nav mr-auto">
@@ -127,7 +127,35 @@ export default {
     },
     setPageClass() {
       this.pageClass = `${this.$route.name}-page`.toLowerCase();
-    }
+    },
+    getNavClass(nav) {
+      let classes = 'nav-link';
+      let isAvtive = false;
+      switch (nav) {
+        case 'home':
+          isAvtive = this.$route.name == 'Home';
+          break;
+        case 'ourcourses':
+          isAvtive = this.$route.name == 'OurCourses';
+          break;
+        case 'privateclasses':
+          isAvtive = this.$route.name == 'PrivateClasses';
+          break;
+        case 'privateclasses':
+          isAvtive = this.$route.name == 'PrivateClasses';
+          break;
+        case 'meetups':
+          isAvtive = this.$route.name == 'Meetups';
+          break;
+        case 'contact':
+          isAvtive = this.$route.name == 'Contact';
+          break;
+      }
+      if (isAvtive) {
+        classes += ' text-danger';
+      }
+      return classes;
+    },
   },
   beforeDestroy() {
     this.closeMenu();
