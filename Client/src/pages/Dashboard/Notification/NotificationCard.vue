@@ -11,7 +11,7 @@
       </div>
     </div>
     <base-pagination
-      class="pagination-no-border mt-auto mr-auto"
+      class="pagination-no-border text-ltr mt-auto ml-auto"
       v-model="pagination.currentPage"
       :value="pagination.currentPage"
       :per-page="pagination.perpage"
