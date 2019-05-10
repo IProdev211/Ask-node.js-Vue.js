@@ -1,7 +1,7 @@
-const controller = require("app/http/controllers/controller");
-const Payment = require("app/models/payment");
-const request = require("request-promise");
-const ActivationCode = require("app/models/activationCode");
+const controller = require('app/http/controllers/controller');
+const Payment = require('app/models/payment');
+const request = require('request-promise');
+const ActivationCode = require('app/models/activationCode');
 
 class userController extends controller {
   async activation(req, res, next) {
@@ -9,37 +9,37 @@ class userController extends controller {
       let activationCode = await ActivationCode.findOne({
         code: req.params.code
       })
-        .populate("user")
+        .populate('user')
         .exec();
 
       if (!activationCode) {
         this.alert(req, {
-          title: "دقت کنید",
-          message: "متاسفانه چنین لینک فعال سازی وجود ندارد",
-          button: "بسیار خوب"
+          title: 'دقت کنید',
+          message: 'متاسفانه چنین لینک فعال سازی وجود ندارد',
+          button: 'بسیار خوب'
         });
 
-        return res.redirect("/");
+        return res.redirect('/');
       }
 
       if (activationCode.expire < new Date()) {
         this.alert(req, {
-          title: "دقت کنید",
-          message: "مهلت استفاده از این لینک به پایان رسیده است",
-          button: "بسیار خوب"
+          title: 'دقت کنید',
+          message: 'مهلت استفاده از این لینک به پایان رسیده است',
+          button: 'بسیار خوب'
         });
 
-        return res.redirect("/");
+        return res.redirect('/');
       }
 
       if (activationCode.used) {
         this.alert(req, {
-          title: "دقت کنید",
-          message: "این لینک قبلا مورد استفاده قرار گرفته است",
-          button: "بسیار خوب"
+          title: 'دقت کنید',
+          message: 'این لینک قبلا مورد استفاده قرار گرفته است',
+          button: 'بسیار خوب'
         });
 
-        return res.redirect("/");
+        return res.redirect('/');
       }
 
       let user = activationCode.user;
@@ -52,12 +52,12 @@ class userController extends controller {
       req.logIn(user, err => {
         user.setRememberToken(res);
         this.alert(req, {
-          title: "با تشکر",
-          message: "اکانت شما فعال شد",
-          button: "بسیار خوب",
-          type: "success"
+          title: 'با تشکر',
+          message: 'اکانت شما فعال شد',
+          button: 'بسیار خوب',
+          type: 'success'
         });
-        return res.redirect("/");
+        return res.redirect('/');
       });
     } catch (err) {
       next(err);
@@ -65,7 +65,7 @@ class userController extends controller {
   }
   async index(req, res, next) {
     try {
-      res.render("home/panel/index", { title: "پنل کاربری" });
+      res.render('home/panel/index', { title: 'پنل کاربری' });
     } catch (err) {
       next(err);
     }
@@ -76,17 +76,17 @@ class userController extends controller {
       let page = req.query.page || 1;
       let payments = await Payment.paginate(
         { user: req.user.id },
-        { page, sort: { createdAt: -1 }, limit: 20, populate: "course" }
+        { page, sort: { createdAt: -1 }, limit: 20, populate: 'course' }
       );
 
-      res.render("home/panel/history", { title: "پرداختی ها", payments });
+      res.render('home/panel/history', { title: 'پرداختی ها', payments });
     } catch (err) {
       next(err);
     }
   }
 
   async vip(req, res) {
-    res.render("home/panel/vip");
+    res.render('home/panel/vip');
   }
 
   async vipPayment(req, res, next) {
@@ -95,10 +95,10 @@ class userController extends controller {
         price = 0;
 
       switch (plan) {
-        case "3":
+        case '3':
           price = 30000;
           break;
-        case "12":
+        case '12':
           price = 120000;
           break;
         default:
@@ -108,15 +108,15 @@ class userController extends controller {
 
       // buy proccess
       let params = {
-        MerchantID: "55d9c87e-4e89-11e7-8857-005056a205be",
+        MerchantID: '55d9c87e-4e89-11e7-8857-005056a205be',
         Amount: price,
-        CallbackURL: "http://localhost:3000/user/panel/vip/payment/check",
+        CallbackURL: 'http://localhost:3000/user/panel/vip/payment/check',
         Description: `بابت افزایش اعتبار ویژه`,
         Email: req.user.email
       };
 
       let options = this.getUrlOption(
-        "https://www.zarinpal.com/pg/rest/WebGate/PaymentRequest.json",
+        'https://www.zarinpal.com/pg/rest/WebGate/PaymentRequest.json',
         params
       );
 
@@ -143,10 +143,10 @@ class userController extends controller {
 
   async vipPaymentCheck(req, res, next) {
     try {
-      if (req.query.Status && req.query.Status !== "OK")
+      if (req.query.Status && req.query.Status !== 'OK')
         return this.alertAndBack(req, res, {
-          title: "دقت کنید",
-          message: "پرداخت شما با موفقیت انجام نشد"
+          title: 'دقت کنید',
+          message: 'پرداخت شما با موفقیت انجام نشد'
         });
 
       let payment = await Payment.findOne({
@@ -155,19 +155,19 @@ class userController extends controller {
 
       if (!payment.vip)
         return this.alertAndBack(req, res, {
-          title: "دقت کنید",
-          message: "این تراکنش مربوط به افزایش اعتبار اعضای ویژه نمیشود",
-          type: "error"
+          title: 'دقت کنید',
+          message: 'این تراکنش مربوط به افزایش اعتبار اعضای ویژه نمیشود',
+          type: 'error'
         });
 
       let params = {
-        MerchantID: "55d9c87e-4e89-11e7-8857-005056a205be",
+        MerchantID: '55d9c87e-4e89-11e7-8857-005056a205be',
         Amount: payment.price,
         Authority: req.query.Authority
       };
 
       let options = this.getUrlOption(
-        "https://www.zarinpal.com/pg/rest/WebGate/PaymentVerification.json",
+        'https://www.zarinpal.com/pg/rest/WebGate/PaymentVerification.json',
         params
       );
 
@@ -177,31 +177,31 @@ class userController extends controller {
             payment.set({ payment: true });
 
             let time = 0,
-              type = "";
+              type = '';
 
             switch (payment.price) {
               case 10000:
                 time = 1;
-                type = "month";
+                type = 'month';
                 break;
               case 30000:
                 time = 3;
-                type = "3month";
+                type = '3month';
                 break;
               case 120000:
                 time = 12;
-                type = "12month";
+                type = '12month';
                 break;
             }
 
             if (time == 0) {
               this.alert(req, {
-                title: "دقت کنید",
-                message: "عملیات مورد نظر با موفقیت انجام نشد",
-                type: "success",
-                button: "بسیار خوب"
+                title: 'دقت کنید',
+                message: 'عملیات مورد نظر با موفقیت انجام نشد',
+                type: 'success',
+                button: 'بسیار خوب'
               });
-              return res.redirect("/user/panel/vip");
+              return res.redirect('/user/panel/vip');
             }
 
             let vipTime = req.user.isVip()
@@ -215,17 +215,17 @@ class userController extends controller {
             await payment.save();
 
             this.alert(req, {
-              title: "با تشکر",
-              message: "عملیات مورد نظر با موفقیت انجام شد",
-              type: "success",
-              button: "بسیار خوب"
+              title: 'با تشکر',
+              message: 'عملیات مورد نظر با موفقیت انجام شد',
+              type: 'success',
+              button: 'بسیار خوب'
             });
 
-            res.redirect("/user/panel/vip");
+            res.redirect('/user/panel/vip');
           } else {
             this.alertAndBack(req, res, {
-              title: "دقت کنید",
-              message: "پرداخت شما با موفقیت انجام نشد"
+              title: 'دقت کنید',
+              message: 'پرداخت شما با موفقیت انجام نشد'
             });
           }
         })
@@ -239,11 +239,11 @@ class userController extends controller {
 
   getUrlOption(url, params) {
     return {
-      method: "POST",
+      method: 'POST',
       uri: url,
       headers: {
-        "cache-control": "no-cache",
-        "content-type": "application/json"
+        'cache-control': 'no-cache',
+        'content-type': 'application/json'
       },
       body: params,
       json: true

@@ -149,9 +149,9 @@ export default {
 .nav-item {
   font-size: 1.2rem;
 }
-.Message {
-  padding-top: 30vh;
-}
+// .Message {
+//   padding-top: 30vh;
+// }
 .navbar.auth-navbar {
   top: 0;
 }

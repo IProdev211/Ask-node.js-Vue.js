@@ -1,14 +1,24 @@
 <template>
   <div class="container">
-    <div class="unitHeader pt-2">
-      <h1 class="text-center pb-2 text-success text-ltr">
-        <span class="headerStyling">{{ episodes }}</span> lessons •
-        <span class="headerStyling">{{ hours }}</span> Hours •
-        <span class="headerStyling">{{ total }}</span> Courses
-        <br>
-        <h3 class="text-danger pt-3 text-rtl">محتوای جدید هر هفته اضافه می شود!</h3>
-      </h1>
+    <div class="d-flex justify-content-around d-flex align-items-center text-center headerDigits">
+      <div>
+        <h2 class="headerStyling">{{ episodes }}</h2>
+        <p>درس</p>
+      </div>
+
+      <div>
+        <h2 class="headerStyling">{{ hours }}</h2>
+        <p>ساعت</p>
+      </div>
+
+      <div>
+        <h2 class="headerStyling">{{ total }}</h2>
+        <p>دوره</p>
+      </div>
     </div>
+    <h3
+      class="headerDigitsText text-danger text-center py-4 text-rtl"
+    >محتوای جدید هر هفته اضافه می شود!</h3>
 
     <div class="row">
       <!-- Course Go Here  -->
@@ -66,9 +76,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.headerDigits {
+  padding: 0 28%;
+}
+
+.headerDigitsText {
+  font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 650px) {
+  .headerDigits {
+    padding: 0 7%;
+  }
+  .headerDigitsText {
+    font-size: 1.12rem;
+  }
+}
 .headerStyling {
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: bold;
   color: rgb(56, 218, 164);
+  padding: 0px;
+  margin: 0px;
 }
 </style>

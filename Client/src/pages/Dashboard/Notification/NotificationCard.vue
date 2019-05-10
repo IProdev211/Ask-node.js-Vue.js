@@ -1,6 +1,6 @@
 <template>
 	<div class="card container">
-		<h4 class="title d-flex justify-content-start py-0">اعلانات</h4>
+		<h4 class="title d-flex justify-content-start pt-2">اعلانات</h4>
 		<div class="py-3 text-right" v-if="logs.length">
 			<div class="Message py-4" v-for="log of logs" :key="log.id">
 				<p class="text-justify">
@@ -75,17 +75,17 @@ export default {
 
 <style lang="scss">
 .title {
-	font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .card {
-	height: 100%;
-	background-image: linear-gradient(#97288c, #f37335);
+  height: 100%;
+  background-image: linear-gradient(#97288c, #f37335);
 }
 
 .iconSize {
-	font-size: 1rem;
-	padding-left: 10px;
+  font-size: 1rem;
+  padding-left: 10px;
 }
 .pagination {
 	.page-pre {

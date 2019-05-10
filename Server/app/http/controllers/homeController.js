@@ -1,11 +1,11 @@
-const controller = require("app/http/controllers/controller");
-const Course = require("app/models/course");
-const Episode = require("app/models/episode");
-const Comment = require("app/models/comment");
-const i18n = require("i18n");
-const sm = require("sitemap");
-const rss = require("rss");
-const striptags = require("striptags");
+const controller = require('app/http/controllers/controller');
+const Course = require('app/models/course');
+const Episode = require('app/models/episode');
+const Comment = require('app/models/comment');
+const i18n = require('i18n');
+const sm = require('sitemap');
+const rss = require('rss');
+const striptags = require('striptags');
 
 class homeController extends controller {
   async index(req, res) {
@@ -13,11 +13,11 @@ class homeController extends controller {
       .sort({ createdAt: 1 })
       .limit(8)
       .exec();
-    res.render("home/index", { courses });
+    res.render('home/index', { courses });
   }
 
   async about(req, res) {
-    res.render("home/about");
+    res.render('home/about');
   }
 
   async comment(req, res, next) {
@@ -45,8 +45,8 @@ class homeController extends controller {
         // cacheTime : 600000
       });
 
-      sitemap.add({ url: "/", changefreq: "daily", priority: 1 });
-      sitemap.add({ url: "/courses", priority: 1 });
+      sitemap.add({ url: '/', changefreq: 'daily', priority: 1 });
+      sitemap.add({ url: '/courses', priority: 1 });
 
       let courses = await Course.find({})
         .sort({ createdAt: -1 })
@@ -54,24 +54,24 @@ class homeController extends controller {
       courses.forEach(course => {
         sitemap.add({
           url: course.path(),
-          changefreq: "weekly",
+          changefreq: 'weekly',
           priority: 0.8
         });
       });
 
       let episodes = await Episode.find({})
-        .populate("course")
+        .populate('course')
         .sort({ createdAt: -1 })
         .exec();
       episodes.forEach(episode => {
         sitemap.add({
           url: episode.path(),
-          changefreq: "weekly",
+          changefreq: 'weekly',
           priority: 0.8
         });
       });
 
-      res.header("Content-type", "application/xml");
+      res.header('Content-type', 'application/xml');
       res.send(sitemap.toString());
     } catch (err) {
       next(err);
@@ -81,14 +81,14 @@ class homeController extends controller {
   async feedCourses(req, res, next) {
     try {
       let feed = new rss({
-        title: "فید خوان دوره های راکت",
-        description: "جدیدترین دوره ها را از طریق rss بخوانید",
+        title: 'فید خوان دوره های راکت',
+        description: 'جدیدترین دوره ها را از طریق rss بخوانید',
         feed_url: `${config.siteurl}/feed/courses`,
         site_url: config.site_url
       });
 
       let courses = await Course.find({})
-        .populate("user")
+        .populate('user')
         .sort({ createdAt: -1 })
         .exec();
       courses.forEach(course => {
@@ -101,7 +101,7 @@ class homeController extends controller {
         });
       });
 
-      res.header("Content-type", "application/xml");
+      res.header('Content-type', 'application/xml');
       res.send(feed.xml());
     } catch (err) {
       next(err);
@@ -111,14 +111,14 @@ class homeController extends controller {
   async feedEpisodes(req, res, next) {
     try {
       let feed = new rss({
-        title: "فید خوان جلسات دوره های های راکت",
-        description: "جدیدترین دوره ها را از طریق rss بخوانید",
+        title: 'فید خوان جلسات دوره های های راکت',
+        description: 'جدیدترین دوره ها را از طریق rss بخوانید',
         feed_url: `${config.siteurl}/feed/courses`,
         site_url: config.site_url
       });
 
       let episodes = await Episode.find({})
-        .populate({ path: "course", populate: "user" })
+        .populate({ path: 'course', populate: 'user' })
         .sort({ createdAt: -1 })
         .exec();
       episodes.forEach(episode => {
@@ -131,7 +131,7 @@ class homeController extends controller {
         });
       });
 
-      res.header("Content-type", "application/xml");
+      res.header('Content-type', 'application/xml');
       res.send(feed.xml());
     } catch (err) {
       next(err);
