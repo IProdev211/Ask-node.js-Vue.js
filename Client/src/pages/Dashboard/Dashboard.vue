@@ -84,7 +84,7 @@ export default {
             '<i class="far fa-bookmark pl-2"></i> تعداد امتحانات که موجود هستن'
         },
         {
-          title: '+45 xP',
+          title: '125',
           subTitle: 'امتیاز اسک آریا',
           type: 'primary',
           icon: 'tim-icons icon-shape-star',
