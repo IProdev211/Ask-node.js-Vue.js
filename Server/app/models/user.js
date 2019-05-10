@@ -13,7 +13,7 @@ const userSchema = Schema({
     rememberToken : { type : String , default : null },
     avatar : { type : String , default : null },
     vipTime : { type : Date , default : new Date().toISOString() },
-    vipType : { type : String , default : 'month' },
+    vipFrom : { type : Date , default : new Date().toISOString() },
     lang : { type : String , default : 'en' },
     learning : [{ type : Schema.Types.ObjectId , ref : 'Course'}],
     roles : [{ type : Schema.Types.ObjectId , ref : 'Role'}],
@@ -58,6 +58,12 @@ userSchema.methods.setRememberToken = function(res) {
     const token = uniqueString();
     res.cookie('remember_token' , token , { maxAge : 1000 * 60 * 60 * 24 * 90 , httpOnly : true , signed :true});
     this.update({ rememberToken : token } , err => {
+        if(err) console.log(err);
+    });
+}
+userSchema.methods.removeRememberToken = function(res) {
+    res.cookie('remember_token' , '' , { maxAge : Date.now() , httpOnly : true , signed :false});
+    this.update({ rememberToken : null } , err => {
         if(err) console.log(err);
     });
 }

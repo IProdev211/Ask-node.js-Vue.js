@@ -36,15 +36,24 @@
           <p class="d-lg-none">پنل کاربری</p>
         </a>
         <li class="nav-link">
-          <a href="/dashboard" class="nav-item dropdown-item">پنل کاربری</a>
+          <router-link
+            to="/dashboard"
+            class="nav-item dropdown-item"
+          >
+            پنل کاربری
+          </router-link>
         </li>
         <li class="nav-link">
-          <a href="courses" class="nav-item dropdown-item">دوره های آموزشی</a>
+          <router-link
+            to="/courses"
+            class="nav-item dropdown-item"
+          >
+            دوره های آموزشی
+          </router-link>
         </li>
         <div class="dropdown-divider"></div>
         <li class="nav-link">
-          <a href="/" class="nav-item dropdown-item">خروج</a>
-          <!-- <router-link class="nav-item dropdown-item" to="/">Logout</router-link> -->
+          <router-link class="nav-item dropdown-item" to="#" @click.native="logoutListener">خروج</router-link>
         </li>
       </base-dropdown>
     </ul>
@@ -54,6 +63,7 @@
 import { CollapseTransition } from 'vue2-transitions';
 import { BaseNav, Modal } from '@/components';
 import SidebarToggleButton from './SidebarToggleButton';
+import backend from '../../../backend';
 
 export default {
   components: {
@@ -100,12 +110,36 @@ export default {
     },
     toggleMenu() {
       this.showMenu = !this.showMenu;
+    },
+    logoutListener(e) {
+      e.preventDefault();
+      backend.get('logout').then(response => {
+        if (response.data.status !== "success") {
+          return this.$notify({
+            type: 'danger',
+            message: 'درخواست شما توسط سرور رد شد',
+				  });
+        }
+        window.location.href = "/home";
+      });
     }
   }
 };
 </script>
-<style scoped>
+<style lang="scss">
 .top-navbar {
   top: 0px;
+}
+.dropdown-menu{
+  &.dropdown-navbar {
+    &::before {
+      left: 29px;
+      right: auto;
+    }
+    .dropdown-item {
+      color: #9A9A9A;
+      background-color: transparent;
+    }
+  }
 }
 </style>

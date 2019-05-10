@@ -3,6 +3,7 @@ const router = express.Router();
 
 const HomeController = require('app/http/controllers/api/v1/homeController');
 const DashboardController = require('app/http/controllers/api/v1/dashboardController');
+const AuthController = require('app/http/controllers/api/v1/authController');
 const profileValidator = require("app/http/validators/profileValidator");
 const courseController = require('app/http/controllers/api/v1/courseController');
 const adminCourseController = require('app/http/controllers/api/v1/admin/courseController');
@@ -21,6 +22,7 @@ router.get('/user' , HomeController.user);
 router.get('/user/history' , HomeController.history);
 router.get('/dashboard', DashboardController.index);
 router.get('/dashboard/logs', DashboardController.logs);
+router.get('/logout' , AuthController.logout);
 router.put('/profile', upload.single("avatar"), convertFileToField.handle, profileValidator.handle(), DashboardController.updateProfile);
 
 router.get('/courses/purchased', courseController.PurchasedCourses);

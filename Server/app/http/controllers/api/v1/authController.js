@@ -63,6 +63,13 @@ class authController extends controller {
 			}
 		)(req, res);
 	}
+	async logout(req, res) {
+		req.user.removeRememberToken(res);
+		req.logout();
+		res.json({
+			status: "success",
+		});
+	}
 }
 
 module.exports = new authController();
