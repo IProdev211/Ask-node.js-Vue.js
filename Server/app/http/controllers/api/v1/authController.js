@@ -54,6 +54,14 @@ class authController extends controller {
 				if (err) return this.failed(err.message, res);
 				if (!user)
 					return this.failed("خطایی در حین ثبت نام بوجود آمده", res, 500);
+				const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+				const registerLog = new Log({
+					ip: ip,
+					user: user.id,
+					type: 'register',
+					title: `به مجموعه اسک آریا خوش آمدید .`,
+				});
+				registerLog.save();
 				return res.json({
 					data: {
 						user: HomeController.filterUserData(user)
@@ -64,8 +72,17 @@ class authController extends controller {
 		)(req, res);
 	}
 	async logout(req, res) {
-		req.user.removeRememberToken(res);
+		const user = req.user;
+		user.removeRememberToken(res);
 		req.logout();
+		const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+		const logoutLog = new Log({
+			ip: ip,
+			user: user.id,
+			type: 'logout',
+			title: ` گزارش خروج از سیستم با آدرس آی پی ${ip} ثبت شده است. `,
+		});
+		logoutLog.save();
 		res.json({
 			status: "success",
 		});

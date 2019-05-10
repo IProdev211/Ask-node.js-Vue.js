@@ -54,7 +54,9 @@ export default {
 		},
 		getLogIcon(type) {
 			switch (type) {
+				case 'logout':
 				case 'login': return 'fa-shield-alt';
+				case 'register': return 'fa-user-tie';
 				case 'buy_course': return 'fa-shopping-basket';
 				default: return 'fa-history';
 			}
@@ -72,7 +74,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
 .title {
 	font-size: 1.2rem;
 }
@@ -85,5 +87,25 @@ export default {
 .iconSize {
 	font-size: 1rem;
 	padding-left: 10px;
+}
+.pagination {
+	.page-pre {
+		&.next-page {
+			.page-link {
+				.icon-double-right {
+					&::before {
+						content: "\EA23";
+					}
+				}
+			}
+		}
+	}
+	.page-link {
+		.icon-double-left {
+			&::before {
+				content: "\EA24";
+			}
+		}
+	}
 }
 </style>
