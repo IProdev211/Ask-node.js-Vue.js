@@ -36,8 +36,9 @@
 											</autocomplete>
 										</div>
 									</div>
-									<div class="col-md-2 pt-3">
-										<image-upload @change="onImageChange" select-text="Blog Image"/>
+									<div class="col-md-4 align-self-center">
+										<img class="img-thumbnail img-fluid rounded mx-auto d-block image-preview" :src="data.imagepreview || 'img/placeholder.jpg'" alt="Course Image">
+										<image-upload @change="onImageChange" :select-text="data.id ? 'Edit Blog Image' : 'Select Blog Image'" class="pt-2 d-block"/>
 									</div>
 									<div class="col-md-12 py-4">
 										<base-input
@@ -132,12 +133,23 @@ export default {
 				authorName: this.$root.$data.user.name,
 				tags: [],
 				categories: [],
+				imagepreview: "",
 			}
 		};
 	},
 	methods: {
 		onImageChange(file) {
 			this.imageFile = file;
+			if (file instanceof File) {
+				var reader = new FileReader();
+				const that = this;
+				reader.onload = function(e) {
+					that.data.imagepreview = e.target.result;
+				}
+				reader.readAsDataURL(file);
+			} else {
+				this.data.imagepreview = this.image;
+			}
 		},
 		submitFormListener(e) {
 			e.preventDefault();
@@ -220,6 +232,7 @@ export default {
 			this.data.id = undefined;
 			this.data.name = "";
 			this.data.content = "";
+			this.data.imagepreview = "";
 			this.data.author = this.$root.$data.user.id;
 			this.data.authorName = this.$root.$data.user.name;
 			this.data.tags = [];
@@ -288,6 +301,9 @@ export default {
 		},
 		categories: function(newValue) {
 			this.data.categories = newValue;
+		},
+		image: function(value) {
+			this.data.imagepreview = value;
 		}
 	},
 };
@@ -312,5 +328,9 @@ export default {
 }
 .ck-editor__editable {
     min-height: 300px;
+}
+.image-preview {
+	width: 200px;
+	height: 200px;
 }
 </style>

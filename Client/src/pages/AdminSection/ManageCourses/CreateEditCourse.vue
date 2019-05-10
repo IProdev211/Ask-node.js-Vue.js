@@ -67,10 +67,15 @@
 								<h4 class="lead">Tags</h4>
 								<tags-input v-model="data.tags"></tags-input>
 							</div>
-							<div class="col-md-4 pt-5">
+							<div class="col-md-3 pt-5">
 								<image-upload
 									@change="onImageChange"
-									select-text="Course Image"/>
+									:select-text="data.id ? 'Edit Course Image' : 'Select Course Image'"
+									change-text="Edit Course Image"
+									/>
+							</div>
+							<div class="col-md-4 align-self-center">
+								<img class="img-thumbnail img-fluid rounded mx-auto d-block image-preview" :src="data.imagepreview || 'img/placeholder.jpg'" alt="Course Image">
 							</div>
 							<div class="col-md-12 pt-5" v-if="formErrors.length">
 								<p class="text-right text-rtl">
@@ -144,19 +149,30 @@ export default {
 			data: {
 				id: undefined,
 				title: "",
-				thump: "",
+				thumb: "",
 				type: "",
 				body: "",
 				price: 0,
 				tags: [],
 				oldPrice: 0,
 				xp: 0,
+				imagepreview: "",
 			}
 		};
 	},
 	methods: {
 		onImageChange(file) {
 			this.images = file;
+			if (file instanceof File) {
+				var reader = new FileReader();
+				const that = this;
+				reader.onload = function(e) {
+					that.data.imagepreview = e.target.result;
+				}
+				reader.readAsDataURL(file);
+			} else {
+				this.data.imagepreview = this.thumb;
+			}
 		},
 		checkForm(e) {
 			e.preventDefault();
@@ -236,6 +252,7 @@ export default {
 			this.data.body = "";
 			this.data.price = "";
 			this.data.tags = [];
+			this.data.imagepreview = "";
 			this.$emit('reset');
 		},
 		changeTypeListener(type) {
@@ -272,8 +289,25 @@ export default {
 		tags: function(newValue, oldValue) {
 			this.data.tags = newValue;
 		},
+		thumb: function(value) {
+			this.data.imagepreview = value;
+		},
 	}
 };
 </script>
 
-<style scoped></style>
+<style lang="scss">
+.image-preview {
+	width: 200px;
+	height: 200px;
+}
+.ck-editor__editable {
+    min-height: 300px;
+}
+.ck.ck-editor__main > .ck-content  {
+	background: transparent;
+	* {
+		color: #fff;
+	}
+}
+</style>
