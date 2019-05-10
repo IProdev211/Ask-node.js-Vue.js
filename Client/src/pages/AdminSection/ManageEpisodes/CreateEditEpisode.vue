@@ -336,7 +336,7 @@ export default {
 	}
 }
 .ck-editor__editable {
-    min-height: 500px;
+    min-height: 300px;
 }
 .ck.ck-editor__main > .ck-content  {
 	background: transparent;

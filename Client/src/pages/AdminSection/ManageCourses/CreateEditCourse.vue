@@ -63,11 +63,17 @@
 									<ckeditor :editor="ckeditor.editor" v-model="data.body" :config="ckeditor.editorConfig"></ckeditor>
 								</base-input>
 							</div>
-							<div class="col-md-5 pt-3">
+							<div class="col-md-4 pt-3">
 								<h4 class="lead">Tags</h4>
 								<tags-input v-model="data.tags"></tags-input>
 							</div>
-							<div class="col-md-4 pt-5">
+								<div class="col-md-5 pt-3">
+								<base-input
+									label="Course Introduction Video"
+									placeholder="Video Link...">
+								</base-input>
+							</div>
+							<div class="col-md-3 pt-4">
 								<image-upload
 									@change="onImageChange"
 									select-text="Course Image"/>
@@ -276,4 +282,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.ck-editor__editable {
+    min-height: 300px;
+}
+</style>
+
