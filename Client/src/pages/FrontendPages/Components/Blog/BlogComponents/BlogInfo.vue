@@ -14,11 +14,10 @@
         </p>
       </div>
       <div class="col-md-4">
-        <p class="info-items">
+        <p class="info-items post-categories">
           <i class="fas fa-bullseye pl-2"></i>
           دسته بندی ها:
           <span
-            class="pr-2"
             v-for="category of categories"
             :key="category"
           >{{category.name}}</span>
@@ -56,5 +55,20 @@ span {
 .item-date {
   display: inline-block;
   direction: rtl;
+}
+.post-categories {
+  span {
+    &::after {
+      content: ",";
+      display: inline-block;
+      padding: 0 5px;
+    }
+    &:last-child {
+      margin-right: 0.5rem !important;
+      &::after {
+        display: none;
+      }
+    }
+  }
 }
 </style>
