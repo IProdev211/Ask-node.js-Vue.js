@@ -49,7 +49,7 @@
 							</div>
 							<div class="col-md-12 py-3">
 								<base-input
-								label="Unit Description (CKEditor 5)"
+								label="Unit Description"
 								placeholder="Unit Description"
 								v-model="data.body"
 								:error="fieldErrors.body"
@@ -336,7 +336,7 @@ export default {
 	}
 }
 .ck-editor__editable {
-    min-height: 500px;
+    min-height: 300px;
 }
 .ck.ck-editor__main > .ck-content  {
 	background: transparent;
