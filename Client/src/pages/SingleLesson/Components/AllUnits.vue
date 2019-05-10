@@ -30,7 +30,8 @@ export default {
 	props: [
 		'episodes',
 		'scrollable',
-		'maxepisodes'
+		'maxepisodes',
+		'purchased',
 	],
 	methods: {
 		getEpisodeType(type) {
@@ -45,6 +46,9 @@ export default {
 			}
 		},
 		getEpisodeIcon(type) {
+			if (this.purchased) {
+				return 'fa-unlock-alt';
+			}
 			switch (type.toLowerCase()) {
 				case "free":
 					return "fa-unlock-alt";
@@ -56,6 +60,9 @@ export default {
 			}
 		},
 		getUnitBadge(type) {
+			if (this.purchased) {
+				return 'UnitBadgeUnlocked';
+			}
 			switch (type.toLowerCase()) {
 				case "free":
 					return "UnitBadgeUnlocked";
