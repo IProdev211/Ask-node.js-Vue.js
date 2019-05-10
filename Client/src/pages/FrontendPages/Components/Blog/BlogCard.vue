@@ -3,11 +3,11 @@
     <router-link :to="`/blog/${slug}`">
       <div class="card">
         <img class="card-img-top" :src="image" :alt="name">
-        <div class="category">{{ categories.pop().name }}</div>
+        <div class="category">{{ categories.length ? categories.pop().name : "" }}</div>
         <div class="card-body">
           <h3 class="card-title py-2">{{ name }}</h3>
           <div class="d-flex justify-content-between">
-            {{ publishedAt }}
+            <span class="rtl direction-rtl">{{ publishedAt }}</span>
             <span>
               <i class="fa fa-eye"></i>
               {{views}} views
@@ -20,13 +20,13 @@
 </template>
 
 <script>
-import moment from 'moment';
+import moment from 'jalali-moment';
 
 export default {
   props: ['slug', 'image', 'tags', 'categories', 'name', 'createdAt', 'views'],
   computed: {
     publishedAt: function() {
-      return moment(this.createdAt).format('D MMMM YYYY');
+      return moment(this.createdAt).locale('fa').format('D MMMM YYYY');
     }
   }
 };
@@ -82,5 +82,8 @@ export default {
 }
 .home-blog h3 {
   color: #27408b;
+}
+.direction-rtl {
+  direction: rtl;
 }
 </style>

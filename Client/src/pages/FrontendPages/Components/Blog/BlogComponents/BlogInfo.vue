@@ -29,12 +29,12 @@
 </template>
 
 <script>
-import moment from 'moment';
+import moment from 'jalali-moment';
 export default {
   props: ['name', 'createdAt', 'categories'],
   methods: {
     dateFormated() {
-      return moment(this.createdAt).format('D MMMM YYYY');
+      return moment(this.createdAt).locale('fa').format('D MMMM YYYY');
     }
   }
 };
@@ -55,6 +55,6 @@ span {
 }
 .item-date {
   display: inline-block;
-  direction: ltr;
+  direction: rtl;
 }
 </style>
