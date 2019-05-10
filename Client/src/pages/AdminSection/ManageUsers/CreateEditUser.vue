@@ -82,11 +82,18 @@
 									</div>
 
 									<div class="col-md-4">
-										<base-input
-										label="Enroll Student on ... Course:"
-										placeholder="Select Course for student to be enrolled on..."
-										>
-										</base-input>
+										<div class="form-group has-label">
+											<label> Enroll Student on ... Course:  </label>
+											<autocomplete
+												source="/api/v1/admin/courses?filter="
+												results-property="docs"
+												v-model="data.course"
+												@selected="onSelectCourse"
+												resultsDisplay="title"
+												placeholder="Select Course for student to be enrolled on.."
+												input-class="form-control">
+											</autocomplete>
+										</div>
 									</div>
 
 									<div class="col-md-4">
@@ -156,6 +163,7 @@ import { Select, Option } from 'element-ui';
 import { ImageUpload } from 'src/components/index';
 import moment from "moment";
 import backend from "../../../backend";
+import Autocomplete from 'vuejs-auto-complete';
 
 export default {
 	props: [
@@ -171,7 +179,8 @@ export default {
 	components: {
 		[Option.name]: Option,
 		[Select.name]: Select,
-		ImageUpload
+		ImageUpload,
+		Autocomplete
 	},
 	data() {
 		return {
@@ -186,6 +195,7 @@ export default {
 				learning: [],
 				vipTime: undefined,
 				vipFrom: undefined,
+				course: undefined,
 			},
 			fieldErrors: {},
 			formErrors: {},
@@ -218,6 +228,7 @@ export default {
 			this.data.learning = [];
 			this.data.vipTime = "";
 			this.data.vipFrom = "";
+			this.data.course = "";
 			this.image = undefined;
 			this.$emit("reset");
 		},
@@ -290,12 +301,14 @@ export default {
 				}
 				data.append("vipTime", this.data.vipTime);
 				data.append("vipFrom", this.data.vipFrom);
+				data.append("course", this.data.course);
 			} else {
 				data = {
 					name: this.data.name,
 					email: this.data.email,
 					vipTime: this.data.vipTime,
 					vipFrom: this.data.vipFrom,
+					course: this.data.course,
 					xp: this.data.xp !== undefined ? this.data.xp : 0,
 				};
 				if (this.data.password) {
@@ -322,6 +335,9 @@ export default {
 				errorHandler(error.response);
 			});
 		},
+		onSelectCourse(item) {
+			this.data.course = item.value;
+		}
 	},
 	watch: {
 		id: function(newValue, oldValue) {
@@ -359,13 +375,13 @@ export default {
 				return;
 			}
 			this.data.vipFrom = moment(newValue).format('YYYY/MM/DD');
-		},
+		}
 	}
 };
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 .enrolled-on {
 	font-size: 1rem;
 }
@@ -392,6 +408,22 @@ export default {
 	.avatar {
 		width: 64px;
 		height: 64px;
+	}
+}
+.autocomplete {
+	background: transparent;
+	.autocomplete__box {
+		background: transparent;
+		border-color: #2b3553;
+		border-radius: 0.4285rem;
+		font-size: 0.75rem;
+		-webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+		transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+	}
+	.autocomplete__results {
+		.autocomplete__results__item {
+			color: #333;
+		}
 	}
 }
 

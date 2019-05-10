@@ -69,22 +69,47 @@ class userController extends controller {
 		if (req.file) {
 			avatar = this.getUrlImage(`${req.file.destination}/${req.file.filename}`);
 		}
+		let course = "";
+		const learning = [];
+		if (req.body.course) {
+			course = req.body.course;
+			learning.push(course.id);
+			delete req.body.course;
+		}
 		let { name , email , password, xp } = req.body;
 
-		let newUser = new User({ 
+		const newUser = new User({ 
 			name: name,
 			email: email,
 			password: password,
 			xp: xp || 0,
 			avatar: avatar || null,
+			learning,
 		});
-
 		await newUser.save();
+		if (course) {
+			const payment = new Payment({
+				user: user.id,
+				course: course.id,
+				resnumber: ' ',
+				price: 0,
+				payment: true,
+			});
+			await payment.save(err => {
+				if (err) {
+					return this.failed(err, res, 500);
+				}
+			});
+		}
 		return res.json({
 			data: {
 				user: this.filterUserData(newUser, {
 					sum: 0,
-					courses: [],
+					courses: course ? [{
+						id: course.id,
+						title: course.title,
+						signupDate: updatedAt,
+					}] : [],
 				}),
 			},
 			status: "success"
@@ -92,18 +117,43 @@ class userController extends controller {
 	}
 	async update(req, res , next) {
 		if (! await this.validationData(req, res)) return;
+		let user = await User.findById(req.params.id);
+		if (! user) {
+			return this.failed('چنین کاربری وجود ندارد.', res, 404);
+		}
 		const objForUpdate = {};
 		if (req.file) {
 			objForUpdate.avatar = this.getUrlImage(`${req.file.destination}/${req.file.filename}`);
 		}
+		let course = "";
+		if (req.body.course) {
+			course = req.body.course;
+			user.learning.push(course.id);
+			objForUpdate.learning = user.learning;
+			delete req.body.course;
+		}
 		delete req.body.file;		
-		const user = await User.findByIdAndUpdate(req.params.id, {
+		user = await User.findByIdAndUpdate(req.params.id, {
 			$set: { ...req.body,
 				...objForUpdate
 			}
 		}, {
 			new: true,
 		});
+		if (course) {
+			const payment = new Payment({
+				user: user.id,
+				course: course.id,
+				resnumber: ' ',
+				price: 0,
+				payment: true,
+			});
+			await payment.save(err => {
+				if (err) {
+					return this.failed(err, res, 500);
+				}
+			});
+		}
 		const userPayments = {
 			sum: 0,
 			courses: [],
@@ -111,7 +161,7 @@ class userController extends controller {
 		const payments = await Payment.find({ user: user.id, payment: true }).populate("course");
 		for (const payment of payments) {
 			userPayments.sum += payment.price;
-			if (!payment.course) continue;
+			if (! payment.course) continue;
 			userPayments.courses.push({
 				id: payment.course.id,
 				title: payment.course.title,

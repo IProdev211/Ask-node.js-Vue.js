@@ -1,6 +1,7 @@
 const validator = require('./validator');
 const { check } = require('express-validator/check');
 const User = require('app/models/user');
+const Course = require('app/models/course');
 const path = require('path');
 const moment = require('moment');
 
@@ -67,7 +68,16 @@ class userValidator extends validator {
             throw new Error('مقدار وارد شده برای شروع زمان VIP نامعتبر است.');
           }
           req.body.vipFrom = moment.toISOString();
-        })
+        }),
+      check('course')
+        .custom(async (value, { req }) => {
+          if (value === undefined) return;
+          const course = await Course.findById(value);
+          if (! course) {
+            throw new Error('دوره مشخص شده نامعتبر است');
+          }
+          req.body.course = course;
+        }),
     ];
   }
   handleUpdate() {
@@ -132,7 +142,20 @@ class userValidator extends validator {
             throw new Error('مقدار وارد شده برای شروع زمان VIP نامعتبر است.');
           }
           req.body.vipFrom = value.toDate().toISOString();
-        })
+        }),
+      check('course')
+        .custom(async (value, { req }) => {
+          if (value === undefined) return;
+          const course = await Course.findById(value);
+          if (! course) {
+            throw new Error('دوره مشخص شده نامعتبر است');
+          }
+          const user = await User.findById(req.params.id);
+          if (user.checkLearning(course.id)) {
+            throw new Error('کاربر در این دوره ثبت نام شده است.');
+          }
+          req.body.course = course;
+        }),
     ];
   }
 
