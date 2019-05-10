@@ -30,6 +30,6 @@ export default {
     Vue.use(SideBar);
     Vue.use(Notifications);
     Vue.use(VeeValidate, { fieldsBagName: 'veeFields' });
-    Vue.use(require('vue-jalali-moment'));
+    Vue.use(require('jalali-moment'));
   }
 };

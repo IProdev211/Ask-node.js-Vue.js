@@ -5,8 +5,7 @@
 			<div class="Message py-4" v-for="log of logs" :key="log.id">
 				<p class="text-justify">
 					<i :class="'fas ' +  getLogIcon(log.type) + ' iconSize'"></i>
-					{{ getJalaliDayName(log.createdAt) }}
-					{{ log.createdAt | moment("jDD/jMM/jYYYY HH:mm:ss") }} - 
+					{{ getJalaliDate(log.createdAt) }} - 
 					{{ log.title }}
 				</p>
 			</div>
@@ -25,7 +24,7 @@
 <script>
 import { BasePagination } from 'src/components';
 import backend from '../../../backend';
-import * as moment from 'moment';
+import moment from 'jalali-moment';
 
 export default {
 	components: {
@@ -64,8 +63,8 @@ export default {
 		changePageListener(page) {
 			this.dataLoad(page);
 		},
-		getJalaliDayName(date) {
-			return moment(date).locale('fa').format('dddd');
+		getJalaliDate(date) {
+			return moment(date).locale('fa').format('dddd DD/MM/YYYY HH:mm:ss');
 		}
 	},
 	mounted() {

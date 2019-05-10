@@ -32,7 +32,7 @@
 <script>
 import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import Fuse from 'fuse.js';
 
 export default {
@@ -89,7 +89,7 @@ export default {
           price: new Intl.NumberFormat().format(
             parseInt(payment.price.toString().replace(',', ''), 10)
           ),
-          date: new moment(payment.createdAt).format('L'),
+          date: moment(payment.createdAt).locale('fa').format('DD/MM/YYYY'),
           status: payment.payment ? 'موفق' : 'ناموفق'
         });
       }

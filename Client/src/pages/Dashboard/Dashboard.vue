@@ -33,6 +33,7 @@ import UserCard from './Profile/UserCard.vue';
 import NotificationCard from './Notification/NotificationCard.vue';
 import PaymentHistory from './PaymentHistory/PaymentHistory.vue';
 import backend from '../../backend';
+import moment from 'moment';
 
 export default {
   components: {
