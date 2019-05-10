@@ -130,32 +130,32 @@ export default {
     },
     getNavClass(nav) {
       let classes = 'nav-link';
-      let isAvtive = false;
+      let isActive = false;
       switch (nav) {
         case 'home':
-          isAvtive = this.$route.name == 'Home';
+          isActive = this.$route.name == 'Home';
           break;
         case 'ourcourses':
-          isAvtive = this.$route.name == 'OurCourses';
+          isActive = this.$route.name == 'OurCourses';
           break;
         case 'privateclasses':
-          isAvtive = this.$route.name == 'PrivateClasses';
+          isActive = this.$route.name == 'PrivateClasses';
           break;
         case 'privateclasses':
-          isAvtive = this.$route.name == 'PrivateClasses';
+          isActive = this.$route.name == 'PrivateClasses';
           break;
         case 'meetups':
-          isAvtive = this.$route.name == 'Meetups';
+          isActive = this.$route.name == 'Meetups';
           break;
         case 'contact':
-          isAvtive = this.$route.name == 'Contact';
+          isActive = this.$route.name == 'Contact';
           break;
       }
-      if (isAvtive) {
-        classes += ' text-danger';
+      if (isActive) {
+        classes += ' text-success';
       }
       return classes;
-    },
+    }
   },
   beforeDestroy() {
     this.closeMenu();
