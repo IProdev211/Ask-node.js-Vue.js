@@ -6,9 +6,7 @@ const forUser = require('./private');
 
 const authenticateApi = require('app/http/middleware/authenticateApi');
 
-
 router.use(forEveryOne);
-router.use(authenticateApi.handle ,forUser);
-
+router.use(authenticateApi.handle, forUser);
 
 module.exports = router;

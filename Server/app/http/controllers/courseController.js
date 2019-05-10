@@ -1,24 +1,24 @@
-const controller = require("app/http/controllers/controller");
-const Course = require("app/models/course");
-const Episode = require("app/models/episode");
-const Category = require("app/models/category");
-const Payment = require("app/models/payment");
-const config = require("config");
-const path = require("path");
-const fs = require("fs");
-const bcrypt = require("bcrypt");
-const request = require("request-promise");
+const controller = require('app/http/controllers/controller');
+const Course = require('app/models/course');
+const Episode = require('app/models/episode');
+const Category = require('app/models/category');
+const Payment = require('app/models/payment');
+const config = require('config');
+const path = require('path');
+const fs = require('fs');
+const bcrypt = require('bcrypt');
+const request = require('request-promise');
 
 class courseController extends controller {
   async index(req, res) {
     let query = {};
     let { search, type, category } = req.query;
 
-    if (search) query.title = new RegExp(search, "gi");
+    if (search) query.title = new RegExp(search, 'gi');
 
-    if (type && type != "all") query.type = type;
+    if (type && type != 'all') query.type = type;
 
-    if (category && category != "all") {
+    if (category && category != 'all') {
       category = await Category.findOne({
         slug: category
       });
@@ -40,7 +40,7 @@ class courseController extends controller {
     courses = await courses.exec();
 
     let categories = await Category.find({});
-    res.render("home/courses", {
+    res.render('home/courses', {
       courses,
       categories
     });
@@ -53,37 +53,37 @@ class courseController extends controller {
       let course = await Course.findById(req.body.course);
       if (!course) {
         return this.alertAndBack(req, res, {
-          title: "دقت کنید",
-          message: "چنین دوره ای یافت نشد",
-          type: "error"
+          title: 'دقت کنید',
+          message: 'چنین دوره ای یافت نشد',
+          type: 'error'
         });
       }
 
       if (await req.user.checkLearning(course)) {
         return this.alertAndBack(req, res, {
-          title: "دقت کنید",
-          message: "شما قبلا در این دوره ثبت نام کرده اید",
-          type: "error",
-          button: "خیلی خوب"
+          title: 'دقت کنید',
+          message: 'شما قبلا در این دوره ثبت نام کرده اید',
+          type: 'error',
+          button: 'خیلی خوب'
         });
       }
 
       if (
         course.price == 0 &&
-        (course.type == "vip" || course.type == "free")
+        (course.type == 'vip' || course.type == 'free')
       ) {
         return this.alertAndBack(req, res, {
-          title: "دقت کنید",
+          title: 'دقت کنید',
           message:
-            "این دوره مخصوص اعضای ویژه یا رایگان است و قابل خریداری نیست",
-          type: "error",
-          button: "خیلی خوب"
+            'این دوره مخصوص اعضای ویژه یا رایگان است و قابل خریداری نیست',
+          type: 'error',
+          button: 'خیلی خوب'
         });
       }
 
       // buy proccess
       let params = {
-        MerchantID: "55d9c87e-4e89-11e7-8857-005056a205be",
+        MerchantID: '55d9c87e-4e89-11e7-8857-005056a205be',
         Amount: course.price,
         CallbackURL: `${config.siteurl}/courses/payment/checker`,
         Description: `بابت خرید دوره ${course.title}`,
@@ -91,7 +91,7 @@ class courseController extends controller {
       };
 
       let options = this.getUrlOption(
-        "https://sandbox.zarinpal.com/pg/rest/WebGate/PaymentRequest.json",
+        'https://sandbox.zarinpal.com/pg/rest/WebGate/PaymentRequest.json',
         params
       );
 
@@ -118,33 +118,33 @@ class courseController extends controller {
 
   async checker(req, res, next) {
     try {
-      if (req.query.Status && req.query.Status !== "OK")
+      if (req.query.Status && req.query.Status !== 'OK')
         return this.alertAndBack(req, res, {
-          title: "دقت کنید",
-          message: "پرداخت شما با موفقیت انجام نشد"
+          title: 'دقت کنید',
+          message: 'پرداخت شما با موفقیت انجام نشد'
         });
 
       let payment = await Payment.findOne({
         resnumber: req.query.Authority
       })
-        .populate("course")
+        .populate('course')
         .exec();
 
       if (!payment.course)
         return this.alertAndBack(req, res, {
-          title: "دقت کنید",
-          message: "دوره ای که شما پرداخت کرده اید وجود ندارد",
-          type: "error"
+          title: 'دقت کنید',
+          message: 'دوره ای که شما پرداخت کرده اید وجود ندارد',
+          type: 'error'
         });
 
       let params = {
-        MerchantID: "55d9c87e-4e89-11e7-8857-005056a205be",
+        MerchantID: '55d9c87e-4e89-11e7-8857-005056a205be',
         Amount: payment.course.price,
         Authority: req.query.Authority
       };
 
       let options = this.getUrlOption(
-        "https://sandbox.zarinpal.com/pg/rest/WebGate/PaymentVerification.json",
+        'https://sandbox.zarinpal.com/pg/rest/WebGate/PaymentVerification.json',
         params
       );
 
@@ -160,17 +160,17 @@ class courseController extends controller {
             await req.user.save();
 
             this.alert(req, {
-              title: "با تشکر",
-              message: "عملیات مورد نظر با موفقیت انجام شد",
-              type: "success",
-              button: "بسیار خوب"
+              title: 'با تشکر',
+              message: 'عملیات مورد نظر با موفقیت انجام شد',
+              type: 'success',
+              button: 'بسیار خوب'
             });
 
             res.redirect(payment.course.path());
           } else {
             this.alertAndBack(req, res, {
-              title: "دقت کنید",
-              message: "پرداخت شما با موفقیت انجام نشد"
+              title: 'دقت کنید',
+              message: 'پرداخت شما با موفقیت انجام نشد'
             });
           }
         })
@@ -195,11 +195,11 @@ class courseController extends controller {
     )
       .populate([
         {
-          path: "user",
-          select: "name"
+          path: 'user',
+          select: 'name'
         },
         {
-          path: "episodes",
+          path: 'episodes',
           options: {
             sort: {
               number: 1
@@ -209,24 +209,24 @@ class courseController extends controller {
       ])
       .populate([
         {
-          path: "comments",
+          path: 'comments',
           match: {
             parent: null,
             approved: true
           },
           populate: [
             {
-              path: "user",
-              select: "name"
+              path: 'user',
+              select: 'name'
             },
             {
-              path: "comments",
+              path: 'comments',
               match: {
                 approved: true
               },
               populate: {
-                path: "user",
-                select: "name"
+                path: 'user',
+                select: 'name'
               }
             }
           ]
@@ -236,10 +236,10 @@ class courseController extends controller {
     let categories = await Category.find({
       parent: null
     })
-      .populate("childs")
+      .populate('childs')
       .exec();
 
-    res.render("home/single-course", {
+    res.render('home/single-course', {
       course,
       categories
     });
@@ -250,18 +250,18 @@ class courseController extends controller {
       this.isMongoId(req.params.episode);
 
       let episode = await Episode.findById(req.params.episode);
-      if (!episode) this.error("چنین فایلی برای این جلسه وجود ندارد", 404);
+      if (!episode) this.error('چنین فایلی برای این جلسه وجود ندارد', 404);
 
       if (!this.checkHash(req, episode))
-        this.error("اعتبار لینک شما به پایان رسیده است", 403);
+        this.error('اعتبار لینک شما به پایان رسیده است', 403);
 
       let filePath = path.resolve(
         `./public/download/ASGLKET!1241tgsdq415215/${episode.videoUrl}`
       );
       if (!fs.existsSync(filePath))
-        this.error("چنین فایل برای دانلود وجود دارد", 404);
+        this.error('چنین فایل برای دانلود وجود دارد', 404);
 
-      await episode.inc("downloadCount");
+      await episode.inc('downloadCount');
 
       return res.download(filePath);
     } catch (err) {
@@ -280,11 +280,11 @@ class courseController extends controller {
 
   getUrlOption(url, params) {
     return {
-      method: "POST",
+      method: 'POST',
       uri: url,
       headers: {
-        "cache-control": "no-cache",
-        "content-type": "application/json"
+        'cache-control': 'no-cache',
+        'content-type': 'application/json'
       },
       body: params,
       json: true

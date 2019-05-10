@@ -5,7 +5,7 @@
         <div>
           <img class="CourseCard__courseimage" :src="thumb">
         </div>
-        <div class="course__name">
+        <div>
           <h4 class="text-center font-weight-bold course-title pt-4">{{ title }}</h4>
         </div>
         <hr class="fadeline">
@@ -164,7 +164,7 @@ export default {
 }
 
 .course-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #f1f1f1;
 }
 

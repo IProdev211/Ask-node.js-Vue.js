@@ -24,7 +24,7 @@ export default {
     return {
       courses: [],
       page: 1,
-      pages: 1,
+      pages: 1
     };
   },
   methods: {

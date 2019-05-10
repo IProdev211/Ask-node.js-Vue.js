@@ -2,18 +2,18 @@
   <div class="container">
     <div class="d-flex justify-content-around d-flex align-items-center text-center headerDigits">
       <div>
-        <p class="headerStyling">{{ episodes }}</p>
+        <h2 class="headerStyling">{{ episodes }}</h2>
         <p>درس</p>
       </div>
 
       <div>
-        <p class="headerStyling">{{ hours }}</p>
+        <h2 class="headerStyling">{{ hours }}</h2>
         <p>ساعت</p>
       </div>
 
       <div>
-        <p class="headerStyling">{{ total }}</p>
-        <p>دوره ها</p>
+        <h2 class="headerStyling">{{ total }}</h2>
+        <p>دوره</p>
       </div>
     </div>
     <h3
@@ -80,6 +80,10 @@ export default {
   padding: 0 28%;
 }
 
+.headerDigitsText {
+  font-size: 1.3rem;
+}
+
 @media only screen and (max-width: 650px) {
   .headerDigits {
     padding: 0 7%;
@@ -89,9 +93,10 @@ export default {
   }
 }
 .headerStyling {
-  font-size: 3.1rem;
+  font-size: 3rem;
   font-weight: bold;
   color: rgb(56, 218, 164);
-  margin-bottom: 0 !important;
+  padding: 0px;
+  margin: 0px;
 }
 </style>
