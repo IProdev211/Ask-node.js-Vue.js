@@ -108,7 +108,7 @@ class courseController extends controller {
       const user = await User.findById(req.user.id);
       res.json({
         data: {
-          course: this.filterCourseData(course, user),
+          course: this.filterCourseData(course, user, true),
           enrolled: user.admin || user.checkLearning(course.id),
           enrolledCount: course.usersCount
         },
@@ -119,8 +119,8 @@ class courseController extends controller {
     }
   }
 
-  filterCourseData(course, user) {
-    return {
+  filterCourseData(course, user, videoURL = false) {
+    const data = {
       id: course.id,
       title: course.title,
       slug: course.slug,
@@ -145,6 +145,10 @@ class courseController extends controller {
       oldPrice: course.oldPrice,
       createdAt: course.createdAt
     };
+    if (videoURL) {
+      data.download = course.download(!! user, user)
+    }
+    return data;
   }
   filterEpisodeData(episode, user) {
     return {
@@ -209,6 +213,20 @@ class courseController extends controller {
     } catch (err) {
       this.failed(err.message, res);
     }
+  }
+  async downloadCourse(req, res) {
+    const mac = req.query.mac;
+    const t = req.query.t;
+    if (!mac || !t || new Date() >= t) {
+      return this.failed('چنین دوره ای یافت نشد', res, 404);
+    }
+    const course = await Course.findById(req.params.id);
+    if (! course || ! course.validateDownload(mac, t)) {
+      return this.failed('چنین دوره ای یافت نشد', res, 404);
+    }
+    const reqo = request(course.videoUrl);
+    req.pipe(reqo);
+    reqo.pipe(res);
   }
   async downloadEpisode(req, res) {
     const mac = req.query.mac;

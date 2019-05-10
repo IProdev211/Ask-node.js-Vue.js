@@ -35,6 +35,7 @@ router.get('/courses/purchased', courseController.PurchasedCourses);
 router.get('/courses/:slug', courseController.singleCourse);
 router.get('/courses/episode/:id', courseController.singleEpisode);
 router.get('/courses/episode/download/:id', courseController.downloadEpisode);
+router.get('/courses/download/:id', courseController.downloadCourse);
 
 router.post('/courses/:course/buy', courseController.buy);
 router.post('/courses/payments/verification', courseController.verification);

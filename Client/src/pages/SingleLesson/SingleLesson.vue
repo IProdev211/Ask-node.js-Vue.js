@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="row" v-if="episode.id" :key="episode.id">
+		<div class="row" v-if="id" :key="id">
 			<!-- Video Section -->
 			<div class="col-md-12 card-background card-body text-center my-3">
 				<div class="row">
@@ -9,18 +9,18 @@
 						<div class="hover m-widget7 m-widget7--skin-dark infoBox">
 							<!-- COURSE HEADER / LEARNING OBJECTIVES -->
 							<div class="head-section px-3">
-								<p class="course-title font-weight-bold pt-3">{{ episode.title }}</p>
-								<p class="course-subtitle text-muted pb-4">{{ course.title }}</p>
+								<p class="course-title font-weight-bold pt-3">{{ title }}</p>
+								<p class="course-subtitle text-muted pb-4" v-if="episode.id">{{ course.title }}</p>
 
-								<div class="lead" v-html="episode.body"></div>
+								<div class="lead" v-html="body"></div>
 							</div>
-							<div class="head-section purchase-status px-3" v-if="notEnrolled && episode.type.toLowerCase() != 'free'">
+							<div class="head-section purchase-status px-3" v-if="notEnrolled && type != 'free'">
 								<hr>
-								<p v-if="episode.type.toLowerCase() == 'paid'" class="text-danger">
+								<p v-if="type == 'paid'" class="text-danger">
 									برای دسترسی به این درس لطفا لینک
 									خرید را دنبال کنید.
 								</p>
-								<p v-else-if="episode.type.toLowerCase() == 'vip'" class="text-danger">
+								<p v-else-if="type == 'vip'" class="text-danger">
 									برای دسترسی به این درس اکانت VIP تهیه کنید.
 								</p>
 							</div>
@@ -49,7 +49,7 @@
 								</div>
 							</div>
 							<!-- COURSE PRICE  -->
-							<div v-if="notEnrolled && episode.type.toLowerCase() == 'paid'" class="d-flex justify-content-between px-3 pt-1">
+							<div v-if="notEnrolled && type == 'paid'" class="d-flex justify-content-between px-3 pt-1">
 								<div>
 									<h5>
 										<i class="tim-icons icon-money-coins pl-2"></i>قیمت:
@@ -83,15 +83,15 @@
 									<h5 class="bold">{{ course.user.name }}</h5>
 								</div>
 							</div>
-							<base-button v-if="notEnrolled && episode.type.toLowerCase() == 'paid'" native-type="submit" class="btn-fill btn-success btn btn-sm">خرید</base-button>
+							<base-button v-if="notEnrolled && type == 'paid'" native-type="submit" class="btn-fill btn-success btn btn-sm">خرید</base-button>
 						</div>
 					</div>
 					<!-- video element -->
 					<div class="col-lg-9 col-md-12 col-sm-12 mb-3">
-						<vue-plyr class="videoWidth videoPlayer" :key="episode.id">
+						<vue-plyr class="videoWidth videoPlayer" :key="id">
 							<video poster="poster.png" src="video.mp4">
 								<source
-									:src="`/api/v1/courses/episode${episode.download}`"
+									:src="`/api/v1${download}`"
 									type="video/mp4"
 									size="720"
 								>
@@ -139,6 +139,7 @@ export default {
 				episodes: [],
 				price: "",
 				createdAt: "",
+				download: "",
 			},
 			episode: {
 				id: "",
@@ -153,19 +154,39 @@ export default {
 				viewCount: 0,
 				commentCount: 0,
 			},
+			id: '',
+			title: '',
+			type: '',
+			body: '',
+			download: '',
 		};
 	},
 	methods: {
 		dataLoad() {
-			if (! this.$route.params.hasOwnProperty("id")) {
-				return;
+			if (this.$route.name === 'Single Lesson') {
+				backend.get(`courses/episode/${this.$route.params.id}`).then((response) => {
+					this.episode = response.data.data.episode;
+					this.course = response.data.data.course;
+					this.notEnrolled = ! response.data.data.enrolled;
+					this.enrolledCount = response.data.data.enrolledCount;
+					this.id = this.episode.id;
+					this.title = this.episode.title;
+					this.type = this.episode.type.toLowerCase();
+					this.body = this.episode.body;
+					this.download = this.episode.download;
+				});
+			} else {
+				backend.get(`courses/${this.$route.params.slug}`).then(response => {
+					this.course = response.data.data.course;
+					this.notEnrolled = !response.data.data.enrolled;
+					this.enrolledCount = response.data.data.enrolledCount;
+					this.id = this.course.id;
+					this.title = this.course.title;
+					this.type = this.course.type;
+					this.body = this.course.body;
+					this.download = this.course.download;
+				});
 			}
-			backend.get(`courses/episode/${this.$route.params.id}/?api_token=${this.$root.$data.token}`).then((response) => {
-				this.episode = response.data.data.episode;
-				this.course = response.data.data.course;
-				this.notEnrolled = ! response.data.data.enrolled;
-				this.enrolledCount = response.data.data.enrolledCount;
-			});
 		},
 		getEpisodeCreateDate() {
 			return moment(this.episode.createdAt).format('MM/DD/YYYY');
@@ -186,7 +207,7 @@ export default {
 		this.dataLoad();
 	},
 	watch: {
-		'$route.params.id': function(newValue) {
+		'$route.params.id': function() {
 			this.dataLoad();
 		}
 	}

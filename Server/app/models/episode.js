@@ -43,11 +43,12 @@ episodeSchema.methods.download = function(check, user) {
   if (user.admin) {
     status = true;
   } else {
-    if (this.type == 'free') {
+    const type = this.type.toLowerCase();
+    if (type == 'free') {
       status = true;
-    } else if (this.type == 'vip') {
+    } else if (type == 'vip') {
       status = user.isVip();
-    } else if (this.type == 'paid') {
+    } else if (type == 'paid') {
       status = user.checkLearning(this.course);
     }
   }
@@ -59,7 +60,7 @@ episodeSchema.methods.download = function(check, user) {
   let salt = bcrypt.genSaltSync(15);
   let hash = bcrypt.hashSync(text, salt);
 
-  return status ? `/download/${this.id}?mac=${hash}&t=${timestamps}` : '#';
+  return status ? `/courses/episode/download/${this.id}?mac=${hash}&t=${timestamps}` : '#';
 };
 
 episodeSchema.methods.validateDownload = function(mac, t) {

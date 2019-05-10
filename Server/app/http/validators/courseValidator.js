@@ -37,6 +37,11 @@ class courseValidator extends validator {
         .isEmpty()
         .withMessage('فیلد نوع دوره نمیتواند خالی بماند'),
 
+      check('videoUrl')
+        .not()
+        .isEmpty()
+        .withMessage('آدرس فیلم معرفی دوره نمیتواند خالی بماند'),
+
       check('body')
         .isLength({ min: 20 })
         .withMessage('متن دوره نمیتواند کمتر از 20 کاراکتر باشد'),
@@ -89,6 +94,11 @@ class courseValidator extends validator {
         .not()
         .isEmpty()
         .withMessage('قیمت دوره نمیتواند خالی بماند'),
+
+      check('videoUrl')
+        .not()
+        .isEmpty()
+        .withMessage('آدرس فیلم معرفی دوره نمیتواند خالی بماند'),
 
       check('tags')
         .not()

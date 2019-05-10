@@ -25,9 +25,6 @@ const SingleLesson = () =>
     /* webpackChunkName: "extra" */ 'src/pages/SingleLesson/SingleLesson.vue'
   );
 
-const SingleCourse = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/Courses/SingleCourse.vue');
-
 const VerificationPayments = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/Courses/VerificationPayments.vue');
 
@@ -246,12 +243,12 @@ const routes = [
         path: 'courses/:slug',
         name: 'Single Course',
         components: {
-          default: SingleCourse
+          default: SingleLesson
         }
       },
       {
         path: 'courses/payments/verification',
-        name: 'Single Course',
+        name: 'Course Pay Verification',
         components: {
           default: VerificationPayments
         }

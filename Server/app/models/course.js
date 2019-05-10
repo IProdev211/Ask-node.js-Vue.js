@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const mongoosePaginate = require('mongoose-paginate');
+const bcrypt = require('bcrypt');
 
 const courseSchema = Schema(
   {
@@ -11,8 +12,8 @@ const courseSchema = Schema(
     type: { type: String, required: true },
     body: { type: String, required: true },
     price: { type: String, required: true },
-    images: { type: Object, required: true },
     thumb: { type: String, required: true },
+    videoUrl: { type: String, required: true },
     tags: { type: String, required: true },
     time: { type: String, default: '00:00:00' },
     viewCount: { type: Number, default: 0 },
@@ -48,7 +49,19 @@ courseSchema.methods.inc = async function(field, num = 1) {
   this[field] += num;
   await this.save();
 };
+courseSchema.methods.download = function(check, user) {
+  let timestamps = new Date().getTime() + 3600 * 1000 * 12;
 
+  let text = `aQTR@!#Fa#%!@%SDQGGASDF${this.id}${timestamps}`;
+
+  let salt = bcrypt.genSaltSync(15);
+  let hash = bcrypt.hashSync(text, salt);
+
+  return `/courses/download/${this.id}?mac=${hash}&t=${timestamps}`;
+};
+courseSchema.methods.validateDownload = function(mac, t) {
+  return bcrypt.compareSync(`aQTR@!#Fa#%!@%SDQGGASDF${this.id}${t}`, mac);
+};
 courseSchema.virtual('episodes', {
   ref: 'Episode',
   localField: '_id',

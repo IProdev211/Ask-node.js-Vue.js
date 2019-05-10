@@ -1,7 +1,7 @@
 <template>
 	<section class="UnitSection"  v-if="episodes.length" :style="scrollable ? {'overflow-y': 'auto'} : ''">
 		<!-- UNIT 1 -->
-		<div class="UnitBox d-flex justify-content-between" v-for="episode of episodes" :key="episode">
+		<div class="UnitBox d-flex justify-content-between" v-for="episode of episodes" :key="episode.id">
 			<div class="right d-flex justify-content-end">
 				<div :class="getUnitBadge(episode.type)">
 					<i :class="'fas ' + getEpisodeIcon(episode.type)"></i>

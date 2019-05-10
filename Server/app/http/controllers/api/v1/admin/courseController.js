@@ -58,6 +58,7 @@ class courseController extends controller {
 			price: course.price,
 			createdAt: course.createdAt,
 			time: course.time,
+			videoUrl: course.videoUrl,
 			comments: course.commentsCount ? course.commentsCount : 0,
 			users: course.usersCount ? course.usersCount : 0,
 			oldPrice: course.oldPrice ? course.oldPrice : 0,
@@ -78,6 +79,7 @@ class courseController extends controller {
 			lang,
 			xp,
 			oldPrice,
+			videoUrl,
 		} = req.body;
 
 		let newCourse = new Course({
@@ -92,6 +94,7 @@ class courseController extends controller {
 			lang,
 			xp,
 			oldPrice,
+			videoUrl,
 		});
 
 		await newCourse.save();

@@ -56,6 +56,7 @@
 							<div class="col-md-5">
 								<base-input
 									label="Course Introduction Video"
+									v-model="data.videoUrl"
 									placeholder="Video Link...">
 								</base-input>
 							</div>
@@ -125,6 +126,7 @@ export default {
 		'tags',
 		'oldPrice',
 		'xp',
+		'videoUrl',
 	],
 	components: {
 		[Option.name]: Option,
@@ -163,6 +165,7 @@ export default {
 				oldPrice: 0,
 				xp: 0,
 				imagepreview: "",
+				videoUrl: "",
 			}
 		};
 	},
@@ -206,6 +209,10 @@ export default {
 				this.fieldErrors.body = 'توضیحات دوره مورد نیاز است';
 				haveError = true;
 			}
+			if (!this.data.videoUrl) {
+				this.fieldErrors.videoUrl = 'ویدئو معرفی دوره مورد نیاز است';
+				haveError = true;
+			}
 			if (! this.images instanceof File) {
 				this.$notify({
 					type: 'warning',
@@ -230,6 +237,7 @@ export default {
 			data.append("oldPrice", this.data.oldPrice);
 			data.append("images", this.images);
 			data.append("body", this.data.body);
+			data.append("videoUrl", this.data.videoUrl);
 			data.append("tags", this.data.tags.join(" "));
 			const requestUrl = this.id !== undefined ? `/admin/courses/${this.id}/edit` : "/admin/courses/create";
 			backend.post(requestUrl, data).then((response) => {
@@ -257,6 +265,7 @@ export default {
 			this.data.type = "";
 			this.data.body = "";
 			this.data.price = "";
+			this.data.videoUrl = "";
 			this.data.tags = [];
 			this.data.imagepreview = "";
 			this.$emit('reset');
@@ -297,6 +306,9 @@ export default {
 		},
 		thumb: function(value) {
 			this.data.imagepreview = value;
+		},
+		videoUrl: function(value) {
+			this.data.videoUrl = value;
 		},
 	}
 };
