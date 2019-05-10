@@ -69,7 +69,6 @@ class courseController extends controller {
 		if (! await this.validationData(req, res)) return;
 
 		// create course
-		let images = this.imageResize(req.file);
 		let {
 			title,
 			body,
@@ -88,8 +87,7 @@ class courseController extends controller {
 			body,
 			type,
 			price,
-			images,
-			thumb: images[480],
+			thumb: this.getUrlImage(`${req.file.destination}/${req.file.filename}`),
 			tags,
 			lang,
 			xp,
@@ -110,8 +108,7 @@ class courseController extends controller {
 
 		// check image 
 		if (req.file) {
-			objForUpdate.images = this.imageResize(req.file);
-			objForUpdate.thumb = objForUpdate.images[480];
+			objForUpdate.thumb = this.getUrlImage(`${req.file.destination}/${req.file.filename}`);
 		}
 
 		delete req.body.images;
@@ -165,26 +162,6 @@ class courseController extends controller {
 			status: "success",
 		});
 
-	}
-	imageResize(image) {
-        const imageInfo = path.parse(image.path);
-
-        let addresImages = {};
-        addresImages['original'] = this.getUrlImage(`${image.destination}/${image.filename}`);
-
-        const resize = size => {
-            let imageName = `${imageInfo.name}-${size}${imageInfo.ext}`;
-
-            addresImages[size] = this.getUrlImage(`${image.destination}/${imageName}`);
-
-            sharp(image.path)
-                .resize(size, null)
-                .toFile(`${image.destination}/${imageName}`);
-        }
-
-        [1080, 720, 480].map(resize);
-
-        return addresImages;
 	}
 	getUrlImage(dir) {
         return dir.substring(8);
