@@ -245,7 +245,7 @@ export default {
 				haveError = true;
 			}
 			if (this.data.vipTime) {
-				if (! moment(this.data.vipTime).isValid()) {
+				if (! moment(this.data.vipTime, 'YYYY/MM/DD').isValid()) {
 					this.fieldErrors.vipTime = 'مقدار وارد شده نامعتبر است.';
 					haveError = true;
 				}
@@ -254,7 +254,7 @@ export default {
 				haveError = true;
 			}
 			if (this.data.vipFrom) {
-				if (! moment(this.data.vipFrom).isValid()) {
+				if (! moment(this.data.vipFrom, 'YYYY/MM/DD').isValid()) {
 					this.fieldErrors.vipFrom = 'مقدار وارد شده نامعتبر است.';
 					haveError = true;
 				}
@@ -351,14 +351,14 @@ export default {
 				this.data.vipTime = undefined;
 				return;
 			}
-			this.data.vipTime = moment(newValue).format('YYYY/DD/MM');
+			this.data.vipTime = moment(newValue).format('YYYY/MM/DD');
 		},
 		vipFrom: function(newValue, oldValue) {
 			if (newValue === undefined) {
 				this.data.vipTime = undefined;
 				return;
 			}
-			this.data.vipFrom = moment(newValue).format('YYYY/DD/MM');
+			this.data.vipFrom = moment(newValue).format('YYYY/MM/DD');
 		},
 	}
 };

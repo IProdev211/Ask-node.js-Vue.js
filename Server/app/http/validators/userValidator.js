@@ -116,7 +116,7 @@ class userValidator extends validator {
         .isEmpty()
         .withMessage('فیلد زمان پایان VIP نمیتواند خالی بماند')
         .custom(async (value, { req }) => {
-          value = moment(value, 'YYYY/DD/MM');
+          value = moment(value, 'YYYY/MM/DD');
           if (!value.isValid()) {
             throw new Error('مقدار وارد شده برای پایان زمان VIP نامعتبر است.');
           }
@@ -127,8 +127,8 @@ class userValidator extends validator {
         .isEmpty()
         .withMessage('فیلد زمان شروع VIP نمیتواند خالی بماند')
         .custom(async (value, { req }) => {
-          value = moment(value, 'YYYY/DD/MM');
-          if (!value.isValid()) {
+          value = moment(value, 'YYYY/MM/DD');
+          if (! value.isValid()) {
             throw new Error('مقدار وارد شده برای شروع زمان VIP نامعتبر است.');
           }
           req.body.vipFrom = value.toDate().toISOString();
