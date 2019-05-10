@@ -29,10 +29,11 @@
         <div class="text-center" v-if="! purchased">
           <div class="row px-4">
             <div class="col-12 text-center pricehighlight" v-if="isVip">اعضای ویژه</div>
-            <div class="col-md-6" v-if="! isVip">
+            <div class="col-12 text-center pricehighlight" v-else-if="isFree">رایگان</div>
+            <div class="col-md-6" v-if="! isVip && ! isFree">
               <p class="oldPrice" v-if="oldPrice > 0">{{ formatedOldPrice }}</p>
             </div>
-            <div class="col-md-6 text-center" v-if="! isVip">
+            <div class="col-md-6 text-center" v-if="! isVip && ! isFree">
               <p class="pricehighlight">{{ formatedPrice }}</p>
             </div>
           </div>
@@ -68,9 +69,6 @@ export default {
       return moment(this.updatedAt).format('MM/DD/YYYY');
     },
     formatedPrice() {
-      if (this.type.toLowerCase() == 'free') {
-        return 'رایگان';
-      }
       return (
         new Intl.NumberFormat().format(
           parseInt(this.price.replace(',', ''), 10)
@@ -96,6 +94,9 @@ export default {
     },
     isVip() {
       return this.type.toLowerCase() === 'vip';
+    },
+    isFree() {
+      return this.type.toLowerCase() === 'free';
     }
   }
 };
