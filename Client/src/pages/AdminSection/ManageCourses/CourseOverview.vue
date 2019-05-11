@@ -123,7 +123,7 @@ export default {
   data() {
     return {
       pagination: {
-        perPage: 3,
+        perPage: 5,
         currentPage: 1,
         perPageOptions: [3, 5, 10, 15],
         total: 0,
