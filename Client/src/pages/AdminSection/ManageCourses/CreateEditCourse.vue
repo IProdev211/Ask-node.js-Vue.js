@@ -11,6 +11,9 @@
 				<form @submit="checkForm">
 					<div>
 						<div class="row">
+								<div class="col-md-3 align-self-center">
+								<img class="img-thumbnail img-fluid rounded mx-auto d-block image-preview" :src="data.imagepreview || 'img/placeholder.jpg'" alt="Course Image">
+							</div>
 							<div class="col-md-3">
 								<base-input
 									label="Course Name"
@@ -35,7 +38,18 @@
 							<div class="col-md-2">
 								<base-input label="xP" placeholder="xP" v-model="data.xp"></base-input>
 							</div>
-							<div class="col-md-3 pt-4">
+						
+							<div class="col-md-12 py-5">
+								<base-input
+									class="coursetext"
+									label="Course Text"
+									placeholder="Course Text"
+									:required="true" 
+									:error="fieldErrors.body">
+									<ckeditor :editor="ckeditor.editor" v-model="data.body" :config="ckeditor.editorConfig"></ckeditor>
+								</base-input>
+							</div>
+								<div class="col-md-3 pt-4">
 								<el-select
 									class="select-primary"
 									size="large"
@@ -60,17 +74,7 @@
 									placeholder="Video Link...">
 								</base-input>
 							</div>
-							<div class="col-md-12 py-5">
-								<base-input
-									class="coursetext"
-									label="Course Text"
-									placeholder="Course Text"
-									:required="true" 
-									:error="fieldErrors.body">
-									<ckeditor :editor="ckeditor.editor" v-model="data.body" :config="ckeditor.editorConfig"></ckeditor>
-								</base-input>
-							</div>
-							<div class="col-md-4 pt-3">
+							<div class="col-md-4 ">
 								<h4 class="lead">Tags</h4>
 								<tags-input v-model="data.tags"></tags-input>
 							</div>
@@ -81,9 +85,7 @@
 									change-text="Edit Course Image"
 									/>
 							</div>
-							<div class="col-md-4 align-self-center">
-								<img class="img-thumbnail img-fluid rounded mx-auto d-block image-preview" :src="data.imagepreview || 'img/placeholder.jpg'" alt="Course Image">
-							</div>
+							
 							<div class="col-md-12 pt-5" v-if="formErrors.length">
 								<p class="text-right text-rtl">
 									<b>لطفا اشتباهات زیر را تصحیح کنید:</b>
@@ -320,7 +322,7 @@ export default {
 	height: 200px;
 }
 .ck-editor__editable {
-    min-height: 300px;
+    min-height: 150px;
 }
 .ck.ck-editor__main > .ck-content  {
 	background: transparent;

@@ -13,6 +13,10 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="row">
+									<div class="col-md-4 align-self-center">
+										<img class="img-thumbnail img-fluid rounded mx-auto d-block image-preview" :src="data.imagepreview || 'img/placeholder.jpg'" alt="Course Image">
+										<image-upload @change="onImageChange" :select-text="data.id ? 'Edit Blog Image' : 'Select Blog Image'" class="pt-2 d-block"/>
+									</div>
 									<div class="col-md-5">
 										<base-input
 										label="Blog Name"
@@ -36,10 +40,7 @@
 											</autocomplete>
 										</div>
 									</div>
-									<div class="col-md-4 align-self-center">
-										<img class="img-thumbnail img-fluid rounded mx-auto d-block image-preview" :src="data.imagepreview || 'img/placeholder.jpg'" alt="Course Image">
-										<image-upload @change="onImageChange" :select-text="data.id ? 'Edit Blog Image' : 'Select Blog Image'" class="pt-2 d-block"/>
-									</div>
+									
 									<div class="col-md-12 py-4">
 										<base-input
 											class="blogtext"
@@ -327,7 +328,7 @@ export default {
 	}
 }
 .ck-editor__editable {
-    min-height: 500px;
+    min-height: 400px;
 }
 .ck.ck-editor__main > .ck-content  {
 	background: transparent;
