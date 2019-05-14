@@ -100,7 +100,7 @@ export default {
   background-position: center;
   position: relative;
   width: 100%;
-  min-height: 75vh;
+  min-height: 60vh;
   // z-index: 999;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
 
@@ -133,6 +133,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
+  padding-top: 440px;
   overflow-y: hidden;
   z-index: 0;
 }
@@ -149,6 +150,9 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .hero-content-homepage {
+    min-height: 80vh;
+  }
   .hero-title {
     font-size: 2.5rem;
     line-height: inherit;
@@ -158,6 +162,9 @@ export default {
   .hero-subtitle {
     font-size: 1.1rem;
     line-height: inherit;
+  }
+  #particles-js {
+    padding-top: 600px;
   }
 }
 

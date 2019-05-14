@@ -1,5 +1,5 @@
 <template>
-  <div class="container py-5">
+  <div class="container py-5 mb-5">
     <h1 class="text-center display-3 text-danger pt-3">آموزش های غیر حضوری</h1>
     <p
       v-if="courses.length"
