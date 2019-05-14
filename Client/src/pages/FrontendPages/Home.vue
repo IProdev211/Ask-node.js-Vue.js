@@ -1,22 +1,14 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <vue-particles :lineLinked="false" :moveSpeed="3" :particleSize="2"></vue-particles>
-    <section class="hero-content-homepage">
+    <vue-particles :lineLinked="false" :moveSpeed="2" :particleSize="2"></vue-particles>
+    <section class="hero-content-homepage d-flex align-items-center">
       <div class="container">
-        <h1 class="hero-title text-center pt-5">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
-
-        <div class="row">
-          <!-- Top Courses -->
-          <div class="col-lg-4 col-md-6 mt-4" v-for="course in topCourses" v-bind:key="course.id">
-            <Course v-bind="course"></Course>
-          </div>
-        </div>
-
-        <h3 class="text-center section-header-homepage">پیشنهادهای ویژه اسک آریا برای شما</h3>
-        <hr class="fadeline2">
-
-        <div class="text-center py-3">
+        <h1 class="hero-title text-center">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
+        <p
+          class="hero-subtitle text-center px-3"
+        >باور ما اینست که کاربران ایرانی لایق بهترین ها هستند و باید بهترین و بروزترین فیلم های آموزشی و مقالات در اختیار آنها قرار بگیرد تا بتوانند به سرعت پیشرفت کنند. با ما همراه باشید تا بهترین ها رو لایق بهترین کاربران کنیم.</p>
+        <div class="text-center py-4">
           <router-link to="ourcourses">
             <base-button
               native-type="submit"
@@ -28,12 +20,35 @@
       </div>
     </section>
 
+    <!-- Top Courses Section -->
+    <section class="top-courses-section">
+      <div class="container pt-5">
+        <h3 class="text-center section-header">پیشنهادهای ویژه اسک آریا برای شما</h3>
+        <hr class="fadeline2">
+        <div class="row">
+          <!-- Top Courses -->
+          <div class="col-lg-4 col-md-6 mt-4" v-for="course in topCourses" v-bind:key="course.id">
+            <Course v-bind="course"></Course>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center py-3">
+        <router-link to="ourcourses">
+          <base-button
+            native-type="submit"
+            type="success"
+            class="btn btn-primary btn-simple"
+          >دوره های آموزشی</base-button>
+        </router-link>
+      </div>
+    </section>
+
     <!--Founder Section-->
     <div class="founder-section-homepage">
       <founder-section></founder-section>
     </div>
 
-    <!-- Meetups Section PlaceHolder (coming soon)-->
     <!-- Blog Section-->
     <div>
       <blog-section v-bind="{posts: topPosts}"></blog-section>
@@ -85,18 +100,24 @@ export default {
   background-position: center;
   position: relative;
   width: 100%;
-  // padding-top: 60px;
-  // padding-bottom: 55px;
-  min-height: 100vh;
-  z-index: 999;
-  // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
+  min-height: 75vh;
+  // z-index: 999;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
 
   .special-colour {
     color: rgb(187, 255, 0);
   }
 }
-.founder-section-homepage {
+.top-courses-section {
   background: linear-gradient(180deg, #1e1e2f, rgb(86, 7, 133));
+  .section-header {
+    font-size: 1.2rem;
+    color: white !important;
+  }
+}
+
+.founder-section-homepage {
+  background: linear-gradient(180deg, rgb(86, 7, 133), #1e1e2f);
   // url(/img/frontend/founder-hero-bg-opt.png) no-repeat center;
   width: 100%;
   padding-top: 70px;
@@ -116,10 +137,30 @@ export default {
   z-index: 0;
 }
 .hero-title {
-  font-size: 1.9rem;
+  font-size: 3.2rem;
+  line-height: inherit;
   font-weight: 600;
-  color: #93edc7;
+  color: #dbdbdb;
 }
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  line-height: inherit;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: inherit;
+    font-weight: 600;
+    color: #dbdbdb;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+    line-height: inherit;
+  }
+}
+
 .section-header-homepage {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.658);
@@ -127,6 +168,8 @@ export default {
 
 .fadeline2 {
   height: 1px;
+  margin-left: 20%;
+  margin-right: 20%;
   background-image: linear-gradient(
     90deg,
     rgba(255, 0, 0, 0),

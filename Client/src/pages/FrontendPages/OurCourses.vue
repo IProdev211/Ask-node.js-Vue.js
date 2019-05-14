@@ -1,6 +1,6 @@
 <template>
-  <div class="container py-4">
-    <h1 class="text-center display-3 text-danger pt-5">آموزش های غیر حضوری</h1>
+  <div class="container py-5">
+    <h1 class="text-center display-3 text-danger pt-3">آموزش های غیر حضوری</h1>
     <p
       v-if="courses.length"
       class="card-category py-5"
@@ -13,7 +13,7 @@
     <div
       v-if="courses.length"
       slot="footer"
-      class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
+      class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap text-rtl"
     >
       <base-pagination
         class="ml-auto mr-auto"
