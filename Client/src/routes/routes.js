@@ -25,8 +25,15 @@ const SingleLesson = () =>
     /* webpackChunkName: "extra" */ 'src/pages/SingleLesson/SingleLesson.vue'
   );
 
+const SingleLessonOffline = () =>
+  import(
+    /* webpackChunkName: "extra" */ 'src/pages/SingleLesson/SingleLessonOffline.vue'
+  );
+
 const VerificationPayments = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/Courses/VerificationPayments.vue');
+  import(
+    /* webpackChunkName: "extra" */ 'src/pages/Courses/VerificationPayments.vue'
+  );
 
 const Quiz = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/Quiz.vue');
@@ -247,6 +254,13 @@ const routes = [
         }
       },
       {
+        path: 'singlelessonoffline',
+        name: 'Single Lesson Offline',
+        components: {
+          default: SingleLessonOffline
+        }
+      },
+      {
         path: 'courses/payments/verification',
         name: 'Course Pay Verification',
         components: {
@@ -312,7 +326,7 @@ const routes = [
     ]
   },
   {
-    path: "/",
+    path: '/',
     component: AuthLayout,
     children: [
       {

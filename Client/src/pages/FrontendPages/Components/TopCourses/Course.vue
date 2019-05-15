@@ -26,14 +26,14 @@
           </div>
         </div>
         <hr class="fadeline" v-if="! purchased">
-        <div class="text-center" v-if="! purchased">
-          <div class="row px-4">
+        <div class="px-4 text-center" v-if="! purchased">
+          <div class="row">
             <div class="col-12 text-center pricehighlight" v-if="isVip">اعضای ویژه</div>
             <div class="col-12 text-center pricehighlight" v-else-if="isFree">رایگان</div>
-            <div class="col-md-6" v-if="! isVip && ! isFree">
+            <div class="col-6" v-if="! isVip && ! isFree">
               <p class="oldPrice" v-if="oldPrice > 0">{{ formatedOldPrice }}</p>
             </div>
-            <div class="col-md-6 text-center" v-if="! isVip && ! isFree">
+            <div class="col-6 text-center" v-if="! isVip && ! isFree">
               <p class="pricehighlight">{{ formatedPrice }}</p>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default {
 
 .oldPrice {
   font-size: 1rem;
-  color: rgb(206, 206, 206);
+  color: rgb(190, 190, 190);
   font-weight: 600;
   text-decoration: line-through;
 }

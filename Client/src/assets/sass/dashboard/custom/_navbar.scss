@@ -34,7 +34,6 @@
     z-index: 1050;
   }
 
-
   &.navbar-transparent {
     background: transparent !important;
   }
@@ -63,7 +62,6 @@
           color: $black;
         }
       }
-
     }
 
     .navbar-text,
@@ -78,7 +76,6 @@
     .form-control::placeholder {
       color: $dark-gray !important;
     }
-
   }
 
   &.bg-dark {
@@ -107,8 +104,8 @@
 
   .navbar-brand {
     position: relative;
-    padding-top: .3125rem;
-    padding-bottom: .3125rem;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
     color: $white;
     margin-left: 17px;
     text-transform: uppercase;
@@ -119,7 +116,6 @@
   .navbar-toggler {
     outline: none;
   }
-
 }
 
 .navbar-minimize-fixed {
@@ -186,7 +182,6 @@
     }
 
     .navbar-nav {
-
       .btn {
         margin-left: -3px;
         display: flex;
@@ -248,7 +243,6 @@
 
     .dropdown.show .dropdown-menu {
       display: block;
-
     }
 
     .dropdown .dropdown-menu {
@@ -296,22 +290,22 @@
 
       &.navbar-kebab {
         height: 4px;
-        width: 4px;
-        margin-bottom: 3px;
-        border-radius: 50%;
+        width: 25px;
+        margin-bottom: 4px;
+        // border-radius: 50%;
       }
 
-      &+.navbar-toggler-bar {
+      & + .navbar-toggler-bar {
         margin-top: 7px;
       }
 
-      &+.navbar-toggler-bar.navbar-kebab {
+      & + .navbar-toggler-bar.navbar-kebab {
         margin-top: 0px;
       }
 
       &.bar2 {
         width: 17px;
-        transition: width .2s linear;
+        transition: width 0.2s linear;
       }
     }
 
@@ -395,14 +389,12 @@
 
   .navbar-nav {
     .nav-link {
-
       i.fa,
       i.tim-icons {
-        opacity: .5;
+        opacity: 0.5;
       }
     }
   }
-
 }
 
 @include media-breakpoint-up(lg) {
@@ -412,7 +404,6 @@
 
   .navbar .navbar-toggle {
     display: none;
-
   }
 
   .navbar-nav {
@@ -437,7 +428,6 @@
     padding-right: $list-inline-padding;
     padding-left: $list-inline-padding;
   }
-
 }
 
 @include media-breakpoint-down(xs) {
@@ -445,11 +435,9 @@
     margin-left: 0;
     margin-right: 0;
   }
-
 }
 
-@include media-breakpoint-between (md, lg) {
-
+@include media-breakpoint-between(md, lg) {
   .bar1,
   .bar2,
   .bar3 {
@@ -521,7 +509,7 @@
 
   .navbar .navbar-toggler-bar.bar2 {
     width: 17px;
-    transition: width .2s linear;
+    transition: width 0.2s linear;
   }
 
   .navbar .navbar-toggler-bar {
@@ -533,7 +521,7 @@
     background: $white;
   }
 
-  .navbar .navbar-toggler-bar+.navbar-toggler-bar {
+  .navbar .navbar-toggler-bar + .navbar-toggler-bar {
     margin-top: 7px;
   }
 
