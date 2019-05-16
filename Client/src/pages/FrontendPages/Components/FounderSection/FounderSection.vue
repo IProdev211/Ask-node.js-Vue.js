@@ -1,6 +1,6 @@
 <template>
   <div class="container pb-5">
-    <h3 class="pb-5 founder-header text-danger text-right">بنیانگذار ما</h3>
+    <!-- <h3 class="pb-5 founder-header text-danger text-right">بنیانگذار ما</h3> -->
     <div class="row">
       <div class="col-md-7 text-right">
         <h2 class="subheading2 text-info">کاپیتان این پرواز چه کسی است؟</h2>

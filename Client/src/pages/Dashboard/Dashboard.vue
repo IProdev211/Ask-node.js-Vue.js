@@ -65,7 +65,7 @@ export default {
           type: 'warning',
           icon: 'tim-icons icon-book-bookmark',
           footer:
-            '<a href="/courses"><i class="tim-icons icon-bag-16 pl-2"></i> در حال یادگیری</a>'
+            '<a href="/mycourses"><i class="tim-icons icon-bag-16 pl-2"></i> در حال یادگیری</a>'
         },
         {
           title: myEpisodes + ' / ' + totalEpisodes,

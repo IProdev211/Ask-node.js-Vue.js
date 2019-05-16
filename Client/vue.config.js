@@ -17,8 +17,7 @@ module.exports = {
     }
   },
 
-  pluginOptions: {
-  },
+  pluginOptions: {},
 
   css: {
     sourceMap: true
@@ -61,8 +60,7 @@ module.exports = {
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: '#344675'
   },
-  pluginOptions: {
-  },
+  pluginOptions: {},
   css: {
     // Enable CSS source maps.
     sourceMap: process.env.NODE_ENV !== 'production'
