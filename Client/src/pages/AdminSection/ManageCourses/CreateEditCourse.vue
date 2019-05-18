@@ -71,7 +71,8 @@
 								<base-input
 									label="Course Introduction Video"
 									v-model="data.videoUrl"
-									placeholder="Video Link...">
+									placeholder="Video Link..."
+									:error="fieldErrors.videoUrl">
 								</base-input>
 							</div>
 							<div class="col-md-4 ">
@@ -216,7 +217,7 @@ export default {
 				haveError = true;
 			}
 			if (! this.images instanceof File) {
-				this.$notify({
+				this.$notify.error({
 					type: 'warning',
 					message: 'تصویر دوره مشخص نشده است',
 				});
@@ -270,6 +271,8 @@ export default {
 			this.data.videoUrl = "";
 			this.data.tags = [];
 			this.data.imagepreview = "";
+			this.data.fieldErrors = {};
+			this.data.formErrors = {};
 			this.$emit('reset');
 		},
 		changeTypeListener(type) {
@@ -298,7 +301,10 @@ export default {
 			this.data.price = newValue;
 		},
 		oldPrice: function(newValue, oldValue) {
-			this.data.oldPrice = newValue;
+			if (newValue === "undefined") {
+				newValue = undefined;
+			}
+			this.data.oldPrice = newValue || 0;
 		},
 		xp: function(newValue, oldValue) {
 			this.data.xp = newValue;
