@@ -47,15 +47,13 @@
               <el-table-column :min-width="135" align="right" label="Actions">
                 <div slot-scope="props">
                   <base-button
-                    @click.native="handleEdit(props.$index, props.row)"
-                    class="edit btn-link"
-                    type="warning"
-                    size="sm"
-                    icon
-                  >
-                    <router-link to="/edituser">
+                      @click.native="handleEdit(props.$index, props.row)"
+                      class="edit btn-link"
+                      type="warning"
+                      size="sm"
+                      icon
+                    >
                       <i class="tim-icons icon-pencil"></i>
-                    </router-link>
                   </base-button>
                   <base-button
                     @click.native="handleDelete(props.$index, props.row)"
