@@ -131,7 +131,7 @@ class courseController extends controller {
 			status: "success"
 		});
 	}
-	async destroy(req, res, next) {
+	async destroy(req, res) {
 		this.isMongoId(res, req.params.id);
 
 		let course = await Course.findById(req.params.id).populate('episodes').exec();
@@ -143,8 +143,10 @@ class courseController extends controller {
 		// delete episodes
 		course.episodes.forEach(episode => episode.remove());
 
-		// delete Images
-		Object.values(course.images).forEach(image => fs.unlinkSync(`./public${image}`));
+		if (course.images !== undefined) {
+			// delete Images
+			Object.values(course.images).forEach(image => fs.unlinkSync(`./public${image}`));
+		}
 
 		// delete courses
 		course.remove();
