@@ -8,12 +8,6 @@
             <h4 class="card-title py-1 px-4 text-white">فرم عضویت</h4>
           </template>
           <form @submit="checkForm" id="register-form">
-            <p v-if="formErrors.length">
-              <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
-              <ul>
-                <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
-              </ul>
-            </p>
             <div class="row pt-5">
               <div class="col-md-6 text-ltr">
                 <label class="pull-right font-weight-bold pt-2">نام و نام خانوادگی</label>
@@ -59,6 +53,12 @@
                 </router-link>
               </div>          
             </div>
+            <p v-if="formErrors.length">
+              <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
+              <ul>
+                <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
+              </ul>
+            </p>
             <base-button nativeType="submit" type="primary" :loading="loading" round block size="lg">عضویت</base-button>
           </form>
         </card>
