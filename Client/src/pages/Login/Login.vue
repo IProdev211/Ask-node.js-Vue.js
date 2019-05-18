@@ -119,7 +119,7 @@ export default {
           errorHandler(response);
           return;
         }
-        this.$root.$data.user = response.data.user;
+        this.$root.$data.user = response.data.data.user;
         this.$notify({
           type: 'success',
           message: `شما با موفقیت وارد شدید!`,
