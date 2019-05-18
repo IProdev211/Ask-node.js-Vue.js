@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-lg-5 col-md-9 ml-auto mr-auto pt-4">
+      <div class="col-lg-5 col-md-9 ml-auto mr-auto pt-4 pb-2">
           <form @submit="checkForm">
             <card class="card-login">
               <template slot="header">
@@ -10,7 +10,7 @@
                 <!-- <p class="container pt-3 text-center">با ورود به پنل کاربری میتوانید به سادگی به ویدیو های سایت دسترسی پیدا کنید و مقالات جدید را مطالعه کنید.</p> -->
               </template>
               <div class="row mt-5">
-                <div class="col-md-7">
+                <div class="col-md-6">
                   <label class="pull-right font-weight-bold">پست الکترونیک</label>
                   <base-input 
                     v-model="email" 
@@ -19,7 +19,7 @@
                   </base-input>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-6">
                   <label class="pull-right font-weight-bold">کلمه عبور</label>
                   <base-input
                     type="password"
@@ -35,7 +35,7 @@
               </base-checkbox>
             </div>
               
-              <div class="text-center pt-4">
+              <div class="text-center">
                 <router-link to="googlesignin">
                   <h4 class="googleicon pt-2">
                     <i class="fab fa-google text-danger"></i>

@@ -19,7 +19,7 @@ Vue.use(NProgress);
 
 import 'vue-plyr/dist/vue-plyr.css';
 import 'nprogress/nprogress.css';
-import './assets/sass/nprogress.scss'
+import './assets/sass/nprogress.scss';
 
 import store from './store';
 
@@ -77,7 +77,7 @@ backend
     start({
       user: response.data.user,
       topCourses: response.data.topCourses,
-      topPosts: response.data.topPosts,
+      topPosts: response.data.topPosts
     });
   })
   .catch(() => {
