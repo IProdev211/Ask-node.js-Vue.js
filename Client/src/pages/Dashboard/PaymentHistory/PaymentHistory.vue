@@ -21,7 +21,7 @@
         <p class="card-category">Showing {{ from + 1 }} to {{ to }} of {{ total }} entries</p>
       </div>-->
       <base-pagination
-        class="pagination-no-border"
+        class="pagination-no-border text-rtl"
         v-model="pagination.currentPage"
         :per-page="pagination.perPage"
         :total="total"
@@ -71,7 +71,7 @@ export default {
     },
     pagination() {
       return {
-        perPage: 20,
+        perPage: 3,
         currentPage: this.payments.page,
         total: this.payments.total
       };
@@ -89,7 +89,9 @@ export default {
           price: new Intl.NumberFormat().format(
             parseInt(payment.price.toString().replace(',', ''), 10)
           ),
-          date: moment(payment.createdAt).locale('fa').format('DD/MM/YYYY'),
+          date: moment(payment.createdAt)
+            .locale('fa')
+            .format('DD/MM/YYYY'),
           status: payment.payment ? 'موفق' : 'ناموفق'
         });
       }

@@ -151,16 +151,16 @@ export default {
 
 @media (max-width: 768px) {
   .hero-content-homepage {
-    min-height: 80vh;
+    min-height: 65vh;
   }
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: inherit;
     font-weight: 600;
     color: #dbdbdb;
   }
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: inherit;
   }
   #particles-js {

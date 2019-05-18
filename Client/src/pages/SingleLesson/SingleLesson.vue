@@ -9,8 +9,8 @@
             <div class="hover m-widget7 m-widget7--skin-dark infoBox">
               <!-- COURSE HEADER / LEARNING OBJECTIVES -->
               <div class="head-section px-3">
-                <p class="course-title font-weight-bold py-3">{{ title }}</p>
-                <p class="course-subtitle text-muted pb-4" v-if="episode.id">{{ course.title }}</p>
+                <h1 class="course-title font-weight-bold pt-3">{{ title }}</h1>
+                <p class="course-subtitle text-muted py-2" v-if="episode.id">{{ course.title }}</p>
                 <div v-html="body"></div>
               </div>
               <div class="head-section purchase-status px-3" v-if="notEnrolled && type != 'free'">
@@ -26,6 +26,7 @@
               </div>
 
               <hr>
+
               <!-- COURSE CREATED AT -->
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
@@ -245,7 +246,8 @@ export default {
 }
 
 .course-title {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  margin: 0;
 }
 
 .course-subtitle {

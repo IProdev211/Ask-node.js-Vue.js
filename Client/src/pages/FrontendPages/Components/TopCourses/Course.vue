@@ -148,7 +148,7 @@ export default {
 .CourseCard {
   background-color: #32325d;
   border-radius: 35px;
-  margin: 0 8%;
+  margin: 0 5%;
 }
 
 .hover:hover,

@@ -10,18 +10,20 @@
                 <!-- <p class="container pt-3 text-center">با ورود به پنل کاربری میتوانید به سادگی به ویدیو های سایت دسترسی پیدا کنید و مقالات جدید را مطالعه کنید.</p> -->
               </template>
               <div class="row mt-5">
-                <div class="col-md-6">
+                <div class="col-md-7">
                   <label class="pull-right font-weight-bold">پست الکترونیک</label>
                   <base-input 
+                    class="text-ltr"
                     v-model="email" 
                     :required="true" 
                     :error="fieldErrors.email">
                   </base-input>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-5">
                   <label class="pull-right font-weight-bold">کلمه عبور</label>
                   <base-input
+                    class="text-ltr"
                     type="password"
                     v-model="password" 
                     :required="true" 

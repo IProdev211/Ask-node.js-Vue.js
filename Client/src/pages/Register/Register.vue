@@ -5,7 +5,7 @@
         <card class="card-register">
           <template slot="header">
             <img class="card-img" src="img/card-primary.png" alt="Card image" />
-            <h4 class="card-title py-1 px-4 text-white">فرم عضویت</h4>
+            <h4 class="card-title text-left py-1 px-4 text-white">فرم عضویت</h4>
           </template>
           <form @submit="checkForm" id="register-form">
             <div class="row pt-5">
@@ -38,19 +38,19 @@
               </div>
             </div>
 
-            <div class="text-right text-rtl">
+            <div class="text-right">
               <base-checkbox v-model="terms" class="pb-3" :class="{'has-danger': fieldErrors.terms !== undefined}">
                 <router-link to="/terms">شرایط را قبول دارم</router-link>
               </base-checkbox>
             </div>
             <div class="row d-flex justify-content-around">
-              <div class="text-center py-3">
+              <div class="text-center pb-3">
                 <router-link to="googlesignin">
                   <i class="fab fa-google icon pb-4"></i>
-                  <h4>
-                    شما میتوانید بدون ثبت نام با اکانت گوگل وارد سایت شوید.
-                  </h4>
                 </router-link>
+                 <p class="px-5">
+                    شما میتوانید بدون ثبت نام با اکانت گوگل وارد سایت شوید.
+                  </p>
               </div>          
             </div>
             <p v-if="formErrors.length">
@@ -184,7 +184,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
- 
 .icon {
 font-size: 1.8rem;
 color: #D557D9
