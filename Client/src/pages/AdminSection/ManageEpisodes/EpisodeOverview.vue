@@ -227,7 +227,6 @@ export default {
         });
     },
     changePageListener(page) {
-      if (page == this.pagination.currentPage) return;
       this.dataLoad(page);
     },
     changeLimitListener(limit) {
