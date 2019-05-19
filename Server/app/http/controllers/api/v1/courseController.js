@@ -146,7 +146,7 @@ class courseController extends controller {
       createdAt: course.createdAt
     };
     if (videoURL) {
-      data.download = course.download(!! user, user)
+      data.download = course.download(!!user, user);
     }
     return data;
   }
@@ -221,7 +221,7 @@ class courseController extends controller {
       return this.failed('چنین دوره ای یافت نشد', res, 404);
     }
     const course = await Course.findById(req.params.id);
-    if (! course || ! course.validateDownload(mac, t)) {
+    if (!course || !course.validateDownload(mac, t)) {
       return this.failed('چنین دوره ای یافت نشد', res, 404);
     }
     const reqo = request(course.videoUrl);

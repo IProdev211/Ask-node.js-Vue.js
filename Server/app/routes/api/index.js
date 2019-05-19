@@ -4,7 +4,7 @@ const RateLimit = require('express-rate-limit');
 const cors = require('cors');
 const apiLimiter = new RateLimit({
   windowMs: 1000 * 60 * 1,
-  max: 50,
+  max: 85,
   // message : "درخواست شما زیاد بوده لطفا 1 دقیقه دیگر دوباره تلاش کنید"
   handler: function(req, res /*next*/) {
     res.json({

@@ -47,13 +47,13 @@
               <el-table-column :min-width="135" align="right" label="Actions">
                 <div slot-scope="props">
                   <base-button
-                      @click.native="handleEdit(props.$index, props.row)"
-                      class="edit btn-link"
-                      type="warning"
-                      size="sm"
-                      icon
-                    >
-                      <i class="tim-icons icon-pencil"></i>
+                    @click.native="handleEdit(props.$index, props.row)"
+                    class="edit btn-link"
+                    type="warning"
+                    size="sm"
+                    icon
+                  >
+                    <i class="tim-icons icon-pencil"></i>
                   </base-button>
                   <base-button
                     @click.native="handleDelete(props.$index, props.row)"
@@ -180,23 +180,27 @@ export default {
     },
     handleEdit(index, row) {
       Swal({
-        title: `You want to edit ${row.name}`,
+        title: `You Are Editing: ${row.name}`,
         buttonsStyling: false,
+        className: 'text-ltr',
+        buttons: false,
+        timer: 1900,
         confirmButtonClass: 'btn btn-info btn-fill'
       });
       this.user = row;
     },
     handleDelete(index, row) {
       Swal({
-        title: 'Are you sure?',
+        title: 'Delete this User',
         text: `You won't be able to revert this!`,
+        className: 'text-ltr',
         icon: 'warning',
         buttons: {
-          cancel: 'cancel',
           catch: {
             text: 'Yes, delete it!',
             value: true
-          }
+          },
+          cancel: 'Cancel'
         }
       }).then(result => {
         if (!result) return;
