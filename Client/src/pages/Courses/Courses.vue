@@ -5,24 +5,25 @@
         <h2 class="headerStyling">{{ episodes }}</h2>
         <p>درس</p>
       </div>
-
+      <span class="bullet-point">•</span>
       <div>
         <h2 class="headerStyling">{{ hours }}</h2>
         <p>ساعت</p>
       </div>
-
+      <span class="bullet-point">•</span>
       <div>
         <h2 class="headerStyling">{{ total }}</h2>
         <p>دوره</p>
       </div>
     </div>
+
     <h3
       class="headerDigitsText text-danger text-center py-4 text-rtl"
     >محتوای جدید هر هفته اضافه می شود!</h3>
 
     <div class="row">
       <!-- Course Go Here  -->
-      <div class="col-lg-4 col-md-6 mb-4" v-for="course in courses" v-bind:key="course.id">
+      <div class="col-md-4" v-for="course in courses" v-bind:key="course.id">
         <Course v-bind="course"></Course>
       </div>
 
@@ -77,16 +78,21 @@ export default {
 
 <style lang="scss" scoped>
 .headerDigits {
-  padding: 0 28%;
+  padding: 0 35%;
 }
 
 .headerDigitsText {
   font-size: 1.3rem;
 }
 
-@media only screen and (max-width: 650px) {
+.bullet-point {
+  font-size: 2rem;
+  color: #3cecb1a6;
+}
+
+@media only screen and (max-width: 768px) {
   .headerDigits {
-    padding: 0 7%;
+    padding: 0 5%;
   }
   .headerDigitsText {
     font-size: 1.12rem;

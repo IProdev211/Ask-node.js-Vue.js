@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-4">
+  <div class="mb-4 ml-auto">
     <router-link :to="'courses/' + slug">
       <div class="CourseCard hover">
         <div>
@@ -9,7 +9,7 @@
           <h4 class="text-center font-weight-bold course-title pt-4">{{ title }}</h4>
         </div>
         <hr class="fadeline">
-        <div class="CourseCard__course__info d-flex justify-content-between text-center">
+        <div class="CourseCard__course__info d-flex justify-content-between text-center py-2">
           <div>
             <p class="courseTime">
               {{ minutes }}
@@ -26,7 +26,7 @@
           </div>
         </div>
         <hr class="fadeline" v-if="! purchased">
-        <div class="px-4 text-center" v-if="! purchased">
+        <div class="px-4 py-3 text-center" v-if="! purchased">
           <div class="row">
             <div class="col-12 text-center pricehighlight" v-if="isVip">اعضای ویژه</div>
             <div class="col-12 text-center pricehighlight" v-else-if="isFree">رایگان</div>
@@ -129,6 +129,7 @@ export default {
     rgba(145, 161, 145, 0.705) 50%,
     rgba(255, 0, 0, 0) 100%
   );
+  margin: 0;
 }
 
 .fadeline2 {
@@ -139,6 +140,7 @@ export default {
     rgba(181, 216, 181, 0.123) 50%,
     rgba(255, 0, 0, 0) 100%
   );
+  margin: 0;
 }
 
 .course-info {
@@ -146,9 +148,9 @@ export default {
 }
 
 .CourseCard {
+  // max-width: 280px;
   background-color: #32325d;
   border-radius: 35px;
-  margin: 0 5%;
 }
 
 .hover:hover,
@@ -166,11 +168,12 @@ export default {
 }
 
 .course-title {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #f1f1f1;
 }
 
 .CourseCard .CourseCard__courseimage {
+  // max-width: 280px;
   border-radius: 30px 30px 0 0;
 }
 

@@ -7,7 +7,7 @@
         <h1 class="hero-title text-center">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
         <p
           class="hero-subtitle text-center px-3"
-        >باور ما اینست که کاربران ایرانی لایق بهترین ها هستند و باید بهترین و بروزترین فیلم های آموزشی و مقالات در اختیار آنها قرار بگیرد تا بتوانند به سرعت پیشرفت کنند. با ما همراه باشید تا بهترین ها رو لایق بهترین کاربران کنیم.</p>
+        >باور ما اینست که کاربران ایرانی لایق بهترین هاو بروزترین متد آموزشی، فیلم های آموزشی و مقالات هستند.با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
         <div class="text-center py-4">
           <router-link to="ourcourses">
             <base-button
@@ -91,7 +91,7 @@ export default {
 .hero-content-homepage {
   background: linear-gradient(
       135deg,
-      rgba(199, 91, 216, 0.6),
+      rgba(199, 91, 216, 0.5),
       rgba(80, 28, 201, 0.5),
       rgba(199, 91, 216, 0.6)
     ),
@@ -100,7 +100,7 @@ export default {
   background-position: center;
   position: relative;
   width: 100%;
-  min-height: 60vh;
+  min-height: 50vh;
   // z-index: 999;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
 
