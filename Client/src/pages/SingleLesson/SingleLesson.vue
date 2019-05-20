@@ -11,7 +11,7 @@
               <div class="head-section px-3">
                 <h1 class="course-title font-weight-bold pt-3">{{ title }}</h1>
                 <p class="course-subtitle text-muted py-2" v-if="episode.id">{{ course.title }}</p>
-                <div v-html="body"></div>
+                <div class="pt-5" v-html="body"></div>
               </div>
               <div class="head-section purchase-status px-3" v-if="notEnrolled && type != 'free'">
                 <hr>

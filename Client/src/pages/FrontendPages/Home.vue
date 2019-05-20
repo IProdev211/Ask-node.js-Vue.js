@@ -8,7 +8,7 @@
         <p
           class="hero-subtitle text-center px-3"
         >باور ما اینست که کاربران ایرانی لایق بهترین هاو بروزترین متد آموزشی، فیلم های آموزشی و مقالات هستند.با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-        <div class="text-center py-4">
+        <!-- <div class="text-center py-4">
           <router-link to="ourcourses">
             <base-button
               native-type="submit"
@@ -16,15 +16,15 @@
               class="btn btn-primary btn-simple"
             >دوره های آموزشی</base-button>
           </router-link>
-        </div>
+        </div>-->
       </div>
     </section>
 
     <!-- Top Courses Section -->
     <section class="top-courses-section">
-      <div class="container pt-5">
-        <h3 class="text-center section-header">پیشنهادهای ویژه اسک آریا برای شما</h3>
-        <hr class="fadeline2">
+      <div class="container">
+        <p class="text-right section-header pt-5 pb-2">پیشنهادهای ویژه اسک آریا برای شما</p>
+        <!-- <hr class="fadeline2"> -->
         <div class="row">
           <!-- Top Courses -->
           <div class="col-lg-4 col-md-6 mt-4" v-for="course in topCourses" v-bind:key="course.id">
@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div class="text-center py-3">
+      <div class="text-center pb-5">
         <router-link to="ourcourses">
           <base-button
             native-type="submit"
@@ -50,7 +50,7 @@
     </div>
 
     <!-- Blog Section-->
-    <div>
+    <div class="blog-section pb-3">
       <blog-section v-bind="{posts: topPosts}"></blog-section>
     </div>
   </div>
@@ -93,16 +93,17 @@ export default {
       135deg,
       rgba(199, 91, 216, 0.5),
       rgba(80, 28, 201, 0.5),
-      rgba(199, 91, 216, 0.6)
+      rgba(57, 127, 218, 0.6)
     ),
     url(/img/frontend/hero-bg-opt.png) no-repeat;
+
   background-size: cover;
   background-position: center;
   position: relative;
   width: 100%;
-  min-height: 50vh;
-  // z-index: 999;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
+  min-height: 60vh;
+  z-index: 999;
+  // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
 
   .special-colour {
     color: rgb(187, 255, 0);
@@ -110,14 +111,17 @@ export default {
 }
 .top-courses-section {
   background: linear-gradient(180deg, #1e1e2f, rgb(86, 7, 133));
+  // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 4vw));
+  padding: 0 15%;
   .section-header {
     font-size: 1.2rem;
     color: white !important;
   }
+  // height: 100vh;
 }
 
 .founder-section-homepage {
-  background: linear-gradient(180deg, rgb(86, 7, 133), #1e1e2f);
+  // background: linear-gradient(180deg, rgb(86, 7, 133), #1e1e2f);
   // url(/img/frontend/founder-hero-bg-opt.png) no-repeat center;
   width: 100%;
   padding-top: 70px;
@@ -126,6 +130,11 @@ export default {
   // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 4vw));
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
 }
+
+.blog-section {
+  // background: linear-gradient(180deg, #1e1e2f, rgb(86, 7, 133));
+}
+
 #particles-js {
   position: absolute;
   // background-size: cover;
@@ -151,7 +160,7 @@ export default {
 
 @media (max-width: 768px) {
   .hero-content-homepage {
-    min-height: 65vh;
+    min-height: 55vh;
   }
   .hero-title {
     font-size: 2rem;
