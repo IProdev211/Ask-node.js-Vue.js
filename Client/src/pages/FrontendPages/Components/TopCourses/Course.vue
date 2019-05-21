@@ -38,9 +38,9 @@
             </div>
           </div>
         </div>
-        <hr class="fadeline2">
+        <hr class="fadeline2 mb-1">
         <div class="buyCourse text-center" v-if="! purchased">
-          <p class="buyCourseTitle pb-3">تهیه دوره‌</p>
+          <p class="buyCourseTitle pb-2">تهیه دوره‌</p>
         </div>
       </div>
     </router-link>
@@ -109,13 +109,13 @@ export default {
 }
 
 .pricehighlight {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: white;
   font-weight: 600;
 }
 
 .oldPrice {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: rgb(190, 190, 190);
   font-weight: 600;
   text-decoration: line-through;
@@ -271,8 +271,8 @@ export default {
 }
 
 .buyCourseTitle {
-  font-size: 1.1rem;
-  color: rgb(92, 92, 252);
+  font-size: 1rem;
+  color: rgb(101, 101, 245);
 }
 
 .CourseCard:hover {

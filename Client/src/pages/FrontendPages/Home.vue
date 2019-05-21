@@ -2,16 +2,31 @@
   <div>
     <!-- Hero Section -->
     <vue-particles :lineLinked="false" :moveSpeed="2" :particleSize="2"></vue-particles>
-    <section class="hero-content-homepage d-flex align-items-center">
+    <section class="hero-content-homepage py-5 d-flex align-items-center">
       <div class="container">
-        <h1 class="hero-title text-center">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
-        <p
-          class="hero-subtitle text-center px-3"
-        >باور ما اینست که کاربران ایرانی لایق بهترین هاو بروزترین متد آموزشی، فیلم های آموزشی و مقالات هستند.با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-        <div class="d-flex justify-content-center pt-4">
+        <div class="row">
+          <div class="col pb-5">
+            <h1 class="hero-title text-center">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
+            <p
+              class="hero-subtitle text-center px-4"
+            >باور ما اینست که کاربران ایرانی لایق بهترین هاو بروزترین متد آموزشی، فیلم های آموزشی و مقالات هستند.با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
+          </div>
+        </div>
+
+        <!-- Top Courses -->
+        <div class="top-courses-section">
+          <div class="col-lg-4 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
+            <Course v-bind="course"></Course>
+          </div>
+        </div>
+        <div class="col d-flex justify-content-center py-4">
           <div>
             <router-link to="/ourcourses">
-              <base-button native-type="submit" type="info" class="btn btn-primary">دوره های آموزشی</base-button>
+              <base-button
+                native-type="submit"
+                type="info"
+                class="btn btn-primary"
+              >مشاهده همه دوره ها</base-button>
             </router-link>
           </div>
           <div class="pr-2">
@@ -23,27 +38,10 @@
       </div>
     </section>
 
-    <!-- Top Courses Section -->
     <section class="top-courses-section">
       <div class="container">
-        <p class="text-right section-header pt-5 pb-2">پیشنهادهای ویژه اسک آریا برای شما</p>
+        <!-- <p class="text-right section-header pb-2">پیشنهادهای ویژه اسک آریا برای شما</p> -->
         <!-- <hr class="fadeline2"> -->
-        <div class="row">
-          <!-- Top Courses -->
-          <div class="col-lg-4 col-md-6 mt-4" v-for="course in topCourses" v-bind:key="course.id">
-            <Course v-bind="course"></Course>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center pb-5">
-        <router-link to="ourcourses">
-          <base-button
-            native-type="submit"
-            type="success"
-            class="btn btn-primary btn-simple"
-          >دوره های آموزشی</base-button>
-        </router-link>
       </div>
     </section>
 
@@ -92,35 +90,38 @@ export default {
 
 <style lang="scss">
 .hero-content-homepage {
-  background: linear-gradient(
-      135deg,
-      rgba(199, 91, 216, 0.5),
-      rgba(80, 28, 201, 0.5),
-      rgba(57, 127, 218, 0.6)
-    ),
-    url(/img/frontend/hero-bg-opt.png) no-repeat;
-
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  width: 100%;
-  min-height: 60vh;
-  z-index: 999;
+  // background: linear-gradient(
+  //     135deg,
+  //     rgba(199, 91, 216, 0.5),
+  //     rgba(80, 28, 201, 0.5),
+  //     rgba(57, 127, 218, 0.6)
+  //   ),
+  //   url(/img/frontend/hero-bg-opt.png) no-repeat;
+  // background-size: cover;
+  // background-position: center;
+  // position: relative;
+  // width: 100%;
+  // min-height: 60vh;
+  // z-index: 999;
   // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
+  background: linear-gradient(180deg, rgb(86, 7, 133), #1e1e2f);
+  background: linear-gradient(180deg, rgb(121, 30, 173), #1e1e2f);
 
   .special-colour {
     color: rgb(187, 255, 0);
   }
-}
-.top-courses-section {
-  background: linear-gradient(180deg, #1e1e2f, rgb(86, 7, 133));
-  // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 4vw));
-  padding: 0 15%;
-  .section-header {
-    font-size: 1.2rem;
-    color: white !important;
+  .top-courses-section {
+    // background: linear-gradient(180deg, rgb(86, 7, 133), #1e1e2f);
+    // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 4vw));
+    padding: 0 10%;
+    .section-header {
+      font-size: 1.2rem;
+      color: white !important;
+    }
+    // @media (min-width: 800px) {
+    //   padding: 0 24%;
+    // }
   }
-  // height: 100vh;
 }
 
 .founder-section-homepage {
@@ -134,18 +135,18 @@ export default {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
 }
 
-.blog-section {
-  // background: linear-gradient(180deg, #1e1e2f, rgb(86, 7, 133));
-}
+// .blog-section {
+//   // background: linear-gradient(180deg, #1e1e2f, rgb(86, 7, 133));
+// }
 
 #particles-js {
   position: absolute;
-  // background-size: cover;
+  background-size: cover;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  padding-top: 450px;
+  // padding-top: 450px;
   overflow-y: hidden;
   z-index: 0;
 }
@@ -157,7 +158,7 @@ export default {
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: inherit;
 }
 
