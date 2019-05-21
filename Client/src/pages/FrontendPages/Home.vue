@@ -8,15 +8,18 @@
         <p
           class="hero-subtitle text-center px-3"
         >باور ما اینست که کاربران ایرانی لایق بهترین هاو بروزترین متد آموزشی، فیلم های آموزشی و مقالات هستند.با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-        <!-- <div class="text-center py-4">
-          <router-link to="ourcourses">
-            <base-button
-              native-type="submit"
-              type="success"
-              class="btn btn-primary btn-simple"
-            >دوره های آموزشی</base-button>
-          </router-link>
-        </div>-->
+        <div class="d-flex justify-content-center pt-4">
+          <div>
+            <router-link to="/ourcourses">
+              <base-button native-type="submit" type="info" class="btn btn-primary">دوره های آموزشی</base-button>
+            </router-link>
+          </div>
+          <div class="pr-2">
+            <router-link to="/register">
+              <base-button native-type="submit" type="warning" class="btn btn-primary">عضویت</base-button>
+            </router-link>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -142,7 +145,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  padding-top: 440px;
+  padding-top: 450px;
   overflow-y: hidden;
   z-index: 0;
 }
