@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- Hero Section -->
     <vue-particles :lineLinked="false" :moveSpeed="2" :particleSize="2"></vue-particles>
+    <!-- Hero Section -->
     <section class="hero-content-homepage py-5 d-flex align-items-center">
       <div class="container">
         <div class="row">
@@ -9,10 +9,9 @@
             <h1 class="hero-title text-center">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
             <p
               class="hero-subtitle text-center px-4"
-            >باور ما اینست که کاربران ایرانی لایق بهترین هاو بروزترین متد آموزشی، فیلم های آموزشی و مقالات هستند.با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
+            >باور ما اینست که کاربران ایرانی لایق بهترین هاو بروزترین متد آموزشی، فیلم های آموزشی و مقالات هستند. با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
           </div>
         </div>
-
         <!-- Top Courses -->
         <div class="top-courses-section">
           <div class="col-lg-4 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
@@ -49,7 +48,7 @@
     <div class="founder-section-homepage">
       <founder-section></founder-section>
     </div>
-
+    <hr class="fadeline2">
     <!-- Blog Section-->
     <div class="blog-section pb-3">
       <blog-section v-bind="{posts: topPosts}"></blog-section>
@@ -104,8 +103,8 @@ export default {
   // min-height: 60vh;
   // z-index: 999;
   // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
-  background: linear-gradient(180deg, rgb(86, 7, 133), #1e1e2f);
-  background: linear-gradient(180deg, rgb(121, 30, 173), #1e1e2f);
+  // background: linear-gradient(180deg, rgb(86, 7, 133), #1e1e2f);
+  background: linear-gradient(180deg, rgb(61, 32, 163), #1e1e2f);
 
   .special-colour {
     color: rgb(187, 255, 0);
@@ -188,8 +187,7 @@ export default {
 
 .fadeline2 {
   height: 1px;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin: 0 20%;
   background-image: linear-gradient(
     90deg,
     rgba(255, 0, 0, 0),

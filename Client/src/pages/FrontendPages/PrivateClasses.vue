@@ -137,11 +137,24 @@
 }
 
 .private-classes-background {
-  background: linear-gradient(180deg, #1a1a29, rgb(141, 89, 237));
+  background: linear-gradient(
+      135deg,
+      rgba(199, 91, 216, 0.5),
+      rgba(80, 28, 201, 0.5),
+      rgba(57, 127, 218, 0.6)
+    ),
+    url(/img/frontend/hero-bg-opt.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
   width: 100%;
-  padding-bottom: 150px;
-  min-height: 50vh;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
+  padding-bottom: 75px;
+
+  // background: linear-gradient(180deg, #1a1a29, rgb(141, 89, 237));
+  // width: 100%;
+  // padding-bottom: 150px;
+  // min-height: 50vh;
+  // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
 }
 
 .section-header {
@@ -160,7 +173,7 @@ ul {
 }
 
 .private-classes {
-  padding-top: 30px;
+  padding-top: 20px;
   .pricing {
     position: relative;
   }
