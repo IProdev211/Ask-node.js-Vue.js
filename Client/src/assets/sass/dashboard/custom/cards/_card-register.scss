@@ -45,7 +45,7 @@
     position: absolute;
     left: 0;
     top: -15%;
-    width: 70%;
+    width: 50%;
   }
 
   .social-line {
@@ -74,6 +74,6 @@
 
 @include media-breakpoint-down(md) {
   .card.card-register .card-img {
-    width: 95%;
+    width: 80%;
   }
 }

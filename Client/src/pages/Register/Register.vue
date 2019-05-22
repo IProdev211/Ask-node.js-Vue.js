@@ -1,14 +1,14 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="pt-4 col-md-7 mr-auto ml-auto">
+      <div class="py-3 col-md-7 mr-auto ml-auto">
         <card class="card-register">
           <template slot="header">
             <img class="card-img" src="img/card-primary.png" alt="Card image" />
             <h4 class="card-title text-left py-1 px-4 text-white">فرم عضویت</h4>
           </template>
           <form @submit="checkForm" id="register-form">
-            <div class="row pt-5">
+            <div class="row pt-3">
               <div class="col-md-6 text-ltr">
                 <label class="pull-right font-weight-bold pt-2">نام و نام خانوادگی</label>
                 <base-input 
@@ -46,9 +46,11 @@
             <div class="row d-flex justify-content-around">
               <div class="text-center pb-3">
                 <router-link to="googlesignin">
-                  <i class="fab fa-google icon pb-4"></i>
+                  <h4 class="googleicon">
+                    <i class="fab fa-google icon"></i>
+                  </h4>
                 </router-link>
-                 <p class="px-5">
+                 <p class="px-5 google-text">
                     شما میتوانید بدون ثبت نام با اکانت گوگل وارد سایت شوید.
                   </p>
               </div>          
@@ -195,6 +197,17 @@ color: #D557D9
 
 a {
   font-size: 1rem;
+}
+
+.googleicon {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.google-text {
+  font-size: 0.8rem;
+  color: rgb(177, 177, 177);
 }
 
 </style>
