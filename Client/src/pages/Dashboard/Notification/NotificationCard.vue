@@ -3,7 +3,7 @@
     <div class="container">
       <h4 class="title text-right pt-2">اعلانات</h4>
       <div class="text-right" v-if="logs.length">
-        <div class="Message py-4" v-for="log of logs" :key="log.id">
+        <div class="Message pt-4" v-for="log of logs" :key="log.id">
           <p class="text-justify">
             <i :class="'fas ' +  getLogIcon(log.type) + ' iconSize'"></i>
             {{ getJalaliDate(log.createdAt) }} -
@@ -11,16 +11,16 @@
           </p>
         </div>
       </div>
-      <base-pagination
-        class="pagination-no-border text-rtl mt-auto ml-auto"
-        v-model="pagination.currentPage"
-        :value="pagination.currentPage"
-        :per-page="pagination.perpage"
-        :total="pagination.total"
-        :pageCount="pagination.pages"
-        @input="changePageListener"
-      ></base-pagination>
     </div>
+    <base-pagination
+      class="pagination-no-border text-rtl ml-auto mt-auto"
+      v-model="pagination.currentPage"
+      :value="pagination.currentPage"
+      :per-page="pagination.perpage"
+      :total="pagination.total"
+      :pageCount="pagination.pages"
+      @input="changePageListener"
+    ></base-pagination>
   </div>
 </template>
 <script>

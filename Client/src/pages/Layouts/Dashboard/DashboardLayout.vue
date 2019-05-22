@@ -28,7 +28,7 @@
         ></sidebar-item>
 
         <sidebar-item :link="{ name: 'پنل مدیریت', icon: 'fas fa-tools' }">
-          <sidebar-item :link="{ name: 'کاربران سایت', path: '/manageusers' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'مدیریت کاربران', path: '/manageusers' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت دوره ها', path: '/courseoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت جلسه ها', path: '/episodeoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت وبلاگ ها', path: '/blogoverview' }"></sidebar-item>

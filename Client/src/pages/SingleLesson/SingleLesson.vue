@@ -96,7 +96,7 @@
           </div>
           <!-- video element -->
           <div class="col-lg-9 col-md-12 col-sm-12 mb-3">
-            <vue-plyr class="videoWidth videoPlayer" :key="id">
+            <vue-plyr class="videoWidth videoPlayer plyr--video" :key="id">
               <video poster="poster.png" src="video.mp4">
                 <source :src="`/api/v1${download}`" type="video/mp4" size="720">
                 <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default>
@@ -113,7 +113,7 @@
         <AllUnits
           :episodes="course.episodes"
           :scrollable="true"
-          :maxepisodes="5"
+          :maxepisodes="8"
           :purchased="! notEnrolled"
         ></AllUnits>
       </div>
@@ -225,9 +225,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.videoPlayer {
-  border-radius: 25px !important;
+.plyr--video {
+  border-radius: 20px !important;
 }
+
 .card-background {
   background: #27293d;
   border-radius: 25px;

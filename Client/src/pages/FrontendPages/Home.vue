@@ -7,9 +7,11 @@
         <div class="row">
           <div class="col pb-5">
             <h1 class="hero-title text-center">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
-            <p
-              class="hero-subtitle text-center px-4"
-            >باور ما اینست که کاربران ایرانی لایق بهترین هاو بروزترین متد آموزشی، فیلم های آموزشی و مقالات هستند. با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
+            <p class="hero-subtitle text-center pt-3 px-4">
+              باور ما اینست که کاربران ایرانی لایق بهترین هاو بروزترین متد آموزشی، فیلم های آموزشی و مقالات هستند.
+              <br>
+              <span>با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</span>
+            </p>
           </div>
         </div>
         <!-- Top Courses -->
@@ -17,30 +19,8 @@
           <div class="col-lg-4 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
             <Course v-bind="course"></Course>
           </div>
+          <p class="text-center top-section-header">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
-        <div class="col d-flex justify-content-center py-4">
-          <div>
-            <router-link to="/ourcourses">
-              <base-button
-                native-type="submit"
-                type="info"
-                class="btn btn-primary"
-              >مشاهده همه دوره ها</base-button>
-            </router-link>
-          </div>
-          <div class="pr-2">
-            <router-link to="/register">
-              <base-button native-type="submit" type="warning" class="btn btn-primary">عضویت</base-button>
-            </router-link>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="top-courses-section">
-      <div class="container">
-        <!-- <p class="text-right section-header pb-2">پیشنهادهای ویژه اسک آریا برای شما</p> -->
-        <!-- <hr class="fadeline2"> -->
       </div>
     </section>
 
@@ -89,22 +69,21 @@ export default {
 
 <style lang="scss">
 .hero-content-homepage {
-  // background: linear-gradient(
-  //     135deg,
-  //     rgba(199, 91, 216, 0.5),
-  //     rgba(80, 28, 201, 0.5),
-  //     rgba(57, 127, 218, 0.6)
-  //   ),
-  //   url(/img/frontend/hero-bg-opt.png) no-repeat;
-  // background-size: cover;
-  // background-position: center;
-  // position: relative;
-  // width: 100%;
+  background: linear-gradient(
+      180deg,
+      rgba(85, 13, 202, 0.473),
+      rgba(133, 13, 202, 0.164)
+    ),
+    url(/img/frontend/hero-bg-opt.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 100%;
   // min-height: 60vh;
-  // z-index: 999;
+  z-index: 999;
   // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
   // background: linear-gradient(180deg, rgb(86, 7, 133), #1e1e2f);
-  background: linear-gradient(180deg, rgb(61, 32, 163), #1e1e2f);
+  // background: linear-gradient(180deg, rgb(61, 32, 163), #1e1e2f);
 
   .special-colour {
     color: rgb(187, 255, 0);
@@ -154,11 +133,16 @@ export default {
   line-height: inherit;
   font-weight: 600;
   color: #dbdbdb;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-subtitle {
   font-size: 1rem;
+  color: #cecece;
   line-height: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 @media (max-width: 768px) {
@@ -180,9 +164,9 @@ export default {
   }
 }
 
-.section-header-homepage {
+.top-section-header {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.658);
+  color: rgb(196, 196, 196);
 }
 
 .fadeline2 {
