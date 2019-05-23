@@ -70,6 +70,9 @@ module.exports = {
       '^/api': {
         target: 'http://localhost:3000'
       },
+      '^/auth/google$': {
+        target: 'http://localhost:3000'
+      },
       '^/uploads': {
         target: 'http://localhost:3000'
       }

@@ -38,11 +38,11 @@
             </div>
               
               <div class="text-center">
-                <router-link to="googlesignin">
+                <a href="/auth/google">
                   <h4 class="googleicon">
                     <i class="fab fa-google text-danger"></i>
                   </h4>
-                </router-link>
+                </a>
                 <p class="google-text pt-1">شما میتوانید با اکانت گوگل وارد سایت شوید</p>
               </div>
               <p class="text-right" v-if="formErrors.length">
