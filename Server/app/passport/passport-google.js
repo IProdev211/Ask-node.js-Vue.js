@@ -22,8 +22,6 @@ passport.use(
     (token, refreshToken, profile, done) => {
       User.findOne({ email: profile.emails[0].value }, (err, user) => {
         if (err) return done(err);
-        user.active = true;
-        console.log("user = ", user);
         if (user) return done(err, user);
 
         const newUser = new User({
@@ -35,7 +33,6 @@ passport.use(
 
         newUser.save(err => {
           if (err) throw err;
-          console.log("new user = ", newUser);
           done(err, newUser);
         });
       });
