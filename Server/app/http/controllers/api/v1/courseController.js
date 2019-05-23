@@ -167,44 +167,40 @@ class courseController extends controller {
   }
   async singleEpisode(req, res) {
     try {
-      const episode = await Episode.findByIdAndUpdate(req.params.id, {
-        $inc: { viewCount: 1 }
-      }).populate([
+      const course = await Course.findOne({ slug: req.params.slug }).populate([
         {
-          path: 'course',
-          populate: [
-            {
-              path: 'user',
-              select: 'name'
-            },
-            {
-              path: 'episodes',
-              match: { id: { $ne: req.params.id } },
-              options: { sort: { number: 1 } }
-            },
-            {
-              path: 'categories',
-              select: 'name slug'
-            },
-            {
-              path: 'usersCount'
-            }
-          ]
+          path: 'user',
+          select: 'name'
+        },
+        {
+          path: 'episodes',
+          options: { sort: { number: 1 } }
+        },
+        {
+          path: 'categories',
+          select: 'name slug'
+        },
+        {
+          path: 'usersCount'
         }
       ]);
-      if (!episode) return this.failed('چنین درسی یافت نشد', res, 404);
-      for (const key in episode.course.episodes) {
-        if (episode.course.episodes[key] == undefined) continue;
-        if (episode.course.episodes[key].id == episode.id) {
-          episode.course.episodes.splice(key, 1);
+      let episode = undefined;
+      for (let x = 0; x < course.episodes.length; x++) {
+        if (course.episodes[x].number == req.params.unit) {
+          episode = course.episodes[x];
+          course.episodes.splice(x, 1);
           break;
         }
       }
+      if (!episode) return this.failed('چنین درسی یافت نشد', res, 404);
+      episode.update({
+        $inc: { viewCount: 1 }
+      });
       const user = await User.findById(req.user.id);
       res.json({
         data: {
           episode: this.filterEpisodeData(episode, user),
-          course: this.filterCourseData(episode.course, user),
+          course: this.filterCourseData(course, user),
           enrolled: user.admin || user.checkLearning(episode.course.id),
           enrolledCount: episode.course.usersCount
         },

@@ -110,6 +110,7 @@
       <!-- Timeline Unit Section -->
       <div class="col-md-12 pt-2">
         <AllUnits
+          :course="course"
           :episodes="course.episodes"
           :scrollable="true"
           :maxepisodes="5"

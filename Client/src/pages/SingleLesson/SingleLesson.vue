@@ -111,6 +111,7 @@
       <!-- Timeline Unit Section -->
       <div class="col-md-12 pt-2">
         <AllUnits
+          :course="course"
           :episodes="course.episodes"
           :scrollable="true"
           :maxepisodes="8"
@@ -173,7 +174,7 @@ export default {
     dataLoad() {
       if (this.$route.name === 'Single Lesson') {
         backend
-          .get(`courses/episode/${this.$route.params.id}`)
+          .get(`courses/${this.$route.params.course}/unit-${this.$route.params.unit}`)
           .then(response => {
             this.episode = response.data.data.episode;
             this.course = response.data.data.course;

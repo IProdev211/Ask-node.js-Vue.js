@@ -16,7 +16,7 @@
           <i :class="'fas ' + getEpisodeIcon(episode.type)"></i>
         </div>
         <div class="UnitName pr-4">
-          <router-link :to="'/courses/episode/' + episode.id">
+          <router-link :to="'/courses/' + course.slug + '/unit-' + episode.number">
             <p class="UnitName text-right">{{ episode.title }}</p>
           </router-link>
         </div>
@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  props: ['episodes', 'scrollable', 'maxepisodes', 'purchased'],
+  props: ['course', 'episodes', 'scrollable', 'maxepisodes', 'purchased'],
   methods: {
     getEpisodeType(type) {
       switch (type.toLowerCase()) {
