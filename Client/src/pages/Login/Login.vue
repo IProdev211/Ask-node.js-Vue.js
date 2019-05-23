@@ -32,7 +32,7 @@
                 </div>
               </div>     
               <div class="text-right text-rtl">
-              <base-checkbox class="pb-2">
+              <base-checkbox class="pb-2" name="remember" :checked="remember" @input="() => {remember = !remember;}">
                  <p>یادآوری ورود</p>
               </base-checkbox>
             </div>
@@ -82,7 +82,8 @@ export default {
       email: null,
       password: null,
       formErrors: [],
-      loading: false
+      loading: false,
+      remember: false,
 
     };
   },
@@ -115,6 +116,7 @@ export default {
       backend.post("login", {
         email: this.email,
         password: this.password,
+        remember: this.remember ? 1 : 0,
       }).then((response) => {
         this.loading = false;
         if (response.data.status === "error") {

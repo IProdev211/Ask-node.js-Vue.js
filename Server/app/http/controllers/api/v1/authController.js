@@ -12,14 +12,16 @@ class authController extends controller {
       if (err) return this.failed(err.message, res);
       if (!user) return this.failed('چنین کاربری وجود ندارد', res, 404);
 
-      req.login(user, { session: false }, async err => {
+      req.login(user, { session: true }, async err => {
         if (err) return this.failed(err.message, res);
 
         // create token
         const token = jwt.sign({ id: user.id }, config.jwt.secret_key, {
           expiresIn: 60 * 60 * 24
         });
-        user.setRememberToken(res);
+        if (req.body.remember) {
+          user.setRememberToken(res);
+        }
         const ip =
           req.headers['x-forwarded-for'] || req.connection.remoteAddress;
         const loginLog = new Log({
