@@ -27,7 +27,7 @@
         </div>
 
         <div>
-          <p class="detail-time">{{ episode.time }}</p>
+          <p class="detail-time">{{ getUnitTime(episode.time) }} دقیقه</p>
         </div>
       </div>
     </div>
@@ -76,6 +76,13 @@ export default {
         case 'vip':
           return 'UnitBadgeVIP';
       }
+    },
+    getUnitTime(time) {
+      if (time.indexOf(":") !== -1) {
+        return time;
+      }
+      time = parseInt(time);
+      return Math.floor(time / 60) + ":" + (time % 60);
     }
   },
   mounted() {
