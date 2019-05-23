@@ -45,11 +45,11 @@
             </div>
             <div class="row d-flex justify-content-around">
               <div class="text-center pb-3">
-                <router-link to="googlesignin">
+                <a href="/auth/google">
                   <h4 class="googleicon">
                     <i class="fab fa-google icon"></i>
                   </h4>
-                </router-link>
+                </a>
                  <p class="px-5 google-text">
                     شما میتوانید بدون ثبت نام با اکانت گوگل وارد سایت شوید.
                   </p>
