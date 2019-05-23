@@ -18,7 +18,7 @@
           <span class="description" :class="user.active ? 'tick' : 'cross'">{{ user.active ? "فعال" : "غیر فعال" }}</span>
         </p>
         <p class="description font-weight-bold">
-          <i class="fas fa-times px-2 cross"></i>{{ 'وضعیت عضویت ویژه' }} -
+          <i class="fas px-2" :class="isVIP ? 'fa-check tick' : 'fa-times cross'"></i>{{ 'وضعیت عضویت ویژه' }} -
           <span class="description" :class="isVIP ? 'tick' : 'cross'">{{ isVIP ? "فعال" : "غیر فعال" }}</span>
         </p>
         <div class="row d-flex justify-content-center">
