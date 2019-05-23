@@ -7,14 +7,14 @@
       <div class="ml-auto mr-auto pb-5 text-center">
         <img class="blog-img" :src="post.image" :alt="post.name">
       </div>
-      <div class="col-md-12">
+      <div class="card pt-3 col-md-12">
         <BlogInfo
           :name="post.author.name"
           :createdAt="post.createdAt"
           :categories="post.categories"
         ></BlogInfo>
       </div>
-      <div class="container text-ltr card pb-5">
+      <div class="container text-ltr py-5">
         <h3 class="subheading pt-3">{{post.name}}</h3>
         <div v-html="post.content"></div>
       </div>

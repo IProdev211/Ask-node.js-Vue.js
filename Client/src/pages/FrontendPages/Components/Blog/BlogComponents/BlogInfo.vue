@@ -33,7 +33,9 @@ export default {
   props: ['name', 'createdAt', 'categories'],
   methods: {
     dateFormated() {
-      return moment(this.createdAt).locale('fa').format('D MMMM YYYY');
+      return moment(this.createdAt)
+        .locale('fa')
+        .format('D MMMM YYYY');
     }
   }
 };
@@ -45,7 +47,7 @@ export default {
 }
 .info-items {
   font-size: 1.1rem;
-  font-weight: 600;
+  // font-weight: 600;
   color: rgb(148, 148, 148);
 }
 span {
@@ -59,7 +61,7 @@ span {
 .post-categories {
   span {
     &::after {
-      content: ",";
+      content: ',';
       display: inline-block;
       padding: 0 5px;
     }

@@ -174,8 +174,11 @@ export default {
     },
     handleEdit(index, row) {
       Swal({
-        title: `You want to edit ${row.title}`,
+        title: `Editing: ${row.title}`,
         buttonsStyling: false,
+        className: 'text-ltr',
+        buttons: false,
+        timer: 1900,
         confirmButtonClass: 'btn btn-info btn-fill'
       });
       this.course = row;
@@ -183,12 +186,13 @@ export default {
     handleDelete(index, row) {
       Swal({
         title: 'Are you sure?',
-        text: `You won't be able to revert this!`,
+        text: `You won't be able to revert this`,
+        className: 'text-ltr',
         icon: 'warning',
         buttons: {
-          cancel: 'cancel',
+          cancel: 'Cancel',
           catch: {
-            text: 'Yes, delete it!',
+            text: 'Yes, delete it',
             value: true
           }
         }

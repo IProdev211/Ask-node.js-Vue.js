@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-lg-5 col-md-9 ml-auto mr-auto pt-4">
+      <div class="col-lg-5 col-md-9 ml-auto mr-auto pt-4 pb-2">
           <form @submit="checkForm">
             <card class="card-login">
               <template slot="header">
@@ -9,19 +9,21 @@
                 <h4 class="card-title text-left px-4 text-white">ورود</h4>
                 <!-- <p class="container pt-3 text-center">با ورود به پنل کاربری میتوانید به سادگی به ویدیو های سایت دسترسی پیدا کنید و مقالات جدید را مطالعه کنید.</p> -->
               </template>
-              <div class="row mt-5">
-                <div class="col-md-7">
+              <div class="row mt-4">
+                <div class="col-12">
                   <label class="pull-right font-weight-bold">پست الکترونیک</label>
                   <base-input 
+                    class="text-ltr"
                     v-model="email" 
                     :required="true" 
                     :error="fieldErrors.email">
                   </base-input>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-12">
                   <label class="pull-right font-weight-bold">کلمه عبور</label>
                   <base-input
+                    class="text-ltr"
                     type="password"
                     v-model="password" 
                     :required="true" 
@@ -30,18 +32,18 @@
                 </div>
               </div>     
               <div class="text-right text-rtl">
-              <base-checkbox class="pb-3">
+              <base-checkbox class="pb-2">
                  <p>یادآوری ورود</p>
               </base-checkbox>
             </div>
               
-              <div class="text-center pt-4">
+              <div class="text-center">
                 <router-link to="googlesignin">
-                  <h4 class="googleicon pt-2">
+                  <h4 class="googleicon">
                     <i class="fab fa-google text-danger"></i>
                   </h4>
                 </router-link>
-                <p>شما میتوانید با اکانت گوگل وارد سایت شوید</p>
+                <p class="google-text pt-1">شما میتوانید با اکانت گوگل وارد سایت شوید</p>
               </div>
               <p class="text-right" v-if="formErrors.length">
                 <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
@@ -135,7 +137,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
 .login-card {
   padding-top: 20%;
 }
@@ -145,6 +146,13 @@ export default {
 }
 .googleicon {
   font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.google-text {
+  font-size: 0.8rem;
+  color: rgb(177, 177, 177);
 }
 
 </style>

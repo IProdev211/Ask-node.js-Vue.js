@@ -9,9 +9,9 @@
             <div class="hover m-widget7 m-widget7--skin-dark infoBox">
               <!-- COURSE HEADER / LEARNING OBJECTIVES -->
               <div class="head-section px-3">
-                <p class="course-title font-weight-bold py-3">{{ title }}</p>
-                <p class="course-subtitle text-muted pb-4" v-if="episode.id">{{ course.title }}</p>
-                <div v-html="body"></div>
+                <h1 class="course-title font-weight-bold pt-3">{{ title }}</h1>
+                <p class="course-subtitle text-muted py-2" v-if="episode.id">{{ course.title }}</p>
+                <div class="pt-5" v-html="body"></div>
               </div>
               <div class="head-section purchase-status px-3" v-if="notEnrolled && type != 'free'">
                 <hr>
@@ -26,6 +26,7 @@
               </div>
 
               <hr>
+
               <!-- COURSE CREATED AT -->
               <div class="d-flex justify-content-between px-3 pt-1">
                 <div>
@@ -95,7 +96,7 @@
           </div>
           <!-- video element -->
           <div class="col-lg-9 col-md-12 col-sm-12 mb-3">
-            <vue-plyr class="videoWidth videoPlayer" :key="id">
+            <vue-plyr class="videoWidth videoPlayer plyr--video" :key="id">
               <video poster="poster.png" src="video.mp4">
                 <source :src="`/api/v1${download}`" type="video/mp4" size="720">
                 <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default>
@@ -112,7 +113,7 @@
         <AllUnits
           :episodes="course.episodes"
           :scrollable="true"
-          :maxepisodes="5"
+          :maxepisodes="8"
           :purchased="! notEnrolled"
         ></AllUnits>
       </div>
@@ -224,9 +225,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.videoPlayer {
-  border-radius: 25px !important;
+.plyr--video {
+  border-radius: 20px !important;
 }
+
 .card-background {
   background: #27293d;
   border-radius: 25px;
@@ -245,7 +247,8 @@ export default {
 }
 
 .course-title {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  margin: 0;
 }
 
 .course-subtitle {

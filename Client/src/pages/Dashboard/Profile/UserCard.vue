@@ -51,7 +51,7 @@
             </ul>
           </p>
           <div class="row pt-3">
-            <div class="col-md-4 text-ltr">
+            <div class="col-md-3 text-ltr">
               <label class="pull-right font-weight-bold">نام و نام خانوادگی</label>
               <base-input
                 type="text"
@@ -60,13 +60,20 @@
                 :error="fieldErrors.name"
               ></base-input>
             </div>
-            <div class="col-md-4 text-ltr">
+            <div class="col-md-3 text-ltr">
               <label class="pull-right font-weight-bold">پست الکترونیک</label>
               <base-input
                 type="email"
                 placeholder="info@askarya.ir"
                 v-model="email"
                 :error="fieldErrors.email"
+              ></base-input>
+            </div>
+             <div class="col-md-3 text-ltr">
+              <label class="pull-right font-weight-bold">تغییر رمز عبور</label>
+              <base-input
+                type="password"
+                placeholder="پسورد جدید خود را وارد کنید"
               ></base-input>
             </div>
             <div class="col-md-3 pt-3">

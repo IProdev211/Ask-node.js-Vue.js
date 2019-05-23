@@ -4,6 +4,7 @@
     v-if="episodes.length"
     :style="scrollable ? {'overflow-y': 'auto'} : ''"
   >
+    <h4 class="text-center pt-3">سرفصل دوره</h4>
     <!-- UNIT 1 -->
     <div
       class="UnitBox d-flex justify-content-between"
@@ -160,5 +161,21 @@ export default {
   background: rgb(13, 55, 97);
   padding: 8px 15px;
   border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .UnitName {
+    font-size: 0.8rem;
+  }
+
+  .detail-time {
+    font-size: 0.8rem;
+    align-self: center;
+  }
+
+  .detail-price {
+    font-size: 0.8rem;
+    align-self: center;
+  }
 }
 </style>

@@ -1,17 +1,19 @@
 <template>
-  <div class="card container">
-    <h4 class="title d-flex justify-content-start pt-2">اعلانات</h4>
-    <div class="py-3 text-right" v-if="logs.length">
-      <div class="Message py-4" v-for="log of logs" :key="log.id">
-        <p class="text-justify">
-          <i :class="'fas ' +  getLogIcon(log.type) + ' iconSize'"></i>
-          {{ getJalaliDate(log.createdAt) }} -
-          {{ log.title }}
-        </p>
+  <div class="card">
+    <div class="container">
+      <h4 class="title text-right pt-2">اعلانات</h4>
+      <div class="text-right" v-if="logs.length">
+        <div class="Message pt-4" v-for="log of logs" :key="log.id">
+          <p class="text-justify">
+            <i :class="'fas ' +  getLogIcon(log.type) + ' iconSize'"></i>
+            {{ getJalaliDate(log.createdAt) }} -
+            {{ log.title }}
+          </p>
+        </div>
       </div>
     </div>
     <base-pagination
-      class="pagination-no-border text-ltr mt-auto ml-auto"
+      class="pagination-no-border text-rtl ml-auto mt-auto"
       v-model="pagination.currentPage"
       :value="pagination.currentPage"
       :per-page="pagination.perpage"

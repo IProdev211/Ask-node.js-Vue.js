@@ -1,5 +1,5 @@
 <template>
-  <div class="container pb-5">
+  <div class="container">
     <!-- <h3 class="pb-5 founder-header text-danger text-right">بنیانگذار ما</h3> -->
     <div class="row">
       <div class="col-md-7 text-right">
