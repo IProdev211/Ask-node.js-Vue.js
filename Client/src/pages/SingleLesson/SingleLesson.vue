@@ -46,7 +46,7 @@
                   </h5>
                 </div>
                 <div>
-                  <h5 class="bold">{{ course.time }}</h5>
+                  <h5 class="bold">{{ episode.time || course.time }}</h5>
                 </div>
               </div>
               <!-- COURSE PRICE  -->
