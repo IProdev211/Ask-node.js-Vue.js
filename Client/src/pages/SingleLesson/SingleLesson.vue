@@ -123,7 +123,7 @@
 </template>
 <script>
 import AllUnits from './Components/AllUnits.vue';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import backend from '../../backend';
 
 export default {
@@ -200,7 +200,7 @@ export default {
       }
     },
     getEpisodeCreateDate() {
-      return moment(this.episode.createdAt).format('MM/DD/YYYY');
+      return moment(this.episode.createdAt ? this.episode.createdAt : this.course.createdAt).locale("fa").format('YYYY/MM/DD');
     },
     getCoursePrice() {
       switch (this.course.type.toLowerCase()) {
