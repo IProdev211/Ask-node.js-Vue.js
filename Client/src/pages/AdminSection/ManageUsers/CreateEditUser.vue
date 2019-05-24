@@ -260,18 +260,12 @@ export default {
 					this.fieldErrors.vipTime = 'مقدار وارد شده نامعتبر است.';
 					haveError = true;
 				}
-			} else {
-				this.fieldErrors.vipTime = 'مقدار وارد شده نامعتبر است.';
-				haveError = true;
 			}
 			if (this.data.vipFrom) {
 				if (! moment(this.data.vipFrom, 'YYYY/MM/DD').isValid()) {
 					this.fieldErrors.vipFrom = 'مقدار وارد شده نامعتبر است.';
 					haveError = true;
 				}
-			} else {
-				this.fieldErrors.vipFrom = 'مقدار وارد شده نامعتبر است.';
-				haveError = true;
 			}
 			if (this.data.vipTime && this.data.vipFrom) {
 				if (moment(this.data.vipFrom).isAfter(this.data.vipTime)) {

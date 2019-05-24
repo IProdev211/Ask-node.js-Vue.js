@@ -48,26 +48,26 @@ class userValidator extends validator {
         .withMessage('کلمه عبور نمیتواند کمتر از 8 کاراکتر باشد'),
 
       check('vipTime')
-        .not()
-        .isEmpty()
-        .withMessage('فیلد زمان پایان VIP نمیتواند خالی بماند')
         .custom(async (value, { req }) => {
-          const moment = moment(value);
-          if (!moment.isValid()) {
+          if (!value) {
+            return;
+          }
+          const date = moment(value);
+          if (!date.isValid()) {
             throw new Error('مقدار وارد شده برای پایان زمان VIP نامعتبر است.');
           }
-          req.body.vipTime = moment.toISOString();
+          req.body.vipTime = date.toISOString();
         }),
       check('vipFrom')
-        .not()
-        .isEmpty()
-        .withMessage('فیلد زمان شروع VIP نمیتواند خالی بماند')
         .custom(async (value, { req }) => {
-          const moment = moment(value);
-          if (!moment.isValid()) {
+          if (!value) {
+            return;
+          }
+          const date = moment(value);
+          if (!date.isValid()) {
             throw new Error('مقدار وارد شده برای شروع زمان VIP نامعتبر است.');
           }
-          req.body.vipFrom = moment.toISOString();
+          req.body.vipFrom = date.toISOString();
         }),
       check('course')
         .custom(async (value, { req }) => {
