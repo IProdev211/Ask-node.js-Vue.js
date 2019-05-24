@@ -4,6 +4,13 @@
       <div class="navbar-minimize d-inline">
         <sidebar-toggle-button/>
       </div>
+      <div class="navbar-toggle d-inline" :class="{ toggled: $sidebar.showSidebar }">
+        <button type="button" class="navbar-toggler" @click="toggleSidebar">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </button>
+      </div>
       <a class="navbar-brand" href="/">اسک آریا</a>
     </div>
 
@@ -22,50 +29,33 @@
           data-toggle="dropdown"
           aria-expanded="true"
         >
+          <div class="photo">
+            <img :src="userAvatar">
+          </div>
           <b class="caret d-none d-lg-block d-xl-block"></b>
           <p class="d-lg-none">پنل کاربری</p>
         </a>
         <li class="nav-link">
-          <router-link to="/dashboard" class="nav-item dropdown-item">پیشخوان</router-link>
+          <router-link
+            to="/dashboard"
+            class="nav-item dropdown-item"
+          >
+            پنل کاربری
+          </router-link>
         </li>
         <li class="nav-link">
-          <router-link to="/courses" class="nav-item dropdown-item">همه دوره‌ها</router-link>
+          <router-link
+            to="/courses"
+            class="nav-item dropdown-item"
+          >
+            دوره های آموزشی
+          </router-link>
         </li>
+        <div class="dropdown-divider"></div>
         <li class="nav-link">
-          <router-link to="/mycourses" class="nav-item dropdown-item">در حال یادگیری</router-link>
-        </li>
-        <li class="nav-link">
-          <router-link to="/quiz" class="nav-item dropdown-item">امتحان ها</router-link>
-        </li>
-        <li class="nav-link">
-          <router-link to="/points" class="nav-item dropdown-item">امتیاز</router-link>
+          <router-link class="nav-item dropdown-item" to="#" @click.native="logoutListener">خروج</router-link>
         </li>
       </base-dropdown>
-      <base-dropdown tag="li" title-tag="a" class="nav-item" menu-classes="dropdown-navbar">
-        <a slot="title" href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="true">
-          <b class="caret d-none d-lg-block d-xl-block"></b>
-          <p class="d-lg-none">پنل مدیریت</p>
-        </a>
-        <li class="nav-link">
-          <router-link to="/users" class="nav-item dropdown-item">کاربران سایت</router-link>
-        </li>
-        <li class="nav-link">
-          <router-link to="/courseoverview" class="nav-item dropdown-item">مدیریت دوره ها</router-link>
-        </li>
-        <li class="nav-link">
-          <router-link to="/episodeoverview" class="nav-item dropdown-item">مدیریت جلسه ها</router-link>
-        </li>
-        <li class="nav-link">
-          <router-link to="/blogoverview" class="nav-item dropdown-item">مدیریت وبلاگ ها</router-link>
-        </li>
-        <li class="nav-link">
-          <router-link to="/quizoverview" class="nav-item dropdown-item">مدیریت امتحان ها</router-link>
-        </li>
-      </base-dropdown>
-      <div class="dropdown-divider"></div>
-      <li class="nav-link">
-        <router-link class="nav-item dropdown-item nav-link" to="#" @click.native="logoutListener">خروج</router-link>
-      </li>
     </ul>
   </base-nav>
 </template>
