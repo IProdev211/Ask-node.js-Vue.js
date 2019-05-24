@@ -26,8 +26,11 @@ module.exports = class controller {
             'errors',
             'گزینه امنیتی مربوط به شناسایی روبات خاموش است، لطفا از فعال بودن آن اطمینان حاصل نمایید و مجدد امتحان کنید'
           );
+          resolve(false);
           this.back(req, res);
-        } else resolve(true);
+        } else {
+          resolve(true);
+        }
       });
     });
   }

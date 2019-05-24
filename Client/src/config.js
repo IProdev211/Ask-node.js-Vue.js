@@ -12,5 +12,8 @@ export default {
       'rgba(119,52,169,0)'
     ],
     purpleGradient: ['rgba(253,93,147,0.8)', 'rgba(253,93,147,0)']
+  },
+  recaptcha: {
+    sitekey: "6LfnnooUAAAAAHOR2G2G62aZPeq96Xqh4NArCdJA"
   }
 };

@@ -51,6 +51,7 @@
                   <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
                 </ul>
               </p>
+              <vue-recaptcha :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
               <div slot="footer">
                 <base-button type="primary" nativeType="submit" class="mb-3" size="lg" :loading="loading" block>ورود</base-button>
                 <div class="d-flex justify-content-around">
@@ -73,9 +74,12 @@
   </div>
 </template>
 <script>
+import VueRecaptcha from 'vue-recaptcha';
 import backend from "../../backend";
+import config from "../../config";
 
 export default {
+  components: { VueRecaptcha },
   data() {
     return {
       fieldErrors: {},
@@ -84,12 +88,23 @@ export default {
       formErrors: [],
       loading: false,
       remember: false,
-
+      sitekey: config.recaptcha.sitekey,
+      recaptcha: "",
     };
   },
   methods: {
+    verifyRecaptcha(response) {
+      this.recaptcha = response;
+    },
+    createRecaptcha () {
+      const script = document.createElement('script');
+      script.setAttribute('async', '');
+      script.setAttribute('defer', '');
+      script.id = 'recaptchaScript';
+      script.src = 'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit'
+      document.getElementsByTagName('head')[0].appendChild(script);
+    },
     checkForm(e) {
-      console.log(e);
       e.preventDefault();
       this.fieldErrors = {};
       this.formErrors = [];
@@ -117,6 +132,7 @@ export default {
         email: this.email,
         password: this.password,
         remember: this.remember ? 1 : 0,
+        "g-recaptcha-response": this.recaptcha,
       }).then((response) => {
         this.loading = false;
         if (response.data.status === "error") {
@@ -135,6 +151,12 @@ export default {
         errorHandler(error.response);
       });
     }
+  },
+  mounted(){
+    this.createRecaptcha();
+  },
+  destroyed() {
+    document.getElementById('recaptchaScript').remove();
   }
 };
 </script>

@@ -6,6 +6,9 @@ const Log = require('app/models/log');
 
 class authController extends controller {
   async login(req, res) {
+    if (!await this.recaptchaValidation(req , res)) {
+      return;
+    }
     if (!(await this.validationData(req, res))) return;
 
     passport.authenticate('local.login', { session: true }, (err, user) => {
@@ -49,6 +52,9 @@ class authController extends controller {
     })(req, res);
   }
   async register(req, res) {
+    if (!await this.recaptchaValidation(req , res)) {
+      return;
+    }
     if (!(await this.validationData(req, res))) return;
     passport.authenticate(
       'local.register',

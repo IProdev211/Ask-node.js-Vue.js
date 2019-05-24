@@ -55,6 +55,7 @@
                   </p>
               </div>          
             </div>
+            <vue-recaptcha :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
             <p v-if="formErrors.length">
               <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
               <ul>
@@ -107,12 +108,16 @@
   </div>
 </template>
 <script>
+import VueRecaptcha from 'vue-recaptcha';
 import backend from "../../backend";
+import config from "../../config";
 import { BaseCheckbox } from 'src/components';
+
 
 export default {
   components: {
-    BaseCheckbox
+    BaseCheckbox,
+    VueRecaptcha,
   },
   data() {
     return {
@@ -123,10 +128,22 @@ export default {
       formErrors: [],
       loading: false,
       terms: false,
-
+      sitekey: config.recaptcha.sitekey,
+      recaptcha: ""
     };
   },
   methods: {
+     verifyRecaptcha(response) {
+      this.recaptcha = response;
+    },
+    createRecaptcha () {
+      const script = document.createElement('script');
+      script.setAttribute('async', '');
+      script.setAttribute('defer', '');
+      script.id = 'recaptchaScript';
+      script.src = 'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit'
+      document.getElementsByTagName('head')[0].appendChild(script);
+    },
     checkForm(e) {
       e.preventDefault();
       this.fieldErrors = {};
@@ -163,6 +180,7 @@ export default {
         name: this.name,
         email: this.email,
         password: this.password,
+        "g-recaptcha-response": this.recaptcha,
       }).then((response) => {
         this.loading = false;
         if (response.data.status === "error") {
@@ -181,6 +199,12 @@ export default {
         errorHandler(error.response);
       });
     }
+  },
+  mounted(){
+    this.createRecaptcha();
+  },
+  destroyed() {
+    document.getElementById('recaptchaScript').remove();
   }
 };
 </script>
