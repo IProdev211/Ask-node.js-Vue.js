@@ -52,35 +52,43 @@ export default {
       }
     },
     getEpisodeIcon(type) {
-      if (this.purchased) {
-        return 'fa-unlock-alt';
-      }
       switch (type.toLowerCase()) {
         case 'free':
           return 'fa-unlock-alt';
         case 'cash':
         case 'paid':
+          if (this.purchased) {
+            return 'fa-unlock-alt';
+          }
           return 'fa-lock';
         case 'vip':
           return 'fa-key';
       }
     },
     getUnitBadge(type) {
-      if (this.purchased) {
-        return 'UnitBadgeUnlocked';
-      }
       switch (type.toLowerCase()) {
         case 'free':
           return 'UnitBadgeUnlocked';
         case 'cash':
         case 'paid':
+          if (this.purchased) {
+            return 'UnitBadgeUnlocked';
+          }
           return 'UnitBadgelocked';
         case 'vip':
+          if (this.IAmVIP) {
+            return 'UnitBadgeUnlocked';
+          }
           return 'UnitBadgeVIP';
       }
     },
     getUnitTime(time) {
       return timeUtil.secondsToTime(timeUtil.timeToSeconds(time));
+    }
+  },
+  computed: {
+    IAmVIP() {
+      return (this.$root.$data.user.vipTime && (new Date(this.$root.$data.user.vipTime)) > (new Date()));
     }
   },
   mounted() {
