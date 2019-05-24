@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import timeUtil from "../../../util/time";
+
 export default {
   props: ['course', 'episodes', 'scrollable', 'maxepisodes', 'purchased'],
   methods: {
@@ -78,11 +80,7 @@ export default {
       }
     },
     getUnitTime(time) {
-      if (time.indexOf(":") !== -1) {
-        return time;
-      }
-      time = parseInt(time);
-      return Math.floor(time / 60) + ":" + (time % 60);
+      return timeUtil.secondsToTime(timeUtil.timeToSeconds(time));
     }
   },
   mounted() {

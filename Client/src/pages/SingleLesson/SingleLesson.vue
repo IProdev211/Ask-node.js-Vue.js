@@ -46,7 +46,7 @@
                   </h5>
                 </div>
                 <div>
-                  <h5 class="bold">{{ episode.time || course.time }}</h5>
+                  <h5 class="bold">{{ episode.time ? episodeTime : courseTime }}</h5>
                 </div>
               </div>
               <!-- COURSE PRICE  -->
@@ -125,6 +125,7 @@
 import AllUnits from './Components/AllUnits.vue';
 import moment from 'jalali-moment';
 import backend from '../../backend';
+import time from "../../util/time";
 
 export default {
   components: {
@@ -214,11 +215,26 @@ export default {
       }
     }
   },
+  computed: {
+    episodeTime() {
+      return time.secondsToTime(time.timeToSeconds(this.episode.time));
+    },
+    courseTime() {
+      let seconds = 0;
+      for (const episode of this.course.episodes) {
+        seconds += time.timeToSeconds(episode.time);
+      }
+      return time.secondsToTime(seconds);
+    }
+  },
   mounted() {
     this.dataLoad();
   },
   watch: {
-    '$route.params.id': function() {
+    '$route.params.unit': function() {
+      this.dataLoad();
+    },
+    '$route.params.slug': function() {
       this.dataLoad();
     }
   }
