@@ -13,7 +13,8 @@ class episodeController extends controller {
 				{
 					page,
 					sort: {
-						createdAt: 1
+						course: 1,
+						number: 1,
 					},
 					limit: parseInt(limit, 10),
 					populate: 'course',
