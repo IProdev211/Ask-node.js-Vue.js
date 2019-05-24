@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       pagination: {
-        perPage: 2,
+        perPage: 3,
         currentPage: 1,
         total: 0,
         pages: 0
@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     dataLoad(page) {
-      backend.get('/dashboard/logs?page=' + page).then(response => {
+      backend.get('/dashboard/logs?page=' + page + "&limit=" + this.pagination.perPage).then(response => {
         this.logs = response.data.docs;
         this.pagination.currentPage = parseInt(response.data.page, 10);
         this.pagination.pages = response.data.pages;
