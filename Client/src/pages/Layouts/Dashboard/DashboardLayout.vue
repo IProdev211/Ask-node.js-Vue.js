@@ -27,7 +27,7 @@
           }"
         ></sidebar-item>
 
-        <sidebar-item :link="{ name: 'پنل مدیریت', icon: 'fas fa-tools' }">
+        <sidebar-item v-if="isAdmin" :link="{ name: 'پنل مدیریت', icon: 'fas fa-tools' }">
           <sidebar-item :link="{ name: 'مدیریت کاربران', path: '/manageusers' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت دوره ها', path: '/courseoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت جلسه ها', path: '/episodeoverview' }"></sidebar-item>
@@ -108,6 +108,12 @@ export default {
       } else {
         docClasses.add('perfect-scrollbar-off');
       }
+    }
+  },
+  computed: {
+    isAdmin() {
+      console.log("isAdmin = ", this.$root.$data.user && this.$root.$data.user.admin);
+      return this.$root.$data.user && this.$root.$data.user.admin;
     }
   }
 };
