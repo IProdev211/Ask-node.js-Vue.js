@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper" :class="{ 'nav-open': $sidebar.showSidebar }">
     <notifications></notifications>
+    <sidebar-fixed-toggle-button/>
     <side-bar :background-color="sidebarBackground" :short-title="'پنل کاربری'" :title="'داشبورد'">
       <template slot="links">
         <sidebar-item
