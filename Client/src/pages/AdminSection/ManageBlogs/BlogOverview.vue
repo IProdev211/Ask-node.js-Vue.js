@@ -95,6 +95,7 @@ import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
 import Swal from 'sweetalert';
 import backend from '../../../backend';
+import moment from 'jalali-moment';
 
 export default {
   components: {
@@ -135,6 +136,11 @@ export default {
           prop: 'views',
           label: 'Blog Views',
           minWidth: 120
+        },
+        {
+          prop: 'createdAt',
+          label: 'Publish date',
+          minWidth: 120,
         }
       ],
       tableData: [],
@@ -150,7 +156,10 @@ export default {
         uri += '&filter=' + this.searchQuery;
       }
       backend.get(uri).then(response => {
-        this.tableData = response.data.docs;
+        this.tableData = response.data.docs.map((row) => {
+          row.createdAt = moment(row.createdAt).locale("fa").format("YYYY/MM/DD");
+          return row;
+        });
         this.pagination.currentPage = parseInt(response.data.page, 10);
         this.pagination.pages = response.data.pages;
         this.pagination.total = response.data.total;
