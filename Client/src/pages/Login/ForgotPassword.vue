@@ -47,7 +47,6 @@ export default {
   },
   methods: {
     checkForm(e) {
-      console.log(e);
       e.preventDefault();
       this.fieldErrors = {};
       this.formErrors = [];
@@ -67,7 +66,7 @@ export default {
         };
       }
       this.loading = true;
-      backend.post("login", {
+      backend.post("password/email", {
         email: this.email,
       }).then((response) => {
         this.loading = false;
@@ -75,13 +74,7 @@ export default {
           errorHandler(response);
           return;
         }
-        this.$root.$data.user = response.data.user;
-        this.$notify({
-          type: 'success',
-          message: `شما با موفقیت وارد شدید!`,
-          icon: 'tim-icons icon-bell-55'
-        });
-        this.$router.push("dashboard");
+        alert("ایمیل حاوی لینک پسورد به ایمیل شما ارسال شد");
       }).catch((error) => {
         this.loading = false;
         errorHandler(error.response);

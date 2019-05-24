@@ -110,6 +110,9 @@ const Register = () =>
 const ForgotPassword = () =>
   import(/* webpackChunkName: "pages" */ 'src/pages/Login/ForgotPassword.vue');
 
+const ResetPassword = () =>
+  import(/* webpackChunkName: "pages" */ 'src/pages/Login/ResetPassword.vue');
+
 const Lock = () =>
   import(/* webpackChunkName: "pages" */ 'src/pages/Layouts/Lock/Lock.vue');
 
@@ -165,6 +168,11 @@ let frontendpages = {
       path: '/forgotpassword',
       name: 'Forgot Password',
       component: ForgotPassword
+    },
+    {
+      path: '/auth/password/reset/:token',
+      name: 'Reset Password',
+      component: ResetPassword
     },
     {
       path: '/register',

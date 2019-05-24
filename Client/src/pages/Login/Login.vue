@@ -57,7 +57,7 @@
                 <div class="d-flex justify-content-around">
                 <div class="pull-right">
                   <h6>
-                    <a href="/forgotpassword" class="link footer-link">رمز عبور را فراموش کرده ام</a>
+                    <router-link to="/forgotpassword" class="link footer-link">رمز عبور را فراموش کرده ام</router-link>
                   </h6>
                 </div>
                 <div class="pull-left">

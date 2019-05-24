@@ -3,6 +3,10 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const HomeController = require('./homeController');
 const Log = require('app/models/log');
+const User = require('app/models/user');
+const PasswordReset = require('app/models/password-reset');
+const uniqueString = require('unique-string');
+const mail = require('app/helpers/mail');
 
 class authController extends controller {
   async login(req, res) {
@@ -93,6 +97,66 @@ class authController extends controller {
       title: ` گزارش خروج از سیستم با آدرس آی پی ${ip} ثبت شده است. `
     });
     logoutLog.save();
+    res.json({
+      status: 'success'
+    });
+  }
+  async sendPasswordResetLink(req, res, next) {
+    const user = await User.findOne({email: req.body.email });
+    if (!user) {
+      this.failed('چنین کاربری وجود ندارد', res);
+      return this.back(req, res);
+    }
+
+    const newPasswordReset = new PasswordReset({
+      email: req.body.email,
+      token: uniqueString()
+    });
+
+    await newPasswordReset.save();
+
+    const mailOptions = {
+      from: '"اسک آریا 👻" <info@askarya.ir>',
+      to: `${newPasswordReset.email}`,
+      subject: 'ریست کردن پسورد',
+      html: `<h2>ریست کردن پسورد</h2>
+             <p>برای ریست کردن پسورد بر روی لینک زیر کلیک کنید</p>
+             <a href="${config.siteurl}/auth/password/reset/${newPasswordReset.token}">ریست کردن</a>`
+    };
+
+    mail.sendMail(mailOptions, (err) => {
+      if (err) {
+        this.failed('متاسفانه امکان ارسال ایمیل وجود ندارد.', res, 500);
+        console.log(err);
+        return;
+      }
+      res.json({
+        status: 'success'
+      });
+    });
+  }
+  async resetPasswordProccess(req, res, next) {
+    if (!await this.validationData(req, res)) {
+      return;
+    }
+    const field = await PasswordReset.findOne({token: req.params.token });
+    if (!field) {
+      return this.failed('اطلاعات وارد شده صحیح نیست لطفا دقت کنید', res, 403);
+    }
+
+    if (field.use) {
+      return this.failed('از این لینک برای بازیابی پسورد قبلا استفاده شده است', res, 403);
+    }
+
+    const user = await User.findOneAndUpdate({email: field.email}, {
+      $set: {
+        password: req.body.password
+      }
+    });
+    if (!user) {
+      return this.failed('اپدیت شدن انجام نشد', res, 500);
+    }
+    await field.updateOne({ use: true });
     res.json({
       status: 'success'
     });
