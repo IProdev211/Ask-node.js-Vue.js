@@ -122,7 +122,7 @@ let frontendpages = {
   name: 'Frontend',
   children: [
     {
-      path: '/home',
+      path: '/',
       name: 'Home',
       component: Home
     },
@@ -209,9 +209,8 @@ let frontendpages = {
 
 const routes = [
   {
-    path: '/',
-    redirect: '/home',
-    name: 'Home'
+    path: '/home',
+    redirect: '/',
   },
   frontendpages,
   // authPages,

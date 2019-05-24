@@ -5,7 +5,7 @@
         <h2 class="text-center">Blogs Overview</h2>
         <p class="text-center">
           Here is a list of all active courses on this site
-          <a href="/home" target="_blank">ALL Blogs</a>
+          <a href="/" target="_blank">ALL Blogs</a>
         </p>
       </div>
       <div class="mt-5">

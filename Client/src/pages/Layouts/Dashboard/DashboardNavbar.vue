@@ -110,7 +110,7 @@ export default {
             message: 'درخواست شما توسط سرور رد شد'
           });
         }
-        window.location.href = '/home';
+        window.location.href = '/';
       });
     }
   }

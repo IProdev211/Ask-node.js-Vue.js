@@ -12,7 +12,7 @@
       </router-link>
 
       <ul class="navbar-nav">
-        <router-link class="nav-item" tag="li" to="/home">
+        <router-link class="nav-item" tag="li" to="/">
           <a class="nav-link">{{ 'خانه' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/ourcourses">

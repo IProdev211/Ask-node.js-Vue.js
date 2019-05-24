@@ -13,7 +13,7 @@
         </router-link>
       </div>
       <ul class="navbar-nav">
-        <router-link class="nav-item" tag="li" to="/home">
+        <router-link class="nav-item" tag="li" to="/">
           <a :class="getNavClass('home')">{{ 'خانه' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/ourcourses">
