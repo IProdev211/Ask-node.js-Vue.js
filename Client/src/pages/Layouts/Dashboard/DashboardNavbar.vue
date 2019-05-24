@@ -36,20 +36,10 @@
           <p class="d-lg-none">پنل کاربری</p>
         </a>
         <li class="nav-link">
-          <router-link
-            to="/dashboard"
-            class="nav-item dropdown-item"
-          >
-            پنل کاربری
-          </router-link>
+          <router-link to="/dashboard" class="nav-item dropdown-item">پنل کاربری</router-link>
         </li>
         <li class="nav-link">
-          <router-link
-            to="/courses"
-            class="nav-item dropdown-item"
-          >
-            دوره های آموزشی
-          </router-link>
+          <router-link to="/courses" class="nav-item dropdown-item">دوره های آموزشی</router-link>
         </li>
         <div class="dropdown-divider"></div>
         <li class="nav-link">
@@ -114,13 +104,13 @@ export default {
     logoutListener(e) {
       e.preventDefault();
       backend.get('logout').then(response => {
-        if (response.data.status !== "success") {
+        if (response.data.status !== 'success') {
           return this.$notify({
             type: 'danger',
-            message: 'درخواست شما توسط سرور رد شد',
-				  });
+            message: 'درخواست شما توسط سرور رد شد'
+          });
         }
-        window.location.href = "/home";
+        window.location.href = '/home';
       });
     }
   }
@@ -130,14 +120,14 @@ export default {
 .top-navbar {
   top: 0px;
 }
-.dropdown-menu{
+.dropdown-menu {
   &.dropdown-navbar {
     &::before {
       left: 29px;
       right: auto;
     }
     .dropdown-item {
-      color: #9A9A9A;
+      color: #9a9a9a;
       background-color: transparent;
     }
   }

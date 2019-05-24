@@ -22,8 +22,8 @@
     >محتوای جدید هر هفته اضافه می شود!</h3>
 
     <div class="row">
-      <!-- Course Go Here  -->
-      <div class="col-md-4" v-for="course in courses" v-bind:key="course.id">
+      <!-- Courses Go Here  -->
+      <div class="col-md-4 course-section" v-for="course in courses" v-bind:key="course.id">
         <Course v-bind="course"></Course>
       </div>
 
@@ -77,6 +77,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.course-section {
+  padding: 0 3%;
+}
 .headerDigits {
   padding: 0 35%;
 }
