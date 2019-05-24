@@ -251,7 +251,7 @@ export default {
       this.dataLoad(1);
     },
     date(time) {
-      return moment(time).format('MM/DD/YYYY');
+      return moment(time).format('DD/MM/YYYY');
     },
     reset() {
       this.user = undefined;

@@ -216,7 +216,7 @@ export default {
 			}
 		},
 		date(time) {
-			return moment(time).format('MM/DD/YYYY');
+			return moment(time).format('DD/MM/YYYY');
 		},
 		reset() {
 			this.data.id = undefined;
@@ -233,10 +233,10 @@ export default {
 			this.$emit("reset");
 		},
 		vipFromDate() {
-			return moment(this.data.vipFrom).format('MM/DD/YYYY');
+			return moment(this.data.vipFrom).format('DD/MM/YYYY');
 		},
 		vipToDate() {
-			return moment(this.data.vipTime).format('MM/DD/YYYY');
+			return moment(this.data.vipTime).format('DD/MM/YYYY');
 		},
 		checkForm(e) {
 			e.preventDefault();
