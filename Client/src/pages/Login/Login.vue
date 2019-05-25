@@ -51,7 +51,7 @@
                   <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
                 </ul>
               </p>
-              <vue-recaptcha :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
+              <vue-recaptcha class="pt-2" :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
               <div slot="footer">
                 <base-button type="primary" nativeType="submit" class="mb-3" size="lg" :loading="loading" block>ورود</base-button>
                 <div class="d-flex justify-content-around">
