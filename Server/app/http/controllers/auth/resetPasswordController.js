@@ -50,7 +50,7 @@ class resetPasswordController extends controller {
       return this.back();
     }
 
-    await field.update({ use: true });
+    await field.updateOne({ use: true });
     return res.redirect('/auth/login');
   }
 }

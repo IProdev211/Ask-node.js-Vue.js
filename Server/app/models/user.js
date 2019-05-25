@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 const uniqueString = require('unique-string');
-const mongoosePaginate = require('mongoose-paginate');
+const mongoosePaginate = require('mongoose-paginate-v2');
 
 const userSchema = Schema(
   {
@@ -62,13 +62,13 @@ userSchema.methods.setRememberToken = function(res) {
       httpOnly : true ,
       signed :true
     });
-    this.update({ rememberToken : token } , err => {
+    this.updateOne({ rememberToken : token } , err => {
         if(err) console.log(err);
     });
 }
 userSchema.methods.removeRememberToken = function(res) {
     res.cookie('remember_token' , '' , { maxAge : Date.now() , httpOnly : true , signed :false});
-    this.update({ rememberToken : null } , err => {
+    this.updateOne({ rememberToken : null } , err => {
         if(err) console.log(err);
     });
 }

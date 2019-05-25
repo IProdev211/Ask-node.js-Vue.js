@@ -193,7 +193,7 @@ class courseController extends controller {
         }
       }
       if (!episode) return this.failed('چنین درسی یافت نشد', res, 404);
-      episode.update({
+      episode.updateOne({
         $inc: { viewCount: 1 }
       });
       const user = await User.findById(req.user.id);
