@@ -293,4 +293,38 @@ export default {
     color: #f3ef1f;
   }
 }
+
+@media (max-width: 600px) {
+  .CourseCard__course__info {
+    margin: 0 10%;
+  }
+
+  .pricehighlight {
+    font-size: 0.8rem;
+  }
+
+  .oldPrice {
+    font-size: 0.8rem;
+  }
+
+  .course-title {
+    font-size: 0.8rem;
+  }
+
+  .courseTimeSpan {
+    font-size: 0.7rem;
+  }
+
+  .courseTime {
+    font-size: 1rem;
+  }
+
+  .unitsAvailableSpan {
+    font-size: 0.7rem;
+  }
+
+  .unitsAvailable {
+    font-size: 1rem;
+  }
+}
 </style>

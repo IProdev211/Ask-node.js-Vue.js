@@ -2,10 +2,10 @@
   <div>
     <vue-particles :lineLinked="false" :moveSpeed="2" :particleSize="2"></vue-particles>
     <!-- Hero Section -->
-    <section class="hero-content-homepage py-5 d-flex align-items-center">
+    <section class="hero-content-homepage pt-4 d-flex align-items-center">
       <div class="container">
         <div class="row">
-          <div class="col pb-5">
+          <div class="col-12 pb-4">
             <h1 class="hero-title text-center">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
             <p class="hero-subtitle text-center pt-3 px-4">
               باور ما اینست که کاربران ایرانی لایق بهترین هاو بروزترین متد آموزشی، فیلم های آموزشی و مقالات هستند.
@@ -13,13 +13,15 @@
               <span>با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</span>
             </p>
           </div>
-        </div>
-        <!-- Top Courses -->
-        <div class="top-courses-section">
-          <div class="col-lg-4 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
-            <Course v-bind="course"></Course>
+          <!-- Top Courses -->
+          <div class="top-courses-section pt-2">
+            <div class="row">
+              <div class="col-lg-4 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
+                <Course v-bind="course"></Course>
+              </div>
+            </div>
+            <p class="text-center top-section-header pb-3">پیشنهادهای ویژه اسک آریا برای شما</p>
           </div>
-          <p class="text-center top-section-header">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
       </div>
     </section>
@@ -71,23 +73,19 @@ export default {
 .hero-content-homepage {
   background: linear-gradient(
       180deg,
-      rgba(85, 13, 202, 0.473),
-      rgba(133, 13, 202, 0.164)
+      rgba(174, 0, 255, 0.432),
+      rgba(179, 97, 255, 0.301)
     ),
     url(/img/frontend/hero-bg-opt.png) no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
   width: 100%;
-  // min-height: 60vh;
   z-index: 999;
-  // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
-  // background: linear-gradient(180deg, rgb(86, 7, 133), #1e1e2f);
-  // background: linear-gradient(180deg, rgb(61, 32, 163), #1e1e2f);
+  // min-height: 60vh;
 
-  .special-colour {
-    color: rgb(187, 255, 0);
-  }
+  // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
+
   .top-courses-section {
     // background: linear-gradient(180deg, rgb(86, 7, 133), #1e1e2f);
     // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 4vw));
@@ -96,9 +94,9 @@ export default {
       font-size: 1.2rem;
       color: white !important;
     }
-    // @media (min-width: 800px) {
-    //   padding: 0 24%;
-    // }
+    @media (max-width: 800px) {
+      padding: 0 7%;
+    }
   }
 }
 
@@ -150,23 +148,22 @@ export default {
     min-height: 55vh;
   }
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.9rem;
     line-height: inherit;
     font-weight: 600;
     color: #dbdbdb;
   }
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: inherit;
-  }
-  #particles-js {
-    padding-top: 600px;
   }
 }
 
 .top-section-header {
-  font-size: 1rem;
-  color: rgb(196, 196, 196);
+  font-size: 0.9rem;
+  color: rgb(177, 177, 177);
+  margin: 0;
+  padding: 0;
 }
 
 .fadeline2 {

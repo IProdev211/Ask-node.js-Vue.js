@@ -16,8 +16,8 @@
           ></span>
         </p>
       </div>
-      <div class="col-md-3 my-auto py-3">
-        <base-dropdown title="عضویت" title-classes="btn btn-primary px-5">
+      <div class="col-md-3 my-auto">
+        <base-dropdown title="عضویت" title-classes="btn btn-default px-5">
           <a class="dropdown-item" href="#">ماهانه - 39 هزار تومان</a>
           <a class="dropdown-item" href="#">۴ ماهه - 109 هزار تومان</a>
           <a class="dropdown-item" href="#">یکساله - 229 هزار تومان</a>
