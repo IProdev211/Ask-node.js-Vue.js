@@ -333,7 +333,7 @@ export default {
 .ck.ck-editor__main > .ck-content  {
 	background: transparent;
 	* {
-		color: #fff;
+		color: rgb(0, 0, 0);
 	}
 }
 .image-preview {

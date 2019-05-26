@@ -62,15 +62,45 @@
       }
     }
 
-    .sidebar-wrapper .nav [data-toggle="collapse"]~div>ul>li>a .sidebar-mini-icon,
-    .sidebar-wrapper .user .info [data-toggle="collapse"]~div>ul>li>a .sidebar-mini-icon {
+    .sidebar-wrapper
+      .nav
+      [data-toggle='collapse']
+      ~ div
+      > ul
+      > li
+      > a
+      .sidebar-mini-icon,
+    .sidebar-wrapper
+      .user
+      .info
+      [data-toggle='collapse']
+      ~ div
+      > ul
+      > li
+      > a
+      .sidebar-mini-icon {
       float: right;
       margin-left: 15px;
       margin-right: 0;
     }
 
-    .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li>a .sidebar-normal,
-    .sidebar-wrapper .user .info [data-toggle="collapse"]~div>ul>li>a .sidebar-normal {
+    .sidebar-wrapper
+      > .nav
+      [data-toggle='collapse']
+      ~ div
+      > ul
+      > li
+      > a
+      .sidebar-normal,
+    .sidebar-wrapper
+      .user
+      .info
+      [data-toggle='collapse']
+      ~ div
+      > ul
+      > li
+      > a
+      .sidebar-normal {
       text-align: right;
     }
 
@@ -88,11 +118,11 @@
   }
 
   .main-panel .content {
-    padding: 110px 300px 20px 50px
+    padding: 110px 300px 20px 50px;
   }
 
   .dropdown-toggle:after {
-    margin-right: .255em;
+    margin-right: 0.255em;
     margin-left: 0;
   }
 
@@ -140,19 +170,17 @@
       right: auto !important;
     }
 
-    span[data-notify="icon"] {
+    span[data-notify='icon'] {
       right: 15px;
       left: auto;
     }
-
-
 
     &.alert-with-icon {
       padding-right: 65px;
       padding-left: 15px;
     }
 
-    &.alert-with-icon i[data-notify="icon"] {
+    &.alert-with-icon i[data-notify='icon'] {
       right: 15px;
       left: auto;
     }
@@ -169,7 +197,6 @@
 
   .rtl .footer {
     padding: 24px 30px !important;
-
   }
 
   .ps__rail-y {
@@ -196,8 +223,6 @@
   }
 }
 
-
-
 @include media-breakpoint-up(xl) {
   .rtl {
     &.sidebar-mini .main-panel .content {
@@ -221,15 +246,12 @@
 }
 
 @include media-breakpoint-down(lg) {
-
   .nav-open {
     .rtl .wrapper {
       @include transform-translate-x(-260px);
-      @include transitions (0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
-
+      @include transitions(0.5s, cubic-bezier(0.685, 0.0473, 0.346, 1));
     }
   }
-
 
   .rtl {
     .sidebar {
@@ -303,7 +325,6 @@
   }
 }
 
-
 @include media-breakpoint-down(sm) {
   .rtl {
     .main-panel .content {
@@ -313,9 +334,7 @@
   }
 }
 
-
 @include media-breakpoint-down(xs) {
-
   .rtl .navbar .dropdown-menu {
     width: 200px !important;
   }

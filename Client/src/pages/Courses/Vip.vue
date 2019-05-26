@@ -16,16 +16,22 @@
           ></span>
         </p>
       </div>
-      <div class="col-md-3 my-auto py-3 text-center">
-        <el-select class="select-danger" placeholder="عضویت" v-model="selects.simple">
-          <el-option
-            v-for="option in selects.vip"
-            class="select-danger"
-            :value="option.value"
-            :label="option.label"
-            :key="option.label"
-          ></el-option>
-        </el-select>
+      <div class="col-md-3 my-auto py-3">
+        <base-dropdown title="عضویت" title-classes="btn btn-primary px-5">
+          <a class="dropdown-item" href="#">ماهانه - 39 هزار تومان</a>
+          <a class="dropdown-item" href="#">۴ ماهه - 109 هزار تومان</a>
+          <a class="dropdown-item" href="#">یکساله - 229 هزار تومان</a>
+        </base-dropdown>
+
+        <!-- <el-select class="select-danger" placeholder="عضویت" v-model="selects.simple">
+            <el-option
+              v-for="option in selects.vip"
+              class="select-danger"
+              :value="option.value"
+              :label="option.label"
+              :key="option.label"
+            ></el-option>
+        </el-select>-->
         <!-- <router-link to="buyVIP">
           <base-button class="mb-2" type="danger">
             <i class="tim-icons icon-money-coins px-2"></i> ۳۹،۰۰۰ تومان‎
@@ -37,9 +43,12 @@
 </template>
 
 <script>
+import { BaseDropdown } from 'src/components';
+
 import { Select, Option } from 'element-ui';
 export default {
   components: {
+    BaseDropdown,
     [Select.name]: Select,
     [Option.name]: Option
   },
