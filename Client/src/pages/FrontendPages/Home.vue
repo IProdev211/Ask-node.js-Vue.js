@@ -95,7 +95,7 @@ export default {
       color: white !important;
     }
     @media (max-width: 800px) {
-      padding: 0 7%;
+      padding: 0 9%;
     }
   }
 }

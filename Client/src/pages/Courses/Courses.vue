@@ -80,6 +80,13 @@ export default {
 .course-section {
   padding: 0 3%;
 }
+
+@media (max-width: 800px) {
+  .course-section {
+    margin: 0 11%;
+  }
+}
+
 .headerDigits {
   padding: 0 35%;
 }

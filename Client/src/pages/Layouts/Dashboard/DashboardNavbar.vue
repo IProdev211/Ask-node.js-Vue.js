@@ -1,5 +1,5 @@
 <template>
-  <base-nav v-model="showMenu" class="navbar-absolute top-navbar" type="white" :transparent="true">
+  <base-nav v-model="showMenu" class="navbar-absolute top-navbar" type="dark" :transparent="true">
     <div slot="brand" class="navbar-wrapper">
       <div class="navbar-minimize d-inline">
         <sidebar-toggle-button/>
@@ -131,5 +131,9 @@ export default {
       background-color: transparent;
     }
   }
+}
+
+.navbar .dropdown .dropdown-menu li a {
+  color: #fff;
 }
 </style>

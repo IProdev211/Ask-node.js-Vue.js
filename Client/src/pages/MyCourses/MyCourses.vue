@@ -5,8 +5,8 @@
       <p class="pb-4">در این بخش دور های نقدی که در آن ثبت نام کرده اید لیست میشود</p>
       <hr class="fadeline2">
     </div>
-    <div class="row" v-if="courses.length">
-      <div class="col-lg-4 col-md-6 mb-4" v-for="course in courses" :key="course.id">
+    <div class="row course-section" v-if="courses.length">
+      <div class="col-lg-3 col-md-6 mb-4" v-for="course in courses" :key="course.id">
         <Course v-bind="course" :purchased="true"></Course>
       </div>
     </div>
@@ -46,10 +46,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.course-section {
+  margin: 0 3%;
+}
+@media (max-width: 800px) {
+  .course-section {
+    margin: 0 14%;
+  }
+}
 .no-courses-message {
   font-size: 1.1rem;
   color: rgb(180, 180, 180);
 }
+
 p {
   font-size: 1.1rem;
   color: rgb(180, 180, 180);

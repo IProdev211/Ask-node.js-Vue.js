@@ -296,7 +296,7 @@ export default {
 
 @media (max-width: 600px) {
   .CourseCard__course__info {
-    margin: 0 10%;
+    margin: 0 14%;
   }
 
   .pricehighlight {

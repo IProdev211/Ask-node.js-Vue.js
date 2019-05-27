@@ -125,7 +125,7 @@
 import AllUnits from './Components/AllUnits.vue';
 import moment from 'jalali-moment';
 import backend from '../../backend';
-import time from "../../util/time";
+import time from '../../util/time';
 
 export default {
   components: {
@@ -175,7 +175,11 @@ export default {
     dataLoad() {
       if (this.$route.name === 'Single Lesson') {
         backend
-          .get(`courses/${this.$route.params.course}/unit-${this.$route.params.unit}`)
+          .get(
+            `courses/${this.$route.params.course}/unit-${
+              this.$route.params.unit
+            }`
+          )
           .then(response => {
             this.episode = response.data.data.episode;
             this.course = response.data.data.course;
@@ -201,7 +205,11 @@ export default {
       }
     },
     getEpisodeCreateDate() {
-      return moment(this.episode.createdAt ? this.episode.createdAt : this.course.createdAt).locale("fa").format('YYYY/MM/DD');
+      return moment(
+        this.episode.createdAt ? this.episode.createdAt : this.course.createdAt
+      )
+        .locale('fa')
+        .format('YYYY/MM/DD');
     },
     getCoursePrice() {
       switch (this.course.type.toLowerCase()) {
@@ -264,7 +272,9 @@ export default {
 }
 
 .course-title {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  line-height: inherit;
+
   margin: 0;
 }
 
