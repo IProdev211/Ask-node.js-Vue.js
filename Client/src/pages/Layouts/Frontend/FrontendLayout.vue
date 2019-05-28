@@ -188,7 +188,7 @@ export default {
   font-weight: 600;
 }
 .navbar.navbar-transparent {
-  background: #32325d !important;
+  background: #28284d !important;
   // background: linear-gradient(to right, #6411b8, #a200ff) !important;
 }
 

@@ -2,7 +2,7 @@
   <div>
     <div class="private-classes-background">
       <div class="container">
-        <h1 class="text-center display-3 text-danger pt-5">کلاس های خصوصی ما</h1>
+        <h1 class="text-center display-3 text-white pt-5">کلاس های خصوصی ما</h1>
         <div class="private-classes">
           <div class="row pricing">
             <div class="col-lg-4 col-sm-12 pt-3 px-3">
@@ -24,12 +24,12 @@
                   </ul>
                 </div>
                 <div class="pricing-action">
-                  <a
-                    href="https://www.askarya.ir/assets/AskArya-RegistrationForm.jpg"
-                    target="_blank"
-                    download="Register"
-                    class="btn btn-lg btn-block btn-outline-primary"
-                  >ثبت نام</a>
+                  <router-link to="contact">
+                    <base-button
+                      native-type="submit"
+                      class="btn btn-lg btn-block btn-outline-primary"
+                    >ثبت نام</base-button>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -56,12 +56,12 @@
                   </ul>
                 </div>
                 <div class="pricing-action">
-                  <a
-                    href="https://www.askarya.ir/assets/AskArya-RegistrationForm.jpg"
-                    target="_blank"
-                    download="Register"
-                    class="btn btn-lg btn-block btn-outline-primary"
-                  >ثبت نام</a>
+                  <router-link to="contact">
+                    <base-button
+                      native-type="submit"
+                      class="btn btn-lg btn-block btn-outline-primary"
+                    >ثبت نام</base-button>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -91,12 +91,12 @@
                   </ul>
                 </div>
                 <div class="pricing-action">
-                  <a
-                    href="https://www.askarya.ir/assets/AskArya-RegistrationForm.jpg"
-                    target="_blank"
-                    download="Register"
-                    class="btn btn-lg btn-block btn-askarya"
-                  >ثبت نام</a>
+                  <router-link to="contact">
+                    <base-button
+                      native-type="submit"
+                      class="btn btn-lg btn-block btn-outline-primary"
+                    >ثبت نام</base-button>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -106,9 +106,9 @@
     </div>
     <!-- FREE DISCUSSION SECTION -->
     <div class="freeDiscussion container pt-3 text-right">
-      <h2 class="my-5 text-danger">کلاس های بحث آزاد</h2>
+      <h2 class="my-5 text-info">کلاس های بحث آزاد</h2>
       <div class="py-5">
-        <h2 class="text-success">آیا تغییرات مورد نظر را در خودتان نمیبینید؟</h2>
+        <h2 class="text-white">آیا تغییرات مورد نظر را در خودتان نمیبینید؟</h2>
         <p class="py-3 CustomParagraph">
           یک چند ماهی هست که کلاس های زبانت رو شروع کردی. خب تا یک جاهایی خوب پیش میره، شما حس میکنید که در مکالمه، لغات و گرامر دارید پیشرفت میکنید.
           <br>
@@ -119,7 +119,7 @@
       </div>
 
       <div class="py-3 CustomParagraph">
-        <h2 class="text-success">راه حل؟ کلاس های بحث آزاد اسک آریا.</h2>
+        <h2 class="text-white">راه حل؟ کلاس های بحث آزاد اسک آریا.</h2>
         <p class="py-3 mb-5">
           هدف اسک آریا یاددهی درست و اصولی به زبان آموزان است، آموختن با برنامه اصولی و کارآمد.
           به احتمال زیاد تا به حال بسیاری از شما در کلاس های آموزش زبان شرکت کرده اید و یا اکنون هم در حال گذراندن دوره های مربوط به خود هستید، اما بعد از مدتی متوجه عدم پیشرفت خود شده اید، چرا که بسیاری از زبان آموزان به اشتباه فکر میکنند شرکت در این کلاس ها کافی بوده و با تکیه بر آن سعی در ارتقاء سطح زبان خود دارند، در صورتی که این تنها کافی نیست.
@@ -241,7 +241,7 @@ ul {
   }
 
   .pricing-features li {
-    padding: 10px 0;
+    padding: 6px 0;
     font-size: 15px;
   }
 

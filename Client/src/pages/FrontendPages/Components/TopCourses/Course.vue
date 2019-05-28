@@ -148,7 +148,6 @@ export default {
 }
 
 .CourseCard {
-  // max-width: 280px;
   background-color: #32325d;
   border-radius: 35px;
 }
@@ -173,7 +172,6 @@ export default {
 }
 
 .CourseCard .CourseCard__courseimage {
-  // max-width: 280px;
   border-radius: 30px 30px 0 0;
 }
 
@@ -221,7 +219,7 @@ export default {
 }
 
 .CourseCard__course__info {
-  margin: 0 20%;
+  margin: 0 14%;
 }
 
 .courseTime {
@@ -296,7 +294,7 @@ export default {
 
 @media (max-width: 700px) {
   .CourseCard__course__info {
-    margin: 0 10%;
+    margin: 0 14%;
   }
 
   .pricehighlight {

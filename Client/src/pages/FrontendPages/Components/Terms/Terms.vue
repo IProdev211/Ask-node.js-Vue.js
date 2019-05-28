@@ -1,7 +1,7 @@
 <template>
   <section class="container text-center py-5">
     <div class="top-section">
-      <h1 class="display-2 text-danger">قوانین و مقررات سایت</h1>
+      <h1 class="display-2 text-info">قوانین و مقررات سایت</h1>
       <!-- <p>در این صفحه شرایط استفاده از وبسایت اسک آریا را مشاهده میکنید</p> -->
     </div>
     <div class="main-section text-right pt-3">

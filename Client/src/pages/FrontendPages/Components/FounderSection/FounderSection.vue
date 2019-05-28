@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <!-- <h3 class="pb-5 founder-header text-danger text-right">بنیانگذار ما</h3> -->
     <div class="row">
       <div class="col-md-7 text-right">
         <h2 class="subheading2 text-info">کاپیتان این پرواز چه کسی است؟</h2>
@@ -51,14 +50,17 @@
 }
 .founder-header {
   font-size: 1.4rem;
+  // color: rgb(58, 58, 58) !important;
   color: white !important;
 }
 .subheader-founder {
   font-size: 1rem;
+  // color: rgb(58, 58, 58) !important;
   color: rgb(197, 197, 197);
 }
 
 .CustomParagraph {
   font-size: 1rem;
+  // color: rgb(58, 58, 58) !important;
 }
 </style>
