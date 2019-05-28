@@ -152,7 +152,7 @@ export default {
           break;
       }
       if (isActive) {
-        classes += ' text-success';
+        classes += ' text-primary';
       }
       return classes;
     }

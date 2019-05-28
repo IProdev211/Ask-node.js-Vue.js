@@ -109,13 +109,13 @@ export default {
 }
 
 .pricehighlight {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: white;
   font-weight: 600;
 }
 
 .oldPrice {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   color: rgb(190, 190, 190);
   font-weight: 600;
   text-decoration: line-through;
@@ -168,7 +168,7 @@ export default {
 }
 
 .course-title {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #f1f1f1;
 }
 
@@ -294,17 +294,17 @@ export default {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .CourseCard__course__info {
     margin: 0 14%;
   }
 
   .pricehighlight {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .oldPrice {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .course-title {

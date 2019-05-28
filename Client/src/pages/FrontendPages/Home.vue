@@ -1,20 +1,24 @@
 <template>
   <div>
-    <vue-particles :lineLinked="false" :moveSpeed="2" :particleSize="2"></vue-particles>
+    <!-- <vue-particles :lineLinked="false" :moveSpeed="2" :particleSize="2"></vue-particles> -->
     <!-- Hero Section -->
-    <section class="hero-content-homepage pt-4 d-flex align-items-center">
+    <section class="hero-content-homepage">
       <div class="container">
         <div class="row">
-          <div class="col-12 pb-4">
+          <div class="col-md-4 py-4">
             <h1 class="hero-title text-center">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
-            <p class="hero-subtitle text-center pt-3 px-4">
+            <!-- <p class="hero-subtitle text-center pt-3 px-4">
               باور ما اینست که کاربران ایرانی لایق بهترین هاو بروزترین متد آموزشی، فیلم های آموزشی و مقالات هستند.
               <br>
               <span>با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</span>
-            </p>
+            </p>-->
+            <p
+              class="hero-subtitle text-center px-4"
+            >با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
           </div>
+
           <!-- Top Courses -->
-          <div class="top-courses-section pt-2">
+          <div class="col-md-8 top-courses-section pt-4">
             <div class="row">
               <div class="col-lg-4 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
                 <Course v-bind="course"></Course>
@@ -70,12 +74,11 @@ export default {
 
 
 <style lang="scss">
+// body {
+//   background: #f8f8f8;
+// }
 .hero-content-homepage {
-  background: linear-gradient(
-      180deg,
-      rgba(174, 0, 255, 0.432),
-      rgba(179, 97, 255, 0.301)
-    ),
+  background: linear-gradient(rgba(42, 0, 156, 0.911)),
     url(/img/frontend/hero-bg-opt.png) no-repeat;
   background-size: cover;
   background-position: center;
@@ -89,13 +92,13 @@ export default {
   .top-courses-section {
     // background: linear-gradient(180deg, rgb(86, 7, 133), #1e1e2f);
     // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 4vw));
-    padding: 0 10%;
+    padding: 0 2%;
     .section-header {
       font-size: 1.2rem;
       color: white !important;
     }
-    @media (max-width: 800px) {
-      padding: 0 9%;
+    @media (max-width: 850px) {
+      padding: 0 13%;
     }
   }
 }
@@ -127,7 +130,7 @@ export default {
   z-index: 0;
 }
 .hero-title {
-  font-size: 3.2rem;
+  font-size: 3rem;
   line-height: inherit;
   font-weight: 600;
   color: #dbdbdb;
@@ -136,7 +139,7 @@ export default {
 }
 
 .hero-subtitle {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #cecece;
   line-height: inherit;
   margin: 0;

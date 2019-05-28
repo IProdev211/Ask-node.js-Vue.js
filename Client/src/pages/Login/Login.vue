@@ -10,7 +10,7 @@
                 <!-- <p class="container pt-3 text-center">با ورود به پنل کاربری میتوانید به سادگی به ویدیو های سایت دسترسی پیدا کنید و مقالات جدید را مطالعه کنید.</p> -->
               </template>
               <div class="row mt-4">
-                <div class="col-12">
+                <div class="col-6">
                   <label class="pull-right font-weight-bold">پست الکترونیک</label>
                   <base-input 
                     class="text-ltr"
@@ -20,7 +20,7 @@
                   </base-input>
                 </div>
 
-                <div class="col-12">
+                <div class="col-6">
                   <label class="pull-right font-weight-bold">کلمه عبور</label>
                   <base-input
                     class="text-ltr"
@@ -51,7 +51,7 @@
                   <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
                 </ul>
               </p>
-              <div class="pt-3">
+              <div class="pt-3 d-flex justify-content-center">
                 <vue-recaptcha  :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
               </div>
               <div slot="footer">
@@ -180,5 +180,4 @@ export default {
   font-size: 0.8rem;
   color: rgb(177, 177, 177);
 }
-
 </style>
