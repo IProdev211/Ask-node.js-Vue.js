@@ -97,8 +97,13 @@ export default {
       font-size: 1.2rem;
       color: white !important;
     }
+<<<<<<< HEAD
     @media (max-width: 850px) {
       padding: 0 13%;
+=======
+    @media (max-width: 800px) {
+      padding: 0 7%;
+>>>>>>> parent of 3818955... 2.1.4.1
     }
   }
 }

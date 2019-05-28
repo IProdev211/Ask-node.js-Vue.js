@@ -51,9 +51,13 @@
                   <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
                 </ul>
               </p>
+<<<<<<< HEAD
               <div class="pt-3 d-flex justify-content-center">
                 <vue-recaptcha  :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
               </div>
+=======
+              <vue-recaptcha class="pt-2" :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
+>>>>>>> parent of 3818955... 2.1.4.1
               <div slot="footer">
                 <base-button type="primary" nativeType="submit" class="mb-3" size="lg" :loading="loading" block>ورود</base-button>
                 <div class="d-flex justify-content-around">

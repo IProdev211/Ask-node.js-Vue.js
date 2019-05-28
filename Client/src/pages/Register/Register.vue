@@ -53,12 +53,9 @@
                  <p class="px-5 google-text">
                     شما میتوانید بدون ثبت نام با اکانت گوگل وارد سایت شوید.
                   </p>
-              </div>    
-               <div class="pb-3">
-             <vue-recaptcha :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
-            </div>      
+              </div>          
             </div>
-           
+            <vue-recaptcha :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
             <p v-if="formErrors.length">
               <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
               <ul>

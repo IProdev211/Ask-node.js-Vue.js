@@ -82,9 +82,7 @@ export default {
 
 
 <style lang="scss" scoped>
-@media (max-width: 800px) {
-  .course-section {
-    padding: 0 9%;
-  }
-}
+// .course-section {
+//   padding: 0 9%;
+// }
 </style>
