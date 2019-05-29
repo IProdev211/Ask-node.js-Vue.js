@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7 text-right">
-        <h2 class="subheading2 text-info">کاپیتان این پرواز چه کسی است؟</h2>
+        <h2 class="subheading2">کاپیتان این پرواز چه کسی است؟</h2>
         <p class="CustomParagraph">
           با سلام، بنیان گذار اسک آریا آقای آریا درودیان هستند، اکثر دوران زندگی و تحصیل خود را در لندن گذرانده است. وی دو سال اخیر برای ادامه زندگی و اتمام دوره خلبانی خود به ایران سفر کرد و ساکن شد. آریا درودیان در اصل یک نیتیو دو زبانه انگلیسی فارسی است، همچنین در زمینه زبان فرانسه نیز تبحر دارد.
           <br>
@@ -19,48 +19,17 @@
           alt="Picture of our fearless leader 2"
         >
       </div>
-
-      <!-- <div class="Education container py-4 text-right">
-        <hr class="hr-1">
-        <h2 class="subheading2 text-info">تحصیلات</h2>
-        <p class="CustomParagraph">
-          <span>خلبان مسافربری (ATPL) -</span>
-          <small>دانشکده خلبانی آکسفورد - لندن</small>
-        </p>
-        <p class="CustomParagraph">
-          <span>لیسانس مهندسی امنیت شبکه کامپیوتر -</span>
-          <small>دانشگاه وستمینیستر (Westminister University) - لندن</small>
-        </p>
-        <p class="CustomParagraph">
-          <span>فوق دیپلم کسب و کار، زبان فارسی، ریاضیات و حسابداری -</span>
-          <small>پیش دانشگاهی ویلیام موریس (William Morris Sixth Form) - لندن</small>
-        </p>
-        <p class="CustomParagraph">
-          <span>دیپلم ریاضیات، ریاضیات (آمار)، علوم پایه، انگلیسی، فرانسوی، فارسی، کامپیوتر، و تاریخ -</span>
-          <small>دبیرستان هلند پارک (Holland Park School) - لندن</small>
-        </p>
-      </div>-->
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.hero-header {
-  font-size: 3.6rem;
-}
-.founder-header {
-  font-size: 1.4rem;
-  // color: rgb(58, 58, 58) !important;
-  color: white !important;
-}
-.subheader-founder {
-  font-size: 1rem;
-  // color: rgb(58, 58, 58) !important;
-  color: rgb(197, 197, 197);
+.subheading2 {
+  color: rgb(46, 46, 46);
 }
 
 .CustomParagraph {
+  color: rgb(32, 32, 32);
   font-size: 1rem;
-  // color: rgb(58, 58, 58) !important;
 }
 </style>

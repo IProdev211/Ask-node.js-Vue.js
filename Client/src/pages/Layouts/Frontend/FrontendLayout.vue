@@ -1,12 +1,6 @@
 <template>
   <div>
-    <base-nav
-      v-model="showMenu"
-      type="dark"
-      :transparent="true"
-      menu-classes
-      class="auth-navbar fixed-top"
-    >
+    <base-nav v-model="showMenu" type="light" :transparent="false" menu-classes class="auth-navbar">
       <div slot="brand" class="navbar-wrapper">
         <router-link to="/">
           <img src="/img/askarya-logo.png" width="110" alt="Ask Arya Logo">
@@ -69,18 +63,62 @@
             <router-view></router-view>
           </zoom-center-transition>
         </div>
-        <footer class="footer">
-          <div class="container-fluid">
-            <div class="copyright">
-              &copy; طراحی و تولید شده توسط
-              <a
-                class="font-weight-bold"
-                href="/terms"
-                target="_blank"
-              >اسک آریا</a>، با افتخار در ایران
-              <i class="tim-icons icon-heart-2"></i>
-              سال ١٣٩٧
+        <!-- FOOTER SECTION -->
+
+        <footer class="footer-bottom">
+          <div class="container">
+            <div class="footer-top">
+              <div class="row text-right">
+                <div class="col-md-5 about-us">
+                  <h4 class="title">درباره اسک آریا</h4>
+                  <p>اسک آریا یکی از پرتلاش‌ترین و بروزترین وبسایت های آموزشی در سطح ایران است که همیشه تلاش کرده تا بتواند جدیدترین و بروزترین مقالات و دوره‌های آموزشی را در اختیار علاقه‌مندان ایرانی قرار دهد.</p>
+                </div>
+                <div class="col-md-3 askarya-sections">
+                  <h4 class="title">بخش های سایت</h4>
+                  <ul>
+                    <li class="footer-li">
+                      <router-link to="خانه">خانه</router-link>
+                    </li>
+                    <li class="footer-li">
+                      <router-link to="ourcourses">دوره های ما</router-link>
+                    </li>
+                    <li class="footer-li">
+                      <router-link to="privateclasses">کلاس های حضوری</router-link>
+                    </li>
+                    <li class="footer-li">
+                      <router-link to="meetups">میت آپ</router-link>
+                    </li>
+                    <li class="footer-li">
+                      <router-link to="contact">تماس با ما</router-link>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-4 contact-section">
+                  <h4 class="title">ارتباط با ما</h4>
+                  <p
+                    class="pt-3"
+                  >شما میتوانید با استفاده از یکی از راه‌های زیر با ما ارتباط برقرار کنید</p>
+                  <p class="pt-2 telegram">
+                    <a href="https://t.me/AskAryaSomething" class="li-ic">
+                      AskAryaSomething
+                      <i class="fab fa-telegram icon-text"></i>
+                    </a>
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
+        </footer>
+        <footer class="copyright text-right">
+          <div>
+            &copy; طراحی و تولید شده توسط
+            <a
+              class="font-weight-bold"
+              href="/terms"
+              target="_blank"
+            >اسک آریا</a>، با افتخار در ایران
+            <i class="tim-icons icon-heart-2"></i>
+            سال ١٣٩٧
           </div>
         </footer>
       </div>
@@ -187,21 +225,21 @@ export default {
   font-size: 1.1rem;
   font-weight: 600;
 }
-.navbar.navbar-transparent {
-  background: #28284d !important;
-  // background: linear-gradient(to right, #6411b8, #a200ff) !important;
+
+.navbar-collapse .navbar-nav .nav-link {
+  color: rgb(0, 0, 0);
 }
 
 .navbar-nav li {
   font-size: 1.1rem;
   padding: 0 12px;
-  color: white;
+  color: black;
 }
 
 @media (max-width: 768px) {
   .navbar-nav {
     font-size: 1rem;
-    color: white;
+    color: rgb(34, 34, 34);
     padding: 22px 0;
   }
   .navbar-nav li {
@@ -241,5 +279,35 @@ $scaleSize: 0.8;
 
 .wrapper-full-page .zoomOut {
   animation-name: zoomOut8;
+}
+
+.copyright {
+  padding: 20px 0;
+  background: #373d44;
+  color: #fff;
+}
+
+.footer-bottom {
+  background: #4c525a;
+  padding: 25px 0;
+  color: #fff;
+  line-height: 2;
+
+  .title {
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: 500;
+    padding-bottom: 15px;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+  }
+  ul {
+    list-style: none;
+  }
+  a {
+    color: #fff;
+  }
+  .telegram {
+    direction: ltr;
+  }
 }
 </style>

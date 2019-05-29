@@ -278,17 +278,11 @@ export default {
     color: rgb(81, 202, 206);
     font-weight: 600;
   }
-  .course-title {
-    color: #f3ef1f;
-  }
-  .courseTime {
-    color: #f3ef1f;
-  }
-  .unitsAvailable {
-    color: #f3ef1f;
-  }
+  .course-title,
+  .courseTime,
+  .unitsAvailable,
   .pricehighlight {
-    color: #f3ef1f;
+    color: #fec339;
   }
 }
 
