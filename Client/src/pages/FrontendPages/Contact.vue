@@ -4,7 +4,7 @@
       <!--Intro Section-->
       <div class="introSection text-center pt-4">
         <div class="container">
-          <h1 class="display-2 text-info pt-2">تماس با ما</h1>
+          <h1 class="display-2 text-white pt-2">تماس با ما</h1>
           <p class="subtitle">راه ارتباطی ما فقط از این سه طریق می باشد.</p>
         </div>
       </div>

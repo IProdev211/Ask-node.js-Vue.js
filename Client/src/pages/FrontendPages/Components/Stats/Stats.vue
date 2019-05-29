@@ -1,25 +1,26 @@
 <template>
-  <div class="container-fluid">
-    <div class="text-center text-white stat-cards">
+  <div class="container">
+    <div class="stat-cards text-center">
       <div class="row">
         <div class="col-4">
-          <div class="card stat-box-1">
-            <h2 class="headerStyling">{{ episodes }}</h2>
-            <p>درس</p>
+          <div class="stitched1">
+            <!-- <h2 class="headerStyling1">29</h2> -->
+            <h2 class="headerStyling1">{{ episodes }}</h2>
+            <p class="subheader">درس</p>
           </div>
         </div>
 
         <div class="col-4">
-          <div class="card stat-box-2">
-            <h2 class="headerStyling">{{ hours }}</h2>
-            <p>ساعت</p>
+          <div class="stitched2">
+            <h2 class="headerStyling2">{{ hours }}</h2>
+            <p class="subheader">ساعت</p>
           </div>
         </div>
 
         <div class="col-4">
-          <div class="card stat-box-3">
-            <h2 class="headerStyling">{{ total }}</h2>
-            <p>دوره</p>
+          <div class="stitched3">
+            <h2 class="headerStyling3">{{ total }}</h2>
+            <p class="subheader">دوره</p>
           </div>
         </div>
       </div>
@@ -28,32 +29,115 @@
 </template>
 
 <script>
-export default {};
+import backend from '../../../../backend';
+
+export default {
+  data: function() {
+    return {
+      total: 0,
+      hours: 0,
+      episodes: 0
+    };
+  },
+  methods: {
+    dataLoad(page) {
+      backend.get('/courses?page=' + page).then(response => {
+        this.total = response.data.total;
+        this.episodes = response.data.episodes;
+        this.hours = Math.ceil(response.data.seconds / 3600);
+      });
+    }
+  },
+  mounted() {
+    this.dataLoad();
+  }
+};
 </script>
 
 <style lang="scss" scoped>
+.stitched1 {
+  padding: 20px;
+  margin: 10px;
+  background: rgb(30, 37, 59);
+  color: #fff;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1.3em;
+  border: 2px dashed rgb(117, 117, 117);
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px rgb(30, 37, 59), 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  text-shadow: -1px -1px rgb(30, 37, 59);
+  font-weight: normal;
+
+  .headerStyling1 {
+    color: #f5b435;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+  }
+  .subheader {
+    font-size: 0.9rem;
+  }
+}
+
+.stitched2 {
+  padding: 20px;
+  margin: 10px;
+  background: rgb(30, 37, 59);
+  color: #fff;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1.3em;
+  border: 2px dashed rgb(117, 117, 117);
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px rgb(30, 37, 59), 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  text-shadow: -1px -1px rgb(30, 37, 59);
+  font-weight: normal;
+
+  .headerStyling2 {
+    color: #21c8f6;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+  }
+  .subheader {
+    font-size: 0.9rem;
+  }
+}
+
+.stitched3 {
+  padding: 20px;
+  margin: 10px;
+  background: rgb(30, 37, 59);
+  color: #fff;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1.3em;
+  border: 2px dashed rgb(117, 117, 117);
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px rgb(30, 37, 59), 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  text-shadow: -1px -1px rgb(30, 37, 59);
+  font-weight: normal;
+
+  .headerStyling3 {
+    color: #6edcc4;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+  }
+  .subheader {
+    font-size: 0.9rem;
+  }
+}
+
 .stat-cards {
-  padding: 0 33%;
+  padding: 0 30%;
 }
 
 @media (max-width: 800px) {
   .stat-cards {
     padding: 0 01%;
   }
-}
-.stat-box-1 {
-  background-image: linear-gradient(180deg, #21c8f6, #637bff);
-  border-radius: 20px;
-}
-
-.stat-box-2 {
-  background-image: linear-gradient(180deg, #f44881, #ec454f);
-  border-radius: 20px;
-}
-
-.stat-box-3 {
-  background-image: linear-gradient(180deg, #6edcc4, #1aab8b);
-  border-radius: 20px;
 }
 </style>
 

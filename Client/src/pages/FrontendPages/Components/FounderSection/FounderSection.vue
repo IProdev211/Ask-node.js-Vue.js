@@ -25,11 +25,11 @@
 
 <style lang="scss" scoped>
 .subheading2 {
-  color: rgb(46, 46, 46);
+  color: rgb(255, 255, 255);
 }
 
 .CustomParagraph {
-  color: rgb(32, 32, 32);
+  color: rgb(255, 255, 255);
   font-size: 1rem;
 }
 </style>
