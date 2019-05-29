@@ -25,6 +25,7 @@
         v-model="pagination.currentPage"
         :per-page="pagination.perPage"
         :total="total"
+        :showArrows="false"
       ></base-pagination>
     </div>
   </card>
@@ -136,3 +137,7 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+</style>
+
