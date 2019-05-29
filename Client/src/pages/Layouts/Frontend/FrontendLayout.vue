@@ -64,7 +64,6 @@
           </zoom-center-transition>
         </div>
         <!-- FOOTER SECTION -->
-
         <footer class="footer-bottom">
           <div class="container">
             <div class="footer-top">
@@ -113,7 +112,7 @@
           </div>
         </footer>
         <footer class="copyright text-center">
-          <div>
+          <div class="container">
             &copy; طراحی و تولید شده توسط
             <a
               class="font-weight-bold"

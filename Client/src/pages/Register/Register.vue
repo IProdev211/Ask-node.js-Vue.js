@@ -55,7 +55,9 @@
                   </p>
               </div>          
             </div>
-            <vue-recaptcha :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
+            <div class="d-flex justify-content-center pb-3">
+              <vue-recaptcha :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
+            </div>
             <p v-if="formErrors.length">
               <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
               <ul>
@@ -213,8 +215,8 @@ export default {
 .icon {
 font-size: 1.8rem;
 color: #D557D9
-
 }
+
 .icon:hover {
   color: #00ffaa;
 }

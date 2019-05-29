@@ -6,7 +6,7 @@
       <hr class="fadeline2">
     </div>
     <div class="row" v-if="courses.length">
-      <div class="col-lg-4 col-md-6 mb-4" v-for="course in courses" :key="course.id">
+      <div class="col-lg-3 col-md-6 mb-4" v-for="course in courses" :key="course.id">
         <Course v-bind="course" :purchased="true"></Course>
       </div>
     </div>

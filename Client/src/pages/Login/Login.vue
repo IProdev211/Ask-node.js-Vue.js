@@ -40,7 +40,7 @@
               <div class="text-center">
                 <a href="/auth/google">
                   <h4 class="googleicon">
-                    <i class="fab fa-google text-danger"></i>
+                    <i class="fab fa-google icon "></i>
                   </h4>
                 </a>
                 <p class="google-text pt-1">شما میتوانید با اکانت گوگل وارد سایت شوید</p>
@@ -175,6 +175,15 @@ export default {
   font-size: 2rem;
   margin: 0;
   padding: 0;
+}
+
+.icon {
+font-size: 1.8rem;
+color: #D557D9
+}
+
+.icon:hover {
+  color: #00ffaa;
 }
 
 .google-text {
