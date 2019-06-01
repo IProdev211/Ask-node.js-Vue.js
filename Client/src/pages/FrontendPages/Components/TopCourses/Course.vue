@@ -109,13 +109,13 @@ export default {
 }
 
 .pricehighlight {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: white;
   font-weight: 600;
 }
 
 .oldPrice {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   color: rgb(190, 190, 190);
   font-weight: 600;
   text-decoration: line-through;
@@ -148,7 +148,6 @@ export default {
 }
 
 .CourseCard {
-  // max-width: 280px;
   background-color: #32325d;
   border-radius: 35px;
 }
@@ -168,12 +167,11 @@ export default {
 }
 
 .course-title {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #f1f1f1;
 }
 
 .CourseCard .CourseCard__courseimage {
-  // max-width: 280px;
   border-radius: 30px 30px 0 0;
 }
 
@@ -221,7 +219,7 @@ export default {
 }
 
 .CourseCard__course__info {
-  margin: 0 20%;
+  margin: 0 14%;
 }
 
 .courseTime {
@@ -280,17 +278,45 @@ export default {
     color: rgb(81, 202, 206);
     font-weight: 600;
   }
-  .course-title {
-    color: #f3ef1f;
-  }
-  .courseTime {
-    color: #f3ef1f;
-  }
-  .unitsAvailable {
-    color: #f3ef1f;
-  }
+  .course-title,
+  .courseTime,
+  .unitsAvailable,
   .pricehighlight {
-    color: #f3ef1f;
+    color: #fec339;
+  }
+}
+
+@media (max-width: 700px) {
+  .CourseCard__course__info {
+    margin: 0 14%;
+  }
+
+  .pricehighlight {
+    font-size: 0.7rem;
+  }
+
+  .oldPrice {
+    font-size: 0.7rem;
+  }
+
+  .course-title {
+    font-size: 0.8rem;
+  }
+
+  .courseTimeSpan {
+    font-size: 0.7rem;
+  }
+
+  .courseTime {
+    font-size: 1rem;
+  }
+
+  .unitsAvailableSpan {
+    font-size: 0.7rem;
+  }
+
+  .unitsAvailable {
+    font-size: 1rem;
   }
 }
 </style>

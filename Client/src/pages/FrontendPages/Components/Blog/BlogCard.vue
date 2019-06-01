@@ -26,7 +26,9 @@ export default {
   props: ['slug', 'image', 'tags', 'categories', 'name', 'createdAt', 'views'],
   computed: {
     publishedAt: function() {
-      return moment(this.createdAt).locale('fa').format('D MMMM YYYY');
+      return moment(this.createdAt)
+        .locale('fa')
+        .format('D MMMM YYYY');
     }
   }
 };

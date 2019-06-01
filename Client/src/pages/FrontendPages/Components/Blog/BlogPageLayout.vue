@@ -54,6 +54,7 @@ export default {
 .card {
   border-radius: 20px;
   margin: 0 20px;
+  background: transparent;
 }
 p {
   font-size: 1rem;
@@ -61,7 +62,5 @@ p {
 .blog-img {
   width: 250px;
   height: auto;
-}
-@media screen {
 }
 </style>

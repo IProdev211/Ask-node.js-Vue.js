@@ -13,12 +13,14 @@
       </div>
     </div>
     <base-pagination
-      class="pagination-no-border text-rtl ml-auto mt-auto"
+      class="pagination-no-border text-rtl ml-auto mt-auto px-3"
       v-model="pagination.currentPage"
       :value="pagination.currentPage"
       :per-page="pagination.perpage"
       :total="pagination.total"
       :pageCount="pagination.pages"
+      :showArrows="false"
+      type="danger"
       @input="changePageListener"
     ></base-pagination>
   </div>
@@ -45,13 +47,17 @@ export default {
   },
   methods: {
     dataLoad(page) {
-      backend.get('/dashboard/logs?page=' + page + "&limit=" + this.pagination.perPage).then(response => {
-        this.logs = response.data.docs;
-        this.pagination.currentPage = parseInt(response.data.page, 10);
-        this.pagination.pages = response.data.pages;
-        this.pagination.total = response.data.total;
-        this.pagination.perPage = response.data.limit;
-      });
+      backend
+        .get(
+          '/dashboard/logs?page=' + page + '&limit=' + this.pagination.perPage
+        )
+        .then(response => {
+          this.logs = response.data.docs;
+          this.pagination.currentPage = parseInt(response.data.page, 10);
+          this.pagination.pages = response.data.pages;
+          this.pagination.total = response.data.total;
+          this.pagination.perPage = response.data.limit;
+        });
     },
     getLogIcon(type) {
       switch (type) {

@@ -10,7 +10,7 @@
                 <!-- <p class="container pt-3 text-center">با ورود به پنل کاربری میتوانید به سادگی به ویدیو های سایت دسترسی پیدا کنید و مقالات جدید را مطالعه کنید.</p> -->
               </template>
               <div class="row mt-4">
-                <div class="col-12">
+                <div class="col-md-6">
                   <label class="pull-right font-weight-bold">پست الکترونیک</label>
                   <base-input 
                     class="text-ltr"
@@ -20,7 +20,7 @@
                   </base-input>
                 </div>
 
-                <div class="col-12">
+                <div class="col-md-6">
                   <label class="pull-right font-weight-bold">کلمه عبور</label>
                   <base-input
                     class="text-ltr"
@@ -40,7 +40,7 @@
               <div class="text-center">
                 <a href="/auth/google">
                   <h4 class="googleicon">
-                    <i class="fab fa-google text-danger"></i>
+                    <i class="fab fa-google icon "></i>
                   </h4>
                 </a>
                 <p class="google-text pt-1">شما میتوانید با اکانت گوگل وارد سایت شوید</p>
@@ -51,7 +51,10 @@
                   <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
                 </ul>
               </p>
-              <vue-recaptcha :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
+
+              <div class="pt-3 d-flex justify-content-center">
+                <vue-recaptcha  :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
+              </div>
               <div slot="footer">
                 <base-button type="primary" nativeType="submit" class="mb-3" size="lg" :loading="loading" block>ورود</base-button>
                 <div class="d-flex justify-content-around">
@@ -174,9 +177,17 @@ export default {
   padding: 0;
 }
 
+.icon {
+font-size: 1.8rem;
+color: #D557D9
+}
+
+.icon:hover {
+  color: #00ffaa;
+}
+
 .google-text {
   font-size: 0.8rem;
   color: rgb(177, 177, 177);
 }
-
 </style>

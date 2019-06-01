@@ -15,7 +15,7 @@
         <div :class="getUnitBadge(episode.type)">
           <i :class="'fas ' + getEpisodeIcon(episode.type)"></i>
         </div>
-        <div class="UnitName pr-4">
+        <div class="UnitName pr-3">
           <router-link :to="'/courses/' + course.slug + '/unit-' + episode.number">
             <p class="UnitName text-right">{{ episode.title }}</p>
           </router-link>
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import timeUtil from "../../../util/time";
+import timeUtil from '../../../util/time';
 
 export default {
   props: ['course', 'episodes', 'scrollable', 'maxepisodes', 'purchased'],
@@ -88,7 +88,10 @@ export default {
   },
   computed: {
     IAmVIP() {
-      return (this.$root.$data.user.vipTime && (new Date(this.$root.$data.user.vipTime)) > (new Date()));
+      return (
+        this.$root.$data.user.vipTime &&
+        new Date(this.$root.$data.user.vipTime) > new Date()
+      );
     }
   },
   mounted() {
@@ -178,17 +181,22 @@ export default {
 
 @media (max-width: 768px) {
   .UnitName {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .detail-time {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     align-self: center;
+    padding: 8px 5px;
   }
 
   .detail-price {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     align-self: center;
+    padding: 8px 3px;
+  }
+  .UnitBadgeUnlocked {
+    font-size: 1rem;
   }
 }
 </style>

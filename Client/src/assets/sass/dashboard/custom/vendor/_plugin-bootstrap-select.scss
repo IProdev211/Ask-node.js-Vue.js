@@ -10,20 +10,22 @@ select.selectpicker {
   display: none !important;
 }
 
-.bootstrap-select.show>.dropdown-toggle{
+.bootstrap-select.show > .dropdown-toggle {
   border-color: $primary !important;
 }
-.bootstrap-select button.dropdown-toggle{
+.bootstrap-select button.dropdown-toggle {
   background: $transparent-bg !important;
   background-image: none !important;
   border: 1px solid lighten($black, 5%);
-  &:hover,&:active,&:hover:active{
+  &:hover,
+  &:active,
+  &:hover:active {
     background: $transparent-bg !important;
     box-shadow: none !important;
     transform: none !important;
-
   }
-  &:focus,&:active{
+  &:focus,
+  &:active {
     border-color: $primary !important;
   }
 }
@@ -37,9 +39,9 @@ select.selectpicker {
   z-index: 1;
   margin: 0;
 
-    &:after{
-        margin-left: -10px !important;
-    }
+  &:after {
+    margin-left: -10px !important;
+  }
 }
 
 .bootstrap-select > select {
@@ -67,7 +69,7 @@ select.selectpicker {
 .bootstrap-select.fit-width {
   width: auto !important;
 }
-.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+.bootstrap-select:not([class*='col-']):not([class*='form-control']):not(.input-group-btn) {
   width: 100%;
 }
 
@@ -76,27 +78,28 @@ select.selectpicker {
   padding: 0;
   border: none;
 }
-.bootstrap-select.form-control:not([class*="col-"]) {
+.bootstrap-select.form-control:not([class*='col-']) {
   width: 100%;
 }
-.bootstrap-select.btn-block{
-    width: 100%;
+.bootstrap-select.btn-block {
+  width: 100%;
 }
 .bootstrap-select.form-control.input-group-btn {
   z-index: auto;
 }
-.bootstrap-select.form-control.input-group-btn:not(:first-child):not(:last-child) > .btn {
+.bootstrap-select.form-control.input-group-btn:not(:first-child):not(:last-child)
+  > .btn {
   border-radius: 0;
 }
 .bootstrap-select.btn-group:not(.input-group-btn),
-.bootstrap-select.btn-group[class*="col-"] {
+.bootstrap-select.btn-group[class*='col-'] {
   float: none;
   display: inline-block;
   margin-left: 0;
 }
 .bootstrap-select.btn-group.dropdown-menu-right,
-.bootstrap-select.btn-group[class*="col-"].dropdown-menu-right,
-.row .bootstrap-select.btn-group[class*="col-"].dropdown-menu-right {
+.bootstrap-select.btn-group[class*='col-'].dropdown-menu-right,
+.row .bootstrap-select.btn-group[class*='col-'].dropdown-menu-right {
   float: right;
 }
 .form-inline .bootstrap-select.btn-group,
@@ -140,22 +143,22 @@ select.selectpicker {
   text-overflow: ellipsis;
   width: 90%;
   font-size: $font-size-sm;
-  color: rgba($white,0.8);
+  color: rgba($white, 0.8);
   font-weight: $font-weight-normal;
   text-align: left;
 }
 .bootstrap-select.btn-group .dropdown-toggle .caret {
   display: none;
 }
-.bootstrap-select.btn-group[class*="col-"] .dropdown-toggle {
+.bootstrap-select.btn-group[class*='col-'] .dropdown-toggle {
   width: 100%;
 }
 .bootstrap-select.btn-group .dropdown-menu {
   min-width: 100%;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
- max-height: 265px !important;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-height: 265px !important;
 }
 .bootstrap-select.btn-group .dropdown-menu.inner {
   position: static;
@@ -166,10 +169,10 @@ select.selectpicker {
   border-radius: 0;
   display: block;
   max-height: 245px !important;
-overflow-y: scroll;
- -ms-overflow-style: auto;
+  overflow-y: scroll;
+  -ms-overflow-style: auto;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .bootstrap-select.btn-group .dropdown-menu li {
   position: relative;
@@ -183,9 +186,9 @@ overflow-y: scroll;
 .bootstrap-select.btn-group .dropdown-menu li a {
   cursor: pointer;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .bootstrap-select.btn-group .dropdown-menu li a.opt {
   position: relative;
@@ -210,12 +213,12 @@ overflow-y: scroll;
   background: #f5f5f5;
   border: 1px solid #e3e3e3;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   pointer-events: none;
   opacity: 0.9;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .bootstrap-select.btn-group .no-results {
   padding: 3px;
@@ -231,7 +234,11 @@ overflow-y: scroll;
   top: auto;
   margin-top: -1px;
 }
-.bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
+.bootstrap-select.btn-group.show-tick
+  .dropdown-menu
+  li.selected
+  a
+  span.check-mark {
   position: absolute;
   display: inline-block;
   right: 15px;
@@ -295,8 +302,8 @@ overflow-y: scroll;
 .bs-actionsbox {
   width: 100%;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .bs-actionsbox .btn-group button {
   width: 50%;
@@ -305,8 +312,8 @@ overflow-y: scroll;
   float: left;
   width: 100%;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .bs-donebutton .btn-group button {
   width: 100%;
@@ -321,38 +328,37 @@ overflow-y: scroll;
 }
 
 .bootstrap-select {
-    .dropdown-menu.inner {
-        li a{
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-            display: block;
-            outline: none;
-            color: #292b2c;
-        }
-
-        li.disabled a {
-            color: $default-opacity;
-
-            &:hover,
-            &:focus{
-                background-color: transparent;
-            }
-        }
-
+  .dropdown-menu.inner {
+    li a {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      display: block;
+      outline: none;
+      color: #292b2c;
     }
 
-    .dropdown-menu {
-      &.open{
-        overflow: visible !important;
-      }
+    li.disabled a {
+      color: $default-opacity;
 
-      &.dropdown-black {
-        background: linear-gradient(to bottom, $black 0%, $black-states 100%);
-        border: 1px solid $dark-background;
-
-        li > a {
-          color: rgba(255, 255, 255, 0.7);
-        }
+      &:hover,
+      &:focus {
+        background-color: transparent;
       }
     }
+  }
+
+  .dropdown-menu {
+    &.open {
+      overflow: visible !important;
+    }
+
+    &.dropdown-black {
+      background: linear-gradient(to bottom, $black 0%, $black-states 100%);
+      border: 1px solid $dark-background;
+
+      li > a {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+  }
 }
