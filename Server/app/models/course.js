@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const mongoosePaginate = require('mongoose-paginate-v2');
-const bcrypt = require('bcrypt');
+const crypto = require('crypto');
 
 const courseSchema = Schema(
   {
@@ -50,17 +50,15 @@ courseSchema.methods.inc = async function(field, num = 1) {
   await this.save();
 };
 courseSchema.methods.download = function(check, user) {
-  let timestamps = new Date().getTime() + 3600 * 1000 * 12;
-
-  let text = `aQTR@!#Fa#%!@%SDQGGASDF${this.id}${timestamps}`;
-
-  let salt = bcrypt.genSaltSync(15);
-  let hash = bcrypt.hashSync(text, salt);
-
+  const timestamps = new Date().getTime() + 3600 * 1000 * 12;
+  const text = `aQTR@!#Fa#%!@%SDQGGASDF${this.id}${timestamps}`;
+  const hash = crypto.createHash('md5').update(text).digest("hex");
   return `/courses/download/${this.id}?mac=${hash}&t=${timestamps}`;
 };
 courseSchema.methods.validateDownload = function(mac, t) {
-  return bcrypt.compareSync(`aQTR@!#Fa#%!@%SDQGGASDF${this.id}${t}`, mac);
+  const text = `aQTR@!#Fa#%!@%SDQGGASDF${this.id}${t}`;
+  const hash = crypto.createHash('md5').update(text).digest("hex");
+  return hash === mac;
 };
 courseSchema.virtual('episodes', {
   ref: 'Episode',

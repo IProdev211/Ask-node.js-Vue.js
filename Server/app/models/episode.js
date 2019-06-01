@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const mongoosePaginate = require('mongoose-paginate-v2');
-const bcrypt = require('bcrypt');
+const crypto = require('crypto');
 mongoose.set('useFindAndModify', false);
 
 const episodeSchema = Schema(
@@ -52,20 +52,19 @@ episodeSchema.methods.download = function(check, user) {
       status = user.checkLearning(this.course);
     }
   }
-
+  if (!status) {
+    return '#';
+  }
   let timestamps = new Date().getTime() + 3600 * 1000 * 12;
-
-  let text = `aQTR@!#Fa#%!@%SDQGGASDF${this.id}${timestamps}`;
-
-  let salt = bcrypt.genSaltSync(15);
-  let hash = bcrypt.hashSync(text, salt);
-
-  return status ? `/courses/episode/download/${this.id}?mac=${hash}&t=${timestamps}` : '#';
+  const text = `aQTR@!#Fa#%!@%SDQGGASDF${this.id}${timestamps}`;
+  const hash = crypto.createHash('md5').update(text).digest("hex");
+  return `/courses/episode/download/${this.id}?mac=${hash}&t=${timestamps}`;
 };
 
 episodeSchema.methods.validateDownload = function(mac, t) {
   const text = `aQTR@!#Fa#%!@%SDQGGASDF${this.id}${t}`;
-  return bcrypt.compareSync(text, mac);
+  const hash = crypto.createHash('md5').update(text).digest("hex");
+  return hash === mac;
 };
 episodeSchema.methods.path = function() {
   return `${this.course.path()}/${this.number}`;

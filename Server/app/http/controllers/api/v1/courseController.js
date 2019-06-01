@@ -102,11 +102,10 @@ class courseController extends controller {
         }
       ]);
       if (!course) return this.failed('چنین دوره ای یافت نشد', res, 404);
-      const user = await User.findById(req.user.id);
       res.json({
         data: {
-          course: this.filterCourseData(course, user, true),
-          enrolled: user.admin || user.checkLearning(course.id),
+          course: this.filterCourseData(course, req.user, true),
+          enrolled: req.user.admin || req.user.checkLearning(course.id),
           enrolledCount: course.usersCount
         },
         status: 'success'
