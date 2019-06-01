@@ -1,12 +1,19 @@
 <template>
-  <div>
+  <div class="container-fluid">
     <div v-if="id" :key="id">
-      <!-- Course Title -->
-      <h1 class="course-title text-right pr-2 pb-4">{{ title }}</h1>
-      <div class="card-background my-3">
+      <div class="container text-right pb-4">
+        <!-- Course Title -->
+        <h1 class="course-title">{{ title }}</h1>
+        <!-- COURSE DESCRIPTION -->
+        <div class="pt-4">
+          <p class="course-subtitle">توضیحات دوره:</p>
+          <p class="text-muted" v-if="episode.id">{{ course.title }}</p>
+          <div v-html="body"></div>
+        </div>
+      </div>
         <section>
-          <!--------- COURSE INFO  --------->
-          <div class="d-flex justify-content-around text-center">
+          <!-------------- COURSE INFO SECTION  -------------->
+          <div class="d-flex justify-content-around text-center pt-4">
             <!-- COURSE CREATED AT -->
             <div>
               <i class="pl-2 icon far fa-calendar-alt"></i>
@@ -44,20 +51,17 @@
             </div>
           </div>
           <!-- video element -->
-          <vue-plyr class="videoWidth videoPlayer plyr--video" :key="id">
-            <video poster="poster.png" src="video.mp4">
-              <source :src="`/api/v1${download}`" type="video/mp4" size="720">
-              <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default>
-            </video>
-          </vue-plyr>
-
-          <div class="text-right pt-4">
-            <p>توضیحات دوره:</p>
-            <p class="course-subtitle text-muted" v-if="episode.id">{{ course.title }}</p>
-            <div v-html="body"></div>
+          <div class="video-container">
+            <vue-plyr class="plyr--video text-rtl" :key="id">
+              <video poster="poster.png" src="video.mp4">
+                <source :src="`/api/v1${download}`" type="video/mp4" size="720">
+                <!-- <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default> -->
+              </video>
+            </vue-plyr>
           </div>
+
           <div>
-            <!-- COURSE Pricing Structure -->
+            <!-- COURSE PRICING STRUCTURE -->
             <div class="head-section purchase-status px-3" v-if="notEnrolled && type != 'free'">
               <hr>
               <p v-if="type == 'paid'" class="text-danger">
@@ -90,10 +94,10 @@
             </div>
           </div>
         </section>
+      
         <p
-          class="quote-text text-center pt-4"
+          class="quote-text text-center py-3"
         >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
-      </div>
       <!-- Timeline Unit Section -->
       <div class="col-md-12 pt-2">
         <AllUnits
@@ -280,6 +284,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.video-container {
+  padding: 0 20px;
+}
 .icon {
   font-size: 1.7rem;
   color: rgb(238, 238, 238);
@@ -287,15 +294,18 @@ export default {
 }
 
 .icon-text {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: rgb(177, 177, 177);
 }
 
 .icon-data {
-  font-size: 0.8rem;
+  font-size: rem;
   color: #fff;
 }
 @media (max-width: 768px) {
+  .video-container {
+    padding: 0 4px;
+  }
   .icon {
     font-size: 1.2rem;
   }
@@ -336,13 +346,13 @@ export default {
 }
 
 .course-title {
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   font-weight: 600;
   line-height: inherit;
 }
 
 .course-subtitle {
-  font-size: 0.8rem;
+  font-size: 1.3rem;
 }
 
 .course-info {

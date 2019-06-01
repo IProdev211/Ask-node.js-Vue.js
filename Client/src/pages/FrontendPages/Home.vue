@@ -15,7 +15,7 @@
                 <router-link to="ourcourses">
                   <base-button
                     native-type="submit"
-                    type="info"
+                    type="danger"
                     class="btn-simple btn"
                   >دوره های آموزشی</base-button>
                 </router-link>
@@ -44,7 +44,7 @@
       <Stats></Stats>
     </div>
     <!--Founder Section-->
-    <div class="founder-section-homepage py-5">
+    <div class="founder-section-homepage pt-5">
       <founder-section></founder-section>
     </div>
     <hr class="fadeline2">
@@ -167,7 +167,7 @@ export default {
 
 .fadeline2 {
   height: 1px;
-  margin: 20px 20% 0 20%;
+  margin: 40px 20% 0 20%;
   background-image: linear-gradient(
     to right,
     rgba(255, 255, 255, 0),

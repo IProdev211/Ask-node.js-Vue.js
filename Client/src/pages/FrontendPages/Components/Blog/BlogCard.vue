@@ -6,12 +6,15 @@
         <div class="category">{{ categories.length ? categories.pop().name : "" }}</div>
         <div class="card-body">
           <h3 class="card-title py-2">{{ name }}</h3>
-          <div class="d-flex justify-content-between">
-            <span class="rtl direction-rtl">{{ publishedAt }}</span>
+          <div class="d-flex justify-content-between px-1 blog-info">
             <span>
               <i class="fa fa-eye"></i>
-              {{views}} views
+              {{views}}
             </span>
+            <div>
+              <span class="pr-2 text-rtl">{{ publishedAt }}</span>
+              <i class="far fa-calendar-alt"></i>
+            </div>
           </div>
         </div>
       </div>
@@ -34,6 +37,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.blog-info {
+  color: #27408b;
+}
 .blogBox {
   border-radius: 15px;
 }
@@ -84,8 +90,5 @@ export default {
 }
 .home-blog h3 {
   color: #27408b;
-}
-.direction-rtl {
-  direction: rtl;
 }
 </style>
