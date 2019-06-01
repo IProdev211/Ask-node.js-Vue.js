@@ -4,7 +4,6 @@
       <div class="row">
         <div class="col-4">
           <div class="stitched1">
-            <!-- <h2 class="headerStyling1">29</h2> -->
             <h2 class="headerStyling1">{{ episodes }}</h2>
             <p class="subheader">درس</p>
           </div>

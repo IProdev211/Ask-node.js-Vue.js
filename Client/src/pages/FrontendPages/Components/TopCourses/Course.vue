@@ -126,7 +126,7 @@ export default {
   background-image: linear-gradient(
     90deg,
     rgba(255, 0, 0, 0),
-    rgba(145, 161, 145, 0.705) 50%,
+    rgba(102, 102, 102, 0.705) 50%,
     rgba(255, 0, 0, 0) 100%
   );
   margin: 0;
@@ -148,7 +148,7 @@ export default {
 }
 
 .CourseCard {
-  background-color: #32325d;
+  background-color: #27274e;
   border-radius: 35px;
 }
 
@@ -270,7 +270,7 @@ export default {
 
 .buyCourseTitle {
   font-size: 1rem;
-  color: rgb(101, 101, 245);
+  color: rgb(111, 86, 223);
 }
 
 .CourseCard:hover {

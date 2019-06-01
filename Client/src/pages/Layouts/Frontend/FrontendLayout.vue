@@ -300,14 +300,8 @@ $scaleSize: 0.8;
   animation-name: zoomOut8;
 }
 
-.copyright {
-  padding: 20px 0;
-  background: #2c2e31;
-  color: #fff;
-}
-
 .footer-bottom {
-  background: #37393b;
+  background: #212942;
   padding: 25px 0;
   color: #fff;
   line-height: 2;
@@ -328,5 +322,11 @@ $scaleSize: 0.8;
   .telegram {
     direction: ltr;
   }
+}
+
+.copyright {
+  padding: 20px 0;
+  background: #1c2236;
+  color: #fff;
 }
 </style>
