@@ -2,6 +2,11 @@
   <div class="container">
     <div class="d-flex justify-content-around d-flex align-items-center text-center headerDigits">
       <div>
+        <h2 class="headerStyling">{{ total }}</h2>
+        <p>دوره</p>
+      </div>
+      <span class="bullet-point">•</span>
+      <div>
         <h2 class="headerStyling">{{ episodes }}</h2>
         <p>درس</p>
       </div>
@@ -9,11 +14,6 @@
       <div>
         <h2 class="headerStyling">{{ hours }}</h2>
         <p>ساعت</p>
-      </div>
-      <span class="bullet-point">•</span>
-      <div>
-        <h2 class="headerStyling">{{ total }}</h2>
-        <p>دوره</p>
       </div>
     </div>
 
@@ -41,6 +41,7 @@
 
 <script>
 import Course from '../FrontendPages/Components/TopCourses/Course.vue';
+
 import backend from '../../backend';
 import Vip from './Vip.vue';
 

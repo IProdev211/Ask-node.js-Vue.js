@@ -3,6 +3,13 @@
     <div class="stat-cards text-center">
       <div class="row">
         <div class="col-4">
+          <div class="stitched3">
+            <h2 class="headerStyling3">{{ total }}</h2>
+            <p class="subheader">دوره</p>
+          </div>
+        </div>
+
+        <div class="col-4">
           <div class="stitched1">
             <h2 class="headerStyling1">{{ episodes }}</h2>
             <p class="subheader">درس</p>
@@ -15,13 +22,6 @@
             <p class="subheader">ساعت</p>
           </div>
         </div>
-
-        <div class="col-4">
-          <div class="stitched3">
-            <h2 class="headerStyling3">{{ total }}</h2>
-            <p class="subheader">دوره</p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -29,10 +29,10 @@
 
 <script>
 export default {
-  props: ["total", "hours", "episodes"],
+  props: ['total', 'hours', 'episodes'],
   data: function() {
-    return { };
-  },
+    return {};
+  }
 };
 </script>
 

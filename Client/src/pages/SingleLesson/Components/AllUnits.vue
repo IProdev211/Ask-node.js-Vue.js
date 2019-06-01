@@ -27,7 +27,7 @@
         </div>
 
         <div>
-          <p class="detail-time">{{ getUnitTime(episode.time) }} دقیقه</p>
+          <p class="detail-time">{{ getUnitTime(episode.time) }}</p>
         </div>
       </div>
     </div>
@@ -108,7 +108,7 @@ export default {
 
 <style lang="scss" scoped>
 .UnitSection {
-  background: rgb(39, 39, 53);
+  background: #191e2f;
   border-radius: 10px;
   overflow: hidden;
   border-width: 1px;

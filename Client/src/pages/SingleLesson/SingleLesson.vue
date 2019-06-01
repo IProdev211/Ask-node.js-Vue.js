@@ -8,64 +8,52 @@
 
         <!-- COURSE DESCRIPTION -->
         <div class="pt-4">
-          <p class="course-subtitle pb-3">توضیحات دوره:</p>
+          <p class="course-subtitle pb-1">توضیحات:</p>
           <div v-html="body"></div>
         </div>
       </div>
-      <section>
-        <!-------------- COURSE INFO SECTION  -------------->
-        <div class="d-flex justify-content-around text-center pt-4">
-          <!-- COURSE CREATED AT -->
-          <div>
-            <i class="pl-2 icon far fa-calendar-alt"></i>
-            <p class="icon-text">ایجاد شده در</p>
-            <h5 class="icon-data">{{ getEpisodeCreateDate() }}</h5>
-          </div>
-          <!-- COURSE LENGTH -->
-          <div>
-            <i class="pl-2 icon far fa-clock"></i>
-            <p class="icon-text">طول دوره</p>
-            <h5 class="icon-data">{{ episode.time ? episodeTime : courseTime }}</h5>
-          </div>
-          <!-- COURSE PRICE  -->
-          <div
-            v-if="notEnrolled && type == 'paid'"
-            class="d-flex justify-content-between px-3 pt-1"
-          >
-            <div>
-              <i class="icon tim-icons icon-money-coins pl-2"></i>
-              <p class="icon-text">قیمت</p>
-            </div>
-            <h5 class="icon-data">{{ getCoursePrice() }}</h5>
-          </div>
-          <!-- COURSE USERS  -->
-          <div>
-            <i class="pl-2 icon fas fa-users"></i>
-            <p class="icon-text">تعداد شرکت کنندگان</p>
-            <h5 class="icon-data">{{ enrolledCount }}</h5>
-          </div>
-          <!-- COURSE INSTRUCTOR -->
-          <div>
-            <i class="pl-2 icon fas fa-chalkboard-teacher"></i>
-            <p class="icon-text">معلم</p>
-            <h5 class="icon-data">{{ course.user.name }}</h5>
-          </div>
-        </div>
-        <!-- video element -->
-        <div class="video-container">
-          <vue-plyr class="plyr--video text-rtl" :key="id">
-            <video poster="poster.png" src="video.mp4">
-              <source :src="`/api/v1${download}`" type="video/mp4" size="720">
-              <!-- <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default> -->
-            </video>
-          </vue-plyr>
-        </div>
 
-        <div>
-          <!-- COURSE PRICING STRUCTURE -->
-          <div class="head-section purchase-status px-3" v-if="notEnrolled && type != 'free'">
-            <hr>
-            <p v-if="type == 'paid'" class="text-danger">
+      <!-------------- COURSE INFO SECTION  -------------->
+      <section>
+        <div class="card container-fluid text-center pt-4 mt-2">
+          <div class="row justify-content-sm-center">
+            <!-- COURSE CREATED AT -->
+            <div class="col">
+              <i class="pl-2 icon far fa-calendar-alt"></i>
+              <p class="icon-text">ایجاد شده در</p>
+              <h5 class="icon-data">{{ getEpisodeCreateDate() }}</h5>
+            </div>
+            <!-- COURSE LENGTH -->
+            <div class="col">
+              <i class="pl-2 icon far fa-clock"></i>
+              <p class="icon-text">طول دوره</p>
+              <h5 class="icon-data">{{ episode.time ? episodeTime : courseTime }}</h5>
+            </div>
+            <!-- COURSE PRICE  -->
+            <div class="col" v-if="notEnrolled && type == 'paid'">
+              <i class="pl-2 icon fas fa-money-check-alt"></i>
+              <p class="icon-text">قیمت</p>
+              <h5 class="icon-data">{{ getCoursePrice() }}</h5>
+            </div>
+            <div class="w-100 d-md-none"></div>
+            <!-- COURSE USERS  -->
+            <div class="col">
+              <i class="pl-2 icon fas fa-users"></i>
+              <p class="icon-text">تعداد شرکت کنندگان</p>
+              <h5 class="icon-data">{{ enrolledCount }}</h5>
+            </div>
+            <!-- COURSE INSTRUCTOR -->
+            <div class="col">
+              <i class="pl-2 icon fas fa-chalkboard-teacher"></i>
+              <p class="icon-text">معلم</p>
+              <h5 class="icon-data">{{ course.user.name }}</h5>
+            </div>
+          </div>
+        </div>
+        <!-- COURSE PRICING STRUCTURE -->
+        <div class="container pb-3">
+          <div class="head-section purchase-status text-right" v-if="notEnrolled && type != 'free'">
+            <p v-if="type == 'paid'" class="pay-text text-danger">
               برای دسترسی به این درس لطفا لینک
               خرید را دنبال کنید.
             </p>
@@ -74,11 +62,11 @@
               class="text-danger"
             >برای دسترسی به این درس اکانت VIP تهیه کنید.</p>
           </div>
-          <div v-if="notEnrolled && type == 'paid'">
+          <div class="text-right" v-if="notEnrolled && type == 'paid'">
             <base-button
               @click="openBuyCourse"
               native-type="button"
-              class="btn-fill btn-success btn btn-sm"
+              class="btn-fill btn-success btn btn-sm px-4"
             >خرید</base-button>
             <modal
               ref="buymodal"
@@ -106,6 +94,15 @@
               </div>
             </modal>
           </div>
+        </div>
+        <!-- video element -->
+        <div class="video-container">
+          <vue-plyr class="plyr--video text-rtl" :key="id">
+            <video poster="poster.png" src="video.mp4">
+              <source :src="`/api/v1${download}`" type="video/mp4" size="720">
+              <!-- <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default> -->
+            </video>
+          </vue-plyr>
         </div>
       </section>
 
@@ -304,6 +301,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card {
+  border-radius: 25px;
+  background: #1a1e30;
+}
 .video-container {
   padding: 0 20px;
 }
@@ -319,7 +320,8 @@ export default {
 }
 
 .icon-data {
-  font-size: rem;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: #fff;
 }
 @media (max-width: 768px) {
@@ -331,17 +333,21 @@ export default {
   }
 
   .icon-text {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 
   .icon-data {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .pay-text {
+    font-size: 1rem;
   }
 }
 
 .quote-text {
   font-size: 0.8rem;
-  color: rgb(165, 165, 165);
+  color: rgb(124, 124, 124);
 }
 
 .plyr--video {
@@ -354,7 +360,7 @@ export default {
 }
 
 .purchase-status {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 .outline {
   border-radius: 25px;
