@@ -89,6 +89,7 @@ export default {
   computed: {
     IAmVIP() {
       return (
+        this.$root.$data.user &&
         this.$root.$data.user.vipTime &&
         new Date(this.$root.$data.user.vipTime) > new Date()
       );

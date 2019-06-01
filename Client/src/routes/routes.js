@@ -249,13 +249,6 @@ const routes = [
         }
       },
       {
-        path: 'courses/:slug',
-        name: 'Single Course',
-        components: {
-          default: SingleLesson
-        }
-      },
-      {
         path: 'courses/payments/verification',
         name: 'Course Pay Verification',
         components: {
@@ -318,6 +311,19 @@ const routes = [
           default: Points
         }
       }
+    ]
+  },
+  {
+    path: "/",
+    component: DashboardLayout,
+    children: [
+      {
+        path: 'courses/:slug',
+        name: 'Single Course',
+        components: {
+          default: SingleLesson
+        }
+      },
     ]
   },
   {

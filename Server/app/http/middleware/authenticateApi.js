@@ -6,23 +6,11 @@ class authenticateApi extends middleware {
   handle(req, res, next) {
     if (!req.isAuthenticated()) {
       return res.status(401).json({
-        data: info.message || 'اجازه دسترسی ندارید',
+        data: 'اجازه دسترسی ندارید',
         status: 'error'
       });
     }
     next();
-    /*passport.authenticate('jwt' , { session : false } , (err , user , info ) => {
-
-            if(err || !user ) 
-                return res.status(401).json({
-                    data : info.message || 'اجازه دسترسی ندارید',
-                    status : 'error'
-                })
-
-            req.user = user;
-                
-            next();
-        })(req , res , next);*/
   }
 }
 

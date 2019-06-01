@@ -71,7 +71,7 @@ export default {
       return this.$rtl.isRTL;
     },
     userAvatar() {
-      return this.$root.$data.user.avatar || '/img/default-avatar-OLD.png';
+      return (this.$root.$data.user ? this.$root.$data.user.avatar : undefined) || '/img/default-avatar-OLD.png';
     }
   },
   data() {
