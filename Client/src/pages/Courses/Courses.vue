@@ -23,12 +23,16 @@
 
     <div class="row">
       <!-- Courses Go Here  -->
-      <div class="col-md-3 course-section" v-for="course in courses" v-bind:key="course.id">
+      <div
+        class="col-lg-3 col-md-6 course-section"
+        v-for="course in courses"
+        v-bind:key="course.id"
+      >
         <Course v-bind="course"></Course>
       </div>
 
       <!-- VIP  -->
-      <div class="col-lg-12 my-3" v-if="!isVIP">
+      <div class="col-lg-12 my-5" v-if="!isVIP">
         <Vip></Vip>
       </div>
     </div>
@@ -77,9 +81,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .course-section {
-//   padding: 0 3%;
-// }
+@media (max-width: 768px) {
+  .course-section {
+    padding: 0 8%;
+  }
+}
+
 .headerDigits {
   padding: 0 35%;
 }

@@ -19,24 +19,9 @@
       <div class="col-md-3 my-auto">
         <base-dropdown title="عضویت" title-classes="btn btn-default px-5">
           <a class="dropdown-item" href="#">ماهانه - 39 هزار تومان</a>
-          <a class="dropdown-item" href="#">۴ ماهه - 109 هزار تومان</a>
-          <a class="dropdown-item" href="#">یکساله - 229 هزار تومان</a>
+          <a class="dropdown-item" href="#">۴ ماهه - 139 هزار تومان</a>
+          <a class="dropdown-item" href="#">یکساله - 309 هزار تومان</a>
         </base-dropdown>
-
-        <!-- <el-select class="select-danger" placeholder="عضویت" v-model="selects.simple">
-            <el-option
-              v-for="option in selects.vip"
-              class="select-danger"
-              :value="option.value"
-              :label="option.label"
-              :key="option.label"
-            ></el-option>
-        </el-select>-->
-        <!-- <router-link to="buyVIP">
-          <base-button class="mb-2" type="danger">
-            <i class="tim-icons icon-money-coins px-2"></i> ۳۹،۰۰۰ تومان‎
-          </base-button>
-        </router-link>-->
       </div>
     </div>
   </div>
@@ -44,7 +29,6 @@
 
 <script>
 import { BaseDropdown } from 'src/components';
-
 import { Select, Option } from 'element-ui';
 export default {
   components: {
@@ -58,8 +42,8 @@ export default {
         simple: '',
         vip: [
           { value: 'vip1', label: 'ماهانه - 39 هزار تومان' },
-          { value: 'vip2', label: '۴ ماهه - 109 هزار تومان' },
-          { value: 'vip3', label: 'یکساله - 229 هزار تومان' }
+          { value: 'vip2', label: '۴ ماهه - 139 هزار تومان' },
+          { value: 'vip3', label: 'یکساله - 309 هزار تومان' }
         ]
       }
     };
