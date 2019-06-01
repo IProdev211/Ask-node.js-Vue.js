@@ -41,7 +41,7 @@
     </section>
     <!--Stats Section-->
     <div class="Stats-section-homepage pt-4 pb-2">
-      <Stats></Stats>
+      <Stats :total="courses" :hours="hours" :episodes="episodes"></Stats>
     </div>
     <!--Founder Section-->
     <div class="founder-section-homepage pt-5">
@@ -65,13 +65,19 @@ export default {
   data: function() {
     return {
       topCourses: [],
-      topPosts: []
+      topPosts: [],
+      courses: 0,
+      hours: 0,
+      episodes: 0
     };
   },
   methods: {
     dataLoad() {
       this.topCourses = this.$root.$data.topCourses;
       this.topPosts = this.$root.$data.topPosts;
+      this.courses = this.$root.$data.courses;
+      this.episodes = this.$root.$data.episodes;
+      this.hours = Math.ceil(this.$root.$data.seconds / 3600);
     }
   },
   mounted() {

@@ -39,7 +39,10 @@ backend
     start({
       user: response.data.user,
       topCourses: response.data.topCourses,
-      topPosts: response.data.topPosts
+      topPosts: response.data.topPosts,
+      seconds: response.data.seconds,
+      courses: response.data.courses,
+      episodes: response.data.episodes,
     });
   })
   .catch(() => {

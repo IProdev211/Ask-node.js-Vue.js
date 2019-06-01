@@ -37,16 +37,13 @@ class courseController extends controller {
       const episodes = results[1];
       let seconds = 0;
       for (const episode of episodes) {
-        const time = episode.time.split(':', 3);
-        for (let x = 0; x < time.length; x++) {
-          seconds += parseInt(time[x]) * Math.pow(60, time.length - x - 1);
-        }
+        seconds += this.timeToSeconds(episode.time);
       }
       const data = {
         ...courses,
         docs: courses.docs.map(this.filterCourse),
         episodes: episodes.length,
-        seconds
+        seconds,
       };
       res.json(data);
     } catch (err) {

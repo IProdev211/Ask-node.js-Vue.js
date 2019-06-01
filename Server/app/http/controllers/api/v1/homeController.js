@@ -1,6 +1,7 @@
 const controller = require('app/http/controllers/api/controller');
 const Payment = require('app/models/payment');
 const Course = require('app/models/course');
+const Episode = require('app/models/episode');
 const CourseController = require('./courseController');
 const Post = require('app/models/blogPost');
 const blogController = require('./blogController');
@@ -47,12 +48,25 @@ class homeController extends controller {
         }
       ])
       .exec();
-    const results = await Promise.all([topCourses, user, topBlogPosts]);
+    const results = await Promise.all([
+      topCourses,
+      user,
+      topBlogPosts,
+      Episode.find({}, 'time').exec(),
+      Course.estimatedDocumentCount(),
+    ]);
+    let seconds = 0;
+    for (const episode of results[3]) {
+      seconds += this.timeToSeconds(episode.time);
+    }
     return res.json({
       status: 'success',
       topCourses: results[0].map(CourseController.filterCourse),
       user: results[1] ? this.filterUserData(results[1]) : undefined,
-      topPosts: results[2].map(blogController.filterData)
+      topPosts: results[2].map(blogController.filterData),
+      seconds,
+      courses: results[4],
+      episodes: results[3].length,
     });
   }
   async user(req, res) {

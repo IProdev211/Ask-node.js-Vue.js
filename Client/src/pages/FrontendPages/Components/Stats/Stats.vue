@@ -28,28 +28,11 @@
 </template>
 
 <script>
-import backend from '../../../../backend';
-
 export default {
+  props: ["total", "hours", "episodes"],
   data: function() {
-    return {
-      total: 0,
-      hours: 0,
-      episodes: 0
-    };
+    return { };
   },
-  methods: {
-    dataLoad(page) {
-      backend.get('/courses?page=' + page).then(response => {
-        this.total = response.data.total;
-        this.episodes = response.data.episodes;
-        this.hours = Math.ceil(response.data.seconds / 3600);
-      });
-    }
-  },
-  mounted() {
-    this.dataLoad();
-  }
 };
 </script>
 

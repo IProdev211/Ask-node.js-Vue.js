@@ -64,7 +64,7 @@ export default {
         this.courses = response.data.docs;
         this.page = response.data.page;
         this.pages = response.data.pages;
-        this.total = response.data.total;
+        this.total = response.data.totalDocs;
         this.episodes = response.data.episodes;
         this.hours = Math.ceil(response.data.seconds / 3600);
       });
