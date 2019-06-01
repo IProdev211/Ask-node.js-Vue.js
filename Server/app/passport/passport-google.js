@@ -33,6 +33,7 @@ passport.use(
 
         newUser.save(err => {
           if (err) throw err;
+          newUser.justRegistered = true;
           done(err, newUser);
         });
       });
