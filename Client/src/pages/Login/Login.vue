@@ -10,7 +10,7 @@
                 <!-- <p class="container pt-3 text-center">با ورود به پنل کاربری میتوانید به سادگی به ویدیو های سایت دسترسی پیدا کنید و مقالات جدید را مطالعه کنید.</p> -->
               </template>
               <div class="row mt-4">
-                <div class="col-6">
+                <div class="col-md-6">
                   <label class="pull-right font-weight-bold">پست الکترونیک</label>
                   <base-input 
                     class="text-ltr"
@@ -20,7 +20,7 @@
                   </base-input>
                 </div>
 
-                <div class="col-6">
+                <div class="col-md-6">
                   <label class="pull-right font-weight-bold">کلمه عبور</label>
                   <base-input
                     class="text-ltr"
