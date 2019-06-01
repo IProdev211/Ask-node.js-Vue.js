@@ -4,102 +4,116 @@
       <div class="container text-right pb-4">
         <!-- Course Title -->
         <h1 class="course-title">{{ title }}</h1>
+        <p class="text-muted" v-if="episode.id">{{ course.title }}</p>
+
         <!-- COURSE DESCRIPTION -->
         <div class="pt-4">
-          <p class="course-subtitle">توضیحات دوره:</p>
-          <p class="text-muted" v-if="episode.id">{{ course.title }}</p>
+          <p class="course-subtitle pb-3">توضیحات دوره:</p>
           <div v-html="body"></div>
         </div>
       </div>
-        <section>
-          <!-------------- COURSE INFO SECTION  -------------->
-          <div class="d-flex justify-content-around text-center pt-4">
-            <!-- COURSE CREATED AT -->
-            <div>
-              <i class="pl-2 icon far fa-calendar-alt"></i>
-              <p class="icon-text">ایجاد شده در</p>
-              <h5 class="icon-data">{{ getEpisodeCreateDate() }}</h5>
-            </div>
-            <!-- COURSE LENGTH -->
-            <div>
-              <i class="pl-2 icon far fa-clock"></i>
-              <p class="icon-text">طول دوره</p>
-              <h5 class="icon-data">{{ episode.time ? episodeTime : courseTime }}</h5>
-            </div>
-            <!-- COURSE PRICE  -->
-            <div
-              v-if="notEnrolled && type == 'paid'"
-              class="d-flex justify-content-between px-3 pt-1"
-            >
-              <div>
-                <i class="icon tim-icons icon-money-coins pl-2"></i>
-                <p class="icon-text">قیمت</p>
-              </div>
-              <h5 class="icon-data">{{ getCoursePrice() }}</h5>
-            </div>
-            <!-- COURSE USERS  -->
-            <div>
-              <i class="pl-2 icon fas fa-users"></i>
-              <p class="icon-text">تعداد شرکت کنندگان</p>
-              <h5 class="icon-data">{{ enrolledCount }}</h5>
-            </div>
-            <!-- COURSE INSTRUCTOR -->
-            <div>
-              <i class="pl-2 icon fas fa-chalkboard-teacher"></i>
-              <p class="icon-text">معلم</p>
-              <h5 class="icon-data">{{ course.user.name }}</h5>
-            </div>
-          </div>
-          <!-- video element -->
-          <div class="video-container">
-            <vue-plyr class="plyr--video text-rtl" :key="id">
-              <video poster="poster.png" src="video.mp4">
-                <source :src="`/api/v1${download}`" type="video/mp4" size="720">
-                <!-- <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default> -->
-              </video>
-            </vue-plyr>
-          </div>
-
+      <section>
+        <!-------------- COURSE INFO SECTION  -------------->
+        <div class="d-flex justify-content-around text-center pt-4">
+          <!-- COURSE CREATED AT -->
           <div>
-            <!-- COURSE PRICING STRUCTURE -->
-            <div class="head-section purchase-status px-3" v-if="notEnrolled && type != 'free'">
-              <hr>
-              <p v-if="type == 'paid'" class="text-danger">
-                برای دسترسی به این درس لطفا لینک
-                خرید را دنبال کنید.
-              </p>
-              <p
-                v-else-if="type == 'vip'"
-                class="text-danger"
-              >برای دسترسی به این درس اکانت VIP تهیه کنید.</p>
-            </div>
-            <hr>
-            <div v-if="notEnrolled && type == 'paid'">
-              <base-button @click="openBuyCourse" native-type="button" class="btn-fill btn-success btn btn-sm">خرید</base-button>
-              <modal ref="buymodal" centered="true" footerClasses="justify-content-center" type="notice">
-                <h5 slot="header" class="modal-title">خرید دوره {{ course.title }}</h5>
-                <div slog="body" class="text-right rtl">
-                  <p>پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب</p>
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      <strong class="float-right text-dark">قیمت دوره</strong>
-                      <span class="float-left text-success">{{ getCoursePrice() }}</span>
-                    </li>
-                  </ul>
-                </div>
-                <div slot="footer" class="d-block w-100">
-                  <base-button @click="buyCourseListener" native-type="button" :loading="loading" class="btn-block btn-success d-block w-100">پرداخت از درگاه</base-button>
-                </div>
-              </modal>
-            </div>
+            <i class="pl-2 icon far fa-calendar-alt"></i>
+            <p class="icon-text">ایجاد شده در</p>
+            <h5 class="icon-data">{{ getEpisodeCreateDate() }}</h5>
           </div>
-        </section>
-      
-        <p
-          class="quote-text text-center py-3"
-        >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
+          <!-- COURSE LENGTH -->
+          <div>
+            <i class="pl-2 icon far fa-clock"></i>
+            <p class="icon-text">طول دوره</p>
+            <h5 class="icon-data">{{ episode.time ? episodeTime : courseTime }}</h5>
+          </div>
+          <!-- COURSE PRICE  -->
+          <div
+            v-if="notEnrolled && type == 'paid'"
+            class="d-flex justify-content-between px-3 pt-1"
+          >
+            <div>
+              <i class="icon tim-icons icon-money-coins pl-2"></i>
+              <p class="icon-text">قیمت</p>
+            </div>
+            <h5 class="icon-data">{{ getCoursePrice() }}</h5>
+          </div>
+          <!-- COURSE USERS  -->
+          <div>
+            <i class="pl-2 icon fas fa-users"></i>
+            <p class="icon-text">تعداد شرکت کنندگان</p>
+            <h5 class="icon-data">{{ enrolledCount }}</h5>
+          </div>
+          <!-- COURSE INSTRUCTOR -->
+          <div>
+            <i class="pl-2 icon fas fa-chalkboard-teacher"></i>
+            <p class="icon-text">معلم</p>
+            <h5 class="icon-data">{{ course.user.name }}</h5>
+          </div>
+        </div>
+        <!-- video element -->
+        <div class="video-container">
+          <vue-plyr class="plyr--video text-rtl" :key="id">
+            <video poster="poster.png" src="video.mp4">
+              <source :src="`/api/v1${download}`" type="video/mp4" size="720">
+              <!-- <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default> -->
+            </video>
+          </vue-plyr>
+        </div>
+
+        <div>
+          <!-- COURSE PRICING STRUCTURE -->
+          <div class="head-section purchase-status px-3" v-if="notEnrolled && type != 'free'">
+            <hr>
+            <p v-if="type == 'paid'" class="text-danger">
+              برای دسترسی به این درس لطفا لینک
+              خرید را دنبال کنید.
+            </p>
+            <p
+              v-else-if="type == 'vip'"
+              class="text-danger"
+            >برای دسترسی به این درس اکانت VIP تهیه کنید.</p>
+          </div>
+          <div v-if="notEnrolled && type == 'paid'">
+            <base-button
+              @click="openBuyCourse"
+              native-type="button"
+              class="btn-fill btn-success btn btn-sm"
+            >خرید</base-button>
+            <modal
+              ref="buymodal"
+              centered="true"
+              footerClasses="justify-content-center"
+              type="notice"
+            >
+              <h5 slot="header" class="modal-title">خرید دوره {{ course.title }}</h5>
+              <div slog="body" class="text-right rtl">
+                <p>پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب</p>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <strong class="float-right text-dark">قیمت دوره</strong>
+                    <span class="float-left text-success">{{ getCoursePrice() }}</span>
+                  </li>
+                </ul>
+              </div>
+              <div slot="footer" class="d-block w-100">
+                <base-button
+                  @click="buyCourseListener"
+                  native-type="button"
+                  :loading="loading"
+                  class="btn-block btn-success d-block w-100"
+                >پرداخت از درگاه</base-button>
+              </div>
+            </modal>
+          </div>
+        </div>
+      </section>
+
+      <p
+        class="quote-text text-center py-3"
+      >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
       <!-- Timeline Unit Section -->
-      <div class="col-md-12 pt-2">
+      <div class="col-md-12 py-3">
         <AllUnits
           :course="course"
           :episodes="course.episodes"
@@ -116,7 +130,7 @@ import AllUnits from './Components/AllUnits.vue';
 import moment from 'jalali-moment';
 import backend from '../../backend';
 import time from '../../util/time';
-import { Modal } from "src/components/index";
+import { Modal } from 'src/components/index';
 export default {
   components: {
     AllUnits,
@@ -193,38 +207,44 @@ export default {
           this.body = this.course.body;
           this.download = this.course.download;
         });
-        if (this.$route.query.hasOwnProperty('Authority') && this.$route.query.hasOwnProperty('Status')) {
+        if (
+          this.$route.query.hasOwnProperty('Authority') &&
+          this.$route.query.hasOwnProperty('Status')
+        ) {
           const authority = this.$route.query.Authority;
           const status = this.$route.query.Status;
-          if (status !== "OK") {
+          if (status !== 'OK') {
             Swal({
               title: 'تراکنش ناموفق',
               text: `تراکنش شما با موفقیت پرداخت نشد. درصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی طی 48 ساعت آینده مرجوع خواهد شد`,
-              icon: 'warning',
+              icon: 'warning'
             });
           } else {
-            backend.post(`courses/payments/verification`, {
-              status: status,
-              authority: authority,
-            }).then((response) => {
-              if (response.data.status === "error") {
+            backend
+              .post(`courses/payments/verification`, {
+                status: status,
+                authority: authority
+              })
+              .then(response => {
+                if (response.data.status === 'error') {
+                  Swal({
+                    title: 'تراکنش ناموفق',
+                    text: `تراکنش شما با موفقیت پرداخت نشد.<br>درصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی طی 48 ساعت آینده مرجوع خواهد شد`,
+                    icon: 'warning'
+                  });
+                  return;
+                }
                 Swal({
-                  title: 'تراکنش ناموفق',
-                  text: `تراکنش شما با موفقیت پرداخت نشد.<br>درصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی طی 48 ساعت آینده مرجوع خواهد شد`,
-                  icon: 'warning',
+                  title: 'تراکنش موفق',
+                  text: `خرید دوره با موفقیت انجام شد.`,
+                  icon: 'success'
                 });
-                return;
-              }
-              Swal({
-                title: 'تراکنش موفق',
-                text: `خرید دوره با موفقیت انجام شد.`,
-                icon: 'success',
+                this.enrolled = true;
+                this.enrolledCount++;
+              })
+              .catch(err => {
+                console.log('error', err);
               });
-              this.enrolled = true;
-              this.enrolledCount++;
-            }).catch((err) => {
-              console.log("error", err);
-            });
           }
         }
       }
@@ -247,15 +267,15 @@ export default {
           return 'اکانت VIP نیاز است';
       }
     },
-		openBuyCourse() {
-			this.$refs.buymodal.show = true;
-		},
-		buyCourseListener() {
-			this.loading = true;
-			backend.post(`courses/${this.course.id}/buy`).then(response => {
-				window.location.href = response.data.redirect;
-			});
-		},
+    openBuyCourse() {
+      this.$refs.buymodal.show = true;
+    },
+    buyCourseListener() {
+      this.loading = true;
+      backend.post(`courses/${this.course.id}/buy`).then(response => {
+        window.location.href = response.data.redirect;
+      });
+    }
   },
   computed: {
     episodeTime() {
@@ -321,7 +341,7 @@ export default {
 
 .quote-text {
   font-size: 0.8rem;
-  color: rgb(197, 197, 197);
+  color: rgb(165, 165, 165);
 }
 
 .plyr--video {
@@ -349,10 +369,12 @@ export default {
   font-size: 1.7rem;
   font-weight: 600;
   line-height: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 .course-subtitle {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .course-info {
@@ -369,11 +391,11 @@ export default {
   border-radius: 25px;
 }
 
-.plyr--video {
-  background: #000;
-  overflow: hidden;
-  border-radius: 25px;
-}
+// .plyr--video {
+//   background: #000;
+//   overflow: hidden;
+//   border-radius: 25px;
+// }
 
 .badge-size {
   font-size: 0.9rem;
