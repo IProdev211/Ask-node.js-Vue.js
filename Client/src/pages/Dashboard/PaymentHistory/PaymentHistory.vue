@@ -25,7 +25,6 @@
         v-model="pagination.currentPage"
         :per-page="pagination.perPage"
         :total="total"
-        :showArrows="false"
       ></base-pagination>
     </div>
   </card>

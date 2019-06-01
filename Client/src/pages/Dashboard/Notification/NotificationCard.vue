@@ -19,7 +19,6 @@
       :per-page="pagination.perpage"
       :total="pagination.total"
       :pageCount="pagination.pages"
-      :showArrows="false"
       type="danger"
       @input="changePageListener"
     ></base-pagination>

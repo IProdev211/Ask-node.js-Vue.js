@@ -23,7 +23,6 @@
           :per-page="limit"
           :total="total"
           :pageCount="pages"
-          :showArrows="false"
           v-on:input="chagePageListener"
         ></base-pagination>
       </div>
