@@ -3,14 +3,11 @@
     <!-- FOOTER SECTION -->
     <footer class="copyright text-center">
       <div class="container">
-        &copy; طراحی و تولید شده توسط
-        <a
-          class="font-weight-bold"
-          href="/terms"
-          target="_blank"
-        >اسک آریا</a>، با افتخار در ایران
+        <!-- &copy;  -->
+        طراحی و تولید شده توسط
+        <router-link to="/terms">اسک آریا</router-link>، با افتخار در ایران
         <i class="tim-icons icon-heart-2"></i>
-        سال ١٣٩٧
+        سال ١٣٩۸
       </div>
     </footer>
   </section>
@@ -29,7 +26,8 @@ export default {
 .copyright {
   padding: 20px 0;
   background: #171b2c;
-  color: #fff;
+  color: rgb(219, 219, 219);
+  font-size: 0.77rem;
 }
 
 .footer-bottom {

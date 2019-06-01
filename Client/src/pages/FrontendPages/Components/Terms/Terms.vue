@@ -1,12 +1,12 @@
 <template>
   <section class="container text-center py-5">
     <div class="top-section">
-      <h1 class="display-2 text-info">قوانین و مقررات سایت</h1>
+      <h1>قوانین و مقررات سایت</h1>
       <!-- <p>در این صفحه شرایط استفاده از وبسایت اسک آریا را مشاهده میکنید</p> -->
     </div>
     <div class="main-section text-right pt-3">
       <div class="notice">
-        <h3 class="notice text-success container py-5">
+        <h3 class="notice text-danger container py-5">
           <span>
             <i class="fas fa-info-circle pl-3"></i>
           </span>لطفا شرایط زیر را با دقت مطالعه کنید
