@@ -161,8 +161,8 @@ export default {
           return row;
         });
         this.pagination.currentPage = parseInt(response.data.page, 10);
-        this.pagination.pages = response.data.pages;
-        this.pagination.total = response.data.total;
+        this.pagination.pages = response.data.totalPages;
+        this.pagination.total = response.data.totalDocs;
         this.pagination.perPage = response.data.limit;
       });
     },

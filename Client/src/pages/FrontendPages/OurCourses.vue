@@ -50,8 +50,8 @@ export default {
       backend.get('/courses?page=' + page).then(response => {
         this.courses = response.data.docs;
         this.page = parseInt(response.data.page, 10);
-        this.pages = response.data.pages;
-        this.totalItems = response.data.total;
+        this.pages = response.data.totalPages;
+        this.totalItems = response.data.totalDocs;
         this.limit = response.data.limit;
       });
     },

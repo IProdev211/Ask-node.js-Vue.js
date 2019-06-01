@@ -63,7 +63,7 @@ export default {
       backend.get('/courses?page=' + page).then(response => {
         this.courses = response.data.docs;
         this.page = response.data.page;
-        this.pages = response.data.pages;
+        this.pages = response.data.totalPages;
         this.total = response.data.totalDocs;
         this.episodes = response.data.episodes;
         this.hours = Math.ceil(response.data.seconds / 3600);
