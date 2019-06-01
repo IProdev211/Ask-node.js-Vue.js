@@ -25,11 +25,6 @@ const SingleLesson = () =>
     /* webpackChunkName: "extra" */ 'src/pages/SingleLesson/SingleLesson.vue'
   );
 
-const SingleLessonOffline = () =>
-  import(
-    /* webpackChunkName: "extra" */ 'src/pages/SingleLesson/SingleLessonOffline.vue'
-  );
-
 const VerificationPayments = () =>
   import(
     /* webpackChunkName: "extra" */ 'src/pages/Courses/VerificationPayments.vue'
@@ -218,7 +213,7 @@ let frontendpages = {
 const routes = [
   {
     path: '/home',
-    redirect: '/',
+    redirect: '/'
   },
   frontendpages,
   // authPages,
@@ -258,13 +253,6 @@ const routes = [
         name: 'Single Course',
         components: {
           default: SingleLesson
-        }
-      },
-      {
-        path: 'singlelessonoffline',
-        name: 'Single Lesson Offline',
-        components: {
-          default: SingleLessonOffline
         }
       },
       {
