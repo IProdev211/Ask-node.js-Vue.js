@@ -328,12 +328,12 @@ export default {
 	height: 200px;
 }
 .ck-editor__editable {
-    min-height: 150px;
+    min-height: 200px;
 }
-.ck.ck-editor__main > .ck-content  {
-	background: transparent;
-	* {
-		color: #fff;
-	}
-}
+// .ck.ck-editor__main > .ck-content  {
+// 	background: transparent;
+// 	* {
+// 		color: #fff;
+// 	}
+// }
 </style>

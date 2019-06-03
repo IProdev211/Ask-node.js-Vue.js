@@ -314,7 +314,7 @@ const routes = [
     ]
   },
   {
-    path: "/",
+    path: '/',
     component: DashboardLayout,
     children: [
       {
@@ -323,7 +323,7 @@ const routes = [
         components: {
           default: SingleLesson
         }
-      },
+      }
     ]
   },
   {

@@ -13,7 +13,7 @@
       </div>
     </div>
     <base-pagination
-      class="pagination-no-border text-rtl ml-auto mt-auto px-3"
+      class="pagination-no-border ml-auto mt-auto px-3 text-rtl"
       v-model="pagination.currentPage"
       :value="pagination.currentPage"
       :per-page="pagination.perpage"
