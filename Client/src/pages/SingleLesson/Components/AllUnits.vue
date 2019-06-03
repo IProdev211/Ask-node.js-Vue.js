@@ -1,6 +1,6 @@
 <template>
   <section
-    class="UnitSection"
+    class="card UnitSection"
     v-if="episodes.length"
     :style="scrollable ? {'overflow-y': 'auto'} : ''"
   >
@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="left d-flex justify-content-between">
-        <div class="pl-3">
+        <div class="pl-2">
           <p class="detail-price">{{ getEpisodeType(episode.type) }}</p>
         </div>
 
@@ -107,17 +107,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.UnitSection {
-  background: #191e2f;
-  border-radius: 10px;
-  overflow: hidden;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.1);
-  border-image: initial;
-}
+// .UnitSection {
+//   background: #191e2f;
+//   border-radius: 10px;
+//   overflow: hidden;
+//   border-width: 1px;
+//   border-style: solid;
+//   border-color: rgba(0, 0, 0, 0.1);
+//   border-image: initial;
+// }
 .UnitBox {
-  // border-radius: 10px;
   -webkit-box-align: center;
   padding: 20px 25px;
   align-items: center;
@@ -143,17 +142,17 @@ export default {
 }
 
 .UnitBadgeUnlocked {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #06a086;
 }
 
 .UnitBadgelocked {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #ac2451;
 }
 
 .UnitBadgeVIP {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #e7d800;
 }
 
@@ -181,23 +180,29 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .UnitBox {
+    padding: 20px 7px;
+  }
+
   .UnitName {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 
   .detail-time {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     align-self: center;
-    padding: 8px 5px;
+    padding: 7px;
   }
 
   .detail-price {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     align-self: center;
-    padding: 8px 3px;
+    padding: 7px;
   }
-  .UnitBadgeUnlocked {
-    font-size: 1rem;
+  .UnitBadgeUnlocked,
+  .UnitBadgeVIP,
+  .UnitBadgelocked {
+    font-size: 0.9rem;
   }
 }
 </style>

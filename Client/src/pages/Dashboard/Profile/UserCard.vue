@@ -123,7 +123,7 @@ export default {
       return (this.user.vipTime && new Date(this.user.vipTime) > new Date());
     },
     userAvatar() {
-      return this.user.avatar || '/img/default-avatar-OLD.png';
+      return this.user.avatar || '/img/default-avatar.png';
     }
   },
   methods: {

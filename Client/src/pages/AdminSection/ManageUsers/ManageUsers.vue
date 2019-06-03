@@ -126,9 +126,9 @@ export default {
   data() {
     return {
       pagination: {
-        perPage: 4,
+        perPage: 10,
         currentPage: 1,
-        perPageOptions: [5, 10, 25, 50],
+        perPageOptions: [5, 10, 15, 20, 30, 50],
         total: 0,
         pages: 0
       },
@@ -138,22 +138,22 @@ export default {
         {
           prop: 'name',
           label: 'Name',
-          minWidth: 200
+          minWidth: 170
         },
         {
           prop: 'email',
           label: 'Email',
-          minWidth: 250
+          minWidth: 210
         },
         {
           prop: 'datejoined',
-          label: 'Date Joined',
+          label: 'Joined On',
           minWidth: 100
         },
         {
           prop: 'amountspent',
-          label: 'Amount Spent',
-          minWidth: 100
+          label: 'Spent',
+          minWidth: 90
         }
       ],
       tableData: [],
