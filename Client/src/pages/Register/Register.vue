@@ -28,7 +28,7 @@
               </div>
 
               <div class="col-md-12 text-ltr">
-              <label class="pull-righ pt-2">کلمه عبور</label>
+              <label class="pull-right pt-2">کلمه عبور</label>
                 <base-input
                   type="password"
                   v-model="password" 
