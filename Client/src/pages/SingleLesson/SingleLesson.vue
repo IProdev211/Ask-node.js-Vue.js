@@ -285,7 +285,6 @@ export default {
       }
     },
     openBuyCourse() {
-      console.log(this.$refs);
       this.$refs.buymodal.show = true;
     },
     buyCourseListener() {

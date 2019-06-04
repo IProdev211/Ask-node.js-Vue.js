@@ -18,9 +18,9 @@
       </div>
       <div class="col-md-3 my-auto">
         <base-dropdown title="عضویت" title-classes="btn btn-default px-5">
-          <a class="dropdown-item" href="#">ماهانه - 39 هزار تومان</a>
-          <a class="dropdown-item" href="#">۴ ماهه - 139 هزار تومان</a>
-          <a class="dropdown-item" href="#">یکساله - 309 هزار تومان</a>
+          <a class="dropdown-item" href="#" @click.prevent="payment">ماهانه - 39 هزار تومان</a>
+          <a class="dropdown-item" href="#"  @click.prevent="payment">۴ ماهه - 139 هزار تومان</a>
+          <a class="dropdown-item" href="#" @click.prevent="payment">یکساله - 309 هزار تومان</a>
         </base-dropdown>
       </div>
     </div>
@@ -30,6 +30,10 @@
 <script>
 import { BaseDropdown } from 'src/components';
 import { Select, Option } from 'element-ui';
+import backend from "../../backend";
+import moment from "jalali-moment";
+import Swal from "sweetalert";
+
 export default {
   components: {
     BaseDropdown,
@@ -47,6 +51,53 @@ export default {
         ]
       }
     };
+  },
+  methods: {
+    payment(e) {
+      const plan = e.target.getAttribute("data-plan");
+      backend.post("/vip/payment", {plan}).then((response) => {
+        if (response.data.status == 'success') {
+          window.location.href = response.data.redirect;
+        } else {
+          Swal({
+            title: 'خطا',
+            text: `در حال حاضر امکان ارتباط با درگاه پرداخت وجود ندارد.`,
+            icon: 'success'
+          });
+        }
+      })
+    }
+  },
+  mounted() {
+    if (
+      this.$route.query.hasOwnProperty('Authority') &&
+      this.$route.query.hasOwnProperty('Status')
+    ) {
+      const authority = this.$route.query.Authority;
+      const status = this.$route.query.Status;
+      if (status !== 'OK') {
+        Swal({
+          title: 'تراکنش ناموفق',
+          text: `تراکنش شما با موفقیت پرداخت نشد. درصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی طی 48 ساعت آینده مرجوع خواهد شد`,
+          icon: 'warning'
+        });
+      } else {
+        backend.post(`vip/payment/verification`, { status, authority }).then(response => {
+          this.$root.$data.user.vipTime = response.data.vipTime;
+          Swal({
+            title: 'تراکنش موفق',
+            text: `اکانت شما تا ${moment(response.data.vipTime).locale("fa").format("YYYY/MM/DD")} تمدید شد.`,
+            icon: 'success'
+          });
+        }).catch((response) => {
+            Swal({
+              title: 'تراکنش ناموفق',
+              text: `تراکنش شما با موفقیت پرداخت نشد.\nدرصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی طی 48 ساعت آینده مرجوع خواهد شد`,
+              icon: 'warning'
+            });
+        });
+      }
+    }
   }
 };
 </script>
