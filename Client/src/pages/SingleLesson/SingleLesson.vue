@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container">
     <div v-if="id" :key="id">
       <div class="container text-right pb-4">
         <!-- Course Title -->
@@ -7,118 +7,131 @@
         <p class="text-muted" v-if="episode.id">{{ course.title }}</p>
 
         <!-- COURSE DESCRIPTION -->
-        <div class="pt-4">
-          <p class="course-subtitle pb-3">توضیحات دوره:</p>
+        <div class="py-5">
+          <p class="course-subtitle pb-1">توضیحات:</p>
           <div v-html="body"></div>
         </div>
       </div>
-      <section>
-        <!-------------- COURSE INFO SECTION  -------------->
-        <div class="d-flex justify-content-around text-center pt-4">
-          <!-- COURSE CREATED AT -->
-          <div>
-            <i class="pl-2 icon far fa-calendar-alt"></i>
-            <p class="icon-text">ایجاد شده در</p>
-            <h5 class="icon-data">{{ getEpisodeCreateDate() }}</h5>
-          </div>
-          <!-- COURSE LENGTH -->
-          <div>
-            <i class="pl-2 icon far fa-clock"></i>
-            <p class="icon-text">طول دوره</p>
-            <h5 class="icon-data">{{ episode.time ? episodeTime : courseTime }}</h5>
-          </div>
-          <!-- COURSE PRICE  -->
-          <div
-            v-if="notEnrolled && type == 'paid'"
-            class="d-flex justify-content-between px-3 pt-1"
-          >
-            <div>
-              <i class="icon tim-icons icon-money-coins pl-2"></i>
-              <p class="icon-text">قیمت</p>
+
+      <!-------------- COURSE INFO SECTION  -------------->
+      <section class="container">
+        <div class="card text-center pt-4 mt-2">
+          <div class="row justify-content-sm-center">
+            <!-- COURSE CREATED AT -->
+            <div class="col py-2">
+              <i class="pl-2 icon far fa-calendar-alt"></i>
+              <p class="icon-text pr-1">ایجاد شده در</p>
+              <h5 class="icon-data pl-2">{{ getEpisodeCreateDate() }}</h5>
             </div>
-            <h5 class="icon-data">{{ getCoursePrice() }}</h5>
+            <!-- COURSE LENGTH -->
+            <div class="col py-2">
+              <i class="pl-2 icon far fa-clock"></i>
+              <p class="icon-text pr-1">طول دوره</p>
+              <h5 class="icon-data pl-2">{{ episode.time ? episodeTime : courseTime }}</h5>
+            </div>
+            <!-- COURSE PRICE  -->
+            <div class="col py-2" v-if="notEnrolled && type == 'paid'">
+              <i class="pl-2 icon fas fa-money-check-alt"></i>
+              <p class="icon-text pr-1">قیمت</p>
+              <h5 class="icon-data pl-2">{{ getCoursePrice() }}</h5>
+            </div>
+            <div class="w-100 d-md-none"></div>
+            <!-- COURSE USERS  -->
+            <div class="col py-2">
+              <i class="pl-2 icon fas fa-users"></i>
+              <p class="icon-text pr-1">تعداد شرکت کنندگان</p>
+              <h5 class="icon-data pl-2">{{ enrolledCount }}</h5>
+            </div>
+            <!-- COURSE INSTRUCTOR -->
+            <div class="col py-2">
+              <i class="pl-2 icon fas fa-chalkboard-teacher"></i>
+              <p class="icon-text pr-1">معلم</p>
+              <h5 class="icon-data pl-2">{{ course.user.name }}</h5>
+            </div>
           </div>
-          <!-- COURSE USERS  -->
-          <div>
-            <i class="pl-2 icon fas fa-users"></i>
-            <p class="icon-text">تعداد شرکت کنندگان</p>
-            <h5 class="icon-data">{{ enrolledCount }}</h5>
-          </div>
-          <!-- COURSE INSTRUCTOR -->
-          <div>
-            <i class="pl-2 icon fas fa-chalkboard-teacher"></i>
-            <p class="icon-text">معلم</p>
-            <h5 class="icon-data">{{ course.user.name }}</h5>
-          </div>
+        </div>
+        <!-- COURSE PRICING STRUCTURE -->
+        <div class="container pb-3">
+          <span
+            class="head-section purchase-status text-right"
+            v-if="notEnrolled && type != 'free'"
+          >
+            <p v-if="type == 'paid'" class="pay-text text-danger">
+              <i class="fas fa-info pl-3 pay-icon"></i>
+              برای دسترسی به این درس لطفا لینک
+              خرید را دنبال کنید.
+              <span
+                class="text-right"
+                v-if="notEnrolled && type == 'paid'"
+              >
+                <span class="pr-2">
+                  <base-button
+                    @click="openBuyCourse"
+                    native-type="button"
+                    class="btn-fill btn-danger btn btn-sm"
+                  >تهیه درس غیرحضوری</base-button>
+                </span>
+                <modal
+                  ref="buymodal"
+                  centered="true"
+                  footerClasses="justify-content-center"
+                  type="notice"
+                >
+                  <h5 slot="header" class="modal-title">خرید دوره {{ course.title }}</h5>
+                  <div slog="body" class="text-right rtl">
+                    <p>پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب</p>
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <strong class="float-right text-dark">قیمت دوره</strong>
+                        <span class="float-left text-success">{{ getCoursePrice() }}</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div slot="footer" class="d-block w-100">
+                    <base-button
+                      @click="buyCourseListener"
+                      native-type="button"
+                      :loading="loading"
+                      class="btn-block btn-success d-block w-100"
+                    >پرداخت از درگاه</base-button>
+                  </div>
+                </modal>
+              </span>
+            </p>
+            <p v-else-if="type == 'vip'" class="text-danger pay-text">
+              <i class="fas fa-info pl-3 pay-icon"></i>
+              برای دسترسی به این درس اکانت VIP تهیه کنید.
+              <span class="pr-2">
+                <router-link to="/courses">
+                  <base-button native-type="submit" type="danger" class="btn btn-sm">تهیه عضویت ویژه</base-button>
+                </router-link>
+              </span>
+            </p>
+          </span>
         </div>
         <!-- video element -->
         <div class="video-container">
           <vue-plyr class="plyr--video text-rtl" :key="id">
-            <video poster="poster.png" src="video.mp4">
+            <video>
+              <!-- <video poster="poster.png" src="video.mp4"> -->
               <source :src="`/api/v1${download}`" type="video/mp4" size="720">
               <!-- <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default> -->
             </video>
           </vue-plyr>
         </div>
-
-        <div>
-          <!-- COURSE PRICING STRUCTURE -->
-          <div class="head-section purchase-status px-3" v-if="notEnrolled && type != 'free'">
-            <hr>
-            <p v-if="type == 'paid'" class="text-danger">
-              برای دسترسی به این درس لطفا لینک
-              خرید را دنبال کنید.
-            </p>
-            <p
-              v-else-if="type == 'vip'"
-              class="text-danger"
-            >برای دسترسی به این درس اکانت VIP تهیه کنید.</p>
-          </div>
-          <div v-if="notEnrolled && type == 'paid'">
-            <base-button
-              @click="openBuyCourse"
-              native-type="button"
-              class="btn-fill btn-success btn btn-sm"
-            >خرید</base-button>
-            <modal
-              ref="buymodal"
-              centered="true"
-              footerClasses="justify-content-center"
-              type="notice"
-            >
-              <h5 slot="header" class="modal-title">خرید دوره {{ course.title }}</h5>
-              <div slog="body" class="text-right rtl">
-                <p>پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب</p>
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <strong class="float-right text-dark">قیمت دوره</strong>
-                    <span class="float-left text-success">{{ getCoursePrice() }}</span>
-                  </li>
-                </ul>
-              </div>
-              <div slot="footer" class="d-block w-100">
-                <base-button
-                  @click="buyCourseListener"
-                  native-type="button"
-                  :loading="loading"
-                  class="btn-block btn-success d-block w-100"
-                >پرداخت از درگاه</base-button>
-              </div>
-            </modal>
-          </div>
-        </div>
       </section>
 
       <p
-        class="quote-text text-center py-3"
+        class="quote-text text-center py-3 d-none d-md-block"
       >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
+
       <!-- Timeline Unit Section -->
       <div class="col-md-12 py-3">
         <AllUnits
           :course="course"
           :episodes="course.episodes"
           :scrollable="true"
-          :maxepisodes="8"
+          :maxepisodes="30"
           :purchased="! notEnrolled"
         ></AllUnits>
       </div>
@@ -304,9 +317,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.video-container {
-  padding: 0 20px;
+.card {
+  border-radius: 25px;
+  background: #1c2135;
 }
+
 .icon {
   font-size: 1.7rem;
   color: rgb(238, 238, 238);
@@ -319,7 +334,8 @@ export default {
 }
 
 .icon-data {
-  font-size: rem;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: #fff;
 }
 @media (max-width: 768px) {
@@ -331,21 +347,31 @@ export default {
   }
 
   .icon-text {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 
   .icon-data {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
+
+  .pay-text {
+    font-size: 1rem;
+  }
+}
+.pay-text {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.pay-icon {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(0, 255, 98);
 }
 
 .quote-text {
   font-size: 0.8rem;
-  color: rgb(165, 165, 165);
-}
-
-.plyr--video {
-  border-radius: 20px !important;
+  color: rgb(109, 109, 109);
 }
 
 .card-background {
@@ -354,10 +380,7 @@ export default {
 }
 
 .purchase-status {
-  font-size: 0.9rem;
-}
-.outline {
-  border-radius: 25px;
+  font-size: 1.1rem;
 }
 
 .pricehighlight {
@@ -387,18 +410,21 @@ export default {
   border-radius: 50%;
 }
 
-.plyr__video-wrapper {
-  border-radius: 25px;
+.plyr--video {
+  border-radius: 25px !important;
 }
 
-// .plyr--video {
-//   background: #000;
-//   overflow: hidden;
-//   border-radius: 25px;
-// }
+.plyr__video-wrapper {
+  border-radius: 25px !important;
+}
 
-.badge-size {
-  font-size: 0.9rem;
-  font-weight: 600;
+.plyr--video .plyr__controls {
+  border-radius: 25px !important;
+}
+
+@media (min-width: 480px) {
+  .plyr--video .plyr__controls {
+    border-radius: 25px !important;
+  }
 }
 </style>

@@ -69,7 +69,7 @@ export default {
         },
         {
           title: myEpisodes + ' / ' + totalEpisodes,
-          subTitle: 'درس های باز شده',
+          subTitle: 'درس های ثبت نام شده',
           type: 'danger',
           icon: 'tim-icons icon-molecule-40',
           footer:

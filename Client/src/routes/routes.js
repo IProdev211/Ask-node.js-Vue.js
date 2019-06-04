@@ -323,7 +323,7 @@ const routes = [
         components: {
           default: SingleLesson
         }
-      },
+      }
     ]
   },
   {
