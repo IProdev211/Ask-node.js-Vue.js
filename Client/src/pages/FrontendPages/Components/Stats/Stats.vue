@@ -53,7 +53,7 @@ export default {
 
   .headerStyling1 {
     color: #f5b435;
-    font-weight: 600;
+    // font-weight: 600;
     margin: 0;
     padding: 0;
   }
@@ -78,7 +78,7 @@ export default {
 
   .headerStyling2 {
     color: #21c8f6;
-    font-weight: 600;
+    // font-weight: 600;
     margin: 0;
     padding: 0;
   }
@@ -103,7 +103,7 @@ export default {
 
   .headerStyling3 {
     color: #6edcc4;
-    font-weight: 600;
+    // font-weight: 600;
     margin: 0;
     padding: 0;
   }

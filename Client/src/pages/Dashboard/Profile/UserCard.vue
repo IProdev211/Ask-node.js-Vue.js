@@ -13,11 +13,11 @@
           <br>
           <span class="description emailText px-1">{{ user.email }}</span>
         </h2>
-        <p class="description font-weight-bold">
+        <p class="description">
           <i class="fas fa-check tick px-2"></i>{{ user.admin ? "مدیر" : "دانشجو"}} -
           <span class="description" :class="user.active ? 'tick' : 'cross'">{{ user.active ? "فعال" : "غیر فعال" }}</span>
         </p>
-        <p class="description font-weight-bold">
+        <p class="description">
           <i class="fas px-2" :class="isVIP ? 'fa-check tick' : 'fa-times cross'"></i>{{ 'وضعیت عضویت ویژه' }} -
           <span class="description" :class="isVIP ? 'tick' : 'cross'">{{ isVIP ? "فعال" : "غیر فعال" }}</span>
         </p>
@@ -52,7 +52,7 @@
           </p>
           <div class="row pt-3">
             <div class="col-md-3 text-ltr">
-              <label class="pull-right font-weight-bold">نام و نام خانوادگی</label>
+              <label class="pull-right">نام و نام خانوادگی</label>
               <base-input
                 type="text"
                 placeholder="Your Name"
@@ -61,7 +61,7 @@
               ></base-input>
             </div>
             <div class="col-md-3 text-ltr">
-              <label class="pull-right font-weight-bold">پست الکترونیک</label>
+              <label class="pull-right">پست الکترونیک</label>
               <base-input
                 type="email"
                 placeholder="info@askarya.ir"
@@ -70,7 +70,7 @@
               ></base-input>
             </div>
              <div class="col-md-3 text-ltr">
-              <label class="pull-right font-weight-bold">تغییر رمز عبور</label>
+              <label class="pull-right">تغییر رمز عبور</label>
               <base-input
                 type="password"
                 placeholder="پسورد جدید خود را وارد کنید"
@@ -196,10 +196,10 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 }
 .tick {
   color: #57c09a;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 .cross {
   color: #ff0000;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 </style>

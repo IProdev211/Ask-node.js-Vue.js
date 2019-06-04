@@ -335,7 +335,7 @@ export default {
 
 .icon-data {
   font-size: 0.9rem;
-  font-weight: 600;
+  // font-weight: 600;
   color: #fff;
 }
 @media (max-width: 768px) {
@@ -360,12 +360,12 @@ export default {
 }
 .pay-text {
   font-size: 1rem;
-  font-weight: 600;
+  // font-weight: 600;
 }
 
 .pay-icon {
   font-size: 1rem;
-  font-weight: 600;
+  // font-weight: 600;
   color: rgb(0, 255, 98);
 }
 
@@ -385,12 +385,12 @@ export default {
 
 .pricehighlight {
   font-size: 0.8rem;
-  font-weight: 600;
+  // font-weight: 600;
 }
 
 .course-title {
   font-size: 1.7rem;
-  font-weight: 600;
+  // font-weight: 600;
   line-height: inherit;
   margin: 0;
   padding: 0;

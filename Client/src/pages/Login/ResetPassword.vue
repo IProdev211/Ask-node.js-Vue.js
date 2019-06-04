@@ -8,7 +8,7 @@
               <h2 class="card-title text-center py-1 px-4 text-danger">بازیابی پسورد</h2>
             </template>
             <div class="pt-4">
-              <label class="pull-right font-weight-bold">پست الکترونیک</label>
+              <label class="pull-right">پست الکترونیک</label>
               <base-input placeholder="پست الکترونیک" 
                 v-model="email" 
                 :required="true" 
@@ -16,7 +16,7 @@
               </base-input>
             </div>     
             <div class="pt-4">
-              <label class="pull-right font-weight-bold">کلمه عبور جدید</label>
+              <label class="pull-right">کلمه عبور جدید</label>
               <base-input
                 v-model="password" 
                 :required="true" 

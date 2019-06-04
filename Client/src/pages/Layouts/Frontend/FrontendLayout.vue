@@ -231,7 +231,7 @@ p,
 .usertitle {
   color: #2ae490;
   font-size: 1.1rem;
-  font-weight: 600;
+  // font-weight: 600;
 }
 
 .navbar-collapse .navbar-nav .nav-link {

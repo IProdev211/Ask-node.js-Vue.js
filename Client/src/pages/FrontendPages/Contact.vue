@@ -69,7 +69,7 @@
 .contactSection .iconSection a:hover .fa::before,
 .contactSection .iconSection a:hover .fab::before {
   color: rgb(81, 202, 206) !important;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 .subtitle {

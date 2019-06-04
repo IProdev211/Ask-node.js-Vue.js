@@ -109,7 +109,7 @@ export default {
 
 .pricehighlight {
   font-size: 0.8rem;
-  font-weight: 600;
+  // font-weight: 600;
 }
 
 .course-title {
@@ -121,10 +121,6 @@ export default {
 }
 .course-info {
   border-top: 3px solid rgba(110, 85, 85, 0.473);
-}
-
-.bold {
-  font-weight: 600;
 }
 
 .infoBox {
@@ -223,7 +219,7 @@ export default {
 
 .badge-size {
   font-size: 0.9rem;
-  font-weight: 600;
+  // font-weight: 600;
 }
 .swal-modal {
   .swal-text {

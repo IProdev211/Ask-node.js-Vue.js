@@ -6,7 +6,7 @@
           <img class="CourseCard__courseimage" :src="thumb">
         </div>
         <div>
-          <h4 class="text-center font-weight-bold course-title pt-4">{{ title }}</h4>
+          <h4 class="text-center course-title pt-4">{{ title }}</h4>
         </div>
         <hr class="fadeline">
         <div class="CourseCard__course__info d-flex justify-content-between text-center py-2">
@@ -111,13 +111,13 @@ export default {
 .pricehighlight {
   font-size: 0.8rem;
   color: white;
-  font-weight: 600;
+  // font-weight: 600;
 }
 
 .oldPrice {
   font-size: 0.75rem;
   color: rgb(190, 190, 190);
-  font-weight: 600;
+  // font-weight: 600;
   text-decoration: line-through;
 }
 
@@ -226,7 +226,7 @@ export default {
   color: rgb(219, 219, 219);
   padding-right: 0.7rem;
   font-size: 1.2rem;
-  font-weight: 600;
+  // font-weight: 600;
 }
 .courseTimeSpan {
   font-size: 0.73rem;
@@ -237,7 +237,7 @@ export default {
   color: rgb(219, 219, 219);
   padding-left: 0.7rem;
   font-size: 1.2rem;
-  font-weight: 600;
+  // font-weight: 600;
 }
 .unitsAvailableSpan {
   font-size: 0.73rem;
@@ -276,7 +276,7 @@ export default {
 .CourseCard:hover {
   .buyCourseTitle {
     color: rgb(81, 202, 206);
-    font-weight: 600;
+    // font-weight: 600;
   }
   .course-title,
   .courseTime,

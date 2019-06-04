@@ -112,7 +112,7 @@ export default {
 <style>
 .coloredLink {
   color: #de4dc7;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 .form-check input[type='checkbox'] + .form-check-sign::after {

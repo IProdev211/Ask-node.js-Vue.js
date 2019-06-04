@@ -122,7 +122,6 @@ export default {
 .hero-title {
   font-size: 2.6rem;
   line-height: inherit;
-  font-weight: 600;
   color: #dbdbdb;
   margin: 0;
   padding: 0;
@@ -155,7 +154,6 @@ export default {
   .hero-title {
     font-size: 1.9rem;
     line-height: inherit;
-    font-weight: 600;
     color: #dbdbdb;
   }
   .hero-subtitle {

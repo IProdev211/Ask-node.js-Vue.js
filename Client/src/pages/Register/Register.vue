@@ -10,7 +10,7 @@
           <form @submit="checkForm" id="register-form">
             <div class="row pt-3">
               <div class="col-md-6 text-ltr">
-                <label class="pull-right font-weight-bold pt-2">نام و نام خانوادگی</label>
+                <label class="pull-right pt-2">نام و نام خانوادگی</label>
                 <base-input 
                   v-model="name" 
                   :required="true" 
@@ -19,7 +19,7 @@
               </div>
             
               <div class="col-md-6 text-ltr">
-                <label class="pull-right font-weight-bold pt-2" >پست الکترونیک</label>
+                <label class="pull-right pt-2" >پست الکترونیک</label>
                 <base-input
                   v-model="email" 
                   :required="true" 
@@ -28,7 +28,7 @@
               </div>
 
               <div class="col-md-12 text-ltr">
-              <label class="pull-right font-weight-bold pt-2">کلمه عبور</label>
+              <label class="pull-righ pt-2">کلمه عبور</label>
                 <base-input
                   type="password"
                   v-model="password" 

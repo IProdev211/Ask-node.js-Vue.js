@@ -1,17 +1,17 @@
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6,
-// .h1,
-// .h2,
-// .h3,
-// .h4,
-// .h5,
-// .h6 {
-//   line-height: $headings-line-height;
-// }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  line-height: $headings-line-height;
+}
 
 button,
 input,
@@ -51,7 +51,7 @@ a {
 }
 h1,
 .h1 {
-  // line-height: 1.05;
+  line-height: 1.05;
   margin-bottom: $margin-base-vertical * 2;
 
   small {
@@ -63,16 +63,16 @@ h1,
 h2,
 .h2 {
   margin-bottom: $margin-base-vertical * 2;
-  //   line-height: 1.2;
+  line-height: 1.2;
 }
 h3,
 .h3 {
   margin-bottom: $margin-base-vertical * 2;
-  //   line-height: 1.4em;
+  line-height: 1.4em;
 }
 h4,
 .h4 {
-  //   line-height: 1.45em;
+  line-height: 1.45em;
   margin-bottom: $margin-base-vertical;
 
   & + .category,
@@ -82,7 +82,7 @@ h4,
 }
 h5,
 .h5 {
-  //   line-height: 1.4em;
+  line-height: 1.4em;
   margin-bottom: 15px;
 }
 h6,
@@ -138,7 +138,7 @@ p {
   border: 1px solid $default;
   padding: 20px;
   font-size: $blockquote-font-size;
-  //   line-height: 1.8;
+  line-height: 1.8;
 
   small {
     color: $default;

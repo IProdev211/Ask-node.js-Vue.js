@@ -3,7 +3,7 @@
 		<div class="col-md-12">
 			<card class="stacked-form" title="Stacked Form">
 				<h4 slot="header" class="card-title">
-					<span class="font-weight-bold pr-1">
+					<span class=" pr-1">
 						<span v-if="data.id">Edit</span>
 						<span v-else>Add</span>
 					</span> User
@@ -117,7 +117,7 @@
 									<div class="container pt-4"  v-if="data.id">
 										<!-- Enrolled Courses -->
 										<div>
-											<p class="enrolled-on font-weight-bold">Courses Enrolled On:</p>
+											<p class="enrolled-on">Courses Enrolled On:</p>
 											<ul v-if="data.learning.length">
 												<li v-for="course of data.learning" :key="course.id" class="enrolled-course">
 													{{ course.title }}
@@ -129,7 +129,7 @@
 
 										<!-- VIP Membership -->
 										<div class="pt-4">
-											<p class="vip-on font-weight-bold">VIP Member:</p>
+											<p class="vip-on">VIP Member:</p>
 											<p class="vip-status" v-if="data.vipTime">
 												From:
 												<span class="pr-4">{{ vipFromDate() }}</span>

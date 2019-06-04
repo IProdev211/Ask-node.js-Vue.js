@@ -9,7 +9,7 @@
               <p class="container pt-3 text-center">با استفاده از این فرم میتوانید پسورد خود را بازیابی کنید</p>
             </template>
             <div class="pt-4">
-              <label class="pull-right font-weight-bold">پست الکترونیک</label>
+              <label class="pull-right">پست الکترونیک</label>
               <base-input placeholder="پست الکترونیک" 
                 v-model="email" 
                 :required="true" 

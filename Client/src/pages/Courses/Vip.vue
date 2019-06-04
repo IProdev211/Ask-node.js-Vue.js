@@ -9,12 +9,9 @@
       </div>
 
       <div class="col-md-5 my-auto">
-        <p class="px-3 my-auto vip-desc text-center py-3 text-black">
-          با خریداری این پنل شما میتوانید به ویدیوهای ویژه سایت به مدت یک ماه بطور کامل دسترسی داشته باشید.
-          <span
-            class="font-weight-bold"
-          ></span>
-        </p>
+        <p
+          class="px-3 my-auto vip-desc text-center py-3 text-black"
+        >با خریداری این پنل شما میتوانید به ویدیوهای ویژه سایت به مدت یک ماه بطور کامل دسترسی داشته باشید.</p>
       </div>
       <div class="col-md-3 my-auto">
         <base-dropdown title="عضویت" title-classes="btn btn-default px-5">
@@ -64,7 +61,7 @@ export default {
 
 .vip-title {
   font-size: 1.7rem;
-  font-weight: 600;
+  // font-weight: 600;
   .icon {
     font-size: 1.6rem;
   }

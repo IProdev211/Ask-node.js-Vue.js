@@ -4,7 +4,7 @@
       <div class="col-md-4 card">
         <!-- Quiz Name (Course Name) -->
         <div class="text-center">
-          <p class="quiz-title font-weight-bold">Proper Noun Quiz</p>
+          <p class="quiz-title">Proper Noun Quiz</p>
           <hr class="fadeline">
           <p class="quiz-subtitle">Grammar Bootcamp</p>
         </div>

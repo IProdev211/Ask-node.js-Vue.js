@@ -3,7 +3,7 @@
 		<div class="col-md-12">
 			<card class="stacked-form">
 				<h4 slot="header" class="card-title">
-					<span class="font-weight-bold pr-1">
+					<span class="pr-1">
 						<span v-if="data.id">Edit</span>
 						<span v-else>Add</span>
 					</span> Blog

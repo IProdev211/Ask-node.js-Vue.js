@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper" :class="{ 'nav-open': $sidebar.showSidebar }">
-    <notifications></notifications>
+    <div class="container">
+      <notifications></notifications>
+    </div>
     <sidebar-fixed-toggle-button/>
     <side-bar :background-color="sidebarBackground" :short-title="'پنل کاربری'" :title="'داشبورد'">
       <template slot="links">
@@ -135,7 +137,7 @@ export default {
   .active
   a
   .sidebar-normal {
-  font-weight: 600;
+  // font-weight: 600;
   font-size: 1.1rem;
   color: white;
 }
@@ -146,7 +148,7 @@ export default {
 }
 
 .sidebar .nav li.active > a:not([data-toggle='collapse']) p {
-  font-weight: 600;
+  // font-weight: 600;
   font-size: 1.2rem;
 }
 

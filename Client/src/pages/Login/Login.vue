@@ -11,7 +11,7 @@
               </template>
               <div class="row mt-4">
                 <div class="col-md-6">
-                  <label class="pull-right font-weight-bold">پست الکترونیک</label>
+                  <label class="pull-right">پست الکترونیک</label>
                   <base-input 
                     class="text-ltr"
                     v-model="email" 
@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="col-md-6">
-                  <label class="pull-right font-weight-bold">کلمه عبور</label>
+                  <label class="pull-right">کلمه عبور</label>
                   <base-input
                     class="text-ltr"
                     type="password"
@@ -45,16 +45,16 @@
                 </a>
                 <p class="google-text pt-1">شما میتوانید با اکانت گوگل وارد سایت شوید</p>
               </div>
-              <p class="text-right" v-if="formErrors.length">
-                <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
-                <ul>
-                  <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
-                </ul>
-              </p>
-
               <div class="pt-3 d-flex justify-content-center">
                 <vue-recaptcha  :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
               </div>
+              <p class="text-right pt-4" v-if="formErrors.length">
+                <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
+                <ul class="pt-2">
+                  <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
+                </ul>
+              </p>
+              
               <div slot="footer">
                 <base-button type="primary" nativeType="submit" class="mb-3" size="lg" :loading="loading" block>ورود</base-button>
                 <div class="d-flex justify-content-around">
@@ -188,6 +188,11 @@ color: #D557D9
 
 .google-text {
   font-size: 0.8rem;
-  color: rgb(177, 177, 177);
+  color: rgb(160, 160, 160);
+}
+
+.footer-link {
+  font-size: 0.9rem;
+  color: rgb(182, 182, 182);
 }
 </style>
