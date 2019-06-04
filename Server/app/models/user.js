@@ -84,6 +84,9 @@ userSchema.methods.isVip = function() {
 };
 
 userSchema.methods.checkLearning = function(courseId) {
+  if (typeof courseId == "object" && courseId instanceof Buffer) {
+    courseId = courseId.toString("hex");
+  }
   return this.learning.indexOf(courseId) !== -1;
 };
 
