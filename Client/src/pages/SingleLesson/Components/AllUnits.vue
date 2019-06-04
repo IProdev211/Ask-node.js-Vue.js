@@ -16,9 +16,10 @@
           <i :class="'fas ' + getEpisodeIcon(episode.type)"></i>
         </div>
         <div class="UnitName pr-3">
-          <router-link :to="'/courses/' + course.slug + '/unit-' + episode.number">
+          <router-link :to="'/courses/' + course.slug + '/unit-' + episode.number" v-if="!mustBuy(episode.type)">
             <p class="UnitName text-right">{{ episode.title }}</p>
           </router-link>
+          <p @click="throwClickEvent" class="UnitName text-right" v-if="mustBuy(episode.type)">{{ episode.title }}</p>
         </div>
       </div>
       <div class="left d-flex justify-content-between">
@@ -84,6 +85,12 @@ export default {
     },
     getUnitTime(time) {
       return timeUtil.secondsToTime(timeUtil.timeToSeconds(time));
+    },
+    mustBuy(type) {
+      return (["cash", "paid"].indexOf(type.toLowerCase()) != -1) && !this.purchased;
+    },
+    throwClickEvent() {
+      this.$emit("buy");
     }
   },
   computed: {
@@ -137,6 +144,7 @@ export default {
     background: #107a69;
   }
   .UnitName {
+    cursor: pointer;
     color: white;
   }
 }

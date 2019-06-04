@@ -305,6 +305,7 @@ $scaleSize: 0.8;
   padding: 25px 0;
   color: #fff;
   line-height: 2;
+  clear: both;
 
   .title {
     margin-bottom: 15px;

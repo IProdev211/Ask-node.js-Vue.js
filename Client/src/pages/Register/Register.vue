@@ -39,7 +39,7 @@
             </div>
 
             <div class="text-right">
-              <base-checkbox v-model="terms" class="pb-3" :class="{'has-danger': fieldErrors.terms !== undefined}">
+              <base-checkbox v-model="terms" class="pb-3" :class="{'has-danger': fieldErrors.terms !== undefined, 'terms-checkbox': true}">
                 <router-link to="/terms">شرایط را قبول دارم</router-link>
               </base-checkbox>
             </div>
@@ -165,7 +165,8 @@ export default {
         haveError = true;
       }
       if (!this.terms) {
-        this.fieldErrors.terms = 'پذیرش شرایط ما لازم است!';
+        this.fieldErrors.terms = true;
+        this.formErrors.push('پذیرش شرایط ما لازم است!');
         haveError = true;
       }
       if (haveError) {
@@ -235,5 +236,12 @@ a {
   font-size: 0.8rem;
   color: rgb(177, 177, 177);
 }
-
+.terms-checkbox {
+  &::after {
+    display: none;
+  }
+  &.has-danger label a {
+    color: #ec250d;
+  }
+}
 </style>

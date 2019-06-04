@@ -32,6 +32,8 @@ router.put(
   profileValidator.handle(),
   DashboardController.updateProfile
 );
+router.post('/vip/payment' , DashboardController.vipPayment);
+router.post('/vip/payment/verification' , DashboardController.vipPaymentVerfication);
 
 router.get('/courses/purchased', courseController.PurchasedCourses);
 router.get('/courses/episode/download/:id', courseController.downloadEpisode);
