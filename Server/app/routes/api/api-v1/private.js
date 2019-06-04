@@ -35,7 +35,6 @@ router.put(
 router.post('/vip/payment' , DashboardController.vipPayment);
 router.post('/vip/payment/verification' , DashboardController.vipPaymentVerfication);
 
-router.get('/courses/purchased', courseController.PurchasedCourses);
 router.get('/courses/episode/download/:id', courseController.downloadEpisode);
 router.get('/courses/download/:id', courseController.downloadCourse);
 
