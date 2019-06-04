@@ -23,7 +23,7 @@ router.beforeResolve((to, from, next) => {
       return next('');
     }
   } else if (needAuth) {
-    return next('login');
+    return next('/login');
   }
   next();
 });

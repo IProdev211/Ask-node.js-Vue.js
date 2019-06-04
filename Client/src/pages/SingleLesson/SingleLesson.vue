@@ -71,31 +71,6 @@
                     class="btn-fill btn-danger btn btn-sm"
                   >تهیه درس غیرحضوری</base-button>
                 </span>
-                <modal
-                  ref="buymodal"
-                  centered="true"
-                  footerClasses="justify-content-center"
-                  type="notice"
-                >
-                  <h5 slot="header" class="modal-title">خرید دوره {{ course.title }}</h5>
-                  <div slog="body" class="text-right rtl">
-                    <p>پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب</p>
-                    <ul class="list-group">
-                      <li class="list-group-item">
-                        <strong class="float-right text-dark">قیمت دوره</strong>
-                        <span class="float-left text-success">{{ getCoursePrice() }}</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div slot="footer" class="d-block w-100">
-                    <base-button
-                      @click="buyCourseListener"
-                      native-type="button"
-                      :loading="loading"
-                      class="btn-block btn-success d-block w-100"
-                    >پرداخت از درگاه</base-button>
-                  </div>
-                </modal>
               </span>
             </p>
             <p v-else-if="type == 'vip'" class="text-danger pay-text">
@@ -133,9 +108,35 @@
           :scrollable="true"
           :maxepisodes="30"
           :purchased="! notEnrolled"
+          @buy="openBuyCourse"
         ></AllUnits>
       </div>
     </div>
+    <modal
+      ref="buymodal"
+      centered="true"
+      footerClasses="justify-content-center"
+      type="notice"
+    >
+      <h5 slot="header" class="modal-title">خرید دوره {{ course.title }}</h5>
+      <div slog="body" class="text-right rtl">
+        <p>پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب</p>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong class="float-right text-dark">قیمت دوره</strong>
+            <span class="float-left text-success">{{ getCoursePrice() }}</span>
+          </li>
+        </ul>
+      </div>
+      <div slot="footer" class="d-block w-100">
+        <base-button
+          @click="buyCourseListener"
+          native-type="button"
+          :loading="loading"
+          class="btn-block btn-success d-block w-100"
+        >پرداخت از درگاه</base-button>
+      </div>
+    </modal>
   </div>
 </template>
 <script>
@@ -208,6 +209,9 @@ export default {
             this.type = this.episode.type.toLowerCase();
             this.body = this.episode.body;
             this.download = this.episode.download;
+            if (this.notEnrolled) {
+              this.openBuyCourse();
+            }
           });
       } else {
         backend.get(`courses/${this.$route.params.slug}`).then(response => {
@@ -281,6 +285,7 @@ export default {
       }
     },
     openBuyCourse() {
+      console.log(this.$refs);
       this.$refs.buymodal.show = true;
     },
     buyCourseListener() {
