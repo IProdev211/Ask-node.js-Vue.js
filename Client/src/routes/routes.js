@@ -315,7 +315,7 @@ const routes = [
   },
   {
     path: "/",
-    component: DashboardLayout,
+    component: FrontendLayout,
     children: [
       {
         path: 'courses/:slug',
