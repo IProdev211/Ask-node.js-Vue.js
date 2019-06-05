@@ -101,7 +101,7 @@
       >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
 
       <!-- Timeline Unit Section -->
-      <div class=" py-3">
+      <div class="py-3">
         <AllUnits
           :course="course"
           :episodes="course.episodes"
@@ -113,13 +113,16 @@
       </div>
     </div>
     <modal ref="buymodal" centered="true" footerClasses="justify-content-center" type="notice">
-      <h5 slot="header" class="modal-title">خرید دوره {{ course.title }}</h5>
+      <h5 slot="header" class="modal-title">
+        خرید دوره:
+        <span class="font-weight-bold text-danger">{{ course.title }}</span>
+      </h5>
       <div slog="body" class="text-right rtl">
-        <p>پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب</p>
+        <p>پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب.</p>
         <ul class="list-group">
           <li class="list-group-item">
             <strong class="float-right text-dark">قیمت دوره</strong>
-            <span class="float-left text-success">{{ getCoursePrice() }}</span>
+            <span class="float-left text-danger">{{ getCoursePrice() }}</span>
           </li>
         </ul>
       </div>
@@ -316,6 +319,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.modal-title {
+  font-size: 1rem;
+}
 .card {
   border-radius: 25px;
   background: #1c2135;
