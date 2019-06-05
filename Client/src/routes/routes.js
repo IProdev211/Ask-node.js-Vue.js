@@ -46,6 +46,11 @@ const EpisodeOverview = () =>
     /* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageEpisodes/EpisodeOverview.vue'
   );
 
+const TicketOverview = () =>
+  import(
+    /* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageTickets/TicketOverview.vue'
+  );
+
 const ManageUsers = () =>
   import(
     /* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageUsers/ManageUsers.vue'
@@ -298,6 +303,13 @@ const routes = [
         }
       },
       {
+        path: 'ticketoverview',
+        name: 'Ticket Overview',
+        components: {
+          default: TicketOverview
+        }
+      },
+      {
         path: 'quizoverview',
         name: 'Quiz Overview',
         components: {
@@ -314,7 +326,7 @@ const routes = [
     ]
   },
   {
-    path: "/",
+    path: '/',
     component: FrontendLayout,
     children: [
       {

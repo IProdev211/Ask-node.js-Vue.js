@@ -6,13 +6,12 @@
   margin-bottom: 30px;
   box-shadow: $box-shadow;
 
-
   label {
     color: rgba($white, 0.6);
   }
 
   .card-title {
-    margin-bottom: .75rem;
+    margin-bottom: 0.75rem;
   }
 
   .card-body {
@@ -27,14 +26,13 @@
       color: $white;
       text-transform: inherit;
       font-weight: $font-weight-light;
-      margin-bottom: .75rem;
+      margin-bottom: 0.75rem;
     }
 
     .card-description,
     .card-category {
       color: rgba($white, 0.6);
     }
-
   }
 
   .card-header {
@@ -83,7 +81,6 @@
     @include form-control-placeholder(rgba($black, 0.4), 1);
 
     .has-danger {
-
       .form-control,
       .input-group-prepend .input-group-text {
         border-color: $danger-states;
@@ -110,10 +107,9 @@
 
     .form-group.no-border,
     .input-group.no-border {
-
       .form-control,
-      .form-control+.input-group-prepend .input-group-text,
-      .form-control+.input-group-append .input-group-text,
+      .form-control + .input-group-prepend .input-group-text,
+      .form-control + .input-group-append .input-group-text,
       .input-group-prepend .input-group-text,
       .input-group-append .input-group-text {
         background-color: $opacity-gray-3;
@@ -127,19 +123,15 @@
 
       .form-control {
         &:focus {
-
-          &+.input-group-prepend .input-group-text,
-          &+.input-group-append .input-group-text {
+          & + .input-group-prepend .input-group-text,
+          & + .input-group-append .input-group-text {
             background-color: $transparent-bg;
           }
         }
       }
-
-
     }
 
     .input-group[disabled] {
-
       .input-group-prepend .input-group-text,
       .input-group-append .input-group-text {
         background-color: $black;
@@ -154,7 +146,6 @@
     }
 
     .input-group-focus {
-
       .input-group-prepend .input-group-text,
       .input-group-append .input-group-text,
       .form-control {
@@ -163,10 +154,8 @@
       }
 
       &.no-border {
-
         .input-group-prepend .input-group-text,
         .input-group-append .input-group-text {
-
           background-color: $opacity-gray-5;
         }
       }
@@ -193,7 +182,6 @@
     }
   }
 
-
   &.card-plain {
     background: transparent;
     box-shadow: none;
@@ -217,6 +205,7 @@
     font-size: $font-size-sm;
     margin-bottom: 5px;
     margin-left: 75 !important;
+    margin-right: auto;
   }
 
   .card-footer {
@@ -224,12 +213,10 @@
     border: 0;
     padding: 15px;
 
-
     .stats {
       i {
         margin-right: 5px;
         position: relative;
-
       }
     }
 

@@ -33,6 +33,7 @@
           <sidebar-item :link="{ name: 'مدیریت دوره ها', path: '/courseoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت جلسه ها', path: '/episodeoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت وبلاگ ها', path: '/blogoverview' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'مدیریت تیکت ها', path: '/ticketsoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت امتحان ها', path: '/quizoverview' }"></sidebar-item>
         </sidebar-item>
       </template>
