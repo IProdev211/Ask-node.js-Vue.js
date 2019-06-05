@@ -24,7 +24,7 @@ class dashboardController extends controller {
             path: 'course',
             select: '_id title images thumb price vip'
           },
-          select: '_id createdAt price payment course'
+          select: '_id createdAt price payment course vip'
         }
       )
     ];
@@ -206,7 +206,7 @@ class dashboardController extends controller {
       ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
       user: payment.user.id,
       type: 'vip_payment',
-      title: `از پرداخت شما سپاسگزاریم، اکانت ویژه شما تا ${moment(vipTime).locale("fa").format("YYYY/MM/DD")} اعتبار دارد.`
+      title: `از پرداخت شما سپاسگزاریم، اعتبار اکانت ویژه شما تا ${time} ماه دیگر تمدید شد.`
     });
     await paymentLog.save();
     return res.json({

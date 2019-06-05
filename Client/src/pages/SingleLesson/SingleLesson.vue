@@ -26,7 +26,7 @@
             <!-- COURSE LENGTH -->
             <div class="col py-2">
               <i class="pl-2 icon far fa-clock"></i>
-              <p class="icon-text pr-1">طول دوره</p>
+              <p class="icon-text pr-1">{{ episode.time ? "طول درس" : "طول دوره" }}</p>
               <h5 class="icon-data pl-2">{{ episode.time ? episodeTime : courseTime }}</h5>
             </div>
             <!-- COURSE PRICE  -->
