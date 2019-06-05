@@ -19,7 +19,7 @@
         </p>
         <p class="description">
           <i class="fas px-2" :class="isVIP ? 'fa-check tick' : 'fa-times cross'"></i>{{ 'وضعیت عضویت ویژه' }} -
-          <span class="description" :class="isVIP ? 'tick' : 'cross'">{{ isVIP ? "فعال" : "غیر فعال" }}</span>
+          <span class="description" :class="isVIP ? 'tick' : 'cross'">{{ isVIP ? "فعال" : "غیر فعال" }} <span class="vip-date"> روز دیگر شارژ دارید </span></span>
         </p>
         <div class="row d-flex justify-content-center">
           <div class="pt-3 px-2">
@@ -182,7 +182,8 @@ export default {
 };
 </script>
 
-<style scoped>
+
+<style lang="scss" scoped>
 .emailText {
   font-size: 1rem;
 }
@@ -201,5 +202,9 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 .cross {
   color: #ff0000;
   /* font-weight: 600; */
+}
+.vip-date {
+  font-size: 0.8rem;
+  color: rgb(185, 185, 185);
 }
 </style>

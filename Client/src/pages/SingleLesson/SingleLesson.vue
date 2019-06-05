@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div v-if="id" :key="id">
-      <div class="container text-right pb-4">
+      <div class="container text-right py-4">
         <!-- Course Title -->
         <h1 class="course-title">{{ title }}</h1>
         <p class="text-muted" v-if="episode.id">{{ course.title }}</p>
@@ -101,7 +101,7 @@
       >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
 
       <!-- Timeline Unit Section -->
-      <div class="col-md-12 py-3">
+      <div class=" py-3">
         <AllUnits
           :course="course"
           :episodes="course.episodes"
@@ -112,12 +112,7 @@
         ></AllUnits>
       </div>
     </div>
-    <modal
-      ref="buymodal"
-      centered="true"
-      footerClasses="justify-content-center"
-      type="notice"
-    >
+    <modal ref="buymodal" centered="true" footerClasses="justify-content-center" type="notice">
       <h5 slot="header" class="modal-title">خرید دوره {{ course.title }}</h5>
       <div slog="body" class="text-right rtl">
         <p>پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب</p>
@@ -378,10 +373,10 @@ export default {
   color: rgb(109, 109, 109);
 }
 
-.card-background {
-  background: #27293d;
-  border-radius: 25px;
-}
+// .card-background {
+//   background: #27293d;
+//   border-radius: 25px;
+// }
 
 .purchase-status {
   font-size: 1.1rem;

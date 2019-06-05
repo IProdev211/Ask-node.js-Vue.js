@@ -1,7 +1,11 @@
 <template>
   <div class="home-blog pt-5">
     <div class="container">
-      <h2 class="pb-5 section-header text-right">پست های وبلاگ</h2>
+      <h2 class="pb-5 section-header text-right">
+        مقالات آموزشی
+        <br>
+        <span class="subtitle">مقالات به‌روز و کاربردی برای افزایش سطح دانش شما</span>
+      </h2>
       <div class="row px-4 text-ltr">
         <div class="col-lg-3 col-md-6" v-for="post in posts" v-bind:key="post.id">
           <BlogCard
@@ -32,6 +36,10 @@ export default {
 <style lang="scss" scoped>
 .section-header {
   font-size: 1.4rem;
+}
+.subtitle {
+  font-size: 0.95rem;
+  color: rgb(145, 145, 145);
 }
 </style>
 
