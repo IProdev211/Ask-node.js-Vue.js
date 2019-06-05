@@ -13,7 +13,6 @@
             path: '/dashboard'
           }"
         ></sidebar-item>
-
         <sidebar-item :link="{ name: 'همه دوره‌ها', path: '/courses', icon: 'fas fa-university' }"></sidebar-item>
         <sidebar-item
           :link="{ name: 'در حال یادگیری', path: '/mycourses', icon: 'fas fa-graduation-cap' }"
@@ -27,13 +26,14 @@
             path: '/points'
           }"
         ></sidebar-item>
+        <sidebar-item :link="{ name: 'پشتیبانی', path: '/tickets', icon: 'fas fa-headset' }"></sidebar-item>
 
         <sidebar-item v-if="isAdmin" :link="{ name: 'پنل مدیریت', icon: 'fas fa-tools' }">
           <sidebar-item :link="{ name: 'مدیریت کاربران', path: '/manageusers' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت دوره ها', path: '/courseoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت جلسه ها', path: '/episodeoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت وبلاگ ها', path: '/blogoverview' }"></sidebar-item>
-          <sidebar-item :link="{ name: 'مدیریت تیکت ها', path: '/ticketsoverview' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'مدیریت تیکت ها', path: '/ticketoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت امتحان ها', path: '/quizoverview' }"></sidebar-item>
         </sidebar-item>
       </template>

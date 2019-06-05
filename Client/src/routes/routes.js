@@ -46,10 +46,19 @@ const EpisodeOverview = () =>
     /* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageEpisodes/EpisodeOverview.vue'
   );
 
+const SingleTicket = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/Tickets/SingleTicket.vue');
+
 const TicketOverview = () =>
   import(
     /* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageTickets/TicketOverview.vue'
   );
+
+const AllTickets = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/Tickets/AllTickets.vue');
+
+const CreateTicket = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/Tickets/CreateTicket.vue');
 
 const ManageUsers = () =>
   import(
@@ -303,10 +312,31 @@ const routes = [
         }
       },
       {
+        path: 'singleticket',
+        name: 'Single Ticket',
+        components: {
+          default: SingleTicket
+        }
+      },
+      {
         path: 'ticketoverview',
         name: 'Ticket Overview',
         components: {
           default: TicketOverview
+        }
+      },
+      {
+        path: 'tickets',
+        name: 'All Tickets',
+        components: {
+          default: AllTickets
+        }
+      },
+      {
+        path: 'createticket',
+        name: 'Create Tickets',
+        components: {
+          default: CreateTicket
         }
       },
       {

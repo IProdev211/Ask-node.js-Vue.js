@@ -62,6 +62,8 @@
                 >
                   <i class="tim-icons icon-pencil"></i>
                 </base-button>
+
+                <!-- THE X IS FOR CLOSING THE TICKET -->
                 <base-button
                   @click.native="handleDelete(props.$index, props.row)"
                   class="remove btn-link"
