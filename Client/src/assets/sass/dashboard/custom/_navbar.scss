@@ -84,6 +84,7 @@
 
   &.bg-custom {
     background: #f8f8f8 !important;
+    box-shadow: 0px 1px 10px #999;
   }
 
   &.bg-primary {
@@ -290,7 +291,7 @@
       width: 22px;
       height: 1px;
       border-radius: 1px;
-      background: $white;
+      background: black;
 
       &.navbar-kebab {
         height: 3px;

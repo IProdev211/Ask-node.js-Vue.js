@@ -1,13 +1,14 @@
 <template>
   <div class="bg pb-5">
-    <div class="container pt-3 mb-5">
-      <h1 class="text-center display-3 text-white py-5">آموزش های غیر حضوری</h1>
+    <div class="container">
+      <h2 class="text-center pt-5 pb-3">آموزش های غیر حضوری</h2>
+      <p v-if="courses.length" class="card-category py-3">{{ totalItems }} دوره</p>
       <!-- <p
-      v-if="courses.length"
-      class="card-category py-3"
+        v-if="courses.length"
+        class="card-category py-3"
       >Showing {{ from + 1 }} to {{ to }} of {{ totalItems }} entries</p>-->
       <div class="row course-section">
-        <div class="col-lg-3 col-md-6 mb-4" v-for="course in courses" v-bind:key="course.id">
+        <div class="col-lg-3 col-md-6 mb-2" v-for="course in courses" v-bind:key="course.id">
           <Course v-bind="course"></Course>
         </div>
       </div>
@@ -31,9 +32,9 @@
 </template>
 
 <script>
-import Course from './Components/TopCourses/Course.vue';
+import Course from '../TopCourses/Course.vue';
 import { BasePagination } from 'src/components';
-import backend from '../../backend';
+import backend from '../../../../backend';
 
 export default {
   data: function() {
@@ -84,14 +85,13 @@ export default {
 
 
 <style lang="scss" scoped>
-.full-page > .content-custom {
-  padding-bottom: 10px !important;
-  padding-top: 10px !important;
+.card-category {
+  color: rgb(141, 141, 141) !important;
 }
 
 @media (max-width: 850px) {
   .course-section {
-    padding: 0 10%;
+    padding: 0 9%;
   }
 }
 </style>

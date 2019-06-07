@@ -1,7 +1,7 @@
 <template>
   <div class="home-blog pt-5">
     <div class="container">
-      <h2 class="pb-5 section-header text-right">
+      <h2 class="pb-3 section-header text-right">
         آخرین مقالات
         <br>
         <span class="subtitle">مقالات به‌روز و کاربردی برای افزایش سطح دانش شما</span>
@@ -34,6 +34,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.home-blog {
+  background-color: #ececec;
+}
 .section-header {
   font-size: 1.4rem;
 }

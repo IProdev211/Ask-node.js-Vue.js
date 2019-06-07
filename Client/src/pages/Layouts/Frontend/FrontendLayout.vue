@@ -5,7 +5,7 @@
       type="custom"
       :transparent="false"
       menu-classes
-      class="auth-navbar"
+      class="auth-navbar sticky-top"
     >
       <div slot="brand" class="navbar-wrapper">
         <router-link to="/">
@@ -15,9 +15,6 @@
       <ul class="navbar-nav">
         <router-link class="nav-item" tag="li" to="/">
           <a :class="getNavClass('home')">{{ 'خانه' }}</a>
-        </router-link>
-        <router-link class="nav-item" tag="li" to="/ourcourses">
-          <a :class="getNavClass('ourcourses')">{{ 'دوره های ما' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/privateclasses">
           <a :class="getNavClass('privateclasses')">{{ 'کلاس های حضوری' }}</a>
@@ -75,17 +72,16 @@
             <div class="footer-top">
               <div class="row text-right">
                 <div class="col-md-5 about-us">
-                  <h4 class="title">درباره اسک آریا</h4>
+                  <h4 class="title text-white">درباره اسک آریا</h4>
                   <!-- <hr class="fadeline3"> -->
-                  <p>اسک آریا یکی از پرتلاش‌ترین و بروزترین وبسایت های آموزشی در سطح ایران است که همیشه تلاش کرده تا بتواند جدیدترین و بروزترین مقالات و دوره‌های آموزشی را در اختیار علاقه‌مندان ایرانی قرار دهد.</p>
+                  <p
+                    class="text-white"
+                  >اسک آریا یکی از پرتلاش‌ترین و بروزترین وبسایت های آموزشی در سطح ایران است که همیشه تلاش کرده تا بتواند جدیدترین و بروزترین مقالات و دوره‌های آموزشی را در اختیار علاقه‌مندان ایرانی قرار دهد.</p>
                 </div>
                 <div class="col-md-3 askarya-sections">
-                  <h4 class="title">بخش های سایت</h4>
+                  <h4 class="title text-white">بخش های سایت</h4>
                   <!-- <hr class="fadeline3"> -->
                   <ul>
-                    <li class="footer-li">
-                      <router-link to="ourcourses">دوره های ما</router-link>
-                    </li>
                     <li class="footer-li">
                       <router-link to="privateclasses">کلاس های حضوری</router-link>
                     </li>
@@ -101,10 +97,10 @@
                   </ul>
                 </div>
                 <div class="col-md-4 contact-section">
-                  <h4 class="title">ارتباط با ما</h4>
+                  <h4 class="title text-white">ارتباط با ما</h4>
                   <!-- <hr class="fadeline3"> -->
                   <p
-                    class="pt-3"
+                    class="pt-3 text-white"
                   >شما میتوانید با استفاده از یکی از راه‌های زیر با ما ارتباط برقرار کنید:</p>
                   <p class="pt-2 telegram">
                     <a href="https://t.me/AskAryaSomething" class="li-ic">
@@ -177,9 +173,6 @@ export default {
       switch (nav) {
         case 'home':
           isActive = this.$route.name == 'Home';
-          break;
-        case 'ourcourses':
-          isActive = this.$route.name == 'OurCourses';
           break;
         case 'privateclasses':
           isActive = this.$route.name == 'PrivateClasses';
@@ -275,7 +268,7 @@ p,
   }
   .navbar-nav li {
     padding: 10px 0 !important;
-    border-bottom: 1px solid #3e3e70 !important;
+    border-bottom: 1px solid #72728865 !important;
   }
 }
 
@@ -315,7 +308,7 @@ $scaleSize: 0.8;
 .footer-bottom {
   background: #212942;
   padding: 25px 0;
-  color: #fff;
+  color: #fff !important;
   line-height: 2;
   clear: both;
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="blogBox">
+  <div class="blogBox pb-4">
     <router-link :to="`/blog/${slug}`">
       <div class="card">
         <img class="card-img-top" :src="image" :alt="name">

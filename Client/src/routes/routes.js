@@ -92,11 +92,6 @@ const Meetups = () =>
 const Contact = () =>
   import(/* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Contact.vue');
 
-const OurCourses = () =>
-  import(
-    /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/OurCourses.vue'
-  );
-
 const BlogPageLayout = () =>
   import(
     /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Components/Blog/BlogPageLayout.vue'
@@ -152,11 +147,6 @@ let frontendpages = {
       path: '/contact',
       name: 'Contact',
       component: Contact
-    },
-    {
-      path: '/ourcourses',
-      name: 'OurCourses',
-      component: OurCourses
     },
     {
       path: '/terms',

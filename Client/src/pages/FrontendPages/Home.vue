@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="hero-content-homepage d-flex align-items-center">
       <div class="container">
-        <h1 class="hero-title text-center">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
+        <h1 class="hero-title font-dn-bold text-center">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
         <p
           class="hero-subtitle text-center"
         >با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
@@ -30,7 +30,7 @@
     <div class="container">
       <!-- Top Courses -->
       <div class="top-courses-section">
-        <div class="custom-card py-2">
+        <div class="custom-card py-2 mt-4">
           <p class="text-center top-section-header">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
         <div class="row">
@@ -45,9 +45,13 @@
     <div class="founder-section-homepage pt-5">
       <founder-section></founder-section>
     </div>
-    <hr class="fadeline2">
+
+    <!--Our Courses Section-->
+    <div class="ou-section-homepage">
+      <our-courses></our-courses>
+    </div>
     <!-- Blog Section-->
-    <div class="blog-section pb-3">
+    <div class="blog-section">
       <blog-section v-bind="{posts: topPosts}"></blog-section>
     </div>
   </div>
@@ -57,6 +61,7 @@
 import FounderSection from './Components/FounderSection/FounderSection.vue';
 import Course from './Components/TopCourses/Course.vue';
 import BlogSection from './Components/Blog/BlogSection.vue';
+import OurCourses from './Components/OurCourses/OurCourses.vue';
 
 export default {
   data: function() {
@@ -77,6 +82,7 @@ export default {
   watch() {},
   components: {
     FounderSection,
+    OurCourses,
     Course,
     BlogSection
   }
@@ -86,7 +92,7 @@ export default {
 
 <style lang="scss">
 .hero-content-homepage {
-  background: linear-gradient(180deg, #4c3ab0e3, #f5f5f5),
+  background: linear-gradient(180deg, #57008ad2, #f5f5f5),
     url(/img/frontend/london-painting-bg-opt.png) no-repeat;
 
   // background: linear-gradient(90deg, #4305b4b4, #770ca1bb),
@@ -103,22 +109,21 @@ export default {
     font-size: 1.2rem;
     color: white !important;
   }
-  @media (max-width: 850px) {
-    padding: 0 13%;
+  .btn {
+    padding: 10px 15px;
   }
 }
-// .top-courses-section {
-//   padding: 0 10%;
-// }
 @media (max-width: 768px) {
   .top-courses-section {
-    padding: 0 17%;
+    padding: 0 9%;
+  }
+  .hero-title {
+    padding-top: 20px;
   }
 }
 
 .hero-title {
   font-size: 3.3rem;
-  font-weight: 600;
   line-height: inherit;
   color: #e9e9e9 !important;
 }
@@ -147,7 +152,7 @@ export default {
 }
 .custom-card {
   border-radius: 20px;
-  background: #f0f0f0;
+  background: #e4e4e4;
   border: 0;
   position: relative;
   width: 100%;

@@ -26,14 +26,14 @@ export default {
 .copyright {
   padding: 20px 0;
   background: #171b2c;
-  color: rgb(219, 219, 219);
+  color: rgb(219, 219, 219) !important;
   font-size: 0.77rem;
 }
 
 .footer-bottom {
   // background: #37393b;
   padding: 25px 0;
-  color: #fff;
+  color: #fff !important;
   line-height: 2;
 
   .title {

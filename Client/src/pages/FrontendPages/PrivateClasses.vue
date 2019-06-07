@@ -2,7 +2,7 @@
   <div class="bg pb-4">
     <div class="private-classes-background">
       <div class="container">
-        <h1 class="text-center pt-5">کلاس های خصوصی ما</h1>
+        <h1 class="text-center custom-title pt-5">کلاس های خصوصی ما</h1>
         <div class="private-classes">
           <div class="row pricing">
             <div class="col-lg-4 col-sm-12 pt-3 px-3">
@@ -106,9 +106,9 @@
     </div>
     <!-- FREE DISCUSSION SECTION -->
     <div class="freeDiscussion container pt-3 text-right">
-      <h2 class="my-5 text-info">کلاس های بحث آزاد</h2>
+      <h2 class="my-5">کلاس های بحث آزاد</h2>
       <div class="py-5">
-        <h2 class="text-white">آیا تغییرات مورد نظر را در خودتان نمیبینید؟</h2>
+        <h2>آیا تغییرات مورد نظر را در خودتان نمیبینید؟</h2>
         <p class="py-3 CustomParagraph">
           یک چند ماهی هست که کلاس های زبانت رو شروع کردی. خب تا یک جاهایی خوب پیش میره، شما حس میکنید که در مکالمه، لغات و گرامر دارید پیشرفت میکنید.
           <br>
@@ -119,7 +119,7 @@
       </div>
 
       <div class="py-3 CustomParagraph">
-        <h2 class="text-white">راه حل؟ کلاس های بحث آزاد اسک آریا.</h2>
+        <h2>راه حل؟ کلاس های بحث آزاد اسک آریا.</h2>
         <p class="py-3 mb-5">
           هدف اسک آریا یاددهی درست و اصولی به زبان آموزان است، آموختن با برنامه اصولی و کارآمد.
           به احتمال زیاد تا به حال بسیاری از شما در کلاس های آموزش زبان شرکت کرده اید و یا اکنون هم در حال گذراندن دوره های مربوط به خود هستید، اما بعد از مدتی متوجه عدم پیشرفت خود شده اید، چرا که بسیاری از زبان آموزان به اشتباه فکر میکنند شرکت در این کلاس ها کافی بوده و با تکیه بر آن سعی در ارتقاء سطح زبان خود دارند، در صورتی که این تنها کافی نیست.
@@ -132,6 +132,9 @@
 </template>
 
 <style lang="scss" scoped>
+.custom-title {
+  font-size: 1.7rem;
+}
 .CustomParagraph {
   font-size: 1rem;
 }
@@ -168,7 +171,7 @@ ul {
     border: 1px solid rgba(238, 238, 238, 0.788);
     border-radius: 16px !important;
     text-align: center;
-    box-shadow: 0 1px 1px rgba(68, 68, 68, 0.411);
+    box-shadow: 0 1px 1px rgba(119, 119, 119, 0.411);
     background-color: rgb(238, 238, 238);
   }
 
@@ -189,6 +192,7 @@ ul {
 
   .price {
     font-size: 1.7rem;
+    color: #2e2e2e;
   }
 
   .pricing-price:after {
@@ -211,7 +215,7 @@ ul {
   }
 
   .pricing-features {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(194, 194, 194, 0.212);
   }
 
   .pricing-features ul {
@@ -239,7 +243,7 @@ ul {
 
   .hover:hover {
     -webkit-box-shadow: 0 10px 30px -5px rgba(136, 136, 136, 0.4);
-    box-shadow: 0 10px 30px -5px rgba(24, 15, 145, 0.4);
+    box-shadow: 0 10px 30px -5px rgba(114, 114, 114, 0.4);
     -webkit-transform: translateY(-10px);
     transform: translateY(-10);
     cursor: pointer;
