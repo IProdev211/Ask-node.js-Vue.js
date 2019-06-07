@@ -43,7 +43,7 @@ class courseController extends controller {
         ...courses,
         docs: courses.docs.map(this.filterCourse),
         episodes: episodes.length,
-        seconds,
+        seconds
       };
       res.json(data);
     } catch (err) {
@@ -198,7 +198,8 @@ class courseController extends controller {
         data: {
           episode: this.filterEpisodeData(episode, user),
           course: this.filterCourseData(course, user),
-          enrolled: user && (user.admin || user.checkLearning(episode.course.id)),
+          enrolled:
+            user && (user.admin || user.checkLearning(episode.course.id)),
           enrolledCount: episode.course.usersCount
         },
         status: 'success'

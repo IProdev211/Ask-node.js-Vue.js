@@ -5,21 +5,21 @@
         <div class="col-4">
           <div class="stitched3">
             <h2 class="headerStyling3">{{ total }}</h2>
-            <p class="subheader">دوره</p>
+            <p class="subheader">عدد دوره آموزشی</p>
           </div>
         </div>
 
         <div class="col-4">
           <div class="stitched1">
             <h2 class="headerStyling1">{{ episodes }}</h2>
-            <p class="subheader">درس</p>
+            <p class="subheader">عدد درس آموزشی</p>
           </div>
         </div>
 
         <div class="col-4">
           <div class="stitched2">
             <h2 class="headerStyling2">{{ hours }}</h2>
-            <p class="subheader">ساعت</p>
+            <p class="subheader">ساعت آموزش کاربردی</p>
           </div>
         </div>
       </div>
@@ -38,7 +38,7 @@ export default {
 
 <style lang="scss" scoped>
 .stitched1 {
-  padding: 20px;
+  padding: 15px;
   margin: 10px;
   background: rgb(30, 37, 59);
   color: #fff;
@@ -58,12 +58,12 @@ export default {
     padding: 0;
   }
   .subheader {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
 
 .stitched2 {
-  padding: 20px;
+  padding: 15px;
   margin: 10px;
   background: rgb(30, 37, 59);
   color: #fff;
@@ -83,12 +83,12 @@ export default {
     padding: 0;
   }
   .subheader {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
 
 .stitched3 {
-  padding: 20px;
+  padding: 15px;
   margin: 10px;
   background: rgb(30, 37, 59);
   color: #fff;
@@ -108,12 +108,12 @@ export default {
     padding: 0;
   }
   .subheader {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
 
 .stat-cards {
-  padding: 0 30%;
+  padding: 0 17%;
 }
 
 @media (max-width: 800px) {

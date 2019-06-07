@@ -11,7 +11,7 @@
     "dev": "npm run serve"
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^12.1.0",
+    "@ckeditor/ckeditor5-build-classic": "^12.2.0",
     "@ckeditor/ckeditor5-vue": "^1.0.0-beta.2",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
@@ -19,7 +19,7 @@
     "d3": "^5.9.2",
     "datamaps": "^0.5.9",
     "element-ui": "^2.9.1",
-    "es6-promise": "^4.1.1",
+    "es6-promise": "^4.2.8",
     "fullcalendar": "^3.10.0",
     "fuse.js": "^3.4.5",
     "google-maps": "^3.2.1",

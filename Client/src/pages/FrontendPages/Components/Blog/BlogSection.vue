@@ -2,7 +2,7 @@
   <div class="home-blog pt-5">
     <div class="container">
       <h2 class="pb-5 section-header text-right">
-        مقالات آموزشی
+        آخرین مقالات
         <br>
         <span class="subtitle">مقالات به‌روز و کاربردی برای افزایش سطح دانش شما</span>
       </h2>

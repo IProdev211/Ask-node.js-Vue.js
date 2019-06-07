@@ -54,7 +54,7 @@ export default {
   transition: 0.3s;
   -webkit-transform: translateY(0);
   transform: translateY(0);
-  border: 1px solid rgba(41, 41, 41, 0.582);
+  border: 1px solid rgba(218, 218, 218, 0.582);
   border-radius: 20px;
   background: transparent;
 }
@@ -71,7 +71,7 @@ export default {
 }
 .home-blog .card-title {
   color: #27408b;
-  font-size: 1.65em;
+  font-size: 1.2rem;
   font-weight: 700;
   line-height: 120%;
 }

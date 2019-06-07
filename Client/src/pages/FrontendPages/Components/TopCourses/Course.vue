@@ -105,18 +105,18 @@ export default {
 
 <style lang="scss" scoped>
 .outline {
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .pricehighlight {
-  font-size: 0.8rem;
-  color: white;
-  // font-weight: 600;
+  font-size: 0.85rem;
+  color: #00b35f !important;
+  font-weight: 600;
 }
 
 .oldPrice {
-  font-size: 0.75rem;
-  color: rgb(190, 190, 190);
+  font-size: 0.8rem;
+  color: rgb(83, 83, 83);
   // font-weight: 600;
   text-decoration: line-through;
 }
@@ -126,7 +126,7 @@ export default {
   background-image: linear-gradient(
     90deg,
     rgba(255, 0, 0, 0),
-    rgba(102, 102, 102, 0.705) 50%,
+    rgba(168, 168, 168, 0.281) 50%,
     rgba(255, 0, 0, 0) 100%
   );
   margin: 0;
@@ -148,8 +148,9 @@ export default {
 }
 
 .CourseCard {
-  background-color: #27274e;
-  border-radius: 35px;
+  background-color: #ececec;
+  border: 1px solid rgba(228, 228, 228, 0.76);
+  border-radius: 15px;
 }
 
 .hover:hover,
@@ -167,12 +168,13 @@ export default {
 }
 
 .course-title {
-  font-size: 0.9rem;
-  color: #f1f1f1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #424242;
 }
 
 .CourseCard .CourseCard__courseimage {
-  border-radius: 30px 30px 0 0;
+  border-radius: 15px 15px 0 0;
 }
 
 .CourseCard .CourseCard__description {
@@ -223,25 +225,25 @@ export default {
 }
 
 .courseTime {
-  color: rgb(219, 219, 219);
+  color: rgb(78, 78, 78);
   padding-right: 0.7rem;
   font-size: 1.2rem;
   // font-weight: 600;
 }
 .courseTimeSpan {
   font-size: 0.73rem;
-  color: #adadad;
+  color: #3f3f3f;
 }
 
 .unitsAvailable {
-  color: rgb(219, 219, 219);
+  color: rgb(78, 78, 78);
   padding-left: 0.7rem;
   font-size: 1.2rem;
   // font-weight: 600;
 }
 .unitsAvailableSpan {
   font-size: 0.73rem;
-  color: #adadad;
+  color: #3f3f3f;
 }
 
 .CourseCard .CourseCard__description {
@@ -282,7 +284,7 @@ export default {
   .courseTime,
   .unitsAvailable,
   .pricehighlight {
-    color: #fec339;
+    color: #00b35f;
   }
 }
 

@@ -1,48 +1,46 @@
 <template>
   <div>
-    <!-- <vue-particles :lineLinked="false" :moveSpeed="2" :particleSize="2"></vue-particles> -->
     <!-- Hero Section -->
-    <section class="hero-content-homepage pt-2">
+    <section class="hero-content-homepage d-flex align-items-center">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-12 mt-auto mb-auto">
-            <h1 class="hero-title text-center pt-3">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
-            <p
-              class="hero-subtitle text-center pt-2 px-5"
-            >با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-            <div class="d-flex justify-content-center py-5">
-              <div>
-                <router-link to="ourcourses">
-                  <base-button
-                    native-type="submit"
-                    type="danger"
-                    class="btn-simple btn"
-                  >دوره های آموزشی</base-button>
-                </router-link>
-              </div>
-              <div class="pr-3">
-                <router-link to="register">
-                  <base-button native-type="submit" type="success" class="btn-simple btn">عضویت</base-button>
-                </router-link>
-              </div>
-            </div>
+        <h1 class="hero-title text-center">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
+        <p
+          class="hero-subtitle text-center"
+        >با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
+        <div class="d-flex justify-content-center pt-5">
+          <div>
+            <router-link to="ourcourses">
+              <base-button
+                native-type="submit"
+                type="success"
+                class="btn animation-on-hover"
+              >ورود به پنل کاربری</base-button>
+            </router-link>
           </div>
-          <!-- Top Courses -->
-          <div class="col-lg-8 col-md-12 top-courses-section pt-4">
-            <div class="row">
-              <div class="col-lg-4 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
-                <Course v-bind="course"></Course>
-              </div>
-            </div>
-            <p class="text-center top-section-header pb-3">پیشنهادهای ویژه اسک آریا برای شما</p>
+          <div class="pr-3">
+            <router-link to="register">
+              <base-button native-type="submit" type="warning" class="btn animation-on-hover">عضویت</base-button>
+            </router-link>
           </div>
         </div>
       </div>
     </section>
-    <!--Stats Section-->
-    <div class="Stats-section-homepage pt-4 pb-2">
-      <Stats :total="courses" :hours="hours" :episodes="episodes"></Stats>
+
+    <!-- Top Courses Section -->
+    <div class="container">
+      <!-- Top Courses -->
+      <div class="top-courses-section">
+        <div class="custom-card py-2">
+          <p class="text-center top-section-header">پیشنهادهای ویژه اسک آریا برای شما</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
+            <Course v-bind="course"></Course>
+          </div>
+        </div>
+      </div>
     </div>
+
     <!--Founder Section-->
     <div class="founder-section-homepage pt-5">
       <founder-section></founder-section>
@@ -59,25 +57,18 @@
 import FounderSection from './Components/FounderSection/FounderSection.vue';
 import Course from './Components/TopCourses/Course.vue';
 import BlogSection from './Components/Blog/BlogSection.vue';
-import Stats from './Components/Stats/Stats.vue';
 
 export default {
   data: function() {
     return {
       topCourses: [],
-      topPosts: [],
-      courses: 0,
-      hours: 0,
-      episodes: 0
+      topPosts: []
     };
   },
   methods: {
     dataLoad() {
       this.topCourses = this.$root.$data.topCourses;
       this.topPosts = this.$root.$data.topPosts;
-      this.courses = this.$root.$data.courses;
-      this.episodes = this.$root.$data.episodes;
-      this.hours = Math.ceil(this.$root.$data.seconds / 3600);
     }
   },
   mounted() {
@@ -87,8 +78,7 @@ export default {
   components: {
     FounderSection,
     Course,
-    BlogSection,
-    Stats
+    BlogSection
   }
 };
 </script>
@@ -96,55 +86,49 @@ export default {
 
 <style lang="scss">
 .hero-content-homepage {
-  // background-color: #34246b;
-  // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23120a5c' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%231f129e' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%2329085e' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%234e008a' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%233a0660' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23620077' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23490461' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%236c0066' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23560262' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23700057' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23630063' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23700c4b' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
-  // background-attachment: fixed;
-  // background-size: cover;
-  background: linear-gradient(90deg, #4305b4b4, #770ca1bb),
-    url(/img/frontend/hero-bg-opt.png) no-repeat;
+  background: linear-gradient(180deg, #4c3ab0e3, #f5f5f5),
+    url(/img/frontend/london-painting-bg-opt.png) no-repeat;
+
+  // background: linear-gradient(90deg, #4305b4b4, #770ca1bb),
+  //   url(/img/frontend/london-painting-bg-opt.png) no-repeat;
+
   background-size: cover;
   background-position: center;
+  min-height: 65vh;
   position: relative;
   width: 100%;
   z-index: 999;
+
+  .section-header {
+    font-size: 1.2rem;
+    color: white !important;
+  }
+  @media (max-width: 850px) {
+    padding: 0 13%;
+  }
+}
+// .top-courses-section {
+//   padding: 0 10%;
+// }
+@media (max-width: 768px) {
   .top-courses-section {
-    padding: 0 1%;
-    .section-header {
-      font-size: 1.2rem;
-      color: white !important;
-    }
-    @media (max-width: 850px) {
-      padding: 0 13%;
-    }
+    padding: 0 17%;
   }
 }
 
 .hero-title {
-  font-size: 2.6rem;
+  font-size: 3.3rem;
+  font-weight: 600;
   line-height: inherit;
-  color: #dbdbdb;
-  margin: 0;
-  padding: 0;
+  color: #e9e9e9 !important;
 }
 
 .hero-subtitle {
-  font-size: 0.9rem;
-  color: #cecece;
+  font-size: 1.2rem;
+  color: #ffffff !important;
   line-height: inherit;
   margin: 0;
   padding: 0;
-}
-
-#particles-js {
-  position: absolute;
-  background-size: cover;
-  color: #979797;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow-y: hidden;
-  z-index: 0;
 }
 
 @media (max-width: 768px) {
@@ -161,10 +145,19 @@ export default {
     line-height: inherit;
   }
 }
-
+.custom-card {
+  border-radius: 20px;
+  background: #f0f0f0;
+  border: 0;
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
+}
 .top-section-header {
-  font-size: 0.8rem;
-  color: rgb(150, 150, 150);
+  font-size: 0.9rem;
+  color: rgb(216, 216, 216);
   margin: 0;
   padding: 0;
 }

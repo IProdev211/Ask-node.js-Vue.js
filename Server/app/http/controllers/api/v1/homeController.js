@@ -12,7 +12,7 @@ class homeController extends controller {
       .populate('user', 'id name')
       .populate('categories', 'name slug')
       .populate('episodesCount')
-      .limit(3)
+      .limit(4)
       .sort({
         viewCount: 'desc'
       })
@@ -53,7 +53,7 @@ class homeController extends controller {
       user,
       topBlogPosts,
       Episode.find({}, 'time').exec(),
-      Course.estimatedDocumentCount(),
+      Course.estimatedDocumentCount()
     ]);
     let seconds = 0;
     for (const episode of results[3]) {
@@ -66,7 +66,7 @@ class homeController extends controller {
       topPosts: results[2].map(blogController.filterData),
       seconds,
       courses: results[4],
-      episodes: results[3].length,
+      episodes: results[3].length
     });
   }
   async user(req, res) {
