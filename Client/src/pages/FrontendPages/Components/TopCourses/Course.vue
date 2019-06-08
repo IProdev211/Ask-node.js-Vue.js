@@ -148,15 +148,15 @@ export default {
 }
 
 .CourseCard {
-  background-color: #ececec;
-  border: 1px solid rgba(228, 228, 228, 0.76);
+  background-color: #f0f0f0;
+  border: 1px solid rgba(238, 238, 238, 0.76);
   border-radius: 15px;
 }
 
 .hover:hover,
 .hover:focus {
-  -webkit-box-shadow: 0 10px 30px -5px rgba(141, 141, 141, 0.144);
-  box-shadow: 10px rgba(185, 185, 185, 0.089);
+  -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.6);
+  box-shadow: 30px rgba(121, 121, 121, 0.6);
   transition: transform 0.6s;
   -webkit-transform: translateY(-6px);
   transform: translateY(-6px);

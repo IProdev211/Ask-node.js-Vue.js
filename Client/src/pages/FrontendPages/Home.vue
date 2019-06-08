@@ -4,8 +4,8 @@
     <section class="hero-content-homepage">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-7"></div>
-          <div class="col-md-5 hero-text-section text-center">
+          <div class="col-lg-7 col-md-3"></div>
+          <div class="col-lg-5 col-md-9 hero-text-section text-center">
             <h1 class="hero-title font-dn-bold">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
             <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
             <div class="pt-3">
@@ -148,7 +148,7 @@ export default {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 680px) {
   .hero-content-homepage {
     background: url(/img/frontend/SVG-Background-3.svg) no-repeat;
     background-size: cover;
@@ -157,20 +157,22 @@ export default {
     position: relative;
 
     .hero-text-section {
-      padding: 12% 0 0 0;
+      padding: 9% 6% 0 6%;
     }
 
     .btn {
-      padding: 7px 12px;
+      padding: 5px 10px;
     }
 
     .hero-title {
-      font-size: 1.4rem;
-      margin: 0 0 10px 0;
+      font-size: 2.1rem;
+      padding: 0;
+      margin: 0;
     }
     .hero-subtitle {
       font-size: 0.8rem;
-      padding: 0 4rem;
+      color: rgb(109, 109, 109);
+      padding: 0 2rem;
       margin: 0;
     }
   }
@@ -179,9 +181,26 @@ export default {
   }
 }
 
-.custom-card {
+@media (max-width: 670px) and (min-width: 1020px) {
+  .hero-text-section {
+    padding: 9% 6% 0 16%;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    padding: 0;
+    margin: 0;
+  }
+  .hero-subtitle {
+    font-size: 0.8rem;
+    color: rgb(109, 109, 109);
+    padding: 0 2rem;
+    margin: 0;
+  }
+}
+​ .custom-card {
   border-radius: 20px;
-  background: #e4e4e4;
+  background: #8b3d3d;
   border: 0;
   position: relative;
   width: 100%;
