@@ -92,7 +92,7 @@ export default {
 
 <style lang="scss">
 .hero-content-homepage {
-  background: linear-gradient(180deg, #57008ad2, #f5f5f5),
+  background: linear-gradient(180deg, #731bade1, #f5f5f5),
     url(/img/frontend/london-painting-bg-opt.png) no-repeat;
 
   // background: linear-gradient(90deg, #4305b4b4, #770ca1bb),
@@ -100,7 +100,7 @@ export default {
 
   background-size: cover;
   background-position: center;
-  min-height: 65vh;
+  min-height: 90vh;
   position: relative;
   width: 100%;
   z-index: 999;
@@ -123,14 +123,14 @@ export default {
 }
 
 .hero-title {
-  font-size: 3.3rem;
+  font-size: 3.5rem;
   line-height: inherit;
-  color: #e9e9e9 !important;
+  color: #ffffff !important;
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
-  color: #ffffff !important;
+  font-size: 1.5rem;
+  color: #ebebeb !important;
   line-height: inherit;
   margin: 0;
   padding: 0;
@@ -141,12 +141,12 @@ export default {
     min-height: 55vh;
   }
   .hero-title {
-    font-size: 1.9rem;
+    font-size: 2.1rem;
     line-height: inherit;
     color: #dbdbdb;
   }
   .hero-subtitle {
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: inherit;
   }
 }
