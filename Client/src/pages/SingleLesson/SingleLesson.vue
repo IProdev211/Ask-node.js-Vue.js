@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div v-if="id" :key="id">
       <div class="container text-right py-4">
         <!-- Course Title -->
@@ -8,7 +8,7 @@
 
         <!-- COURSE DESCRIPTION -->
         <div class="py-5">
-          <p class="course-subtitle pb-1">توضیحات:</p>
+          <p class="course-subtitle pb-2">توضیحات:</p>
           <div v-html="body"></div>
         </div>
       </div>
@@ -101,7 +101,7 @@
       >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
 
       <!-- Timeline Unit Section -->
-      <div class="py-3">
+      <div class="container py-3">
         <AllUnits
           :course="course"
           :episodes="course.episodes"
@@ -329,18 +329,18 @@ export default {
 
 .icon {
   font-size: 1.7rem;
-  color: rgb(238, 238, 238);
+  color: rgb(107, 107, 107) !important;
   padding-bottom: 6px;
 }
 
 .icon-text {
-  font-size: 0.7rem;
-  color: rgb(177, 177, 177);
+  font-size: 0.65rem;
+  color: rgb(150, 150, 150);
 }
 
 .icon-data {
   font-size: 0.9rem;
-  // font-weight: 600;
+  font-family: IranSansBold;
   color: #fff;
 }
 @media (max-width: 768px) {
@@ -365,12 +365,12 @@ export default {
 }
 .pay-text {
   font-size: 1rem;
-  // font-weight: 600;
+  font-family: IranSansBold;
 }
 
 .pay-icon {
   font-size: 1rem;
-  // font-weight: 600;
+  font-family: IranSansBold;
   color: rgb(0, 255, 98);
 }
 
@@ -390,12 +390,12 @@ export default {
 
 .pricehighlight {
   font-size: 0.8rem;
-  // font-weight: 600;
+  font-family: IranSansBold;
 }
 
 .course-title {
   font-size: 1.7rem;
-  // font-weight: 600;
+  font-family: IranSansBold;
   line-height: inherit;
   margin: 0;
   padding: 0;
@@ -403,6 +403,7 @@ export default {
 
 .course-subtitle {
   font-size: 1.2rem;
+  font-family: IranSansBold;
 }
 
 .course-info {

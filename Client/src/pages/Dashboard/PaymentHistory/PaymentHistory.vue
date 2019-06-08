@@ -138,5 +138,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card-title {
+  font-family: IranSansBold;
+}
 </style>
 

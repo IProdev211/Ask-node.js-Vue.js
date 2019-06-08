@@ -141,6 +141,10 @@ export default {
   transition: all 0.2s ease 0s;
 }
 
+h4 {
+  font-family: IranSansBold;
+}
+
 .UnitBox:hover {
   border-right-color: #07d9b6;
   .UnitBadgeUnlocked {
@@ -154,7 +158,8 @@ export default {
   }
   .UnitName {
     cursor: pointer;
-    color: white;
+    font-family: IranSansBold;
+    color: #107a69;
   }
 }
 
@@ -179,19 +184,19 @@ export default {
   margin-top: auto;
 }
 .detail-time {
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255) !important;
   font-size: 1em;
   align-self: center;
-  background: rgb(44, 62, 80);
+  background: rgb(177, 177, 177) !important;
   padding: 8px 15px;
   border-radius: 12px;
 }
 
 .detail-price {
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255) !important;
   font-size: 1em;
   align-self: center;
-  background: rgb(13, 55, 97);
+  background: rgb(122, 122, 122) !important;
   padding: 8px 15px;
   border-radius: 8px;
 }

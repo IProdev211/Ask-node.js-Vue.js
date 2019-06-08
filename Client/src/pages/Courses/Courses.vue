@@ -84,7 +84,7 @@ export default {
 <style lang="scss" scoped>
 @media (max-width: 768px) {
   .course-section {
-    padding: 0 8%;
+    padding: 0 7%;
   }
 }
 
@@ -111,7 +111,7 @@ export default {
 }
 .headerStyling {
   font-size: 3rem;
-  font-weight: bold;
+  font-family: IranSansBold;
   color: rgb(56, 218, 164);
   padding: 0px;
   margin: 0px;

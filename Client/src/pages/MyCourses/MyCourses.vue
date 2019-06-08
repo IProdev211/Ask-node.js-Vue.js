@@ -2,8 +2,7 @@
   <div class="container">
     <div class="text-right pb-5">
       <h1 class="text-success">دوره های در حال یادگیری</h1>
-      <p class="pb-4">در این بخش دور های نقدی که در آن ثبت نام کرده اید لیست میشود</p>
-      <hr class="fadeline2">
+      <p class="pb-3">در این بخش دور های نقدی که در آن ثبت نام کرده اید لیست میشود</p>
     </div>
     <div class="row" v-if="courses.length">
       <div class="col-lg-3 col-md-6 mb-4" v-for="course in courses" :key="course.id">
@@ -46,22 +45,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  font-family: IranSansBold;
+}
+
 .no-courses-message {
   font-size: 1.1rem;
-  color: rgb(180, 180, 180);
+  color: rgb(141, 141, 141);
 }
 p {
   font-size: 1.1rem;
-  color: rgb(180, 180, 180);
-}
-
-.fadeline2 {
-  height: 1px;
-  background-image: linear-gradient(
-    270deg,
-    rgba(255, 0, 0, 0),
-    rgb(65, 65, 65) 20%,
-    rgba(255, 0, 0, 0)
-  );
+  color: rgb(134, 134, 134);
 }
 </style>

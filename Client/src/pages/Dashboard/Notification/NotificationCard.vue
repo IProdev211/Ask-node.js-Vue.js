@@ -89,6 +89,7 @@ export default {
 <style lang="scss" scoped>
 .title {
   font-size: 1.2rem;
+  font-family: IranSansBold;
 }
 
 .card {

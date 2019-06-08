@@ -4,20 +4,22 @@
     <section class="hero-content-homepage">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-5 col-md-9 hero-text-section text-right pr-5">
+          <div class="col-lg-7 col-md-3"></div>
+          <div class="col-lg-5 col-md-9 hero-text-section text-center py-5 px-2">
             <h1 class="hero-title font-dn-bold">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
-            <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-            <div class="pt-3">
+            <p
+              class="hero-subtitle text-center"
+            >با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
+            <div class="pt-3 sign-in-button">
               <router-link to="login">
                 <base-button
                   native-type="submit"
                   type="danger"
-                  class="btn animation-on-hover"
+                  class="btn small-button animation-on-hover"
                 >ورود به پنل کاربری</base-button>
               </router-link>
             </div>
           </div>
-          <div class="col-lg-7 col-md-3"></div>
         </div>
       </div>
     </section>
@@ -97,28 +99,29 @@ export default {
 
 <style lang="scss">
 .hero-content-homepage {
-  background: url(/img/frontend/SVG-Background-5.svg) no-repeat;
+  background: url(/img/frontend/SVG-Background-3.svg) no-repeat;
   background-size: cover;
-  background-position: center;
-  min-height: 72vh;
+  background-position: right;
+  min-height: 85vh;
   position: relative;
   width: 100%;
   z-index: 999;
 
   .hero-text-section {
-    padding: 7% 0 0 0;
+    padding: 8% 0 0 0 !important;
   }
 
   .section-header {
     font-size: 1.2rem;
     color: white !important;
   }
-  .btn {
-    padding: 10px 15px;
-  }
+
+  // .btn {
+  //   padding: 10px 15px;
+  // }
 
   .hero-title {
-    font-size: 4rem;
+    font-size: 3.6rem;
     line-height: inherit;
     color: #ffffff !important;
   }
@@ -127,7 +130,7 @@ export default {
     font-size: 1.3rem;
     color: #ebebeb !important;
     line-height: inherit;
-    padding: 0 0 0 40%;
+    padding: 0 20%;
   }
 }
 @keyframes pulse {
@@ -151,22 +154,29 @@ export default {
 
 @media (max-width: 680px) {
   .hero-content-homepage {
-    background: url(/img/frontend/SVG-Background-5.svg) no-repeat;
+    background: url(/img/frontend/SVG-Background-3.svg) no-repeat;
     background-size: cover;
-    background-position: bottom;
-    min-height: 65vh;
+    background-position: top;
+    min-height: 75vh;
     position: relative;
 
     .hero-text-section {
-      padding: 9% 0 0 25%;
+      padding: 10% 32% 0 0% !important;
+    }
+
+    .sign-in-button {
+      padding: 0 40% 0 0 !important;
+      .small-button {
+        font-size: 0.75rem;
+      }
     }
 
     .btn {
-      padding: 10px 15px;
+      padding: 8px 12px;
     }
 
     .hero-title {
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       padding: 0;
       margin: 0;
       text-align: right;
@@ -174,12 +184,12 @@ export default {
     .hero-subtitle {
       font-size: 0.9rem;
       color: rgb(109, 109, 109);
-      padding: 46% 0 0 30%;
+      // padding: 46% 0 0 30%;
       text-align: right;
     }
   }
   .top-courses-section {
-    padding: 0 10%;
+    padding: 0 7%;
   }
 }
 

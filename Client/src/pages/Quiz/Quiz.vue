@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="pb-5 text-success text-right">آزمونهای شما</h1>
+    <h1 class="pb-5 text-danger text-right">آزمونهای شما</h1>
     <!-- Quizzes -->
     <SingleQuiz></SingleQuiz>
   </div>
@@ -15,5 +15,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+h1 {
+  font-family: IranSansBold;
+}
 </style>
+

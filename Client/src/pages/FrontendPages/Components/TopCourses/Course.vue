@@ -117,7 +117,6 @@ export default {
 .oldPrice {
   font-size: 0.8rem;
   color: rgb(83, 83, 83);
-  // font-weight: 600;
   text-decoration: line-through;
 }
 
@@ -171,7 +170,7 @@ export default {
 
 .course-title {
   font-size: 1.1rem;
-  font-weight: 600;
+  font-family: IranSansBold;
   color: #424242;
 }
 
@@ -230,7 +229,7 @@ export default {
   color: rgb(78, 78, 78);
   padding-right: 0.7rem;
   font-size: 1.2rem;
-  // font-weight: 600;
+  font-family: IranSansBold;
 }
 .courseTimeSpan {
   font-size: 0.73rem;
@@ -241,7 +240,7 @@ export default {
   color: rgb(78, 78, 78);
   padding-left: 0.7rem;
   font-size: 1.2rem;
-  // font-weight: 600;
+  font-family: IranSansBold;
 }
 .unitsAvailableSpan {
   font-size: 0.73rem;

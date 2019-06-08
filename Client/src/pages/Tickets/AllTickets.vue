@@ -1,7 +1,7 @@
 <template>
   <section class="container text-right">
     <!-- SHOULD HAVE PAGINATION -->
-    <h1 class="pb-5">تیکت ها</h1>
+    <h1 class="pb-5 text-danger">تیکت ها</h1>
     <div class="pb-5">
       <router-link to="/createticket">
         <base-button round type="success">
@@ -59,5 +59,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  font-family: IranSansBold;
+}
 </style>
 

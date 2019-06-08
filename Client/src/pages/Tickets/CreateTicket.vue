@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1 slot="header" class="card-title text-right pb-5">ارسال تیکت</h1>
+    <h1 slot="header" class="card-title text-danger text-right pb-5">ارسال تیکت</h1>
     <card>
       <form class="text-rtl pt-3">
         <div class="form-row">
@@ -63,5 +63,8 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  font-family: IranSansBold;
+}
 </style>
 

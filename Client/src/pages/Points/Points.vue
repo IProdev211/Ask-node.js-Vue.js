@@ -118,6 +118,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.card-title {
+  font-family: IranSansBold !important;
+}
 .checkbox-cell {
   height: 40px;
   display: flex;
