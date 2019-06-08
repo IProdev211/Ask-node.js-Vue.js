@@ -59,8 +59,4 @@ export default {
 p {
   font-size: 1rem;
 }
-.blog-img {
-  width: 250px;
-  height: auto;
-}
 </style>

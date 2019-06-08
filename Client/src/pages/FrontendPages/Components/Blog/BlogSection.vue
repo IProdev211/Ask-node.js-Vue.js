@@ -7,7 +7,7 @@
         <span class="subtitle">مقالات به‌روز و کاربردی برای افزایش سطح دانش شما</span>
       </h2>
       <div class="row px-4 text-ltr">
-        <div class="col-lg-3 col-md-6" v-for="post in posts" v-bind:key="post.id">
+        <div class="col-lg-3 col-md-6 blog-section" v-for="post in posts" v-bind:key="post.id">
           <BlogCard
             :slug="post.slug"
             :image="post.image"
@@ -34,6 +34,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.blog-section {
+  padding: 0 3%;
+}
 .home-blog {
   background-color: #ececec;
 }

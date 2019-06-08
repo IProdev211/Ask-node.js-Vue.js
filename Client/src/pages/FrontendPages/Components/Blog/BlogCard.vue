@@ -41,10 +41,10 @@ export default {
   color: #27408b;
 }
 .blogBox {
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .home-blog .card-img-top {
-  border-radius: 20px 20px 0 0;
+  border-radius: 10px 10px 0 0;
 }
 
 .home-blog .card {
@@ -59,7 +59,7 @@ export default {
   background: transparent;
 }
 .card-body {
-  background: #fff;
+  background: rgb(241, 241, 241);
   border-radius: 0 0 20px 20px;
 }
 .home-blog .card:hover {
@@ -70,7 +70,7 @@ export default {
   cursor: pointer;
 }
 .home-blog .card-title {
-  color: #27408b;
+  color: #474747;
   font-size: 1.2rem;
   font-weight: 700;
   line-height: 120%;
@@ -86,7 +86,7 @@ export default {
   font-size: 0.85em;
 }
 .home-blog .card:hover .card-title {
-  color: #f23030;
+  color: #000285;
 }
 .home-blog h3 {
   color: #27408b;

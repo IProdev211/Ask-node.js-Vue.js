@@ -4,28 +4,28 @@
     <section class="hero-content-homepage">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-7 col-md-3"></div>
-          <div class="col-lg-5 col-md-9 hero-text-section text-center">
+          <div class="col-lg-5 col-md-9 hero-text-section text-right pr-5">
             <h1 class="hero-title font-dn-bold">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
             <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
             <div class="pt-3">
               <router-link to="login">
                 <base-button
                   native-type="submit"
-                  type="success"
+                  type="danger"
                   class="btn animation-on-hover"
                 >ورود به پنل کاربری</base-button>
               </router-link>
             </div>
           </div>
+          <div class="col-lg-7 col-md-3"></div>
         </div>
       </div>
     </section>
 
-    <div class="text-center pb-2">
+    <div class="text-center py-3 pb-5">
       <a
         href
-        v-scroll-to="{ el: '#element', duration: 750, easing: 'linear', offset: -30, force: true, cancelable: true, }"
+        v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
       >
         <img class="arrow" src="img/frontend/scroll-down-arrow.svg" alt="Scroll Down Arrow">
       </a>
@@ -35,8 +35,8 @@
     <div class="container">
       <!-- Top Courses -->
       <div class="top-courses-section">
-        <div class="custom-card py-2 mt-4">
-          <p class="text-center top-section-header">پیشنهادهای ویژه اسک آریا برای شما</p>
+        <div class="card custom-card">
+          <p class="text-center top-section-header py-2">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
         <div class="row">
           <div class="col-lg-3 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
@@ -97,9 +97,9 @@ export default {
 
 <style lang="scss">
 .hero-content-homepage {
-  background: url(/img/frontend/SVG-Background-3.svg) no-repeat;
+  background: url(/img/frontend/SVG-Background-5.svg) no-repeat;
   background-size: cover;
-  background-position: right;
+  background-position: center;
   min-height: 72vh;
   position: relative;
   width: 100%;
@@ -118,7 +118,7 @@ export default {
   }
 
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 4rem;
     line-height: inherit;
     color: #ffffff !important;
   }
@@ -127,6 +127,7 @@ export default {
     font-size: 1.3rem;
     color: #ebebeb !important;
     line-height: inherit;
+    padding: 0 0 0 40%;
   }
 }
 @keyframes pulse {
@@ -150,34 +151,35 @@ export default {
 
 @media (max-width: 680px) {
   .hero-content-homepage {
-    background: url(/img/frontend/SVG-Background-3.svg) no-repeat;
+    background: url(/img/frontend/SVG-Background-5.svg) no-repeat;
     background-size: cover;
-    background-position: top;
-    min-height: 92vh;
+    background-position: bottom;
+    min-height: 65vh;
     position: relative;
 
     .hero-text-section {
-      padding: 9% 6% 0 6%;
+      padding: 9% 0 0 25%;
     }
 
     .btn {
-      padding: 5px 10px;
+      padding: 10px 15px;
     }
 
     .hero-title {
-      font-size: 2.1rem;
+      font-size: 1.7rem;
       padding: 0;
       margin: 0;
+      text-align: right;
     }
     .hero-subtitle {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: rgb(109, 109, 109);
-      padding: 0 2rem;
-      margin: 0;
+      padding: 46% 0 0 30%;
+      text-align: right;
     }
   }
   .top-courses-section {
-    padding: 0 9%;
+    padding: 0 10%;
   }
 }
 
@@ -198,14 +200,14 @@ export default {
     margin: 0;
   }
 }
-​ .custom-card {
+
+.white-content .card:not(.card-white) {
   border-radius: 20px;
-  background: #8b3d3d;
+  background: #dfdfdf;
   border: 0;
   position: relative;
   width: 100%;
-  margin-bottom: 30px;
-  -webkit-box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.4);
   box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
 }
 .top-section-header {

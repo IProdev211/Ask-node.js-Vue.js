@@ -26,34 +26,31 @@
           <a :class="getNavClass('contact')">{{ 'تماس با ما' }}</a>
         </router-link>
       </ul>
-      <ul class="navbar-nav mr-auto">
-        <div class="row">
-          <div v-if="this.$root.$data.user !== undefined">
-            <div class="row">
-              <div class="pl-3">
-                <p class="pt-2 usertitle">خوش آمدید {{this.$root.$data.user.name}}</p>
-              </div>
-              <router-link to="/dashboard">
-                <base-button
-                  native-type="submit"
-                  type="danger"
-                  class="btn-simple btn"
-                >ورود به پنل کاربری</base-button>
-              </router-link>
-            </div>
-          </div>
 
-          <div class="row" v-else>
-            <div class="pr-3">
-              <router-link to="register">
-                <base-button native-type="submit" type="info" class="btn-simple btn">عضویت</base-button>
-              </router-link>
-            </div>
-            <div class="pr-3">
-              <router-link to="login">
-                <base-button native-type="submit" type="danger" class="btn-simple btn">ورود کاربر</base-button>
-              </router-link>
-            </div>
+      <ul class="navbar-nav mr-auto">
+        <div v-if="this.$root.$data.user !== undefined">
+          <div class="pl-3">
+            <p class="pt-2 usertitle">خوش آمدید {{this.$root.$data.user.name}}</p>
+          </div>
+          <router-link to="/dashboard">
+            <base-button
+              native-type="submit"
+              type="danger"
+              class="btn-simple btn"
+            >ورود به پنل کاربری</base-button>
+          </router-link>
+        </div>
+
+        <div class="row" v-else>
+          <div class="pr-3">
+            <router-link to="register">
+              <base-button native-type="submit" type="info" class="btn-simple btn">عضویت</base-button>
+            </router-link>
+          </div>
+          <div class="pr-3">
+            <router-link to="login">
+              <base-button native-type="submit" type="danger" class="btn-simple btn">ورود کاربر</base-button>
+            </router-link>
           </div>
         </div>
       </ul>
