@@ -21,6 +21,17 @@
 }
 
 @font-face {
+  font-family: 'IranSansBold';
+  src: url('../fonts/IranSansBold/IranSansBold.eot');
+  src: url('../fonts/IranSansBold/IranSansBold.eot') format('embedded-opentype'),
+    url('../fonts/IranSansBold/IranSansBold.woff2') format('woff2'),
+    url('../fonts/IranSansBold/IranSansBold.woff') format('woff'),
+    url('../fonts/IranSansBold/IranSansBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'IranSansDN';
   src: url('../fonts/IranSansDN/IranSansDN.eot');
   src: url('../fonts/IranSansDN/IranSansDN.eot') format('embedded-opentype'),

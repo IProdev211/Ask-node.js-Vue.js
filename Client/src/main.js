@@ -3,15 +3,17 @@ import DashboardPlugin from './plugins/dashboard-plugin';
 import App from './App.vue';
 
 // router setup
+import backend from './backend';
 import router from './routes/router';
 import CKEditor from '@ckeditor/ckeditor5-vue';
-import backend from './backend';
 import VuePlyr from 'vue-plyr';
+var VueScrollTo = require('vue-scrollto');
 import VueParticles from 'vue-particles';
 import NProgress from 'nprogress';
 
 // plugin setup
 Vue.use(DashboardPlugin);
+Vue.use(VueScrollTo);
 Vue.use(CKEditor);
 Vue.use(VueParticles);
 Vue.use(VuePlyr);
@@ -42,7 +44,7 @@ backend
       topPosts: response.data.topPosts,
       seconds: response.data.seconds,
       courses: response.data.courses,
-      episodes: response.data.episodes,
+      episodes: response.data.episodes
     });
   })
   .catch(() => {

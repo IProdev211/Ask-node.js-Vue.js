@@ -246,7 +246,8 @@ p,
 .navbar-nav li {
   font-size: 1.1rem;
   padding: 0 12px;
-  color: rgb(56, 56, 56);
+  color: rgb(0, 0, 0);
+  font-family: IranSansBold;
 }
 
 // .fadeline3 {

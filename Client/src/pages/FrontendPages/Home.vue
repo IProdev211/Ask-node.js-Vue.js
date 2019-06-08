@@ -1,30 +1,35 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="hero-content-homepage d-flex align-items-center">
-      <div class="container">
-        <h1 class="hero-title font-dn-bold text-center">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
-        <p
-          class="hero-subtitle text-center"
-        >با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-        <div class="d-flex justify-content-center pt-5">
-          <div>
-            <router-link to="ourcourses">
-              <base-button
-                native-type="submit"
-                type="success"
-                class="btn animation-on-hover"
-              >ورود به پنل کاربری</base-button>
-            </router-link>
-          </div>
-          <div class="pr-3">
-            <router-link to="register">
-              <base-button native-type="submit" type="warning" class="btn animation-on-hover">عضویت</base-button>
-            </router-link>
+    <section class="hero-content-homepage">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-7"></div>
+          <div class="col-md-5 hero-text-section text-center">
+            <h1 class="hero-title font-dn-bold">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
+            <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
+            <div class="pt-3">
+              <router-link to="login">
+                <base-button
+                  native-type="submit"
+                  type="success"
+                  class="btn animation-on-hover"
+                >ورود به پنل کاربری</base-button>
+              </router-link>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="text-center pb-2">
+      <a
+        href
+        v-scroll-to="{ el: '#element', duration: 750, easing: 'linear', offset: -30, force: true, cancelable: true, }"
+      >
+        <img class="arrow" src="img/frontend/scroll-down-arrow.svg" alt="Scroll Down Arrow">
+      </a>
+    </div>
 
     <!-- Top Courses Section -->
     <div class="container">
@@ -47,7 +52,7 @@
     </div>
 
     <!--Our Courses Section-->
-    <div class="ou-section-homepage">
+    <div id="element" class="ou-section-homepage">
       <our-courses></our-courses>
     </div>
     <!-- Blog Section-->
@@ -92,18 +97,17 @@ export default {
 
 <style lang="scss">
 .hero-content-homepage {
-  background: linear-gradient(180deg, #731bade1, #f5f5f5),
-    url(/img/frontend/london-painting-bg-opt.png) no-repeat;
-
-  // background: linear-gradient(90deg, #4305b4b4, #770ca1bb),
-  //   url(/img/frontend/london-painting-bg-opt.png) no-repeat;
-
+  background: url(/img/frontend/SVG-Background-3.svg) no-repeat;
   background-size: cover;
-  background-position: center;
-  min-height: 90vh;
+  background-position: right;
+  min-height: 72vh;
   position: relative;
   width: 100%;
   z-index: 999;
+
+  .hero-text-section {
+    padding: 7% 0 0 0;
+  }
 
   .section-header {
     font-size: 1.2rem;
@@ -112,44 +116,69 @@ export default {
   .btn {
     padding: 10px 15px;
   }
-}
-@media (max-width: 768px) {
-  .top-courses-section {
-    padding: 0 9%;
-  }
+
   .hero-title {
-    padding-top: 20px;
+    font-size: 3.5rem;
+    line-height: inherit;
+    color: #ffffff !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    color: #ebebeb !important;
+    line-height: inherit;
   }
 }
-
-.hero-title {
-  font-size: 3.5rem;
-  line-height: inherit;
-  color: #ffffff !important;
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
 }
-
-.hero-subtitle {
-  font-size: 1.5rem;
-  color: #ebebeb !important;
-  line-height: inherit;
-  margin: 0;
-  padding: 0;
+.arrow {
+  animation: pulse 0.7s infinite;
+  margin: 0 auto;
+  display: table;
+  margin-top: 20px;
+  animation-direction: alternate;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 768px) {
   .hero-content-homepage {
-    min-height: 55vh;
+    background: url(/img/frontend/SVG-Background-3.svg) no-repeat;
+    background-size: cover;
+    background-position: top;
+    min-height: 92vh;
+    position: relative;
+
+    .hero-text-section {
+      padding: 12% 0 0 0;
+    }
+
+    .btn {
+      padding: 7px 12px;
+    }
+
+    .hero-title {
+      font-size: 1.4rem;
+      margin: 0 0 10px 0;
+    }
+    .hero-subtitle {
+      font-size: 0.8rem;
+      padding: 0 4rem;
+      margin: 0;
+    }
   }
-  .hero-title {
-    font-size: 2.1rem;
-    line-height: inherit;
-    color: #dbdbdb;
-  }
-  .hero-subtitle {
-    font-size: 1rem;
-    line-height: inherit;
+  .top-courses-section {
+    padding: 0 9%;
   }
 }
+
 .custom-card {
   border-radius: 20px;
   background: #e4e4e4;

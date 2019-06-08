@@ -9,17 +9,18 @@
 
       img {
         position: absolute;
-        left: 0;
+        right: 0;
         top: 0;
         width: 45%;
+        transform: scaleX(-1);
       }
 
       .card-title {
         position: relative;
         font-size: 4.4em;
-        font-weight: 900;
+        font-family: IranSansBold;
         color: #222a42;
-        margin-left: -5px;
+        margin-right: 5px;
         z-index: 1;
       }
     }
