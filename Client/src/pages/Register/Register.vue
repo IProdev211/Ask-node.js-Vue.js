@@ -6,10 +6,10 @@
         <card class="card-register">
           <template slot="header">
             <img class="card-img" src="img/card-primary.png" alt="Card image" />
-            <h4 class="card-title text-left py-1 px-4">فرم عضویت</h4>
+            <h4 class="card-title text-right text-white py-1 px-2">فرم عضویت</h4>
           </template>
           <form @submit="checkForm" id="register-form">
-            <div class="row pt-3">
+            <div class="row pt-4">
               <div class="col-md-12 text-ltr">
                 <label class="pull-right pt-2">نام و نام خانوادگی</label>
                 <base-input 
@@ -222,7 +222,11 @@ export default {
   background-position: top;
   min-height: 70vh;
 }
-
+@media (max-width: 768px) {
+.card-title {
+  font-size: 1.7rem !important;
+}
+}
 .card {
   background: rgb(241, 241, 241) !important;
 }
@@ -252,7 +256,7 @@ a {
 
 .google-text {
   font-size: 0.8rem;
-  color: rgb(201, 201, 201) !important;
+  color: rgb(94, 94, 94) !important;
 }
 .terms-checkbox {
   &::after {
