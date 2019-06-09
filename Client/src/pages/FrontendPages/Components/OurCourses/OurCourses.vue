@@ -1,7 +1,7 @@
 <template>
   <div class="bg pb-5">
     <div class="container">
-      <h2 class="text-center pt-5 pb-3">آموزش های غیر حضوری</h2>
+      <h2 class="text-center pt-5">آموزش های غیر حضوری</h2>
       <p v-if="courses.length" class="card-category py-3">{{ totalItems }} دوره</p>
       <!-- <p
         v-if="courses.length"

@@ -4,37 +4,37 @@
     <section class="hero-content-homepage">
       <div class="container">
         <div class="row">
-          <div class="col-lg-5 col-md-9 hero-text-section text-right py-5">
+          <div class="col-lg-5 col-md-9 hero-text-section text-right pt-4 px-2">
             <h1 class="hero-title">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
             <p
               class="hero-subtitle text-right"
             >با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-            <div class="pt-3 sign-in-button">
+            <!-- <div class="pt-3 text-center">
               <router-link to="login">
                 <base-button
                   native-type="submit"
                   type="danger"
-                  class="btn small-button animation-on-hover"
+                  class="btn btn-sm animation-on-hover"
                 >ورود به پنل کاربری</base-button>
               </router-link>
-            </div>
+            </div>-->
           </div>
           <div class="col-lg-7 col-md-3"></div>
         </div>
       </div>
     </section>
 
-    <div class="text-center py-3 pb-5">
+    <!-- <div class="text-center py-3 pb-5">
       <a
         href
         v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
       >
         <img class="arrow" src="img/frontend/scroll-down-arrow.svg" alt="Scroll Down Arrow">
       </a>
-    </div>
+    </div>-->
 
     <!-- Top Courses Section -->
-    <div class="container">
+    <div class="container pt-4">
       <!-- Top Courses -->
       <div class="top-courses-section">
         <div class="card custom-card">
@@ -99,10 +99,10 @@ export default {
 
 <style lang="scss">
 .hero-content-homepage {
-  background: url(/img/frontend/SVG-Background-6.svg) no-repeat;
+  background: url(/img/frontend/svg-bg.svg) no-repeat;
   background-size: cover;
   background-position: left;
-  min-height: 60vh;
+  min-height: 70vh;
   position: relative;
   width: 100%;
   z-index: 999;
@@ -118,7 +118,7 @@ export default {
     font-size: 1.4rem;
     color: #ebebeb !important;
     line-height: inherit;
-    padding: 0 0 0 30%;
+    padding: 0 0 0 40%;
   }
   .section-header {
     font-size: 1.2rem;
@@ -147,43 +147,26 @@ export default {
 
 @media (max-width: 680px) {
   .hero-content-homepage {
-    background: url(/img/frontend/SVG-Background-6-Mobile.svg) no-repeat;
+    background: url(/img/frontend/svg-bg-mobile.svg) no-repeat;
     background-size: cover;
     background-position: bottom;
-    min-height: 85vh;
+    min-height: 90vh;
     position: relative;
 
     .hero-title {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       text-align: center !important;
+      padding: 0 1rem;
     }
     .hero-subtitle {
-      font-size: 1.2rem;
+      font-size: 0.85rem;
       text-align: center !important;
-      color: rgb(109, 109, 109);
-      padding: 0 2rem;
+      color: rgb(139, 139, 139);
+      padding: 0 1rem;
     }
   }
   .top-courses-section {
     padding: 0 7%;
-  }
-}
-
-@media (max-width: 670px) and (min-width: 1020px) {
-  // .hero-text-section {
-  //   padding: 9% 6% 0 16%;
-  // }
-
-  .hero-title {
-    font-size: 2.1rem;
-    padding: 0;
-    margin: 0;
-  }
-  .hero-subtitle {
-    font-size: 0.8rem;
-    color: rgb(109, 109, 109);
-    // padding: 0 2rem;
-    margin: 0;
   }
 }
 
