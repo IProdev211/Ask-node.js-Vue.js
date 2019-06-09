@@ -2,13 +2,12 @@
   <div>
     <!-- Hero Section -->
     <section class="hero-content-homepage">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
-          <div class="col-lg-7 col-md-3"></div>
-          <div class="col-lg-5 col-md-9 hero-text-section text-center py-5 px-2">
-            <h1 class="hero-title font-dn-bold">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
+          <div class="col-lg-5 col-md-9 hero-text-section text-right py-5">
+            <h1 class="hero-title">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
             <p
-              class="hero-subtitle text-center"
+              class="hero-subtitle text-right"
             >با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
             <div class="pt-3 sign-in-button">
               <router-link to="login">
@@ -20,6 +19,7 @@
               </router-link>
             </div>
           </div>
+          <div class="col-lg-7 col-md-3"></div>
         </div>
       </div>
     </section>
@@ -99,38 +99,30 @@ export default {
 
 <style lang="scss">
 .hero-content-homepage {
-  background: url(/img/frontend/SVG-Background-3.svg) no-repeat;
+  background: url(/img/frontend/SVG-Background-6.svg) no-repeat;
   background-size: cover;
-  background-position: right;
-  min-height: 85vh;
+  background-position: left;
+  min-height: 60vh;
   position: relative;
   width: 100%;
   z-index: 999;
 
-  .hero-text-section {
-    padding: 8% 0 0 0 !important;
-  }
-
-  .section-header {
-    font-size: 1.2rem;
-    color: white !important;
-  }
-
-  // .btn {
-  //   padding: 10px 15px;
-  // }
-
   .hero-title {
     font-size: 3.6rem;
+    font-family: IranSansBold;
     line-height: inherit;
     color: #ffffff !important;
   }
 
   .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #ebebeb !important;
     line-height: inherit;
-    padding: 0 20%;
+    padding: 0 0 0 30%;
+  }
+  .section-header {
+    font-size: 1.2rem;
+    color: white !important;
   }
 }
 @keyframes pulse {
@@ -141,6 +133,7 @@ export default {
     opacity: 0.7;
   }
 }
+
 .arrow {
   animation: pulse 0.7s infinite;
   margin: 0 auto;
@@ -154,38 +147,21 @@ export default {
 
 @media (max-width: 680px) {
   .hero-content-homepage {
-    background: url(/img/frontend/SVG-Background-3.svg) no-repeat;
+    background: url(/img/frontend/SVG-Background-6-Mobile.svg) no-repeat;
     background-size: cover;
-    background-position: top;
-    min-height: 75vh;
+    background-position: bottom;
+    min-height: 85vh;
     position: relative;
 
-    .hero-text-section {
-      padding: 10% 32% 0 0% !important;
-    }
-
-    .sign-in-button {
-      padding: 0 40% 0 0 !important;
-      .small-button {
-        font-size: 0.75rem;
-      }
-    }
-
-    .btn {
-      padding: 8px 12px;
-    }
-
     .hero-title {
-      font-size: 1.8rem;
-      padding: 0;
-      margin: 0;
-      text-align: right;
+      font-size: 2.5rem;
+      text-align: center !important;
     }
     .hero-subtitle {
-      font-size: 0.9rem;
+      font-size: 1.2rem;
+      text-align: center !important;
       color: rgb(109, 109, 109);
-      // padding: 46% 0 0 30%;
-      text-align: right;
+      padding: 0 2rem;
     }
   }
   .top-courses-section {
@@ -194,9 +170,9 @@ export default {
 }
 
 @media (max-width: 670px) and (min-width: 1020px) {
-  .hero-text-section {
-    padding: 9% 6% 0 16%;
-  }
+  // .hero-text-section {
+  //   padding: 9% 6% 0 16%;
+  // }
 
   .hero-title {
     font-size: 2.1rem;
@@ -206,7 +182,7 @@ export default {
   .hero-subtitle {
     font-size: 0.8rem;
     color: rgb(109, 109, 109);
-    padding: 0 2rem;
+    // padding: 0 2rem;
     margin: 0;
   }
 }

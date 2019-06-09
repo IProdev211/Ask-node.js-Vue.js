@@ -31,7 +31,7 @@
     "sweetalert": "^2.1.2",
     "terser": "^4.0.0",
     "tween.js": "^16.6.0",
-    "vee-validate": "^2.2.9",
+    "vee-validate": "^2.2.10",
     "vue": "^2.6.9",
     "vue-chartjs": "^3.4.2",
     "vue-google-login": "^2.0.0",
