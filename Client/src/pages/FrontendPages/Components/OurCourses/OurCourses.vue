@@ -1,8 +1,8 @@
 <template>
   <div class="bg pb-5">
     <div class="container">
-      <h2 class="text-center pt-5">آموزش های غیر حضوری</h2>
-      <p v-if="courses.length" class="card-category py-3">{{ totalItems }} دوره</p>
+      <h2 class="text-center title pt-5">آموزش های غیر حضوری</h2>
+      <p v-if="courses.length" class="card-category py-3 text-right">{{ totalItems }} دوره</p>
       <!-- <p
         v-if="courses.length"
         class="card-category py-3"
@@ -85,8 +85,11 @@ export default {
 
 
 <style lang="scss" scoped>
+.title {
+  font-family: IranSansBold;
+}
 .card-category {
-  color: rgb(141, 141, 141) !important;
+  color: rgb(173, 173, 173) !important;
 }
 
 @media (max-width: 850px) {

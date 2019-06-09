@@ -150,7 +150,8 @@ export default {
   background-color: #f0f0f0;
   border: 1px solid rgba(224, 224, 224, 0.6);
   -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.3);
-  box-shadow: 30px rgba(121, 121, 121, 0.3);
+  // box-shadow: 30px rgba(121, 121, 121, 0.3);
+  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.12);
   border-radius: 15px;
 }
 

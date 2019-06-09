@@ -1,12 +1,9 @@
 <template>
   <div class="home-blog pt-5">
     <div class="container">
-      <h2 class="pb-3 section-header text-right">
-        آخرین مقالات
-        <br>
-        <span class="subtitle">مقالات به‌روز و کاربردی برای افزایش سطح دانش شما</span>
-      </h2>
-      <div class="row px-4 text-ltr">
+      <h2 class="section-header text-right">آخرین مقالات</h2>
+      <p class="subtitle text-right">مقالات به‌روز و کاربردی برای افزایش سطح دانش شما</p>
+      <div class="row px-4 mt-5 text-ltr">
         <div class="col-lg-3 col-md-6 blog-section" v-for="post in posts" v-bind:key="post.id">
           <BlogCard
             :slug="post.slug"
@@ -42,10 +39,12 @@ export default {
 }
 .section-header {
   font-size: 1.4rem;
+  font-family: IranSansBold;
+  margin: 0 0 7px 0;
 }
 .subtitle {
   font-size: 0.95rem;
-  color: rgb(145, 145, 145);
+  color: rgb(150, 150, 150) !important;
 }
 </style>
 

@@ -49,7 +49,7 @@ export default {
 
 .home-blog .card {
   -webkit-box-shadow: 0 0 0 0 #fff;
-  box-shadow: 0 5px 15px -5px rgba(83, 83, 83, 0.2);
+  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.12);
   -webkit-transition: 0.3s;
   transition: 0.3s;
   -webkit-transform: translateY(0);

@@ -2,21 +2,24 @@
   <div>
     <!-- Hero Section -->
     <section class="hero-content-homepage">
-      <div class="container">
-        <div class="d-flex align-items-center hero-text-section text-center">
-          <h1 class="hero-title">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
-          <p
-            class="hero-subtitle text-center"
-          >با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-          <!-- <div class="pt-3 text-center">
-              <router-link to="login">
-                <base-button
-                  native-type="submit"
-                  type="danger"
-                  class="btn btn-sm animation-on-hover"
-                >ورود به پنل کاربری</base-button>
-              </router-link>
-          </div>-->
+      <div class="hero-text-section text-center">
+        <h1 class="hero-title">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
+        <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
+        <div class="d-flex justify-content-center pt-3 text-center">
+          <div class="pl-2">
+            <router-link to="register">
+              <base-button native-type="warning" type="primary" class="btn animation-on-hover">عضویت</base-button>
+            </router-link>
+          </div>
+          <div>
+            <router-link to="login">
+              <base-button
+                native-type="submit"
+                type="warning"
+                class="btn animation-on-hover"
+              >ورود به پنل کاربری</base-button>
+            </router-link>
+          </div>
         </div>
       </div>
     </section>
@@ -96,71 +99,68 @@ export default {
 
 <style lang="scss">
 .hero-content-homepage {
-  background: linear-gradient(#3d3d3dde, #3d3d3dde),
+  background: linear-gradient(rgba(81, 194, 217, 0.918)),
     url(/img/frontend/london-seemless-bg.svg);
-  background-size: auto;
+  background-size: auto cover;
   background-position: center;
   background-repeat: repeat;
   min-height: 40vh;
   position: relative;
-  // width: 100%;
-  z-index: 999;
+  width: 100%;
+  // z-index: 999;
+
+  .hero-text-section {
+    padding: 15vh 5px 15vh 5px;
+  }
 
   .hero-title {
-    font-size: 3.4rem;
+    font-size: 3.6rem;
     font-family: IranSansBold;
-    line-height: inherit;
-    color: #ffffff !important;
+    color: #f1f1f1 !important;
   }
 
   .hero-subtitle {
     font-size: 1.4rem;
-    color: #ebebeb !important;
-    line-height: inherit;
-  }
-  .section-header {
-    font-size: 1.2rem;
-    color: white !important;
-  }
-}
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.7;
+    color: #dddddd !important;
   }
 }
 
-.arrow {
-  animation: pulse 0.7s infinite;
-  margin: 0 auto;
-  display: table;
-  margin-top: 20px;
-  animation-direction: alternate;
-  &:hover {
-    cursor: pointer;
-  }
-}
+// @keyframes pulse {
+//   0% {
+//     opacity: 1;
+//   }
+//   100% {
+//     opacity: 0.7;
+//   }
+// }
+
+// .arrow {
+//   animation: pulse 0.7s infinite;
+//   margin: 0 auto;
+//   display: table;
+//   margin-top: 20px;
+//   animation-direction: alternate;
+//   &:hover {
+//     cursor: pointer;
+//   }
+// }
 
 @media (max-width: 680px) {
   .hero-content-homepage {
-    background: url(/img/frontend/svg-bg-mobile.svg) no-repeat;
-    background-size: cover;
+    background: linear-gradient(rgba(81, 194, 217, 0.918)),
+      url(/img/frontend/london-seemless-bg.svg);
+    background-size: auto cover;
     background-position: bottom;
-    min-height: 90vh;
+    min-height: 25vh;
     position: relative;
 
     .hero-title {
-      font-size: 2.2rem;
-      text-align: center !important;
-      padding: 0 1rem;
+      font-size: 2rem;
+      line-height: inherit;
     }
     .hero-subtitle {
-      font-size: 0.85rem;
-      text-align: center !important;
-      color: rgb(139, 139, 139);
-      padding: 0 1rem;
+      font-size: 1rem;
+      color: rgb(194, 194, 194);
     }
   }
   .top-courses-section {
@@ -170,7 +170,7 @@ export default {
 
 .white-content .card:not(.card-white) {
   border-radius: 20px;
-  background: #dfdfdf;
+  background: #e7e7e7ec;
   border: 0;
   position: relative;
   width: 100%;
