@@ -3,13 +3,12 @@
     <!-- Hero Section -->
     <section class="hero-content-homepage">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-5 col-md-9 hero-text-section text-right pt-4 px-2">
-            <h1 class="hero-title">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
-            <p
-              class="hero-subtitle text-right"
-            >با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-            <!-- <div class="pt-3 text-center">
+        <div class="d-flex align-items-center hero-text-section text-center">
+          <h1 class="hero-title">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
+          <p
+            class="hero-subtitle text-center"
+          >با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
+          <!-- <div class="pt-3 text-center">
               <router-link to="login">
                 <base-button
                   native-type="submit"
@@ -17,9 +16,7 @@
                   class="btn btn-sm animation-on-hover"
                 >ورود به پنل کاربری</base-button>
               </router-link>
-            </div>-->
-          </div>
-          <div class="col-lg-7 col-md-3"></div>
+          </div>-->
         </div>
       </div>
     </section>
@@ -99,16 +96,18 @@ export default {
 
 <style lang="scss">
 .hero-content-homepage {
-  background: url(/img/frontend/svg-bg.svg) no-repeat;
-  background-size: cover;
-  background-position: left;
-  min-height: 70vh;
+  background: linear-gradient(#3d3d3dde, #3d3d3dde),
+    url(/img/frontend/london-seemless-bg.svg);
+  background-size: auto;
+  background-position: center;
+  background-repeat: repeat;
+  min-height: 40vh;
   position: relative;
-  width: 100%;
+  // width: 100%;
   z-index: 999;
 
   .hero-title {
-    font-size: 3.6rem;
+    font-size: 3.4rem;
     font-family: IranSansBold;
     line-height: inherit;
     color: #ffffff !important;
@@ -118,7 +117,6 @@ export default {
     font-size: 1.4rem;
     color: #ebebeb !important;
     line-height: inherit;
-    padding: 0 0 0 40%;
   }
   .section-header {
     font-size: 1.2rem;
