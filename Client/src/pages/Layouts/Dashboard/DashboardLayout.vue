@@ -17,7 +17,7 @@
         <sidebar-item
           :link="{ name: 'در حال یادگیری', path: '/mycourses', icon: 'fas fa-graduation-cap' }"
         ></sidebar-item>
-        <sidebar-item :link="{ name: 'امتحان ها', path: '/quiz', icon: 'far fa-check-square' }"></sidebar-item>
+        <sidebar-item :link="{ name: 'امتحان ها', path: '/quizzes', icon: 'far fa-check-square' }"></sidebar-item>
 
         <sidebar-item
           :link="{
@@ -125,7 +125,7 @@ export default {
 </script>
 <style lang="scss">
 .content {
-  background-color: #f8f8fa !important;
+  background-color: #eeeeee !important;
   min-height: 100vh !important;
 }
 .sidebar

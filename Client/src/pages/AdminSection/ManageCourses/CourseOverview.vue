@@ -221,6 +221,7 @@ export default {
           }
           Swal({
             title: 'Deleted!',
+            className: 'text-ltr',
             text: `You deleted ${row.title}`,
             icon: 'success'
           });

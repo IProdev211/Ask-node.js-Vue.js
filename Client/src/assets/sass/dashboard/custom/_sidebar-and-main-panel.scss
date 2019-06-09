@@ -12,9 +12,7 @@
 .sidebar-wrapper ul li div.collapse ul li div.collapse ul li a,
 .sidebar-wrapper ul li div.collapse ul li div.collapsing ul li a,
 .sidebar-wrapper ul li div.collapsing ul li div.collapse ul li a {
-
   margin-left: 25px;
-
 }
 
 .sidebar,
@@ -51,13 +49,12 @@
       border: none;
     }
 
-    >.nav,
+    > .nav,
     .user .info {
-      [data-toggle="collapse"]~div>ul>li>a {
+      [data-toggle='collapse'] ~ div > ul > li > a {
         span {
           display: inline-block;
           @extend .animation-transition-general;
-
         }
 
         .sidebar-normal {
@@ -96,22 +93,16 @@
       }
     }
 
-
-
-    [data-toggle="collapse"]~div>ul>li:hover>a {
-
+    [data-toggle='collapse'] ~ div > ul > li:hover > a {
       .sidebar-mini-icon,
       .sidebar-normal {
         color: $white;
       }
-
     }
 
-    .nav [data-toggle="collapse"]~div>ul>li>a .sidebar-mini-icon {
+    .nav [data-toggle='collapse'] ~ div > ul > li > a .sidebar-mini-icon {
       opacity: 0;
     }
-
-
   }
 
   .navbar-minimize {
@@ -120,7 +111,6 @@
     top: 2px;
     opacity: 1;
     @extend .animation-transition-general;
-
   }
 
   .logo-tim {
@@ -149,16 +139,16 @@
     }
 
     li {
-      >a+div .nav {
+      > a + div .nav {
         margin-top: 5px;
 
-        li>a {
+        li > a {
           margin-top: 0px;
           padding: 8px 8px;
         }
       }
 
-      >a {
+      > a {
         margin: 10px 15px 0;
         border-radius: $btn-round-radius;
         font-weight: $font-weight-normal;
@@ -173,26 +163,24 @@
         line-height: $line-height-lg;
       }
 
-      &:first-child>a {
+      &:first-child > a {
         margin: 0 15px;
-
       }
 
-      &:hover:not(.active)>a,
-      &:focus:not(.active)>a {
-
+      &:hover:not(.active) > a,
+      &:focus:not(.active) > a {
         p,
         i {
           color: $white;
         }
       }
 
-      &:hover:not(.active)>a i,
-      &:focus:not(.active)>a i {
+      &:hover:not(.active) > a i,
+      &:focus:not(.active) > a i {
         color: $white;
       }
 
-      &.active>a:not([data-toggle="collapse"]) {
+      &.active > a:not([data-toggle='collapse']) {
         background: transparent;
 
         i,
@@ -212,7 +200,7 @@
         // }
       }
 
-      &.active>a[data-toggle="collapse"] {
+      &.active > a[data-toggle='collapse'] {
         background: transparent;
         box-shadow: none;
         color: $white;
@@ -221,8 +209,7 @@
           color: $white;
         }
 
-        &+div .nav .active a {
-
+        & + div .nav .active a {
           box-shadow: none;
 
           .sidebar-mini-icon,
@@ -294,9 +281,9 @@
       z-index: 3;
       width: $full-width;
       height: 100%;
-      content: "";
+      content: '';
       display: block;
-      background: #FFFFFF;
+      background: #ffffff;
       opacity: 1;
     }
   }
@@ -342,7 +329,6 @@
       height: 1px;
       width: calc(100% - 30px);
       background: $opacity-5;
-
     }
 
     p {
@@ -351,7 +337,7 @@
       margin: 10px 10px;
       color: $white;
       line-height: 20px;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
     .simple-text {
@@ -383,7 +369,7 @@
     }
   }
 
-  &[data="blue"] {
+  &[data='blue'] {
     @include linear-gradient($info-states, $info);
 
     &:before {
@@ -391,7 +377,7 @@
     }
   }
 
-  &[data="green"] {
+  &[data='green'] {
     @include linear-gradient($success-states, $success);
 
     &:before {
@@ -399,7 +385,7 @@
     }
   }
 
-  &[data="orange"] {
+  &[data='orange'] {
     @include linear-gradient($warning-states, $warning);
 
     &:before {
@@ -407,7 +393,7 @@
     }
   }
 
-  &[data="red"] {
+  &[data='red'] {
     @include linear-gradient($danger-states, $danger);
 
     &:before {
@@ -415,14 +401,13 @@
     }
   }
 
-  &[data="vue"] {
+  &[data='vue'] {
     @include linear-gradient($vue-states, $vue);
 
     &:before {
       border-bottom-color: $vue;
     }
   }
-
 
   .user {
     padding-bottom: 20px;
@@ -465,11 +450,11 @@
     }
 
     .info {
-      >a {
+      > a {
         display: block;
         line-height: 18px;
 
-        >span {
+        > span {
           @extend .animation-transition-general;
           display: block;
           position: relative;
@@ -486,7 +471,7 @@
   }
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
@@ -496,7 +481,6 @@
     transform: translate(-50%);
   }
 }
-
 
 .visible-on-sidebar-regular {
   display: inline-block !important;
@@ -508,18 +492,16 @@
 
 .off-canvas-sidebar {
   .nav {
-
-    >li>a,
-    >li>a:hover {
+    > li > a,
+    > li > a:hover {
       color: $white;
     }
 
-    >li>a:focus {
+    > li > a:focus {
       background: rgba(200, 200, 200, 0.2);
     }
   }
 }
-
 
 .main-panel {
   position: relative;
@@ -529,50 +511,47 @@
   border-top: 5px solid $primary;
   background: linear-gradient($background-black, $background-states-black);
 
-  @include transitions (0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
+  @include transitions(0.5s, cubic-bezier(0.685, 0.0473, 0.346, 1));
 
-  &[data="blue"] {
+  &[data='blue'] {
     border-top-color: $info;
   }
 
-  &[data="green"] {
+  &[data='green'] {
     border-top-color: $success;
   }
 
-  &[data="orange"] {
+  &[data='orange'] {
     border-top-color: $warning;
   }
 
-  &[data="red"] {
+  &[data='red'] {
     border-top-color: $danger;
   }
 
-  &[data="primary"] {
+  &[data='primary'] {
     border-top-color: $primary;
   }
 
-  &[data="vue"] {
+  &[data='vue'] {
     border-top-color: $vue;
   }
 
-  >.content {
+  > .content {
     padding: 80px 30px 30px 280px;
     min-height: calc(100vh - 70px);
   }
 
-  >.navbar {
+  > .navbar {
     margin-bottom: 0;
   }
-
 
   .header {
     margin-bottom: 50px;
   }
 }
 
-
 .perfect-scrollbar-on {
-
   .sidebar,
   .main-panel {
     height: 100%;
@@ -580,14 +559,20 @@
   }
 }
 
-
 .panel-header {
   height: $sidebar-width;
   padding-top: 80px;
   padding-bottom: 45px;
-  background: #141E30;
+  background: #141e30;
   /* fallback for old browsers */
-  background: -webkit-gradient(linear, left top, right top, from(#0c2646), color-stop(60%, #204065), to(#2a5788));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#0c2646),
+    color-stop(60%, #204065),
+    to(#2a5788)
+  );
   background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
   position: relative;
   overflow: hidden;
@@ -615,7 +600,7 @@
 }
 
 .panel-header-lg {
-  height: 380px
+  height: 380px;
 }
 
 @include media-breakpoint-down(md) {
@@ -645,7 +630,6 @@
     display: none;
   }
 
-
   .nav-open {
     .main-panel {
       right: 0;
@@ -653,7 +637,6 @@
     }
 
     .sidebar {
-
       @include transition($sidebar-transition);
       @include transform-translate-x(0px);
 
@@ -668,7 +651,6 @@
     }
 
     .menu-on-right {
-
       .main-panel {
         @include transform-translate-x(-$sidebar-width);
       }
@@ -701,15 +683,15 @@
     top: 0;
     right: 0;
     left: $sidebar-width;
-    content: "";
+    content: '';
     z-index: 9999;
     overflow-x: hidden;
     background-color: transparent;
-    @include transitions (0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
+    @include transitions(0.5s, cubic-bezier(0.685, 0.0473, 0.346, 1));
   }
 
   .wrapper {
-    @include transitions (0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
+    @include transitions(0.5s, cubic-bezier(0.685, 0.0473, 0.346, 1));
   }
 
   .main-panel {
@@ -722,19 +704,17 @@
 }
 
 @include media-breakpoint-up(lg) {
-
   .sidebar,
   .main-panel,
   .sidebar-wrapper {
     -webkit-transition-property: top, bottom, width;
     transition-property: top, bottom, width;
-    -webkit-transition-duration: .2s, .2s, .35s;
-    transition-duration: .2s, .2s, .35s;
+    -webkit-transition-duration: 0.2s, 0.2s, 0.35s;
+    transition-duration: 0.2s, 0.2s, 0.35s;
     -webkit-transition-timing-function: linear, linear, ease;
     transition-timing-function: linear, linear, ease;
     -webkit-overflow-scrolling: touch;
   }
-
 
   .sidebar-mini {
     .visible-on-sidebar-regular {
@@ -753,7 +733,6 @@
       }
     }
 
-
     .sidebar {
       display: block;
       z-index: 1030;
@@ -767,17 +746,23 @@
       }
 
       .sidebar-wrapper {
-
-        >.nav [data-toggle="collapse"]~div>ul>li>a .sidebar-normal,
-        .user .info [data-toggle="collapse"]~div>ul>li>a .sidebar-normal,
-        .user .info>a>span,
-        >.nav li>a p {
+        > .nav [data-toggle='collapse'] ~ div > ul > li > a .sidebar-normal,
+        .user
+          .info
+          [data-toggle='collapse']
+          ~ div
+          > ul
+          > li
+          > a
+          .sidebar-normal,
+        .user .info > a > span,
+        > .nav li > a p {
           @include transform-translate-x(-25px);
           opacity: 0;
         }
       }
 
-      .nav [data-toggle="collapse"]~div>ul>li>a .sidebar-mini-icon {
+      .nav [data-toggle='collapse'] ~ div > ul > li > a .sidebar-mini-icon {
         opacity: 1;
       }
     }
@@ -790,7 +775,6 @@
           opacity: 1;
           @include transform-translate-x(0);
         }
-
       }
 
       .navbar-minimize {
@@ -800,25 +784,29 @@
       .sidebar-wrapper {
         width: $sidebar-width;
 
-        >.nav li>a p,
-        >.nav [data-toggle="collapse"]~div>ul>li>a .sidebar-normal,
-        .user .info [data-toggle="collapse"]~div>ul>li>a .sidebar-normal,
-        .user .info>a>span {
+        > .nav li > a p,
+        > .nav [data-toggle='collapse'] ~ div > ul > li > a .sidebar-normal,
+        .user
+          .info
+          [data-toggle='collapse']
+          ~ div
+          > ul
+          > li
+          > a
+          .sidebar-normal,
+        .user .info > a > span {
           @include transform-translate-x(0px);
           opacity: 1;
         }
       }
 
-      .nav [data-toggle="collapse"]~div>ul>li>a .sidebar-mini-icon {
+      .nav [data-toggle='collapse'] ~ div > ul > li > a .sidebar-mini-icon {
         opacity: 0;
       }
-
-
-
     }
 
     .main-panel {
-      >.content {
+      > .content {
         padding-left: 130px;
       }
     }
@@ -838,7 +826,6 @@
       }
     }
   }
-
 }
 
 @include media-breakpoint-down(sm) {
@@ -848,9 +835,9 @@
   }
 }
 
-@include media-breakpoint-between (md, lg) {
+@include media-breakpoint-between(md, lg) {
   .wrapper {
-    @include transitions (0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
+    @include transitions(0.5s, cubic-bezier(0.685, 0.0473, 0.346, 1));
   }
 
   .sidebar {
@@ -886,7 +873,6 @@
     }
 
     .sidebar {
-
       @include transition($sidebar-transition);
       @include transform-translate-x(0px);
 
@@ -901,7 +887,6 @@
     }
 
     .menu-on-right {
-
       .main-panel {
         @include transform-translate-x(-$sidebar-width);
       }
@@ -934,11 +919,11 @@
     top: 0;
     right: 0;
     left: $sidebar-width;
-    content: "";
+    content: '';
     z-index: 9999;
     overflow-x: hidden;
     background-color: transparent;
-    @include transitions(0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
+    @include transitions(0.5s, cubic-bezier(0.685, 0.0473, 0.346, 1));
   }
 
   .main-panel .content {
@@ -950,7 +935,7 @@
     transform: translate3d(0px, 0, 0);
   }
 
-  .sidebar-mini .sidebar .sidebar-wrapper>.nav li>a p {
+  .sidebar-mini .sidebar .sidebar-wrapper > .nav li > a p {
     opacity: 1;
   }
 

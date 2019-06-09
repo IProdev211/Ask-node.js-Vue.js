@@ -98,7 +98,7 @@ export default {
 
 .bullet-point {
   font-size: 2rem;
-  color: #3cecb1a6;
+  color: #3cecb173;
 }
 
 @media only screen and (max-width: 768px) {
@@ -106,7 +106,7 @@ export default {
     padding: 0 5%;
   }
   .headerDigitsText {
-    font-size: 1.12rem;
+    font-size: 0.9rem;
   }
 }
 .headerStyling {

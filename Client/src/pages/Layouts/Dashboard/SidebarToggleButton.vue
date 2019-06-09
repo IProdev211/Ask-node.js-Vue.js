@@ -21,11 +21,11 @@ export default {
       let isMinimizedText = this.$sidebar.isMinimized
         ? 'فعال شده'
         : 'غیرفعال شده است';
-      this.$notify({
-        type: 'danger',
-        message: `Sidebar mini ${isMinimizedText}...`,
-        icon: 'tim-icons icon-bell-55'
-      });
+      // this.$notify({
+      //   type: 'danger',
+      //   message: `Sidebar mini ${isMinimizedText}...`,
+      //   icon: 'tim-icons icon-bell-55'
+      // });
       this.$sidebar.toggleMinimize();
     }
   }

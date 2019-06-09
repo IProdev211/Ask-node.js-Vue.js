@@ -184,7 +184,7 @@ export default {
         buttonsStyling: false,
         className: 'text-ltr',
         buttons: false,
-        timer: 1900,
+        timer: 900,
         confirmButtonClass: 'btn btn-info btn-fill'
       });
       this.user = row;
@@ -227,6 +227,7 @@ export default {
           }
           Swal({
             title: 'Deleted!',
+            className: 'text-ltr',
             text: `You deleted ${row.title}`,
             icon: 'success'
           });
@@ -275,9 +276,14 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss" scoped>
 .pagination-select,
 .search-input {
   width: 200px;
+}
+
+.swal-title:first-child {
+  margin-top: 26px !important;
+  margin-bottom: 26px !important;
 }
 </style>

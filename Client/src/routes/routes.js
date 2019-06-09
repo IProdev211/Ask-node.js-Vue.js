@@ -30,8 +30,11 @@ const VerificationPayments = () =>
     /* webpackChunkName: "extra" */ 'src/pages/Courses/VerificationPayments.vue'
   );
 
-const Quiz = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/Quiz.vue');
+const SingleQuiz = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/SingleQuiz.vue');
+
+const Quizzes = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/Quizzes.vue');
 
 const Points = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/Points/Points.vue');
@@ -267,10 +270,17 @@ const routes = [
         }
       },
       {
-        path: 'quiz',
-        name: 'Quiz',
+        path: 'singlequiz',
+        name: 'Single Quiz',
         components: {
-          default: Quiz
+          default: SingleQuiz
+        }
+      },
+      {
+        path: 'quizzes',
+        name: 'Quizzes',
+        components: {
+          default: Quizzes
         }
       },
       {

@@ -140,7 +140,7 @@ export default {
         {
           prop: 'createdAt',
           label: 'Publish date',
-          minWidth: 120,
+          minWidth: 120
         }
       ],
       tableData: [],
@@ -156,8 +156,10 @@ export default {
         uri += '&filter=' + this.searchQuery;
       }
       backend.get(uri).then(response => {
-        this.tableData = response.data.docs.map((row) => {
-          row.createdAt = moment(row.createdAt).locale("fa").format("YYYY/MM/DD");
+        this.tableData = response.data.docs.map(row => {
+          row.createdAt = moment(row.createdAt)
+            .locale('fa')
+            .format('YYYY/MM/DD');
           return row;
         });
         this.pagination.currentPage = parseInt(response.data.page, 10);
@@ -216,6 +218,7 @@ export default {
           }
           Swal({
             title: 'Deleted!',
+            className: 'text-ltr',
             text: `You deleted ${row.title}`,
             icon: 'success'
           });

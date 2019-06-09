@@ -41,7 +41,7 @@
           <p class="text-center top-section-header py-2">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
         <div class="row">
-          <div class="col-lg-3 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
+          <div class="col-lg-4 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
             <Course v-bind="course"></Course>
           </div>
         </div>
@@ -54,7 +54,7 @@
     </div>
 
     <!--Our Courses Section-->
-    <div id="element" class="ou-section-homepage">
+    <div id="element">
       <our-courses></our-courses>
     </div>
     <!-- Blog Section-->
@@ -101,16 +101,15 @@ export default {
 .hero-content-homepage {
   background: linear-gradient(rgba(81, 194, 217, 0.918)),
     url(/img/frontend/london-seemless-bg.svg);
-  background-size: auto cover;
+  background-size: auto;
   background-position: center;
   background-repeat: repeat;
-  min-height: 40vh;
+  min-height: 25vh;
   position: relative;
   width: 100%;
-  // z-index: 999;
 
   .hero-text-section {
-    padding: 15vh 5px 15vh 5px;
+    padding: 11vh 5px 11vh 5px;
   }
 
   .hero-title {
@@ -123,6 +122,10 @@ export default {
     font-size: 1.4rem;
     color: #dddddd !important;
   }
+}
+
+.top-courses-section {
+  padding: 0 15%;
 }
 
 // @keyframes pulse {
@@ -151,9 +154,12 @@ export default {
       url(/img/frontend/london-seemless-bg.svg);
     background-size: auto cover;
     background-position: bottom;
-    min-height: 25vh;
+    min-height: 20vh;
     position: relative;
 
+    .btn {
+      font-size: 0.75rem;
+    }
     .hero-title {
       font-size: 2rem;
       line-height: inherit;
@@ -162,9 +168,13 @@ export default {
       font-size: 1rem;
       color: rgb(194, 194, 194);
     }
+
+    .hero-text-section {
+      padding: 10vh 9px 10vh 9px;
+    }
   }
   .top-courses-section {
-    padding: 0 7%;
+    padding: 0 9%;
   }
 }
 

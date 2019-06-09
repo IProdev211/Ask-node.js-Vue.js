@@ -9,35 +9,38 @@
           <h4 class="text-center course-title pt-4">{{ title }}</h4>
         </div>
         <hr class="fadeline">
-        <div class="CourseCard__course__info d-flex justify-content-between text-center py-2">
-          <div>
-            <p class="courseTime">
-              {{ minutes }}
-              <br>
-              <span class="courseTimeSpan">دقیقه تصویر</span>
-            </p>
-          </div>
-          <div>
-            <p class="unitsAvailable">
-              {{ episodes }}
-              <br>
-              <span class="unitsAvailableSpan">درس گفتار</span>
-            </p>
-          </div>
-        </div>
-        <hr class="fadeline" v-if="! purchased">
-        <div class="px-4 py-3 text-center" v-if="! purchased">
-          <div class="row">
-            <div class="col-12 text-center pricehighlight" v-if="isVip">اعضای ویژه</div>
-            <div class="col-12 text-center pricehighlight" v-else-if="isFree">رایگان</div>
-            <div class="col-6" v-if="! isVip && ! isFree">
-              <p class="oldPrice" v-if="oldPrice > 0">{{ formatedOldPrice }}</p>
+        <div class="bottom-section">
+          <div class="CourseCard__course__info d-flex justify-content-between text-center py-2">
+            <div>
+              <p class="courseTime">
+                {{ minutes }}
+                <br>
+                <span class="courseTimeSpan">دقیقه تصویر</span>
+              </p>
             </div>
-            <div class="col-6 text-center" v-if="! isVip && ! isFree">
-              <p class="pricehighlight">{{ formatedPrice }}</p>
+            <div>
+              <p class="unitsAvailable">
+                {{ episodes }}
+                <br>
+                <span class="unitsAvailableSpan">درس گفتار</span>
+              </p>
             </div>
           </div>
+          <hr class="fadeline" v-if="! purchased">
+          <div class="px-4 py-3 text-center" v-if="! purchased">
+            <div class="row">
+              <div class="col-12 text-center pricehighlight" v-if="isVip">اعضای ویژه</div>
+              <div class="col-12 text-center pricehighlight" v-else-if="isFree">رایگان</div>
+              <div class="col-6" v-if="! isVip && ! isFree">
+                <p class="oldPrice" v-if="oldPrice > 0">{{ formatedOldPrice }}</p>
+              </div>
+              <div class="col-6 text-center" v-if="! isVip && ! isFree">
+                <p class="pricehighlight">{{ formatedPrice }}</p>
+              </div>
+            </div>
+          </div>
         </div>
+
         <hr class="fadeline2 mb-1">
         <div class="buyCourse text-center" v-if="! purchased">
           <p class="buyCourseTitle pb-2">تهیه دوره‌</p>
@@ -248,39 +251,20 @@ export default {
   color: #3f3f3f;
 }
 
-.CourseCard .CourseCard__description {
-  color: #575962;
-}
-
-.CourseCard .CourseCard__info .CourseCard__username {
-  color: #575962;
-}
-
-.CourseCard .CourseCard__info .CourseCard__time {
-  color: #9c9c9c !important;
-}
-
-.CourseCard.CourseCard--skin-dark .CourseCard__description {
-  color: #fff;
-}
-
-.CourseCard.CourseCard--skin-dark .CourseCard__info .CourseCard__username {
-  color: #fff;
-}
-
-.CourseCard.CourseCard--skin-dark .CourseCard__info .CourseCard__time {
-  color: #fff;
+.bottom-section {
+  padding: 0;
+  margin: 0;
 }
 
 .buyCourseTitle {
   font-size: 1rem;
-  color: rgb(111, 86, 223);
+  color: rgb(86, 173, 223);
 }
 
 .CourseCard:hover {
   .buyCourseTitle {
     color: rgb(81, 202, 206);
-    // font-weight: 600;
+    font-family: IranSansBold;
   }
   .course-title,
   .courseTime,
@@ -290,21 +274,21 @@ export default {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .CourseCard__course__info {
     margin: 0 14%;
   }
 
   .pricehighlight {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
 
   .oldPrice {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
   .course-title {
-    font-size: 0.8rem;
+    font-size: 0.92rem;
   }
 
   .courseTimeSpan {
@@ -312,7 +296,7 @@ export default {
   }
 
   .courseTime {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .unitsAvailableSpan {
@@ -320,7 +304,7 @@ export default {
   }
 
   .unitsAvailable {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
 </style>

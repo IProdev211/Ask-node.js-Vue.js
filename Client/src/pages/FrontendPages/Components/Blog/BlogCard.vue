@@ -31,14 +31,15 @@ export default {
     publishedAt: function() {
       return moment(this.createdAt)
         .locale('fa')
-        .format('D MMMM YYYY');
+        .format('YYYY-MM-DD');
     }
   }
 };
 </script>
 <style lang="scss" scoped>
 .blog-info {
-  color: #27408b;
+  color: #757575;
+  font-size: 0.75rem;
 }
 .blogBox {
   border-radius: 10px;
@@ -70,7 +71,7 @@ export default {
   cursor: pointer;
 }
 .home-blog .card-title {
-  color: #474747;
+  color: #292929;
   font-size: 1.2rem;
   font-weight: 700;
   line-height: 120%;

@@ -57,6 +57,7 @@
   }
   .subheader {
     font-size: 0.9rem;
+    color: #fff;
   }
 }
 
@@ -82,6 +83,7 @@
   }
   .subheader {
     font-size: 0.9rem;
+    color: #fff;
   }
 }
 
@@ -107,6 +109,7 @@
   }
   .subheader {
     font-size: 0.9rem;
+    color: #fff;
   }
 }
 
@@ -132,6 +135,7 @@
   }
   .subheader {
     font-size: 0.9rem;
+    color: #fff;
   }
 }
 
@@ -157,6 +161,7 @@
   }
   .subheader {
     font-size: 0.9rem;
+    color: #fff;
   }
 }
 

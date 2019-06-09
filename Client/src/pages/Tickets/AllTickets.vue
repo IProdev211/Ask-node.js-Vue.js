@@ -1,5 +1,5 @@
 <template>
-  <section class="container text-right">
+  <section class="container-fluid text-right">
     <!-- SHOULD HAVE PAGINATION -->
     <h1 class="pb-5 text-danger">تیکت ها</h1>
     <div class="pb-5">

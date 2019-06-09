@@ -48,11 +48,12 @@ export default {
 
 .info-items {
   font-size: 0.9rem;
-  color: rgb(211, 211, 211);
+  color: rgb(131, 131, 131);
 }
 span {
+  font-family: IranSansBold;
   font-size: 0.9rem;
-  color: rgb(197, 197, 197);
+  color: rgb(56, 56, 56);
 }
 .item-date {
   display: inline-block;
