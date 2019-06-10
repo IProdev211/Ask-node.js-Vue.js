@@ -132,8 +132,13 @@
 </template>
 
 <style lang="scss" scoped>
+.private-classes-background {
+  background-color: #d6e8ee;
+  padding-bottom: 50px;
+}
 .custom-title {
   font-size: 1.7rem;
+  font-family: IranSansBold;
 }
 .CustomParagraph {
   font-size: 1rem;
@@ -171,7 +176,7 @@ ul {
     border: 1px solid rgba(238, 238, 238, 0.788);
     border-radius: 16px !important;
     text-align: center;
-    box-shadow: 0 1px 1px rgba(119, 119, 119, 0.411);
+    box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.12);
     background-color: rgb(238, 238, 238);
   }
 
@@ -211,7 +216,6 @@ ul {
     color: #fff;
     margin: 7px 3px 0 0;
     font-size: 1.9rem;
-    font-weight: 400;
   }
 
   .pricing-features {
