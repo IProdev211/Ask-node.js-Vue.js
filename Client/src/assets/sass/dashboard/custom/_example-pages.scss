@@ -1,6 +1,6 @@
 .login-page {
   .card-login {
-    border-radius: $border-radius-lg;
+    border-radius: 20px;
     padding-bottom: $padding-base-horizontal;
 
     .card-header {
@@ -12,6 +12,7 @@
         right: 0;
         top: 0;
         width: 45%;
+        border-radius: 20px;
         transform: scaleX(-1);
       }
 
@@ -194,10 +195,10 @@
     padding-top: 150px;
   }
 
-  & > .content-custom {
-    // padding-bottom: 50px;
-    // padding-top: 60px;
-  }
+  // & > .content-custom {
+  //   padding-bottom: 50px;
+  //   padding-top: 60px;
+  // }
 
   .footer {
     position: absolute;

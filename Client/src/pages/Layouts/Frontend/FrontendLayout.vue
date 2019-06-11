@@ -74,14 +74,15 @@
               <div class="row text-right">
                 <div class="col-md-5 about-us">
                   <h4 class="title text-white">درباره اسک آریا</h4>
-                  <!-- <hr class="fadeline3"> -->
+                  <hr class="fadeline3 d-none d-md-block">
                   <p
                     class="text-white"
                   >اسک آریا یکی از پرتلاش‌ترین و بروزترین وبسایت های آموزشی در سطح ایران است که همیشه تلاش کرده تا بتواند جدیدترین و بروزترین مقالات و دوره‌های آموزشی را در اختیار علاقه‌مندان ایرانی قرار دهد.</p>
                 </div>
                 <div class="col-md-3 askarya-sections">
+                  <hr class="fadeline3 d-md-none">
                   <h4 class="title text-white">بخش های سایت</h4>
-                  <!-- <hr class="fadeline3"> -->
+                  <hr class="fadeline3 d-none d-md-block">
                   <ul>
                     <li class="footer-li">
                       <router-link to="privateclasses">کلاس های حضوری</router-link>
@@ -98,8 +99,9 @@
                   </ul>
                 </div>
                 <div class="col-md-4 contact-section">
+                  <hr class="fadeline3 d-md-none">
                   <h4 class="title text-white">ارتباط با ما</h4>
-                  <!-- <hr class="fadeline3"> -->
+                  <hr class="fadeline3 d-none d-md-block">
                   <p
                     class="pt-3 text-white"
                   >شما میتوانید با استفاده از یکی از راه‌های زیر با ما ارتباط برقرار کنید:</p>
@@ -219,6 +221,10 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+.btn {
+  font-weight: inherit;
+}
+
 p,
 .copyright {
   font-size: 0.85rem;
@@ -311,12 +317,16 @@ $scaleSize: 0.8;
   line-height: 2;
   clear: both;
 
+  .fadeline3 {
+    background-color: #777777c2;
+  }
+
   .title {
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
     font-size: 1.3em;
     font-weight: 500;
-    padding-bottom: 15px;
-    border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+    // padding-bottom: 15px;
+    // border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
   }
   ul {
     list-style: none;

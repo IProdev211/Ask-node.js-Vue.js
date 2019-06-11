@@ -42,8 +42,8 @@
 .bg {
   background: url(/img/frontend/SVG-Background-4.svg) no-repeat;
   background-size: cover;
-  background-position: center;
-  // min-height: 90vh;
+  background-position: left;
+  min-height: 85vh;
   position: relative;
 }
 
@@ -69,7 +69,7 @@ h1 {
 
 .subtitle {
   font-size: 1rem;
-  color: rgb(218, 218, 218) !important;
+  color: rgb(235, 235, 235) !important;
 }
 
 @media (max-width: 768px) {

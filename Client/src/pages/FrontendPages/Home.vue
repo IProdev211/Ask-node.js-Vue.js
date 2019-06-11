@@ -43,9 +43,9 @@
       </div>
     </div>
 
-    <!--Improvement Banner Section-->
-    <div class="pt-5">
-      <ImprovementBanner></ImprovementBanner>
+    <!--Founder Section-->
+    <div class="founder-section-homepage pt-5">
+      <founder-section></founder-section>
     </div>
 
     <!--Our Courses Section-->
@@ -53,9 +53,9 @@
       <our-courses></our-courses>
     </div>
 
-    <!--Founder Section-->
-    <div class="founder-section-homepage pt-5">
-      <founder-section></founder-section>
+    <!--Improvement Banner Section-->
+    <div>
+      <ImprovementBanner></ImprovementBanner>
     </div>
 
     <!-- Blog Section-->
@@ -70,7 +70,7 @@ import FounderSection from './Components/FounderSection/FounderSection.vue';
 import Course from './Components/TopCourses/Course.vue';
 import BlogSection from './Components/Blog/BlogSection.vue';
 import OurCourses from './Components/OurCourses/OurCourses.vue';
-import ImprovementBanner from './Components/ImprovementBanner/ImprovementBanner.vue';
+import ImprovementBanner from './Components/ImprovementBanners/ImprovementBanner.vue';
 
 export default {
   data: function() {
@@ -107,23 +107,24 @@ export default {
   // background-size: auto;
   // background-position: center;
   // background-repeat: repeat;
-  min-height: 20vh;
+  min-height: 25vh;
   position: relative;
   width: 100%;
 
   .hero-text-section {
-    padding: 11vh 5px 5vh 5px;
+    padding: 14vh 5px 8vh 5px;
   }
 
   .hero-title {
     font-size: 3.5em;
+    line-height: inherit;
     font-family: IranSansBold;
     color: #ffffff !important;
   }
 
   .hero-subtitle {
     font-size: 1.3em;
-    color: #f3f3f3 !important;
+    color: #f5f5f5 !important;
   }
   // .btn-info {
   //   background: hsl(98, 100%, 50%);
@@ -213,5 +214,8 @@ export default {
     rgba(255, 255, 255, 0.15),
     rgba(255, 255, 255, 0)
   );
+}
+.btn {
+  font-weight: inherit;
 }
 </style>

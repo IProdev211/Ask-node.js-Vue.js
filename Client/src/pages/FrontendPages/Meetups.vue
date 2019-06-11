@@ -1,28 +1,32 @@
 <template>
-  <section class="bg">
-    <div class="container">
-      <div class="pt-5 text-center">
-        <h1 class="text-white">به زودی برمیگردیم</h1>
-        <h3 class="text-white">سایت در حال تعمیر است</h3>
+  <div class="bg">
+    <div class="container text-center">
+      <div class="text-section">
+        <p class="header text-white">به زودی برمیگردیم</p>
+        <p class="sub-header pt-2 text-white">سایت در حال تعمیر است</p>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 .bg {
   background: url(/img/frontend/SVG-Background-4.svg) no-repeat;
   background-size: cover;
-  background-position: center left;
-  min-height: 80vh !important;
+  background-position: left;
+  min-height: 85vh;
   position: relative;
-  width: 100%;
 }
-
-h1 {
-  padding-top: 5%;
+.text-section {
+  padding-top: 15vh;
+  padding-bottom: 25vh;
+}
+.header {
   font-size: 3.5rem;
   font-family: IranSansDNBold;
-  line-height: inherit;
+}
+
+.sub-header {
+  font-size: 1.5rem;
 }
 </style>

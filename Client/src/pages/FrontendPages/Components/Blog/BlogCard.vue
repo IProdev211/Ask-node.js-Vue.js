@@ -79,10 +79,10 @@ export default {
 .home-blog .category {
   border-radius: 10px;
   position: absolute;
-  padding: 3px 10px;
+  padding: 10px 25px;
   margin: 10px;
   color: #fff;
-  background-color: #fc0076;
+  background-color: #4b4b4b;
   text-transform: uppercase;
   font-size: 0.85em;
 }

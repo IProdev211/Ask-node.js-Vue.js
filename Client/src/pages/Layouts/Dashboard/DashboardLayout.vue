@@ -123,7 +123,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .content {
   background-color: #eeeeee !important;
   min-height: 100vh !important;

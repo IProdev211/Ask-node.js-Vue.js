@@ -22,7 +22,7 @@ class courseController extends controller {
             sort: {
               createdAt: 1
             },
-            limit: 12,
+            limit: 4,
             populate: [
               { path: 'categories' },
               { path: 'user' },

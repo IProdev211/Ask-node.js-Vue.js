@@ -1,13 +1,13 @@
 <template>
   <section class="bg">
-    <!-- <vue-particles :lineLinked="false" :moveSpeed="2" :particleSize="2"></vue-particles> -->
     <div class="container">
       <div class="row">
         <div class="col-md-7 text-right">
-          <h2 class="subheading2">کاپیتان این پرواز چه کسی است؟</h2>
+          <h2 class="pb-4">کاپیتان این پرواز چه کسی است؟</h2>
           <p class="CustomParagraph pb-4">
             بنیان گذار اسک آریا، خلبان آریا درودیان میباشد،
             ایشان متولد و بزرگ شده لندن است، تحصیلات آکادمی خود را در رشته امنیت شبکه در دانشگاه Westminster University لندن گذارنده و طی دو سال اخیر برای اتمام دوره خلبانی به ایران سفر کرده، و در این حین مشغول به آموزش زبان انگلیسی و فرانسوی شده و پس از اطمینان از موثر بودن روش تدریس و شیوه ی نوین آموزش، شروع به تاسیس گروه آموزشی اسک آریا نمود.
+            <br>
             <br>لازم به ذکر است که وی یکی از طراحان و اساتید شیوه جدید امتحان زبان انگلیسی سازمان هواپیمایی کشور(LPR) که مختص تمامی خلبانان و نیروهای مراقبت پرواز میباشد، است.
           </p>
         </div>
@@ -32,12 +32,19 @@
   padding: 50px 0;
 }
 
+h2 {
+  color: #fff !important;
+  line-height: auto;
+  font-family: IranSansBold;
+}
+
 .subheading2 {
   color: rgb(255, 255, 255) !important;
 }
 
 .CustomParagraph {
-  color: rgb(255, 255, 255) !important;
   font-size: 1rem;
+  color: #fff !important;
+  line-height: auto !important;
 }
 </style>

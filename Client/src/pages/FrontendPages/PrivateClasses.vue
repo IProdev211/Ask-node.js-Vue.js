@@ -1,131 +1,105 @@
 <template>
-  <div class="bg pb-4">
-    <div class="private-classes-background">
-      <div class="container">
-        <h1 class="text-center custom-title pt-5">کلاس های خصوصی ما</h1>
-        <div class="private-classes">
-          <div class="row pricing">
-            <div class="col-lg-4 col-sm-12 pt-3 px-3">
-              <div class="pricing-box hover">
-                <div class="pricing-title bg-bronze">
-                  <h3 class="text-white titleSize py-3">برنز</h3>
-                </div>
-                <div class="pricing-field">
-                  <span class="price">۱۲۵,۰۰۰ تومان</span>
-                  <p class="py-0 my-0 smalltext">هر جلسه</p>
-                </div>
-                <div class="pricing-features pt-3">
-                  <ul>
-                    <li>تمرین مکالمه</li>
-                    <li>تمرین لیسنینگ</li>
-                    <li>تمرین لغات و تلفظ</li>
-                    <li>برگزاری آزمون تعیین سطح</li>
-                    <li>گواهی پایان دوره</li>
-                  </ul>
-                </div>
-                <div class="pricing-action">
-                  <router-link to="contact">
-                    <base-button
-                      native-type="submit"
-                      class="btn btn-lg btn-block btn-outline-primary"
-                    >ثبت نام</base-button>
-                  </router-link>
-                </div>
+  <div class="private-classes-background">
+    <div class="container">
+      <h1 class="text-center custom-title pt-4">کلاس های خصوصی ما</h1>
+      <div class="private-classes pb-5">
+        <div class="row pricing">
+          <div class="col-lg-4 col-sm-12 px-3">
+            <div class="pricing-box hover">
+              <div class="pricing-title bg-bronze">
+                <h3 class="text-white titleSize py-3">برنز</h3>
+              </div>
+              <div class="pricing-field">
+                <span class="price">۱۲۵,۰۰۰ تومان</span>
+                <p class="py-0 my-0 smalltext">هر جلسه</p>
+              </div>
+              <div class="pricing-features pt-3">
+                <ul>
+                  <li>تمرین مکالمه</li>
+                  <li>تمرین لیسنینگ</li>
+                  <li>تمرین لغات و تلفظ</li>
+                  <li>برگزاری آزمون تعیین سطح</li>
+                  <li>گواهی پایان دوره</li>
+                </ul>
+              </div>
+              <div class="pricing-action">
+                <router-link to="contact">
+                  <base-button
+                    native-type="submit"
+                    class="btn btn-lg btn-block btn-outline-primary"
+                  >ثبت نام</base-button>
+                </router-link>
               </div>
             </div>
+          </div>
 
-            <div class="col-lg-4 col-sm-12 pt-3 px-3">
-              <div class="pricing-box hover">
-                <div class="pricing-title bg-silver">
-                  <h3 class="text-white titleSize py-3">سيلور</h3>
-                </div>
-                <div class="pricing-field">
-                  <span class="price">۱۷۵,۰۰۰ تومان</span>
-                  <p class="py-0 my-0 smalltext">هر جلسه</p>
-                </div>
-                <div class="pricing-features pt-3">
-                  <ul>
-                    <li>تمرین مکالمه</li>
-                    <li>تمرین لغات، تلفظ و گرامر</li>
-                    <li>تمرین لیسنینگ</li>
-                    <li>خواندن کتاب و مجلات</li>
-                    <li>برگزاری ۲ آزمون در طول ترم</li>
-                    <li>آمادگی آزمون های ايلتس و تافل</li>
-                    <li>برگزاری آزمون تعیین سطح</li>
-                    <li>گواهی پایان دوره</li>
-                  </ul>
-                </div>
-                <div class="pricing-action">
-                  <router-link to="contact">
-                    <base-button
-                      native-type="submit"
-                      class="btn btn-lg btn-block btn-outline-primary"
-                    >ثبت نام</base-button>
-                  </router-link>
-                </div>
+          <div class="col-lg-4 col-sm-12 px-3">
+            <div class="pricing-box hover">
+              <div class="pricing-title bg-silver">
+                <h3 class="text-white titleSize py-3">سيلور</h3>
+              </div>
+              <div class="pricing-field">
+                <span class="price">۱۷۵,۰۰۰ تومان</span>
+                <p class="py-0 my-0 smalltext">هر جلسه</p>
+              </div>
+              <div class="pricing-features pt-3">
+                <ul>
+                  <li>تمرین مکالمه</li>
+                  <li>تمرین لغات، تلفظ و گرامر</li>
+                  <li>تمرین لیسنینگ</li>
+                  <li>خواندن کتاب و مجلات</li>
+                  <li>برگزاری ۲ آزمون در طول ترم</li>
+                  <li>آمادگی آزمون های ايلتس و تافل</li>
+                  <li>برگزاری آزمون تعیین سطح</li>
+                  <li>گواهی پایان دوره</li>
+                </ul>
+              </div>
+              <div class="pricing-action">
+                <router-link to="contact">
+                  <base-button
+                    native-type="submit"
+                    class="btn btn-lg btn-block btn-outline-primary"
+                  >ثبت نام</base-button>
+                </router-link>
               </div>
             </div>
+          </div>
 
-            <div class="col-lg-4 col-sm-12 pt-3 px-3">
-              <div class="pricing-box hover">
-                <div class="pricing-title bg-gold">
-                  <h3 class="titleSize text-black py-3">گلد</h3>
-                </div>
-                <div class="pricing-field">
-                  <span class="price">۲۰۰,۰۰۰ تومان</span>
-                  <p class="py-0 my-0 smalltext">هر جلسه</p>
-                </div>
-                <div class="pricing-features pt-3">
-                  <ul>
-                    <li>بحث آزاد</li>
-                    <li>تمرين ليسنينگ و مكالمه</li>
-                    <li>يادگيری لغات، تلفظ و گرامر</li>
-                    <li>برگزاری ۲ آزمون در طول ترم</li>
-                    <li>برگزاری آزمون تعين سطح</li>
-                    <li>نقد فيلم و تاک شو ها</li>
-                    <li>آمادگی آزمون های ايلتس و تافل</li>
-                    <li>آزمون آزمایشی زبان انگلیسی هوانوردی</li>
-                    <li>آموزش و تمرین نکات کلیدی و کاربردی مکالمه</li>
-                    <li>کمک به ترجمه انواع رزومه جهت مهاجرت</li>
-                    <li>گواهی پایان دوره</li>
-                  </ul>
-                </div>
-                <div class="pricing-action">
-                  <router-link to="contact">
-                    <base-button
-                      native-type="submit"
-                      class="btn btn-lg btn-block btn-outline-primary"
-                    >ثبت نام</base-button>
-                  </router-link>
-                </div>
+          <div class="col-lg-4 col-sm-12 px-3">
+            <div class="pricing-box hover">
+              <div class="pricing-title bg-gold">
+                <h3 class="titleSize text-black py-3">گلد</h3>
+              </div>
+              <div class="pricing-field">
+                <span class="price">۲۰۰,۰۰۰ تومان</span>
+                <p class="py-0 my-0 smalltext">هر جلسه</p>
+              </div>
+              <div class="pricing-features pt-3">
+                <ul>
+                  <li>بحث آزاد</li>
+                  <li>تمرين ليسنينگ و مكالمه</li>
+                  <li>يادگيری لغات، تلفظ و گرامر</li>
+                  <li>برگزاری ۲ آزمون در طول ترم</li>
+                  <li>برگزاری آزمون تعين سطح</li>
+                  <li>نقد فيلم و تاک شو ها</li>
+                  <li>آمادگی آزمون های ايلتس و تافل</li>
+                  <li>آزمون آزمایشی زبان انگلیسی هوانوردی</li>
+                  <li>آموزش و تمرین نکات کلیدی و کاربردی مکالمه</li>
+                  <li>کمک به ترجمه انواع رزومه جهت مهاجرت</li>
+                  <li>گواهی پایان دوره</li>
+                </ul>
+              </div>
+              <div class="pricing-action">
+                <router-link to="contact">
+                  <base-button
+                    native-type="submit"
+                    class="btn btn-lg btn-block btn-outline-primary"
+                  >ثبت نام</base-button>
+                </router-link>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- FREE DISCUSSION SECTION -->
-    <div class="freeDiscussion container pt-3 text-right">
-      <h2 class="my-5">کلاس های بحث آزاد</h2>
-      <div class="py-5">
-        <h2>آیا تغییرات مورد نظر را در خودتان نمیبینید؟</h2>
-        <p class="py-3 CustomParagraph">
-          یک چند ماهی هست که کلاس های زبانت رو شروع کردی. خب تا یک جاهایی خوب پیش میره، شما حس میکنید که در مکالمه، لغات و گرامر دارید پیشرفت میکنید.
-          <br>
-          <br>اما این حس مقطعی هست، و ناگهان پیشرفت زبان شما کم میشه و دیگه حس اون تغییرات مثبت در شما ایجاد نمیشه، انگار که هر چه بیشتر درس بخونید باز هم پیشرفتی نمیبینی و نمیتونی خودتو به سطح بالاتر برسونی، اونجاست که انگیزه ی شما به عنوان زبان آموز کم میشه و نا امید میشید.
-          <br>
-          <br>به احتمال خیلی زیاد این داستان برای شما هم اتفاق افتاده، داستانی که گفته شد عموما برای اکثر زبان آموزان ها اتفاق میافتد. که هم داستان کلافه کننده ای هست و بیشتر از آن نا امید کننده.
-        </p>
-      </div>
-
-      <div class="py-3 CustomParagraph">
-        <h2>راه حل؟ کلاس های بحث آزاد اسک آریا.</h2>
-        <p class="py-3 mb-5">
-          هدف اسک آریا یاددهی درست و اصولی به زبان آموزان است، آموختن با برنامه اصولی و کارآمد.
-          به احتمال زیاد تا به حال بسیاری از شما در کلاس های آموزش زبان شرکت کرده اید و یا اکنون هم در حال گذراندن دوره های مربوط به خود هستید، اما بعد از مدتی متوجه عدم پیشرفت خود شده اید، چرا که بسیاری از زبان آموزان به اشتباه فکر میکنند شرکت در این کلاس ها کافی بوده و با تکیه بر آن سعی در ارتقاء سطح زبان خود دارند، در صورتی که این تنها کافی نیست.
-          <br>
-          <br>زبان آموز برای درک درست مفاهیم زبان، یادگیری کاربردی جملات و اصطلاحات نیاز به تمرین در محیطی سازنده همراه با استادی نیتیو و با تجربه دارد. ما این محیط را برای شما فراهم کرده ایم.
-        </p>
       </div>
     </div>
   </div>
@@ -133,24 +107,27 @@
 
 <style lang="scss" scoped>
 .private-classes-background {
-  background-color: #d6e8ee;
-  padding-bottom: 50px;
+  background: url(/img/frontend/SVG-Background-4.svg) no-repeat;
+  background-size: cover;
+  background-position: left;
+  min-height: 85vh;
+  position: relative;
+  // padding-bottom: 50px;
 }
+
+.btn {
+  font-weight: inherit;
+}
+
 .custom-title {
   font-size: 1.7rem;
+  color: #fff !important;
   font-family: IranSansBold;
-}
-.CustomParagraph {
-  font-size: 1rem;
 }
 
 .section-header {
   font-size: 1.5rem;
   color: white;
-}
-
-.hero-header {
-  font-size: 75px;
 }
 
 li,
@@ -173,10 +150,9 @@ ul {
 
   .pricing-box {
     position: relative;
-    border: 1px solid rgba(238, 238, 238, 0.788);
     border-radius: 16px !important;
     text-align: center;
-    box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 19px 6px rgba(0, 0, 0, 0.199);
     background-color: rgb(238, 238, 238);
   }
 
