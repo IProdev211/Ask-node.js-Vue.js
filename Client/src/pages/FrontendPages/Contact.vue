@@ -43,7 +43,7 @@
   background: url(/img/frontend/SVG-Background-4.svg) no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: 90vh;
+  // min-height: 90vh;
   position: relative;
 }
 

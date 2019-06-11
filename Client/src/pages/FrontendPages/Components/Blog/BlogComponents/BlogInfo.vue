@@ -1,19 +1,19 @@
 <template>
   <div class="container">
-    <div class="row info text-right text-rtl">
-      <div class="col-md-4 pb-2">
+    <div class="d-flex justify-content-center text-center">
+      <div>
         <p class="info-items">
           <i class="far fa-address-card pl-2"></i>نویسنده مقاله:
-          <span class="pr-2">{{ name }}</span>
+          <span class="pr-1">{{ name }}</span>
         </p>
       </div>
-      <div class="col-md-4 pb-2">
+      <div class="pr-5">
         <p class="info-items">
           <i class="far fa-calendar-alt pl-2"></i> تاریخ انتشار:
-          <span class="pr-2 item-date">{{ dateFormated() }}</span>
+          <span class="pr-1 item-date">{{ dateFormated() }}</span>
         </p>
       </div>
-      <div class="col-md-4 pb-2">
+      <div class="pr-5">
         <p class="info-items post-categories">
           <i class="fas fa-bullseye pl-2"></i>
           دسته بندی ها:
@@ -42,18 +42,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.info {
-  padding: 0 10%;
-}
+// .info {
+//   padding: 0 6% !important;
+// }
 
 .info-items {
   font-size: 0.9rem;
-  color: rgb(131, 131, 131);
+  color: rgb(230, 230, 230) !important;
+  font-family: IranSansBold;
 }
 span {
-  font-family: IranSansBold;
   font-size: 0.9rem;
-  color: rgb(56, 56, 56);
+  color: rgb(230, 230, 230) !important;
+  font-family: IranSans;
 }
 .item-date {
   display: inline-block;

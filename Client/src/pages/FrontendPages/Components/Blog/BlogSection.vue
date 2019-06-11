@@ -3,7 +3,7 @@
     <div class="container">
       <h2 class="section-header text-right">آخرین مقالات</h2>
       <p class="subtitle text-right">مقالات به‌روز و کاربردی برای افزایش سطح دانش شما</p>
-      <div class="row px-4 mt-5 text-ltr">
+      <div class="row px-4 mt-5">
         <div class="col-lg-3 col-md-6 blog-section" v-for="post in posts" v-bind:key="post.id">
           <BlogCard
             :slug="post.slug"

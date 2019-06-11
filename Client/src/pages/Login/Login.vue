@@ -210,6 +210,6 @@ color: #D557D9
 
 .footer-link {
   font-size: 0.9rem;
-  color: rgb(94, 94, 94) !important;
+  color: rgb(68, 68, 68) !important;
 }
 </style>

@@ -5,8 +5,8 @@
         <div class="intro pb-5 col-md-7 col-sm-12">
           <h3 class="subheading2">Interested in Taking Part in Our Meetups?</h3>
 
-          <p
-          >Getting together with real language learners in real life makes powerful things happen. Ask Arya’s Meetups bring like-minded language learners together, to further enhance their language skills utilising real world scenarios.
+          <p>
+            Getting together with real language learners in real life makes powerful things happen. Ask Arya’s Meetups bring like-minded language learners together, to further enhance their language skills utilising real world scenarios.
             <br>
             <br>Our Meetups are designed to enhance your conversational skills, by creating opportunities for all interested learners to take part in these face-to-face Meetups.
             <br>
@@ -18,8 +18,8 @@
           <br>
           <h3 class="subheading2">Why Should You Participate in Our Meetups?</h3>
 
-          <p
-          >Many people aspire to have the ability to communicate with English speakers, and therefore, they sign up and attend language institutes in the hope of learning how to speak English correctly. However, when faced with English speaking tourists, they do not posses the confidence or the ability, to communicate what they have learnt in theory properly.
+          <p>
+            Many people aspire to have the ability to communicate with English speakers, and therefore, they sign up and attend language institutes in the hope of learning how to speak English correctly. However, when faced with English speaking tourists, they do not posses the confidence or the ability, to communicate what they have learnt in theory properly.
             <br>
             <br>In our Meetups, our Native English speakers will simulate real world scenarios, so that you can practice your speaking skills confidently under the correct supervision of a Native.
           </p>
@@ -51,7 +51,7 @@
             alt="Ask Arya Meetups"
             class="py-3 img-fluid"
           >
-        </div> -->
+        </div>-->
       </div>
     </div>
   </div>

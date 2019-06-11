@@ -7,14 +7,14 @@
         <div class="card-body">
           <h3 class="card-title py-2">{{ name }}</h3>
           <div class="d-flex justify-content-between px-1 blog-info">
-            <span>
-              <i class="fa fa-eye"></i>
-              {{views}}
-            </span>
             <div>
-              <span class="pr-2 text-rtl">{{ publishedAt }}</span>
+              <span class="pl-2">{{ publishedAt }}</span>
               <i class="far fa-calendar-alt"></i>
             </div>
+            <span>
+              {{views}}
+              <i class="fa fa-eye"></i>
+            </span>
           </div>
         </div>
       </div>
@@ -38,8 +38,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .blog-info {
-  color: #757575;
-  font-size: 0.75rem;
+  color: #646464;
+  font-size: 0.82rem;
 }
 .blogBox {
   border-radius: 10px;

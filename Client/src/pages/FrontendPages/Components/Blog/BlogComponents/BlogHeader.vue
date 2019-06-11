@@ -13,6 +13,6 @@ export default {
 <style lang="scss" scoped>
 h1 {
   font-family: IranSansBold;
-  color: rgb(24, 24, 24);
+  color: rgb(245, 245, 245) !important;
 }
 </style>

@@ -5,14 +5,9 @@
       <div class="hero-text-section text-center">
         <h1 class="hero-title">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
         <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-        <div class="d-flex justify-content-center pt-3 text-center">
-          <div class="pl-2">
-            <router-link to="register">
-              <base-button native-type="warning" type="primary" class="btn animation-on-hover">عضویت</base-button>
-            </router-link>
-          </div>
+        <div class="d-flex justify-content-center pt-2 text-center">
           <div>
-            <router-link to="login">
+            <router-link to="dashboard">
               <base-button
                 native-type="submit"
                 type="warning"
@@ -48,15 +43,21 @@
       </div>
     </div>
 
-    <!--Founder Section-->
-    <div class="founder-section-homepage pt-5">
-      <founder-section></founder-section>
+    <!--Improvement Banner Section-->
+    <div class="pt-5">
+      <ImprovementBanner></ImprovementBanner>
     </div>
 
     <!--Our Courses Section-->
     <div id="element">
       <our-courses></our-courses>
     </div>
+
+    <!--Founder Section-->
+    <div class="founder-section-homepage pt-5">
+      <founder-section></founder-section>
+    </div>
+
     <!-- Blog Section-->
     <div class="blog-section">
       <blog-section v-bind="{posts: topPosts}"></blog-section>
@@ -69,6 +70,7 @@ import FounderSection from './Components/FounderSection/FounderSection.vue';
 import Course from './Components/TopCourses/Course.vue';
 import BlogSection from './Components/Blog/BlogSection.vue';
 import OurCourses from './Components/OurCourses/OurCourses.vue';
+import ImprovementBanner from './Components/ImprovementBanner/ImprovementBanner.vue';
 
 export default {
   data: function() {
@@ -91,7 +93,8 @@ export default {
     FounderSection,
     OurCourses,
     Course,
-    BlogSection
+    BlogSection,
+    ImprovementBanner
   }
 };
 </script>
@@ -101,27 +104,30 @@ export default {
 .hero-content-homepage {
   background: linear-gradient(rgba(81, 194, 217, 0.918)),
     url(/img/frontend/london-seemless-bg.svg);
-  background-size: auto;
-  background-position: center;
-  background-repeat: repeat;
-  min-height: 25vh;
+  // background-size: auto;
+  // background-position: center;
+  // background-repeat: repeat;
+  min-height: 20vh;
   position: relative;
   width: 100%;
 
   .hero-text-section {
-    padding: 11vh 5px 11vh 5px;
+    padding: 11vh 5px 5vh 5px;
   }
 
   .hero-title {
-    font-size: 3.6rem;
+    font-size: 3.5em;
     font-family: IranSansBold;
-    color: #f1f1f1 !important;
+    color: #ffffff !important;
   }
 
   .hero-subtitle {
-    font-size: 1.4rem;
-    color: #dddddd !important;
+    font-size: 1.3em;
+    color: #f3f3f3 !important;
   }
+  // .btn-info {
+  //   background: hsl(98, 100%, 50%);
+  // }
 }
 
 .top-courses-section {
@@ -156,6 +162,10 @@ export default {
     background-position: bottom;
     min-height: 20vh;
     position: relative;
+
+    .hero-text-section {
+      padding: 4vh 5px 4vh 5px;
+    }
 
     .btn {
       font-size: 0.75rem;
