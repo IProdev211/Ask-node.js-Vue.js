@@ -16,7 +16,7 @@
               alt="Ask Arya london underground logo"
             >
         </div>-->
-        <div class="d-flex justify-content-center">
+        <div class="container">
           <div class="iconSection text-left pt-5">
             <p class="pt-4">
               <a href="https://t.me/AskAryaSomething" class="li-ic">AskAryaSomething@</a>
@@ -54,7 +54,7 @@ h1 {
 .contactSection .iconSection i,
 .contactSection .iconSection p {
   color: rgb(255, 255, 255) !important;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .contactSection .iconSection a:hover {
@@ -84,7 +84,7 @@ h1 {
   .contactSection .iconSection a,
   .contactSection .iconSection i,
   .contactSection .iconSection p {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     padding: 0;
   }
   .subtitle {

@@ -45,7 +45,7 @@
 
     <!--Improvement Banner Section-->
     <div class="pt-5">
-      <ImprovementBanner></ImprovementBanner>
+      <ImprovementBanner1></ImprovementBanner1>
     </div>
 
     <!--Our Courses Section-->
@@ -53,14 +53,19 @@
       <our-courses></our-courses>
     </div>
 
-    <!--Founder Section-->
-    <div class="founder-section-homepage pt-5">
-      <founder-section></founder-section>
+    <!--Improvement Banner Section-->
+    <div class="pt-5">
+      <ImprovementBanner2></ImprovementBanner2>
     </div>
 
     <!-- Blog Section-->
     <div class="blog-section">
       <blog-section v-bind="{posts: topPosts}"></blog-section>
+    </div>
+
+    <!--Founder Section-->
+    <div class="founder-section-homepage">
+      <founder-section></founder-section>
     </div>
   </div>
 </template>
@@ -70,7 +75,8 @@ import FounderSection from './Components/FounderSection/FounderSection.vue';
 import Course from './Components/TopCourses/Course.vue';
 import BlogSection from './Components/Blog/BlogSection.vue';
 import OurCourses from './Components/OurCourses/OurCourses.vue';
-import ImprovementBanner from './Components/ImprovementBanners/ImprovementBanner.vue';
+import ImprovementBanner1 from './Components/ImprovementBanners/ImprovementBanner1.vue';
+import ImprovementBanner2 from './Components/ImprovementBanners/ImprovementBanner2.vue';
 
 export default {
   data: function() {
@@ -94,7 +100,8 @@ export default {
     OurCourses,
     Course,
     BlogSection,
-    ImprovementBanner
+    ImprovementBanner1,
+    ImprovementBanner2
   }
 };
 </script>

@@ -34,6 +34,11 @@ export default {
 .blog-section {
   padding: 0 3%;
 }
+@media (max-width: 680px) {
+  .blog-section {
+    padding: 0 11%;
+  }
+}
 .home-blog {
   background-color: #ececec;
 }
