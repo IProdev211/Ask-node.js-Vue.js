@@ -32,7 +32,7 @@
           <div v-if="this.$root.$data.user !== undefined">
             <div class="row">
               <div class="pl-3">
-                <p class="pt-2 usertitle">خوش آمدید {{this.$root.$data.user.name}}</p>
+                <p class="pt-2 usertitle"> {{this.$root.$data.user.name}} خوش آمدید</p>
               </div>
               <router-link to="/dashboard">
                 <base-button

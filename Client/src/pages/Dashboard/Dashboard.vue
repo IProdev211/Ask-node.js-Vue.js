@@ -68,7 +68,7 @@ export default {
             '<a href="/mycourses"><i class="tim-icons icon-bag-16 pl-2"></i> در حال یادگیری</a>'
         },
         {
-          title: myEpisodes + ' / ' + totalEpisodes,
+          title: totalEpisodes + ' / ' + myEpisodes,
           subTitle: 'درس های ثبت نام شده',
           type: 'danger',
           icon: 'tim-icons icon-molecule-40',

@@ -43,9 +43,9 @@
       </div>
     </div>
 
-    <!--Founder Section-->
-    <div class="founder-section-homepage pt-5">
-      <founder-section></founder-section>
+    <!--Improvement Banner Section-->
+    <div class="pt-5">
+      <ImprovementBanner></ImprovementBanner>
     </div>
 
     <!--Our Courses Section-->
@@ -53,9 +53,9 @@
       <our-courses></our-courses>
     </div>
 
-    <!--Improvement Banner Section-->
-    <div>
-      <ImprovementBanner></ImprovementBanner>
+    <!--Founder Section-->
+    <div class="founder-section-homepage pt-5">
+      <founder-section></founder-section>
     </div>
 
     <!-- Blog Section-->
