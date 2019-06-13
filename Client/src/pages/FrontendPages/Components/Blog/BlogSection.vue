@@ -36,7 +36,7 @@ export default {
 }
 @media (max-width: 680px) {
   .blog-section {
-    padding: 0 11%;
+    padding: 0 18%;
   }
 }
 .home-blog {

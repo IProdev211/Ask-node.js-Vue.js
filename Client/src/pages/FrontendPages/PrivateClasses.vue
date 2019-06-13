@@ -1,8 +1,8 @@
 <template>
   <div class="private-classes-background">
     <div class="container">
-      <h1 class="text-center custom-title pt-4">کلاس های خصوصی ما</h1>
-      <div class="private-classes pb-5">
+      <h1 class="text-center custom-title pt-5">کلاس های خصوصی ما</h1>
+      <div class="private-classes pb-4">
         <div class="row pricing">
           <div class="col-lg-4 col-sm-12 px-3">
             <div class="pricing-box hover">
@@ -109,8 +109,8 @@
 .private-classes-background {
   background: url(/img/frontend/SVG-Background-4.svg) no-repeat;
   background-size: cover;
-  background-position: left;
-  min-height: 85vh;
+  background-position: center;
+  min-height: 92vh;
   position: relative;
   // padding-bottom: 50px;
 }
@@ -137,7 +137,7 @@ ul {
 }
 
 .private-classes {
-  padding: 20px 8% 0 8%;
+  padding: 20px 6% 0 6%;
 
   .pricing {
     position: relative;

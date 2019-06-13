@@ -3,18 +3,16 @@
     <!-- Hero Section -->
     <section class="hero-content-homepage">
       <div class="hero-text-section text-center">
-        <h1 class="hero-title">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
+        <h1 class="hero-title pb-3">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
         <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-        <div class="d-flex justify-content-center pt-2 text-center">
-          <div>
-            <router-link to="dashboard">
-              <base-button
-                native-type="submit"
-                type="warning"
-                class="btn animation-on-hover"
-              >ورود به پنل کاربری</base-button>
-            </router-link>
-          </div>
+        <div class="pt-3 text-center">
+          <router-link to="dashboard">
+            <base-button
+              native-type="submit"
+              type="warning"
+              class="btn animation-on-hover"
+            >ورود به پنل کاربری</base-button>
+          </router-link>
         </div>
       </div>
     </section>
@@ -106,14 +104,13 @@ export default {
 };
 </script>
 
-
-<style lang="scss">
+<style lang="scss" scoped>
 .hero-content-homepage {
   background: linear-gradient(rgba(81, 194, 217, 0.918)),
     url(/img/frontend/london-seemless-bg.svg);
-  // background-size: auto;
-  // background-position: center;
-  // background-repeat: repeat;
+  background-size: auto;
+  background-position: center;
+  background-repeat: repeat;
   min-height: 25vh;
   position: relative;
   width: 100%;
@@ -127,15 +124,14 @@ export default {
     line-height: inherit;
     font-family: IranSansBold;
     color: #ffffff !important;
+    padding: 0;
+    margin: 0;
   }
 
   .hero-subtitle {
     font-size: 1.3em;
-    color: #f5f5f5 !important;
+    color: #fafafa !important;
   }
-  // .btn-info {
-  //   background: hsl(98, 100%, 50%);
-  // }
 }
 
 .top-courses-section {
@@ -172,12 +168,13 @@ export default {
     position: relative;
 
     .hero-text-section {
-      padding: 4vh 5px 4vh 5px;
+      padding: 4vh 2em !important;
     }
 
     .btn {
       font-size: 0.75rem;
     }
+
     .hero-title {
       font-size: 2rem;
       line-height: inherit;
@@ -185,6 +182,7 @@ export default {
     .hero-subtitle {
       font-size: 1rem;
       color: rgb(194, 194, 194);
+      padding: 0 2.4em !important;
     }
 
     .hero-text-section {
