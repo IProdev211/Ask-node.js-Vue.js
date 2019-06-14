@@ -280,6 +280,9 @@ class courseController extends controller {
       true
     );
     const price = parseInt(course.price.replace(/,/g, ''), 10);
+    const timeout = setTimeout(() => {
+      this.failed("ارتباط با سامانه برقرار نشد. لطفا از اتصال اینترنت خود اطمینان کسب و سپس امتحان کنید.", res, 408);
+    }, 10000);
     zarinpal
       .PaymentRequest({
         Amount: price,
@@ -287,6 +290,9 @@ class courseController extends controller {
         Description: 'خرید دوره ' + course.title
       })
       .then(response => {
+        if (timeout) {
+          clearTimeout(timeout);
+        }
         if (response.status === 100) {
           const payment = new Payment({
             user: req.user.id,
@@ -306,6 +312,9 @@ class courseController extends controller {
         }
       })
       .catch(err => {
+        if (timeout) {
+          clearTimeout(timeout);
+        }
         return this.failed(err.errors, res, 500);
       });
   }
