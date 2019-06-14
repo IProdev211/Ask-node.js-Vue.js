@@ -319,7 +319,7 @@ class courseController extends controller {
       });
   }
   async verification(req, res) {
-    if (!req.body.status || req.body.status !== 'OK') {
+    if (! req.body.hasOwnProperty("status") || req.body.status !== 'OK') {
       return this.failed('پرداخت شما با موفقیت انجام نشد', res, 500);
     }
     const payment = await Payment.findOne({
@@ -328,9 +328,12 @@ class courseController extends controller {
       .populate([{ path: 'course' }, { path: 'user' }])
       .exec();
 
-    if (!payment.course) {
+    if (! payment.course) {
       return this.failed('دوره ای که شما پرداخت کرده اید وجود ندارد', res, 500);
     }
+    const timeout = setTimeout(() => {
+      this.failed("ارتباط با سامانه برقرار نشد. لطفا از اتصال اینترنت خود اطمینان کسب و سپس امتحان کنید.", res, 408);
+    }, 30000);
     const zarinpal = ZarinpalCheckout.create(
       config.service.zarinpal.merchant_id,
       true
@@ -338,9 +341,13 @@ class courseController extends controller {
     zarinpal
       .PaymentVerification({
         Amount: payment.price,
-        Authority: payment.resnumber
+        Authority: payment.resnumber,
+        timeout: 30000,
       })
       .then(response => {
+        if (timeout) {
+          clearTimeout(timeout);
+        }
         if (response.status === 100) {
           payment.user.learning.push(payment.course.id);
           payment.user.save();
@@ -370,6 +377,9 @@ class courseController extends controller {
         }
       })
       .catch(err => {
+        if (timeout) {
+          clearTimeout(timeout);
+        }
         return this.failed(err.errors, res, 500);
       });
   }
