@@ -82,6 +82,7 @@
 import VueRecaptcha from 'vue-recaptcha';
 import backend from "../../backend";
 import config from "../../config";
+import Swal from 'sweetalert';
 
 export default {
   components: { VueRecaptcha },
@@ -159,6 +160,21 @@ export default {
   },
   mounted(){
     this.createRecaptcha();
+    if (this.$route.query.hasOwnProperty("error") && this.$route.query.error) {
+      if ([
+        "متاسفانه چنین لینک فعال سازی وجود ندارد",
+        "مهلت استفاده از این لینک به پایان رسیده است",
+        "این لینک قبلا مورد استفاده قرار گرفته است",
+      ].indexOf(this.$route.query.error) !== -1) {
+        Swal({
+          icon: "error",
+          title: "خطا",
+          className: "swal-text-center",
+          text: this.$route.query.error,
+        });
+        this.$router.push({ query: Object.assign({}, this.$route.query, { error }) });
+      }
+    }
   },
   destroyed() {
     document.getElementById('recaptchaScript').remove();

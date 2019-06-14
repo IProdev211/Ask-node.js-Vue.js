@@ -12,34 +12,16 @@ class userController extends controller {
         .populate('user')
         .exec();
 
-      if (!activationCode) {
-        this.alert(req, {
-          title: 'دقت کنید',
-          message: 'متاسفانه چنین لینک فعال سازی وجود ندارد',
-          button: 'بسیار خوب'
-        });
-
-        return res.redirect('/');
+      if (! activationCode) {
+        return res.redirect('/login?error=متاسفانه چنین لینک فعال سازی وجود ندارد');
       }
 
       if (activationCode.expire < new Date()) {
-        this.alert(req, {
-          title: 'دقت کنید',
-          message: 'مهلت استفاده از این لینک به پایان رسیده است',
-          button: 'بسیار خوب'
-        });
-
-        return res.redirect('/');
+        return res.redirect("/login?error=مهلت استفاده از این لینک به پایان رسیده است");
       }
 
       if (activationCode.used) {
-        this.alert(req, {
-          title: 'دقت کنید',
-          message: 'این لینک قبلا مورد استفاده قرار گرفته است',
-          button: 'بسیار خوب'
-        });
-
-        return res.redirect('/');
+        return res.redirect("/login?error=این لینک قبلا مورد استفاده قرار گرفته است");
       }
 
       let user = activationCode.user;
@@ -51,13 +33,7 @@ class userController extends controller {
 
       req.logIn(user, err => {
         user.setRememberToken(res);
-        this.alert(req, {
-          title: 'با تشکر',
-          message: 'اکانت شما فعال شد',
-          button: 'بسیار خوب',
-          type: 'success'
-        });
-        return res.redirect('/');
+        return res.redirect('/dashboard?error=اکانت شما فعال شد');
       });
     } catch (err) {
       next(err);

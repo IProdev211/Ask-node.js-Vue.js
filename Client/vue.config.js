@@ -73,6 +73,9 @@ module.exports = {
       '^/auth/google$': {
         target: 'http://localhost:3000'
       },
+      '^/user/activation/': {
+        target: 'http://localhost:3000'
+      },
       '^/uploads': {
         target: 'http://localhost:3000'
       }
