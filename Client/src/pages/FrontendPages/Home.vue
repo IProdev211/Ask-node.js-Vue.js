@@ -38,6 +38,16 @@
             <Course v-bind="course"></Course>
           </div>
         </div>
+        <div class="pt-3 text-left">
+          <router-link to="#">
+            <base-button
+              native-type="submit"
+              type="success"
+              class="btn btn-sm animation-on-hover"
+              v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
+            >مشاهده همه دوره ها</base-button>
+          </router-link>
+        </div>
       </div>
     </div>
 

@@ -5,7 +5,6 @@
     :style="scrollable ? {'overflow-y': 'auto'} : ''"
   >
     <h4 class="text-center pt-3">سرفصل دوره</h4>
-    <!-- UNIT 1 -->
     <div
       class="UnitBox d-flex justify-content-between"
       v-for="episode of episodes"
@@ -123,17 +122,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .UnitSection {
-//   background: #191e2f;
-//   border-radius: 10px;
-//   overflow: hidden;
-//   border-width: 1px;
-//   border-style: solid;
-//   border-color: rgba(0, 0, 0, 0.1);
-//   border-image: initial;
-// }
+.UnitSection {
+  background: #eeeeee !important;
+
+  // border-radius: 10px;
+  // overflow: hidden;
+  // border-width: 1px;
+  // border-style: solid;
+  // border-color: rgba(0, 0, 0, 0.1);
+  // border-image: initial;
+}
 .UnitBox {
   -webkit-box-align: center;
+  background: #eeeeee;
   padding: 20px 25px;
   align-items: center;
   border-bottom: 1px solid rgba(133, 133, 133, 0.377);

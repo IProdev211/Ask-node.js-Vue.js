@@ -35,15 +35,11 @@
 .title {
   font-family: IranSansBold;
   color: rgb(255, 255, 255) !important;
-  padding: 0;
-  margin: 0;
 }
 
 .subtitle {
   font-size: 1.2em;
   color: rgb(235, 235, 235) !important;
-  padding: 0;
-  margin: 0;
 }
 
 .iconSection {
@@ -68,7 +64,6 @@
   .iconSection i,
   .iconSection p {
     font-size: 1.6rem;
-    padding: 0;
     text-align: left;
   }
   .subtitle {

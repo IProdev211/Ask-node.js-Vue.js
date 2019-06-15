@@ -6,52 +6,51 @@
           <!-- Course Title -->
           <h1 class="course-title">{{ title }}</h1>
           <p class="episode-title" v-if="episode.id">{{ course.title }}</p>
-
           <!-- COURSE DESCRIPTION -->
-          <div class="py-5">
-            <p class="course-subtitle pb-2">توضیحات:</p>
-            <div class="body" v-html="body"></div>
+          <p class="course-subtitle pt-5 pb-3">توضیحات:</p>
+          <div class="body" v-html="body"></div>
+
+          <!-- COURSE INFORMATION -->
+          <div class="text-center pt-5">
+            <div class="row justify-content-center">
+              <!-- COURSE CREATED AT -->
+              <div class="col py-2">
+                <i class="pl-2 icon far fa-calendar-alt"></i>
+                <!-- <p class="icon-text pr-1">ایجاد شده در</p> -->
+                <h5 class="icon-data pt-1 pl-2">{{ getEpisodeCreateDate() }}</h5>
+              </div>
+              <!-- COURSE LENGTH -->
+              <div class="col py-2">
+                <i class="pl-2 icon far fa-clock"></i>
+                <!-- <p class="icon-text pr-1">{{ episode.time ? "طول درس" : "طول دوره" }}</p> -->
+                <h5 class="icon-data pt-1 pl-2">{{ episode.time ? episodeTime : courseTime }}</h5>
+              </div>
+              <!-- COURSE PRICE  -->
+              <div class="col py-2" v-if="notEnrolled && type == 'paid'">
+                <i class="pl-2 icon fas fa-money-check-alt"></i>
+                <!-- <p class="icon-text pr-1">قیمت</p> -->
+                <h5 class="icon-data pt-1 pl-2">{{ getCoursePrice() }}</h5>
+              </div>
+              <div class="w-100 d-md-none"></div>
+              <!-- COURSE USERS  -->
+              <div class="col py-2">
+                <i class="pl-2 icon fas fa-users"></i>
+                <!-- <p class="icon-text pr-1">تعداد شرکت کنندگان</p> -->
+                <h5 class="icon-data pt-1 pl-2">{{ enrolledCount }}</h5>
+              </div>
+              <!-- COURSE INSTRUCTOR -->
+              <div class="col py-2">
+                <i class="pl-2 icon fas fa-chalkboard-teacher"></i>
+                <!-- <p class="icon-text pr-1">معلم</p> -->
+                <h5 class="icon-data pt-1 pl-2">{{ course.user.name }}</h5>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-------------- COURSE INFO SECTION  -------------->
       <section class="container">
-        <div class="card text-center pt-4 mt-2">
-          <div class="row justify-content-sm-center">
-            <!-- COURSE CREATED AT -->
-            <div class="col py-2">
-              <i class="pl-2 icon far fa-calendar-alt"></i>
-              <p class="icon-text pr-1">ایجاد شده در</p>
-              <h5 class="icon-data pl-2">{{ getEpisodeCreateDate() }}</h5>
-            </div>
-            <!-- COURSE LENGTH -->
-            <div class="col py-2">
-              <i class="pl-2 icon far fa-clock"></i>
-              <p class="icon-text pr-1">{{ episode.time ? "طول درس" : "طول دوره" }}</p>
-              <h5 class="icon-data pl-2">{{ episode.time ? episodeTime : courseTime }}</h5>
-            </div>
-            <!-- COURSE PRICE  -->
-            <div class="col py-2" v-if="notEnrolled && type == 'paid'">
-              <i class="pl-2 icon fas fa-money-check-alt"></i>
-              <p class="icon-text pr-1">قیمت</p>
-              <h5 class="icon-data pl-2">{{ getCoursePrice() }}</h5>
-            </div>
-            <div class="w-100 d-md-none"></div>
-            <!-- COURSE USERS  -->
-            <div class="col py-2">
-              <i class="pl-2 icon fas fa-users"></i>
-              <p class="icon-text pr-1">تعداد شرکت کنندگان</p>
-              <h5 class="icon-data pl-2">{{ enrolledCount }}</h5>
-            </div>
-            <!-- COURSE INSTRUCTOR -->
-            <div class="col py-2">
-              <i class="pl-2 icon fas fa-chalkboard-teacher"></i>
-              <p class="icon-text pr-1">معلم</p>
-              <h5 class="icon-data pl-2">{{ course.user.name }}</h5>
-            </div>
-          </div>
-        </div>
         <!-- COURSE PRICING STRUCTURE -->
         <div class="container pb-3">
           <span
@@ -86,35 +85,40 @@
             </p>
           </span>
         </div>
-        <!-- video element -->
-        <div class="video-container">
-          <vue-plyr class="plyr--video text-rtl" :key="id">
-            <video>
-              <!-- <video poster="poster.png" src="video.mp4"> -->
-              <source :src="`/api/v1${download}`" type="video/mp4" size="720">
-              <!-- <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default> -->
-            </video>
-          </vue-plyr>
-        </div>
       </section>
 
-      <p
-        class="quote-text text-center py-3 d-none d-md-block"
-      >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
-
-      <!-- Timeline Unit Section -->
-      <div class="container py-3">
-        <AllUnits
-          :course="course"
-          :episodes="course.episodes"
-          :scrollable="true"
-          :maxepisodes="30"
-          :purchased="! notEnrolled"
-          @buy="openBuyCourse"
-        ></AllUnits>
+      <div class="row">
+        <div class="col-md-8">
+          <!-- video element -->
+          <div class="video-container">
+            <vue-plyr class="plyr--ideo" :key="id">
+              <video>
+                <!-- <video poster="poster.png" src="video.mp4"> -->
+                <source :src="`/api/v1${download}`" type="video/mp4" size="720">
+                <!-- <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default> -->
+              </video>
+            </vue-plyr>
+          </div>
+          <p
+            class="quote-text text-center py-3 d-none d-md-block"
+          >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
+        </div>
+        <div class="col-md-4">
+          <!-- Timeline Unit Section -->
+          <div class="container py-3">
+            <AllUnits
+              :course="course"
+              :episodes="course.episodes"
+              :scrollable="true"
+              :maxepisodes="4"
+              :purchased="! notEnrolled"
+              @buy="openBuyCourse"
+            ></AllUnits>
+          </div>
+        </div>
       </div>
     </div>
-    <modal ref="buymodal" centered=true footerClasses="justify-content-center" type="notice">
+    <modal ref="buymodal" centered="true" footerClasses="justify-content-center" type="notice">
       <h5 slot="header" class="modal-title">
         خرید دوره:
         <span class="font-weight-bold text-danger">{{ course.title }}</span>
@@ -188,7 +192,7 @@ export default {
       type: '',
       body: '',
       download: '',
-      canClose: true,
+      canClose: true
     };
   },
   methods: {
@@ -251,20 +255,23 @@ export default {
     buyCourseListener(e) {
       e.target.disabled = true;
       e.target.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`;
-      backend.post(`courses/${this.course.id}/buy`).then(response => {
-        e.target.disabled = false;
-        window.location.href = response.data.redirect;
-        e.target.innerHTML = `پرداخت از درگاه`;
-      }, (response) => {
-        e.target.disabled = false;
-        e.target.innerHTML = `پرداخت از درگاه`;
-        Swal({
-          icon: "error",
-          title: "خطا",
-          className: "swal-text-center",
-          text: `ارتباط با سامانه به خوبی برقرار نشد. لطفا اینترنت خود را بررسی کنید.`,
-        });
-      });
+      backend.post(`courses/${this.course.id}/buy`).then(
+        response => {
+          e.target.disabled = false;
+          window.location.href = response.data.redirect;
+          e.target.innerHTML = `پرداخت از درگاه`;
+        },
+        response => {
+          e.target.disabled = false;
+          e.target.innerHTML = `پرداخت از درگاه`;
+          Swal({
+            icon: 'error',
+            title: 'خطا',
+            className: 'swal-text-center',
+            text: `ارتباط با سامانه به خوبی برقرار نشد. لطفا اینترنت خود را بررسی کنید.`
+          });
+        }
+      );
     }
   },
   computed: {
@@ -300,9 +307,8 @@ export default {
   }
 }
 .top-banner {
-  background-color: #ff1684;
+  background-color: #004966;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='540' height='450' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.04'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/svg%3E");
-  border-radius: 20px;
 
   .course-title {
     font-size: 1.7rem;
@@ -314,8 +320,8 @@ export default {
   }
 
   .episode-title {
-    font-size: 1.2em;
-    color: rgb(255, 255, 255) !important;
+    font-size: 1.1em;
+    color: rgb(233, 233, 233) !important;
   }
 
   .course-subtitle {
@@ -327,7 +333,7 @@ export default {
   .body {
     /deep/ p {
       color: rgb(255, 255, 255) !important;
-      font-size: 1.15em !important;
+      font-size: 1em !important;
       line-height: auto !important;
     }
   }
@@ -336,26 +342,23 @@ export default {
 .modal-title {
   font-size: 1rem;
 }
-.card {
-  border-radius: 25px;
-  background: #1c2135;
-}
 
 .icon {
   font-size: 1.7rem;
-  color: rgb(107, 107, 107) !important;
-  padding-bottom: 6px;
+  color: #ffffff !important;
+  padding-bottom: 8px;
 }
 
 .icon-text {
   font-size: 0.65rem;
-  color: rgb(150, 150, 150);
+  color: rgb(247, 247, 247) !important;
+  padding-bottom: 3px;
 }
 
 .icon-data {
   font-size: 0.9rem;
   font-family: IranSansBold;
-  color: #fff;
+  color: #fff !important;
 }
 @media (max-width: 768px) {
   .video-container {
