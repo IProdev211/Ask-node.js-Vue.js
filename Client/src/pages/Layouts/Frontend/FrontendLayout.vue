@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TopBanner></TopBanner>
     <base-nav
       v-model="showMenu"
       type="custom"
@@ -32,7 +33,7 @@
           <div v-if="this.$root.$data.user !== undefined">
             <div class="row">
               <div class="pl-3">
-                <p class="pt-2 usertitle"> {{this.$root.$data.user.name}} خوش آمدید</p>
+                <p class="pt-2 usertitle">{{this.$root.$data.user.name}} خوش آمدید</p>
               </div>
               <router-link to="/dashboard">
                 <base-button
@@ -133,10 +134,13 @@
 import { BaseNav } from 'src/components';
 import { ZoomCenterTransition } from 'vue2-transitions';
 
+import TopBanner from './Components/TopBanner.vue';
+
 export default {
   components: {
     BaseNav,
-    ZoomCenterTransition
+    ZoomCenterTransition,
+    TopBanner
   },
   props: {
     backgroundColor: {

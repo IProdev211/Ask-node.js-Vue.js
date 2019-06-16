@@ -38,7 +38,7 @@
             <Course v-bind="course"></Course>
           </div>
         </div>
-        <div class="pt-3 text-left">
+        <div class="pt-3 text-center">
           <router-link to="#">
             <base-button
               native-type="submit"
