@@ -93,7 +93,7 @@ export default {
 }
 
 .headerDigitsText {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 .bullet-point {

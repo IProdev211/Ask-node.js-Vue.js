@@ -125,7 +125,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .content {
-  background-color: #eeeeee !important;
+  background-color: #f5f5f5 !important;
   min-height: 100vh !important;
 }
 .sidebar

@@ -4,7 +4,6 @@
     v-if="episodes.length"
     :style="scrollable ? {'overflow-y': 'auto'} : ''"
   >
-    <h4 class="text-center pt-3">سرفصل دوره</h4>
     <div
       class="UnitBox d-flex justify-content-between"
       v-for="episode of episodes"
@@ -123,7 +122,7 @@ export default {
 
 <style lang="scss" scoped>
 .UnitSection {
-  background: #eeeeee !important;
+  background: transparent !important;
 
   // border-radius: 10px;
   // overflow: hidden;
@@ -134,8 +133,8 @@ export default {
 }
 .UnitBox {
   -webkit-box-align: center;
-  background: #eeeeee;
-  padding: 20px 25px;
+  background: transparent !important;
+  padding: 12px 15px;
   align-items: center;
   border-bottom: 1px solid rgba(133, 133, 133, 0.377);
   border-right: 10px solid rgba(156, 156, 156, 0.377);
@@ -180,25 +179,25 @@ h4 {
 }
 
 .UnitName {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: rgb(158, 158, 158);
   margin-top: auto;
 }
 .detail-time {
   color: rgb(255, 255, 255) !important;
-  font-size: 1em;
+  font-size: 0.9em;
   align-self: center;
   background: rgb(177, 177, 177) !important;
-  padding: 8px 15px;
+  padding: 8px 10px;
   border-radius: 12px;
 }
 
 .detail-price {
   color: rgb(255, 255, 255) !important;
-  font-size: 1em;
+  font-size: 0.9em;
   align-self: center;
   background: rgb(122, 122, 122) !important;
-  padding: 8px 15px;
+  padding: 8px 10px;
   border-radius: 8px;
 }
 

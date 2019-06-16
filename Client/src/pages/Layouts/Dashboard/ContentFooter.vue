@@ -25,8 +25,9 @@ export default {
 <style lang="scss" scoped>
 .copyright {
   padding: 20px 0;
-  background: #171b2c;
-  color: rgb(219, 219, 219) !important;
+  // background: #171b2c;
+  background: transparent !important;
+  color: rgb(43, 43, 43) !important;
   font-size: 0.77rem;
 }
 
