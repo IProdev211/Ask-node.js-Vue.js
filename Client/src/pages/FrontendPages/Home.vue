@@ -5,14 +5,36 @@
       <div class="hero-text-section text-center">
         <h1 class="hero-title pb-3">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
         <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-        <div class="pt-3 text-center">
-          <router-link to="dashboard">
-            <base-button
-              native-type="submit"
-              type="warning"
-              class="btn animation-on-hover"
-            >ورود به پنل کاربری</base-button>
-          </router-link>
+        <div class="pt-5 d-flex justify-content-center">
+          <div class="pt-5 text-center">
+            <router-link to="dashboard">
+              <base-button
+                native-type="submit"
+                type="warning"
+                class="btn animation-on-hover"
+              >ورود به پنل کاربری</base-button>
+            </router-link>
+          </div>
+          <div class="pt-5 pr-2 text-center">
+            <router-link to="dashboard">
+              <base-button
+                native-type="submit"
+                type="default"
+                class="btn animation-on-hover"
+                v-scroll-to="{ el: '#blog', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
+              >مقالات آموزشی</base-button>
+            </router-link>
+          </div>
+          <div class="pt-5 pr-2 text-center">
+            <router-link to="dashboard">
+              <base-button
+                native-type="submit"
+                type="primary"
+                class="btn animation-on-hover"
+                v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
+              >مشاهده همه دوره ها</base-button>
+            </router-link>
+          </div>
         </div>
       </div>
     </section>
@@ -67,7 +89,7 @@
     </div>
 
     <!-- Blog Section-->
-    <div class="blog-section">
+    <div id="blog" class="blog-section">
       <blog-section v-bind="{posts: topPosts}"></blog-section>
     </div>
 
@@ -116,31 +138,34 @@ export default {
 
 <style lang="scss" scoped>
 .hero-content-homepage {
-  background: linear-gradient(rgba(81, 194, 217, 0.918)),
-    url(/img/frontend/london-seemless-bg.svg);
-  background-size: auto;
-  background-position: center;
-  background-repeat: repeat;
-  min-height: 25vh;
+  background: linear-gradient((180deg, #7728a5d2, #53535328)),
+    url(/img/frontend/london-bg-2-opt.jpg);
+  // background: linear-gradient(rgba(81, 194, 217, 0.918)),
+  //   url(/img/frontend/london-bg-1-opt.jpg);
+  background-size: cover;
+  background-position: top right;
+  background-repeat: no-repeat;
+  min-height: 70vh;
   position: relative;
   width: 100%;
 
   .hero-text-section {
-    padding: 14vh 5px 8vh 5px;
+    padding: 13vh 25px 15vh 25px;
   }
 
   .hero-title {
-    font-size: 3.5em;
+    font-size: 4em;
     line-height: inherit;
     font-family: IranSansBold;
-    color: #ffffff !important;
+    color: #fff !important;
     padding: 0;
     margin: 0;
   }
 
   .hero-subtitle {
-    font-size: 1.3em;
-    color: #fafafa !important;
+    font-size: 1.5em;
+    font-family: IranSansDN;
+    color: #fff !important;
   }
 }
 
@@ -170,10 +195,12 @@ export default {
 
 @media (max-width: 680px) {
   .hero-content-homepage {
-    background: linear-gradient(rgba(81, 194, 217, 0.918)),
-      url(/img/frontend/london-seemless-bg.svg);
-    background-size: auto cover;
-    background-position: bottom;
+    background: linear-gradient((180deg, #7728a5d2, #53535328)),
+      url(/img/frontend/london-bg-2-opt.jpg);
+    // background: linear-gradient(rgba(81, 194, 217, 0.918)),
+    //   url(/img/frontend/london-seemless-bg.svg);
+    background-size: cover;
+    background-position: top right;
     min-height: 20vh;
     position: relative;
 
@@ -182,7 +209,8 @@ export default {
     }
 
     .btn {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
+      padding: 10px 7px;
     }
 
     .hero-title {

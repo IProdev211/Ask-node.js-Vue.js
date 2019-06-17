@@ -33,6 +33,7 @@
 }
 
 .title {
+  font-size: 3em;
   font-family: IranSansBold;
   color: rgb(255, 255, 255) !important;
 }
@@ -60,10 +61,17 @@
 }
 
 @media (max-width: 768px) {
+  .background {
+    background: url(/img/frontend/SVG-Background-4.svg) no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    height: 100vh;
+    position: inherit;
+  }
   .iconSection a,
   .iconSection i,
   .iconSection p {
-    font-size: 1.6rem;
+    font-size: 1.2em;
     text-align: left;
   }
   .subtitle {
