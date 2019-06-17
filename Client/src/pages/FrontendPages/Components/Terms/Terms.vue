@@ -1,10 +1,10 @@
 <template>
   <section class="container text-center py-5">
     <div class="top-section">
-      <h1>قوانین و مقررات سایت</h1>
+      <h1 class="title">قوانین و مقررات سایت</h1>
       <!-- <p>در این صفحه شرایط استفاده از وبسایت اسک آریا را مشاهده میکنید</p> -->
     </div>
-    <div class="main-section text-right pt-3">
+    <div class="main-section text-right">
       <div class="notice">
         <h3 class="notice text-danger container py-5">
           <span>
@@ -158,6 +158,9 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+.title {
+  font-family: IranSansBold;
+}
 p {
   font-size: 1.1rem;
 }
@@ -166,10 +169,12 @@ li {
 }
 .notice {
   font-size: 1.2rem;
+  font-family: IranSansBold;
 }
 
 .subtitle {
   font-size: 1.7rem;
+  font-family: IranSansBold;
 }
 </style>
 

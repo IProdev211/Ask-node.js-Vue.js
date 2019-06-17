@@ -108,7 +108,7 @@
                   >شما میتوانید با استفاده از یکی از راه‌های زیر با ما ارتباط برقرار کنید:</p>
                   <p class="pt-2 telegram">
                     <a href="https://t.me/AskAryaSomething" class="li-ic">
-                      AskAryaSomething
+                      شماره تلگرام:‌ 09032227796
                       <i class="fab fa-telegram icon-text pl-2"></i>
                     </a>
                   </p>
@@ -340,6 +340,9 @@ $scaleSize: 0.8;
   }
   .telegram {
     direction: ltr;
+  }
+  .fab {
+    font-size: 1.2em;
   }
 }
 

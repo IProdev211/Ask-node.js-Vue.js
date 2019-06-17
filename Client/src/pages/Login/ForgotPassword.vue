@@ -1,4 +1,5 @@
 <template>
+<section class="bg">
   <div class="container">
     <div class="row">
     <div class="col-lg-6 col-md-9 ml-auto mr-auto pt-5">
@@ -10,7 +11,7 @@
             </template>
             <div class="pt-4">
               <label class="pull-right">پست الکترونیک</label>
-              <base-input placeholder="پست الکترونیک" 
+              <base-input  
                 v-model="email" 
                 :required="true" 
                 :error="fieldErrors.email">
@@ -31,6 +32,7 @@
     </div>
     </div>
   </div>
+  </section>
 </template>
 <script>
 import backend from "../../backend";
@@ -83,7 +85,28 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+
+.card-title {
+  font-family: IranSansBold;
+}
+
+.bg {
+  background: url(/img/frontend/SVG-Background-4.svg) no-repeat;
+  background-size: cover;
+  background-position: top;
+  min-height: 70vh;
+}
+
+.card {
+  background: rgb(241, 241, 241) !important;
+}
+
+.white-content .card:not(.card-white) label:not(.btn) {
+  color: #344675 !important;
+  font-size: 0.9rem;
+}
+
 .login-card {
   padding-top: 20%;
 }

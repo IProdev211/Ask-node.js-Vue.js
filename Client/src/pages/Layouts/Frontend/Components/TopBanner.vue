@@ -3,7 +3,7 @@
     <div class="banner-box d-block text-center">
       <div class="banner-card">
         <router-link to="/posts">
-          <i class="fas fa-bell pl-3"></i>
+          <i class="fas fa-bell pl-2"></i>
           آیندت رو بساز! تخفیف 30٪ ویژه شروع تابستان
         </router-link>
         <!-- <i class="fas fa-long-arrow-alt-left pr-3"></i> -->
@@ -19,7 +19,7 @@ export default {};
 <style lang="scss" scoped>
 .banner-box {
   font-family: IranSansBold;
-  padding: 1.4em 0;
+  padding: 1em 0;
   background-color: #ff416d;
   background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%235c942c' fill-opacity='0.11' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
   // background-color: #ff416d;
@@ -40,8 +40,8 @@ export default {};
   font-size: 1rem;
 
   @media (max-width: 760px) {
-    margin: 0 12%;
-    font-size: 0.84rem;
+    margin: 0 8%;
+    font-size: 0.8rem;
   }
 
   a {
