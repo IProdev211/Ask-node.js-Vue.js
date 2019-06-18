@@ -37,7 +37,7 @@ export default {};
   // border-radius: 3px;
   position: relative;
   font-family: IranSansBold;
-  font-size: 1.1em;
+  font-size: 1.2em;
 
   @media (max-width: 760px) {
     margin: 0 8%;
@@ -55,6 +55,7 @@ export default {};
 }
 
 .bell {
+  font-size: 1.2em;
   -webkit-transform-origin: 70% 0;
   transform-origin: 70% 0;
   -webkit-animation: swinging 2.5s ease-in-out forwards infinite;

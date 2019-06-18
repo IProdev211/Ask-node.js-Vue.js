@@ -15,7 +15,7 @@
               >ورود به پنل کاربری</base-button>
             </router-link>
           </div>
-          <div class="pt-5 pr-2 text-center">
+          <div class="pt-5 pr-1 text-center">
             <router-link to="dashboard">
               <base-button
                 native-type="submit"
@@ -25,7 +25,7 @@
               >مقالات آموزشی</base-button>
             </router-link>
           </div>
-          <div class="pt-5 pr-2 text-center">
+          <div class="pt-5 pr-1 text-center">
             <router-link to="dashboard">
               <base-button
                 native-type="submit"
@@ -56,7 +56,7 @@
           <p class="text-center top-section-header py-2">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
         <div class="row">
-          <div class="col-lg-4 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
+          <div class="col-lg-3 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
             <Course v-bind="course"></Course>
           </div>
         </div>
@@ -170,7 +170,7 @@ export default {
 }
 
 .top-courses-section {
-  padding: 0 15%;
+  // padding: 0 6%;
 }
 
 // @keyframes pulse {

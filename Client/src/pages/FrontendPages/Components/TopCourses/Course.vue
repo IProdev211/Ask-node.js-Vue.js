@@ -15,7 +15,7 @@
               <p class="courseTime">
                 {{ minutes }}
                 <br>
-                <span class="courseTimeSpan">دقیقه تصویر</span>
+                <span class="courseTimeSpan">دقیقه ویدیو</span>
               </p>
             </div>
             <div>

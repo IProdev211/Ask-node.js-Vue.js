@@ -12,7 +12,7 @@ class homeController extends controller {
       .populate('user', 'id name')
       .populate('categories', 'name slug')
       .populate('episodesCount')
-      .limit(3)
+      .limit(4)
       .sort({
         viewCount: 'desc'
       })

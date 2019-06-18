@@ -9,11 +9,11 @@
           <a href="https://t.me/AskAryaSomething" class="li-ic">AskAryaSomething@</a>
           <i class="fab fa-telegram pr-4 icon"></i>
         </p>
-        <p class="pt-3">
+        <p class="pt-2">
           <a href="tel:+989032227796" class="fb-ic">09032227796</a>
           <i class="fa fa-phone pr-4 icon"></i>
         </p>
-        <p class="pt-3">
+        <p class="pt-2">
           <a href="mailto:info@askarya.ir" class="fb-ic">info@askarya.ir</a>
           <i class="fa fa-envelope pr-4 icon"></i>
         </p>
