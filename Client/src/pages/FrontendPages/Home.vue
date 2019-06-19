@@ -5,7 +5,7 @@
       <div class="hero-text-section text-center">
         <h1 class="hero-title pb-3">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
         <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-        <div class="pt-5 d-flex justify-content-center">
+        <div class="pt-4 d-flex justify-content-center">
           <div class="pt-5 text-center">
             <router-link to="dashboard">
               <base-button
@@ -64,8 +64,8 @@
           <router-link to="#">
             <base-button
               native-type="submit"
-              type="success"
-              class="btn btn-sm animation-on-hover"
+              type="primary"
+              class="btn btn-simple animation-on-hover"
               v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
             >مشاهده همه دوره ها</base-button>
           </router-link>
@@ -209,7 +209,7 @@ export default {
     }
 
     .btn {
-      font-size: 0.7rem;
+      font-size: 0.74rem;
       padding: 10px 7px;
     }
 

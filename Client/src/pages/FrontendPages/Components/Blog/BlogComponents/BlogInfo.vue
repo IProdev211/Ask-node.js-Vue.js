@@ -1,25 +1,29 @@
 <template>
-  <div class="container-fluid">
-    <div class="d-flex justify-content-center text-right">
+  <div class="container">
+    <!-- <div class="d-flex justify-content-center text-right"> -->
+    <div class="text-right">
       <div>
         <p class="info-items">
-          <!-- <i class="far fa-address-card pl-2"></i> -->
+          <i class="icon far fa-address-card pl-2"></i>
           نویسنده مقاله:
-          <span class="pr-1">{{ name }}</span>
+          <span>{{ name }}</span>
         </p>
       </div>
-      <div class="item-padding">
+      <div>
         <p class="info-items">
-          <!-- <i class="far fa-calendar-alt pl-2"></i>  -->
+          <i class="icon far fa-calendar-alt pl-2"></i>
           تاریخ انتشار:
-          <span class="pr-1 item-date">{{ dateFormated() }}</span>
+          <span class="item-date">{{ dateFormated() }}</span>
         </p>
       </div>
       <div>
         <p class="info-items post-categories">
-          <!-- <i class="fas fa-bullseye pl-2"></i> -->
+          <i class="icon fas fa-bullseye pl-2"></i>
           دسته بندی ها:
-          <span v-for="category of categories" :key="category">{{category.name}}</span>
+          <span
+            v-for="category of categories"
+            :key="category"
+          >{{category.name}}</span>
         </p>
       </div>
     </div>
@@ -43,18 +47,27 @@ export default {
 <style lang="scss" scoped>
 .info-items {
   font-size: 0.9rem;
+  font-family: IranSans;
+  padding-top: 3px;
+
   color: rgb(230, 230, 230) !important;
-  font-family: IranSansBold;
+  .icon {
+    font-size: 1.1rem;
+  }
 }
+
 span {
   font-size: 0.9rem;
   color: rgb(230, 230, 230) !important;
-  font-family: IranSans;
+  font-family: IranSansBold;
+  padding-right: 3px;
 }
+
 .item-date {
   display: inline-block;
   direction: rtl;
 }
+
 .post-categories {
   span {
     &::after {
@@ -62,8 +75,9 @@ span {
       display: inline-block;
       padding: 0 0 0 5px;
     }
+
     &:last-child {
-      margin-right: 0.5rem !important;
+      margin-right: 0.1rem !important;
       &::after {
         display: none;
       }
@@ -71,19 +85,12 @@ span {
   }
 }
 
-.item-padding {
-  padding: 0 3rem 0 3rem;
-}
-
-@media (max-width: 680px) {
-  .item-padding {
-    padding: 0 1rem 0 1rem;
-  }
-  .info-items {
-    font-size: 0.75rem;
-  }
-  span {
-    font-size: 0.7rem;
-  }
-}
+// @media (max-width: 680px) {
+//   .info-items {
+//     font-size: 0.75rem;
+//   }
+//   span {
+//     font-size: 0.7rem;
+//   }
+// }
 </style>
