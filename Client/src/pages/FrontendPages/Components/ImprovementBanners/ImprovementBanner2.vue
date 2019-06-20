@@ -25,7 +25,7 @@ export default {};
     url(/img/frontend/success-banner.svg) no-repeat;
   background-position: left bottom;
   background-size: cover;
-  padding: 8em 0;
+  padding: 10% 0;
 }
 
 .text-block {
@@ -37,8 +37,8 @@ export default {};
   .bg {
     background: linear-gradient(
         180deg,
-        (rgba(5, 50, 117, 0.925)),
-        (rgba(2, 109, 136, 0.6))
+        (rgba(4, 38, 90, 0.925)),
+        (rgba(3, 85, 105, 0.671))
       ),
       url(/img/frontend/success-banner.svg) no-repeat;
     background-position: left;

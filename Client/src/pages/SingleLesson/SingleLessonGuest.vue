@@ -2,47 +2,69 @@
   <div>
     <div v-if="id" :key="id">
       <div class="top-banner">
-        <div class="container pt-4 text-right">
-          <!-- Course Title -->
-          <h1 class="course-title">{{ title }}</h1>
-          <p class="episode-title" v-if="episode.id">{{ course.title }}</p>
-          <!-- COURSE DESCRIPTION -->
-          <p class="course-subtitle pt-5 pb-3">توضیحات:</p>
-          <div class="body" v-html="body"></div>
+        <div class="container-fluid pt-4 text-right">
+          <div class="row">
+            <div class="col-md-9">
+              <!-- Course Title -->
+              <h1 class="course-title">{{ title }}</h1>
+              <p class="episode-title" v-if="episode.id">{{ course.title }}</p>
+              <!-- COURSE DESCRIPTION -->
+              <p class="course-subtitle pt-5 pb-3">توضیحات:</p>
+              <div class="body" v-html="body"></div>
+            </div>
+
+            <!-- Course Image -->
+            <div class="col-md-3 text-left">
+              <img class="course-image" :src="course.image">
+            </div>
+          </div>
 
           <!-- COURSE INFORMATION -->
-          <div class="text-center pt-5">
-            <div class="row justify-content-center">
+          <div class="row course-info-bar">
+            <div class="d-flex justify-content-around">
               <!-- COURSE CREATED AT -->
-              <div class="col py-2">
-                <i class="pl-2 icon far fa-calendar-alt"></i>
-                <!-- <p class="icon-text pr-1">ایجاد شده در</p> -->
-                <h5 class="icon-data pt-1 pl-2">{{ getEpisodeCreateDate() }}</h5>
+              <div>
+                <h5 class="icon-data">
+                  <i class="pl-2 icon far fa-calendar-alt"></i>
+                  <span class="icon-text">ایجاد شده در:</span>
+                  {{ getEpisodeCreateDate() }}
+                </h5>
               </div>
+
               <!-- COURSE LENGTH -->
-              <div class="col py-2">
-                <i class="pl-2 icon far fa-clock"></i>
-                <!-- <p class="icon-text pr-1">{{ episode.time ? "طول درس" : "طول دوره" }}</p> -->
-                <h5 class="icon-data pt-1 pl-2">{{ episode.time ? episodeTime : courseTime }}</h5>
+              <div class="pr-4">
+                <h5 class="icon-data">
+                  <i class="pl-2 icon far fa-clock"></i>
+                  <span class="icon-text pr-1">{{ episode.time ? "طول درس:" : "طول دوره:" }}</span>
+                  {{ episode.time ? episodeTime : courseTime }}
+                </h5>
               </div>
+
               <!-- COURSE PRICE  -->
-              <div class="col py-2" v-if="notEnrolled && type == 'paid'">
-                <i class="pl-2 icon fas fa-money-check-alt"></i>
-                <!-- <p class="icon-text pr-1">قیمت</p> -->
-                <h5 class="icon-data pt-1 pl-2">{{ getCoursePrice() }}</h5>
+              <div class="pr-4" v-if="notEnrolled && type == 'paid'">
+                <h5 class="icon-data">
+                  <i class="pl-2 icon fas fa-money-check-alt"></i>
+                  <span class="icon-text pr-1">قیمت:</span>
+                  {{ getCoursePrice() }}
+                </h5>
               </div>
-              <div class="w-100 d-md-none"></div>
+
               <!-- COURSE USERS  -->
-              <div class="col py-2">
-                <i class="pl-2 icon fas fa-users"></i>
-                <!-- <p class="icon-text pr-1">تعداد شرکت کنندگان</p> -->
-                <h5 class="icon-data pt-1 pl-2">{{ enrolledCount }}</h5>
+              <div class="pr-4">
+                <h5 class="icon-data">
+                  <i class="pl-2 icon fas fa-users"></i>
+                  <span class="icon-text pr-1">تعداد شرکت کنندگان:</span>
+                  {{ enrolledCount }}
+                </h5>
               </div>
+
               <!-- COURSE INSTRUCTOR -->
-              <div class="col py-2">
-                <i class="pl-2 icon fas fa-chalkboard-teacher"></i>
-                <!-- <p class="icon-text pr-1">معلم</p> -->
-                <h5 class="icon-data pt-1 pl-2">{{ course.user.name }}</h5>
+              <div class="pr-4">
+                <h5 class="icon-data">
+                  <i class="pl-2 icon fas fa-chalkboard-teacher"></i>
+                  <span class="icon-text pr-1">معلم:</span>
+                  {{ course.user.name }}
+                </h5>
               </div>
             </div>
           </div>
@@ -87,7 +109,8 @@
         </div>
       </div>
 
-      <div class="container">
+      <!-- VIDEO SECTION -->
+      <div class="container-fluid">
         <div class="py-3">
           <vue-plyr class="plyr--video text-ltr" :key="id">
             <video>
@@ -336,20 +359,30 @@ export default {
   }
 }
 
+.course-info-bar {
+  padding: 4px 0;
+  color: #fff;
+  background-color: rgb(29, 187, 113);
+}
+
+.course-image {
+  width: 275px;
+}
+
 .modal-title {
   font-size: 1rem;
 }
 
 .icon {
-  font-size: 1.7rem;
+  font-size: 1rem;
   color: #fff !important;
-  padding-bottom: 8px;
 }
 
 .icon-text {
-  font-size: 0.65rem;
-  color: #fff !important;
-  padding-bottom: 3px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.63) !important;
+  font-family: IranSans;
+  padding-left: 0;
 }
 
 .icon-data {
@@ -364,6 +397,7 @@ export default {
 
   .icon-text {
     font-size: 0.7rem;
+    padding-left: 0;
   }
 
   .icon-data {
@@ -389,11 +423,6 @@ export default {
   font-size: 0.8rem;
   color: rgb(109, 109, 109);
 }
-
-// .card-background {
-//   background: #27293d;
-//   border-radius: 25px;
-// }
 
 .purchase-status {
   font-size: 1.1rem;

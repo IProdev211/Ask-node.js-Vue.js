@@ -123,21 +123,16 @@ export default {
 <style lang="scss" scoped>
 .UnitSection {
   background: transparent !important;
-
-  // border-radius: 10px;
-  // overflow: hidden;
-  // border-width: 1px;
-  // border-style: solid;
-  // border-color: rgba(0, 0, 0, 0.1);
-  // border-image: initial;
 }
 .UnitBox {
   -webkit-box-align: center;
   background: transparent !important;
-  padding: 12px 15px;
+  padding: 15px 15px;
   align-items: center;
-  border-bottom: 1px solid rgba(133, 133, 133, 0.377);
-  border-right: 10px solid rgba(156, 156, 156, 0.377);
+  border: 1px solid rgba(133, 133, 133, 0.199);
+  border-radius: 10px;
+  margin-top: 3px;
+  border-right: 11px solid rgba(156, 156, 156, 0.377);
   transition: all 0.2s ease 0s;
 }
 
@@ -179,7 +174,7 @@ h4 {
 }
 
 .UnitName {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: rgb(158, 158, 158);
   margin-top: auto;
 }

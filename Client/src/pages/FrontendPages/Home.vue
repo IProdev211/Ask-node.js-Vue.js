@@ -39,13 +39,30 @@
       </div>
     </section>
 
-    <!-- <div class="text-center py-3 pb-5">
-      <a
-        href
-        v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
-      >
-        <img class="arrow" src="img/frontend/scroll-down-arrow.svg" alt="Scroll Down Arrow">
-      </a>
+    <!-- <div class="container-fluid py-4">
+      <el-carousel :autoplay="true" :interval="4000" type="card" arrow="always" height="240px">
+        <el-carousel-item>
+          <img
+            class="img-fluid"
+            src="img/frontend/london-bg-opt.jpg"
+            alt="Picture of our fearless leader 2"
+          >
+        </el-carousel-item>
+        <el-carousel-item>
+          <img
+            class="img-fluid"
+            src="img/frontend/london-bg-opt.jpg"
+            alt="Picture of our fearless leader 2"
+          >
+        </el-carousel-item>
+        <el-carousel-item>
+          <img
+            class="img-fluid"
+            src="img/frontend/london-bg-opt.jpg"
+            alt="Picture of our fearless leader 2"
+          >
+        </el-carousel-item>
+      </el-carousel>
     </div>-->
 
     <!-- Top Courses Section -->
@@ -137,6 +154,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.sticky {
+  position: sticky;
+  top: 0;
+}
+// .el-carousel__item h3 {
+//   color: #475669;
+//   font-size: 14px;
+//   opacity: 0.75;
+//   line-height: 150px;
+//   margin: 0;
+// }
+
+// .el-carousel__item:nth-child(2n) {
+//   background-color: #99a9bf;
+// }
+
+// .el-carousel__item:nth-child(2n + 1) {
+//   background-color: #d3dce6;
+// }
+
 .hero-content-homepage {
   background: linear-gradient((180deg, #020079d2, #53535328)),
     url(/img/frontend/london-bg-opt.jpg);
@@ -240,7 +277,7 @@ export default {
   box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
 }
 .top-section-header {
-  font-size: 0.9rem;
+  font-size: 1.1em;
   color: rgb(216, 216, 216);
   margin: 0;
   padding: 0;

@@ -25,7 +25,7 @@ export default {};
     url(/img/frontend/confused-banner.svg) no-repeat;
   background-position: bottom left;
   background-size: cover;
-  padding: 5.5em 0;
+  padding: 5% 0;
 }
 
 .text-block {

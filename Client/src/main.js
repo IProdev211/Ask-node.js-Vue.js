@@ -10,6 +10,7 @@ import VuePlyr from 'vue-plyr';
 var VueScrollTo = require('vue-scrollto');
 import VueParticles from 'vue-particles';
 import NProgress from 'nprogress';
+import ElementUI from 'element-ui';
 
 // plugin setup
 Vue.use(DashboardPlugin);
@@ -18,6 +19,7 @@ Vue.use(CKEditor);
 Vue.use(VueParticles);
 Vue.use(VuePlyr);
 Vue.use(NProgress);
+Vue.use(ElementUI);
 
 import 'vue-plyr/dist/vue-plyr.css';
 import 'nprogress/nprogress.css';
