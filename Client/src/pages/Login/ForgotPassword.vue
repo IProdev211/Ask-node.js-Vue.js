@@ -12,6 +12,7 @@
             <div class="pt-4">
               <label class="pull-right">پست الکترونیک</label>
               <base-input  
+                class="text-ltr"
                 v-model="email" 
                 :required="true" 
                 :error="fieldErrors.email">

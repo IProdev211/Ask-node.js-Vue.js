@@ -336,13 +336,14 @@ $scaleSize: 0.8;
     list-style: none;
   }
   a {
-    color: #fff;
+    color: #fff !important;
   }
   .telegram {
     direction: ltr;
   }
   .fab {
     font-size: 1.2em;
+    color: #fff !important;
   }
 }
 

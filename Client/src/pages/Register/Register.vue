@@ -237,11 +237,11 @@ export default {
 }
 .icon {
 font-size: 1.8rem;
-color: #D557D9
+color: #D557D9 !important;
 }
 
 .icon:hover {
-  color: #00ffaa;
+  color: #00ffaa !important;
 }
 
 a {

@@ -39,9 +39,9 @@ export default {
     padding: 0 18%;
   }
 }
-.home-blog {
-  background-color: #ececec;
-}
+// .home-blog {
+//   background-color: #ececec;
+// }
 .section-header {
   font-size: 1.4rem;
   font-family: IranSansBold;

@@ -69,7 +69,8 @@ export default {
         },
         {
           title: totalEpisodes + ' / ' + myEpisodes,
-          subTitle: 'درس های ثبت نام شده',
+          subTitle: 'درس های من',
+          // subTitle: 'درس های ثبت نام شده',
           type: 'danger',
           icon: 'tim-icons icon-molecule-40',
           footer:
