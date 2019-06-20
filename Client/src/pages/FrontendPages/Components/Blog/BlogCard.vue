@@ -5,7 +5,7 @@
         <img class="card-img-top" :src="image" :alt="name">
         <div class="category">{{ categories.length ? categories.pop().name : "" }}</div>
         <div class="card-body">
-          <h3 class="card-title py-2">{{ name }}</h3>
+          <h3 class="card-title text-right py-2">{{ name }}</h3>
           <div class="d-flex justify-content-between px-1 blog-info">
             <div>
               <span class="pl-2">{{ publishedAt }}</span>
@@ -72,19 +72,23 @@ export default {
 }
 .home-blog .card-title {
   color: #292929;
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 120%;
+  font-size: 1rem;
+  font-family: IranSansBold;
+  line-height: inherit !important;
+
+  @media (max-width: 680px) {
+    font-size: 0.9rem;
+  }
 }
+
 .home-blog .category {
   border-radius: 10px;
   position: absolute;
   padding: 10px 25px;
   margin: 10px;
-  color: #fff;
-  background-color: #4b4b4b;
-  text-transform: uppercase;
-  font-size: 0.85em;
+  color: #fff !important;
+  background-color: #4b4b4b !important;
+  font-size: 0.85em !important;
 }
 .home-blog .card:hover .card-title {
   color: #000285;

@@ -28,7 +28,7 @@ export default {};
   align-items: center;
   // background: #fff;
   padding: 7px 10px;
-  margin: 0 33%;
+  margin: 0 20%;
   // -webkit-border-radius: 3px;
   // border-radius: 3px;
   position: relative;

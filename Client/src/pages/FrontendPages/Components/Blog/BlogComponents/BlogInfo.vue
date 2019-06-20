@@ -57,7 +57,7 @@ export default {
 }
 
 span {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: rgb(230, 230, 230) !important;
   font-family: IranSansBold;
   padding-right: 3px;

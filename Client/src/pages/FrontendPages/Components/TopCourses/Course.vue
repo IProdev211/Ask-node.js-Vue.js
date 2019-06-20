@@ -6,11 +6,11 @@
           <img class="CourseCard__courseimage" :src="thumb">
         </div>
         <div>
-          <h4 class="text-center course-title pt-4">{{ title }}</h4>
+          <h4 class="text-center course-title pt-3">{{ title }}</h4>
         </div>
         <hr class="fadeline">
         <div class="bottom-section">
-          <div class="CourseCard__course__info d-flex justify-content-between text-center py-2">
+          <div class="CourseCard__course__info d-flex justify-content-between text-center py-1">
             <div>
               <p class="courseTime">
                 {{ minutes }}
@@ -43,7 +43,7 @@
 
         <hr class="fadeline2 mb-1">
         <div class="buyCourse text-center" v-if="! purchased">
-          <p class="buyCourseTitle pb-2">تهیه دوره‌</p>
+          <p class="buyCourseTitle pb-1">تهیه دوره‌</p>
         </div>
       </div>
     </router-link>
@@ -112,25 +112,28 @@ export default {
 }
 
 .pricehighlight {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #00b35f !important;
-  font-weight: 600;
+  font-family: IranSansBold !important;
+  margin: 0;
+  padding: 0;
 }
 
 .oldPrice {
   font-size: 0.8rem;
   color: rgb(83, 83, 83);
   text-decoration: line-through;
+  margin: 0;
+  padding: 0;
 }
 
 .fadeline {
   height: 1px;
   background-image: linear-gradient(
     90deg,
-    rgba(255, 0, 0, 0),
-    rgba(168, 168, 168, 0.281) 50%,
-    rgba(255, 0, 0, 0) 100%
-  );
+    rgba(255, 0, 0, 0) 40% rgba(168, 168, 168, 0.1) 50%,
+    rgba(255, 0, 0, 0) 40%
+  ) !important ;
   margin: 0;
 }
 
@@ -153,7 +156,6 @@ export default {
   background-color: #f0f0f0;
   border: 1px solid rgba(224, 224, 224, 0.6);
   -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.3);
-  // box-shadow: 30px rgba(121, 121, 121, 0.3);
   box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.12);
   border-radius: 15px;
 }
@@ -173,7 +175,7 @@ export default {
 }
 
 .course-title {
-  font-size: 1.1rem;
+  font-size: 1.12rem;
   font-family: IranSansBold;
   color: #424242;
 }
@@ -211,7 +213,6 @@ export default {
   margin-top: 0.71rem;
   margin-left: 0.71rem;
   font-size: 0.8rem;
-  font-weight: 500;
 }
 
 .CourseCard .CourseCard__user .CourseCard__info .CourseCard__time {

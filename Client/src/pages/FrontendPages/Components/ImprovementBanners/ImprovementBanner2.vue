@@ -54,7 +54,7 @@ export default {};
 // }
 h2 {
   // color: #fff !important;
-  line-height: auto;
+  line-height: inherit !important;
   font-family: IranSansBold;
   padding: 0;
   margin: 0;
@@ -63,7 +63,7 @@ h2 {
 .main-text {
   font-size: 1rem;
   color: #fff !important;
-  line-height: auto !important;
+  line-height: inherit !important;
 }
 </style>
 
