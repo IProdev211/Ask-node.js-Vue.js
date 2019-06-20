@@ -94,8 +94,10 @@ const PrivateClasses = () =>
     /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/PrivateClasses.vue'
   );
 
-const Meetups = () =>
-  import(/* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Meetups.vue');
+const ComingSoon = () =>
+  import(
+    /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/ComingSoon.vue'
+  );
 
 const Contact = () =>
   import(/* webpackChunkName: "pages" */ 'src/pages/FrontendPages/Contact.vue');
@@ -147,9 +149,9 @@ let frontendpages = {
       component: PrivateClasses
     },
     {
-      path: '/meetups',
-      name: 'Meetups',
-      component: Meetups
+      path: '/comingsoon',
+      name: 'ComingSoon',
+      component: ComingSoon
     },
     {
       path: '/contact',

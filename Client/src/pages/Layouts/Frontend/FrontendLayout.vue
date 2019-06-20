@@ -20,8 +20,8 @@
         <router-link class="nav-item" tag="li" to="/privateclasses">
           <a :class="getNavClass('privateclasses')">{{ 'کلاس های حضوری' }}</a>
         </router-link>
-        <router-link class="nav-item" tag="li" to="/meetups">
-          <a :class="getNavClass('meetups')">{{ 'میت آپ' }}</a>
+        <router-link class="nav-item" tag="li" to="/comingsoon">
+          <a :class="getNavClass('somingsoon')">{{ 'میت آپ' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/contact">
           <a :class="getNavClass('contact')">{{ 'تماس با ما' }}</a>
@@ -89,7 +89,7 @@
                       <router-link to="/privateclasses">کلاس های حضوری</router-link>
                     </li>
                     <li class="footer-li">
-                      <router-link to="/meetups">میت آپ</router-link>
+                      <router-link to="/comingsoon">میت آپ</router-link>
                     </li>
                     <li class="footer-li">
                       <router-link to="/terms">قوانین و مقررات</router-link>
@@ -184,11 +184,8 @@ export default {
         case 'privateclasses':
           isActive = this.$route.name == 'PrivateClasses';
           break;
-        case 'privateclasses':
-          isActive = this.$route.name == 'PrivateClasses';
-          break;
-        case 'meetups':
-          isActive = this.$route.name == 'Meetups';
+        case 'comingsoon':
+          isActive = this.$route.name == 'ComingSoon';
           break;
         case 'contact':
           isActive = this.$route.name == 'Contact';

@@ -1,6 +1,6 @@
 <template>
   <section
-    class="card UnitSection"
+    class="card UnitSection mb-5"
     v-if="episodes.length"
     :style="scrollable ? {'overflow-y': 'auto'} : ''"
   >
@@ -131,13 +131,13 @@ export default {
   align-items: center;
   border: 1px solid rgba(133, 133, 133, 0.199);
   border-radius: 10px;
-  margin-top: 3px;
+  margin-top: 2px;
   border-right: 11px solid rgba(156, 156, 156, 0.377);
   transition: all 0.2s ease 0s;
 }
 
 h4 {
-  font-family: IranSansBold;
+  font-family: IranSansBold !important;
 }
 
 .UnitBox:hover {
@@ -149,12 +149,12 @@ h4 {
     color: #d82a50;
   }
   .detail-time {
-    background: #107a69;
+    background: #068570 !important;
   }
   .UnitName {
     cursor: pointer;
     font-family: IranSansBold;
-    color: #107a69;
+    color: #0caf94;
   }
 }
 
@@ -182,7 +182,7 @@ h4 {
   color: rgb(255, 255, 255) !important;
   font-size: 0.9em;
   align-self: center;
-  background: rgb(177, 177, 177) !important;
+  background: rgb(1, 7, 63) !important;
   padding: 8px 10px;
   border-radius: 12px;
 }
@@ -191,7 +191,7 @@ h4 {
   color: rgb(255, 255, 255) !important;
   font-size: 0.9em;
   align-self: center;
-  background: rgb(122, 122, 122) !important;
+  background: rgb(88, 74, 214) !important;
   padding: 8px 10px;
   border-radius: 8px;
 }
