@@ -25,12 +25,12 @@ export default {};
     url(/img/frontend/confused-banner.svg) no-repeat;
   background-position: bottom left;
   background-size: cover;
-  padding: 5em 0;
+  padding: 5.5em 0;
 }
 
 .text-block {
-  padding-left: 45%;
-  padding-right: 15px;
+  padding-left: 55%;
+  padding-right: 30px;
 }
 
 @media (max-width: 970px) {

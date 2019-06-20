@@ -29,8 +29,8 @@ export default {};
 }
 
 .text-block {
-  padding-left: 50%;
-  padding-right: 15px;
+  padding-left: 60%;
+  padding-right: 30px;
 }
 
 @media (max-width: 900px) {

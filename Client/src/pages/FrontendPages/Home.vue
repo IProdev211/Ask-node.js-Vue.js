@@ -89,12 +89,12 @@
     </div>
 
     <!-- Blog Section-->
-    <div id="blog" class="blog-section">
+    <div id="blog" class="blog-section my-5">
       <blog-section v-bind="{posts: topPosts}"></blog-section>
     </div>
 
     <!--Founder Section-->
-    <div class="founder-section-homepage">
+    <div class="founder-section-homepage pb-4">
       <founder-section></founder-section>
     </div>
   </div>
@@ -138,7 +138,7 @@ export default {
 
 <style lang="scss" scoped>
 .hero-content-homepage {
-  background: linear-gradient((180deg, #7728a5d2, #53535328)),
+  background: linear-gradient((180deg, #020079d2, #53535328)),
     url(/img/frontend/london-bg-opt.jpg);
   background-size: cover;
   background-position: top right;

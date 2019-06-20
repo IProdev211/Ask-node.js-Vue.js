@@ -25,6 +25,11 @@ const SingleLesson = () =>
     /* webpackChunkName: "extra" */ 'src/pages/SingleLesson/SingleLesson.vue'
   );
 
+const SingleLessonGuest = () =>
+  import(
+    /* webpackChunkName: "extra" */ 'src/pages/SingleLesson/SingleLessonGuest.vue'
+  );
+
 const VerificationPayments = () =>
   import(
     /* webpackChunkName: "extra" */ 'src/pages/Courses/VerificationPayments.vue'
@@ -189,34 +194,6 @@ let frontendpages = {
   ]
 };
 
-//////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
-
-// let authPages = {
-//   path: '/',
-//   component: AuthLayout,
-//   name: 'Authentication',
-//   children: [{
-//       path: '/login',
-//       name: 'Login',
-//       component: Login
-//     },
-//     {
-//       path: '/register',
-//       name: 'Register',
-//       component: Register
-//     },
-//     {
-//       path: '/lock',
-//       name: 'Lock',
-//       component: Lock
-//     }
-//   ]
-// };
-
-//////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
-
 const routes = [
   {
     path: '/home',
@@ -361,9 +338,9 @@ const routes = [
     children: [
       {
         path: 'courses/:slug',
-        name: 'Single Course',
+        name: 'Single Course Guest',
         components: {
-          default: SingleLesson
+          default: SingleLessonGuest
         }
       }
     ]
