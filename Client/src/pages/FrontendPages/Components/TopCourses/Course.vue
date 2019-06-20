@@ -41,8 +41,8 @@
           </div>
         </div>
 
-        <hr class="fadeline2 mb-1">
         <div class="buyCourse text-center" v-if="! purchased">
+          <hr class="fadeline2">
           <p class="buyCourseTitle pb-1">تهیه دوره‌</p>
         </div>
       </div>

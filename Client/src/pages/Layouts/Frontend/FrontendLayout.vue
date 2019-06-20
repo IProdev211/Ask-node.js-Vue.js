@@ -47,12 +47,12 @@
 
           <div class="row" v-else>
             <div class="pr-3">
-              <router-link to="register">
+              <router-link to="/register">
                 <base-button native-type="submit" type="info" class="btn-simple btn">عضویت</base-button>
               </router-link>
             </div>
             <div class="pr-3">
-              <router-link to="login">
+              <router-link to="/login">
                 <base-button native-type="submit" type="danger" class="btn-simple btn">ورود کاربر</base-button>
               </router-link>
             </div>
@@ -86,16 +86,16 @@
                   <hr class="fadeline3 d-none d-md-block">
                   <ul>
                     <li class="footer-li">
-                      <router-link to="privateclasses">کلاس های حضوری</router-link>
+                      <router-link to="/privateclasses">کلاس های حضوری</router-link>
                     </li>
                     <li class="footer-li">
-                      <router-link to="meetups">میت آپ</router-link>
+                      <router-link to="/meetups">میت آپ</router-link>
                     </li>
                     <li class="footer-li">
-                      <router-link to="terms">قوانین و مقررات</router-link>
+                      <router-link to="/terms">قوانین و مقررات</router-link>
                     </li>
                     <li class="footer-li">
-                      <router-link to="contact">تماس با ما</router-link>
+                      <router-link to="/contact">تماس با ما</router-link>
                     </li>
                   </ul>
                 </div>
@@ -106,10 +106,10 @@
                   <p
                     class="pt-3 text-white"
                   >شما میتوانید با استفاده از یکی از راه‌های زیر با ما ارتباط برقرار کنید:</p>
-                  <p class="pt-2 telegram">
+                  <p class="telegram">
                     <a href="https://t.me/AskAryaSomething" class="li-ic">
                       شماره تلگرام:‌ 09032227796
-                      <i class="fab fa-telegram icon-text pl-2"></i>
+                      <i class="fab fa-telegram icon-text pl-1"></i>
                     </a>
                   </p>
                 </div>
@@ -326,14 +326,12 @@ $scaleSize: 0.8;
   }
 
   .title {
-    // margin-bottom: 15px;
     font-size: 1.3em;
-    font-weight: 500;
-    // padding-bottom: 15px;
-    // border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+    font-family: IranSansBold;
   }
   ul {
     list-style: none;
+    padding: 0 0;
   }
   a {
     color: #fff !important;

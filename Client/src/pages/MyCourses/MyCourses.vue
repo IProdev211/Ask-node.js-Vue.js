@@ -47,6 +47,7 @@ export default {
 <style lang="scss" scoped>
 h1 {
   font-family: IranSansBold;
+  line-height: inherit !important;
 }
 
 .no-courses-message {
@@ -56,5 +57,8 @@ h1 {
 p {
   font-size: 1.1rem;
   color: rgb(134, 134, 134);
+}
+.fadeline2 {
+  display: none !important;
 }
 </style>

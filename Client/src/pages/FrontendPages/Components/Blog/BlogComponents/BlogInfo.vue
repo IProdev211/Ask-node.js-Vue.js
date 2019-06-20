@@ -1,6 +1,5 @@
 <template>
-  <div class="container">
-    <!-- <div class="d-flex justify-content-center text-right"> -->
+  <div class="container-fluid">
     <div class="text-right">
       <div>
         <p class="info-items">

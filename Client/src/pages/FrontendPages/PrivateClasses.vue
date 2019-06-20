@@ -24,10 +24,7 @@
               </div>
               <div class="pricing-action">
                 <router-link to="contact">
-                  <base-button
-                    native-type="submit"
-                    class="btn btn-lg btn-block btn-outline-primary"
-                  >ثبت نام</base-button>
+                  <base-button native-type="submit" class="btn btn-info animation-on-hover">ثبت نام</base-button>
                 </router-link>
               </div>
             </div>
@@ -56,10 +53,7 @@
               </div>
               <div class="pricing-action">
                 <router-link to="contact">
-                  <base-button
-                    native-type="submit"
-                    class="btn btn-lg btn-block btn-outline-primary"
-                  >ثبت نام</base-button>
+                  <base-button native-type="submit" class="btn btn-info animation-on-hover">ثبت نام</base-button>
                 </router-link>
               </div>
             </div>
@@ -91,10 +85,7 @@
               </div>
               <div class="pricing-action">
                 <router-link to="contact">
-                  <base-button
-                    native-type="submit"
-                    class="btn btn-lg btn-block btn-outline-primary"
-                  >ثبت نام</base-button>
+                  <base-button native-type="submit" class="btn btn-info animation-on-hover">ثبت نام</base-button>
                 </router-link>
               </div>
             </div>
@@ -163,6 +154,7 @@ ul {
 
   .titleSize {
     font-size: 1.7rem;
+    font-family: IranSansBold;
   }
 
   .pricing-field {
@@ -174,6 +166,7 @@ ul {
   .price {
     font-size: 1.7rem;
     color: #2e2e2e;
+    font-family: IranSansBold;
   }
 
   .pricing-price:after {

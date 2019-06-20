@@ -14,6 +14,7 @@ export default {
 h1 {
   font-size: 2em;
   font-family: IranSansBold;
+  line-height: inherit !important;
   color: rgb(245, 245, 245) !important;
 }
 </style>

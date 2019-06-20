@@ -84,7 +84,7 @@
     </div>
 
     <!--Improvement Banner Section-->
-    <div class="pt-5">
+    <div>
       <ImprovementBanner2></ImprovementBanner2>
     </div>
 
@@ -139,9 +139,7 @@ export default {
 <style lang="scss" scoped>
 .hero-content-homepage {
   background: linear-gradient((180deg, #7728a5d2, #53535328)),
-    url(/img/frontend/london-bg-2-opt.jpg);
-  // background: linear-gradient(rgba(81, 194, 217, 0.918)),
-  //   url(/img/frontend/london-bg-1-opt.jpg);
+    url(/img/frontend/london-bg-opt.jpg);
   background-size: cover;
   background-position: top right;
   background-repeat: no-repeat;
@@ -196,7 +194,7 @@ export default {
 @media (max-width: 680px) {
   .hero-content-homepage {
     background: linear-gradient((180deg, #7728a5d2, #53535328)),
-      url(/img/frontend/london-bg-2-opt.jpg);
+      url(/img/frontend/london-bg-opt.jpg);
     // background: linear-gradient(rgba(81, 194, 217, 0.918)),
     //   url(/img/frontend/london-seemless-bg.svg);
     background-size: cover;
