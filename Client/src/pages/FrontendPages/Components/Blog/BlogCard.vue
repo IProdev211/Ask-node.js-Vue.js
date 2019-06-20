@@ -1,5 +1,5 @@
 <template>
-  <div class="blogBox pb-4">
+  <div class="blogBox pb-2">
     <router-link :to="`/blog/${slug}`">
       <div class="card">
         <img class="card-img-top" :src="image" :alt="name">
@@ -86,8 +86,8 @@ export default {
   position: absolute;
   padding: 10px 25px;
   margin: 10px;
-  color: #fff !important;
-  background-color: #4b4b4b !important;
+  color: rgb(26, 26, 26) !important;
+  background-color: #f3f3f3 !important;
   font-size: 0.85em !important;
 }
 .home-blog .card:hover .card-title {

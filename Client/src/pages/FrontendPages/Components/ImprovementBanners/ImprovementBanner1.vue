@@ -1,18 +1,15 @@
 <template>
   <section class="bg text-right">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-7 main-section">
-          <h2 class="px-3 pb-5">آیا تغییرات مورد نظر را در خودتان نمیبینید؟</h2>
-          <p class="main-text pt-2 px-3">
-            یک چند ماهی هست که کلاس های زبانت رو شروع کردی. خب تا یک جاهایی خوب پیش میره، شما حس میکنید که در مکالمه، لغات و گرامر دارید پیشرفت میکنید.
-            <br>
-            <br>اما این حس مقطعی هست، و ناگهان پیشرفت زبان شما کم میشه و دیگه حس اون تغییرات مثبت در شما ایجاد نمیشه، انگار که هر چه بیشتر درس بخونید باز هم پیشرفتی نمیبینی و نمیتونی خودتو به سطح بالاتر برسونی، اونجاست که انگیزه ی شما به عنوان زبان آموز کم میشه و نا امید میشید.
-            <br>
-            <br>به احتمال خیلی زیاد این داستان برای شما هم اتفاق افتاده، داستانی که گفته شد عموما برای اکثر زبان آموزان ها اتفاق میافتد. که هم داستان کلافه کننده ای هست و بیشتر از آن نا امید کننده.
-          </p>
-        </div>
-        <div class="col-md-5"></div>
+    <div class="container-fluid">
+      <div class="text-block">
+        <h2 class="pb-5">آیا تغییرات مورد نظر را در خودتان نمیبینید؟</h2>
+        <p class="main-text pt-2">
+          یک چند ماهی هست که کلاس های زبانت رو شروع کردی. خب تا یک جاهایی خوب پیش میره، شما حس میکنید که در مکالمه، لغات و گرامر دارید پیشرفت میکنید.
+          <br>
+          <br>اما این حس مقطعی هست، و ناگهان پیشرفت زبان شما کم میشه و دیگه حس اون تغییرات مثبت در شما ایجاد نمیشه، انگار که هر چه بیشتر درس بخونید باز هم پیشرفتی نمیبینی و نمیتونی خودتو به سطح بالاتر برسونی، اونجاست که انگیزه ی شما به عنوان زبان آموز کم میشه و نا امید میشید.
+          <br>
+          <br>به احتمال خیلی زیاد این داستان برای شما هم اتفاق افتاده، داستانی که گفته شد عموما برای اکثر زبان آموزان ها اتفاق میافتد. که هم داستان کلافه کننده ای هست و بیشتر از آن نا امید کننده.
+        </p>
       </div>
     </div>
   </section>
@@ -24,22 +21,29 @@ export default {};
 
 <style lang="scss" scoped>
 .bg {
-  background: url(/img/frontend/confused-banner.svg) no-repeat;
+  background: linear-gradient(270deg, (rgba(17, 3, 80, 0.925)), (#24074600)),
+    url(/img/frontend/confused-banner.svg) no-repeat;
   background-position: bottom left;
   background-size: cover;
   padding: 5em 0;
 }
 
-@media (max-width: 680px) {
+.text-block {
+  padding-left: 45%;
+  padding-right: 15px;
+}
+
+@media (max-width: 970px) {
   .bg {
-    background: linear-gradient((#2f0d55c2)),
+    background: linear-gradient(90deg, (#2f0d55c2)),
       url(/img/frontend/confused-banner.svg) no-repeat;
     background-position: left bottom;
     background-size: cover;
     padding: 4em 0;
   }
-  .main-section {
-    padding: 0;
+  .text-block {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 

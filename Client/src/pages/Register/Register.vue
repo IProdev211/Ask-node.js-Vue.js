@@ -2,7 +2,7 @@
 <section class="bg">
   <div class="container">
     <div class="row">
-      <div class="py-3 col-md-5 mr-auto ml-auto">
+      <div class="py-3 col-md-6 mr-auto ml-auto">
         <card class="card-register">
           <template slot="header">
             <img class="card-img" src="img/card-primary.png" alt="Card image" />

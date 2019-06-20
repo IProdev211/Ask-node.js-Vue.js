@@ -175,7 +175,7 @@ export default {
 }
 
 .course-title {
-  font-size: 1.12rem;
+  font-size: 1rem;
   font-family: IranSansBold;
   color: #424242;
 }

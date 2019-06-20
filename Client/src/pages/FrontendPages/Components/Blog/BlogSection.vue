@@ -3,8 +3,12 @@
     <div class="container">
       <h2 class="section-header text-right">آخرین مقالات</h2>
       <p class="subtitle text-right">مقالات به‌روز و کاربردی برای افزایش سطح دانش شما</p>
-      <div class="row px-4 mt-5">
-        <div class="col-lg-3 col-md-6 blog-section" v-for="post in posts" v-bind:key="post.id">
+      <div class="row mt-5">
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 blog-section"
+          v-for="post in posts"
+          v-bind:key="post.id"
+        >
           <BlogCard
             :slug="post.slug"
             :image="post.image"
@@ -31,17 +35,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.blog-section {
-  padding: 0 3%;
-}
+// .blog-section {
+//   padding: 0 3%;
+// }
 @media (max-width: 680px) {
   .blog-section {
-    padding: 0 18%;
+    padding: 0 20%;
   }
 }
-// .home-blog {
-//   background-color: #ececec;
-// }
+
 .section-header {
   font-size: 1.4rem;
   font-family: IranSansBold;
