@@ -21,7 +21,7 @@
           <a :class="getNavClass('privateclasses')">{{ 'کلاس های حضوری' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/comingsoon">
-          <a :class="getNavClass('somingsoon')">{{ 'میت آپ' }}</a>
+          <a :class="getNavClass('comingsoon')">{{ 'میت آپ' }}</a>
         </router-link>
         <router-link class="nav-item" tag="li" to="/contact">
           <a :class="getNavClass('contact')">{{ 'تماس با ما' }}</a>
@@ -192,7 +192,7 @@ export default {
           break;
       }
       if (isActive) {
-        classes += ' text-danger';
+        classes += ' text-danger ';
       }
       return classes;
     }
@@ -225,7 +225,9 @@ export default {
 .btn {
   font-weight: inherit;
 }
-
+.text-danger {
+  font-family: IranSansBold !important;
+}
 p,
 .copyright {
   font-size: 0.85rem;

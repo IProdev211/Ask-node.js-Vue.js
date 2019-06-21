@@ -3,10 +3,8 @@
     <div class="banner-box d-block text-center">
       <div class="banner-card">
         <router-link to="/privateclasses">
-          <i class="fas bell fa-bell pl-2"></i>
-          آیندت رو بساز! تخفیف 30٪ ویژه شروع تابستان
+          <i class="fas bell fa-bell pl-2"></i>آیندت رو بساز! تخفیف 30٪ ویژه شروع تابستان
         </router-link>
-        <!-- <i class="fas fa-long-arrow-alt-left pr-3"></i> -->
       </div>
     </div>
   </section>
@@ -20,8 +18,8 @@ export default {};
 .banner-box {
   font-family: IranSansBold;
   padding: 0.65em 0;
-  background-color: #ff416d !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 90 90'%3E%3Ccircle fill-opacity='0.42' fill='%23d4365b' cx='45' cy='45' r='7'/%3E%3Cg fill='%23d4365b' fill-opacity='0.42'%3E%3Ccircle cx='0' cy='90' r='7'/%3E%3Ccircle cx='90' cy='90' r='7'/%3E%3Ccircle cx='90' cy='0' r='7'/%3E%3Ccircle cx='0' cy='0' r='7'/%3E%3C/g%3E%3C/svg%3E") !important;
+  background-color: #ffef42;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 90 90'%3E%3Ccircle fill-opacity='0.56' fill='%23ffffff' cx='45' cy='45' r='5'/%3E%3Cg fill='%23ffffff' fill-opacity='0.56'%3E%3Ccircle cx='0' cy='90' r='5'/%3E%3Ccircle cx='90' cy='90' r='5'/%3E%3Ccircle cx='90' cy='0' r='5'/%3E%3Ccircle cx='0' cy='0' r='5'/%3E%3C/g%3E%3C/svg%3E");
 }
 .banner-card {
   justify-content: center;
@@ -36,12 +34,12 @@ export default {};
   font-size: 1.2em;
 
   @media (max-width: 760px) {
-    margin: 0 8%;
-    font-size: 0.75rem;
+    margin: 0 6%;
+    font-size: 0.8rem;
   }
 
   a {
-    color: #fff !important;
+    color: rgb(129, 49, 102) !important;
   }
 }
 

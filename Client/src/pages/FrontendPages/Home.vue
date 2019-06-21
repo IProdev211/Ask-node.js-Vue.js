@@ -66,26 +66,29 @@
     </div>-->
 
     <!-- Top Courses Section -->
-    <div class="container py-4">
+    <div class="container pt-5">
       <!-- Top Courses -->
       <div class="top-courses-section">
-        <div class="card custom-card">
+        <!-- <div class="card custom-card">
           <p class="text-center top-section-header py-2">پیشنهادهای ویژه اسک آریا برای شما</p>
+        </div>-->
+        <div class="d-flex justify-content-between">
+          <p class="text-right top-section-header pt-1">پیشنهادهای ویژه اسک آریا برای شما</p>
+          <div class="pb-3">
+            <router-link to="#">
+              <base-button
+                native-type="submit"
+                type="default"
+                class="btn btn-sm animation-on-hover"
+                v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
+              >مشاهده همه دوره ها</base-button>
+            </router-link>
+          </div>
         </div>
-        <div class="row">
+        <div class="row pt-4">
           <div class="col-lg-3 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
             <Course v-bind="course"></Course>
           </div>
-        </div>
-        <div class="pt-3 text-center">
-          <router-link to="#">
-            <base-button
-              native-type="submit"
-              type="info"
-              class="btn btn-simple animation-on-hover"
-              v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
-            >مشاهده همه دوره ها</base-button>
-          </router-link>
         </div>
       </div>
     </div>
@@ -111,9 +114,9 @@
     </div>
 
     <!--Founder Section-->
-    <div class="founder-section-homepage pb-4">
+    <!-- <div class="founder-section-homepage pb-4">
       <founder-section></founder-section>
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -277,10 +280,11 @@ export default {
   box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
 }
 .top-section-header {
-  font-size: 1.1em;
+  font-size: 1.3em;
   color: rgb(216, 216, 216);
-  margin: 0;
-  padding: 0;
+  font-family: IranSansBold;
+  // margin: 0;
+  // padding: 0;
 }
 
 .fadeline2 {
