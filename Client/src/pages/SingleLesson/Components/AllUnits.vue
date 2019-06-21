@@ -131,7 +131,7 @@ export default {
   align-items: center;
   border: 1px solid rgba(133, 133, 133, 0.199);
   border-radius: 10px;
-  margin-top: 2px;
+  // margin-top: 2px;
   border-right: 11px solid rgba(156, 156, 156, 0.377);
   transition: all 0.2s ease 0s;
 }
