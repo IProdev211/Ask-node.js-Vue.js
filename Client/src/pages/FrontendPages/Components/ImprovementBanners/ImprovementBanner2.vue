@@ -2,8 +2,8 @@
   <section class="bg text-right">
     <div class="container-fluid">
       <div class="text-block">
-        <h2 class="pb-4 text-black">راه حل؟ دوره های آموزشی مجازی اسک آریا.</h2>
-        <p class="main-text text-black mt-3">
+        <h2 class="pb-5 text-black">راه حل؟ دوره های آموزشی مجازی اسک آریا.</h2>
+        <p class="main-text text-black">
           هدف اسک آریا یاددهی درست و اصولی به زبان آموزان است، آموختن با برنامه اصولی و کارآمد.
           <br>
           <br>به احتمال زیاد تا به حال بسیاری از شما در کلاس های آموزش زبان شرکت کرده اید و یا اکنون هم در حال گذراندن دوره های مربوط به خود هستید، اما بعد از مدتی متوجه عدم پیشرفت خود شده اید، چرا که بسیاری از زبان آموزان به اشتباه فکر میکنند شرکت در این کلاس ها کافی بوده و با تکیه بر آن سعی در ارتقاء سطح زبان خود دارند، در صورتی که این تنها کافی نیست.
@@ -25,25 +25,25 @@ export default {};
     url(/img/frontend/success-banner.svg) no-repeat;
   background-position: left bottom;
   background-size: cover;
-  padding: 10% 0;
+  padding: 6.9% 0;
 }
 
 .text-block {
-  padding-left: 60%;
-  padding-right: 30px;
+  padding-right: 50%;
+  padding-left: 30px;
 }
 
 @media (max-width: 900px) {
   .bg {
     background: linear-gradient(
         180deg,
-        (rgba(4, 38, 90, 0.925)),
-        (rgba(3, 85, 105, 0.671))
+        (rgba(32, 161, 112, 0.925)),
+        (rgba(31, 141, 168, 0.671))
       ),
       url(/img/frontend/success-banner.svg) no-repeat;
-    background-position: left;
+    background-position: right;
     background-size: cover;
-    padding: 4em 0;
+    padding: 3em 0;
   }
   .text-block {
     padding-left: 0;
@@ -55,9 +55,17 @@ export default {};
     padding-left: 15px;
     padding-right: 15px;
   }
+  h2 {
+    font-size: 1.2rem !important;
+  }
+
+  .main-text {
+    font-size: 0.9rem !important;
+  }
 }
 
 h2 {
+  font-size: 1.6rem;
   line-height: inherit !important;
   font-family: IranSansBold;
   padding: 0;
@@ -65,7 +73,7 @@ h2 {
 }
 
 .main-text {
-  font-size: 1rem;
+  font-size: 1.15rem;
   line-height: inherit !important;
 }
 </style>

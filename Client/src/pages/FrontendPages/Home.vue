@@ -66,7 +66,7 @@
     </div>-->
 
     <!-- Top Courses Section -->
-    <div class="container pt-4">
+    <div class="container py-4">
       <!-- Top Courses -->
       <div class="top-courses-section">
         <div class="card custom-card">
@@ -81,7 +81,7 @@
           <router-link to="#">
             <base-button
               native-type="submit"
-              type="primary"
+              type="info"
               class="btn btn-simple animation-on-hover"
               v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
             >مشاهده همه دوره ها</base-button>
@@ -175,7 +175,7 @@ export default {
 // }
 
 .hero-content-homepage {
-  background: linear-gradient((180deg, #020079d2, #53535328)),
+  background: linear-gradient((180deg, #721099d2, #53535328)),
     url(/img/frontend/london-bg-opt.jpg);
   background-size: cover;
   background-position: top right;
