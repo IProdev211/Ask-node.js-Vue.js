@@ -74,21 +74,21 @@
         </div>-->
         <div class="d-flex justify-content-between">
           <p class="text-right top-section-header pt-1">پیشنهادهای ویژه اسک آریا برای شما</p>
-          <div class="pb-3">
-            <router-link to="#">
-              <base-button
-                native-type="submit"
-                type="default"
-                class="btn btn-sm animation-on-hover"
-                v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
-              >مشاهده همه دوره ها</base-button>
-            </router-link>
-          </div>
         </div>
         <div class="row pt-4">
           <div class="col-lg-3 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
             <Course v-bind="course"></Course>
           </div>
+        </div>
+        <div class="pt-3">
+          <router-link to="#">
+            <base-button
+              native-type="submit"
+              type="default"
+              class="btn btn-sm animation-on-hover"
+              v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
+            >مشاهده همه دوره ها</base-button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -178,7 +178,7 @@ export default {
 // }
 
 .hero-content-homepage {
-  background: linear-gradient((180deg, #721099d2, #53535328)),
+  background: linear-gradient((180deg, #2e2c8bb0, #53535328)),
     url(/img/frontend/london-bg-opt.jpg);
   background-size: cover;
   background-position: top right;
@@ -233,7 +233,7 @@ export default {
 
 @media (max-width: 680px) {
   .hero-content-homepage {
-    background: linear-gradient((180deg, #7728a5d2, #53535328)),
+    background: linear-gradient((180deg, #2e2c8bc7, #53535328)),
       url(/img/frontend/london-bg-opt.jpg);
     // background: linear-gradient(rgba(81, 194, 217, 0.918)),
     //   url(/img/frontend/london-seemless-bg.svg);
@@ -267,6 +267,17 @@ export default {
   }
   .top-courses-section {
     padding: 0 9%;
+  }
+
+  .top-courses-section {
+    .top-section-header {
+      font-size: 1em !important;
+    }
+
+    .btn {
+      padding: 8px 18px;
+      margin: 0;
+    }
   }
 }
 

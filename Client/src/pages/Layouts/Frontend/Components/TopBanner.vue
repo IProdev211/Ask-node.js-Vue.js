@@ -18,7 +18,7 @@ export default {};
 .banner-box {
   font-family: IranSansBold;
   padding: 0.65em 0;
-  background-color: #ffef42;
+  background-color: #ffed24;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 90 90'%3E%3Ccircle fill-opacity='0.56' fill='%23ffffff' cx='45' cy='45' r='5'/%3E%3Cg fill='%23ffffff' fill-opacity='0.56'%3E%3Ccircle cx='0' cy='90' r='5'/%3E%3Ccircle cx='90' cy='90' r='5'/%3E%3Ccircle cx='90' cy='0' r='5'/%3E%3Ccircle cx='0' cy='0' r='5'/%3E%3C/g%3E%3C/svg%3E");
 }
 .banner-card {
@@ -39,7 +39,7 @@ export default {};
   }
 
   a {
-    color: rgb(129, 49, 102) !important;
+    color: rgb(0, 0, 0) !important;
   }
 }
 
