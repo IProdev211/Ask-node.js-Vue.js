@@ -33,8 +33,25 @@
             <img :src="userAvatar">
           </div>
           <b class="caret d-none d-lg-block d-xl-block"></b>
-          <p class="d-lg-none">پنل کاربری</p>
+          <!-- <p class="d-lg-none">پنل کاربری</p> -->
         </a>
+
+        <li class="nav-link">
+          <router-link to="/dashboard" class="nav-item dropdown-item">پنل کاربری</router-link>
+        </li>
+
+        <li class="nav-link">
+          <router-link to="/courses" class="nav-item dropdown-item">همه دوره‌ها</router-link>
+        </li>
+
+        <li class="nav-link">
+          <router-link to="/mycourses" class="nav-item dropdown-item">در حال یادگیری</router-link>
+        </li>
+
+        <!-- <li class="nav-link">
+          <router-link to="/comingsoon" class="nav-item dropdown-item">امتحان ها</router-link>
+        </li>-->
+
         <li class="nav-link">
           <router-link to="/dashboard" class="nav-item dropdown-item">پنل کاربری</router-link>
         </li>
