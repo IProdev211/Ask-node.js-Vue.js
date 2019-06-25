@@ -128,11 +128,11 @@ export default {
 .UnitBox {
   -webkit-box-align: center;
   background: rgb(253, 253, 253) !important;
-  padding: 20px 15px;
+  padding: 19px 15px;
   align-items: center;
-  border-bottom: 1px solid rgba(133, 133, 133, 0.199);
-  border-radius: 10px;
-  margin-top: 6px;
+  border-bottom: 1px dashed rgba(133, 133, 133, 0.199);
+  border-radius: 0 10px 10px 0;
+  // margin-top: 6px;
   border-right: 11px solid rgba(156, 156, 156, 0.377);
   transition: all 0.2s ease 0s;
 }
@@ -185,7 +185,7 @@ h4 {
   align-self: center;
   background: rgb(29, 35, 83) !important;
   padding: 8px 13px;
-  border-radius: 12px;
+  border-radius: 8px;
 }
 
 .detail-price {

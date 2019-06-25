@@ -20,7 +20,7 @@
               <div class="col">
                 <h5 class="icon-data">
                   <i class="pl-1 icon far fa-calendar-alt"></i>
-                  <span class="icon-text pr-1">ایجاد شده در:</span>
+                  <span class="icon-text pr-1 d-none d-md-block">ایجاد شده در</span>
                   {{ getEpisodeCreateDate() }}
                 </h5>
               </div>
@@ -29,16 +29,18 @@
               <div class="col">
                 <h5 class="icon-data">
                   <i class="pl-1 icon far fa-clock"></i>
-                  <span class="icon-text pr-1">{{ episode.time ? "طول درس:" : "طول دوره:" }}</span>
+                  <span
+                    class="icon-text pr-1 d-none d-md-block"
+                  >{{ episode.time ? "طول درس" : "طول دوره" }}</span>
                   {{ episode.time ? episodeTime : courseTime }}
                 </h5>
               </div>
 
               <!-- COURSE USERS  -->
-              <div class="col">
+              <div class="col" v-if="notEnrolled">
                 <h5 class="icon-data">
                   <i class="pl-1 icon fas fa-users"></i>
-                  <span class="icon-text pr-1">تعداد شرکت کنندگان:</span>
+                  <span class="icon-text pr-1 d-none d-md-block">تعداد شرکت کنندگان</span>
                   {{ enrolledCount }}
                 </h5>
               </div>
@@ -47,7 +49,7 @@
               <div class="col" v-if="notEnrolled && type == 'paid'">
                 <h5 class="icon-data">
                   <i class="pl-1 icon fas fa-money-check-alt"></i>
-                  <span class="icon-text pr-1">قیمت:</span>
+                  <span class="icon-text pr-1 d-none d-md-block">قیمت</span>
                   {{ getCoursePrice() }}
                 </h5>
               </div>
@@ -56,7 +58,7 @@
               <div class="col">
                 <h5 class="icon-data">
                   <i class="pl-1 icon fas fa-chalkboard-teacher"></i>
-                  <span class="icon-text pr-1">معلم:</span>
+                  <span class="icon-text pr-1 d-none d-md-block">معلم</span>
                   {{ course.user.name }}
                 </h5>
               </div>
@@ -396,26 +398,33 @@ export default {
 }
 
 .icon {
-  font-size: 1em;
-  color: rgba(255, 255, 255, 0.692) !important;
+  font-size: 1.4em;
+  color: rgba(255, 255, 255, 0.815) !important;
+  display: block;
+  padding-bottom: 8px;
 }
+
+.icon-text {
+  font-size: 0.75em;
+  color: rgba(255, 255, 255, 0.493) !important;
+  font-family: IranSans;
+  padding-left: 0;
+  display: block;
+  padding-bottom: 4px;
+}
+
 .icon-data {
   font-size: 1.1em;
   font-family: IranSansBold;
   color: rgba(255, 255, 255, 0.87) !important;
 }
 
-.icon-text {
-  font-size: 0.7em;
-  color: rgba(255, 255, 255, 0.692) !important;
-  font-family: IranSans;
-  padding-left: 0;
-}
 @media (max-width: 768px) {
   .icon {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
+    display: block;
+    padding-bottom: 10px;
   }
-
   .icon-data {
     font-size: 0.7rem;
   }

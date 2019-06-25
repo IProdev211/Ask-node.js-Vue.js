@@ -77,7 +77,7 @@ export default {
             '<i class="tim-icons icon-video-66 pl-2"></i> مجموع درس های موجود'
         },
         {
-          title: '27',
+          title: '0',
           subTitle: 'امتحان ها',
           type: 'info',
           icon: 'fas fa-university',
@@ -85,7 +85,7 @@ export default {
             '<i class="far fa-bookmark pl-2"></i> تعداد امتحانات که موجود هستن'
         },
         {
-          title: '125',
+          title: '0',
           subTitle: 'امتیاز اسک آریا',
           type: 'primary',
           icon: 'tim-icons icon-shape-star',

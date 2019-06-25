@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="text-right pb-5">
-      <h1 class="text-success">دوره های در حال یادگیری</h1>
+      <h1 class="text-danger">دوره های در حال یادگیری</h1>
       <p class="pb-3">در این بخش دور های نقدی که در آن ثبت نام کرده اید لیست میشود</p>
     </div>
     <div class="row" v-if="courses.length">

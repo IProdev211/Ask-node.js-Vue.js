@@ -32,6 +32,16 @@
         <div class="col-md-5 mb-5 pt-3">
           <div class="text-ltr">
             <el-table :data="tableData">
+              <el-table-column min-width="65" align="center">
+                <div class="photo" slot-scope="{ row }">
+                  <img :src="row.img" alt="Table image">
+                </div>
+              </el-table-column>
+              <el-table-column min-width="100" prop="title"></el-table-column>
+              <el-table-column min-width="85" prop="xp"></el-table-column>
+            </el-table>
+
+            <!-- <el-table :data="tableData">
               <el-table-column min-width="65" label="Badge" align="center">
                 <div class="photo" slot-scope="{ row }">
                   <img :src="row.img" alt="Table image">
@@ -39,7 +49,7 @@
               </el-table-column>
               <el-table-column min-width="100" prop="title" label="Title"></el-table-column>
               <el-table-column min-width="85" prop="xp" label="xP"></el-table-column>
-            </el-table>
+            </el-table>-->
           </div>
         </div>
         <!-- <div class="col-md-12 mb-4">

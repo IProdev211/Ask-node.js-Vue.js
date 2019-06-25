@@ -178,7 +178,7 @@ export default {
 // }
 
 .hero-content-homepage {
-  background: linear-gradient((180deg, #2e2c8bb0, #53535328)),
+  background: linear-gradient((180deg, #368bdbb0, #53535328)),
     url(/img/frontend/london-bg-opt.jpg);
   background-size: cover;
   background-position: top right;
@@ -233,7 +233,7 @@ export default {
 
 @media (max-width: 680px) {
   .hero-content-homepage {
-    background: linear-gradient((180deg, #2e2c8bc7, #53535328)),
+    background: linear-gradient((180deg, #368bdbb0, #53535328)),
       url(/img/frontend/london-bg-opt.jpg);
     // background: linear-gradient(rgba(81, 194, 217, 0.918)),
     //   url(/img/frontend/london-seemless-bg.svg);
