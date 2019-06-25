@@ -150,7 +150,7 @@ h4 {
     color: #d82a50;
   }
   .detail-time {
-    background: #068570 !important;
+    background: #07d9b6 !important;
   }
   .UnitName {
     cursor: pointer;

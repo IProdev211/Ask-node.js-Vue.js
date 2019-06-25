@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <!-- QUIZ TITLE -->
-    <h1 class="text-right pb-5 quiz-title">آزمون آنلاین 3</h1>
+    <h1 class="text-right pb-5 quiz-title">
+      آزمون آنلاین
+      <span class="quiz-subtitle text-success">زمان آینده استمراری</span>
+    </h1>
 
     <div class="question-number d-flex justify-content-between">
       <!-- COUNTDOWN TIMER GOES HERE -->
@@ -25,7 +28,7 @@
     </div>
 
     <!-- WHEN ITEMS ARE CLICKED A SEPERATE VUE SHOULD REPLACE THE QUESTION SECTION -->
-    <div class="quiz-navbar d-flex justify-content-around pt-4">
+    <!-- <div class="quiz-navbar d-flex justify-content-around pt-4">
       <p class="quiz-navbar-item">
         <span>
           <i class="fas fa-question"></i>
@@ -46,7 +49,7 @@
           <i class="fas fa-ban"></i>
         </span> پایان آزمون
       </p>
-    </div>
+    </div>-->
 
     <!-- QUESTION -->
     <div class="mt-5">
@@ -75,6 +78,36 @@
         <p class="answer">A team</p>
       </div>
     </div>
+
+    <div class="d-flex justify-content-between py-3">
+      <div class="next-question">
+        <base-button
+          native-type="submit"
+          type="default"
+          class="btn animation-on-hover custom-button"
+        >
+          <i class="fas fa-caret-right pl-2"></i>
+          Next Question
+        </base-button>
+      </div>
+      <div class="previous-question">
+        <base-button
+          native-type="submit"
+          type="default"
+          class="btn animation-on-hover custom-button"
+        >
+          Previous Question
+          <i class="fas fa-caret-left pr-2"></i>
+        </base-button>
+      </div>
+    </div>
+
+    <div class="py-5 text-left">
+      <base-button native-type="submit" type="default" class="btn btn-simple animation-on-hover">
+        <i class="fas pl-2 fa-ban"></i>
+        پایان آزمون
+      </base-button>
+    </div>
   </div>
 </template>
 
@@ -89,6 +122,13 @@ export default {
 <style lang="scss" scoped>
 .quiz-title {
   font-family: IranSansBold;
+}
+
+.quiz-subtitle {
+  color: rgb(20, 167, 110) !important;
+  font-family: IranSansDN;
+  font-size: 0.8em;
+  padding-right: 5px;
 }
 
 .timer {
@@ -160,6 +200,40 @@ export default {
     p {
       background-color: transparent !important;
     }
+  }
+}
+
+@media (max-width: 678px) {
+  .quiz-title {
+    font-size: 1.23em;
+  }
+
+  .quiz-subtitle {
+    font-size: 1.23em;
+  }
+
+  .question {
+    font-size: 1.3em;
+    line-height: inherit;
+  }
+
+  .question-letter {
+    font-size: 1.2em;
+  }
+  .answer {
+    font-size: 1em;
+  }
+
+  .question-number {
+    font-size: 1.15em;
+  }
+  .timer {
+    font-size: 1.15em;
+  }
+  .custom-button {
+    font-size: 0.9em;
+    font-weight: 0;
+    padding: 10px 10px;
   }
 }
 

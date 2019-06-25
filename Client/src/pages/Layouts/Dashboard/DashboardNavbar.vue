@@ -53,9 +53,6 @@
         </li>-->
 
         <li class="nav-link">
-          <router-link to="/dashboard" class="nav-item dropdown-item">پنل کاربری</router-link>
-        </li>
-        <li class="nav-link">
           <router-link to="/courses" class="nav-item dropdown-item">دوره های آموزشی</router-link>
         </li>
         <div class="dropdown-divider"></div>

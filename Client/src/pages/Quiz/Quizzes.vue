@@ -68,7 +68,6 @@ h1 {
 .quiz-title {
   padding: 0.75rem 1.25rem;
   font-size: 1.3rem;
-  background-color: rgba(29, 29, 29, 0.03);
 }
 
 .quiz-subtitle {
