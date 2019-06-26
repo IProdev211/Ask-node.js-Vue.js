@@ -35,8 +35,14 @@ const VerificationPayments = () =>
     /* webpackChunkName: "extra" */ 'src/pages/Courses/VerificationPayments.vue'
   );
 
-const SingleQuiz = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/SingleQuiz.vue');
+const SingleQuizLayout = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/SingleQuizLayout.vue');
+
+const QuizStartPage = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/QuizStartPage.vue');
+
+const GradeSheet = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/GradeSheet.vue');
 
 const Quizzes = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/Quizzes.vue');
@@ -249,10 +255,26 @@ const routes = [
         }
       },
       {
-        path: 'singlequiz',
+        path: 'singlequizlayout',
         name: 'Single Quiz',
         components: {
-          default: SingleQuiz
+          default: SingleQuizLayout
+        }
+      },
+
+      {
+        path: 'quizstartpage',
+        name: 'Quiz Start Page',
+        components: {
+          default: QuizStartPage
+        }
+      },
+
+      {
+        path: 'gradesheet',
+        name: 'Grade Sheet',
+        components: {
+          default: GradeSheet
         }
       },
       {

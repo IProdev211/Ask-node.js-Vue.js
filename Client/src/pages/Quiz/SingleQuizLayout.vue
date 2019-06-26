@@ -6,50 +6,70 @@
       <span class="quiz-subtitle text-success">زمان آینده استمراری</span>
     </h1>
 
-    <div class="question-number d-flex justify-content-between">
-      <!-- COUNTDOWN TIMER GOES HERE -->
-      <h3 class="question-number">
-        سوال
-        <span>1</span> از
-        <span>18</span>
-      </h3>
-      <h3 class="timer">01:32</h3>
-    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="question-number d-flex justify-content-between">
+          <!-- COUNTDOWN TIMER GOES HERE -->
+          <h3 class="question-number">
+            سوال
+            <span>2</span> از
+            <span>6</span>
+          </h3>
+          <h3 class="timer">01:32</h3>
+        </div>
 
-    <div class="progress">
-      <div
-        class="progress-bar"
-        role="progressbar"
-        style="width: 10%;"
-        aria-valuenow="10"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >10%</div>
-    </div>
+        <div class="progress">
+          <div
+            class="progress-bar"
+            role="progressbar"
+            style="width: 30%;"
+            aria-valuenow="30"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >30%</div>
+        </div>
+        <!-- WHEN ITEMS ARE CLICKED A SEPERATE VUE SHOULD REPLACE THE QUESTION SECTION -->
+        <div class="quiz-navbar d-flex justify-content-around pt-4">
+          <p class="quiz-navbar-item">
+            <span>
+              <i class="fas fa-question"></i>
+            </span> سوال
+          </p>
+          <p class="quiz-navbar-item">
+            <span>
+              <i class="fas fa-book"></i>
+            </span> توضیح
+          </p>
+          <p class="quiz-navbar-item">
+            <span>
+              <i class="fas fa-comments"></i>
+            </span> نظرات
+          </p>
+          <!-- <p class="quiz-navbar-item">
+            <span>
+              <i class="fas fa-ban"></i>
+            </span> پایان آزمون
+          </p>-->
 
-    <!-- WHEN ITEMS ARE CLICKED A SEPERATE VUE SHOULD REPLACE THE QUESTION SECTION -->
-    <!-- <div class="quiz-navbar d-flex justify-content-around pt-4">
-      <p class="quiz-navbar-item">
-        <span>
-          <i class="fas fa-question"></i>
-        </span> سوال
-      </p>
-      <p class="quiz-navbar-item">
-        <span>
-          <i class="fas fa-book"></i>
-        </span> توضیح
-      </p>
-      <p class="quiz-navbar-item">
-        <span>
-          <i class="fas fa-comments"></i>
-        </span> نظرات
-      </p>
-      <p class="quiz-navbar-item">
-        <span>
-          <i class="fas fa-ban"></i>
-        </span> پایان آزمون
-      </p>
-    </div>-->
+          <p class="quiz-navbar-item">
+            <span>
+              <i class="fas fa-thumbtack"></i>
+            </span> PIN
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="question-number-section">
+          <div class="question-number">1</div>
+          <div class="question-number">2</div>
+          <div class="question-number">3</div>
+          <div class="question-number">4</div>
+          <div class="question-number">5</div>
+          <div class="question-number">6</div>
+        </div>
+      </div>
+    </div>
 
     <!-- QUESTION -->
     <div class="mt-5">
@@ -103,10 +123,12 @@
     </div>
 
     <div class="py-5 text-left">
-      <base-button native-type="submit" type="default" class="btn btn-simple animation-on-hover">
-        <i class="fas pl-2 fa-ban"></i>
-        پایان آزمون
-      </base-button>
+      <router-link to="/gradesheet">
+        <base-button native-type="submit" type="default" class="btn btn-simple animation-on-hover">
+          <i class="fas pl-2 fa-ban"></i>
+          پایان آزمون
+        </base-button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -120,6 +142,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.question-number-section {
+  margin-bottom: 16px;
+  padding: 16px;
+  border-radius: 4px;
+  overflow: hidden;
+
+  .question-number {
+    float: left;
+    width: 32px;
+    margin: 4px;
+    padding: 8px;
+    border-radius: 4px;
+    border: solid 2px rgba(190, 190, 190, 0.4);
+    text-decoration: none;
+    text-align: center;
+    color: rgb(31, 31, 31);
+    background-color: rgba(255, 255, 255, 0.295);
+    transition: all 0.1s;
+    font-family: IranSansBold;
+  }
+  .question-number:hover {
+    border: solid 2px rgba(134, 134, 134, 0.8);
+    background-color: rgba(255, 255, 255, 0.4);
+    color: rgba(0, 0, 0, 0.781);
+    box-shadow: 0 0 5px rgba(83, 83, 83, 0.8);
+    cursor: pointer;
+  }
+}
+
 .quiz-title {
   font-family: IranSansBold;
 }
@@ -197,6 +248,8 @@ export default {
   :hover {
     cursor: pointer;
     background-color: rgba(240, 243, 192, 0.781);
+    font-weight: 600;
+
     p {
       background-color: transparent !important;
     }

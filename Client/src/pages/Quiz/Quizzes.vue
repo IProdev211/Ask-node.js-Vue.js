@@ -13,7 +13,15 @@
 
         <div class="card-body text-center">
           <div>
-            <a href="singlequiz" class="btn btn-primary btn-simple">Start Quiz</a>
+            <div>
+              <router-link to="/quizstartpage">
+                <base-button
+                  native-type="submit"
+                  type="default"
+                  class="btn btn-simple animation-on-hover"
+                >Start Quiz</base-button>
+              </router-link>
+            </div>
           </div>
         </div>
       </div>

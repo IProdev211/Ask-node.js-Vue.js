@@ -1,7 +1,7 @@
 <template>
   <section class="bg text-right">
     <div class="container">
-      <div class="text-block pt-5">
+      <div class="text-block">
         <h2 class="pb-5">راه حل؟ دوره های آموزشی مجازی اسک آریا.</h2>
         <p class="main-text">
           هدف اسک آریا یاددهی درست و اصولی به زبان آموزان است، آموختن با برنامه اصولی و کارآمد.
@@ -25,7 +25,6 @@ export default {};
     url(/img/frontend/hero-bg-opt.png) repeat;
   background-position: center;
   background-size: cover;
-  height: 400px;
 }
 
 h2 {
@@ -43,13 +42,17 @@ h2 {
   color: #fff !important;
 }
 
+.text-block {
+  padding: 3% 0;
+}
+
 @media (max-width: 900px) {
   .bg {
     background: linear-gradient(135deg, #1abc9cea 20%, #297fb9ea 80%),
       url(/img/frontend/hero-bg-opt.png) repeat;
     background-position: right;
     background-size: cover;
-    height: 500px;
+    padding: 5% 0;
   }
 
   .text-black {
