@@ -1,9 +1,9 @@
 <template>
   <section class="bg text-right">
-    <div class="container-fluid">
-      <div class="text-block">
-        <h2 class="pb-5 text-black">راه حل؟ دوره های آموزشی مجازی اسک آریا.</h2>
-        <p class="main-text text-black">
+    <div class="container">
+      <div class="text-block pt-5">
+        <h2 class="pb-5">راه حل؟ دوره های آموزشی مجازی اسک آریا.</h2>
+        <p class="main-text">
           هدف اسک آریا یاددهی درست و اصولی به زبان آموزان است، آموختن با برنامه اصولی و کارآمد.
           <br>
           <br>به احتمال زیاد تا به حال بسیاری از شما در کلاس های آموزش زبان شرکت کرده اید و یا اکنون هم در حال گذراندن دوره های مربوط به خود هستید، اما بعد از مدتی متوجه عدم پیشرفت خود شده اید، چرا که بسیاری از زبان آموزان به اشتباه فکر میکنند شرکت در این کلاس ها کافی بوده و با تکیه بر آن سعی در ارتقاء سطح زبان خود دارند، در صورتی که این تنها کافی نیست.
@@ -21,33 +21,35 @@ export default {};
 
 <style lang="scss" scoped>
 .bg {
-  background: linear-gradient((#00ca6c00)),
-    url(/img/frontend/success-banner.svg) no-repeat;
-  background-position: left bottom;
+  background: linear-gradient(135deg, #1abc9cef 20%, #297fb9ef 80%),
+    url(/img/frontend/hero-bg-opt.png) repeat;
+  background-position: center;
   background-size: cover;
-  padding: 6.9% 0;
+  height: 400px;
 }
 
-.text-block {
-  padding-right: 50%;
-  padding-left: 30px;
+h2 {
+  font-size: 1.7em;
+  line-height: inherit !important;
+  color: #fff !important;
+  font-family: IranSansBold;
+  padding: 0;
+  margin: 0;
+}
+
+.main-text {
+  font-size: 1.3em;
+  line-height: inherit !important;
+  color: #fff !important;
 }
 
 @media (max-width: 900px) {
   .bg {
-    background: linear-gradient(
-        180deg,
-        (rgba(32, 161, 112, 0.925)),
-        (rgba(31, 141, 168, 0.671))
-      ),
-      url(/img/frontend/success-banner.svg) no-repeat;
+    background: linear-gradient(135deg, #1abc9cea 20%, #297fb9ea 80%),
+      url(/img/frontend/hero-bg-opt.png) repeat;
     background-position: right;
     background-size: cover;
-    padding: 3em 0;
-  }
-  .text-block {
-    padding-left: 0;
-    padding-right: 0;
+    height: 500px;
   }
 
   .text-black {
@@ -62,19 +64,6 @@ export default {};
   .main-text {
     font-size: 0.9rem !important;
   }
-}
-
-h2 {
-  font-size: 1.6rem;
-  line-height: inherit !important;
-  font-family: IranSansBold;
-  padding: 0;
-  margin: 0;
-}
-
-.main-text {
-  font-size: 1.15rem;
-  line-height: inherit !important;
 }
 </style>
 

@@ -21,7 +21,7 @@ export default {};
 
 <style lang="scss" scoped>
 .bg {
-  background: linear-gradient(270deg, (rgba(17, 3, 80, 0.925)), (#24074600)),
+  background: linear-gradient(270deg, (rgba(77, 25, 145, 0.9)), (#24074600)),
     url(/img/frontend/confused-banner.svg) no-repeat;
   background-position: bottom left;
   background-size: cover;
@@ -35,7 +35,7 @@ export default {};
 
 @media (max-width: 970px) {
   .bg {
-    background: linear-gradient(90deg, (#2f0d55c2)),
+    background: linear-gradient(90deg, (rgba(39, 9, 78, 0.8))),
       url(/img/frontend/confused-banner.svg) no-repeat;
     background-position: left bottom;
     background-size: cover;
