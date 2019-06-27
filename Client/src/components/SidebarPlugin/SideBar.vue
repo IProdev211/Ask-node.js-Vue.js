@@ -1,11 +1,18 @@
 <template>
   <div class="sidebar" :data="backgroundColor">
     <div class="sidebar-wrapper" ref="sidebarScrollArea">
-      <div class="logo">
+      <!-- <div class="logo">
         <a href="/" class="simple-text logo-mini">
           <img :src="logo" alt="ask arya logo">
         </a>
         <a href="/" class="simple-text logo-normal">{{ title }}</a>
+      </div>-->
+
+      <div class="userSection">
+        <p class="text-right">
+          <span class="userFullName">{{this.$root.$data.user.name}}</span>
+          <br>خوش آمدید
+        </p>
       </div>
       <slot></slot>
       <ul class="nav">
@@ -91,7 +98,16 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss" scoped>
+.userSection {
+  padding: 20px 35px 10px 0;
+  .userFullName {
+    color: #fff;
+    font-size: 1.3em !important;
+    font-weight: 600;
+  }
+}
+
 @media (min-width: 992px) {
   .navbar-search-form-mobile,
   .nav-mobile-menu {

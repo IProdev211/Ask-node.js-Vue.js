@@ -247,13 +247,13 @@ const routes = [
           default: VerificationPayments
         }
       },
-      {
-        path: 'courses/:course/unit-:unit',
-        name: 'Single Lesson',
-        components: {
-          default: SingleLesson
-        }
-      },
+      // {
+      //   path: 'courses/:course/unit-:unit',
+      //   name: 'Single Lesson',
+      //   components: {
+      //     default: SingleLesson
+      //   }
+      // },
       {
         path: 'singlequizlayout',
         name: 'Single Quiz',
@@ -365,6 +365,13 @@ const routes = [
         name: 'Single Course Guest',
         components: {
           default: SingleLessonGuest
+        }
+      },
+      {
+        path: 'courses/:course/unit-:unit',
+        name: 'Single Lesson',
+        components: {
+          default: SingleLesson
         }
       }
     ]

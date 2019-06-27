@@ -90,7 +90,7 @@ export default {
           type: 'primary',
           icon: 'tim-icons icon-shape-star',
           footer:
-            '<i class="tim-icons icon-sound-wave pl-2"></i></i> مرحله ی بعد BEGINNER <span class="coloredLink">85%</span>  '
+            '<i class="tim-icons icon-sound-wave pl-2"></i></i> مرحله ی بعد BEGINNER <span class="coloredLink">0%</span>  '
         }
       ];
     },

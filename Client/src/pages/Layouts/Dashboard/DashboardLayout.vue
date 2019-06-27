@@ -4,7 +4,9 @@
       <notifications></notifications>
     </div>
     <sidebar-fixed-toggle-button/>
-    <side-bar :background-color="sidebarBackground" :short-title="'پنل کاربری'" :title="'داشبورد'">
+    <side-bar :background-color="sidebarBackground">
+      <!-- <side-bar :background-color="sidebarBackground" :short-title="'پنل کاربری'" :title="'داشبورد'"> -->
+
       <template slot="links">
         <sidebar-item
           :link="{
@@ -18,7 +20,6 @@
           :link="{ name: 'در حال یادگیری', path: '/mycourses', icon: 'fas fa-graduation-cap' }"
         ></sidebar-item>
         <sidebar-item :link="{ name: 'امتحان ها', path: '/quizzes', icon: 'far fa-check-square' }"></sidebar-item>
-        <!-- <sidebar-item :link="{ name: 'امتحان ها', path: '/quizzes', icon: 'far fa-check-square' }"></sidebar-item> -->
 
         <sidebar-item
           :link="{
@@ -55,6 +56,7 @@
 </template>
 <script>
 /* eslint-disable no-new */
+
 import PerfectScrollbar from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 

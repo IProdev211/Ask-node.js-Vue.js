@@ -32,16 +32,90 @@
         <div class="row">
           <div v-if="this.$root.$data.user !== undefined">
             <div class="row">
-              <div class="pl-3">
+              <!-- <div class="pl-3">
                 <p class="pt-2 usertitle">{{this.$root.$data.user.name}} خوش آمدید</p>
-              </div>
-              <router-link to="/dashboard">
+              </div>-->
+
+              <ul class="navbar-nav text-right" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'">
+                <base-dropdown
+                  tag="li"
+                  :menu-on-right="!$rtl.isRTL"
+                  title-tag="a"
+                  class="nav-item"
+                  menu-classes="dropdown-navbar"
+                >
+                  <a
+                    slot="title"
+                    href="#"
+                    class="dropdown-toggle nav-link"
+                    data-toggle="dropdown"
+                    aria-expanded="true"
+                  >
+                    <div class="row pl-4">
+                      <div class="photo">
+                        <img :src="userAvatar">
+                      </div>
+                      <div class="d-flex align-items-center pr-3 profile-link-text">
+                        <p class="px-2">پروفایل من</p>
+                        <i class="i-chevron fas fa-chevron-down"></i>
+                      </div>
+                    </div>
+                    <!-- <b class="caret d-none d-lg-block d-xl-block"></b> -->
+                    <!-- <p class="d-lg-none">پنل کاربری</p> -->
+                  </a>
+
+                  <li class="nav-link">
+                    <router-link to="/dashboard" class="nav-item dropdown-item">
+                      <i class="far fa-user pl-2"></i>
+                      پنل کاربری
+                    </router-link>
+                  </li>
+
+                  <li class="nav-link">
+                    <router-link to="/courses" class="nav-item dropdown-item">
+                      <i class="fas fa-university pl-2"></i>
+                      دوره های آموزشی
+                    </router-link>
+                  </li>
+
+                  <li class="nav-link">
+                    <router-link to="/mycourses" class="nav-item dropdown-item">
+                      <i class="i-custom fas fa-graduation-cap pl-2"></i>
+                      در حال یادگیری
+                    </router-link>
+                  </li>
+
+                  <li class="nav-link">
+                    <router-link to="/quizzes" class="nav-item dropdown-item">
+                      <i class="far fa-check-square pl-2"></i>
+                      امتحان ها
+                    </router-link>
+                  </li>
+
+                  <li class="nav-link">
+                    <router-link to="/points" class="nav-item dropdown-item">
+                      <i class="i-custom fas fa-gem pl-2"></i>
+                      امتیاز
+                    </router-link>
+                  </li>
+
+                  <!-- <div class="dropdown-divider"></div> -->
+                  <li class="nav-link pr-3">
+                    <router-link
+                      class="nav-item dropdown-item"
+                      to="#"
+                      @click.native="logoutListener"
+                    >خروج</router-link>
+                  </li>
+                </base-dropdown>
+              </ul>
+              <!-- <router-link to="/dashboard">
                 <base-button
                   native-type="submit"
                   type="danger"
                   class="btn-simple btn"
                 >ورود به پنل کاربری</base-button>
-              </router-link>
+              </router-link>-->
             </div>
           </div>
 
@@ -135,6 +209,7 @@ import { BaseNav } from 'src/components';
 import { ZoomCenterTransition } from 'vue2-transitions';
 
 import TopBanner from './Components/TopBanner.vue';
+import backend from '../../../backend';
 
 export default {
   components: {
@@ -160,6 +235,12 @@ export default {
   computed: {
     title() {
       return `${this.$route.name} Page`;
+    },
+    userAvatar() {
+      return (
+        (this.$root.$data.user ? this.$root.$data.user.avatar : undefined) ||
+        '/img/default-avatar.png'
+      );
     }
   },
   methods: {
@@ -222,6 +303,37 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+.profile-link-text {
+  p,
+  .fas {
+    font-size: 0.9em;
+    color: rgb(20, 20, 20);
+  }
+}
+.navbar-nav li i {
+  color: rgb(0, 0, 0);
+  font-size: 1.2em;
+  margin-right: 10px;
+  margin-left: 4px;
+  align-content: right;
+}
+.i-custom {
+  margin-right: 8px !important;
+}
+
+.i-chevron {
+  margin-right: 3px !important;
+}
+
+.navbar-collapse .navbar-nav .nav-link {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav li a {
+  padding: 9px 0 !important;
+}
+
 .btn {
   font-weight: inherit;
 }
@@ -245,7 +357,12 @@ p,
 }
 
 .navbar-collapse .navbar-nav .nav-link {
-  color: rgb(56, 56, 56);
+  color: rgb(29, 29, 29);
+}
+
+.navbar-collapse .navbar-nav .nav-link .dropdown-item {
+  color: rgb(49, 49, 49);
+  border-bottom: 1px solid #fcfcfc;
 }
 
 .navbar-nav li {

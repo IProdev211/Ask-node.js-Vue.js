@@ -43,7 +43,7 @@ h2 {
 }
 
 .text-block {
-  padding: 3% 0;
+  padding: 5% 0;
 }
 
 @media (max-width: 900px) {
