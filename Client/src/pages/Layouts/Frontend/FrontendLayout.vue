@@ -17,6 +17,7 @@
         <router-link class="nav-item" tag="li" to="/">
           <a :class="getNavClass('home')">{{ 'خانه' }}</a>
         </router-link>
+
         <router-link class="nav-item" tag="li" to="/privateclasses">
           <a :class="getNavClass('privateclasses')">{{ 'کلاس های حضوری' }}</a>
         </router-link>
@@ -117,7 +118,6 @@
               </ul>
             </div>
           </div>
-
           <div class="row login-register-buttons" v-else>
             <div class="pr-3">
               <router-link to="/register">

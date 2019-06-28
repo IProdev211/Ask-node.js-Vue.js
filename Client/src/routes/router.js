@@ -19,7 +19,12 @@ router.beforeResolve((to, from, next) => {
     }
   }
   if (router.app.$data.user) {
-    if (to.name === 'Login' || to.name === 'Register' || to.name === 'Forgot Password' || to.name === 'Lock') {
+    if (
+      to.name === 'Login' ||
+      to.name === 'Register' ||
+      to.name === 'Forgot Password' ||
+      to.name === 'Lock'
+    ) {
       return next('');
     }
   } else if (needAuth) {

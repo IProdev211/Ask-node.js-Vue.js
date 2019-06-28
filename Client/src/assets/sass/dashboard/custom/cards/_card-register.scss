@@ -44,7 +44,7 @@
   .card-img {
     position: absolute;
     right: -15px;
-    top: -13%;
+    top: -10%;
     width: 60%;
     transform: scaleX(-1);
   }
@@ -75,6 +75,6 @@
 
 @include media-breakpoint-down(md) {
   .card.card-register .card-img {
-    width: 90%;
+    width: 95%;
   }
 }

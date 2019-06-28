@@ -1,6 +1,8 @@
 <template>
-  <div class="text-ltr">
-    <ticket-data></ticket-data>
+  <div class="text-ltr container-fluid">
+    <div class="container">
+      <ticket-data></ticket-data>
+    </div>
     <h2 class="text-center">Manage Tickets</h2>
     <div class="mt-5">
       <card card-body-classes="table-full-width">

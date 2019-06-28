@@ -31,6 +31,11 @@
         <sidebar-item :link="{ name: 'پشتیبانی', path: '/tickets', icon: 'fas fa-headset' }"></sidebar-item>
 
         <sidebar-item
+          v-if="isAdmin"
+          :link="{ name: 'پنل مدیریت', path: '/managementpage', icon: 'fas fa-tools' }"
+        ></sidebar-item>
+
+        <!-- <sidebar-item
           class="pb-2"
           v-if="isAdmin"
           :link="{ name: 'پنل مدیریت', icon: 'fas fa-tools' }"
@@ -41,7 +46,7 @@
           <sidebar-item :link="{ name: 'مدیریت وبلاگ ها', path: '/blogoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت تیکت ها', path: '/ticketoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت امتحان ها', path: '/quizoverview' }"></sidebar-item>
-        </sidebar-item>
+        </sidebar-item>-->
         <div class="pr-4 pt-2 line text-right d-flex align-items-center">
           <i class="fas fa-power-off"></i>
           <router-link

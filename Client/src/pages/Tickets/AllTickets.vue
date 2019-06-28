@@ -18,9 +18,11 @@
 
       <el-table-column min-width="150" header-align="right">
         <div slot-scope="{row}" class="text-right">
-          <base-button class="px-3" round type="info">
-            <i class="pl-3 fas fa-eye"></i> نمایش
-          </base-button>
+          <router-link to="/singleticket">
+            <base-button class="px-3" round type="info">
+              <i class="pl-3 fas fa-eye"></i> نمایش
+            </base-button>
+          </router-link>
         </div>
       </el-table-column>
     </el-table>

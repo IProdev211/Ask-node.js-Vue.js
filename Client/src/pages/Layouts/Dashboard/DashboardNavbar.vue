@@ -92,19 +92,24 @@
               </router-link>
             </li>
 
-            <li class="nav-link">
+            <li v-if="isAdmin" class="nav-link">
+              <router-link to="/managementpage" class="nav-item dropdown-item">
+                <i class="fas fa-tools pl-2"></i>
+                پنل مدیریت
+              </router-link>
+            </li>
+
+            <!-- <li class="nav-link">
               <router-link to="/points" class="nav-item dropdown-item">
                 <i class="i-custom fas fa-gem pl-2"></i>
                 امتیاز
               </router-link>
-            </li>
+            </li>-->
           </div>
+          <!-- <li class="nav-link pr-3">
+            <router-link class="nav-item dropdown-item" to="#" @click.native="logoutListener">خروج</router-link>
+          </li>-->
         </a>
-
-        <!-- <div class="dropdown-divider"></div> -->
-        <li class="nav-link pr-3">
-          <router-link class="nav-item dropdown-item" to="#" @click.native="logoutListener">خروج</router-link>
-        </li>
       </base-dropdown>
     </ul>
   </base-nav>
@@ -176,6 +181,15 @@ export default {
         window.location.href = '/';
       });
     }
+  },
+  computed: {
+    isAdmin() {
+      console.log(
+        'isAdmin = ',
+        this.$root.$data.user && this.$root.$data.user.admin
+      );
+      return this.$root.$data.user && this.$root.$data.user.admin;
+    }
   }
 };
 </script>
@@ -193,6 +207,7 @@ export default {
 
 .dropdown-item.active {
   color: rgb(255, 0, 98);
+  font-family: IranSansBold;
   text-decoration: none;
   background-color: transparent;
 }
@@ -207,6 +222,12 @@ export default {
 
 .navbar-nav li a {
   padding: 0 9px 0 0 !important;
+  font-size: 1em;
+}
+
+.navbar.bg-white .navbar-brand {
+  color: #222a42;
+  font-family: IranSansBold;
 }
 
 .navbar-nav li i {

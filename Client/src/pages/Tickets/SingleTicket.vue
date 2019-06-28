@@ -6,25 +6,11 @@
         <span class="subtitle">مشاهده تیکت</span>
       </h1>
     </div>
-    <div class="card container mt-5 pb-4">
+    <div class="container mt-5 pb-4">
       <h2 class="ticket-desc pt-4 pr-3">(goes here عنوان تیکت)</h2>
-      <!-- CARD LEFT -->
-      <div class="card-custom py-3 px-3 mr-5 my-3">
-        <div class="d-flex justify-content-between">
-          <p class="ticket-user">
-            <!-- USER PICTURE SHOULD GO INSTEAD OF ICON -->
-            <i class="pl-2 text-danger far fa-user"></i>
-            Arya Doroudian
-          </p>
-          <p class="ticket-date text-muted font-weight-bold">
-            <span class="pl-1 font-weight-normal">23:05</span>
-            05/06/2019
-          </p>
-        </div>
-        <p class="pt-4">this is card left</p>
-      </div>
+
       <!-- CARD RIGHT -->
-      <div class="card-custom py-3 px-3 ml-5 my-3">
+      <div class="card-custom py-4 pb- px-5 ml-5 my-3">
         <div class="d-flex justify-content-between">
           <p class="ticket-user">
             <!-- USER PICTURE SHOULD GO INSTEAD OF ICON -->
@@ -36,13 +22,49 @@
             05/06/2019
           </p>
         </div>
-        <p class="pt-4">this is card right</p>
+        <p
+          class="pt-4"
+        >This example user has asked a question. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum impedit laboriosam quam, perferendis corrupti in quaerat necessitatibus sed, ad dolorum accusamus ea tempora dolor provident magni enim architecto cum adipisci!</p>
+      </div>
+
+      <!-- CARD LEFT -->
+      <div class="card-custom py-4 px-5 mr-5 my-3">
+        <div class="d-flex justify-content-between">
+          <p class="ticket-user">
+            <!-- USER PICTURE SHOULD GO INSTEAD OF ICON -->
+            <i class="pl-2 text-danger far fa-user"></i>
+            Arya Doroudian
+          </p>
+          <p class="ticket-date text-muted font-weight-bold">
+            <span class="pl-1 font-weight-normal">23:05</span>
+            05/06/2019
+          </p>
+        </div>
+        <p
+          class="pt-4"
+        >This user has answered them. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia doloremque eum provident quia, voluptatum dignissimos minus sequi quibusdam recusandae sapiente laboriosam quisquam ad alias porro nulla praesentium fuga corporis fugiat?</p>
+      </div>
+
+      <!-- CARD RIGHT 2 -->
+      <div class="card-custom py-4 pb- px-5 ml-5 my-3">
+        <div class="d-flex justify-content-between">
+          <p class="ticket-user">
+            <!-- USER PICTURE SHOULD GO INSTEAD OF ICON -->
+            <i class="pl-1 text-danger far fa-user"></i>
+            Example User
+          </p>
+          <p class="ticket-date text-muted font-weight-bold">
+            <span class="pl-2 font-weight-normal">00:28</span>
+            05/06/2019
+          </p>
+        </div>
+        <p class="pt-4">This is an example of a reply</p>
       </div>
 
       <!-- Ticket Reply -->
       <h4 class="pt-5">پاسخی ارسال کنید!</h4>
       <base-input>
-        <!-- CKEDITOR -->
+        <!-- CKEDITOR SHOULD GO HERE! -->
         <textarea
           class="form-control"
           id="exampleFormControlTextarea1"
@@ -76,18 +98,18 @@ export default {};
 .ticket-desc {
   font-size: 1.25rem;
 }
-.card {
+.main-card {
   border-radius: 25px;
   min-height: 70vh;
-  background-color: rgb(28, 29, 44);
+  background-color: transparent !important;
 }
 .card-custom {
-  background-color: rgb(36, 38, 56);
+  background-color: rgb(236, 236, 236);
   border-radius: 25px;
 }
 .ticket-user {
   font-size: 0.9rem;
-  color: rgb(168, 168, 168);
+  color: rgba(145, 145, 145, 0.788);
 }
 
 @media (max-width: 768px) {

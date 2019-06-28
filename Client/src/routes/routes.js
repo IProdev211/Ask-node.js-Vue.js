@@ -50,6 +50,11 @@ const Quizzes = () =>
 const Points = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/Points/Points.vue');
 
+const ManagementPage = () =>
+  import(
+    /* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManagementPage/ManagementPage.vue'
+  );
+
 const CourseOverview = () =>
   import(
     /* webpackChunkName: "extra" */ 'src/pages/AdminSection/ManageCourses/CourseOverview.vue'
@@ -298,6 +303,15 @@ const routes = [
           default: EpisodeOverview
         }
       },
+
+      {
+        path: 'managementpage',
+        name: 'Management Page',
+        components: {
+          default: ManagementPage
+        }
+      },
+
       {
         path: 'manageusers',
         name: 'Manage Users',

@@ -1,5 +1,5 @@
 <template>
-  <div class="text-ltr pb-5">
+  <div class="container text-ltr pb-5">
     <div class="stat-cards text-center">
       <div class="d-flex justify-content-center">
         <div class="stitched1">

@@ -9,7 +9,7 @@
             <h4 class="card-title text-right text-white py-1 px-2">فرم عضویت</h4>
           </template>
           <form @submit="checkForm" id="register-form">
-            <div class="row pt-4">
+            <div class="row pt-5">
               <div class="col-md-12 text-ltr">
                 <label class="pull-right pt-2">نام و نام خانوادگی</label>
                 <base-input 
