@@ -39,16 +39,10 @@
         </div>
       </ul>
 
-      <!-- d-none d-md-block -->
-
       <ul class="navbar-nav mr-auto">
         <div class="row">
           <div v-if="this.$root.$data.user !== undefined">
             <div class="row">
-              <!-- <div class="pl-3">
-                <p class="pt-2 usertitle">{{this.$root.$data.user.name}} خوش آمدید</p>
-              </div>-->
-
               <ul class="navbar-nav text-right" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'">
                 <base-dropdown
                   tag="li"
@@ -75,8 +69,6 @@
                         </div>
                       </div>
                     </div>
-                    <!-- <b class="caret d-none d-lg-block d-xl-block"></b> -->
-                    <!-- <p class="d-lg-none">پنل کاربری</p> -->
                   </a>
 
                   <li class="nav-link">
@@ -114,7 +106,6 @@
                     </router-link>
                   </li>
 
-                  <!-- <div class="dropdown-divider"></div> -->
                   <li class="nav-link pr-3">
                     <router-link
                       class="nav-item dropdown-item"
@@ -124,17 +115,10 @@
                   </li>
                 </base-dropdown>
               </ul>
-              <!-- <router-link to="/dashboard">
-                <base-button
-                  native-type="submit"
-                  type="danger"
-                  class="btn-simple btn"
-                >ورود به پنل کاربری</base-button>
-              </router-link>-->
             </div>
           </div>
 
-          <div class="row" v-else>
+          <div class="row login-register-buttons" v-else>
             <div class="pr-3">
               <router-link to="/register">
                 <base-button native-type="submit" type="info" class="btn-simple btn">عضویت</base-button>
@@ -157,6 +141,7 @@
             <router-view></router-view>
           </zoom-center-transition>
         </div>
+
         <!-- FOOTER SECTION -->
         <footer class="footer-bottom">
           <div class="container">
@@ -294,6 +279,18 @@ export default {
         classes += ' text-danger ';
       }
       return classes;
+    },
+    logoutListener(e) {
+      e.preventDefault();
+      backend.get('logout').then(response => {
+        if (response.data.status !== 'success') {
+          return this.$notify({
+            type: 'danger',
+            message: 'درخواست شما توسط سرور رد شد'
+          });
+        }
+        window.location.href = '/';
+      });
     }
   },
   beforeDestroy() {
@@ -407,11 +404,14 @@ p,
   .navbar-nav {
     font-size: 1rem;
     color: #fff;
-    // padding: 22px 0;
+    padding: 22px 0 0 0;
   }
   .navbar-nav li {
     padding: 10px 0 !important;
     border-bottom: 1px solid #c7c7c765 !important;
+  }
+  .login-register-buttons {
+    padding: 10px 0;
   }
 }
 

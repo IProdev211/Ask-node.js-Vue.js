@@ -181,14 +181,14 @@ export default {
   background: linear-gradient((180deg, #368bdbb0, #53535328)),
     url(/img/frontend/london-bg-opt.jpg);
   background-size: cover;
-  background-position: top right;
+  background-position: bottom;
   background-repeat: no-repeat;
-  min-height: 70vh;
+  min-height: 60vh;
   position: relative;
   width: 100%;
 
   .hero-text-section {
-    padding: 13vh 25px 15vh 25px;
+    padding: 15vh 25px 15vh 25px;
   }
 
   .hero-title {
