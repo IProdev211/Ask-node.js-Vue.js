@@ -26,7 +26,20 @@
         <router-link class="nav-item" tag="li" to="/contact">
           <a :class="getNavClass('contact')">{{ 'تماس با ما' }}</a>
         </router-link>
+
+        <div class="d-md-none pr-3" v-if="this.$root.$data.user !== undefined">
+          <router-link class="row d-flex align-items-center nav-item" tag="li" to="/dashboard">
+            <div class="photo">
+              <img :src="userAvatar">
+            </div>
+            <div class="pr-3">
+              <a :class="getNavClass('profile')">{{ 'پروفایل من' }}</a>
+            </div>
+          </router-link>
+        </div>
       </ul>
+
+      <!-- d-none d-md-block -->
 
       <ul class="navbar-nav mr-auto">
         <div class="row">
@@ -51,13 +64,15 @@
                     data-toggle="dropdown"
                     aria-expanded="true"
                   >
-                    <div class="row pl-4">
-                      <div class="photo">
-                        <img :src="userAvatar">
-                      </div>
-                      <div class="d-flex align-items-center pr-3 profile-link-text">
-                        <p class="px-2">پروفایل من</p>
-                        <i class="i-chevron fas fa-chevron-down"></i>
+                    <div class="d-none d-md-block">
+                      <div class="row pl-4">
+                        <div class="photo">
+                          <img :src="userAvatar">
+                        </div>
+                        <div class="d-flex align-items-center pr-3 profile-link-text">
+                          <p class="px-2">پروفایل من</p>
+                          <i class="i-chevron fas fa-chevron-down"></i>
+                        </div>
                       </div>
                     </div>
                     <!-- <b class="caret d-none d-lg-block d-xl-block"></b> -->
@@ -271,6 +286,9 @@ export default {
         case 'contact':
           isActive = this.$route.name == 'Contact';
           break;
+        case 'profile':
+          isActive = this.$route.name == 'Profile';
+          break;
       }
       if (isActive) {
         classes += ' text-danger ';
@@ -389,11 +407,11 @@ p,
   .navbar-nav {
     font-size: 1rem;
     color: #fff;
-    padding: 22px 0;
+    // padding: 22px 0;
   }
   .navbar-nav li {
     padding: 10px 0 !important;
-    border-bottom: 1px solid #72728865 !important;
+    border-bottom: 1px solid #c7c7c765 !important;
   }
 }
 

@@ -30,7 +30,11 @@
         ></sidebar-item>
         <sidebar-item :link="{ name: 'پشتیبانی', path: '/tickets', icon: 'fas fa-headset' }"></sidebar-item>
 
-        <sidebar-item v-if="isAdmin" :link="{ name: 'پنل مدیریت', icon: 'fas fa-tools' }">
+        <sidebar-item
+          class="pb-2"
+          v-if="isAdmin"
+          :link="{ name: 'پنل مدیریت', icon: 'fas fa-tools' }"
+        >
           <sidebar-item :link="{ name: 'مدیریت کاربران', path: '/manageusers' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت دوره ها', path: '/courseoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت جلسه ها', path: '/episodeoverview' }"></sidebar-item>
@@ -38,6 +42,14 @@
           <sidebar-item :link="{ name: 'مدیریت تیکت ها', path: '/ticketoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت امتحان ها', path: '/quizoverview' }"></sidebar-item>
         </sidebar-item>
+        <div class="pr-4 pt-2 line text-right d-flex align-items-center">
+          <i class="fas fa-power-off"></i>
+          <router-link
+            class="nav-item dropdown-item exitButton"
+            to="#"
+            @click.native="logoutListener"
+          >خروج</router-link>
+        </div>
       </template>
     </side-bar>
     <div class="main-panel" :data="sidebarBackground">
@@ -56,6 +68,7 @@
 </template>
 <script>
 /* eslint-disable no-new */
+import backend from '../../../backend';
 
 import PerfectScrollbar from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
@@ -113,6 +126,18 @@ export default {
       } else {
         docClasses.add('perfect-scrollbar-off');
       }
+    },
+    logoutListener(e) {
+      e.preventDefault();
+      backend.get('logout').then(response => {
+        if (response.data.status !== 'success') {
+          return this.$notify({
+            type: 'danger',
+            message: 'درخواست شما توسط سرور رد شد'
+          });
+        }
+        window.location.href = '/';
+      });
     }
   },
   computed: {
@@ -127,6 +152,22 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.exitButton {
+  font-size: 1em;
+  color: #fff !important;
+  padding: 0;
+  margin: 0;
+
+  .fas {
+    color: #fff !important;
+  }
+}
+
+.line {
+  border-top: 1px solid rgba(255, 255, 255, 0.178);
+  padding-top: 10px;
+}
+
 .content {
   background-color: #f5f4f4 !important;
   min-height: 100vh !important;

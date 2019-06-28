@@ -31,52 +31,75 @@
           data-toggle="dropdown"
           aria-expanded="true"
         >
-          <div class="row pl-5">
-            <div class="photo">
-              <img :src="userAvatar">
-            </div>
-            <div class="d-flex align-items-center pr-4 profile-link-text">
+          <div class="row d-flex align-items-center d-lg-none">
+            <li class="nav-link">
+              <router-link to="/home" class="nav-item dropdown-item">خانه</router-link>
+            </li>
+            <div class="w-100"></div>
+
+            <li class="nav-link">
+              <router-link to="/privateclasses" class="nav-item dropdown-item">کلاس های حضوری</router-link>
+            </li>
+            <div class="w-100"></div>
+
+            <li class="nav-link">
+              <router-link to="/comingsoon" class="nav-item dropdown-item">میت آپ</router-link>
+            </li>
+            <div class="w-100"></div>
+
+            <li class="nav-link">
+              <router-link to="/contact" class="nav-item dropdown-item">تماس با ما</router-link>
+            </li>
+
+            <div class="w-100"></div>
+
+            <div class="pr-3 profile-link-text">
               <router-link class="nav-item dropdown-item" to="#" @click.native="logoutListener">خروج</router-link>
             </div>
           </div>
           <!-- <b class="caret d-none d-lg-block d-xl-block"></b> -->
           <!-- <p class="d-lg-none">پنل کاربری</p> -->
+          <div class="d-lg-none pt-4">
+            <li class="nav-link">
+              <router-link to="/dashboard" class="nav-item dropdown-item">
+                <div class="row d-flex align-items-center">
+                  <div class="photo">
+                    <img :src="userAvatar">
+                  </div>
+                  <div class="pr-3">پنل کاربری</div>
+                </div>
+              </router-link>
+            </li>
+
+            <li class="nav-link">
+              <router-link to="/courses" class="nav-item dropdown-item">
+                <i class="fas fa-university pl-2"></i>
+                دوره های آموزشی
+              </router-link>
+            </li>
+
+            <li class="nav-link">
+              <router-link to="/mycourses" class="nav-item dropdown-item">
+                <i class="i-custom fas fa-graduation-cap pl-2"></i>
+                در حال یادگیری
+              </router-link>
+            </li>
+
+            <li class="nav-link">
+              <router-link to="/quizzes" class="nav-item dropdown-item">
+                <i class="far fa-check-square pl-2"></i>
+                امتحان ها
+              </router-link>
+            </li>
+
+            <li class="nav-link">
+              <router-link to="/points" class="nav-item dropdown-item">
+                <i class="i-custom fas fa-gem pl-2"></i>
+                امتیاز
+              </router-link>
+            </li>
+          </div>
         </a>
-
-        <!-- <li class="nav-link">
-          <router-link to="/dashboard" class="nav-item dropdown-item">
-            <i class="far fa-user pl-2"></i>
-            پنل کاربری
-          </router-link>
-        </li>
-
-        <li class="nav-link">
-          <router-link to="/courses" class="nav-item dropdown-item">
-            <i class="fas fa-university pl-2"></i>
-            دوره های آموزشی
-          </router-link>
-        </li>
-
-        <li class="nav-link">
-          <router-link to="/mycourses" class="nav-item dropdown-item">
-            <i class="i-custom fas fa-graduation-cap pl-2"></i>
-            در حال یادگیری
-          </router-link>
-        </li>
-
-        <li class="nav-link">
-          <router-link to="/quizzes" class="nav-item dropdown-item">
-            <i class="far fa-check-square pl-2"></i>
-            امتحان ها
-          </router-link>
-        </li>
-
-        <li class="nav-link">
-          <router-link to="/points" class="nav-item dropdown-item">
-            <i class="i-custom fas fa-gem pl-2"></i>
-            امتیاز
-          </router-link>
-        </li>-->
 
         <!-- <div class="dropdown-divider"></div> -->
         <li class="nav-link pr-3">
@@ -157,6 +180,22 @@ export default {
 };
 </script>
 <style lang="scss">
+@media (max-width: 991.98px) {
+  .navbar .navbar-nav a.nav-link i {
+    opacity: 1;
+    margin-left: 4px;
+    margin-right: 9px !important;
+  }
+}
+.i-custom {
+  margin-right: 6px !important;
+}
+
+.dropdown-item.active {
+  color: rgb(255, 0, 98);
+  text-decoration: none;
+  background-color: transparent;
+}
 .navbar-collapse .navbar-nav .nav-link {
   color: rgb(29, 29, 29);
 }
@@ -176,9 +215,6 @@ export default {
   margin-right: 10px;
   margin-left: 4px;
   align-content: right;
-}
-.i-custom {
-  margin-right: 8px !important;
 }
 
 .i-chevron {
@@ -204,6 +240,13 @@ export default {
   margin-right: 0.255em;
   margin-left: 0;
   display: none;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: red;
+  text-decoration: none;
+  background-color: transparent;
 }
 
 ///////////////////////////
