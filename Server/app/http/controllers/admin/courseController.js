@@ -6,176 +6,176 @@ const path = require('path');
 const sharp = require('sharp');
 
 class courseController extends controller {
-    async index(req, res) {
-        try {
-            let page = req.query.page || 1;
-            let courses = await Course.paginate({}, {
-                page,
-                sort: {
-                    createdAt: 1
-                },
-                limit: 15
-            });
-            res.render('admin/courses/index', {
-                title: 'دوره ها',
-                courses
-            });
-        } catch (err) {
-            next(err);
+  async index(req, res) {
+    try {
+      let page = req.query.page || 1;
+      let courses = await Course.paginate(
+        {},
+        {
+          page,
+          sort: {
+            createdAt: 1
+          },
+          limit: 15
         }
+      );
+      res.render('admin/courses/index', {
+        title: 'دوره ها',
+        courses
+      });
+    } catch (err) {
+      next(err);
     }
+  }
 
-    async create(req, res) {
-        let categories = await Category.find({});
+  async create(req, res) {
+    let categories = await Category.find({});
 
-        res.render('admin/courses/create', {
-            categories
-        });
+    res.render('admin/courses/create', {
+      categories
+    });
+  }
+
+  async store(req, res, next) {
+    try {
+      let status = await this.validationData(req);
+      if (!status) {
+        if (req.file) fs.unlinkSync(req.file.path);
+        return this.back(req, res);
+      }
+
+      // create course
+      let images = this.imageResize(req.file);
+      let { title, body, type, price, tags, lang } = req.body;
+
+      let newCourse = new Course({
+        user: req.user._id,
+        title,
+        slug: this.slug(title),
+        body,
+        type,
+        price,
+        images,
+        thumb: images[480],
+        tags,
+        lang
+      });
+
+      await newCourse.save();
+
+      return res.redirect('/admin/courses');
+    } catch (err) {
+      next(err);
     }
+  }
 
-    async store(req, res, next) {
-        try {
-            let status = await this.validationData(req);
-            if (!status) {
-                if (req.file)
-                    fs.unlinkSync(req.file.path);
-                return this.back(req, res);
-            }
+  async edit(req, res, next) {
+    try {
+      this.isMongoId(req.params.id);
 
-            // create course
-            let images = this.imageResize(req.file);
-            let {
-                title,
-                body,
-                type,
-                price,
-                tags,
-                lang
-            } = req.body;
+      let course = await Course.findById(req.params.id);
+      if (!course) this.error('چنین دوره ای وجود ندارد', 404);
 
-            let newCourse = new Course({
-                user: req.user._id,
-                title,
-                slug: this.slug(title),
-                body,
-                type,
-                price,
-                images,
-                thumb: images[480],
-                tags,
-                lang
-            });
+      req.courseUserId = course.user;
+      if (req.userCan('edit-courses')) {
+        this.error('شما اجازه دسترسی به این صفحه را ندارید', 403);
+      }
 
-            await newCourse.save();
-
-            return res.redirect('/admin/courses');
-        } catch (err) {
-            next(err);
-        }
+      let categories = await Category.find({});
+      return res.render('admin/courses/edit', {
+        course,
+        categories
+      });
+    } catch (err) {
+      next(err);
     }
+  }
 
-    async edit(req, res, next) {
-        try {
-            this.isMongoId(req.params.id);
+  async update(req, res, next) {
+    try {
+      let status = await this.validationData(req);
+      if (!status) {
+        if (req.file) fs.unlinkSync(req.file.path);
+        return this.back(req, res);
+      }
 
-            let course = await Course.findById(req.params.id);
-            if (!course) this.error('چنین دوره ای وجود ندارد', 404);
+      let objForUpdate = {};
 
-            req.courseUserId = course.user;
-            if (req.userCan('edit-courses')) {
-                this.error('شما اجازه دسترسی به این صفحه را ندارید', 403);
-            }
+      // set image thumb
+      objForUpdate.thumb = req.body.imagesThumb;
 
-            let categories = await Category.find({});
-            return res.render('admin/courses/edit', {
-                course,
-                categories
-            });
-        } catch (err) {
-            next(err);
-        }
+      // check image
+      if (req.file) {
+        objForUpdate.images = this.imageResize(req.file);
+        objForUpdate.thumb = objForUpdate.images[480];
+      }
+
+      delete req.body.images;
+      objForUpdate.slug = this.slug(req.body.title);
+
+      await Course.findByIdAndUpdate(req.params.id, {
+        $set: { ...req.body, ...objForUpdate }
+      });
+      return res.redirect('/admin/courses');
+    } catch (err) {
+      next(err);
     }
+  }
 
-    async update(req, res, next) {
-        try {
-            let status = await this.validationData(req);
-            if (!status) {
-                if (req.file)
-                    fs.unlinkSync(req.file.path);
-                return this.back(req, res);
-            }
+  async destroy(req, res, next) {
+    try {
+      this.isMongoId(req.params.id);
 
-            let objForUpdate = {};
+      let course = await Course.findById(req.params.id)
+        .populate('episodes')
+        .exec();
+      if (!course) this.error('چنین دوره ای وجود ندارد', 404);
 
-            // set image thumb
-            objForUpdate.thumb = req.body.imagesThumb;
+      // delete episodes
+      course.episodes.forEach(episode => episode.remove());
 
-            // check image 
-            if (req.file) {
-                objForUpdate.images = this.imageResize(req.file);
-                objForUpdate.thumb = objForUpdate.images[480];
-            }
+      // delete Images
+      Object.values(course.images).forEach(image =>
+        fs.unlinkSync(`./public${image}`)
+      );
 
-            delete req.body.images;
-            objForUpdate.slug = this.slug(req.body.title);
+      // delete courses
+      course.remove();
 
-            await Course.findByIdAndUpdate(req.params.id, {
-                $set: { ...req.body,
-                    ...objForUpdate
-                }
-            })
-            return res.redirect('/admin/courses');
-        } catch (err) {
-            next(err);
-        }
+      return res.redirect('/admin/courses');
+    } catch (err) {
+      next(err);
     }
+  }
 
-    async destroy(req, res, next) {
-        try {
-            this.isMongoId(req.params.id);
+  imageResize(image) {
+    const imageInfo = path.parse(image.path);
 
-            let course = await Course.findById(req.params.id).populate('episodes').exec();
-            if (!course) this.error('چنین دوره ای وجود ندارد', 404);
+    let addresImages = {};
+    addresImages['original'] = this.getUrlImage(
+      `${image.destination}/${image.filename}`
+    );
 
-            // delete episodes
-            course.episodes.forEach(episode => episode.remove());
+    const resize = size => {
+      let imageName = `${imageInfo.name}-${size}${imageInfo.ext}`;
 
-            // delete Images
-            Object.values(course.images).forEach(image => fs.unlinkSync(`./public${image}`));
+      addresImages[size] = this.getUrlImage(
+        `${image.destination}/${imageName}`
+      );
 
-            // delete courses
-            course.remove();
+      sharp(image.path)
+        .resize(size, null)
+        .toFile(`${image.destination}/${imageName}`);
+    };
 
-            return res.redirect('/admin/courses');
-        } catch (err) {
-            next(err);
-        }
-    }
+    [1080, 720, 480].map(resize);
 
-    imageResize(image) {
-        const imageInfo = path.parse(image.path);
+    return addresImages;
+  }
 
-        let addresImages = {};
-        addresImages['original'] = this.getUrlImage(`${image.destination}/${image.filename}`);
-
-        const resize = size => {
-            let imageName = `${imageInfo.name}-${size}${imageInfo.ext}`;
-
-            addresImages[size] = this.getUrlImage(`${image.destination}/${imageName}`);
-
-            sharp(image.path)
-                .resize(size, null)
-                .toFile(`${image.destination}/${imageName}`);
-        }
-
-        [1080, 720, 480].map(resize);
-
-        return addresImages;
-    }
-
-    getUrlImage(dir) {
-        return dir.substring(8);
-    }
+  getUrlImage(dir) {
+    return dir.substring(8);
+  }
 }
 
 module.exports = new courseController();

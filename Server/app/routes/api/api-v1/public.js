@@ -7,13 +7,12 @@ const HomeController = require('app/http/controllers/api/v1/homeController');
 const AuthController = require('app/http/controllers/api/v1/authController');
 const BlogController = require('app/http/controllers/api/v1/blogController');
 
-//validator
+// Validator
 const loginValidator = require('app/http/validators/loginValidator');
 const registerValidator = require('app/http/validators/registerValidator');
 const forgotPasswordValidator = require('app/http/validators/forgotPasswordValidator');
 const resetPasswordValidator = require('app/http/validators/resetPasswordValidator');
 const courseController = require('app/http/controllers/api/v1/courseController');
-
 
 router.get('/home', HomeController.index);
 router.get('/courses', CourseController.courses);
@@ -21,8 +20,16 @@ router.get('/courses', CourseController.courses);
 router.post('/login', loginValidator.handle(), AuthController.login);
 router.post('/register', registerValidator.handle(), AuthController.register);
 
-router.post('/password/email', forgotPasswordValidator.handle(), AuthController.sendPasswordResetLink);
-router.post('/password/reset/:token', resetPasswordValidator.handle(), AuthController.resetPasswordProccess);
+router.post(
+  '/password/email',
+  forgotPasswordValidator.handle(),
+  AuthController.sendPasswordResetLink
+);
+router.post(
+  '/password/reset/:token',
+  resetPasswordValidator.handle(),
+  AuthController.resetPasswordProccess
+);
 
 router.get('/blog/:slug', BlogController.bySlug);
 

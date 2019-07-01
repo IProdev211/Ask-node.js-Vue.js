@@ -47,37 +47,34 @@ class userValidator extends validator {
         .isLength({ min: 8 })
         .withMessage('کلمه عبور نمیتواند کمتر از 8 کاراکتر باشد'),
 
-      check('vipTime')
-        .custom(async (value, { req }) => {
-          if (!value) {
-            return;
-          }
-          const date = moment(value);
-          if (!date.isValid()) {
-            throw new Error('مقدار وارد شده برای پایان زمان VIP نامعتبر است.');
-          }
-          req.body.vipTime = date.toISOString();
-        }),
-      check('vipFrom')
-        .custom(async (value, { req }) => {
-          if (!value) {
-            return;
-          }
-          const date = moment(value);
-          if (!date.isValid()) {
-            throw new Error('مقدار وارد شده برای شروع زمان VIP نامعتبر است.');
-          }
-          req.body.vipFrom = date.toISOString();
-        }),
-      check('course')
-        .custom(async (value, { req }) => {
-          if (value === undefined) return;
-          const course = await Course.findById(value);
-          if (! course) {
-            throw new Error('دوره مشخص شده نامعتبر است');
-          }
-          req.body.course = course;
-        }),
+      check('vipTime').custom(async (value, { req }) => {
+        if (!value) {
+          return;
+        }
+        const date = moment(value);
+        if (!date.isValid()) {
+          throw new Error('مقدار وارد شده برای پایان زمان VIP نامعتبر است.');
+        }
+        req.body.vipTime = date.toISOString();
+      }),
+      check('vipFrom').custom(async (value, { req }) => {
+        if (!value) {
+          return;
+        }
+        const date = moment(value);
+        if (!date.isValid()) {
+          throw new Error('مقدار وارد شده برای شروع زمان VIP نامعتبر است.');
+        }
+        req.body.vipFrom = date.toISOString();
+      }),
+      check('course').custom(async (value, { req }) => {
+        if (value === undefined) return;
+        const course = await Course.findById(value);
+        if (!course) {
+          throw new Error('دوره مشخص شده نامعتبر است');
+        }
+        req.body.course = course;
+      })
     ];
   }
   handleUpdate() {
@@ -138,24 +135,23 @@ class userValidator extends validator {
         .withMessage('فیلد زمان شروع VIP نمیتواند خالی بماند')
         .custom(async (value, { req }) => {
           value = moment(value, 'YYYY/MM/DD');
-          if (! value.isValid()) {
+          if (!value.isValid()) {
             throw new Error('مقدار وارد شده برای شروع زمان VIP نامعتبر است.');
           }
           req.body.vipFrom = value.toDate().toISOString();
         }),
-      check('course')
-        .custom(async (value, { req }) => {
-          if (value === undefined) return;
-          const course = await Course.findById(value);
-          if (! course) {
-            throw new Error('دوره مشخص شده نامعتبر است');
-          }
-          const user = await User.findById(req.params.id);
-          if (user.checkLearning(course.id)) {
-            throw new Error('کاربر در این دوره ثبت نام شده است.');
-          }
-          req.body.course = course;
-        }),
+      check('course').custom(async (value, { req }) => {
+        if (value === undefined) return;
+        const course = await Course.findById(value);
+        if (!course) {
+          throw new Error('دوره مشخص شده نامعتبر است');
+        }
+        const user = await User.findById(req.params.id);
+        if (user.checkLearning(course.id)) {
+          throw new Error('کاربر در این دوره ثبت نام شده است.');
+        }
+        req.body.course = course;
+      })
     ];
   }
 

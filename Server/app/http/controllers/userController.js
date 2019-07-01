@@ -12,16 +12,22 @@ class userController extends controller {
         .populate('user')
         .exec();
 
-      if (! activationCode) {
-        return res.redirect('/login?error=متاسفانه چنین لینک فعال سازی وجود ندارد');
+      if (!activationCode) {
+        return res.redirect(
+          '/login?error=متاسفانه چنین لینک فعال سازی وجود ندارد'
+        );
       }
 
       if (activationCode.expire < new Date()) {
-        return res.redirect("/login?error=مهلت استفاده از این لینک به پایان رسیده است");
+        return res.redirect(
+          '/login?error=مهلت استفاده از این لینک به پایان رسیده است'
+        );
       }
 
       if (activationCode.used) {
-        return res.redirect("/login?error=این لینک قبلا مورد استفاده قرار گرفته است");
+        return res.redirect(
+          '/login?error=این لینک قبلا مورد استفاده قرار گرفته است'
+        );
       }
 
       let user = activationCode.user;

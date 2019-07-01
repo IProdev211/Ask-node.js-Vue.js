@@ -281,7 +281,11 @@ class courseController extends controller {
     );
     const price = parseInt(course.price.replace(/,/g, ''), 10);
     const timeout = setTimeout(() => {
-      this.failed("ارتباط با سامانه برقرار نشد. لطفا از اتصال اینترنت خود اطمینان کسب و سپس امتحان کنید.", res, 408);
+      this.failed(
+        'ارتباط با سامانه برقرار نشد. لطفا از اتصال اینترنت خود اطمینان کسب و سپس امتحان کنید.',
+        res,
+        408
+      );
     }, 10000);
     zarinpal
       .PaymentRequest({
@@ -319,7 +323,7 @@ class courseController extends controller {
       });
   }
   async verification(req, res) {
-    if (! req.body.hasOwnProperty("status") || req.body.status !== 'OK') {
+    if (!req.body.hasOwnProperty('status') || req.body.status !== 'OK') {
       return this.failed('پرداخت شما با موفقیت انجام نشد', res, 500);
     }
     const payment = await Payment.findOne({
@@ -328,11 +332,15 @@ class courseController extends controller {
       .populate([{ path: 'course' }, { path: 'user' }])
       .exec();
 
-    if (! payment.course) {
+    if (!payment.course) {
       return this.failed('دوره ای که شما پرداخت کرده اید وجود ندارد', res, 500);
     }
     const timeout = setTimeout(() => {
-      this.failed("ارتباط با سامانه برقرار نشد. لطفا از اتصال اینترنت خود اطمینان کسب و سپس امتحان کنید.", res, 408);
+      this.failed(
+        'ارتباط با سامانه برقرار نشد. لطفا از اتصال اینترنت خود اطمینان کسب و سپس امتحان کنید.',
+        res,
+        408
+      );
     }, 30000);
     const zarinpal = ZarinpalCheckout.create(
       config.service.zarinpal.merchant_id,
@@ -342,7 +350,7 @@ class courseController extends controller {
       .PaymentVerification({
         Amount: payment.price,
         Authority: payment.resnumber,
-        timeout: 30000,
+        timeout: 30000
       })
       .then(response => {
         if (timeout) {

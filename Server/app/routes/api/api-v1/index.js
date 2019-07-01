@@ -7,7 +7,11 @@ const forUser = require('./private');
 
 const authenticateApi = require('app/http/middleware/authenticateApi');
 
-router.get('/courses/purchased', authenticateApi.handle, courseController.PurchasedCourses);
+router.get(
+  '/courses/purchased',
+  authenticateApi.handle,
+  courseController.PurchasedCourses
+);
 router.use(forEveryOne);
 router.use(authenticateApi.handle, forUser);
 

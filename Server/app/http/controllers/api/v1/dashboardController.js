@@ -6,7 +6,7 @@ const ZarinpalCheckout = require('zarinpal-checkout');
 const path = require('path');
 const sharp = require('sharp');
 const Log = require('app/models/log');
-const moment = require("moment-jalaali");
+const moment = require('moment-jalaali');
 
 class dashboardController extends controller {
   async index(req, res) {
@@ -138,7 +138,10 @@ class dashboardController extends controller {
           price = 39000;
           break;
       }
-      const zarinpal = ZarinpalCheckout.create(config.service.zarinpal.merchant_id, true);
+      const zarinpal = ZarinpalCheckout.create(
+        config.service.zarinpal.merchant_id,
+        true
+      );
       const response = await zarinpal.PaymentRequest({
         Amount: price,
         CallbackURL: `${config.siteurl}/courses`,
@@ -167,12 +170,21 @@ class dashboardController extends controller {
     }
     const payment = await Payment.findOne({
       resnumber: req.body.authority
-    }).populate([{ path: 'user' }]).exec();
+    })
+      .populate([{ path: 'user' }])
+      .exec();
 
     if (!payment.vip) {
-      return this.failed('تراکنش مالی شما مربوط به خرید اشتراک ویژه نیست.', res, 500);
+      return this.failed(
+        'تراکنش مالی شما مربوط به خرید اشتراک ویژه نیست.',
+        res,
+        500
+      );
     }
-    const zarinpal = ZarinpalCheckout.create(config.service.zarinpal.merchant_id, true);
+    const zarinpal = ZarinpalCheckout.create(
+      config.service.zarinpal.merchant_id,
+      true
+    );
     const response = await zarinpal.PaymentVerification({
       Amount: payment.price,
       Authority: payment.resnumber
@@ -195,7 +207,10 @@ class dashboardController extends controller {
         type = '12month';
         break;
     }
-    let vipTime = (payment.user.isVip() ? new Date(payment.user.vipTime) : new Date()).getTime();
+    let vipTime = (payment.user.isVip()
+      ? new Date(payment.user.vipTime)
+      : new Date()
+    ).getTime();
     vipTime += time * 30.41 * 86400 * 1000;
     vipTime = new Date(vipTime);
     payment.user.set({ vipTime, vipType: type });

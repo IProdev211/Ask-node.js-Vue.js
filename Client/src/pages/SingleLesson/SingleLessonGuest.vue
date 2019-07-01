@@ -207,7 +207,7 @@ export default {
   },
   methods: {
     dataLoad() {
-      if (this.$route.name === 'Single Lesson') {
+      if (this.$route.name === 'Single Lesson Guest') {
         backend
           .get(
             `courses/${this.$route.params.course}/unit-${

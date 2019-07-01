@@ -52,12 +52,18 @@ courseSchema.methods.inc = async function(field, num = 1) {
 courseSchema.methods.download = function(check, user) {
   const timestamps = new Date().getTime() + 3600 * 1000 * 12;
   const text = `aQTR@!#Fa#%!@%SDQGGASDF${this.id}${timestamps}`;
-  const hash = crypto.createHash('md5').update(text).digest("hex");
+  const hash = crypto
+    .createHash('md5')
+    .update(text)
+    .digest('hex');
   return `/courses/download/${this.id}?mac=${hash}&t=${timestamps}`;
 };
 courseSchema.methods.validateDownload = function(mac, t) {
   const text = `aQTR@!#Fa#%!@%SDQGGASDF${this.id}${t}`;
-  const hash = crypto.createHash('md5').update(text).digest("hex");
+  const hash = crypto
+    .createHash('md5')
+    .update(text)
+    .digest('hex');
   return hash === mac;
 };
 courseSchema.virtual('episodes', {
