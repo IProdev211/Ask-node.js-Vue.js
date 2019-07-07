@@ -178,7 +178,9 @@ export default {
 // }
 
 .hero-content-homepage {
-  background: linear-gradient((180deg, #1070cab2, #53535328)),
+  // background: linear-gradient((#6b5b5b81)), url(/img/frontend/london-bg-opt.jpg);
+
+  background: linear-gradient((180deg, #631fa381, #53535328)),
     url(/img/frontend/london-bg-opt.jpg);
   background-size: cover;
   background-position: bottom;

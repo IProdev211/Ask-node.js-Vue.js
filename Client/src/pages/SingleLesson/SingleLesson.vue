@@ -8,7 +8,7 @@
             <h1 class="course-title">{{ title }}</h1>
             <p class="episode-title" v-if="episode.id">{{ course.title }}</p>
             <!-- Course Image -->
-            <img class="course-image rounded-circle img-fluid py-4" :src="course.image">
+            <img class="course-image rounded-circle img-fluid py-4" :src="course.image" />
           </div>
 
           <!-- <p class="course-explanation container pb-5">توضیحات</p> -->
@@ -30,7 +30,7 @@
                 <i class="pl-1 icon far fa-clock"></i>
                 <span
                   class="icon-text pr-1 d-none d-md-block"
-                >{{ episode.time ? "طول درس" : "طول دوره" }}</span>
+                >{{ episode.time ? "زمان این درس" : "زمان کل دوره" }}</span>
                 {{ episode.time ? episodeTime : courseTime }}
               </h5>
             </div>
@@ -57,7 +57,7 @@
             <div class="col">
               <h5 class="icon-data">
                 <i class="pl-1 icon fas fa-chalkboard-teacher"></i>
-                <span class="icon-text pr-1 d-none d-md-block">معلم</span>
+                <span class="icon-text pr-1 d-none d-md-block">مدرس</span>
                 {{ course.user.name }}
               </h5>
             </div>
@@ -107,7 +107,7 @@
         <div class="py-3">
           <vue-plyr class="plyr--video text-ltr" :key="id">
             <video>
-              <source :src="`/api/v1${download}`" type="video/mp4" size="720">
+              <source :src="`/api/v1${download}`" type="video/mp4" size="720" />
             </video>
           </vue-plyr>
           <p
@@ -210,9 +210,7 @@ export default {
       if (this.$route.name === 'Single Lesson') {
         backend
           .get(
-            `courses/${this.$route.params.course}/unit-${
-              this.$route.params.unit
-            }`
+            `courses/${this.$route.params.course}/unit-${this.$route.params.unit}`
           )
           .then(response => {
             this.episode = response.data.data.episode;
