@@ -10,7 +10,7 @@
     >
       <div slot="brand" class="navbar-wrapper">
         <router-link to="/">
-          <img src="/img/askarya-logo.png" width="110" alt="Ask Arya Logo">
+          <img src="/img/askarya-logo.png" width="110" alt="Ask Arya Logo" />
         </router-link>
       </div>
       <ul class="navbar-nav">
@@ -31,7 +31,7 @@
         <div class="d-md-none pr-3" v-if="this.$root.$data.user !== undefined">
           <router-link class="row d-flex align-items-center nav-item" tag="li" to="/dashboard">
             <div class="photo">
-              <img :src="userAvatar">
+              <img :src="userAvatar" />
             </div>
             <div class="pr-3">
               <a :class="getNavClass('profile')">{{ 'پروفایل من' }}</a>
@@ -40,7 +40,7 @@
         </div>
       </ul>
 
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto ipad-fix">
         <div class="row">
           <div v-if="this.$root.$data.user !== undefined">
             <div class="row">
@@ -62,7 +62,7 @@
                     <div class="d-none d-md-block">
                       <div class="row pl-4">
                         <div class="photo">
-                          <img :src="userAvatar">
+                          <img :src="userAvatar" />
                         </div>
                         <div class="d-flex align-items-center pr-3 profile-link-text">
                           <p class="px-2">پروفایل من</p>
@@ -149,15 +149,15 @@
               <div class="row text-right">
                 <div class="col-md-5 about-us">
                   <h4 class="title text-white">درباره اسک آریا</h4>
-                  <hr class="fadeline3 d-none d-md-block">
+                  <hr class="fadeline3 d-none d-md-block" />
                   <p
                     class="text-white"
                   >اسک آریا یکی از پرتلاش‌ترین و بروزترین وبسایت های آموزشی در سطح ایران است که همیشه تلاش کرده تا بتواند جدیدترین و بروزترین مقالات و دوره‌های آموزشی را در اختیار علاقه‌مندان ایرانی قرار دهد.</p>
                 </div>
                 <div class="col-md-3 askarya-sections">
-                  <hr class="fadeline3 d-md-none">
+                  <hr class="fadeline3 d-md-none" />
                   <h4 class="title text-white">بخش های سایت</h4>
-                  <hr class="fadeline3 d-none d-md-block">
+                  <hr class="fadeline3 d-none d-md-block" />
                   <ul>
                     <li class="footer-li">
                       <router-link to="/privateclasses">کلاس های حضوری</router-link>
@@ -174,9 +174,9 @@
                   </ul>
                 </div>
                 <div class="col-md-4 contact-section">
-                  <hr class="fadeline3 d-md-none">
+                  <hr class="fadeline3 d-md-none" />
                   <h4 class="title text-white">ارتباط با ما</h4>
-                  <hr class="fadeline3 d-none d-md-block">
+                  <hr class="fadeline3 d-none d-md-block" />
                   <p
                     class="pt-3 text-white"
                   >شما میتوانید با استفاده از یکی از راه‌های زیر با ما ارتباط برقرار کنید:</p>
@@ -318,6 +318,13 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .ipad-fix {
+    width: 100% !important;
+    padding: 30px 0;
+  }
+}
+
 .profile-link-text {
   p,
   .fas {

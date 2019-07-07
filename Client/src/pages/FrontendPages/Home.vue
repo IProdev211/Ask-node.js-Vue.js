@@ -5,8 +5,8 @@
       <div class="hero-text-section text-center">
         <h1 class="hero-title pb-3">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
         <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-        <div class="pt-4 d-flex justify-content-center">
-          <div class="pt-5 text-center">
+        <div class="d-flex justify-content-center">
+          <div class="pt-3 text-center">
             <router-link to="dashboard">
               <base-button
                 native-type="submit"
@@ -15,7 +15,7 @@
               >ورود به پنل کاربری</base-button>
             </router-link>
           </div>
-          <div class="pt-5 pr-1 text-center">
+          <div class="pt-3 pr-1 text-center">
             <router-link to="dashboard">
               <base-button
                 native-type="submit"
@@ -25,7 +25,7 @@
               >مقالات آموزشی</base-button>
             </router-link>
           </div>
-          <div class="pt-5 pr-1 text-center">
+          <div class="pt-3 pr-1 text-center">
             <router-link to="dashboard">
               <base-button
                 native-type="submit"
@@ -178,12 +178,12 @@ export default {
 // }
 
 .hero-content-homepage {
-  background: linear-gradient((180deg, #368bdbb0, #53535328)),
+  background: linear-gradient((180deg, #1070cab2, #53535328)),
     url(/img/frontend/london-bg-opt.jpg);
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
-  min-height: 60vh;
+  min-height: 50vh;
   position: relative;
   width: 100%;
 

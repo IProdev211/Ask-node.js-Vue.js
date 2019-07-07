@@ -3,7 +3,7 @@
     <div class="container">
       <notifications></notifications>
     </div>
-    <sidebar-fixed-toggle-button/>
+    <sidebar-fixed-toggle-button />
     <side-bar :background-color="sidebarBackground">
       <!-- <side-bar :background-color="sidebarBackground" :short-title="'پنل کاربری'" :title="'داشبورد'"> -->
 
