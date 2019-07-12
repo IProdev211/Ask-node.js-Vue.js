@@ -18,8 +18,8 @@ export default {};
 .banner-box {
   font-family: IranSansBold;
   padding: 0.65em 0;
-  background-color: #ffed24;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 90 90'%3E%3Ccircle fill-opacity='0.59' fill='%23ffffff' cx='45' cy='45' r='5'/%3E%3Cg fill='%23ffffff' fill-opacity='0.59'%3E%3Ccircle cx='0' cy='90' r='5'/%3E%3Ccircle cx='90' cy='90' r='5'/%3E%3Ccircle cx='90' cy='0' r='5'/%3E%3Ccircle cx='0' cy='0' r='5'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: #462e91;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 90 90'%3E%3Ccircle fill-opacity='0.19' fill='%23ffffff' cx='45' cy='45' r='5'/%3E%3Cg fill='%23ffffff' fill-opacity='0.19'%3E%3Ccircle cx='0' cy='90' r='5'/%3E%3Ccircle cx='90' cy='90' r='5'/%3E%3Ccircle cx='90' cy='0' r='5'/%3E%3Ccircle cx='0' cy='0' r='5'/%3E%3C/g%3E%3C/svg%3E");
 }
 .banner-card {
   justify-content: center;
@@ -39,7 +39,8 @@ export default {};
   }
 
   a {
-    color: rgb(255, 67, 108) !important;
+    color: rgb(255, 255, 255) !important;
+    text-shadow: 1px 1px rgba(117, 165, 209, 0.349);
   }
 }
 

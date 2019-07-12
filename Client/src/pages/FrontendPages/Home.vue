@@ -5,7 +5,7 @@
       <div class="hero-text-section text-center">
         <h1 class="hero-title pb-3">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
         <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
-        <div class="d-flex justify-content-center">
+        <div class="pt-4 d-flex justify-content-center">
           <div class="pt-3 text-center">
             <router-link to="dashboard">
               <base-button
@@ -180,12 +180,16 @@ export default {
 .hero-content-homepage {
   // background: linear-gradient((#6b5b5b81)), url(/img/frontend/london-bg-opt.jpg);
 
-  background: linear-gradient((180deg, #631fa381, #53535328)),
+  // background: linear-gradient((180deg, #631fa381, #53535328)),
+  //   url(/img/frontend/london-bg-opt.jpg);
+
+  background: linear-gradient((90deg, #3b0a6881, #9730f871), #3b0a6881),
     url(/img/frontend/london-bg-opt.jpg);
+
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
-  min-height: 50vh;
+  min-height: 55vh;
   position: relative;
   width: 100%;
 
@@ -194,58 +198,37 @@ export default {
   }
 
   .hero-title {
-    font-size: 4em;
+    font-size: 4.1em;
     line-height: inherit;
     font-family: IranSansBold;
     color: #fff !important;
     padding: 0;
     margin: 0;
+    text-shadow: 2px 2px #3a0f6349;
   }
 
   .hero-subtitle {
-    font-size: 1.5em;
-    font-family: IranSansDN;
+    font-size: 1.6em;
+    font-family: IranSans;
     color: #fff !important;
   }
 }
 
-.top-courses-section {
-  // padding: 0 6%;
-}
-
-// @keyframes pulse {
-//   0% {
-//     opacity: 1;
-//   }
-//   100% {
-//     opacity: 0.7;
-//   }
-// }
-
-// .arrow {
-//   animation: pulse 0.7s infinite;
-//   margin: 0 auto;
-//   display: table;
-//   margin-top: 20px;
-//   animation-direction: alternate;
-//   &:hover {
-//     cursor: pointer;
-//   }
-// }
-
 @media (max-width: 680px) {
   .hero-content-homepage {
-    background: linear-gradient((180deg, #368bdbb0, #53535328)),
+    // background: linear-gradient((180deg, #631fa381, #53535328)),
+    //   url(/img/frontend/london-bg-opt.jpg);
+
+    background: linear-gradient((90deg, #3b0a6881, #7d26ce71), #3b0a6881),
       url(/img/frontend/london-bg-opt.jpg);
-    // background: linear-gradient(rgba(81, 194, 217, 0.918)),
-    //   url(/img/frontend/london-seemless-bg.svg);
+
     background-size: cover;
     background-position: top right;
-    min-height: 20vh;
+    min-height: 50vh;
     position: relative;
 
     .hero-text-section {
-      padding: 4vh 2em !important;
+      padding: 7vh 1.5em !important;
     }
 
     .btn {
@@ -258,13 +241,9 @@ export default {
       line-height: inherit;
     }
     .hero-subtitle {
-      font-size: 1rem;
-      color: rgb(194, 194, 194);
-      padding: 0 2.4em !important;
-    }
-
-    .hero-text-section {
-      padding: 10vh 9px 10vh 9px;
+      font-size: 0.9em;
+      color: rgb(238, 238, 238);
+      padding: 20px 0;
     }
   }
   .top-courses-section {
