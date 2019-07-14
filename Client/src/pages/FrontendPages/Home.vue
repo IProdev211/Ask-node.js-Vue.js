@@ -4,7 +4,7 @@
     <section class="hero-content-homepage">
       <div class="hero-text-section text-center">
         <h1 class="hero-title pb-3">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
-        <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p>
+        <!-- <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p> -->
         <div class="pt-4 d-flex justify-content-center">
           <div class="pt-3 text-center">
             <router-link to="dashboard">
@@ -161,21 +161,6 @@ export default {
   position: sticky;
   top: 0;
 }
-// .el-carousel__item h3 {
-//   color: #475669;
-//   font-size: 14px;
-//   opacity: 0.75;
-//   line-height: 150px;
-//   margin: 0;
-// }
-
-// .el-carousel__item:nth-child(2n) {
-//   background-color: #99a9bf;
-// }
-
-// .el-carousel__item:nth-child(2n + 1) {
-//   background-color: #d3dce6;
-// }
 
 .hero-content-homepage {
   // background: linear-gradient((#6b5b5b81)), url(/img/frontend/london-bg-opt.jpg);
@@ -183,7 +168,7 @@ export default {
   // background: linear-gradient((90deg, #3b0a6881, #9730f871), #3b0a6881),
   //   url(/img/frontend/london-bg-opt.jpg);
 
-  background: linear-gradient((90deg, #1900ff98, #8400ff69), #1900ff98),
+  background: linear-gradient((90deg, #1900ff98, #b463ff69), #1900ff98),
     url(/img/frontend/london-bg-opt.jpg);
 
   background-size: cover;
@@ -219,7 +204,7 @@ export default {
     // background: linear-gradient((180deg, #631fa381, #53535328)),
     //   url(/img/frontend/london-bg-opt.jpg);
 
-    background: linear-gradient((90deg, #1900ff98, #8400ff69), #1900ff98),
+    background: linear-gradient((90deg, #1707a198, #8400ff69), #1707a198),
       url(/img/frontend/london-bg-opt.jpg);
 
     background-size: cover;
@@ -237,10 +222,10 @@ export default {
     }
 
     .hero-title {
-      font-size: 2.6rem;
+      font-size: 2.4rem;
       line-height: inherit;
       color: #fff !important;
-      text-align: right;
+      // text-align: right;
     }
     .hero-subtitle {
       font-size: 1.2em;

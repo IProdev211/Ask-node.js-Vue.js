@@ -105,7 +105,7 @@
       <!-- VIDEO SECTION -->
       <div class="container">
         <div class="py-3">
-          <vue-plyr class="plyr--video text-ltr" :key="id">
+          <vue-plyr class="plyr--video" :key="id">
             <video>
               <source :src="`/api/v1${download}`" type="video/mp4" size="720" />
             </video>
@@ -317,7 +317,7 @@ export default {
 }
 
 .top-banner {
-  background-image: linear-gradient(270deg, #351dbd, #b835cc);
+  background-image: linear-gradient(270deg, #6c0086, #27148f, #6c0086);
 
   .course-title {
     font-size: 1.7rem;

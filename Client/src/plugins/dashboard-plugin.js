@@ -19,7 +19,9 @@ locale.use(lang);
 
 // asset imports
 import 'src/assets/sass/black-dashboard-pro.scss';
-import 'src/assets/css/nucleo-icons.css';
+// import 'src/assets/css/nucleo-icons.css';
+import 'src/assets/css/custom.css';
+
 import 'src/assets/css/demo.css';
 
 export default {

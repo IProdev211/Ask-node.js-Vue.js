@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'Nucleo';
+  src: url('../fonts/nucleo.eot');
+  src: url('../fonts/nucleo.eot') format('embedded-opentype'),
+    url('../fonts/nucleo.woff2') format('woff2'),
+    url('../fonts/nucleo.woff') format('woff'),
+    url('../fonts/nucleo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IranSans';
+  src: url('../fonts/IRANSansWeb(FaNum).eot');
+  src: url('../fonts/IRANSansWeb(FaNum).eot') format('embedded-opentype'),
+    url('../fonts/IRANSansWeb(FaNum).woff2') format('woff2'),
+    url('../fonts/IRANSansWeb(FaNum).woff') format('woff'),
+    url('../fonts/IRANSansWeb(FaNum).ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IranSansBold';
+  src: url('../fonts/IranSansBold/IranSansBold.eot');
+  src: url('../fonts/IranSansBold/IranSansBold.eot') format('embedded-opentype'),
+    url('../fonts/IranSansBold/IranSansBold.woff2') format('woff2'),
+    url('../fonts/IranSansBold/IranSansBold.woff') format('woff'),
+    url('../fonts/IranSansBold/IranSansBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IranSansDN';
+  src: url('../fonts/IranSansDN/IranSansDN.eot');
+  src: url('../fonts/IranSansDN/IranSansDN.eot') format('embedded-opentype'),
+    url('../fonts/IranSansDN/IranSansDN.woff2') format('woff2'),
+    url('../fonts/IranSansDN/IranSansDN.woff') format('woff'),
+    url('../fonts/IranSansDN/IranSansDN.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IranSansDNBold';
+  src: url('../fonts/IranSansDN/IranSansDNBold.eot');
+  src: url('../fonts/IranSansDN/IranSansDNBold.eot') format('embedded-opentype'),
+    url('../fonts/IranSansDN/IranSansDNBold.woff2') format('woff2'),
+    url('../fonts/IranSansDN/IranSansDNBold.woff') format('woff'),
+    url('../fonts/IranSansDN/IranSansDNBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
