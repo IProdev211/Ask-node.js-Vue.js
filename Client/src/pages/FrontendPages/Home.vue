@@ -180,10 +180,10 @@ export default {
 .hero-content-homepage {
   // background: linear-gradient((#6b5b5b81)), url(/img/frontend/london-bg-opt.jpg);
 
-  // background: linear-gradient((180deg, #631fa381, #53535328)),
+  // background: linear-gradient((90deg, #3b0a6881, #9730f871), #3b0a6881),
   //   url(/img/frontend/london-bg-opt.jpg);
 
-  background: linear-gradient((90deg, #3b0a6881, #9730f871), #3b0a6881),
+  background: linear-gradient((90deg, #1900ff98, #8400ff69), #1900ff98),
     url(/img/frontend/london-bg-opt.jpg);
 
   background-size: cover;
@@ -194,7 +194,7 @@ export default {
   width: 100%;
 
   .hero-text-section {
-    padding: 15vh 25px 15vh 25px;
+    padding: 15vh 10%;
   }
 
   .hero-title {
@@ -219,7 +219,7 @@ export default {
     // background: linear-gradient((180deg, #631fa381, #53535328)),
     //   url(/img/frontend/london-bg-opt.jpg);
 
-    background: linear-gradient((90deg, #3b0a6881, #7d26ce71), #3b0a6881),
+    background: linear-gradient((90deg, #1900ff98, #8400ff69), #1900ff98),
       url(/img/frontend/london-bg-opt.jpg);
 
     background-size: cover;
@@ -228,7 +228,7 @@ export default {
     position: relative;
 
     .hero-text-section {
-      padding: 7vh 1.5em !important;
+      padding: 7vh 2em !important;
     }
 
     .btn {
@@ -237,13 +237,16 @@ export default {
     }
 
     .hero-title {
-      font-size: 2rem;
+      font-size: 2.6rem;
       line-height: inherit;
+      color: #fff !important;
+      text-align: right;
     }
     .hero-subtitle {
-      font-size: 0.9em;
-      color: rgb(238, 238, 238);
+      font-size: 1.2em;
+      color: #fff !important;
       padding: 20px 0;
+      text-align: right;
     }
   }
   .top-courses-section {
