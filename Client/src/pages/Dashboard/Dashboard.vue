@@ -1,16 +1,16 @@
 <template>
   <div class="row">
     <!-- User Profile Section -->
-    <div class="col-lg-8 col-md-12 mb-4">
+    <div class="col-lg-7 col-md-12 mb-4">
       <user-card :user="$root.$data.user"></user-card>
     </div>
     <!-- Notification Section -->
-    <div class="col-lg-4 col-md-12 mb-4">
+    <div class="col-lg-5 col-md-12 mb-4">
       <NotificationCard></NotificationCard>
     </div>
 
     <!-- Stats Cards Section -->
-    <div class="col-lg-3 col-md-6 ml-auto mr-auto" v-for="card in statsCards" :key="card.title">
+    <div class="col-lg-4 col-md-6 ml-auto mr-auto" v-for="card in statsCards" :key="card.title">
       <stats-card
         :title="card.title"
         :sub-title="card.subTitle"
@@ -76,14 +76,14 @@ export default {
           footer:
             '<i class="tim-icons icon-video-66 pl-2"></i> مجموع درس های موجود'
         },
-        {
-          title: '0',
-          subTitle: 'امتحان ها',
-          type: 'info',
-          icon: 'fas fa-university',
-          footer:
-            '<i class="far fa-bookmark pl-2"></i> تعداد امتحانات که موجود هستن'
-        },
+        // {
+        //   title: '0',
+        //   subTitle: 'امتحان ها',
+        //   type: 'info',
+        //   icon: 'fas fa-university',
+        //   footer:
+        //     '<i class="far fa-bookmark pl-2"></i> تعداد امتحانات که موجود هستن'
+        // },
         {
           title: '0',
           subTitle: 'امتیاز اسک آریا',

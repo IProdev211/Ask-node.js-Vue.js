@@ -113,6 +113,13 @@
 											</ul>
 										</p>
 									</div>
+
+									<div class="col-md-2">
+										<base-checkbox class="mb-3">
+    										Activate User Account
+										</base-checkbox>
+									</div>
+
 									<!-- User Stats  -->
 									<div class="container pt-4"  v-if="data.id">
 										<!-- Enrolled Courses -->

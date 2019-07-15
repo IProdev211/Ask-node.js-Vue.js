@@ -53,7 +53,7 @@
               </h5>
             </div>
 
-            <!-- UCTOR -->
+            <!-- INSTRUCTOR -->
             <div class="col">
               <h5 class="icon-data">
                 <i class="pl-1 icon fas fa-chalkboard-teacher"></i>
@@ -110,22 +110,53 @@
               <source :src="`/api/v1${download}`" type="video/mp4" size="720" />
             </video>
           </vue-plyr>
-          <p
-            class="quote-text text-center pt-4 d-none d-md-block"
-          >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
         </div>
-      </div>
-      <div class="all-units container py-3">
-        <h4 class="text-center pb-4">سرفصل دوره</h4>
-        <!-- Timeline Unit Section -->
-        <AllUnits
-          :course="course"
-          :episodes="course.episodes"
-          :scrollable="false"
-          :maxepisodes="4"
-          :purchased="! notEnrolled"
-          @buy="openBuyCourse"
-        ></AllUnits>
+
+        <div class="d-flex justify-content-between py-2">
+          <div class="next-question">
+            <base-button
+              native-type="submit"
+              type="default"
+              class="btn animation-on-hover custom-button"
+            >
+              <i class="fas fa-caret-right pl-2"></i>
+              جلسه بعدی
+            </base-button>
+          </div>
+          <div class="previous-question">
+            <base-button
+              native-type="submit"
+              type="default"
+              class="btn animation-on-hover custom-button"
+            >
+              جلسه قبلی
+              <i class="fas fa-caret-left pr-2"></i>
+            </base-button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9">
+            <div class="all-units py-3">
+              <h4 class="text-center pb-4">سرفصل دوره</h4>
+              <!-- Timeline Unit Section -->
+              <AllUnits
+                :course="course"
+                :episodes="course.episodes"
+                :scrollable="false"
+                :maxepisodes="4"
+                :purchased="! notEnrolled"
+                @buy="openBuyCourse"
+              ></AllUnits>
+              <p
+                class="quote-text text-center pb-2 d-none d-md-block"
+              >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 pt-5">
+            <CustomCard />
+          </div>
+        </div>
       </div>
     </div>
     <modal ref="buymodal" centered="true" footerClasses="justify-content-center" type="notice">
@@ -154,6 +185,8 @@
 </template>
 <script>
 import AllUnits from './Components/AllUnits.vue';
+import CustomCard from './Components/CustomCard.vue';
+
 import moment from 'jalali-moment';
 import backend from '../../backend';
 import time from '../../util/time';
@@ -162,6 +195,7 @@ import Swal from 'sweetalert';
 export default {
   components: {
     AllUnits,
+    CustomCard,
     modal: Modal
   },
   data() {
@@ -310,6 +344,11 @@ export default {
 
 
 <style lang="scss" scoped>
+.custom-button {
+  -webkit-box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
+  -moz-box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
+  box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
+}
 .swal-text-center {
   .swal-text {
     text-align: center !important;
@@ -379,6 +418,12 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .custom-button {
+    font-size: 0.9em;
+    font-weight: 0;
+    padding: 10px 10px;
+  }
+
   .icon {
     font-size: 0.9rem;
     display: block;

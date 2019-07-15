@@ -184,6 +184,10 @@ export default {
 
 
 <style lang="scss" scoped>
+.avatar {
+  width: 7em;
+  height: 7em;
+}
 .emailText {
   font-size: 1rem;
 }
