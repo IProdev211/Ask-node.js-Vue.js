@@ -53,7 +53,7 @@
               </h5>
             </div>
 
-            <!-- UCTOR -->
+            <!-- INSTRUCTOR -->
             <div class="col">
               <h5 class="icon-data">
                 <i class="pl-1 icon fas fa-chalkboard-teacher"></i>
@@ -114,9 +114,32 @@
             class="quote-text text-center pt-4 d-none d-md-block"
           >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
         </div>
+        <div class="d-flex justify-content-between py-2">
+          <div class="next-question">
+            <base-button
+              native-type="submit"
+              type="default"
+              class="btn animation-on-hover custom-button"
+            >
+              <i class="fas fa-caret-right pl-2"></i>
+              جلسه بعدی
+            </base-button>
+          </div>
+          <div class="previous-question">
+            <base-button
+              native-type="submit"
+              type="default"
+              class="btn animation-on-hover custom-button"
+            >
+              جلسه قبلی
+              <i class="fas fa-caret-left pr-2"></i>
+            </base-button>
+          </div>
+        </div>
       </div>
+
       <div class="all-units container py-3">
-        <h4 class="text-center pb-4">سرفصل دوره</h4>
+        <h4 class="text-right pr-3 pb-3">سرفصل دوره</h4>
         <!-- Timeline Unit Section -->
         <AllUnits
           :course="course"

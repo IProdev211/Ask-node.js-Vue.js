@@ -1,49 +1,58 @@
 <template>
-  <section
-    class="card UnitSection mb-5"
-    v-if="episodes.length"
-    :style="scrollable ? {'overflow-y': 'auto'} : ''"
-  >
+  <div class="row">
     <div
-      class="UnitBox d-flex justify-content-between"
-      v-for="episode of episodes"
-      :key="episode.id"
+      class="col-md-9 card UnitSection mb-5"
+      v-if="episodes.length"
+      :style="scrollable ? {'overflow-y': 'auto'} : ''"
     >
-      <div class="right d-flex justify-content-end">
-        <div :class="getUnitBadge(episode.type)">
-          <i :class="'fas ' + getEpisodeIcon(episode.type)"></i>
+      <div
+        class="UnitBox d-flex justify-content-between"
+        v-for="episode of episodes"
+        :key="episode.id"
+      >
+        <div class="right d-flex justify-content-end">
+          <div :class="getUnitBadge(episode.type)">
+            <i :class="'fas ' + getEpisodeIcon(episode.type)"></i>
+          </div>
+          <div class="UnitName pr-3">
+            <router-link
+              :to="'/courses/' + course.slug + '/unit-' + episode.number"
+              v-if="!mustBuy(episode.type)"
+            >
+              <p class="UnitName text-right">{{ episode.title }}</p>
+            </router-link>
+            <p
+              @click="throwClickEvent"
+              class="UnitName text-right"
+              v-if="mustBuy(episode.type)"
+            >{{ episode.title }}</p>
+          </div>
         </div>
-        <div class="UnitName pr-3">
-          <router-link
-            :to="'/courses/' + course.slug + '/unit-' + episode.number"
-            v-if="!mustBuy(episode.type)"
-          >
-            <p class="UnitName text-right">{{ episode.title }}</p>
-          </router-link>
-          <p
-            @click="throwClickEvent"
-            class="UnitName text-right"
-            v-if="mustBuy(episode.type)"
-          >{{ episode.title }}</p>
-        </div>
-      </div>
-      <div class="left d-flex justify-content-between">
-        <div class="pl-2">
-          <p class="detail-price">{{ getEpisodeType(episode.type) }}</p>
-        </div>
+        <div class="left d-flex justify-content-between">
+          <div class="pl-2">
+            <p class="detail-price">{{ getEpisodeType(episode.type) }}</p>
+          </div>
 
-        <div>
-          <p class="detail-time">{{ getUnitTime(episode.time) }}</p>
+          <div>
+            <p class="detail-time">{{ getUnitTime(episode.time) }}</p>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+    <div class="col-md-3">
+      <custom-card />
+    </div>
+  </div>
 </template>
 
 <script>
 import timeUtil from '../../../util/time';
+import CustomCard from './CustomCard.vue';
 
 export default {
+  components: {
+    CustomCard
+  },
   props: ['course', 'episodes', 'scrollable', 'maxepisodes', 'purchased'],
   methods: {
     getEpisodeType(type) {

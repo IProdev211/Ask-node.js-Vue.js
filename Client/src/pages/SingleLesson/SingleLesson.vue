@@ -134,29 +134,27 @@
             </base-button>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-9">
-            <div class="all-units py-3">
-              <h4 class="text-center pb-4">سرفصل دوره</h4>
-              <!-- Timeline Unit Section -->
-              <AllUnits
-                :course="course"
-                :episodes="course.episodes"
-                :scrollable="false"
-                :maxepisodes="4"
-                :purchased="! notEnrolled"
-                @buy="openBuyCourse"
-              ></AllUnits>
-              <p
-                class="quote-text text-center pb-2 d-none d-md-block"
-              >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
-            </div>
-          </div>
-
-          <div class="col-md-3 pt-5">
-            <CustomCard />
-          </div>
+        <div class="all-units py-3">
+          <h4 class="text-right pr-3 pb-3">سرفصل دوره</h4>
+          <!-- Timeline Unit Section -->
+          <AllUnits
+            :course="course"
+            :episodes="course.episodes"
+            :scrollable="false"
+            :maxepisodes="4"
+            :purchased="! notEnrolled"
+            @buy="openBuyCourse"
+          ></AllUnits>
+          <p
+            class="quote-text text-center pb-2 d-none d-md-block"
+          >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
         </div>
+
+        <!-- <div class="row pt-4">
+            <div class="col-lg-3 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
+              <Course v-bind="course"></Course>
+            </div>
+        </div>-->
       </div>
     </div>
     <modal ref="buymodal" centered="true" footerClasses="justify-content-center" type="notice">

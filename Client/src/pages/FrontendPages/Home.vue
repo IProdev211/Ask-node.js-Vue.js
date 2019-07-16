@@ -67,11 +67,7 @@
 
     <!-- Top Courses Section -->
     <div class="container pt-5">
-      <!-- Top Courses -->
       <div class="top-courses-section">
-        <!-- <div class="card custom-card">
-          <p class="text-center top-section-header py-2">پیشنهادهای ویژه اسک آریا برای شما</p>
-        </div>-->
         <div class="d-flex justify-content-between">
           <p class="text-right top-section-header pt-1">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
@@ -168,7 +164,7 @@ export default {
   // background: linear-gradient((90deg, #3b0a6881, #9730f871), #3b0a6881),
   //   url(/img/frontend/london-bg-opt.jpg);
 
-  background: linear-gradient((90deg, #6f00ff98, #772eff69), #6f00ff98),
+  background: linear-gradient((90deg, #561be098, #7e2eff69), #561be098),
     url(/img/frontend/london-bg-opt.jpg);
 
   background-size: cover;
