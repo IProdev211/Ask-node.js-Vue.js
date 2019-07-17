@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       pagination: {
-        perPage: 3,
+        perPage: 4,
         currentPage: 1,
         total: 0,
         pages: 0

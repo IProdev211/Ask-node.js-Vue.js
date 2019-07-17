@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container pt-5">
     <h1>Instructions For Taking The Quiz</h1>
     <h2>Taking the Quiz</h2>
     <div class="p">

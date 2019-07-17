@@ -52,7 +52,7 @@
             </ul>
           </p>
           <div class="row pt-3">
-            <div class="col-md-3 text-ltr">
+            <div class="col-md-4 text-ltr">
               <label class="pull-right">نام و نام خانوادگی</label>
               <base-input
                 type="text"
@@ -61,7 +61,7 @@
                 :error="fieldErrors.name"
               ></base-input>
             </div>
-            <div class="col-md-3 text-ltr">
+            <div class="col-md-4 text-ltr">
               <label class="pull-right">پست الکترونیک</label>
               <base-input
                 type="email"
@@ -70,7 +70,7 @@
                 :error="fieldErrors.email"
               ></base-input>
             </div>
-             <div class="col-md-3 text-ltr">
+             <div class="col-md-4 text-ltr">
               <label class="pull-right">تغییر رمز عبور</label>
               <base-input
                 type="password"

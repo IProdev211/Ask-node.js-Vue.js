@@ -46,6 +46,7 @@
             ></el-table-column>
             <el-table-column :min-width="135" align="right" label="Actions">
               <div slot-scope="props">
+                <!-- THIS IS FOR MARKING THE TICKET IMPORTANT - WHEN CLICKED THE HEART SHOULD BECOME RED -->
                 <base-button
                   @click.native="handleLike(props.$index, props.row)"
                   class="like btn-link"
@@ -53,8 +54,10 @@
                   size="sm"
                   icon
                 >
-                  <i class="tim-icons icon-heart-2"></i>
+                  <i class="far fa-heart"></i>
                 </base-button>
+
+                <!-- THIS IS FOR EDITING THE TICKET -->
                 <base-button
                   @click.native="handleEdit(props.$index, props.row)"
                   class="edit btn-link"
@@ -62,10 +65,21 @@
                   size="sm"
                   icon
                 >
-                  <i class="tim-icons icon-pencil"></i>
+                  <i class="fas fa-pencil-alt"></i>
                 </base-button>
 
-                <!-- THE X IS FOR CLOSING THE TICKET -->
+                <!-- THIS IS FOR CLOSING THE TICKET -->
+                <base-button
+                  @click.native="handleEdit(props.$index, props.row)"
+                  class="edit btn-link"
+                  type="warning"
+                  size="sm"
+                  icon
+                >
+                  <i class="fas fa-clipboard-check"></i>
+                </base-button>
+
+                <!-- THIS IS FOR DELETING THE TICKET -->
                 <base-button
                   @click.native="handleDelete(props.$index, props.row)"
                   class="remove btn-link"

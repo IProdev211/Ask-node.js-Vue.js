@@ -6,11 +6,11 @@
         <span class="subtitle">مشاهده تیکت</span>
       </h1>
     </div>
-    <div class="container mt-5 pb-4">
+    <div class="container mt-5 pb-5">
       <h2 class="ticket-desc pt-4 pr-3">(goes here عنوان تیکت)</h2>
 
       <!-- CARD RIGHT -->
-      <div class="card-custom py-4 pb- px-5 ml-5 my-3">
+      <div class="card-custom py-4 pb px-5 ml-5 my-3">
         <div class="d-flex justify-content-between">
           <p class="ticket-user">
             <!-- USER PICTURE SHOULD GO INSTEAD OF ICON -->
@@ -18,6 +18,12 @@
             Example User
           </p>
           <p class="ticket-date text-muted font-weight-bold">
+            <!-- ADMIN SHOULD ONLY SEE THESE ICONS - WHEN MESSAGE WANTS TO BE EDITED - IT SHOULD BE EDITED WITH CKEDITOR -->
+            <span class="pl-3">
+              <i class="fas fa-pencil-alt pl-3"></i>
+              <i class="far fa-trash-alt pl-5 pr-1"></i>
+            </span>
+
             <span class="pl-2 font-weight-normal">00:28</span>
             05/06/2019
           </p>
@@ -36,6 +42,11 @@
             Arya Doroudian
           </p>
           <p class="ticket-date text-muted font-weight-bold">
+            <!-- ADMIN SHOULD ONLY SEE THESE ICONS - WHEN MESSAGE WANTS TO BE EDITED - IT SHOULD BE EDITED WITH CKEDITOR -->
+            <span class="pl-3">
+              <i class="fas fa-pencil-alt pl-3"></i>
+              <i class="far fa-trash-alt pl-5 pr-1"></i>
+            </span>
             <span class="pl-1 font-weight-normal">23:05</span>
             05/06/2019
           </p>
@@ -46,7 +57,7 @@
       </div>
 
       <!-- CARD RIGHT 2 -->
-      <div class="card-custom py-4 pb- px-5 ml-5 my-3">
+      <div class="card-custom py-4 px-5 ml-5 my-3">
         <div class="d-flex justify-content-between">
           <p class="ticket-user">
             <!-- USER PICTURE SHOULD GO INSTEAD OF ICON -->
@@ -54,6 +65,11 @@
             Example User
           </p>
           <p class="ticket-date text-muted font-weight-bold">
+            <!-- ADMIN SHOULD ONLY SEE THESE ICONS - WHEN MESSAGE WANTS TO BE EDITED - IT SHOULD BE EDITED WITH CKEDITOR -->
+            <span class="pl-3">
+              <i class="fas fa-pencil-alt pl-3"></i>
+              <i class="far fa-trash-alt pl-5 pr-1"></i>
+            </span>
             <span class="pl-2 font-weight-normal">00:28</span>
             05/06/2019
           </p>
@@ -110,6 +126,13 @@ export default {};
 .ticket-user {
   font-size: 0.9rem;
   color: rgba(145, 145, 145, 0.788);
+}
+
+.ticket-date {
+  i:hover {
+    cursor: pointer;
+    color: rgb(255, 136, 0);
+  }
 }
 
 @media (max-width: 768px) {

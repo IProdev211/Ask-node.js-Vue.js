@@ -179,7 +179,7 @@ export default {
   }
 
   .hero-title {
-    font-size: 4.1em;
+    font-size: 4.4em;
     line-height: inherit;
     font-family: IranSansBold;
     color: #fff !important;
