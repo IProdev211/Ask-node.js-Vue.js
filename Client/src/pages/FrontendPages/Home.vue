@@ -164,7 +164,7 @@ export default {
   // background: linear-gradient((90deg, #3b0a6881, #9730f871), #3b0a6881),
   //   url(/img/frontend/london-bg-opt.jpg);
 
-  background: linear-gradient((90deg, #4b1db667, #d52eff4d), #4b1db667),
+  background: linear-gradient((90deg, #3b1b853b, #a51f9a4d), #3b1b853b),
     url(/img/frontend/london-bg-opt.jpg);
 
   background-size: cover;
@@ -185,7 +185,7 @@ export default {
     color: #fff !important;
     padding: 0;
     margin: 0;
-    text-shadow: 2px 2px #3a0f6349;
+    text-shadow: 2px 2px #300a3f49;
   }
 
   .hero-subtitle {
@@ -200,7 +200,7 @@ export default {
     // background: linear-gradient((180deg, #631fa381, #53535328)),
     //   url(/img/frontend/london-bg-opt.jpg);
 
-    background: linear-gradient((90deg, #1707a198, #8400ff69), #1707a198),
+    background: linear-gradient((90deg, #3b1b853b, #a51f9a4d), #3b1b853b),
       url(/img/frontend/london-bg-opt.jpg);
 
     background-size: cover;

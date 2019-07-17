@@ -47,7 +47,7 @@
           <sidebar-item :link="{ name: 'مدیریت تیکت ها', path: '/ticketoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت امتحان ها', path: '/quizoverview' }"></sidebar-item>
         </sidebar-item>-->
-        <div class="pr-4 pt-2 line text-right d-flex align-items-center">
+        <div class="pr-4 py-3 line text-right d-flex align-items-center">
           <i class="fas fa-power-off"></i>
           <router-link
             class="nav-item dropdown-item exitButton"

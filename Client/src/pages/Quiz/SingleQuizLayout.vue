@@ -1,10 +1,14 @@
 <template>
-  <div class="container">
+  <div class="container pt-5">
     <!-- QUIZ TITLE -->
-    <h1 class="text-right pb-5 quiz-title">
-      آزمون آنلاین
-      <span class="quiz-subtitle text-success">زمان آینده استمراری</span>
-    </h1>
+
+    <div class="text-right pb-5">
+      <h1 class="quiz-title">
+        آزمون آنلاین
+        <span class="quiz-subtitle text-success">زمان آینده استمراری</span>
+        <span class="quiz-code">32423#</span>
+      </h1>
+    </div>
 
     <div class="row">
       <div class="col-md-8">
@@ -12,7 +16,7 @@
           <!-- COUNTDOWN TIMER GOES HERE -->
           <h3 class="question-number">
             سوال
-            <span>2</span> از
+            <span>1</span> از
             <span>6</span>
           </h3>
           <h3 class="timer">01:32</h3>
@@ -22,45 +26,19 @@
           <div
             class="progress-bar"
             role="progressbar"
-            style="width: 30%;"
-            aria-valuenow="30"
+            style="width: 10%;"
+            aria-valuenow="10"
             aria-valuemin="0"
             aria-valuemax="100"
-          >30%</div>
-        </div>
-        <!-- WHEN ITEMS ARE CLICKED A SEPERATE VUE SHOULD REPLACE THE QUESTION SECTION -->
-        <div class="quiz-navbar d-flex justify-content-around pt-4">
-          <p class="quiz-navbar-item">
-            <span>
-              <i class="fas fa-question"></i>
-            </span> سوال
-          </p>
-          <p class="quiz-navbar-item">
-            <span>
-              <i class="fas fa-book"></i>
-            </span> توضیح
-          </p>
-          <p class="quiz-navbar-item">
-            <span>
-              <i class="fas fa-comments"></i>
-            </span> نظرات
-          </p>
-          <!-- <p class="quiz-navbar-item">
-            <span>
-              <i class="fas fa-ban"></i>
-            </span> پایان آزمون
-          </p>-->
-
-          <p class="quiz-navbar-item">
-            <span>
-              <i class="fas fa-thumbtack"></i>
-            </span> PIN
-          </p>
+          >10%</div>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="question-number-section">
+          <!-- WHEN QUESTION IS PINNED, THE BOX SHOULD BE ORANGE -->
+          <!-- WHEN QUESTION IS ANSWERED, THE BOX SHOULD BE BLUE -->
+
           <div class="question-number">1</div>
           <div class="question-number">2</div>
           <div class="question-number">3</div>
@@ -73,7 +51,11 @@
 
     <!-- QUESTION -->
     <div class="mt-5">
-      <h2 class="question text-ltr">What do we call a group of footballers?</h2>
+      <h2 class="question text-ltr">
+        <!-- WHEN QUESTION IS PINNED, THE PIN SHOULD BE ORANGE -->
+        <i class="fas fa-thumbtack pr-2 pin"></i>
+        What do we call a group of footballers?
+      </h2>
     </div>
 
     <!-- ANSWERS -->
@@ -142,6 +124,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.question {
+  .pin:hover {
+    color: rgb(255, 72, 0);
+    cursor: pointer;
+  }
+}
 .question-number-section {
   margin-bottom: 16px;
   padding: 16px;
@@ -173,6 +161,9 @@ export default {
 
 .quiz-title {
   font-family: IranSansBold;
+  font-size: 1.9em;
+
+  color: rgb(126, 126, 126) !important;
 }
 
 .quiz-subtitle {
@@ -182,21 +173,14 @@ export default {
   padding-right: 5px;
 }
 
-.timer {
-  font-family: IranSansBold;
+.quiz-code {
+  font-size: 1em;
+  font-family: IranSans;
+  color: rgb(163, 163, 163) !important;
 }
 
-.quiz-navbar {
-  .quiz-navbar-item {
-    font-size: 1rem;
-    color: rgb(109, 109, 109);
-    font-family: IranSansBold;
-  }
-
-  :hover {
-    color: rgb(124, 174, 240);
-    cursor: pointer;
-  }
+.timer {
+  font-family: IranSansBold;
 }
 
 .question {
@@ -289,8 +273,4 @@ export default {
     padding: 10px 10px;
   }
 }
-
-// IF ANSWER IS CORRECT - .answer-card SHOULD BECOME GREEN
-// IF ANSWER IS INCORRECT - .answer-card SHOULD BECOME RED
 </style>
-

@@ -259,21 +259,21 @@ const routes = [
       //     default: SingleLesson
       //   }
       // },
-      {
-        path: 'singlequizlayout',
-        name: 'Single Quiz',
-        components: {
-          default: SingleQuizLayout
-        }
-      },
+      // {
+      //   path: 'singlequizlayout',
+      //   name: 'Single Quiz',
+      //   components: {
+      //     default: SingleQuizLayout
+      //   }
+      // },
 
-      {
-        path: 'quizstartpage',
-        name: 'Quiz Start Page',
-        components: {
-          default: QuizStartPage
-        }
-      },
+      // {
+      //   path: 'quizstartpage',
+      //   name: 'Quiz Start Page',
+      //   components: {
+      //     default: QuizStartPage
+      //   }
+      // },
 
       {
         path: 'gradesheet',
@@ -386,6 +386,21 @@ const routes = [
         name: 'Single Lesson',
         components: {
           default: SingleLesson
+        }
+      },
+      {
+        path: 'singlequizlayout',
+        name: 'Single Quiz',
+        components: {
+          default: SingleQuizLayout
+        }
+      },
+
+      {
+        path: 'quizstartpage',
+        name: 'Quiz Start Page',
+        components: {
+          default: QuizStartPage
         }
       }
     ]
