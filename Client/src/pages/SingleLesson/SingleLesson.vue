@@ -135,7 +135,7 @@
           </div>
         </div>
         <div class="all-units py-3">
-          <h4 class="text-right pr-3 pb-3">سرفصل دوره</h4>
+          <h4 class="text-right pr-3 pt-4">سرفصل دوره</h4>
           <!-- Timeline Unit Section -->
           <AllUnits
             :course="course"

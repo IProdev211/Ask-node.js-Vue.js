@@ -19,7 +19,8 @@
         </p>
         <p class="description">
           <i class="fas px-2" :class="isVIP ? 'fa-check tick' : 'fa-times cross'"></i>{{ 'وضعیت عضویت ویژه' }} -
-          <span class="description" :class="isVIP ? 'tick' : 'cross'">{{ isVIP ? "فعال" : "غیر فعال" }} <span class="vip-date"> روز دیگر شارژ دارید </span></span>
+          <span class="description" :class="isVIP ? 'tick' : 'cross'">{{ isVIP ? "فعال" : "غیر فعال" }} </span>
+          <!-- <span class="vip-date"> روز دیگر شارژ دارید </span> -->
         </p>
         <div class="row d-flex justify-content-center">
           <div class="pt-3 px-2">
