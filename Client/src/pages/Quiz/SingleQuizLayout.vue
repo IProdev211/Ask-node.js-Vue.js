@@ -63,21 +63,37 @@
       <div class="answer-card row d-flex align-items-center text-ltr">
         <p class="question-letter">A</p>
         <p class="answer">A band of musicians</p>
+        <p class="points ml-auto">
+          <span class="available-points">1</span>
+          xp
+        </p>
       </div>
 
       <div class="answer-card row d-flex align-items-center text-ltr">
         <p class="question-letter">B</p>
         <p class="answer">A crew</p>
+        <p class="points ml-auto">
+          <span class="available-points">1</span>
+          xp
+        </p>
       </div>
 
       <div class="answer-card row d-flex align-items-center text-ltr">
         <p class="question-letter">C</p>
         <p class="answer">A flight of steps</p>
+        <p class="points ml-auto">
+          <span class="available-points">1</span>
+          xp
+        </p>
       </div>
 
       <div class="answer-card row d-flex align-items-center text-ltr">
         <p class="question-letter">D</p>
         <p class="answer">A team</p>
+        <p class="points ml-auto">
+          <span class="available-points">1</span>
+          xp
+        </p>
       </div>
     </div>
 
@@ -124,6 +140,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.points {
+  font-size: 1em;
+  .available-points {
+    font-family: IranSansBold;
+    font-size: 1.3em;
+  }
+}
 .question {
   .pin:hover {
     color: rgb(255, 72, 0);

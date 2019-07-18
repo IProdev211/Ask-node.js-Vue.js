@@ -5,6 +5,10 @@
       <div class="hero-text-section text-center">
         <h1 class="hero-title pb-3">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
         <!-- <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p> -->
+
+        <p
+          class="text-center hero-subtitle py-3"
+        >باور ما اینست که کاربران ایرانی لایق بهترین ها هستند و باید بهترین و بروزترین فیلم های آموزشی و مقالات در اختیار آنها قرار بگیرد تا بتوانند به سرعت پیشرفت کنند و جزء بهترین ها شوند. با ما همراه باشید تا بهترین ها رو لایق بهترین کاربران کنیم.</p>
         <div class="pt-4 d-flex justify-content-center">
           <div class="pt-3 text-center">
             <router-link to="dashboard">
@@ -164,7 +168,10 @@ export default {
   // background: linear-gradient((90deg, #3b0a6881, #9730f871), #3b0a6881),
   //   url(/img/frontend/london-bg-opt.jpg);
 
-  background: linear-gradient((90deg, #3b1b853b, #a51f9a4d), #3b1b853b),
+  // background: linear-gradient((90deg, #3b1b853b, #a51f9a4d), #3b1b853b),
+  //   url(/img/frontend/london-bg-opt.jpg);
+
+  background: linear-gradient((180deg, #00000009, #7021ca69), #00000009),
     url(/img/frontend/london-bg-opt.jpg);
 
   background-size: cover;
@@ -179,7 +186,7 @@ export default {
   }
 
   .hero-title {
-    font-size: 4.4em;
+    font-size: 4.2em;
     line-height: inherit;
     font-family: IranSansBold;
     color: #fff !important;
@@ -189,8 +196,10 @@ export default {
   }
 
   .hero-subtitle {
-    font-size: 1.6em;
-    font-family: IranSans;
+    font-size: 1.3em;
+    text-shadow: 1px 1px #79797949;
+
+    font-family: IranSansDN;
     color: #fff !important;
   }
 }
@@ -200,11 +209,11 @@ export default {
     // background: linear-gradient((180deg, #631fa381, #53535328)),
     //   url(/img/frontend/london-bg-opt.jpg);
 
-    background: linear-gradient((90deg, #3b1b853b, #a51f9a4d), #3b1b853b),
-      url(/img/frontend/london-bg-opt.jpg);
+    background: radial-gradient((#5f0dca73), #23034db9),
+      url(/img/frontend/london-bg-1-mobile.jpg);
 
     background-size: cover;
-    background-position: top right;
+    background-position: center;
     min-height: 50vh;
     position: relative;
 
@@ -221,13 +230,11 @@ export default {
       font-size: 2.4rem;
       line-height: inherit;
       color: #fff !important;
-      // text-align: right;
     }
     .hero-subtitle {
-      font-size: 1.2em;
+      font-size: 1.1em;
       color: #fff !important;
       padding: 20px 0;
-      text-align: right;
     }
   }
   .top-courses-section {

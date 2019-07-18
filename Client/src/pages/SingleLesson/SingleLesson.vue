@@ -11,7 +11,6 @@
             <img class="course-image rounded-circle img-fluid py-4" :src="course.image" />
           </div>
 
-          <!-- <p class="course-explanation container pb-5">توضیحات</p> -->
           <div class="body text-center container pt-3 px-5" v-html="body"></div>
           <!-- COURSE INFORMATION -->
           <div class="container pt-5 text-center d-flex justify-content-between">
