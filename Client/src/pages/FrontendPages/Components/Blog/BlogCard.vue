@@ -2,10 +2,10 @@
   <div class="blogBox pb-2">
     <router-link :to="`/blog/${slug}`">
       <div class="card">
-        <img class="card-img-top" :src="image" :alt="name">
+        <img class="card-img-top" :src="image" :alt="name" />
         <div class="category">{{ categories.length ? categories.pop().name : "" }}</div>
         <div class="card-body">
-          <h3 class="card-title text-right py-2">{{ name }}</h3>
+          <h3 class="card-title text-center py-2">{{ name }}</h3>
           <div class="d-flex justify-content-between px-1 blog-info">
             <div>
               <span class="pl-2">{{ publishedAt }}</span>

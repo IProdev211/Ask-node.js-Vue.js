@@ -31,7 +31,7 @@ export default {};
   // border-radius: 3px;
   position: relative;
   font-family: IranSansBold;
-  font-size: 1.2em;
+  font-size: 1.1em;
 
   @media (max-width: 760px) {
     margin: 0 6%;

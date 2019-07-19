@@ -98,10 +98,10 @@
       <ImprovementBanner1></ImprovementBanner1>
     </div>
 
-    <!--Our Courses Section-->
+    <!-- Our Courses Section
     <div id="element">
       <our-courses></our-courses>
-    </div>
+    </div>-->
 
     <!--Improvement Banner Section-->
     <div>
@@ -171,13 +171,13 @@ export default {
   // background: linear-gradient((90deg, #3b1b853b, #a51f9a4d), #3b1b853b),
   //   url(/img/frontend/london-bg-opt.jpg);
 
-  background: linear-gradient((180deg, #00000009, #7021ca69), #00000009),
+  background: linear-gradient((180deg, #00000009, #430c8369), #00000009),
     url(/img/frontend/london-bg-opt.jpg);
 
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
-  min-height: 55vh;
+  min-height: 60vh;
   position: relative;
   width: 100%;
 

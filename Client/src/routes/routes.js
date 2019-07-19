@@ -105,6 +105,11 @@ const PrivateClasses = () =>
     /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/PrivateClasses.vue'
   );
 
+const AllCourses = () =>
+  import(
+    /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/AllCourses.vue'
+  );
+
 const ComingSoon = () =>
   import(
     /* webpackChunkName: "pages" */ 'src/pages/FrontendPages/ComingSoon.vue'
@@ -158,6 +163,12 @@ let frontendpages = {
       path: '/privateclasses',
       name: 'PrivateClasses',
       component: PrivateClasses
+    },
+
+    {
+      path: '/allcourses',
+      name: 'AllCourses',
+      component: AllCourses
     },
     {
       path: '/comingsoon',

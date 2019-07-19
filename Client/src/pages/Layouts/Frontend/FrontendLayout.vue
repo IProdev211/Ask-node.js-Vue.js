@@ -21,6 +21,11 @@
         <router-link class="nav-item" tag="li" to="/privateclasses">
           <a :class="getNavClass('privateclasses')">{{ 'کلاس های حضوری' }}</a>
         </router-link>
+
+        <router-link class="nav-item" tag="li" to="/allcourses">
+          <a :class="getNavClass('allcourses')">{{ 'آموزش های غیر حضوری' }}</a>
+        </router-link>
+
         <router-link class="nav-item" tag="li" to="/comingsoon">
           <a :class="getNavClass('comingsoon')">{{ 'میت آپ' }}</a>
         </router-link>
@@ -265,6 +270,9 @@ export default {
         case 'privateclasses':
           isActive = this.$route.name == 'PrivateClasses';
           break;
+        case 'allcourses':
+          isActive = this.$route.name == 'AllCourses';
+          break;
         case 'comingsoon':
           isActive = this.$route.name == 'ComingSoon';
           break;
@@ -334,7 +342,7 @@ export default {
 }
 .navbar-nav li i {
   color: rgb(0, 0, 0);
-  font-size: 1.2em;
+  font-size: 1em;
   margin-right: 10px;
   margin-left: 4px;
   align-content: right;
@@ -352,8 +360,15 @@ export default {
   padding: 0;
 }
 
+.navbar-nav li {
+  font-size: 1.2em;
+  padding: 0 10px;
+  color: rgb(0, 0, 0);
+}
+
 .navbar-nav li a {
-  padding: 9px 0 !important;
+  padding: 9px 0 9px 10px !important;
+  font-size: 1em;
 }
 
 .btn {
@@ -385,12 +400,6 @@ p,
 .navbar-collapse .navbar-nav .nav-link .dropdown-item {
   color: rgb(49, 49, 49);
   border-bottom: 1px solid #fcfcfc;
-}
-
-.navbar-nav li {
-  font-size: 1.1rem;
-  padding: 0 12px;
-  color: rgb(0, 0, 0);
 }
 
 .sidebar
