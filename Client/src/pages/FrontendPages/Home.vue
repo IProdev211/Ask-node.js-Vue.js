@@ -30,12 +30,11 @@
             </router-link>
           </div>
           <div class="pt-3 pr-1 text-center">
-            <router-link to="dashboard">
+            <router-link to="allcourses">
               <base-button
                 native-type="submit"
                 type="primary"
                 class="btn animation-on-hover"
-                v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
               >مشاهده همه دوره ها</base-button>
             </router-link>
           </div>

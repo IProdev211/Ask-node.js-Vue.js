@@ -47,7 +47,8 @@
           <sidebar-item :link="{ name: 'مدیریت تیکت ها', path: '/ticketoverview' }"></sidebar-item>
           <sidebar-item :link="{ name: 'مدیریت امتحان ها', path: '/quizoverview' }"></sidebar-item>
         </sidebar-item>-->
-        <div class="pr-4 py-3 line text-right d-flex align-items-center">
+        <hr class="line mt-4" />
+        <div class="pr-4 py-3 text-right d-flex align-items-center">
           <i class="fas fa-power-off"></i>
           <router-link
             class="nav-item dropdown-item exitButton"
@@ -170,7 +171,7 @@ export default {
 
 .line {
   border-top: 1px solid rgba(255, 255, 255, 0.178);
-  padding-top: 10px;
+  // padding-top: 3em;
 }
 
 .content {

@@ -1,5 +1,5 @@
 <template>
-  <base-nav v-model="showMenu" class="navbar-absolute top-navbar" type="white" :transparent="true">
+  <base-nav v-model="showMenu" class="navbar-absolute top-navbar" type="custom" :transparent="true">
     <div slot="brand" class="navbar-wrapper">
       <!-- <div class="d-none d-md-block">
         <div class="navbar-minimize d-inline">
@@ -43,72 +43,58 @@
             <div class="w-100"></div>
 
             <li class="nav-link">
-              <router-link to="/comingsoon" class="nav-item dropdown-item">میت آپ</router-link>
+              <router-link to="/allcourses" class="nav-item dropdown-item">آموزش های غیر حضوری</router-link>
             </li>
             <div class="w-100"></div>
 
             <li class="nav-link">
               <router-link to="/contact" class="nav-item dropdown-item">تماس با ما</router-link>
             </li>
+            <div class="w-100"></div>
+
+            <hr class="hr-line" />
 
             <div class="w-100"></div>
 
+            <!-- DASHBOARD MENU ITEMS -->
+
+            <i class="fas fa-id-badge pl-2"></i>
+            <li class="nav-link">
+              <router-link to="/dashboard" class="nav-item dropdown-item">پنل کاربری</router-link>
+            </li>
+            <div class="w-100"></div>
+
+            <i class="fas fa-university pl-2"></i>
+            <li class="nav-link">
+              <router-link to="/courses" class="nav-item dropdown-item">دوره های آموزشی</router-link>
+            </li>
+            <div class="w-100"></div>
+
+            <i class="i-custom fas fa-graduation-cap pl-2"></i>
+            <li class="nav-link">
+              <router-link to="/mycourses" class="nav-item dropdown-item">در حال یادگیری</router-link>
+            </li>
+            <div class="w-100"></div>
+
+            <i class="far fa-check-square pl-2"></i>
+            <li class="nav-link">
+              <router-link to="/quizzes" class="nav-item dropdown-item">امتحان ها</router-link>
+            </li>
+            <div class="w-100"></div>
+
+            <i class="fas fa-tools pl-2"></i>
+            <li class="nav-link">
+              <router-link to="/managementpage" class="nav-item dropdown-item">پنل مدیریت</router-link>
+            </li>
+            <div class="w-100"></div>
+
+            <!-- LOGOUT BUTTON -->
             <div class="pr-3 profile-link-text">
               <router-link class="nav-item dropdown-item" to="#" @click.native="logoutListener">خروج</router-link>
             </div>
           </div>
           <!-- <b class="caret d-none d-lg-block d-xl-block"></b> -->
           <!-- <p class="d-lg-none">پنل کاربری</p> -->
-          <div class="d-lg-none pt-4">
-            <li class="nav-link">
-              <router-link to="/dashboard" class="nav-item dropdown-item">
-                <div class="row d-flex align-items-center">
-                  <div class="photo">
-                    <img :src="userAvatar">
-                  </div>
-                  <div class="pr-3">پنل کاربری</div>
-                </div>
-              </router-link>
-            </li>
-
-            <li class="nav-link">
-              <router-link to="/courses" class="nav-item dropdown-item">
-                <i class="fas fa-university pl-2"></i>
-                دوره های آموزشی
-              </router-link>
-            </li>
-
-            <li class="nav-link">
-              <router-link to="/mycourses" class="nav-item dropdown-item">
-                <i class="i-custom fas fa-graduation-cap pl-2"></i>
-                در حال یادگیری
-              </router-link>
-            </li>
-
-            <li class="nav-link">
-              <router-link to="/quizzes" class="nav-item dropdown-item">
-                <i class="far fa-check-square pl-2"></i>
-                امتحان ها
-              </router-link>
-            </li>
-
-            <li v-if="isAdmin" class="nav-link">
-              <router-link to="/managementpage" class="nav-item dropdown-item">
-                <i class="fas fa-tools pl-2"></i>
-                پنل مدیریت
-              </router-link>
-            </li>
-
-            <!-- <li class="nav-link">
-              <router-link to="/points" class="nav-item dropdown-item">
-                <i class="i-custom fas fa-gem pl-2"></i>
-                امتیاز
-              </router-link>
-            </li>-->
-          </div>
-          <!-- <li class="nav-link pr-3">
-            <router-link class="nav-item dropdown-item" to="#" @click.native="logoutListener">خروج</router-link>
-          </li>-->
         </a>
       </base-dropdown>
     </ul>
@@ -117,13 +103,15 @@
 <script>
 import { CollapseTransition } from 'vue2-transitions';
 import { BaseNav, Modal } from '@/components';
-import SidebarToggleButton from './SidebarToggleButton';
-import backend from '../../../backend';
+// import SidebarToggleButton from './SidebarToggleButton';
+// import backend from '../../../backend';
+import { ZoomCenterTransition } from 'vue2-transitions';
 
 export default {
   components: {
-    SidebarToggleButton,
+    // SidebarToggleButton,
     CollapseTransition,
+    ZoomCenterTransition,
     BaseNav,
     Modal
   },
@@ -134,13 +122,13 @@ export default {
     },
     isRTL() {
       return this.$rtl.isRTL;
-    },
-    userAvatar() {
-      return (
-        (this.$root.$data.user ? this.$root.$data.user.avatar : undefined) ||
-        '/img/default-avatar.png'
-      );
     }
+    // userAvatar() {
+    //   return (
+    //     (this.$root.$data.user ? this.$root.$data.user.avatar : undefined) ||
+    //     '/img/default-avatar.png'
+    //   );
+    // }
   },
   data() {
     return {
@@ -160,14 +148,18 @@ export default {
     closeDropDown() {
       this.activeNotifications = false;
     },
-    toggleSidebar() {
-      this.$sidebar.displaySidebar(!this.$sidebar.showSidebar);
-    },
-    hideSidebar() {
-      this.$sidebar.displaySidebar(false);
-    },
+    // toggleSidebar() {
+    //   this.$sidebar.displaySidebar(!this.$sidebar.showSidebar);
+    // },
+    // hideSidebar() {
+    //   this.$sidebar.displaySidebar(false);
+    // },
     toggleMenu() {
       this.showMenu = !this.showMenu;
+    },
+    closeMenu() {
+      document.body.classList.remove('nav-open');
+      this.showMenu = false;
     },
     logoutListener(e) {
       e.preventDefault();
@@ -180,6 +172,20 @@ export default {
         }
         window.location.href = '/';
       });
+    },
+    beforeDestroy() {
+      this.closeMenu();
+    },
+    beforeRouteUpdate(to, from, next) {
+      // Close the mobile menu first then transition to next page
+      if (this.showMenu) {
+        this.closeMenu();
+        setTimeout(() => {
+          next();
+        }, this.menuTransitionDuration);
+      } else {
+        next();
+      }
     }
   },
   computed: {
@@ -194,6 +200,14 @@ export default {
 };
 </script>
 <style lang="scss">
+.navbar .navbar-brand {
+  color: #000000;
+  font-family: IranSansBold;
+}
+.hr-line {
+  border-top: 1px solid black;
+}
+
 @media (max-width: 991.98px) {
   .navbar .navbar-nav a.nav-link i {
     opacity: 1;
@@ -216,7 +230,7 @@ export default {
 }
 
 .navbar-nav li a {
-  font-size: 0.9em;
+  font-size: 1.04em;
   color: #000000;
 }
 
@@ -254,7 +268,7 @@ export default {
 .white-content .navbar.navbar-transparent .navbar-brand {
   color: #1d253b;
   font-family: IranSansBold;
-  padding-right: 15px;
+  // padding-right: 15px;
 }
 
 .rtl .dropdown-toggle:after {
