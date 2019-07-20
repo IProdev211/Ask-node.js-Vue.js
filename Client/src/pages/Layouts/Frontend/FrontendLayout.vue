@@ -105,12 +105,12 @@
                     </router-link>
                   </li>
 
-                  <li class="nav-link">
+                  <!-- <li class="nav-link">
                     <router-link to="/points" class="nav-item dropdown-item">
                       <i class="i-custom fas fa-gem pl-2"></i>
                       امتیاز
                     </router-link>
-                  </li>
+                  </li>-->
 
                   <li class="nav-link pr-3">
                     <router-link
@@ -368,7 +368,11 @@ export default {
 
 .navbar-nav li a {
   padding: 9px 0 9px 10px !important;
-  font-size: 1em;
+  font-size: 0.95em;
+}
+
+.navbar-collapse .navbar-nav .nav-link .dropdown-item {
+  font-size: 0.8em;
 }
 
 .btn {
@@ -376,6 +380,7 @@ export default {
 }
 .text-danger {
   font-family: IranSansBold !important;
+  font-size: 0.95em !important;
 }
 p,
 .copyright {

@@ -1,6 +1,6 @@
 <template>
   <div class="private-classes-background">
-    <div class="container">
+    <div class="container pb-5">
       <h1 class="text-center custom-title pt-5">کلاس های خصوصی ما</h1>
       <div class="private-classes pb-4">
         <div class="row pricing">

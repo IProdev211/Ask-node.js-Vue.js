@@ -103,7 +103,7 @@ export default {
 .headerStyling {
   font-size: 3rem;
   font-family: IranSansBold;
-  color: rgb(56, 218, 164);
+  color: rgb(56, 218, 164) !important;
   padding: 0px;
   margin: 0px;
 }

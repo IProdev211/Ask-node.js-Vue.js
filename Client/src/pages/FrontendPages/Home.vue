@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="hero-content-homepage">
       <div class="hero-text-section text-center">
-        <h1 class="hero-title pb-3">آیا میخواهید مثل یک نیتیو انگلیسی حرف بزنید؟</h1>
+        <h1 class="hero-title pb-3">آیا میخواهید مثل یک بومی انگلیسی حرف بزنید؟</h1>
         <!-- <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p> -->
 
         <p

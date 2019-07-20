@@ -21,13 +21,13 @@
         ></sidebar-item>
         <sidebar-item :link="{ name: 'امتحان ها', path: '/quizzes', icon: 'far fa-check-square' }"></sidebar-item>
 
-        <sidebar-item
+        <!-- <sidebar-item
           :link="{
             name: 'امتیاز',
             icon: 'fas fa-gem',
             path: '/points'
           }"
-        ></sidebar-item>
+        ></sidebar-item>-->
         <sidebar-item :link="{ name: 'پشتیبانی', path: '/tickets', icon: 'fas fa-headset' }"></sidebar-item>
 
         <sidebar-item

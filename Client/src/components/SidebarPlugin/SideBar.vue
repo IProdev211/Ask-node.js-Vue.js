@@ -8,10 +8,13 @@
         <a href="/" class="simple-text logo-normal">{{ title }}</a>
       </div>-->
 
-      <div class="userSection">
-        <p class="text-right">
+      <div class="userSection text-center">
+        <div class="photo avatar mb-3">
+          <img :src="userAvatar" />
+        </div>
+        <p>
           <span class="userFullName">{{this.$root.$data.user.name}}</span>
-          <br>خوش آمدید
+          <br />خوش آمدید
         </p>
       </div>
       <slot></slot>
@@ -30,6 +33,8 @@
   </div>
 </template>
 <script>
+import backend from '../../backend';
+
 export default {
   name: 'sidebar',
   props: {
@@ -84,6 +89,14 @@ export default {
       autoClose: this.autoClose
     };
   },
+  computed: {
+    userAvatar() {
+      return (
+        (this.$root.$data.user ? this.$root.$data.user.avatar : undefined) ||
+        '/img/default-avatar.png'
+      );
+    }
+  },
   methods: {
     minimizeSidebar() {
       if (this.$sidebar) {
@@ -100,14 +113,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 .userSection {
-  padding: 20px 35px 10px 0;
+  padding: 4em 0 2em 0;
   .userFullName {
     color: #fff;
     font-size: 1.3em !important;
     font-weight: 600;
   }
 }
-
+.avatar {
+  width: 5em !important;
+  height: 5em !important;
+}
 @media (min-width: 992px) {
   .navbar-search-form-mobile,
   .nav-mobile-menu {
