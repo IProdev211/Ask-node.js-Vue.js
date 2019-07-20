@@ -102,14 +102,14 @@
       <our-courses></our-courses>
     </div>-->
 
+    <!-- Blog Section-->
+    <div id="blog" class="blog-section pb-2">
+      <blog-section v-bind="{posts: topPosts}"></blog-section>
+    </div>
+
     <!--Improvement Banner Section-->
     <div>
       <ImprovementBanner2></ImprovementBanner2>
-    </div>
-
-    <!-- Blog Section-->
-    <div id="blog" class="blog-section my-5">
-      <blog-section v-bind="{posts: topPosts}"></blog-section>
     </div>
 
     <!--Founder Section-->
@@ -208,11 +208,11 @@ export default {
     // background: linear-gradient((180deg, #631fa381, #53535328)),
     //   url(/img/frontend/london-bg-opt.jpg);
 
-    background: radial-gradient((#5f0dca73), #23034db9),
-      url(/img/frontend/london-bg-1-mobile.jpg);
+    background: radial-gradient(#2a09509f, #c59bf50e),
+      url(/img/frontend/london-bg-opt.jpg);
 
     background-size: cover;
-    background-position: center;
+    background-position: cover;
     min-height: 50vh;
     position: relative;
 
