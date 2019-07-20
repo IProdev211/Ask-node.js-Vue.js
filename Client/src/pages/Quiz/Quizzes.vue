@@ -1,90 +1,39 @@
 <template>
   <div class="container">
-    <h1 class="pb-5 text-danger text-right">آزمونهای شما</h1>
-    <!-- Quizzes -->
-    <div class="row">
-      <div class="col-md-4 card">
-        <!-- Quiz Name (Course Name) -->
-        <div class="text-center">
-          <p class="quiz-title">Proper Noun Quiz</p>
-          <hr class="fadeline">
-          <p class="quiz-subtitle">Grammar Bootcamp</p>
-        </div>
+    <h1 class="pb-5 text-danger text-right">امتحان های شما</h1>
 
-        <div class="card-body text-center">
-          <div>
-            <div>
-              <router-link to="/quizstartpage">
-                <base-button
-                  native-type="submit"
-                  type="default"
-                  class="btn btn-simple animation-on-hover"
-                >Start Quiz</base-button>
-              </router-link>
-            </div>
-          </div>
-        </div>
+    <!-- New Quizzes -->
+    <div class="py-5">
+      <h2 class="text-right text-primary">امتحان های جدید</h2>
+      <div class="row">
+        <quiz-card />
+      </div>
+    </div>
+
+    <!-- Completed Quizzes -->
+    <div class="py-5">
+      <h2 class="text-right text-default">امتحان های تکمیل شده</h2>
+      <div class="row">
+        <quiz-card />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import QuizCard from './QuizCard.vue';
+
+export default {
+  components: {
+    QuizCard
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-h1 {
+h1,
+h2 {
   font-family: IranSansBold;
-}
-.card {
-  box-sizing: border-box;
-  $border: 2px;
-  color: #fff;
-  background: #000;
-  background-clip: padding-box; /* !importanté */
-  border: solid $border transparent; /* !importanté */
-  border-radius: 1em;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    margin: -$border; /* !importanté */
-    border-radius: inherit; /* !importanté */
-    background: linear-gradient(to top, #61d4ae, rgb(145, 209, 25));
-  }
-
-  background-color: rgb(31, 31, 48);
-}
-.fadeline {
-  height: 1px;
-  background-image: linear-gradient(
-    90deg,
-    rgba(255, 0, 0, 0),
-    rgba(159, 201, 159, 0.466) 50%,
-    rgba(255, 0, 0, 0) 100%
-  );
-}
-.card {
-  border-radius: 25px;
-}
-.quiz-title {
-  padding: 0.75rem 1.25rem;
-  font-size: 1.3rem;
-}
-
-.quiz-subtitle {
-  font-size: 1rem;
-  color: rgb(133, 133, 133);
-}
-
-.QuizScore {
-  font-size: 1.2rem;
 }
 </style>
 

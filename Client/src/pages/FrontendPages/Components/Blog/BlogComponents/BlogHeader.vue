@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-right">{{ title }}</h1>
+    <h1 class="text-center">{{ title }}</h1>
   </div>
 </template>
 

@@ -208,7 +208,7 @@ export default {
     // background: linear-gradient((180deg, #631fa381, #53535328)),
     //   url(/img/frontend/london-bg-opt.jpg);
 
-    background: radial-gradient(#2a09509f, #c59bf50e),
+    background: linear-gradient((180deg, #0e001f86), #00000046),
       url(/img/frontend/london-bg-opt.jpg);
 
     background-size: cover;
