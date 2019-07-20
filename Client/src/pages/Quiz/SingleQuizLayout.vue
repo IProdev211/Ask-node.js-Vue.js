@@ -6,7 +6,8 @@
       <h1 class="quiz-title">
         آزمون آنلاین
         <span class="quiz-subtitle text-success">زمان آینده استمراری</span>
-        <span class="quiz-code">32423#</span>
+        <div class="w-100"></div>
+        <p class="quiz-code pt-3">32423#</p>
       </h1>
     </div>
 
@@ -63,37 +64,25 @@
       <div class="answer-card row d-flex align-items-center text-ltr">
         <p class="question-letter">A</p>
         <p class="answer">A band of musicians</p>
-        <p class="points ml-auto">
+        <!-- <p class="points ml-auto">
           <span class="available-points">1</span>
           xp
-        </p>
+        </p>-->
       </div>
 
       <div class="answer-card row d-flex align-items-center text-ltr">
         <p class="question-letter">B</p>
         <p class="answer">A crew</p>
-        <p class="points ml-auto">
-          <span class="available-points">1</span>
-          xp
-        </p>
       </div>
 
       <div class="answer-card row d-flex align-items-center text-ltr">
         <p class="question-letter">C</p>
         <p class="answer">A flight of steps</p>
-        <p class="points ml-auto">
-          <span class="available-points">1</span>
-          xp
-        </p>
       </div>
 
       <div class="answer-card row d-flex align-items-center text-ltr">
         <p class="question-letter">D</p>
         <p class="answer">A team</p>
-        <p class="points ml-auto">
-          <span class="available-points">1</span>
-          xp
-        </p>
       </div>
     </div>
 
@@ -185,7 +174,6 @@ export default {
 .quiz-title {
   font-family: IranSansBold;
   font-size: 1.9em;
-
   color: rgb(126, 126, 126) !important;
 }
 
@@ -197,7 +185,7 @@ export default {
 }
 
 .quiz-code {
-  font-size: 1em;
+  font-size: 0.7em;
   font-family: IranSans;
   color: rgb(163, 163, 163) !important;
 }
@@ -259,6 +247,10 @@ export default {
 
     p {
       background-color: transparent !important;
+    }
+
+    .question-letter {
+      color: rgb(0, 0, 0);
     }
   }
 }

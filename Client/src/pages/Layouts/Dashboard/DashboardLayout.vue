@@ -3,7 +3,7 @@
     <div class="container">
       <notifications></notifications>
     </div>
-    <sidebar-fixed-toggle-button />
+    <!-- <sidebar-fixed-toggle-button /> -->
     <side-bar :background-color="sidebarBackground">
       <!-- <side-bar :background-color="sidebarBackground" :short-title="'پنل کاربری'" :title="'داشبورد'"> -->
 
@@ -21,13 +21,6 @@
         ></sidebar-item>
         <sidebar-item :link="{ name: 'امتحان ها', path: '/quizzes', icon: 'far fa-check-square' }"></sidebar-item>
 
-        <!-- <sidebar-item
-          :link="{
-            name: 'امتیاز',
-            icon: 'fas fa-gem',
-            path: '/points'
-          }"
-        ></sidebar-item>-->
         <sidebar-item :link="{ name: 'پشتیبانی', path: '/tickets', icon: 'fas fa-headset' }"></sidebar-item>
 
         <sidebar-item
@@ -35,20 +28,8 @@
           :link="{ name: 'پنل مدیریت', path: '/managementpage', icon: 'fas fa-tools' }"
         ></sidebar-item>
 
-        <!-- <sidebar-item
-          class="pb-2"
-          v-if="isAdmin"
-          :link="{ name: 'پنل مدیریت', icon: 'fas fa-tools' }"
-        >
-          <sidebar-item :link="{ name: 'مدیریت کاربران', path: '/manageusers' }"></sidebar-item>
-          <sidebar-item :link="{ name: 'مدیریت دوره ها', path: '/courseoverview' }"></sidebar-item>
-          <sidebar-item :link="{ name: 'مدیریت جلسه ها', path: '/episodeoverview' }"></sidebar-item>
-          <sidebar-item :link="{ name: 'مدیریت وبلاگ ها', path: '/blogoverview' }"></sidebar-item>
-          <sidebar-item :link="{ name: 'مدیریت تیکت ها', path: '/ticketoverview' }"></sidebar-item>
-          <sidebar-item :link="{ name: 'مدیریت امتحان ها', path: '/quizoverview' }"></sidebar-item>
-        </sidebar-item>-->
         <hr class="line mt-4" />
-        <div class="pr-4 py-3 text-right d-flex align-items-center">
+        <div class="pr-4 text-right d-flex align-items-center">
           <i class="fas fa-power-off"></i>
           <router-link
             class="nav-item dropdown-item exitButton"
@@ -171,7 +152,6 @@ export default {
 
 .line {
   border-top: 1px solid rgba(255, 255, 255, 0.178);
-  // padding-top: 3em;
 }
 
 .content {

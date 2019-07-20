@@ -170,13 +170,13 @@ export default {
   // background: linear-gradient((90deg, #3b1b853b, #a51f9a4d), #3b1b853b),
   //   url(/img/frontend/london-bg-opt.jpg);
 
-  background: linear-gradient((180deg, #00000009, #430c8369), #00000009),
+  background: linear-gradient((180deg, #0e001f86), #00000046),
     url(/img/frontend/london-bg-opt.jpg);
 
   background-size: cover;
-  background-position: bottom;
+  background-position: top;
   background-repeat: no-repeat;
-  min-height: 60vh;
+  min-height: 70vh;
   position: relative;
   width: 100%;
 
@@ -191,7 +191,7 @@ export default {
     color: #fff !important;
     padding: 0;
     margin: 0;
-    text-shadow: 2px 2px #300a3f49;
+    text-shadow: 2px 2px #300a3f27;
   }
 
   .hero-subtitle {

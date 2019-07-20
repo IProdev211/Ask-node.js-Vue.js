@@ -113,7 +113,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .userSection {
-  padding: 4em 0 2em 0;
+  padding: 2em 0 0.8em 0;
   .userFullName {
     color: #fff;
     font-size: 1.3em !important;

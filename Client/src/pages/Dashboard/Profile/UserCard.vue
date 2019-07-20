@@ -189,8 +189,13 @@ export default {
   width: 7em;
   height: 7em;
 }
+
+.title {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .emailText {
   font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .box {
   height: 100%;

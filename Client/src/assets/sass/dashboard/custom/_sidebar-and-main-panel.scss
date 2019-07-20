@@ -159,7 +159,7 @@
         text-transform: uppercase;
         cursor: pointer;
         font-size: $font-size-md;
-        padding: 10px 8px;
+        padding: 4px 8px;
         line-height: $line-height-lg;
       }
 
@@ -474,16 +474,16 @@
     }
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid $primary;
-    top: -5px;
-    left: 40px;
-    transform: translate(-50%);
-  }
+  // &:before {
+  //   content: '';
+  //   position: absolute;
+  //   border-left: 5px solid transparent;
+  //   border-right: 5px solid transparent;
+  //   border-bottom: 5px solid $primary;
+  //   top: -5px;
+  //   left: 40px;
+  //   transform: translate(-50%);
+  // }
 }
 
 .visible-on-sidebar-regular {

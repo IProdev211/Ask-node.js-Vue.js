@@ -13,7 +13,7 @@
           </button>
         </div>
       </div>-->
-      <a class="navbar-brand" href="/">اسک آریا</a>
+      <!-- <a class="navbar-brand" href="/">اسک آریا</a> -->
     </div>
 
     <ul class="navbar-nav text-right" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'">

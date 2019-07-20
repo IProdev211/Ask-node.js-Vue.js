@@ -2,7 +2,7 @@
   <section class="container">
     <h1 class="text-center text-danger">Management Page</h1>
 
-    <div class="pt-3">
+    <div class="pt-4">
       <div class="d-flex justify-content-end row">
         <router-link to="/manageusers">
           <base-button size="lg" type="primary">Manage: Users</base-button>
