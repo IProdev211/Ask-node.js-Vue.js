@@ -34,7 +34,7 @@ export default {};
   box-sizing: border-box;
   $border: 2px;
   color: #fff;
-  background: #000;
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
   background-clip: padding-box; /* !importanté */
   border: solid $border transparent; /* !importanté */
   border-radius: 1em;

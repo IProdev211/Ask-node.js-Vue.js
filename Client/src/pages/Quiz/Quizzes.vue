@@ -1,18 +1,9 @@
 <template>
   <div class="container">
-    <h1 class="pb-5 text-danger text-right">امتحان های شما</h1>
+    <h1 class="text-danger text-right pb-4">امتحان های شما</h1>
 
     <!-- New Quizzes -->
-    <div class="py-5">
-      <h2 class="text-right text-primary">امتحان های جدید</h2>
-      <div class="row">
-        <quiz-card />
-      </div>
-    </div>
-
-    <!-- Completed Quizzes -->
-    <div class="py-5">
-      <h2 class="text-right text-default">امتحان های تکمیل شده</h2>
+    <div class="pt-5">
       <div class="row">
         <quiz-card />
       </div>
