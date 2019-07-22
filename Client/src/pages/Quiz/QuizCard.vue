@@ -1,25 +1,33 @@
 <template>
   <section class="container">
-    <div class="col-md-3 card">
+    <div class="col-md-4 card">
       <!-- Quiz Name (Course Name) -->
       <div class="text-center">
-        <p class="quiz-title">Proper Noun Quiz</p>
-        <hr class="fadeline" />
-        <p class="quiz-subtitle">Grammar Bootcamp</p>
+        <p class="quiz-title pt-4">Proper Nouns Quiz</p>
+        <router-link class="quiz-subtitle" to="/courses/دوره-ی-گرامر-انگلیسی">Grammar Bootcamp</router-link>
       </div>
 
-      <div class="card-body text-center">
+      <div class="d-flex justify-content-around text-center pt-4">
         <div>
-          <div>
-            <router-link to="/quizstartpage">
-              <base-button
-                native-type="submit"
-                type="default"
-                class="btn btn-simple animation-on-hover"
-              >Start Quiz</base-button>
-            </router-link>
-          </div>
+          <p class="item">
+            2
+            <br />
+            <span class="itemSpan">مدت زمان امتحان</span>
+          </p>
         </div>
+        <div>
+          <p class="item">
+            3
+            <br />
+            <span class="itemSpan">تعداد سوالات</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="card-body text-center pb-4">
+        <router-link to="/quizstartpage">
+          <base-button native-type="submit" type="success" class="btn btn-simple btn-sm">Start Quiz</base-button>
+        </router-link>
       </div>
     </div>
   </section>
@@ -33,51 +41,55 @@ export default {};
 .card {
   box-sizing: border-box;
   $border: 2px;
-  color: #fff;
-  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
-  background-clip: padding-box; /* !importanté */
-  border: solid $border transparent; /* !importanté */
-  border-radius: 1em;
+  color: #fff !important;
+  background-image: linear-gradient(
+    to top,
+    #667eea 0%,
+    #764ba2 100%
+  ) !important;
+  border-radius: 1em !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    margin: -$border; /* !importanté */
-    border-radius: inherit; /* !importanté */
-    background: linear-gradient(to top, #61d4ae, rgb(145, 209, 25));
+  .quiz-title {
+    font-size: 1.7em;
+    color: #fff !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
   }
 
-  background-color: rgb(31, 31, 48);
-}
-.fadeline {
-  height: 1px;
-  background-image: linear-gradient(
-    90deg,
-    rgba(255, 0, 0, 0),
-    rgba(159, 201, 159, 0.466) 50%,
-    rgba(255, 0, 0, 0) 100%
-  );
-}
-.card {
-  border-radius: 25px;
-}
-.quiz-title {
-  padding: 0.75rem 1.25rem;
-  font-size: 1.3rem;
-}
+  .quiz-subtitle {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.616) !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 
-.quiz-subtitle {
-  font-size: 1rem;
-  color: rgb(133, 133, 133);
-}
-
-.QuizScore {
-  font-size: 1.2rem;
+  .quiz-subtitle:hover {
+    text-decoration: underline !important;
+    color: #fff !important;
+  }
+  .item {
+    color: rgb(255, 255, 255);
+    padding-right: 0.7rem;
+    font-size: 1.2rem;
+    font-family: IranSansBold;
+  }
+  .itemSpan {
+    font-size: 0.73rem;
+    color: #ffffff9a;
+    font-family: IranSans;
+  }
+  .btn {
+    color: #fff !important;
+    font-size: 1.5em;
+    border-color: #fff !important;
+    border-color: transparent !important;
+    padding: 0;
+    margin: 0;
+  }
+  .btn:hover {
+    color: rgb(0, 255, 255) !important;
+    box-shadow: transparent !important;
+  }
 }
 </style>
 
