@@ -8,17 +8,17 @@ import router from './routes/router';
 import CKEditor from '@ckeditor/ckeditor5-vue';
 import VuePlyr from 'vue-plyr';
 var VueScrollTo = require('vue-scrollto');
-import VueParticles from 'vue-particles';
 import NProgress from 'nprogress';
+// import VueParticles from 'vue-particles';
 // import ElementUI from 'element-ui';
 
 // plugin setup
 Vue.use(DashboardPlugin);
 Vue.use(VueScrollTo);
 Vue.use(CKEditor);
-Vue.use(VueParticles);
 Vue.use(VuePlyr);
 Vue.use(NProgress);
+// Vue.use(VueParticles);
 // Vue.use(ElementUI);
 
 import 'vue-plyr/dist/vue-plyr.css';

@@ -2,79 +2,78 @@
 <section class="bg">
   <div class="container">
     <div class="row">
-      <div class="col-lg-5 col-md-6 col-sm-12 ml-auto mr-auto pt-4 pb-2">
-          <form @submit="checkForm">
-            <card class="card-login">
-              <template slot="header">
-                <img class="card-img" src="img/card-primary.png" alt="Card image" />
-                <h4 class="card-title text-right pr-3 text-white">ورود</h4>
-                <!-- <p class="container pt-3 text-center">با ورود به پنل کاربری میتوانید به سادگی به ویدیو های سایت دسترسی پیدا کنید و مقالات جدید را مطالعه کنید.</p> -->
-              </template>
-              <div class="row mt-4">
-                <div class="col-md-12">
-                  <label class="pull-right">پست الکترونیک</label>
-                  <base-input 
-                    class="text-ltr"
-                    v-model="email" 
-                    :required="true" 
-                    :error="fieldErrors.email">
-                  </base-input>
-                </div>
+      <div class="d-flex align-items-center justify-content-center ml-auto mr-auto pt-5">
+        <form @submit="checkForm">
+          <card class="card-login">
+            <template slot="header">
+              <p class="card-title text-center pt-3 text-default">ورود به سایت</p>
+            </template>
+            <div class="row mt-2">
+              <div class="col-12">
+                <label class="pull-right">پست الکترونیک</label>
+                <base-input 
+                  class="text-ltr"
+                  v-model="email" 
+                  :required="true" 
+                  :error="fieldErrors.email">
+                </base-input>
+              </div>
 
-                <div class="col-md-12">
-                  <label class="pull-right">کلمه عبور</label>
-                  <base-input
-                    class="text-ltr"
-                    type="password"
-                    v-model="password" 
-                    :required="true" 
-                    :error="fieldErrors.password">
-                  </base-input>
-                </div>
-              </div>     
-              <div class="text-right text-rtl">
-              <base-checkbox class="pb-2" name="remember" :checked="remember" @input="() => {remember = !remember;}">
-                 <p>یادآوری ورود</p>
-              </base-checkbox>
+              <div class="col-12">
+                <label class="pull-right">کلمه عبور</label>
+                <base-input
+                  class="text-ltr"
+                  type="password"
+                  v-model="password" 
+                  :required="true" 
+                  :error="fieldErrors.password">
+                </base-input>
+              </div>
+            </div>     
+            <div class="text-right text-rtl">
+            <base-checkbox class="pb-2" name="remember" :checked="remember" @input="() => {remember = !remember;}">
+                <p>یادآوری ورود</p>
+            </base-checkbox>
+          </div>
+            
+            <div class="text-center">
+              <a href="/auth/google">
+                <h4 class="googleicon">
+                  <i class="fab fa-google icon "></i>
+                </h4>
+              </a>
+              <p class="google-text pt-1">شما میتوانید با اکانت گوگل وارد سایت شوید</p>
             </div>
-              
-              <div class="text-center">
-                <a href="/auth/google">
-                  <h4 class="googleicon">
-                    <i class="fab fa-google icon "></i>
-                  </h4>
-                </a>
-                <p class="google-text pt-1">شما میتوانید با اکانت گوگل وارد سایت شوید</p>
+            <div class="pt-3 d-flex justify-content-center">
+              <vue-recaptcha  :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
+            </div>
+            <p class="text-right pt-4" v-if="formErrors.length">
+              <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
+              <ul class="pt-2">
+                <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
+              </ul>
+            </p>
+            
+            <div slot="footer">
+              <base-button type="primary" nativeType="submit" class="mb-3" size="lg" :loading="loading" block>ورود</base-button>
+              <div class="d-flex justify-content-around">
+              <div class="pull-right">
+                <h6>
+                  <router-link to="/forgotpassword" class="link footer-link">رمز عبور را فراموش کرده ام</router-link>
+                </h6>
               </div>
-              <div class="pt-3 d-flex justify-content-center">
-                <vue-recaptcha  :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
+              <div class="pull-left">
+                <h6>
+                  <router-link class="link footer-link" to="/register">فرم عضویت</router-link>
+                </h6>
               </div>
-              <p class="text-right pt-4" v-if="formErrors.length">
-                <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
-                <ul class="pt-2">
-                  <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
-                </ul>
-              </p>
-              
-              <div slot="footer">
-                <base-button type="primary" nativeType="submit" class="mb-3" size="lg" :loading="loading" block>ورود</base-button>
-                <div class="d-flex justify-content-around">
-                <div class="pull-right">
-                  <h6>
-                    <router-link to="/forgotpassword" class="link footer-link">رمز عبور را فراموش کرده ام</router-link>
-                  </h6>
-                </div>
-                <div class="pull-left">
-                  <h6>
-                    <router-link class="link footer-link" to="/register">فرم عضویت</router-link>
-                  </h6>
-                </div>
-                </div>
               </div>
-            </card>
-          </form>
-      </div>
+            </div>
+          </card>
+        </form>
     </div>
+        </div>
+
   </div>
   </section>
 </template>
@@ -182,15 +181,20 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.card-title {
+  font-size: 2em !important;
+}
 .bg {
   background: url(/img/frontend/SVG-Background-4.svg) no-repeat;
   background-size: cover;
   background-position: top;
-  min-height: 70vh;
+  min-height: 80vh;
 }
 
 .card {
   background: rgb(241, 241, 241) !important;
+  border-radius: 20px;
+
 }
 
 .white-content .card:not(.card-white) label:not(.btn) {

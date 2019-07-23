@@ -164,19 +164,16 @@ export default {
 .hero-content-homepage {
   // background: linear-gradient((#6b5b5b81)), url(/img/frontend/london-bg-opt.jpg);
 
-  // background: linear-gradient((90deg, #3b0a6881, #9730f871), #3b0a6881),
+  //  background: linear-gradient((180deg, #0e001f86), #00000046),
   //   url(/img/frontend/london-bg-opt.jpg);
 
-  // background: linear-gradient((90deg, #3b1b853b, #a51f9a4d), #3b1b853b),
-  //   url(/img/frontend/london-bg-opt.jpg);
-
-  background: linear-gradient((180deg, #0e001f86), #00000046),
+  background: linear-gradient((180deg, #3c0c7794), #00000046),
     url(/img/frontend/london-bg-opt.jpg);
 
   background-size: cover;
-  background-position: top;
+  background-position: bottom;
   background-repeat: no-repeat;
-  min-height: 70vh;
+  min-height: 60vh;
   position: relative;
   width: 100%;
 
@@ -208,7 +205,7 @@ export default {
     // background: linear-gradient((180deg, #631fa381, #53535328)),
     //   url(/img/frontend/london-bg-opt.jpg);
 
-    background: linear-gradient((180deg, #0e001f86), #00000046),
+    background: linear-gradient((180deg, #30076186), #00000046),
       url(/img/frontend/london-bg-opt.jpg);
 
     background-size: cover;

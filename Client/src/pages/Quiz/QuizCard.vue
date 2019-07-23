@@ -24,10 +24,19 @@
         </div>
       </div>
 
-      <div class="card-body text-center pb-4">
-        <router-link to="/quizstartpage">
-          <base-button native-type="submit" type="success" class="btn btn-simple btn-sm">Start Quiz</base-button>
-        </router-link>
+      <div class="d-flex justify-content-around text-center">
+        <div class="card-body pb-4">
+          <router-link to="/quizstartpage">
+            <base-button native-type="submit" type="success" class="btn btn-simple">شرکت در امتحان</base-button>
+          </router-link>
+        </div>
+
+        <!-- IF USER HAS COMPLETED THE TEST THEY CAN CHECK THEIR RESULTS BY CLICKING THE BUTTON -->
+        <div class="card-body pb-4">
+          <router-link to="/gradesheet">
+            <base-button native-type="submit" type="success" class="btn btn-simple">مشاهده نتیجه</base-button>
+          </router-link>
+        </div>
       </div>
     </div>
   </section>
@@ -80,16 +89,16 @@ export default {};
   }
   .btn {
     color: #fff !important;
-    font-size: 1.5em;
+    font-size: 1em;
     border-color: #fff !important;
-    border-color: transparent !important;
-    padding: 0;
-    margin: 0;
+    border-color: #fff !important;
+    // padding: 0;
+    // margin: 0;
   }
-  .btn:hover {
-    color: rgb(0, 255, 255) !important;
-    box-shadow: transparent !important;
-  }
+  // .btn-custom:hover {
+  //   color: rgb(0, 255, 255) !important;
+  //   box-shadow: transparent !important;
+  // }
 }
 </style>
 

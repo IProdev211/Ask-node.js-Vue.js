@@ -2,14 +2,13 @@
 <section class="bg">
   <div class="container">
     <div class="row">
-      <div class="py-3 col-md-6 mr-auto ml-auto">
+      <div class="d-flex align-items-center justify-content-center pt-5 mr-auto ml-auto">
         <card class="card-register">
           <template slot="header">
-            <img class="card-img" src="img/card-primary.png" alt="Card image" />
-            <h4 class="card-title text-right text-white py-1 px-2">فرم عضویت</h4>
+            <p class="card-title text-center pt-3 text-default">فرم عضویت</p>
           </template>
           <form @submit="checkForm" id="register-form">
-            <div class="row pt-5">
+            <div class="row pt-3">
               <div class="col-md-12 text-ltr">
                 <label class="pull-right pt-2">نام و نام خانوادگی</label>
                 <base-input 
@@ -216,19 +215,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card-title {
+  font-size: 2.2em !important;
+}
 .bg {
   background: url(/img/frontend/SVG-Background-4.svg) no-repeat;
   background-size: cover;
   background-position: top;
-  min-height: 70vh;
-}
-@media (max-width: 768px) {
-.card-title {
-  font-size: 1.7rem !important;
-}
+  min-height: 80vh;
 }
 .card {
   background: rgb(241, 241, 241) !important;
+  border-radius: 20px;
 }
 
 .white-content .card:not(.card-white) label:not(.btn) {

@@ -76,6 +76,14 @@ export default {
           footer:
             '<i class="tim-icons icon-video-66 pl-2"></i> مجموع درس های موجود'
         },
+        {
+          title: '15 / 2',
+          subTitle: 'امتحان های من',
+          type: 'primary',
+          icon: 'far fa-check-square',
+          footer:
+            '<a href="/quizzes"><i class="far fa-check-square pl-2"></i> امتحان های شما</a>'
+        }
         // {
         //   title: '0',
         //   subTitle: 'امتحان ها',
@@ -83,15 +91,7 @@ export default {
         //   icon: 'fas fa-university',
         //   footer:
         //     '<i class="far fa-bookmark pl-2"></i> تعداد امتحانات که موجود هستن'
-        // },
-        {
-          title: '0',
-          subTitle: 'امتیاز اسک آریا',
-          type: 'primary',
-          icon: 'tim-icons icon-shape-star',
-          footer:
-            '<i class="tim-icons icon-sound-wave pl-2"></i></i> مرحله ی بعد BEGINNER <span class="coloredLink">0%</span>  '
-        }
+        // }
       ];
     },
     getData() {
@@ -113,7 +113,6 @@ export default {
 <style>
 .coloredLink {
   color: #de4dc7;
-  /* font-weight: 600; */
 }
 
 .form-check input[type='checkbox'] + .form-check-sign::after {
