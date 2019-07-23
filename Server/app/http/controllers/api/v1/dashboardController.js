@@ -6,7 +6,6 @@ const ZarinpalCheckout = require('zarinpal-checkout');
 const path = require('path');
 const sharp = require('sharp');
 const Log = require('app/models/log');
-const moment = require('moment-jalaali');
 
 class dashboardController extends controller {
   async index(req, res) {
@@ -80,7 +79,7 @@ class dashboardController extends controller {
     const page = req.query.page || 1;
     const limit = req.query.limit || 2;
     const logs = await Log.paginate(
-      {},
+      { user: req.user.id },
       {
         page,
         sort: {
