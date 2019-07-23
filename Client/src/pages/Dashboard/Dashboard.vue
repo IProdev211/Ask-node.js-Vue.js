@@ -110,7 +110,11 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss" scoped>
+.rtl .main-panel .content {
+  padding: 75px 300px 20px 50px;
+}
+
 .coloredLink {
   color: #de4dc7;
 }

@@ -11,7 +11,6 @@
             <img class="course-image rounded-circle img-fluid py-4" :src="course.image" />
           </div>
 
-          <!-- <p class="course-explanation container pb-5">توضیحات</p> -->
           <div class="body text-center container pt-3 px-5" v-html="body"></div>
           <!-- COURSE INFORMATION -->
           <div class="container pt-5 text-center d-flex justify-content-between">
@@ -104,18 +103,16 @@
 
       <!-- VIDEO SECTION -->
       <div class="container">
-        <div class="py-5">
-          <vue-plyr class="plyr--video text-ltr" :key="id">
+        <div class="py-3">
+          <vue-plyr class="plyr--video" :key="id">
             <video>
               <source :src="`/api/v1${download}`" type="video/mp4" size="720" />
             </video>
           </vue-plyr>
-          <p
-            class="quote-text text-center pt-4 d-none d-md-block"
-          >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
         </div>
+
         <div class="d-flex justify-content-between py-2">
-          <div class="next-question">
+          <div class="next-episode">
             <base-button
               native-type="submit"
               type="default"
@@ -125,7 +122,19 @@
               جلسه بعدی
             </base-button>
           </div>
-          <div class="previous-question">
+
+          <div class="unit-complete">
+            <base-button
+              native-type="submit"
+              type="default"
+              class="btn btn-simple animation-on-hover custom-button"
+            >
+              <i class="fas fa-check pl-2"></i>
+              Mark Complete
+            </base-button>
+          </div>
+
+          <div class="previous-episode">
             <base-button
               native-type="submit"
               type="default"
@@ -136,19 +145,27 @@
             </base-button>
           </div>
         </div>
-      </div>
+        <div class="all-units py-5">
+          <h4 class="text-right pr-3 pt-4">سرفصل دوره</h4>
+          <!-- Timeline Unit Section -->
+          <AllUnits
+            :course="course"
+            :episodes="course.episodes"
+            :scrollable="false"
+            :maxepisodes="4"
+            :purchased="! notEnrolled"
+            @buy="openBuyCourse"
+          ></AllUnits>
+          <p
+            class="quote-text text-center pb-2 d-none d-md-block"
+          >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
+        </div>
 
-      <div class="all-units container py-3">
-        <h4 class="text-right pr-3 pb-3">سرفصل دوره</h4>
-        <!-- Timeline Unit Section -->
-        <AllUnits
-          :course="course"
-          :episodes="course.episodes"
-          :scrollable="false"
-          :maxepisodes="4"
-          :purchased="! notEnrolled"
-          @buy="openBuyCourse"
-        ></AllUnits>
+        <!-- <div class="row pt-4">
+            <div class="col-lg-3 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
+              <Course v-bind="course"></Course>
+            </div>
+        </div>-->
       </div>
     </div>
     <modal ref="buymodal" centered="true" footerClasses="justify-content-center" type="notice">

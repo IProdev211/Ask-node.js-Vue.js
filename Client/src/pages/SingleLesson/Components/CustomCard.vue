@@ -1,14 +1,19 @@
 <template>
   <section>
     <!-- CARD 1 -->
-    <!-- <div class="card card-1 text-center">
+    <div class="card card-1 text-center">
       <div class="py-3 px-2">
-        <h2 class="title">دوره‌های آموزشی</h2>
-        <p
-          class="subtitle"
-        >به روزترین دوره‌های آموزشی در حوزه برنامه‌نویسی که به سادگی میتوانید در این بخش به آنها دسترسی پیدا کنید</p>
+        <h2 class="title">درصد تکمیل دوره</h2>
+        <div>
+          <pie-chart
+            style="height: 100%"
+            :chart-data="pieChart1.chartData"
+            :extra-options="pieChart1.extraOptions"
+            :height="120"
+          ></pie-chart>
+        </div>
       </div>
-    </div>-->
+    </div>
 
     <!-- CARD 2 -->
     <div class="card card-2 text-center">
@@ -43,7 +48,81 @@
 </template>
 
 <script>
-export default {};
+import PieChart from 'src/components/Charts/PieChart';
+
+export default {
+  components: {
+    PieChart
+  },
+  data() {
+    return {
+      pieChart1: {
+        chartData: {
+          labels: [1, 2],
+          datasets: [
+            {
+              label: 'Emails',
+              pointRadius: 0,
+              pointHoverRadius: 0,
+              backgroundColor: ['#00c09d', '#e2e2e2'],
+              borderWidth: 0,
+              data: [60, 40]
+            }
+          ]
+        },
+        extraOptions: {
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          responsive: true,
+          cutoutPercentage: 70,
+          tooltips: {
+            backgroundColor: '#f5f5f5',
+            titleFontColor: '#333',
+            bodyFontColor: '#666',
+            bodySpacing: 4,
+            xPadding: 12,
+            mode: 'nearest',
+            intersect: 0,
+            position: 'nearest'
+          },
+
+          scales: {
+            yAxes: [
+              {
+                display: 0,
+                ticks: {
+                  display: false
+                },
+                gridLines: {
+                  drawBorder: false,
+                  zeroLineColor: 'transparent',
+                  color: 'rgba(255,255,255,0.05)'
+                }
+              }
+            ],
+
+            xAxes: [
+              {
+                display: 0,
+                barPercentage: 1.6,
+                gridLines: {
+                  drawBorder: false,
+                  color: 'rgba(255,255,255,0.1)',
+                  zeroLineColor: 'transparent'
+                },
+                ticks: {
+                  display: false
+                }
+              }
+            ]
+          }
+        }
+      }
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>

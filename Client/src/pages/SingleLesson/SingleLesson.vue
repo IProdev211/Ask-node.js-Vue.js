@@ -112,7 +112,7 @@
         </div>
 
         <div class="d-flex justify-content-between py-2">
-          <div class="next-question">
+          <div class="next-episode">
             <base-button
               native-type="submit"
               type="default"
@@ -123,7 +123,7 @@
             </base-button>
           </div>
 
-          <div class="next-question">
+          <div class="unit-complete">
             <base-button
               native-type="submit"
               type="default"
@@ -134,7 +134,7 @@
             </base-button>
           </div>
 
-          <div class="previous-question">
+          <div class="previous-episode">
             <base-button
               native-type="submit"
               type="default"
@@ -145,7 +145,7 @@
             </base-button>
           </div>
         </div>
-        <div class="all-units py-3">
+        <div class="all-units py-5">
           <h4 class="text-right pr-3 pt-4">سرفصل دوره</h4>
           <!-- Timeline Unit Section -->
           <AllUnits
