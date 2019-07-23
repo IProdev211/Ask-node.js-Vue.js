@@ -111,40 +111,11 @@
           </vue-plyr>
         </div>
 
-        <div class="d-flex justify-content-between py-2">
-          <div class="next-episode">
-            <base-button
-              native-type="submit"
-              type="default"
-              class="btn animation-on-hover custom-button"
-            >
-              <i class="fas fa-caret-right pl-2"></i>
-              جلسه بعدی
-            </base-button>
-          </div>
-
-          <div class="unit-complete">
-            <base-button
-              native-type="submit"
-              type="default"
-              class="btn btn-simple animation-on-hover custom-button"
-            >
-              <i class="fas fa-check pl-2"></i>
-              Mark Complete
-            </base-button>
-          </div>
-
-          <div class="previous-episode">
-            <base-button
-              native-type="submit"
-              type="default"
-              class="btn animation-on-hover custom-button"
-            >
-              جلسه قبلی
-              <i class="fas fa-caret-left pr-2"></i>
-            </base-button>
-          </div>
+        <!-- VIDEO BUTTONS -->
+        <div class="video-buttons">
+          <video-buttons />
         </div>
+
         <div class="all-units py-5">
           <h4 class="text-right pr-3 pt-4">سرفصل دوره</h4>
           <!-- Timeline Unit Section -->
@@ -194,6 +165,8 @@
 </template>
 <script>
 import AllUnits from './Components/AllUnits.vue';
+import CustomCard from './Components/CustomCard.vue';
+import VideoButtons from './Components/VideoButtons.vue';
 import moment from 'jalali-moment';
 import backend from '../../backend';
 import time from '../../util/time';
@@ -203,6 +176,8 @@ import Swal from 'sweetalert';
 export default {
   components: {
     AllUnits,
+    CustomCard,
+    VideoButtons,
     modal: Modal
   },
   data() {
