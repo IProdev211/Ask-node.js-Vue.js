@@ -24,9 +24,9 @@
         </div>
       </div>
 
-      <div class="d-flex justify-content-around text-center">
+      <div class="d-flex justify-content-between text-center">
         <div class="card-body pb-4">
-          <router-link to="/quizstartpage">
+          <router-link to="/singlequizlayout">
             <base-button native-type="submit" type="success" class="btn btn-simple">شرکت در امتحان</base-button>
           </router-link>
         </div>
@@ -89,16 +89,13 @@ export default {};
   }
   .btn {
     color: #fff !important;
-    font-size: 1em;
+    font-size: 0.9em;
     border-color: #fff !important;
-    border-color: #fff !important;
-    // padding: 0;
-    // margin: 0;
   }
-  // .btn-custom:hover {
-  //   color: rgb(0, 255, 255) !important;
-  //   box-shadow: transparent !important;
-  // }
+  @media (max-width: 680px) {
+    .btn {
+      font-size: 0.7em;
+    }
+  }
 }
 </style>
-

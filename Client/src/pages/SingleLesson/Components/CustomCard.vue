@@ -64,6 +64,7 @@ export default {};
 }
 
 .title {
+  font-family: IranSansBold;
   font-size: 1.5em;
   color: white !important;
 }

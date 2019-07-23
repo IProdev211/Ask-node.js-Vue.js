@@ -372,6 +372,12 @@ export default {
   }
 }
 
+.custom-button {
+  -webkit-box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
+  -moz-box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
+  box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
+}
+
 .course-image {
   width: 150px;
 }

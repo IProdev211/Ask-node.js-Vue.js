@@ -2,7 +2,7 @@
 <section class="bg">
   <div class="container">
     <div class="row">
-      <div class="d-flex align-items-center justify-content-center pt-5 mr-auto ml-auto">
+      <div class="d-flex align-items-center justify-content-center pt-5 px-2 mr-auto ml-auto">
         <card class="card-register">
           <template slot="header">
             <p class="card-title text-center pt-3 text-default">فرم عضویت</p>

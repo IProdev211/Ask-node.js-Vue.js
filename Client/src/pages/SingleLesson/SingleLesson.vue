@@ -122,6 +122,18 @@
               جلسه بعدی
             </base-button>
           </div>
+
+          <div class="next-question">
+            <base-button
+              native-type="submit"
+              type="default"
+              class="btn btn-simple animation-on-hover custom-button"
+            >
+              <i class="fas fa-check pl-2"></i>
+              Mark Complete
+            </base-button>
+          </div>
+
           <div class="previous-question">
             <base-button
               native-type="submit"
@@ -353,7 +365,7 @@ export default {
 }
 
 .top-banner {
-  background-image: linear-gradient(270deg, #6c0086, #27148f, #6c0086);
+  background-image: linear-gradient(270deg, #351dbd, #b835cc);
 
   .course-title {
     font-size: 1.7rem;
