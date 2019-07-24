@@ -145,7 +145,7 @@
         <span class="font-weight-bold text-danger">{{ course.title }}</span>
       </h5>
       <div slog="body" class="text-right rtl">
-        <p>{{ this.$root._data.user ? "پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب." : "برای ثبت نام در این دوره باید حتما به حساب کاربری اسک آریا وارد شوید" }}</p>
+        <p>پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب.</p>
         <ul class="list-group">
           <li class="list-group-item">
             <strong class="float-right text-dark">قیمت دوره</strong>
@@ -158,7 +158,7 @@
           @click="buyCourseListener"
           native-type="button"
           class="btn-block btn-success d-block w-100"
-        >{{ this.$root._data.user ?  "پرداخت از درگاه" : "ورود" }}</base-button>
+        >پرداخت از درگاه</base-button>
       </div>
     </modal>
   </div>
@@ -167,12 +167,12 @@
 import AllUnits from './Components/AllUnits.vue';
 import CustomCard from './Components/CustomCard.vue';
 import VideoButtons from './Components/VideoButtons.vue';
-
 import moment from 'jalali-moment';
 import backend from '../../backend';
 import time from '../../util/time';
 import { Modal } from 'src/components/index';
 import Swal from 'sweetalert';
+
 export default {
   components: {
     AllUnits,
@@ -223,7 +223,7 @@ export default {
   },
   methods: {
     dataLoad() {
-      if (this.$route.name === 'Single Lesson') {
+      if (this.$route.name === 'Single Lesson Guest') {
         backend
           .get(
             `courses/${this.$route.params.course}/unit-${this.$route.params.unit}`
@@ -279,30 +279,23 @@ export default {
     buyCourseListener(e) {
       e.target.disabled = true;
       e.target.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`;
-      if (this.$root._data.user) {
-        backend.post(`courses/${this.course.id}/buy`).then(
-          response => {
-            e.target.disabled = false;
-            window.location.href = response.data.redirect;
-            e.target.innerHTML = `پرداخت از درگاه`;
-          },
-          response => {
-            e.target.disabled = false;
-            e.target.innerHTML = `پرداخت از درگاه`;
-            Swal({
-              icon: 'error',
-              title: 'خطا',
-              className: 'swal-text-center',
-              text: `ارتباط با سامانه به خوبی برقرار نشد. لطفا اینترنت خود را بررسی کنید.`
-            });
-          }
-        );
-      } else {
-        this.$refs.buymodal.show = false;
-        setTimeout(() => {
-          this.$router.push({name: "Login", query: {backTo: encodeURI(`courses/${this.course.slug}`)}});
-        }, 100);
-      }
+      backend.post(`courses/${this.course.id}/buy`).then(
+        response => {
+          e.target.disabled = false;
+          window.location.href = response.data.redirect;
+          e.target.innerHTML = `پرداخت از درگاه`;
+        },
+        response => {
+          e.target.disabled = false;
+          e.target.innerHTML = `پرداخت از درگاه`;
+          Swal({
+            icon: 'error',
+            title: 'خطا',
+            className: 'swal-text-center',
+            text: `ارتباط با سامانه به خوبی برقرار نشد. لطفا اینترنت خود را بررسی کنید.`
+          });
+        }
+      );
     }
   },
   computed: {
@@ -371,6 +364,12 @@ export default {
   }
 }
 
+.custom-button {
+  -webkit-box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
+  -moz-box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
+  box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
+}
+
 .course-image {
   width: 150px;
 }
@@ -402,12 +401,6 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .custom-button {
-    font-size: 0.9em;
-    font-weight: 0;
-    padding: 10px 10px;
-  }
-
   .icon {
     font-size: 0.9rem;
     display: block;
