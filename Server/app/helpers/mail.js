@@ -1,13 +1,20 @@
 const nodemailer = require('nodemailer');
 
-let transporter = nodemailer.createTransport({
-  host: 'smtp.mailtrap.io',
-  port: 2525,
-  secure: false, // true for 465, false for other ports
-  auth: {
-    user: 'e7f2cb2c732137', // generated ethereal user
-    pass: '47065d1397d59d' // generated ethereal password
-  }
-});
+const options = {
+  host: process.env.NODEMAILER_HOST,
+  port: process.env.NODEMAILER_PORT,
+  secure: process.env.NODEMAILER_SECURE ? true : false,
+};
+
+if (process.env.NODEMAILER_AUTH_USER && process.env.NODEMAILER_AUTH_PASS) {
+  options.auth = {
+    user: process.env.NODEMAILER_AUTH_USER,
+    pass: process.env.NODEMAILER_AUTH_PASS,
+  };
+}
+
+console.log("options", options);
+
+const transporter = nodemailer.createTransport(options);
 
 module.exports = transporter;
