@@ -116,6 +116,7 @@ import VueRecaptcha from 'vue-recaptcha';
 import backend from "../../backend";
 import config from "../../config";
 import { BaseCheckbox } from 'src/components';
+import Swal from 'sweetalert';
 
 
 export default {
@@ -193,13 +194,23 @@ export default {
           errorHandler(response);
           return;
         }
-        this.$root.$data.user = response.data.user;
-        this.$notify({
-          type: 'success',
-          message: `شما با موفقیت ثبت نام کردید!`,
-          icon: 'tim-icons icon-bell-55'
-        });
-        this.$router.push(this.$route.query.backTo || "dashboard");
+        if (typeof response.data.data === "string" && response.data.data === "ایمیل حاوی لینک فعال سازی به ایمیل شما ارسال شد") {
+          Swal({
+            icon: 'success',
+            title: `شما با موفقیت ثبت نام کردید!`,
+            text: 'ایمیل حاوی لینک فعال سازی به ایمیل شما ارسال شد. بعد از تایید آدرس ایمیل میتوانید از قسمت ورود با اطلاعاتی که وارد کردید وارد شوید.',
+            className: 'text-center',
+          });
+        } else {
+          this.$root.$data.user = response.data.user;
+          Swal({
+            icon: 'success',
+            title: `شما با موفقیت ثبت نام کردید!`,
+            className: 'text-center',
+            text: '',
+          });
+          this.$router.push(this.$route.query.backTo || "dashboard");
+        }
       }).catch((error) => {
         this.loading = false;
         errorHandler(error.response);
