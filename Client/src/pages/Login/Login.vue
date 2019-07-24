@@ -37,7 +37,7 @@
           </div>
             
             <div class="text-center">
-              <a href="/auth/google">
+              <a :href="googleAuthUrl">
                 <h4 class="googleicon">
                   <i class="fab fa-google icon "></i>
                 </h4>
@@ -95,6 +95,7 @@ export default {
       remember: false,
       sitekey: config.recaptcha.sitekey,
       recaptcha: "",
+      googleAuthUrl: "/auth/google",
     };
   },
   methods: {
@@ -150,7 +151,7 @@ export default {
           message: `شما با موفقیت وارد شدید!`,
           icon: 'tim-icons icon-bell-55'
         });
-        this.$router.push("dashboard");
+        this.$router.push(this.$route.query.backTo || "dashboard");
       }).catch((error) => {
         this.loading = false;
         errorHandler(error.response);
@@ -159,6 +160,9 @@ export default {
   },
   mounted(){
     this.createRecaptcha();
+    if (this.$route.query.hasOwnProperty("backTo")) {
+      this.googleAuthUrl += `?backTo=${this.$route.query.backTo}`;
+    }
     if (this.$route.query.hasOwnProperty("error") && this.$route.query.error) {
       if ([
         "متاسفانه چنین لینک فعال سازی وجود ندارد",

@@ -174,7 +174,7 @@
         <span class="font-weight-bold text-danger">{{ course.title }}</span>
       </h5>
       <div slog="body" class="text-right rtl">
-        <p>پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب.</p>
+        <p>{{ this.$root._data.user ? "پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب." : "برای ثبت نام در این دوره باید حتما به حساب کاربری اسک آریا وارد شوید" }}</p>
         <ul class="list-group">
           <li class="list-group-item">
             <strong class="float-right text-dark">قیمت دوره</strong>
@@ -187,7 +187,7 @@
           @click="buyCourseListener"
           native-type="button"
           class="btn-block btn-success d-block w-100"
-        >پرداخت از درگاه</base-button>
+        >{{ this.$root._data.user ?  "پرداخت از درگاه" : "ورود" }}</base-button>
       </div>
     </modal>
   </div>
@@ -306,23 +306,30 @@ export default {
     buyCourseListener(e) {
       e.target.disabled = true;
       e.target.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`;
-      backend.post(`courses/${this.course.id}/buy`).then(
-        response => {
-          e.target.disabled = false;
-          window.location.href = response.data.redirect;
-          e.target.innerHTML = `پرداخت از درگاه`;
-        },
-        response => {
-          e.target.disabled = false;
-          e.target.innerHTML = `پرداخت از درگاه`;
-          Swal({
-            icon: 'error',
-            title: 'خطا',
-            className: 'swal-text-center',
-            text: `ارتباط با سامانه به خوبی برقرار نشد. لطفا اینترنت خود را بررسی کنید.`
-          });
-        }
-      );
+      if (this.$root._data.user) {
+        backend.post(`courses/${this.course.id}/buy`).then(
+          response => {
+            e.target.disabled = false;
+            window.location.href = response.data.redirect;
+            e.target.innerHTML = `پرداخت از درگاه`;
+          },
+          response => {
+            e.target.disabled = false;
+            e.target.innerHTML = `پرداخت از درگاه`;
+            Swal({
+              icon: 'error',
+              title: 'خطا',
+              className: 'swal-text-center',
+              text: `ارتباط با سامانه به خوبی برقرار نشد. لطفا اینترنت خود را بررسی کنید.`
+            });
+          }
+        );
+      } else {
+        this.$refs.buymodal.show = false;
+        setTimeout(() => {
+          this.$router.push({name: "Login", query: {backTo: encodeURI(`courses/${this.course.slug}`)}});
+        }, 100);
+      }
     }
   },
   computed: {

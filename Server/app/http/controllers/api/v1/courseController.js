@@ -102,7 +102,7 @@ class courseController extends controller {
         }
       ]);
       if (!course) return this.failed('چنین دوره ای یافت نشد', res, 404);
-      const user = await User.findById(req.user.id);
+      const user = req.user ? await User.findById(req.user.id) : undefined;
       res.json({
         data: {
           course: this.filterCourseData(course, user, true),
@@ -193,7 +193,7 @@ class courseController extends controller {
       episode.updateOne({
         $inc: { viewCount: 1 }
       });
-      const user = await User.findById(req.user.id);
+      const user = req.user ? await User.findById(req.user.id) : undefined;
       res.json({
         data: {
           episode: this.filterEpisodeData(episode, user),
@@ -215,7 +215,7 @@ class courseController extends controller {
       return this.failed('چنین دوره ای یافت نشد', res, 404);
     }
     const course = await Course.findById(req.params.id);
-    if (!course || !course.validateDownload(mac, t)) {
+    if (!course || ! course.id || !course.validateDownload(mac, t)) {
       return this.failed('چنین دوره ای یافت نشد', res, 404);
     }
     const reqo = request(course.videoUrl);
@@ -228,8 +228,14 @@ class courseController extends controller {
     if (!mac || !t || new Date() >= t) {
       return this.failed('چنین درسی یافت نشد', res, 404);
     }
-    const episode = await Episode.findById(req.params.id);
-    if (!episode || !episode.validateDownload(mac, t)) {
+    let episode;
+
+    if (req.user) {
+      episode = await Episode.findById(req.params.id)
+    } else {
+      episode = await Episode.find({type: 'free', id: req.params.id}).exec();
+    }
+    if (! episode || ! episode.id || !episode.validateDownload(mac, t)) {
       return this.failed('چنین درسی یافت نشد', res, 404);
     }
     const reqo = request(episode.videoUrl);

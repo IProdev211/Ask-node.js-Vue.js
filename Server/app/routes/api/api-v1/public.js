@@ -36,4 +36,7 @@ router.get('/blog/:slug', BlogController.bySlug);
 router.get('/courses/:slug', courseController.singleCourse);
 router.get('/courses/:slug/unit-:unit', courseController.singleEpisode);
 
+router.get('/courses/episode/download/:id', courseController.downloadEpisode);
+router.get('/courses/download/:id', courseController.downloadCourse);
+
 module.exports = router;

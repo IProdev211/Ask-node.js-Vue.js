@@ -38,21 +38,21 @@ episodeSchema.methods.typeToPersian = function() {
 };
 
 episodeSchema.methods.download = function(check, user) {
-  if (!check) return '#';
+  const type = this.type.toLowerCase();
+  if (type != 'free' && ! check) return '#';
   let status = false;
-  if (user.admin) {
+  if (type == 'free') {
+    status = true;
+  } else if (user && user.admin) {
     status = true;
   } else {
-    const type = this.type.toLowerCase();
-    if (type == 'free') {
-      status = true;
-    } else if (type == 'vip') {
+    if (type == 'vip') {
       status = user.isVip();
     } else if (type == 'paid') {
       status = user.checkLearning(this.course);
     }
   }
-  if (!status) {
+  if (! status) {
     return '#';
   }
   let timestamps = new Date().getTime() + 3600 * 1000 * 12;

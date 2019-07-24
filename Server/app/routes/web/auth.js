@@ -15,6 +15,8 @@ const loginValidator = require('app/http/validators/loginValidator');
 const forgotPasswordValidator = require('app/http/validators/forgotPasswordValidator');
 const resetPasswordValidator = require('app/http/validators/resetPasswordValidator');
 
+let backTo = "dashboard";
+
 // Home Routes
 router.get('/login', loginController.showLoginForm);
 router.post('/login', loginValidator.handle(), loginController.loginProccess);
@@ -42,7 +44,12 @@ router.post(
 
 router.get(
   '/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] })
+  (req, res, next) => {
+    if (req.query.hasOwnProperty("backTo")) {
+      backTo = req.query.backTo;
+    }
+    return passport.authenticate('google', { scope: ['profile', 'email'] })(req, res, next);
+  },
 );
 router.get(
   '/google/callback',
@@ -68,7 +75,7 @@ router.get(
       });
     }
     loginLog.save();
-    res.redirect(config.siteurl + '/dashboard');
+    res.redirect(config.siteurl + `/${backTo}`);
   }
 );
 
