@@ -64,7 +64,7 @@
               </div>
               <div class="pull-left">
                 <h6>
-                  <router-link class="link footer-link" to="/register">فرم عضویت</router-link>
+                  <router-link class="link footer-link" :to="registerUrl">فرم عضویت</router-link>
                 </h6>
               </div>
               </div>
@@ -96,6 +96,7 @@ export default {
       sitekey: config.recaptcha.sitekey,
       recaptcha: "",
       googleAuthUrl: "/auth/google",
+      registerUrl: "/register"
     };
   },
   methods: {
@@ -162,6 +163,7 @@ export default {
     this.createRecaptcha();
     if (this.$route.query.hasOwnProperty("backTo")) {
       this.googleAuthUrl += `?backTo=${this.$route.query.backTo}`;
+      this.registerUrl += `?backTo=${this.$route.query.backTo}`;
     }
     if (this.$route.query.hasOwnProperty("error") && this.$route.query.error) {
       if ([

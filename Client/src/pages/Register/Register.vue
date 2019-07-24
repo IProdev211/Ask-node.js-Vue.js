@@ -45,7 +45,7 @@
             </div>
             <div class="row d-flex justify-content-around">
               <div class="text-center pb-3">
-                <a href="/auth/google">
+                <a :href="googleAuthUrl">
                   <h4 class="googleicon">
                     <i class="fab fa-google icon"></i>
                   </h4>
@@ -133,7 +133,8 @@ export default {
       loading: false,
       terms: false,
       sitekey: config.recaptcha.sitekey,
-      recaptcha: ""
+      recaptcha: "",
+      googleAuthUrl: "/auth/google",
     };
   },
   methods: {
@@ -198,7 +199,7 @@ export default {
           message: `شما با موفقیت ثبت نام کردید!`,
           icon: 'tim-icons icon-bell-55'
         });
-        this.$router.push("dashboard");
+        this.$router.push(this.$route.query.backTo || "dashboard");
       }).catch((error) => {
         this.loading = false;
         errorHandler(error.response);
@@ -207,6 +208,9 @@ export default {
   },
   mounted(){
     this.createRecaptcha();
+    if (this.$route.query.hasOwnProperty("backTo")) {
+      this.googleAuthUrl += `?backTo=${this.$route.query.backTo}`;
+    }
   },
   destroyed() {
     document.getElementById('recaptchaScript').remove();
