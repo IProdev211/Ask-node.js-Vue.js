@@ -2,7 +2,7 @@
 <section class="bg">
   <div class="container">
     <div class="row">
-      <div class="d-flex align-items-center justify-content-center ml-auto mr-auto pt-5">
+      <div class="d-flex align-items-center justify-content-center ml-auto mr-auto px-3 pt-5">
         <form @submit="checkForm">
           <card class="card-login">
             <template slot="header">

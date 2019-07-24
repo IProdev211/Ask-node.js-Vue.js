@@ -142,10 +142,10 @@
     <modal ref="buymodal" centered="true" footerClasses="justify-content-center" type="notice">
       <h5 slot="header" class="modal-title">
         خرید دوره:
-        <span class="font-weight-bold text-danger">{{ course.title }}</span>
+        <span class="course-title-modal text-danger">{{ course.title }}</span>
       </h5>
       <div slog="body" class="text-right rtl">
-        <p>{{ this.$root._data.user ? "پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب." : "برای ثبت نام در این دوره باید حتما به حساب کاربری اسک آریا وارد شوید" }}</p>
+        <p>{{ this.$root._data.user ? "پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب." : "برای ثبت نام در این دوره باید حتما به حساب کاربری اسک آریا وارد شوید." }}</p>
         <ul class="list-group">
           <li class="list-group-item">
             <strong class="float-right text-dark">قیمت دوره</strong>
@@ -337,6 +337,10 @@ export default {
   .swal-text {
     text-align: center !important;
   }
+}
+
+.course-title-modal {
+  font-family: IranSansDNBold;
 }
 
 .top-banner {
