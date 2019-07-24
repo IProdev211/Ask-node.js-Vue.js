@@ -32,7 +32,29 @@ class episodeValidator extends validator {
       check('number')
         .not()
         .isEmpty()
-        .withMessage('شماره جلسه نمیتواند خالی بماند')
+        .withMessage('شماره جلسه نمیتواند خالی بماند'),
+
+      check('time')
+        .not()
+        .isEmpty()
+        .withMessage('طول فیلم نمیتواند خالی بماند')
+        .custom(async (value, { req }) => {
+          const matches = value.match(/^(\d{2})\:(\d{2})\:(\d{2})$/);
+          if (! matches) {
+            throw new Error(
+              'طول فیلم را به فرمت HH:MM:SS وارد کنید.'
+            );
+          }
+          if (matches[3] > 59) {
+            throw new Error(
+              'ثانیه نمیتواند مقداری بیشتراز 59 داشته باشد'
+            );
+          } else if (matches[2] > 59) {
+            throw new Error(
+              'دقیقه نمیتواند مقداری بیشتراز 59 داشته باشد'
+            );
+          }
+        }),
     ];
   }
 

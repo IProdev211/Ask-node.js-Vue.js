@@ -208,6 +208,25 @@ export default {
 				this.fieldErrors.xp = 'امتیاز درس مورد نیاز است.';
 				haveError = true;
 			}
+			if (this.data.time) {
+				const matches = this.data.time.match(/^(\d{2})\:(\d{2})\:(\d{2})$/);
+				let message = "";
+				if (! matches) {
+					message = 'طول فیلم را به فرمت HH:MM:SS وارد کنید.';
+				} else if (matches[3] > 59) {
+					message = 'ثانیه نمیتواند مقداری بیشتراز 59 داشته باشد';
+				} else if (matches[2] > 59) {
+					message = 'دقیقه نمیتواند مقداری بیشتراز 59 داشته باشد';
+				}
+				if (message) {
+					this.$notify({
+						type: 'warning',
+						message: message,
+						icon: 'tim-icons icon-bell-55'
+					});
+					haveError = true;
+				}
+			}
 			if (! this.data.type) {
 				this.fieldErrors.type = 'نوع درس مورد نیاز است.';
 				this.$notify({

@@ -89,11 +89,11 @@ export default {
       const time = this.time.split(':', 3);
       let minutes = 0;
       for (let i = 0; i < time.length; i++) {
-        minutes += Math.ceil(
+        minutes += Math.round(
           parseInt(time[i]) * Math.pow(60, time.length - i - 2)
         );
       }
-      return minutes;
+      return Math.max(minutes, 1);
     },
     isVip() {
       return this.type.toLowerCase() === 'vip';
