@@ -63,7 +63,7 @@ module.exports = class controller {
     const min = Math.floor((seconds % 3600) / 60);
     const second = Math.floor((seconds % 3600) % 60);
     return (
-      (hour > 0 ? (hour <= 9 ? '0' + hour : hour) + ':' : '') +
+      (hour > 0 ? (hour <= 9 ? '0' + hour : hour) + ':' : '00:') +
       (min <= 9 ? '0' + min : min) +
       ':' +
       (second <= 9 ? '0' + second : second)

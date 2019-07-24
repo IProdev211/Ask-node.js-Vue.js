@@ -18,11 +18,10 @@ const episodeSchema = Schema(
     commentCount: { type: Number, default: 0 },
     xp: { type: Number, default: 0 }
   },
-  { timestamps: true }
+  { timestamps: true, toJSON: { virtuals: true } }
 );
 
 episodeSchema.plugin(mongoosePaginate);
-
 episodeSchema.methods.typeToPersian = function() {
   switch (this.type) {
     case 'paid':
@@ -80,5 +79,7 @@ episodeSchema.methods.inc = async function(field, num = 1) {
   this[field] += num;
   await this.save();
 };
+
+
 
 module.exports = mongoose.model('Episode', episodeSchema);

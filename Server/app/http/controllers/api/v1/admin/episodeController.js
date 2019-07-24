@@ -1,5 +1,6 @@
 const controller = require('app/http/controllers/api/controller');
 const Episode = require('app/models/episode');
+const Course = require('app/models/course');
 const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
@@ -89,7 +90,8 @@ class episodeController extends controller {
   }
   async update(req, res, next) {
     if (!(await this.validationData(req, res))) return;
-    const episode = await Episode.findById(req.params.episode).exec();
+    const episode = await Episode.findById(req.params.episode).populate("course").exec();
+
     if (!episode) {
       this.failed('چنین دوره ای وجود ندارد', res, 404);
       return;
@@ -149,6 +151,12 @@ class episodeController extends controller {
         );
       }
     }
+    const ctime = this.timeToSeconds(episode.course.time);
+    const petime = this.timeToSeconds(episode.time);
+    const etime = this.timeToSeconds(newEpisode.time);
+    await Course.findByIdAndUpdate(episode.course.id, {
+      $set: { time: this.secondsToTime((ctime - petime) + etime) }
+    })
     return res.json({
       data: {
         episode: this.filterEpisodeData(newEpisode)
