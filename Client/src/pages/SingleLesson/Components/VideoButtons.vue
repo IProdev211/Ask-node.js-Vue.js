@@ -1,11 +1,13 @@
 <template>
   <section class="container">
     <div class="d-flex justify-content-between py-2">
-      <div class="next-episode">
+      <div class="next-episode" v-if="next">
         <base-button
           native-type="submit"
           type="default"
           class="btn animation-on-hover custom-button"
+          @click.prevent="nextEpisodeListener"
+          :loading="loadingNext"
         >
           <i class="fas fa-caret-right pl-2"></i>
           جلسه بعدی
@@ -23,11 +25,13 @@
         </base-button>
       </div>
 
-      <div class="previous-episode">
+      <div class="previous-episode" v-if="prev">
         <base-button
           native-type="submit"
           type="default"
           class="btn animation-on-hover custom-button"
+          @click.prevent="prevEpisodeListener"
+          :loading="loadingPrev"
         >
           جلسه قبلی
           <i class="fas fa-caret-left pr-2"></i>
@@ -38,7 +42,22 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    next: Boolean,
+    prev: Boolean,
+    loadingNext: Boolean,
+    loadingPrev: Boolean,
+  },
+  methods: {
+    nextEpisodeListener(e) {
+      this.$emit("nextLesson");
+    },
+    prevEpisodeListener(e) {
+      this.$emit("prevLesson");
+    },
+  }
+};
 </script>
 
 <style lang="scss" scoped>

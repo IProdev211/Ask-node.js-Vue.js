@@ -102,7 +102,7 @@ export default {
     },
     mustBuy(type) {
       return (
-        ['cash', 'paid'].indexOf(type.toLowerCase()) != -1 && !this.purchased
+        ['cash', 'paid', 'vip'].indexOf(type.toLowerCase()) != -1 && !this.purchased
       );
     },
     throwClickEvent() {
