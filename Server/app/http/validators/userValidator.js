@@ -22,10 +22,12 @@ class userValidator extends validator {
       }),
 
       check('avatar').custom(async (value, { req }) => {
-        if (value === undefined) return;
-
-        let fileExt = ['.png', '.jpg', '.jpeg', '.svg'];
-        if (!fileExt.includes(path.extname(value)))
+        if (req.file === undefined) return;
+        if (req.file.size > 1024 * 1024 * 10) {
+          throw new Error('حجم تصویر نمیتواند بیشتر از 10 مگابایت باشد');
+        }
+        const fileExt = ['.png', '.jpg', '.jpeg', '.svg'];
+        if (!fileExt.includes(path.extname(req.file.originalname)))
           throw new Error('پسوند فایل وارد شده از پسوندهای تصاویر نیست');
       }),
 
@@ -35,7 +37,7 @@ class userValidator extends validator {
         .withMessage('فیلد نام کاربر نمیتواند خالی بماند'),
 
       check('xp').custom(async (value, { req }) => {
-        if (value === undefined) return;
+        if (value === undefined || value === "undefined" || ! value) return;
         if (parseInt(value, 10) < 0)
           throw new Error('امتیاز کاربر نمیتواند کمتر از 0 باشد');
       }),
@@ -48,9 +50,7 @@ class userValidator extends validator {
         .withMessage('کلمه عبور نمیتواند کمتر از 8 کاراکتر باشد'),
 
       check('vipTime').custom(async (value, { req }) => {
-        if (!value) {
-          return;
-        }
+        if (value === undefined || value === "undefined" || ! value) return;
         const date = moment(value);
         if (!date.isValid()) {
           throw new Error('مقدار وارد شده برای پایان زمان VIP نامعتبر است.');
@@ -58,9 +58,7 @@ class userValidator extends validator {
         req.body.vipTime = date.toISOString();
       }),
       check('vipFrom').custom(async (value, { req }) => {
-        if (!value) {
-          return;
-        }
+        if (value === undefined || value === "undefined" || ! value) return;
         const date = moment(value);
         if (!date.isValid()) {
           throw new Error('مقدار وارد شده برای شروع زمان VIP نامعتبر است.');
@@ -68,7 +66,7 @@ class userValidator extends validator {
         req.body.vipFrom = date.toISOString();
       }),
       check('course').custom(async (value, { req }) => {
-        if (value === undefined) return;
+        if (value === undefined || value === "undefined" || ! value) return;
         const course = await Course.findById(value);
         if (!course) {
           throw new Error('دوره مشخص شده نامعتبر است');
@@ -95,10 +93,12 @@ class userValidator extends validator {
       }),
 
       check('avatar').custom(async (value, { req }) => {
-        if (value === undefined) return;
-
-        let fileExt = ['.png', '.jpg', '.jpeg', '.svg'];
-        if (!fileExt.includes(path.extname(value)))
+        if (req.file === undefined) return;
+        if (req.file.size > 1024 * 1024 * 10) {
+          throw new Error('حجم تصویر نمیتواند بیشتر از 10 مگابایت باشد');
+        }
+        const fileExt = ['.png', '.jpg', '.jpeg', '.svg'];
+        if (!fileExt.includes(path.extname(req.file.originalname)))
           throw new Error('پسوند فایل وارد شده از پسوندهای تصاویر نیست');
       }),
 
@@ -108,12 +108,12 @@ class userValidator extends validator {
         .withMessage('فیلد نام کاربر نمیتواند خالی بماند'),
 
       check('xp').custom(async (value, { req }) => {
-        if (value === undefined) return;
+        if (value === undefined || value === "undefined" || ! value) return;
         if (value < 0) throw new Error('امتیاز کاربر نمیتواند کمتر از 0 باشد');
       }),
 
       check('password').custom(async (value, { req }) => {
-        if (value === undefined) return;
+        if (value === undefined || value === "undefined" || ! value) return;
         if (value.length < 8) {
           throw new Error('کلمه عبور نمیتواند کمتر از 8 کاراکتر باشد');
         }
@@ -141,7 +141,7 @@ class userValidator extends validator {
           req.body.vipFrom = value.toDate().toISOString();
         }),
       check('course').custom(async (value, { req }) => {
-        if (value === undefined) return;
+        if (value === undefined || value === "undefined" || ! value) return;
         const course = await Course.findById(value);
         if (!course) {
           throw new Error('دوره مشخص شده نامعتبر است');

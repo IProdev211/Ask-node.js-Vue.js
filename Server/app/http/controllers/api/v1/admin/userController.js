@@ -92,9 +92,10 @@ class userController extends controller {
       learning
     });
     await newUser.save();
+    let payment;
     if (course) {
-      const payment = new Payment({
-        user: user.id,
+      payment = new Payment({
+        user: newUser.id,
         course: course.id,
         resnumber: ' ',
         price: 0,
@@ -115,7 +116,7 @@ class userController extends controller {
                 {
                   id: course.id,
                   title: course.title,
-                  signupDate: updatedAt
+                  signupDate: payment.updatedAt
                 }
               ]
             : []
