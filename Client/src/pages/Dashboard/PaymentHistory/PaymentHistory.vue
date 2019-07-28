@@ -79,13 +79,24 @@ export default {
     tableData() {
       const data = [];
       for (const payment of this.payments.docs) {
+        let product = '';
+        if (payment.course) {
+          product = payment.course.title;
+        } else if (payment.vip) {
+          if (! payment.vipMonth) {
+            if (payment.price === 39000) {
+              payment.vipMonth = 1;
+            } else if (payment.price === 139000) {
+              payment.vipMonth = 4;
+            } else if (payment.price === 309000) {
+              payment.vipMonth = 12;
+            }
+          }
+          product = `${payment.vipMonth} ماه عضویت ویژه`;
+        }
         data.push({
           id: payment.id,
-          product: payment.course
-            ? payment.course.title
-            : payment.vip
-            ? 'VIP subscription'
-            : '',
+          product: product,
           price: new Intl.NumberFormat().format(
             parseInt(payment.price.toString().replace(',', ''), 10)
           ),

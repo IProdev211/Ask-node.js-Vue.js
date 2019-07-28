@@ -15,8 +15,8 @@
       <div class="col-md-3 dropdown-prices my-auto">
         <base-dropdown title="عضویت" title-classes="btn btn-default px-5">
           <a class="dropdown-item" href="#" @click.prevent="payment">ماهانه - 39 هزار تومان</a>
-          <a class="dropdown-item" href="#" @click.prevent="payment">۴ ماهه - 139 هزار تومان</a>
-          <a class="dropdown-item" href="#" @click.prevent="payment">یکساله - 309 هزار تومان</a>
+          <a class="dropdown-item" href="#" @click.prevent="payment(4)">۴ ماهه - 139 هزار تومان</a>
+          <a class="dropdown-item" href="#" @click.prevent="payment(12)">یکساله - 309 هزار تومان</a>
         </base-dropdown>
       </div>
     </div>
@@ -49,8 +49,7 @@ export default {
     };
   },
   methods: {
-    payment(e) {
-      const plan = e.target.getAttribute('data-plan');
+    payment(plan = 1) {
       backend.post('/vip/payment', { plan }).then(response => {
         if (response.data.status == 'success') {
           window.location.href = response.data.redirect;

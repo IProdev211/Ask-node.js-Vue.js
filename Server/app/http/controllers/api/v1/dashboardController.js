@@ -125,13 +125,15 @@ class dashboardController extends controller {
   async vipPayment(req, res) {
     try {
       let price;
-
+      let vipMonth = 1;
       switch (req.body.plan) {
-        case '4':
+        case 4:
           price = 139000;
+          vipMonth = 4;
           break;
-        case '12':
+        case 12:
           price = 309000;
+          vipMonth = 12;
           break;
         default:
           price = 39000;
@@ -151,7 +153,8 @@ class dashboardController extends controller {
           user: req.user.id,
           vip: true,
           resnumber: response.authority,
-          price: price
+          price: price,
+          vipMonth: vipMonth,
         });
         await payment.save();
         return res.json({
