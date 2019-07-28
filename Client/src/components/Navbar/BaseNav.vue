@@ -122,7 +122,7 @@ export default {
   },
   methods: {
     toggleMenu() {
-      this.$emit('change', !this.show);
+      this.show = !this.show;
     },
     onTransitionStart() {
       this.transitionFinished = false;
@@ -130,7 +130,12 @@ export default {
     onTransitionEnd() {
       this.transitionFinished = true;
     }
-  }
+  },
+  watch:{
+    $route (to, from){
+      this.show = false;
+    },
+  },
 };
 </script>
 <style></style>
