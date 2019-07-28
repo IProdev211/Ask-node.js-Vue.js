@@ -5,16 +5,16 @@
         <img class="card-img-top" :src="image" :alt="name" />
         <div class="category">{{ categories.length ? categories.pop().name : "" }}</div>
         <div class="card-body">
-          <h3 class="card-title text-center py-2">{{ name }}</h3>
-          <div class="d-flex justify-content-between px-1 blog-info">
-            <div>
-              <span class="pl-2">{{ publishedAt }}</span>
-              <i class="far fa-calendar-alt"></i>
-            </div>
-            <span>
+          <h3 class="card-title text-center pb-2">{{ name }}</h3>
+          <div class="d-flex justify-content-between px-3 blog-info">
+            <span class="blog-info">
               {{views}}
               <i class="fa fa-eye"></i>
             </span>
+            <div class="blog-info">
+              <span class="pl-2">{{ publishedAt }}</span>
+              <i class="far fa-calendar-alt"></i>
+            </div>
           </div>
         </div>
       </div>
@@ -63,6 +63,11 @@ export default {
   background: rgb(241, 241, 241);
   border-radius: 0 0 20px 20px;
 }
+
+.blog-info {
+  color: rgba(0, 0, 0, 0.4);
+}
+
 .home-blog .card:hover {
   -webkit-box-shadow: 0 10px 30px -5px rgb(107, 107, 107);
   box-shadow: 0 15px 35px -5px rgba(95, 95, 95, 0.658);

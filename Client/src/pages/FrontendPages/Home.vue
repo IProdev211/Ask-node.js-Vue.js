@@ -7,10 +7,24 @@
         <!-- <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p> -->
 
         <p
-          class="text-center hero-subtitle py-3"
+          class="text-center hero-subtitle py-3 hero-large"
         >باور ما اینست که کاربران ایرانی لایق بهترین ها هستند و باید بهترین و بروزترین فیلم های آموزشی و مقالات در اختیار آنها قرار بگیرد تا بتوانند به سرعت پیشرفت کنند و جزء بهترین ها شوند. با ما همراه باشید تا بهترین ها رو لایق بهترین کاربران کنیم.</p>
-        <div class="pt-4 d-flex justify-content-center">
-          <div class="pt-3 text-center">
+
+        <p
+          class="text-center hero-subtitle py-3 hero-small"
+        >با ما همراه باشید تا بهترین ها رو لایق بهترین کاربران کنیم.</p>
+
+        <!-- <div class="text-center pt-2">
+          <router-link to="dashboard">
+            <base-button
+              native-type="submit"
+              type="warning"
+              class="btn animation-on-hover"
+            >ورود به پنل کاربری</base-button>
+          </router-link>
+        </div>-->
+        <div class="pt-4 d-flex justify-content-center text-center">
+          <div>
             <router-link to="dashboard">
               <base-button
                 native-type="submit"
@@ -19,7 +33,7 @@
               >ورود به پنل کاربری</base-button>
             </router-link>
           </div>
-          <div class="pt-3 pr-1 text-center">
+          <!-- <div class="pt-3 pr-1 text-center">
             <router-link to="dashboard">
               <base-button
                 native-type="submit"
@@ -28,8 +42,8 @@
                 v-scroll-to="{ el: '#blog', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
               >مقالات آموزشی</base-button>
             </router-link>
-          </div>
-          <div class="pt-3 pr-1 text-center">
+          </div>-->
+          <div class="pr-3">
             <router-link to="allcourses">
               <base-button
                 native-type="submit"
@@ -203,17 +217,26 @@ export default {
 }
 
 .hero-content-homepage {
-  background: linear-gradient(to left, #7020c0cb, #4762dad5),
+  // background: linear-gradient(to left, #a916cee0, #4762dad5),
+  //   url(/img/frontend/london-bg-opt.jpg);
+
+  // background: linear-gradient(to right, #f193fbe5, #f5576cde),
+  //   url(/img/frontend/london-bg-opt.jpg);
+
+  background: linear-gradient(to left, #7028e4dc, #e5b2cade),
     url(/img/frontend/london-bg-opt.jpg);
 
   background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
-  height: 70vh;
+  background-position: bottom;
+  height: 60vh;
   width: 100%;
 
   .hero-text-section {
-    padding: 15vh 10%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 10%;
   }
 
   .hero-title {
@@ -227,45 +250,74 @@ export default {
   }
 
   .hero-subtitle {
-    font-size: 1.3em;
+    font-size: 1.4em;
     text-shadow: 1px 1px #79797949;
-
+    line-height: 1.6em;
     font-family: IranSansDN;
-    color: #fff !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+  }
+  .hero-small {
+    display: none;
+  }
+
+  .btn {
+    font-weight: inherit;
+    border-radius: 30px;
+    padding: 14px 25px;
+    font-size: 1.1em;
+    font-family: IranSansBold;
   }
 }
 
 @media (max-width: 680px) {
   .hero-content-homepage {
-    // background: linear-gradient((180deg, #631fa381, #53535328)),
+    // background: linear-gradient((180deg, #30076186), #00000046),
     //   url(/img/frontend/london-bg-opt.jpg);
 
-    background: linear-gradient((180deg, #30076186), #00000046),
+    background: linear-gradient(to left, #6723d4e5, #e5b2cad0),
       url(/img/frontend/london-bg-opt.jpg);
 
     background-size: cover;
-    background-position: cover;
+    background-position: right;
     min-height: 50vh;
     position: relative;
 
     .hero-text-section {
-      padding: 7vh 2em !important;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0 10%;
+      text-align: right !important;
+    }
+
+    .hero-small {
+      display: block;
+    }
+
+    .hero-large {
+      display: none;
     }
 
     .btn {
-      font-size: 0.74rem;
-      padding: 10px 7px;
+      font-weight: inherit;
+      border-radius: 30px;
+      padding: 14px 25px;
+      font-size: 0.94em;
+      font-family: IranSansBold;
     }
 
     .hero-title {
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       line-height: inherit;
       color: #fff !important;
     }
     .hero-subtitle {
-      font-size: 1.1em;
-      color: #fff !important;
-      padding: 20px 0;
+      font-size: 1.3em;
+      color: rgba(255, 255, 255, 0.877) !important;
+      text-align: right !important;
+      line-height: 1.5em !important;
+      padding-left: 4em;
     }
   }
   .top-courses-section {
