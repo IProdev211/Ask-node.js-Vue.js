@@ -113,7 +113,11 @@
 
         <!-- VIDEO BUTTONS -->
         <div class="video-buttons">
-          <video-buttons />
+          <video-buttons :next="next" :prev="prev"
+          v-on:nextLesson="nextLessonListener"
+          v-on:prevLesson="prevLessonListener"
+          :loadingNext="loadingNext"
+          :loadingPrev="loadingPrev"/>
         </div>
 
         <div class="all-units py-5">
@@ -218,7 +222,13 @@ export default {
       type: '',
       body: '',
       download: '',
-      canClose: true
+      canClose: true,
+      next: true,
+      prev: true,
+      nextEpisode: undefined,
+      prevEpisode: undefined,
+      loadingNext: false,
+      loadingPrev: false,
     };
   },
   methods: {
@@ -238,9 +248,28 @@ export default {
             this.type = this.episode.type.toLowerCase();
             this.body = this.episode.body;
             this.download = this.episode.download;
-            if (this.notEnrolled) {
-              this.openBuyCourse();
+            this.next = false;
+            this.nextEpisode = undefined;
+            if (this.episode.number == 1) {
+              this.prev = false;
+              this.prevEpisode = undefined;
             }
+            for (let i = 0; i < this.course.episodes.length; i++) {
+              if (this.course.episodes[i].number > this.episode.number) {
+                this.next = true;
+                this.nextEpisode = this.course.episodes[i];
+                if (i > 0) {
+                  this.prev = true;
+                  this.prevEpisode = this.course.episodes[i - 1];
+                }
+                break;
+              }
+            }
+            this.loadingNext = false;
+            this.loadingPrev = false;
+          }, err => {
+            this.loadingNext = false;
+            this.loadingPrev = false;
           });
       } else {
         backend.get(`courses/${this.$route.params.slug}`).then(response => {
@@ -252,6 +281,17 @@ export default {
           this.type = this.course.type;
           this.body = this.course.body;
           this.download = this.course.download;
+          this.prev = false;
+          this.next = false;
+          if (this.course.episodes.length) {
+            this.next = true;
+            this.nextEpisode = this.course.episodes[0];
+          }
+          this.loadingNext = false;
+          this.loadingPrev = false;
+        }, err => {
+          this.loadingNext = false;
+          this.loadingPrev = false;
         });
       }
     },
@@ -302,6 +342,28 @@ export default {
         setTimeout(() => {
           this.$router.push({name: "Login", query: {backTo: encodeURI(`courses/${this.course.slug}`)}});
         }, 100);
+      }
+    },
+    nextLessonListener(e) {
+      if (! this.next) {
+        return;
+      }
+      if (['cash', 'paid', 'vip'].indexOf(this.nextEpisode.type.toLowerCase()) > 0 && this.notEnrolled) {
+        this.openBuyCourse();
+      } else {
+        this.loadingNext = true;
+        this.$router.push('/courses/' + this.course.slug + '/unit-' + this.nextEpisode.number);
+      }
+    },
+    prevLessonListener(e) {
+      if (! this.prev) {
+        return;
+      }
+      if (['cash', 'paid', 'vip'].indexOf(this.prevEpisode.type.toLowerCase()) > 0 && this.notEnrolled) {
+        this.openBuyCourse();
+      } else {
+        this.loadingPrev = true;
+        this.$router.push('/courses/' + this.course.slug + '/unit-' + this.prevEpisode.number);
       }
     }
   },
