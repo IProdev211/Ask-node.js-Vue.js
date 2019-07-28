@@ -4,8 +4,6 @@
     <section class="hero-content-homepage">
       <div class="hero-text-section text-center">
         <h1 class="hero-title pb-3">آیا میخواهید مثل یک بومی انگلیسی حرف بزنید؟</h1>
-        <!-- <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p> -->
-
         <p
           class="text-center hero-subtitle py-3 hero-large"
         >باور ما اینست که کاربران ایرانی لایق بهترین ها هستند و باید بهترین و بروزترین فیلم های آموزشی و مقالات در اختیار آنها قرار بگیرد تا بتوانند به سرعت پیشرفت کنند و جزء بهترین ها شوند. با ما همراه باشید تا بهترین ها رو لایق بهترین کاربران کنیم.</p>
@@ -14,16 +12,7 @@
           class="text-center hero-subtitle py-3 hero-small"
         >با ما همراه باشید تا بهترین ها رو لایق بهترین کاربران کنیم.</p>
 
-        <!-- <div class="text-center pt-2">
-          <router-link to="dashboard">
-            <base-button
-              native-type="submit"
-              type="warning"
-              class="btn animation-on-hover"
-            >ورود به پنل کاربری</base-button>
-          </router-link>
-        </div>-->
-        <div class="pt-4 d-flex justify-content-center text-center">
+        <div class="pt-3 d-flex justify-content-center text-center">
           <div>
             <router-link to="dashboard">
               <base-button
@@ -33,16 +22,7 @@
               >ورود به پنل کاربری</base-button>
             </router-link>
           </div>
-          <!-- <div class="pt-3 pr-1 text-center">
-            <router-link to="dashboard">
-              <base-button
-                native-type="submit"
-                type="default"
-                class="btn animation-on-hover"
-                v-scroll-to="{ el: '#blog', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
-              >مقالات آموزشی</base-button>
-            </router-link>
-          </div>-->
+
           <div class="pr-3">
             <router-link to="allcourses">
               <base-button
@@ -89,7 +69,11 @@
           <p class="text-right top-section-header pt-1">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
         <div class="row pt-4">
-          <div class="col-lg-3 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
+          <div
+            class="col-lg-3 col-md-6 col-sm-12"
+            v-for="course in topCourses"
+            v-bind:key="course.id"
+          >
             <Course v-bind="course"></Course>
           </div>
         </div>
@@ -110,11 +94,6 @@
     <div class="pt-5">
       <ImprovementBanner1></ImprovementBanner1>
     </div>
-
-    <!-- Our Courses Section
-    <div id="element">
-      <our-courses></our-courses>
-    </div>-->
 
     <!-- Blog Section-->
     <div id="blog" class="blog-section pb-2">
@@ -280,11 +259,10 @@ export default {
     background-size: cover;
     background-position: right;
     min-height: 50vh;
-    position: relative;
 
     .hero-text-section {
       position: relative;
-      top: 50%;
+      top: 60%;
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 0 10%;
@@ -302,8 +280,8 @@ export default {
     .btn {
       font-weight: inherit;
       border-radius: 30px;
-      padding: 14px 25px;
-      font-size: 0.94em;
+      padding: 14px 15px;
+      font-size: 0.9em;
       font-family: IranSansBold;
     }
 
@@ -321,17 +299,50 @@ export default {
     }
   }
   .top-courses-section {
-    padding: 0 9%;
+    padding: 0 11%;
   }
 
   .top-courses-section {
     .top-section-header {
       font-size: 1em !important;
     }
+  }
+}
 
+@media (max-width: 480px) {
+  .hero-content-homepage {
+    // background: linear-gradient((180deg, #30076186), #00000046),
+    //   url(/img/frontend/london-bg-opt.jpg);
+
+    background: linear-gradient(to left, #6723d4e5, #e5b2cad0),
+      url(/img/frontend/london-bg-opt.jpg);
+
+    background-size: cover;
+    background-position: right;
+    min-height: 70vh;
+
+    .hero-text-section {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0 10%;
+      text-align: right !important;
+    }
     .btn {
-      padding: 8px 18px;
-      margin: 0;
+      font-weight: inherit;
+      border-radius: 30px;
+      padding: 10px 12px;
+      font-size: 0.85em;
+      font-family: IranSansBold;
+    }
+    .hero-title {
+      font-size: 2.3rem;
+      line-height: inherit;
+      color: #fff !important;
+    }
+    .hero-subtitle {
+      padding-left: 2em;
     }
   }
 }

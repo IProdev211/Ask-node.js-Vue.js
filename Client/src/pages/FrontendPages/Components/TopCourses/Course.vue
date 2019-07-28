@@ -3,30 +3,30 @@
     <router-link :to="'courses/' + slug">
       <div class="CourseCard hover">
         <div>
-          <img class="CourseCard__courseimage" :src="thumb">
+          <img class="CourseCard__courseimage" :src="thumb" />
         </div>
         <div>
           <h4 class="text-center course-title pt-3">{{ title }}</h4>
         </div>
-        <hr class="fadeline">
+        <hr class="fadeline" />
         <div class="bottom-section">
           <div class="CourseCard__course__info d-flex justify-content-between text-center py-1">
             <div>
               <p class="courseTime">
                 {{ minutes }}
-                <br>
+                <br />
                 <span class="courseTimeSpan">دقیقه ویدیو</span>
               </p>
             </div>
             <div>
               <p class="unitsAvailable">
                 {{ episodes }}
-                <br>
+                <br />
                 <span class="unitsAvailableSpan">درس گفتار</span>
               </p>
             </div>
           </div>
-          <hr class="fadeline" v-if="! purchased">
+          <hr class="fadeline" v-if="! purchased" />
           <div class="px-4 py-3 text-center" v-if="! purchased">
             <div class="row">
               <div class="col-12 text-center pricehighlight" v-if="isVip">اعضای ویژه</div>
@@ -42,8 +42,8 @@
         </div>
 
         <div class="buyCourse text-center" v-if="! purchased">
-          <hr class="fadeline2">
-          <p class="buyCourseTitle pb-1">تهیه دوره‌</p>
+          <hr class="fadeline2" />
+          <p class="buyCourseTitle py-2">تهیه دوره‌</p>
         </div>
       </div>
     </router-link>
@@ -306,6 +306,15 @@ export default {
 
   .unitsAvailable {
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricehighlight {
+    font-size: 0.75rem;
+  }
+  .course-title {
+    font-size: 0.83rem;
   }
 }
 </style>

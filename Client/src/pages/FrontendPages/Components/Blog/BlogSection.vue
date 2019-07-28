@@ -5,7 +5,7 @@
       <p class="subtitle text-right">مقالات به‌روز و کاربردی برای افزایش سطح دانش شما</p>
       <div class="row mt-5">
         <div
-          class="col-lg-3 col-md-4 col-sm-6 blog-section"
+          class="col-lg-3 col-md-6 col-sm-12 blog-section"
           v-for="post in posts"
           v-bind:key="post.id"
         >
@@ -40,7 +40,7 @@ export default {
 // }
 @media (max-width: 680px) {
   .blog-section {
-    padding: 0 20%;
+    padding: 0 11%;
   }
 }
 
