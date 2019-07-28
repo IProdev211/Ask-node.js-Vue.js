@@ -14,7 +14,7 @@
 
         <div class="pt-3 d-flex justify-content-center text-center">
           <div>
-            <router-link to="dashboard">
+            <router-link to="login">
               <base-button
                 native-type="submit"
                 type="warning"
@@ -78,12 +78,11 @@
           </div>
         </div>
         <div class="pt-3">
-          <router-link to="#">
+          <router-link to="allcourses">
             <base-button
               native-type="submit"
               type="default"
-              class="btn btn-sm animation-on-hover"
-              v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
+              class="btn animation-on-hover"
             >مشاهده همه دوره ها</base-button>
           </router-link>
         </div>
@@ -207,12 +206,15 @@ export default {
 
   background-size: cover;
   background-position: bottom;
-  height: 60vh;
+  height: 55vh !important;
   width: 100%;
+  // clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3vw));
 
   .hero-text-section {
     position: relative;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 0 10%;
@@ -229,7 +231,7 @@ export default {
   }
 
   .hero-subtitle {
-    font-size: 1.4em;
+    font-size: 1.3em;
     text-shadow: 1px 1px #79797949;
     line-height: 1.6em;
     font-family: IranSansDN;
@@ -255,14 +257,16 @@ export default {
 
     background: linear-gradient(to left, #6723d4e5, #e5b2cad0),
       url(/img/frontend/london-bg-opt.jpg);
-
     background-size: cover;
     background-position: right;
-    min-height: 50vh;
+    min-height: 40vh !important;
+    // clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3vw));
 
     .hero-text-section {
       position: relative;
-      top: 60%;
+      top: 45%;
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 0 10%;
@@ -319,11 +323,11 @@ export default {
 
     background-size: cover;
     background-position: right;
-    min-height: 70vh;
+    height: 65vh !important;
 
     .hero-text-section {
       position: relative;
-      top: 50%;
+      top: 43%;
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 0 10%;
@@ -337,12 +341,14 @@ export default {
       font-family: IranSansBold;
     }
     .hero-title {
-      font-size: 2.3rem;
+      font-size: 2em;
       line-height: inherit;
       color: #fff !important;
+      padding-top: 35px;
     }
     .hero-subtitle {
-      padding-left: 2em;
+      padding-left: 1.4em;
+      font-size: 1.1em;
     }
   }
 }
