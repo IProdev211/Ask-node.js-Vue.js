@@ -151,6 +151,14 @@ export default {
     BlogSection,
     ImprovementBanner1,
     ImprovementBanner2
+  },
+  metaInfo: {
+    title: 'Ask Arya English',
+    titleTemplate: '%s - Learn English Like a Native, From a Natvie!',
+    htmlAttrs: {
+      lang: 'fa',
+      amp: true
+    }
   }
 };
 </script>
@@ -167,14 +175,13 @@ export default {
   //  background: linear-gradient((180deg, #0e001f86), #00000046),
   //   url(/img/frontend/london-bg-opt.jpg);
 
-  background: linear-gradient((180deg, #3c0c7794), #00000046),
+  background: linear-gradient(to left, #7020c0cb, #4762dad5),
     url(/img/frontend/london-bg-opt.jpg);
 
   background-size: cover;
-  background-position: bottom;
+  background-position: top;
   background-repeat: no-repeat;
-  min-height: 60vh;
-  position: relative;
+  height: 70vh;
   width: 100%;
 
   .hero-text-section {

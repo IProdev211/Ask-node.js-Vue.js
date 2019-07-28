@@ -9,7 +9,7 @@ import CKEditor from '@ckeditor/ckeditor5-vue';
 import VuePlyr from 'vue-plyr';
 var VueScrollTo = require('vue-scrollto');
 import NProgress from 'nprogress';
-// import VueParticles from 'vue-particles';
+import VueMeta from 'vue-meta';
 // import ElementUI from 'element-ui';
 
 // plugin setup
@@ -18,7 +18,7 @@ Vue.use(VueScrollTo);
 Vue.use(CKEditor);
 Vue.use(VuePlyr);
 Vue.use(NProgress);
-// Vue.use(VueParticles);
+Vue.use(VueMeta);
 // Vue.use(ElementUI);
 
 import 'vue-plyr/dist/vue-plyr.css';
