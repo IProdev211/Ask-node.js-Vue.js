@@ -138,6 +138,9 @@ const ResetPassword = () =>
 const Lock = () =>
   import(/* webpackChunkName: "pages" */ 'src/pages/Layouts/Lock/Lock.vue');
 
+const NotFoundPage = () =>
+  import(/* webpackChunkName: "pages" */ 'src/pages/Layouts/NotFound/NotFoundPage.vue');
+
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
@@ -403,7 +406,8 @@ const routes = [
         }
       }
     ]
-  }
+  },
+  { path: "*", component: NotFoundPage }
 ];
 
 export default routes;
