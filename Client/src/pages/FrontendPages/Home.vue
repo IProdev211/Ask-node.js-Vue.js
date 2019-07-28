@@ -152,14 +152,47 @@ export default {
     ImprovementBanner1,
     ImprovementBanner2
   },
+
   metaInfo: {
     title: 'Ask Arya English',
-    titleTemplate: '%s - Learn English Like a Native, From a Natvie!',
+    titleTemplate: '%s ← Learn English Like a Native, From a Native!',
     htmlAttrs: {
       lang: 'fa',
       amp: true
     }
-  }
+  },
+  metaInfo: {
+    meta: [
+      // OpenGraph data (Most widely used)
+      { property: 'og:title', content: 'Ask Arya English' },
+      { property: 'og:site_name', content: 'Ask Arya English' },
+      // The list of types is available here: http://ogp.me/#types
+      { property: 'og:type', content: 'website' },
+      // Should the the same as your canonical link, see below.
+      {
+        property: 'og:url',
+        content: 'https://www.askarya.ir/'
+      },
+      {
+        property: 'og:image',
+        content: 'https://www.askarya.ir/img/askarya-logo.png'
+      },
+      // Often the same as your meta description, but not always.
+      {
+        property: 'og:description',
+        content:
+          'زبان آموز برای درک درست مفاهیم زبان، یادگیری کاربردی جملات و اصطلاحات نیاز به تمرین در محیطی سازنده همراه با استادی نیتیو و با تجربه دارد. ما این محیط را برای شما فراهم کرده ایم.'
+      },
+      // Google / Schema.org markup:
+      { itemprop: 'name', content: 'Ask Arya English' },
+      {
+        itemprop: 'description',
+        content:
+          'زبان آموز برای درک درست مفاهیم زبان، یادگیری کاربردی جملات و اصطلاحات نیاز به تمرین در محیطی سازنده همراه با استادی نیتیو و با تجربه دارد. ما این محیط را برای شما فراهم کرده ایم.'
+      }
+    ]
+  },
+  link: [{ rel: 'canonical', href: 'https://www.askarya.ir/' }]
 };
 </script>
 
@@ -170,11 +203,6 @@ export default {
 }
 
 .hero-content-homepage {
-  // background: linear-gradient((#6b5b5b81)), url(/img/frontend/london-bg-opt.jpg);
-
-  //  background: linear-gradient((180deg, #0e001f86), #00000046),
-  //   url(/img/frontend/london-bg-opt.jpg);
-
   background: linear-gradient(to left, #7020c0cb, #4762dad5),
     url(/img/frontend/london-bg-opt.jpg);
 

@@ -12,5 +12,8 @@ backend.interceptors.request.use(config => {
 backend.interceptors.response.use(response => {
   NProgress.done();
   return response;
+}, err => {
+  NProgress.done();
+  throw err;
 });
 export default backend;

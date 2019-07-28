@@ -47,6 +47,8 @@ router.get(
   (req, res, next) => {
     if (req.query.hasOwnProperty("backTo")) {
       backTo = req.query.backTo;
+    } else {
+      backTo = "dashboard";
     }
     return passport.authenticate('google', { scope: ['profile', 'email'] })(req, res, next);
   },
