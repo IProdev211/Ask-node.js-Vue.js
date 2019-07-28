@@ -45,7 +45,7 @@ export default {
 
 <style lang="scss" scoped>
 .item-section {
-  padding-right: 8em;
+  padding-right: 3em;
 }
 
 @media (max-width: 680px) {

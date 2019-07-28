@@ -18,12 +18,12 @@
           <a :class="getNavClass('home')">{{ 'خانه' }}</a>
         </router-link>
 
-        <router-link class="nav-item" tag="li" to="/privateclasses">
-          <a :class="getNavClass('privateclasses')">{{ 'کلاس های حضوری' }}</a>
-        </router-link>
-
         <router-link class="nav-item" tag="li" to="/allcourses">
           <a :class="getNavClass('allcourses')">{{ 'آموزش های غیر حضوری' }}</a>
+        </router-link>
+
+        <router-link class="nav-item" tag="li" to="/privateclasses">
+          <a :class="getNavClass('privateclasses')">{{ 'کلاس های حضوری' }}</a>
         </router-link>
 
         <router-link class="nav-item" tag="li" to="/comingsoon">
