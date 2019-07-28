@@ -65,7 +65,8 @@ class userController extends controller {
         .toString()
         .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'),
       learning: payments.courses,
-      xp: user.xp || 0
+      xp: user.xp || 0,
+      active: user.active
     };
   }
   async store(req, res) {
@@ -81,7 +82,7 @@ class userController extends controller {
       learning.push(course.id);
       delete req.body.course;
     }
-    let { name, email, password, xp } = req.body;
+    let { name, email, password, xp, active} = req.body;
 
     const newUser = new User({
       name: name,
@@ -89,6 +90,7 @@ class userController extends controller {
       password: password,
       xp: xp || 0,
       avatar: avatar || null,
+      active: active,
       learning
     });
     await newUser.save();

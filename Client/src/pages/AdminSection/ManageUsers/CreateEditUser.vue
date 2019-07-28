@@ -115,7 +115,7 @@
 									</div>
 
 									<div class="col-md-2">
-										<base-checkbox class="mb-3">
+										<base-checkbox class="mb-3" v-model="data.active">
     										Activate User Account
 										</base-checkbox>
 									</div>
@@ -182,6 +182,7 @@ export default {
 		'learning',
 		'vipTime',
 		'vipFrom',
+		"active",
 	],
 	components: {
 		[Option.name]: Option,
@@ -203,6 +204,7 @@ export default {
 				vipTime: undefined,
 				vipFrom: undefined,
 				course: undefined,
+				active: false,
 			},
 			fieldErrors: {},
 			formErrors: {},
@@ -236,6 +238,7 @@ export default {
 			this.data.vipTime = "";
 			this.data.vipFrom = "";
 			this.data.course = "";
+			this.data.active = false;
 			this.image = undefined;
 			this.$emit("reset");
 		},
@@ -303,6 +306,7 @@ export default {
 				data.append("vipTime", this.data.vipTime);
 				data.append("vipFrom", this.data.vipFrom);
 				data.append("course", this.data.course);
+				data.append("active", this.data.active);
 			} else {
 				data = {
 					name: this.data.name,
@@ -311,6 +315,7 @@ export default {
 					vipFrom: this.data.vipFrom,
 					course: this.data.course,
 					xp: this.data.xp !== undefined ? this.data.xp : 0,
+					active: this.data.active,
 				};
 				if (this.data.password) {
 					data.password = this.data.password;
@@ -376,7 +381,10 @@ export default {
 				return;
 			}
 			this.data.vipFrom = moment(newValue).format('YYYY/MM/DD');
-		}
+		},
+		active: function(val, oldValue) {
+			this.data.active = val;
+		},
 	}
 };
 </script>

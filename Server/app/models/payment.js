@@ -9,7 +9,8 @@ const paymentSchema = Schema(
     vip: { type: Boolean, default: false },
     resnumber: { type: String, required: true },
     price: { type: Number, required: true },
-    payment: { type: Boolean, default: false }
+    payment: { type: Boolean, default: false },
+    vipMonth: {type: Number, default: null},
   },
   { timestamps: true, toJSON: { virtuals: true } }
 );
