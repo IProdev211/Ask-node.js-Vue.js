@@ -64,6 +64,9 @@ class dashboardController extends controller {
     if (avatar) {
       user.avatar = avatar;
     }
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
 
     try {
       await user.save();

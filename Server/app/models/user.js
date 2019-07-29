@@ -26,10 +26,12 @@ const userSchema = Schema(
 userSchema.plugin(mongoosePaginate);
 
 userSchema.pre('save', function(next) {
-  let salt = bcrypt.genSaltSync(15);
-  let hash = bcrypt.hashSync(this.password, salt);
-
-  this.password = hash;
+  if (this.isModified("password")) {
+    let salt = bcrypt.genSaltSync(15);
+    let hash = bcrypt.hashSync(this.password, salt);
+  
+    this.password = hash;
+  }
   next();
 });
 

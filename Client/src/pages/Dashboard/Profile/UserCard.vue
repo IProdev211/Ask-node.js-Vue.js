@@ -75,6 +75,8 @@
               <base-input
                 type="password"
                 placeholder="پسورد جدید خود را وارد کنید"
+                v-model="password"
+                :error="fieldErrors.password"
               ></base-input>
             </div>
             <div class="col-md-3 pt-3">
@@ -116,7 +118,7 @@ export default {
       email: this.$root.$data.user.email,
       lang: this.$root.$data.user.lang,
       avatar: null,
-
+      password: "",
     };
   },
   computed: {
@@ -141,6 +143,10 @@ export default {
         this.fieldErrors.name = 'نام مورد نیاز';
         haveError = true;
       }
+      if (this.password && this.password.length < 8) {
+        this.fieldErrors.password = 'کلمه عبور نمیتواند کمتر از 8 حرف باشد';
+        haveError = true;
+      }
       if (haveError) {
         return;
       }
@@ -157,6 +163,9 @@ export default {
       formData.append("lang", this.lang);
       if (this.avatar) {
         formData.append("avatar", this.avatar, this.avatar.name);
+      }
+      if (this.password) {
+        formData.append("password", this.password);
       }
       backend.put("profile", formData).then((response) => {
         this.loading = false;
