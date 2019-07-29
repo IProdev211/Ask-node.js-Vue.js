@@ -32,6 +32,10 @@ export default {
       return moment(this.createdAt)
         .locale('fa')
         .format('YYYY-MM-DD');
+    },
+    isLtr: function() {
+      const regex = /[\u0590-\u083F]|[\u08A0-\u08FF]|[\uFB1D-\uFDFF]|[\uFE70-\uFEFF]/gm;
+      return !regex.test(this.name.trim());
     }
   }
 };
@@ -89,11 +93,12 @@ export default {
 .home-blog .category {
   border-radius: 10px;
   position: absolute;
-  padding: 10px 25px;
-  margin: 10px;
-  color: rgb(26, 26, 26) !important;
-  background-color: #f3f3f3 !important;
-  font-size: 0.85em !important;
+  padding: 3px 10px;
+  margin: 8px;
+  color: rgb(211, 211, 211) !important;
+  background-color: #505050 !important;
+  font-family: Arial, Helvetica, sans-serif;
+  // font-size: 0.85em !important;
 }
 .home-blog .card:hover .card-title {
   color: #000285;

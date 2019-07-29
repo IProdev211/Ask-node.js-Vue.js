@@ -54,8 +54,8 @@ export default {
 <style lang="scss" scoped>
 .heading-section {
   padding: 2.5em 0;
-  background-color: #1703ad;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='37' height='37' viewBox='0 0 90 90'%3E%3Ccircle fill-opacity='0.07' fill='%23ffffff' cx='45' cy='45' r='7'/%3E%3Cg fill='%23ffffff' fill-opacity='0.07'%3E%3Ccircle cx='0' cy='90' r='10'/%3E%3Ccircle cx='90' cy='90' r='10'/%3E%3Ccircle cx='90' cy='0' r='10'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: #0abcf9;
+  background-image: linear-gradient(135deg, #0abcf9 0%, #2c69d1 74%);
 }
 
 @media only screen and (min-width: 700px) {
@@ -63,7 +63,7 @@ export default {
     padding: 2em 3.5em;
   }
   .blog-img {
-    width: 13rem;
+    width: 12rem;
   }
 }
 
@@ -72,7 +72,7 @@ export default {
 }
 
 .blog-img {
-  width: 10em;
-  height: 10em;
+  width: 9em;
+  height: 9em;
 }
 </style>

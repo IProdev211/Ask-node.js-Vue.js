@@ -201,8 +201,8 @@ export default {
   background-position: bottom;
   height: 55vh !important;
   width: 100%;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3vw));
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 2vw));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 2vw));
 
   .hero-text-section {
     position: relative;
