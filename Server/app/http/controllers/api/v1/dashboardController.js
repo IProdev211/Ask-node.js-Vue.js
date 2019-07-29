@@ -12,7 +12,7 @@ class dashboardController extends controller {
     let page = req.query.page || 1;
     const promises = [
       Episode.countDocuments().exec(),
-      Episode.countDocuments({ _id: { $in: req.user.learning } }).exec(),
+      Episode.countDocuments({ course: { $in: req.user.learning } }).exec(),
       Payment.paginate(
         { user: req.user.id },
         {
