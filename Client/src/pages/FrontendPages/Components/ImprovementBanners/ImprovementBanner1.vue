@@ -1,7 +1,7 @@
 <template>
-  <section class="bg text-right">
-    <div class="container">
-      <div class="text-block">
+  <section class="container">
+    <div class="card">
+      <div class="text-section">
         <h2 class="pb-5">آیا تغییرات مورد نظر را در خودتان نمیبینید؟</h2>
         <p class="main-text">
           یک چند ماهی هست که کلاس های زبانت رو شروع کردی. خب تا یک جاهایی خوب پیش میره، شما حس میکنید که در مکالمه، لغات و گرامر دارید پیشرفت میکنید.
@@ -20,52 +20,43 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.bg {
+.white-content .card:not(.card-white) {
+  border-radius: 30px;
   background: linear-gradient(270deg, #0d032cde, #18012be0),
     url(/img/frontend/confused-banner.svg) no-repeat;
   background-position: bottom left;
   background-size: cover;
-  padding: 6% 0;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3vw));
+  -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.4);
+  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2);
 }
-
-@media (max-width: 970px) {
-  .bg {
-    background: linear-gradient(270deg, #0d032cde, #18012be0),
-      url(/img/frontend/confused-banner.svg) no-repeat;
-    background-position: left bottom;
-    background-size: cover;
-    padding: 3em 0;
-  }
-
-  // .text-block {
-  //   padding-left: 15px;
-  //   padding-right: 15px;
-  // }
+.text-section {
+  text-align: right;
+  padding: 3.6em;
 
   h2 {
-    font-size: 1.5em !important;
+    color: #fff !important;
+    line-height: inherit !important;
+    font-family: IranSansBold;
+    padding: 0;
+    margin: 0;
   }
 
   .main-text {
-    font-size: 1.1em !important;
+    color: #fff !important;
+    line-height: inherit !important;
+    font-size: 1.15em;
   }
 }
-
-h2 {
-  font-size: 1.6rem;
-  color: #fff !important;
-  line-height: inherit !important;
-  font-family: IranSansBold;
-  padding: 0;
-  margin: 0;
-}
-
-.main-text {
-  font-size: 1.15rem;
-  color: #fff !important;
-  line-height: inherit !important;
+@media (max-width: 680px) {
+  .text-section {
+    padding: 2em;
+    h2 {
+      font-size: 1.6em;
+    }
+    .main-text {
+      font-size: 1.1em;
+    }
+  }
 }
 </style>
 

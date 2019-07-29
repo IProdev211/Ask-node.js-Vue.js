@@ -63,7 +63,7 @@
     </div>-->
 
     <!-- Top Courses Section -->
-    <div class="container pt-5">
+    <div class="container py-5">
       <div class="top-courses-section">
         <div class="d-flex justify-content-between">
           <p class="text-right top-section-header pt-1">پیشنهادهای ویژه اسک آریا برای شما</p>
@@ -89,7 +89,7 @@
       </div>
     </div>
 
-    <!--Improvement Banner Section-->
+    <!--Improvement Banner 1-->
     <div class="pt-5">
       <ImprovementBanner1></ImprovementBanner1>
     </div>
@@ -99,8 +99,8 @@
       <blog-section v-bind="{posts: topPosts}"></blog-section>
     </div>
 
-    <!--Improvement Banner Section-->
-    <div>
+    <!--Improvement Banner 2-->
+    <div class="py-4">
       <ImprovementBanner2></ImprovementBanner2>
     </div>
 
@@ -195,20 +195,12 @@ export default {
 }
 
 .hero-content-homepage {
-  // background: linear-gradient(to left, #a916cee0, #4762dad5),
-  //   url(/img/frontend/london-bg-opt.jpg);
-
-  // background: linear-gradient(to right, #f193fbe5, #f5576cde),
-  //   url(/img/frontend/london-bg-opt.jpg);
-
   background: linear-gradient(to left, #7028e4dc, #e5b2cade),
     url(/img/frontend/london-bg-opt.jpg);
-
   background-size: cover;
   background-position: bottom;
   height: 55vh !important;
   width: 100%;
-  // clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3vw));
 
