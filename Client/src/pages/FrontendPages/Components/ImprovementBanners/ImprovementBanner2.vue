@@ -1,14 +1,14 @@
 <template>
-  <section class="bg text-right">
-    <div class="container">
-      <div class="text-block">
+  <section class="container">
+    <div class="card">
+      <div class="text-section">
         <h2 class="pb-5">راه حل؟ دوره های آموزشی مجازی اسک آریا.</h2>
         <p class="main-text">
           هدف اسک آریا یاددهی درست و اصولی به زبان آموزان است، آموختن با برنامه اصولی و کارآمد.
-          <br>
-          <br>به احتمال زیاد تا به حال بسیاری از شما در کلاس های آموزش زبان شرکت کرده اید و یا اکنون هم در حال گذراندن دوره های مربوط به خود هستید، اما بعد از مدتی متوجه عدم پیشرفت خود شده اید، چرا که بسیاری از زبان آموزان به اشتباه فکر میکنند شرکت در این کلاس ها کافی بوده و با تکیه بر آن سعی در ارتقاء سطح زبان خود دارند، در صورتی که این تنها کافی نیست.
-          <br>
-          <br>زبان آموز برای درک درست مفاهیم زبان، یادگیری کاربردی جملات و اصطلاحات نیاز به تمرین در محیطی سازنده همراه با استادی نیتیو و با تجربه دارد. ما این محیط را برای شما فراهم کرده ایم.
+          <br />
+          <br />به احتمال زیاد تا به حال بسیاری از شما در کلاس های آموزش زبان شرکت کرده اید و یا اکنون هم در حال گذراندن دوره های مربوط به خود هستید، اما بعد از مدتی متوجه عدم پیشرفت خود شده اید، چرا که بسیاری از زبان آموزان به اشتباه فکر میکنند شرکت در این کلاس ها کافی بوده و با تکیه بر آن سعی در ارتقاء سطح زبان خود دارند، در صورتی که این تنها کافی نیست.
+          <br />
+          <br />زبان آموز برای درک درست مفاهیم زبان، یادگیری کاربردی جملات و اصطلاحات نیاز به تمرین در محیطی سازنده همراه با استادی نیتیو و با تجربه دارد. ما این محیط را برای شما فراهم کرده ایم.
         </p>
       </div>
     </div>
@@ -20,52 +20,43 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.bg {
-  background: linear-gradient(135deg, #1abc9cef 20%, #297fb9ef 80%),
-    url(/img/frontend/hero-bg-opt.png) repeat;
-  background-position: center;
-  background-size: cover;
+.white-content .card:not(.card-white) {
+  border-radius: 30px;
+  background-color: #0abcf9;
+  background-image: linear-gradient(035deg, #0abcf9 0%, #2c69d1 74%);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
 
-h2 {
-  font-size: 1.7em;
-  line-height: inherit !important;
-  color: #fff !important;
-  font-family: IranSansBold;
-  padding: 0;
-  margin: 0;
-}
+.text-section {
+  text-align: right;
+  padding: 3.6em;
 
-.main-text {
-  font-size: 1.3em;
-  line-height: inherit !important;
-  color: #fff !important;
-}
-
-.text-block {
-  padding: 5% 0;
-}
-
-@media (max-width: 900px) {
-  .bg {
-    background: linear-gradient(135deg, #1abc9cea 20%, #297fb9ea 80%),
-      url(/img/frontend/hero-bg-opt.png) repeat;
-    background-position: right;
-    background-size: cover;
-    padding: 5% 0;
-  }
-
-  .text-black {
-    color: rgb(255, 255, 255) !important;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
   h2 {
-    font-size: 1.2rem !important;
+    color: #fff !important;
+    line-height: inherit !important;
+    font-family: IranSansBold;
+    padding: 0;
+    margin: 0;
   }
 
   .main-text {
-    font-size: 0.9rem !important;
+    color: #fff !important;
+    line-height: inherit !important;
+    font-size: 1.15em;
+  }
+}
+@media (max-width: 680px) {
+  .text-section {
+    padding: 2em;
+    h2 {
+      font-size: 1.6em;
+    }
+    .main-text {
+      font-size: 1.1em;
+    }
   }
 }
 </style>
