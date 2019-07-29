@@ -143,7 +143,7 @@ export default {
         }
       ],
       pagination: {
-        perPage: 5,
+        perPage: 15,
         currentPage: 1,
         perPageOptions: [5, 10, 15, 20, 25],
         total: 0,

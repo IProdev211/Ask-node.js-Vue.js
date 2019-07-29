@@ -32,64 +32,46 @@
           aria-expanded="true"
         >
           <div class="row d-flex align-items-center d-lg-none">
+            <!-- <i class="fas fa-home pl-2"></i> -->
             <li class="nav-link">
               <router-link to="/home" class="nav-item dropdown-item">خانه</router-link>
             </li>
             <div class="w-100"></div>
 
-            <li class="nav-link">
-              <router-link to="/privateclasses" class="nav-item dropdown-item">کلاس های حضوری</router-link>
-            </li>
-            <div class="w-100"></div>
-
-            <li class="nav-link">
-              <router-link to="/allcourses" class="nav-item dropdown-item">آموزش های غیر حضوری</router-link>
-            </li>
-            <div class="w-100"></div>
-
-            <li class="nav-link">
-              <router-link to="/contact" class="nav-item dropdown-item">تماس با ما</router-link>
-            </li>
-            <div class="w-100"></div>
-
-            <hr class="hr-line" />
-
-            <div class="w-100"></div>
-
             <!-- DASHBOARD MENU ITEMS -->
 
-            <i class="fas fa-id-badge pl-2"></i>
+            <!-- <i class="fas fa-id-badge pl-2"></i> -->
             <li class="nav-link">
               <router-link to="/dashboard" class="nav-item dropdown-item">پنل کاربری</router-link>
             </li>
             <div class="w-100"></div>
 
-            <i class="fas fa-university pl-2"></i>
+            <!-- <i class="fas fa-university pl-2"></i> -->
             <li class="nav-link">
               <router-link to="/courses" class="nav-item dropdown-item">دوره های آموزشی</router-link>
             </li>
             <div class="w-100"></div>
 
-            <i class="i-custom fas fa-graduation-cap pl-2"></i>
+            <!-- <i class="i-custom fas fa-graduation-cap pl-2"></i> -->
             <li class="nav-link">
               <router-link to="/mycourses" class="nav-item dropdown-item">در حال یادگیری</router-link>
             </li>
             <div class="w-100"></div>
 
-            <i class="far fa-check-square pl-2"></i>
+            <!-- <i class="far fa-check-square pl-2"></i> -->
             <li class="nav-link">
               <router-link to="/quizzes" class="nav-item dropdown-item">امتحان ها</router-link>
             </li>
             <div class="w-100"></div>
 
-            <i class="fas fa-tools pl-2"></i>
+            <!-- <i class="fas fa-tools pl-2"></i> -->
             <li class="nav-link">
               <router-link to="/managementpage" class="nav-item dropdown-item">پنل مدیریت</router-link>
             </li>
             <div class="w-100"></div>
 
             <!-- LOGOUT BUTTON -->
-            <div class="pr-3 profile-link-text">
+            <div class="logout-button">
               <router-link class="nav-item dropdown-item" to="#" @click.native="logoutListener">خروج</router-link>
             </div>
           </div>
@@ -104,7 +86,6 @@
 import { CollapseTransition } from 'vue2-transitions';
 import { BaseNav, Modal } from '@/components';
 // import SidebarToggleButton from './SidebarToggleButton';
-// import backend from '../../../backend';
 import { ZoomCenterTransition } from 'vue2-transitions';
 
 export default {
@@ -123,12 +104,6 @@ export default {
     isRTL() {
       return this.$rtl.isRTL;
     }
-    // userAvatar() {
-    //   return (
-    //     (this.$root.$data.user ? this.$root.$data.user.avatar : undefined) ||
-    //     '/img/default-avatar.png'
-    //   );
-    // }
   },
   data() {
     return {
@@ -200,12 +175,12 @@ export default {
 };
 </script>
 <style lang="scss">
+.logout-button {
+  font-family: IranSansBold;
+}
 .navbar .navbar-brand {
   color: #000000;
   font-family: IranSansBold;
-}
-.hr-line {
-  border-top: 1px solid black;
 }
 
 @media (max-width: 991.98px) {
@@ -214,9 +189,6 @@ export default {
     margin-left: 4px;
     margin-right: 9px !important;
   }
-}
-.i-custom {
-  margin-right: 6px !important;
 }
 
 .dropdown-item.active {
@@ -230,13 +202,14 @@ export default {
 }
 
 .navbar-nav li a {
-  font-size: 1.04em;
+  font-size: 1em;
   color: #000000;
 }
 
 .navbar-nav li a {
-  padding: 0 9px 0 0 !important;
-  font-size: 1em;
+  padding: 0 15px 0 0 !important;
+  font-size: 1.05em;
+  text-align: right;
 }
 
 .navbar.bg-white .navbar-brand {
@@ -262,13 +235,12 @@ export default {
 }
 
 .navbar-nav li a {
-  padding: 9px 0 !important;
+  padding: 15px 0 !important;
 }
 
 .white-content .navbar.navbar-transparent .navbar-brand {
   color: #1d253b;
   font-family: IranSansBold;
-  // padding-right: 15px;
 }
 
 .rtl .dropdown-toggle:after {

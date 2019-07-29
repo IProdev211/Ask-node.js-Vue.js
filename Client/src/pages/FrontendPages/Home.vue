@@ -4,14 +4,17 @@
     <section class="hero-content-homepage">
       <div class="hero-text-section text-center">
         <h1 class="hero-title pb-3">آیا میخواهید مثل یک بومی انگلیسی حرف بزنید؟</h1>
-        <!-- <p class="hero-subtitle">با ما همراه باشید تا بهترین ها را به شما عزیزان تقدیم کنیم.</p> -->
+        <p
+          class="text-center hero-subtitle py-3 hero-large"
+        >باور ما اینست که کاربران ایرانی لایق بهترین ها هستند و باید بهترین و بروزترین فیلم های آموزشی و مقالات در اختیار آنها قرار بگیرد تا بتوانند به سرعت پیشرفت کنند و جزء بهترین ها شوند. با ما همراه باشید تا بهترین ها رو لایق بهترین کاربران کنیم.</p>
 
         <p
-          class="text-center hero-subtitle py-3"
-        >باور ما اینست که کاربران ایرانی لایق بهترین ها هستند و باید بهترین و بروزترین فیلم های آموزشی و مقالات در اختیار آنها قرار بگیرد تا بتوانند به سرعت پیشرفت کنند و جزء بهترین ها شوند. با ما همراه باشید تا بهترین ها رو لایق بهترین کاربران کنیم.</p>
-        <div class="pt-4 d-flex justify-content-center">
-          <div class="pt-3 text-center">
-            <router-link to="dashboard">
+          class="text-center hero-subtitle py-3 hero-small"
+        >با ما همراه باشید تا بهترین ها رو لایق بهترین کاربران کنیم.</p>
+
+        <div class="pt-3 d-flex justify-content-center text-center">
+          <div>
+            <router-link to="login">
               <base-button
                 native-type="submit"
                 type="warning"
@@ -19,17 +22,8 @@
               >ورود به پنل کاربری</base-button>
             </router-link>
           </div>
-          <div class="pt-3 pr-1 text-center">
-            <router-link to="dashboard">
-              <base-button
-                native-type="submit"
-                type="default"
-                class="btn animation-on-hover"
-                v-scroll-to="{ el: '#blog', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
-              >مقالات آموزشی</base-button>
-            </router-link>
-          </div>
-          <div class="pt-3 pr-1 text-center">
+
+          <div class="pr-3">
             <router-link to="allcourses">
               <base-button
                 native-type="submit"
@@ -75,17 +69,20 @@
           <p class="text-right top-section-header pt-1">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
         <div class="row pt-4">
-          <div class="col-lg-3 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
+          <div
+            class="col-lg-3 col-md-6 col-sm-12"
+            v-for="course in topCourses"
+            v-bind:key="course.id"
+          >
             <Course v-bind="course"></Course>
           </div>
         </div>
         <div class="pt-3">
-          <router-link to="#">
+          <router-link to="allcourses">
             <base-button
               native-type="submit"
               type="default"
-              class="btn btn-sm animation-on-hover"
-              v-scroll-to="{ el: '#element', duration: 950, easing: 'linear', offset: -30, force: true, cancelable: true, }"
+              class="btn animation-on-hover"
             >مشاهده همه دوره ها</base-button>
           </router-link>
         </div>
@@ -96,11 +93,6 @@
     <div class="pt-5">
       <ImprovementBanner1></ImprovementBanner1>
     </div>
-
-    <!-- Our Courses Section
-    <div id="element">
-      <our-courses></our-courses>
-    </div>-->
 
     <!-- Blog Section-->
     <div id="blog" class="blog-section pb-2">
@@ -152,14 +144,47 @@ export default {
     ImprovementBanner1,
     ImprovementBanner2
   },
+
   metaInfo: {
     title: 'Ask Arya English',
-    titleTemplate: '%s - Learn English Like a Native, From a Natvie!',
+    titleTemplate: '%s ← Learn English Like a Native, From a Native!',
     htmlAttrs: {
       lang: 'fa',
       amp: true
     }
-  }
+  },
+  metaInfo: {
+    meta: [
+      // OpenGraph data (Most widely used)
+      { property: 'og:title', content: 'Ask Arya English' },
+      { property: 'og:site_name', content: 'Ask Arya English' },
+      // The list of types is available here: http://ogp.me/#types
+      { property: 'og:type', content: 'website' },
+      // Should the the same as your canonical link, see below.
+      {
+        property: 'og:url',
+        content: 'https://www.askarya.ir/'
+      },
+      {
+        property: 'og:image',
+        content: 'https://www.askarya.ir/img/askarya-logo.png'
+      },
+      // Often the same as your meta description, but not always.
+      {
+        property: 'og:description',
+        content:
+          'زبان آموز برای درک درست مفاهیم زبان، یادگیری کاربردی جملات و اصطلاحات نیاز به تمرین در محیطی سازنده همراه با استادی نیتیو و با تجربه دارد. ما این محیط را برای شما فراهم کرده ایم.'
+      },
+      // Google / Schema.org markup:
+      { itemprop: 'name', content: 'Ask Arya English' },
+      {
+        itemprop: 'description',
+        content:
+          'زبان آموز برای درک درست مفاهیم زبان، یادگیری کاربردی جملات و اصطلاحات نیاز به تمرین در محیطی سازنده همراه با استادی نیتیو و با تجربه دارد. ما این محیط را برای شما فراهم کرده ایم.'
+      }
+    ]
+  },
+  link: [{ rel: 'canonical', href: 'https://www.askarya.ir/' }]
 };
 </script>
 
@@ -170,22 +195,29 @@ export default {
 }
 
 .hero-content-homepage {
-  // background: linear-gradient((#6b5b5b81)), url(/img/frontend/london-bg-opt.jpg);
-
-  //  background: linear-gradient((180deg, #0e001f86), #00000046),
+  // background: linear-gradient(to left, #a916cee0, #4762dad5),
   //   url(/img/frontend/london-bg-opt.jpg);
 
-  background: linear-gradient(to left, #7020c0cb, #4762dad5),
+  // background: linear-gradient(to right, #f193fbe5, #f5576cde),
+  //   url(/img/frontend/london-bg-opt.jpg);
+
+  background: linear-gradient(to left, #7028e4dc, #e5b2cade),
     url(/img/frontend/london-bg-opt.jpg);
 
   background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
-  height: 70vh;
+  background-position: bottom;
+  height: 55vh !important;
   width: 100%;
+  // clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3vw));
 
   .hero-text-section {
-    padding: 15vh 10%;
+    position: relative;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 10%;
   }
 
   .hero-title {
@@ -201,57 +233,122 @@ export default {
   .hero-subtitle {
     font-size: 1.3em;
     text-shadow: 1px 1px #79797949;
-
+    line-height: 1.6em;
     font-family: IranSansDN;
-    color: #fff !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+  }
+  .hero-small {
+    display: none;
+  }
+
+  .btn {
+    font-weight: inherit;
+    border-radius: 30px;
+    padding: 14px 25px;
+    font-size: 1.1em;
+    font-family: IranSansBold;
   }
 }
 
 @media (max-width: 680px) {
   .hero-content-homepage {
-    // background: linear-gradient((180deg, #631fa381, #53535328)),
+    // background: linear-gradient((180deg, #30076186), #00000046),
     //   url(/img/frontend/london-bg-opt.jpg);
 
-    background: linear-gradient((180deg, #30076186), #00000046),
+    background: linear-gradient(to left, #6723d4e5, #e5b2cad0),
       url(/img/frontend/london-bg-opt.jpg);
-
     background-size: cover;
-    background-position: cover;
-    min-height: 50vh;
-    position: relative;
+    background-position: right;
+    min-height: 40vh !important;
+    // clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3vw));
 
     .hero-text-section {
-      padding: 7vh 2em !important;
+      position: relative;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0 10%;
+      text-align: right !important;
+    }
+
+    .hero-small {
+      display: block;
+    }
+
+    .hero-large {
+      display: none;
     }
 
     .btn {
-      font-size: 0.74rem;
-      padding: 10px 7px;
+      font-weight: inherit;
+      border-radius: 30px;
+      padding: 14px 15px;
+      font-size: 0.9em;
+      font-family: IranSansBold;
     }
 
     .hero-title {
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       line-height: inherit;
       color: #fff !important;
     }
     .hero-subtitle {
-      font-size: 1.1em;
-      color: #fff !important;
-      padding: 20px 0;
+      font-size: 1.3em;
+      color: rgba(255, 255, 255, 0.877) !important;
+      text-align: right !important;
+      line-height: 1.5em !important;
+      padding-left: 4em;
     }
   }
   .top-courses-section {
-    padding: 0 9%;
+    padding: 0 11%;
   }
 
   .top-courses-section {
     .top-section-header {
       font-size: 1em !important;
     }
+  }
+}
 
+@media (max-width: 480px) {
+  .hero-content-homepage {
+    // background: linear-gradient((180deg, #30076186), #00000046),
+    //   url(/img/frontend/london-bg-opt.jpg);
+
+    background: linear-gradient(to left, #6723d4e5, #e5b2cad0),
+      url(/img/frontend/london-bg-opt.jpg);
+
+    background-size: cover;
+    background-position: right;
+    height: 65vh !important;
+
+    .hero-text-section {
+      position: relative;
+      top: 43%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0 10%;
+      text-align: right !important;
+    }
     .btn {
-      padding: 8px 18px;
-      margin: 0;
+      font-weight: inherit;
+      border-radius: 30px;
+      padding: 10px 12px;
+      font-size: 0.85em;
+      font-family: IranSansBold;
+    }
+    .hero-title {
+      font-size: 2em;
+      line-height: inherit;
+      color: #fff !important;
+      padding-top: 35px;
+    }
+    .hero-subtitle {
+      padding-left: 1.4em;
+      font-size: 1.1em;
     }
   }
 }
