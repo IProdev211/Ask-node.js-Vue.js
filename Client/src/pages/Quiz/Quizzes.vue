@@ -1,10 +1,18 @@
 <template>
   <div class="container">
-    <h1 class="text-right pb-4">امتحان های شما</h1>
+    <h1 class="text-right">امتحان های شما</h1>
 
     <!-- New Quizzes -->
-    <div class="pt-5">
-      <div class="row">
+    <div class="row pt-5">
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <quiz-card />
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <quiz-card />
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12">
         <quiz-card />
       </div>
     </div>

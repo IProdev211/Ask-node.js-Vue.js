@@ -128,7 +128,7 @@ ul {
 }
 
 .private-classes {
-  padding: 20px 6% 0 6%;
+  padding: 0 7%;
 
   .pricing {
     position: relative;

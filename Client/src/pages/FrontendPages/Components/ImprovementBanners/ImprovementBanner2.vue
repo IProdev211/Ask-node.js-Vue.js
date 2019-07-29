@@ -24,8 +24,10 @@ export default {};
   border-radius: 30px;
   background-color: #0abcf9;
   background-image: linear-gradient(035deg, #0abcf9 0%, #2c69d1 74%);
-  -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.4);
-  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
 
 .text-section {

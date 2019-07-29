@@ -29,6 +29,7 @@
         ></sidebar-item>
 
         <hr class="line mt-4" />
+
         <div class="pr-4 text-right d-flex align-items-center">
           <i class="fas fa-power-off"></i>
           <router-link

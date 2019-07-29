@@ -11,49 +11,43 @@
       </h1>
     </div>
 
-    <div class="row">
-      <div class="col-md-8">
-        <div class="question-number d-flex justify-content-between">
-          <!-- COUNTDOWN TIMER GOES HERE -->
-          <h3 class="question-number">
-            سوال
-            <span>1</span> از
-            <span>6</span>
-          </h3>
-          <h3 class="timer">01:32</h3>
-        </div>
+    <div class="question-number d-flex justify-content-between">
+      <!-- COUNTDOWN TIMER GOES HERE -->
+      <h3 class="question-number">
+        سوال
+        <span>1</span> از
+        <span>6</span>
+      </h3>
+      <h3 class="timer">01:32</h3>
+    </div>
 
-        <div class="progress">
-          <div
-            class="progress-bar"
-            role="progressbar"
-            style="width: 10%;"
-            aria-valuenow="10"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          >10%</div>
-        </div>
-      </div>
+    <div class="progress">
+      <!-- PLEASE USE THIS PROGRESS BAR - https://demos.creative-tim.com/vue-black-dashboard-pro/documentation/components/progress.html  -->
+      <div
+        class="progress-bar"
+        role="progressbar"
+        style="width: 10%;"
+        aria-valuenow="10"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >10%</div>
+    </div>
 
-      <div class="col-md-4">
-        <div class="question-number-section">
-          <!-- WHEN QUESTION IS PINNED, THE BOX SHOULD BE ORANGE -->
-          <!-- WHEN QUESTION IS ANSWERED, THE BOX SHOULD BE BLUE -->
-
-          <div class="question-number">1</div>
-          <div class="question-number">2</div>
-          <div class="question-number">3</div>
-          <div class="question-number">4</div>
-          <div class="question-number">5</div>
-          <div class="question-number">6</div>
-        </div>
-      </div>
+    <div class="question-number-section pt-5">
+      <!-- WHEN QUESTION IS PINNED, THE BOX SHOULD BE ORANGE -->
+      <!-- WHEN QUESTION IS ANSWERED, THE BOX SHOULD BE BLUE -->
+      <div class="question-number">1</div>
+      <div class="question-number">2</div>
+      <div class="question-number">3</div>
+      <div class="question-number">4</div>
+      <div class="question-number">5</div>
+      <div class="question-number">6</div>
     </div>
 
     <!-- QUESTION -->
     <div class="mt-5">
       <h2 class="question text-ltr">
-        <!-- WHEN QUESTION IS PINNED, THE PIN SHOULD BE ORANGE -->
+        <!-- WHEN QUESTION IS PINNED, THE PIN SHOULD BECOME ORANGE -->
         <i class="fas fa-thumbtack pr-2 pin"></i>
         What do we call a group of footballers?
       </h2>
@@ -64,25 +58,37 @@
       <div class="answer-card row d-flex align-items-center text-ltr">
         <p class="question-letter">A</p>
         <p class="answer">A band of musicians</p>
-        <!-- <p class="points ml-auto">
+        <p class="points ml-auto">
           <span class="available-points">1</span>
           xp
-        </p>-->
+        </p>
       </div>
 
       <div class="answer-card row d-flex align-items-center text-ltr">
         <p class="question-letter">B</p>
         <p class="answer">A crew</p>
+        <p class="points ml-auto">
+          <span class="available-points">1</span>
+          xp
+        </p>
       </div>
 
       <div class="answer-card row d-flex align-items-center text-ltr">
         <p class="question-letter">C</p>
         <p class="answer">A flight of steps</p>
+        <p class="points ml-auto">
+          <span class="available-points">1</span>
+          xp
+        </p>
       </div>
 
       <div class="answer-card row d-flex align-items-center text-ltr">
         <p class="question-letter">D</p>
         <p class="answer">A team</p>
+        <p class="points ml-auto">
+          <span class="available-points">1</span>
+          xp
+        </p>
       </div>
     </div>
 
@@ -121,8 +127,6 @@
 </template>
 
 <script>
-import Swal from 'sweetalert';
-
 export default {
   components: {}
 };
@@ -131,6 +135,8 @@ export default {
 <style lang="scss" scoped>
 .points {
   font-size: 1em;
+  color: rgba(0, 0, 0, 0.3) !important;
+
   .available-points {
     font-family: IranSansBold;
     font-size: 1.3em;
@@ -173,7 +179,7 @@ export default {
 
 .quiz-title {
   font-family: IranSansBold;
-  font-size: 1.9em;
+  font-size: 2.1em;
   color: rgb(126, 126, 126) !important;
 }
 
@@ -185,9 +191,9 @@ export default {
 }
 
 .quiz-code {
-  font-size: 0.7em;
+  font-size: 0.6em;
   font-family: IranSans;
-  color: rgb(163, 163, 163) !important;
+  color: rgb(185, 185, 185) !important;
 }
 
 .timer {
@@ -195,7 +201,7 @@ export default {
 }
 
 .question {
-  font-size: 1.4rem;
+  font-size: 1.8em !important;
   padding-top: 1.2rem;
 }
 
@@ -226,7 +232,7 @@ export default {
     }
     .question-letter {
       font-size: 1.5rem;
-      color: rgb(168, 168, 168);
+      color: rgb(196, 196, 196);
       padding: 0 2rem 0 0;
       font-weight: 600;
       font-family: Arial, Helvetica, sans-serif;
@@ -242,8 +248,8 @@ export default {
   }
   :hover {
     cursor: pointer;
-    background-color: rgba(240, 243, 192, 0.781);
-    font-weight: 600;
+    background-color: rgba(255, 191, 16, 0.247);
+    // font-weight: 600;
 
     p {
       background-color: transparent !important;

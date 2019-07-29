@@ -139,7 +139,9 @@ const Lock = () =>
   import(/* webpackChunkName: "pages" */ 'src/pages/Layouts/Lock/Lock.vue');
 
 const NotFoundPage = () =>
-  import(/* webpackChunkName: "pages" */ 'src/pages/Layouts/NotFound/NotFoundPage.vue');
+  import(
+    /* webpackChunkName: "pages" */ 'src/pages/Layouts/NotFound/NotFoundPage.vue'
+  );
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -273,13 +275,13 @@ const routes = [
       //   }
       // },
 
-      {
-        path: 'gradesheet',
-        name: 'Grade Sheet',
-        components: {
-          default: GradeSheet
-        }
-      },
+      // {
+      //   path: 'gradesheet',
+      //   name: 'Grade Sheet',
+      //   components: {
+      //     default: GradeSheet
+      //   }
+      // },
       {
         path: 'quizzes',
         name: 'Quizzes',
@@ -392,6 +394,13 @@ const routes = [
         components: {
           default: SingleQuizLayout
         }
+      },
+      {
+        path: 'gradesheet',
+        name: 'Grade Sheet',
+        components: {
+          default: GradeSheet
+        }
       }
     ]
   },
@@ -407,7 +416,7 @@ const routes = [
       }
     ]
   },
-  { path: "*", component: NotFoundPage }
+  { path: '*', component: NotFoundPage }
 ];
 
 export default routes;

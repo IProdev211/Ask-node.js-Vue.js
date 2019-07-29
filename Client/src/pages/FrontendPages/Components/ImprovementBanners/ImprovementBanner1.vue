@@ -22,12 +22,14 @@ export default {};
 <style lang="scss" scoped>
 .white-content .card:not(.card-white) {
   border-radius: 30px;
-  background: linear-gradient(270deg, #0d032cde, #18012be0),
+  background: linear-gradient(270deg, #170450de, #530792e0),
     url(/img/frontend/confused-banner.svg) no-repeat;
   background-position: bottom left;
   background-size: cover;
-  -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.4);
-  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
 .text-section {
   text-align: right;
@@ -47,6 +49,7 @@ export default {};
     font-size: 1.15em;
   }
 }
+
 @media (max-width: 680px) {
   .text-section {
     padding: 2em;
