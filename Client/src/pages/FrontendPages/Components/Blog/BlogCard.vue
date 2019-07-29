@@ -3,9 +3,9 @@
     <router-link :to="`/blog/${slug}`">
       <div class="card">
         <img class="card-img-top" :src="image" :alt="name" />
-        <div class="category">{{ categories.length ? categories.pop().name : "" }}</div>
+        <div class="category">{{ categories.length ? categories[categories.length - 1].name : "" }}</div>
         <div class="card-body">
-          <h3 class="card-title text-center pb-2">{{ name }}</h3>
+          <h3 class="card-title text-center pb-2" :class="isLtr ? 'title-ltr' : ''">{{ name }}</h3>
           <div class="d-flex justify-content-between px-3 blog-info">
             <span class="blog-info">
               {{views}}
@@ -32,6 +32,10 @@ export default {
       return moment(this.createdAt)
         .locale('fa')
         .format('YYYY-MM-DD');
+    },
+    isLtr: function() {
+      const regex = /[\u0590-\u083F]|[\u08A0-\u08FF]|[\uFB1D-\uFDFF]|[\uFE70-\uFEFF]/mg;
+      return !regex.test(this.name.trim());
     }
   }
 };
@@ -100,5 +104,8 @@ export default {
 }
 .home-blog h3 {
   color: #27408b;
+}
+.title-ltr {
+  direction: ltr;
 }
 </style>
