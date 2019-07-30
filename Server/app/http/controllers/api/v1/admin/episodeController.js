@@ -81,10 +81,9 @@ class episodeController extends controller {
         $inc: { number: +1 }
       }
     );
+    newEpisode.course = await Course.findById(course);
     return res.json({
-      data: {
-        episode: this.filterEpisodeData(newEpisode)
-      },
+      episode: this.filterEpisodeData(newEpisode),
       status: 'success'
     });
   }
@@ -157,10 +156,9 @@ class episodeController extends controller {
     await Course.findByIdAndUpdate(episode.course.id, {
       $set: { time: this.secondsToTime((ctime - petime) + etime) }
     })
+    newEpisode.course = episode.course;
     return res.json({
-      data: {
-        episode: this.filterEpisodeData(newEpisode)
-      },
+      episode: this.filterEpisodeData(newEpisode),
       status: 'success'
     });
   }

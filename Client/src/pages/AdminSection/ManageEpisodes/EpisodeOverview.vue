@@ -213,7 +213,15 @@ export default {
             tableRow => tableRow.id === row.id
           );
           if (indexToDelete >= 0) {
+            const episode = this.tableData[indexToDelete];
             this.tableData.splice(indexToDelete, 1);
+            for (const item of this.tableData) {
+              if (item.course.id == episode.course.id) {
+                if (item.number > episode.number) {
+                  item.number--;
+                }
+              }
+            }
           }
           Swal({
             title: 'Deleted!',
@@ -239,17 +247,48 @@ export default {
       this.dataLoad(1);
     },
     episodeActionListener(episode) {
-      if (this.episode) {
-        for (const key in this.tableData) {
-          if (this.tableData[key] !== undefined) {
-            if (this.tableData[key].id == this.episode.id) {
-              this.tableData[key] = episode;
-              break;
+      let removedIndex = -1;
+      for (const key in this.tableData) {
+        if (this.tableData[key] !== undefined) {
+          if (this.tableData[key].id == episode.id) {
+            this.tableData.splice(key, 1);
+            removedIndex = key;
+            break;
+          }
+        }
+      }
+      if (removedIndex !== -1) {
+        for (let i = removedIndex; i < this.tableData.length; i++) {
+          if (this.tableData[i].course.id == episode.course.id) {
+            this.tableData[i].number--;
+          }
+        }
+      }
+      let insertedKey = -1;
+      for (let i = 0; i < this.tableData.length; i++) {
+        if (this.tableData[i].course.id == episode.course.id) {
+          if (this.tableData[i].number >= episode.number) {
+            this.tableData.splice(i, 0, episode);
+            insertedKey = i;
+            break;
+          }
+          if (this.tableData[i+1] !== undefined && this.tableData[i+1].course.id !== episode.course.id) {
+            this.tableData.splice(i+1, 0, episode);
+            insertedKey = i+1;
+            break;
+          }
+        }
+      }
+      if (insertedKey === -1) {
+        this.tableData.push(episode);
+      } else {
+        for (let i = 0; i < this.tableData.length; i++) {
+          if (i > insertedKey && this.tableData[i] !== undefined) {
+            if (this.tableData[i].course.id == episode.course.id) {
+              this.tableData[i].number++;
             }
           }
         }
-      } else {
-        this.tableData.push(episode);
       }
     },
     reset() {
