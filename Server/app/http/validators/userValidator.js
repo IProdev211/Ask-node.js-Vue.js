@@ -65,14 +65,14 @@ class userValidator extends validator {
         }
         req.body.vipFrom = date.toISOString();
       }),
-      check('course').custom(async (value, { req }) => {
-        if (value === undefined || value === "undefined" || ! value) return;
-        const course = await Course.findById(value);
-        if (!course) {
-          throw new Error('دوره مشخص شده نامعتبر است');
+      check('courses').custom(async (value, { req }) => {
+        if (value === undefined || value === "undefined" || ! value || ! value.length) return;
+        const courses = await Course.find({ _id: { $in: value } }).exec();
+        if (! courses || courses.length != value.length) {
+          throw new Error('دوره های مشخص شده نامعتبر هستند');
         }
-        req.body.course = course;
-      })
+        req.body.courses = courses;
+      }),
     ];
   }
   handleUpdate() {
@@ -140,18 +140,14 @@ class userValidator extends validator {
           }
           req.body.vipFrom = value.toDate().toISOString();
         }),
-      check('course').custom(async (value, { req }) => {
-        if (value === undefined || value === "undefined" || ! value) return;
-        const course = await Course.findById(value);
-        if (!course) {
-          throw new Error('دوره مشخص شده نامعتبر است');
+      check('courses').custom(async (value, { req }) => {
+        if (value === undefined || value === "undefined" || ! value || ! value.length) return;
+        const courses = await Course.find({ _id: { $in: value } }).exec();
+        if (! courses || courses.length != value.length) {
+          throw new Error('دوره های مشخص شده نامعتبر هستند');
         }
-        const user = await User.findById(req.params.id);
-        if (user.checkLearning(course.id)) {
-          throw new Error('کاربر در این دوره ثبت نام شده است.');
-        }
-        req.body.course = course;
-      })
+        req.body.courses = courses;
+      }),
     ];
   }
 

@@ -87,7 +87,6 @@
 											<autocomplete
 												source="/api/v1/admin/courses?filter="
 												results-property="docs"
-												v-model="data.course"
 												@selected="onSelectCourse"
 												resultsDisplay="title"
 												placeholder="Select Course for student to be enrolled on.."
@@ -121,14 +120,15 @@
 									</div>
 
 									<!-- User Stats  -->
-									<div class="container pt-4"  v-if="data.id">
+									<div class="container pt-4">
 										<!-- Enrolled Courses -->
 										<div>
 											<p class="enrolled-on">Courses Enrolled On:</p>
 											<ul v-if="data.learning.length">
-												<li v-for="course of data.learning" :key="course.id" class="enrolled-course">
+												<li v-for="(course, index) in data.learning" :key="course.id" class="enrolled-course">
 													{{ course.title }}
 													<span>{{ date(course.signupDate) }}</span>
+													<base-button class="ml-1 p-1" native-type="button" type="danger" @click="removeCourse(index)"> <i class="fas fa-times"></i> </base-button>
 												</li>
 											</ul>
 											<p class="text-light" v-else> - </p>
@@ -171,6 +171,7 @@ import { ImageUpload } from 'src/components/index';
 import moment from "moment";
 import backend from "../../../backend";
 import Autocomplete from 'vuejs-auto-complete';
+import Swal from 'sweetalert';
 
 export default {
 	props: [
@@ -237,7 +238,6 @@ export default {
 			this.data.learning = [];
 			this.data.vipTime = "";
 			this.data.vipFrom = "";
-			this.data.course = "";
 			this.data.active = false;
 			this.image = undefined;
 			this.$emit("reset");
@@ -294,6 +294,10 @@ export default {
 			}
 			this.loading = true;
 			let data = {};
+			const courses = [];
+			for (const course of this.data.learning) {
+				courses.push(course.id);
+			}
 			if (this.image instanceof File) {
 				data = new FormData();
 				data.append("name", this.data.name);
@@ -305,17 +309,17 @@ export default {
 				}
 				data.append("vipTime", this.data.vipTime);
 				data.append("vipFrom", this.data.vipFrom);
-				data.append("course", this.data.course);
 				data.append("active", this.data.active);
+				data.append("courses", courses);
 			} else {
 				data = {
 					name: this.data.name,
 					email: this.data.email,
 					vipTime: this.data.vipTime,
 					vipFrom: this.data.vipFrom,
-					course: this.data.course,
 					xp: this.data.xp !== undefined ? this.data.xp : 0,
 					active: this.data.active,
+					courses: courses,
 				};
 				if (this.data.password) {
 					data.password = this.data.password;
@@ -342,8 +346,52 @@ export default {
 			});
 		},
 		onSelectCourse(item) {
-			this.data.course = item.value;
-		}
+			if (! this.data.learning) {
+				this.data.learning = [];
+			}
+			let found = false;
+			for (const course of this.data.learning) {
+				if (course.id === item.value) {
+					Swal({
+						title: 'User purchased this course before!',
+						className: 'text-ltr',
+						icon: 'error'
+					});
+					found = true;
+					break;
+				}
+			}
+			if (! found) {
+				this.data.learning.push({
+					id: item.value,
+					title: item.display,
+					signupDate: (new Date()).toISOString(),
+				});
+			}
+		},
+		removeCourse(index) {
+			if (this.data.learning[index] === undefined) {
+				return;
+			}
+			const course = this.data.learning[index];
+			Swal({
+				title: 'Delete this Course',
+				text: ``,
+				className: 'text-ltr',
+				icon: 'warning',
+				buttons: {
+				catch: {
+					text: 'Yes, delete it!',
+					value: true
+				},
+				cancel: 'Cancel'
+				}
+			}).then(result => {
+				if (! result) return;
+				
+				this.data.learning.splice(index, 1);
+			});
+		},
 	},
 	watch: {
 		id: function(newValue, oldValue) {
