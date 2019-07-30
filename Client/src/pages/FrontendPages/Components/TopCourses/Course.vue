@@ -50,7 +50,7 @@
 
 <script>
 import moment from 'moment';
-import Swal from "sweetalert";
+import Swal from 'sweetalert';
 
 export default {
   props: [
@@ -65,16 +65,16 @@ export default {
     'user',
     'episodes',
     'purchased',
-    'tags',
+    'tags'
   ],
   methods: {
     onClick() {
-      if (! this.tags) {
-        this.tags = "";
+      if (!this.tags) {
+        this.tags = '';
       }
-      console.log("salam", this.tags.toLowerCase().search("coming soon"));
-      console.log("salam", this.tags);
-      if (this.tags.toLowerCase().search("coming soon") >= 0) {
+      console.log('salam', this.tags.toLowerCase().search('coming soon'));
+      console.log('salam', this.tags);
+      if (this.tags.toLowerCase().search('coming soon') >= 0) {
         Swal({
           title: 'Coming Soon!',
           className: 'text-ltr',
@@ -290,6 +290,16 @@ export default {
   .unitsAvailable,
   .pricehighlight {
     color: #00b35f;
+  }
+}
+
+@media (max-width: 1200px) {
+  .pricehighlight {
+    font-size: 0.75rem;
+  }
+
+  .oldPrice {
+    font-size: 0.7rem;
   }
 }
 
