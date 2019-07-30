@@ -1,57 +1,56 @@
 <template>
   <div class="mb-4 ml-auto">
-    <router-link :to="'courses/' + slug">
-      <div class="CourseCard hover">
-        <div>
-          <img class="CourseCard__courseimage" :src="thumb" />
-        </div>
-        <div>
-          <h4 class="text-center course-title pt-3">{{ title }}</h4>
-        </div>
-        <hr class="fadeline" />
-        <div class="bottom-section">
-          <div class="CourseCard__course__info d-flex justify-content-between text-center py-1">
-            <div>
-              <p class="courseTime">
-                {{ minutes }}
-                <br />
-                <span class="courseTimeSpan">دقیقه ویدیو</span>
-              </p>
-            </div>
-            <div>
-              <p class="unitsAvailable">
-                {{ episodes }}
-                <br />
-                <span class="unitsAvailableSpan">درس گفتار</span>
-              </p>
-            </div>
+    <div class="CourseCard hover" @click="onClick">
+      <div>
+        <img class="CourseCard__courseimage" :src="thumb" />
+      </div>
+      <div>
+        <h4 class="text-center course-title pt-3">{{ title }}</h4>
+      </div>
+      <hr class="fadeline" />
+      <div class="bottom-section">
+        <div class="CourseCard__course__info d-flex justify-content-between text-center py-1">
+          <div>
+            <p class="courseTime">
+              {{ minutes }}
+              <br />
+              <span class="courseTimeSpan">دقیقه ویدیو</span>
+            </p>
           </div>
-          <hr class="fadeline" v-if="! purchased" />
-          <div class="px-4 py-3 text-center" v-if="! purchased">
-            <div class="row">
-              <div class="col-12 text-center pricehighlight" v-if="isVip">اعضای ویژه</div>
-              <div class="col-12 text-center pricehighlight" v-else-if="isFree">رایگان</div>
-              <div class="col-6" v-if="! isVip && ! isFree">
-                <p class="oldPrice" v-if="oldPrice > 0">{{ formatedOldPrice }}</p>
-              </div>
-              <div class="col-6 text-center" v-if="! isVip && ! isFree">
-                <p class="pricehighlight">{{ formatedPrice }}</p>
-              </div>
-            </div>
+          <div>
+            <p class="unitsAvailable">
+              {{ episodes }}
+              <br />
+              <span class="unitsAvailableSpan">درس گفتار</span>
+            </p>
           </div>
         </div>
-
-        <div class="buyCourse text-center" v-if="! purchased">
-          <hr class="fadeline2" />
-          <p class="buyCourseTitle py-2">تهیه دوره‌</p>
+        <hr class="fadeline" v-if="! purchased" />
+        <div class="px-4 py-3 text-center" v-if="! purchased">
+          <div class="row">
+            <div class="col-12 text-center pricehighlight" v-if="isVip">اعضای ویژه</div>
+            <div class="col-12 text-center pricehighlight" v-else-if="isFree">رایگان</div>
+            <div class="col-6" v-if="! isVip && ! isFree">
+              <p class="oldPrice" v-if="oldPrice > 0">{{ formatedOldPrice }}</p>
+            </div>
+            <div class="col-6 text-center" v-if="! isVip && ! isFree">
+              <p class="pricehighlight">{{ formatedPrice }}</p>
+            </div>
+          </div>
         </div>
       </div>
-    </router-link>
+
+      <div class="buyCourse text-center" v-if="! purchased">
+        <hr class="fadeline2" />
+        <p class="buyCourseTitle py-2">تهیه دوره‌</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import moment from 'moment';
+import Swal from "sweetalert";
 
 export default {
   props: [
@@ -65,8 +64,27 @@ export default {
     'updatedAt',
     'user',
     'episodes',
-    'purchased'
+    'purchased',
+    'tags',
   ],
+  methods: {
+    onClick() {
+      if (! this.tags) {
+        this.tags = "";
+      }
+      console.log("salam", this.tags.toLowerCase().search("coming soon"));
+      console.log("salam", this.tags);
+      if (this.tags.toLowerCase().search("coming soon") >= 0) {
+        Swal({
+          title: 'Coming Soon!',
+          className: 'text-ltr',
+          icon: 'success'
+        });
+      } else {
+        this.$router.push('courses/' + this.slug);
+      }
+    }
+  },
   computed: {
     date() {
       return moment(this.updatedAt).format('MM/DD/YYYY');

@@ -73,6 +73,7 @@ class courseController extends controller {
       oldPrice: course.oldPrice,
       createdAt: course.createdAt,
       time: course.time,
+      tags: course.tags || "",
       episodes: course.episodesCount
     };
   }
@@ -140,7 +141,7 @@ class courseController extends controller {
       }),
       price: course.price,
       oldPrice: course.oldPrice,
-      createdAt: course.createdAt
+      createdAt: course.createdAt,
     };
     if (videoURL) {
       data.download = course.download(!!user, user);
