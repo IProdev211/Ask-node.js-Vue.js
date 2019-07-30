@@ -326,10 +326,19 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (min-width: 768px) and (max-width: 1000px) {
   .ipad-fix {
     width: 100% !important;
     padding: 30px 0;
+  }
+}
+
+@media (min-width: 990px) and (max-width: 1050px) {
+  .navbar-collapse .navbar-nav .nav-link {
+    font-size: 0.8em !important;
+  }
+  .navbar-nav li {
+    font-size: 0.9em !important;
   }
 }
 

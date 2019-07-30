@@ -23,7 +23,7 @@
 
     <div class="row">
       <div
-        class="col-lg-3 col-md-6 course-section"
+        class="col-lg-3 col-md-6 col-sm-12 course-section"
         v-for="course in courses"
         v-bind:key="course.id"
       >
@@ -73,11 +73,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media (max-width: 768px) {
-  .course-section {
-    padding: 0 11%;
-  }
-}
+// @media (max-width: 768px) {
+//   .course-section {
+//     padding: 0 11%;
+//   }
+// }
 
 .headerDigits {
   padding: 0 35%;

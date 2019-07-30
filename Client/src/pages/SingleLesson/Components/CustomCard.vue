@@ -152,5 +152,15 @@ export default {
   font-size: 1em;
   color: white !important;
 }
+
+@media only screen and (min-device-width: 768px) {
+  .title {
+    font-size: 1.1em !important;
+  }
+
+  .subtitle {
+    font-size: 0.85em !important;
+  }
+}
 </style>
 
