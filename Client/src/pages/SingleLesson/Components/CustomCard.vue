@@ -153,13 +153,13 @@ export default {
   color: white !important;
 }
 
-@media only screen and (min-device-width: 768px) {
+@media screen and (max-width: 768px) {
   .title {
     font-size: 1.1em !important;
   }
 
   .subtitle {
-    font-size: 0.85em !important;
+    font-size: 0.9em !important;
   }
 }
 </style>

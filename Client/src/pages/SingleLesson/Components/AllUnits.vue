@@ -16,10 +16,7 @@
             <i :class="'fas ' + getEpisodeIcon(episode.type)"></i>
           </div>
           <div class="UnitName pr-3">
-            <p
-              @click="throwClickEvent(episode)"
-              class="UnitName text-right"
-            >{{ episode.title }}</p>
+            <p @click="throwClickEvent(episode)" class="UnitName text-right">{{ episode.title }}</p>
           </div>
         </div>
         <div class="left d-flex justify-content-between">
@@ -50,7 +47,7 @@ export default {
   props: ['course', 'episodes', 'scrollable', 'maxepisodes', 'purchased'],
   data() {
     return {
-      activeEpisode: "",
+      activeEpisode: ''
     };
   },
   methods: {
@@ -101,7 +98,8 @@ export default {
     },
     mustBuy(type) {
       return (
-        ['cash', 'paid', 'vip'].indexOf(type.toLowerCase()) != -1 && !this.purchased
+        ['cash', 'paid', 'vip'].indexOf(type.toLowerCase()) != -1 &&
+        !this.purchased
       );
     },
     throwClickEvent(episode, index) {
@@ -109,9 +107,9 @@ export default {
       if (this.mustBuy(episode.type)) {
         this.$emit('buy');
       } else {
-        this.$emit("click", episode);
+        this.$emit('click', episode);
       }
-    },
+    }
   },
   computed: {
     IAmVIP() {
@@ -154,7 +152,8 @@ h4 {
   font-family: IranSansBold !important;
 }
 
-.UnitBox:hover, .active {
+.UnitBox:hover,
+.active {
   border-right-color: #07d9b6;
   .UnitBadgeUnlocked {
     color: #07d9b6;
@@ -216,7 +215,7 @@ h4 {
   }
 
   .UnitName {
-    font-size: 0.75rem;
+    font-size: 0.86rem;
   }
 
   .detail-time {

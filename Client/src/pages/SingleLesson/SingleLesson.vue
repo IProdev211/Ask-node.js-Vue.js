@@ -113,11 +113,14 @@
 
         <!-- VIDEO BUTTONS -->
         <div class="video-buttons">
-          <video-buttons :next="next" :prev="prev"
-          v-on:nextLesson="nextLessonListener"
-          v-on:prevLesson="prevLessonListener"
-          :loadingNext="loadingNext"
-          :loadingPrev="loadingPrev"/>
+          <video-buttons
+            :next="next"
+            :prev="prev"
+            v-on:nextLesson="nextLessonListener"
+            v-on:prevLesson="prevLessonListener"
+            :loadingNext="loadingNext"
+            :loadingPrev="loadingPrev"
+          />
         </div>
 
         <div class="all-units py-5">
@@ -163,7 +166,7 @@
           @click="buyCourseListener"
           native-type="button"
           class="btn-block btn-success d-block w-100"
-        >{{ this.$root._data.user ?  "پرداخت از درگاه" : "ورود" }}</base-button>
+        >{{ this.$root._data.user ? "پرداخت از درگاه" : "ورود" }}</base-button>
       </div>
     </modal>
   </div>
@@ -229,7 +232,7 @@ export default {
       nextEpisode: undefined,
       prevEpisode: undefined,
       loadingNext: false,
-      loadingPrev: false,
+      loadingPrev: false
     };
   },
   methods: {
@@ -239,61 +242,67 @@ export default {
           .get(
             `courses/${this.$route.params.course}/unit-${this.$route.params.unit}`
           )
-          .then(response => {
-            this.episode = response.data.data.episode;
+          .then(
+            response => {
+              this.episode = response.data.data.episode;
+              this.course = response.data.data.course;
+              this.notEnrolled = !response.data.data.enrolled;
+              this.enrolledCount = response.data.data.enrolledCount;
+              this.id = this.episode.id;
+              this.title = this.episode.title;
+              this.type = this.episode.type.toLowerCase();
+              this.body = this.episode.body;
+              this.download = this.episode.download;
+              this.next = false;
+              this.nextEpisode = undefined;
+              if (this.episode.number == 1) {
+                this.prev = false;
+                this.prevEpisode = undefined;
+              }
+              for (let i = 0; i < this.course.episodes.length; i++) {
+                if (this.course.episodes[i].number > this.episode.number) {
+                  this.next = true;
+                  this.nextEpisode = this.course.episodes[i];
+                  if (i > 0) {
+                    this.prev = true;
+                    this.prevEpisode = this.course.episodes[i - 1];
+                  }
+                  break;
+                }
+              }
+              this.loadingNext = false;
+              this.loadingPrev = false;
+            },
+            err => {
+              this.loadingNext = false;
+              this.loadingPrev = false;
+            }
+          );
+      } else {
+        backend.get(`courses/${this.$route.params.slug}`).then(
+          response => {
             this.course = response.data.data.course;
             this.notEnrolled = !response.data.data.enrolled;
             this.enrolledCount = response.data.data.enrolledCount;
-            this.id = this.episode.id;
-            this.title = this.episode.title;
-            this.type = this.episode.type.toLowerCase();
-            this.body = this.episode.body;
-            this.download = this.episode.download;
+            this.id = this.course.id;
+            this.title = this.course.title;
+            this.type = this.course.type;
+            this.body = this.course.body;
+            this.download = this.course.download;
+            this.prev = false;
             this.next = false;
-            this.nextEpisode = undefined;
-            if (this.episode.number == 1) {
-              this.prev = false;
-              this.prevEpisode = undefined;
-            }
-            for (let i = 0; i < this.course.episodes.length; i++) {
-              if (this.course.episodes[i].number > this.episode.number) {
-                this.next = true;
-                this.nextEpisode = this.course.episodes[i];
-                if (i > 0) {
-                  this.prev = true;
-                  this.prevEpisode = this.course.episodes[i - 1];
-                }
-                break;
-              }
+            if (this.course.episodes.length) {
+              this.next = true;
+              this.nextEpisode = this.course.episodes[0];
             }
             this.loadingNext = false;
             this.loadingPrev = false;
-          }, err => {
+          },
+          err => {
             this.loadingNext = false;
             this.loadingPrev = false;
-          });
-      } else {
-        backend.get(`courses/${this.$route.params.slug}`).then(response => {
-          this.course = response.data.data.course;
-          this.notEnrolled = !response.data.data.enrolled;
-          this.enrolledCount = response.data.data.enrolledCount;
-          this.id = this.course.id;
-          this.title = this.course.title;
-          this.type = this.course.type;
-          this.body = this.course.body;
-          this.download = this.course.download;
-          this.prev = false;
-          this.next = false;
-          if (this.course.episodes.length) {
-            this.next = true;
-            this.nextEpisode = this.course.episodes[0];
           }
-          this.loadingNext = false;
-          this.loadingPrev = false;
-        }, err => {
-          this.loadingNext = false;
-          this.loadingPrev = false;
-        });
+        );
       }
     },
     getEpisodeCreateDate() {
@@ -341,35 +350,52 @@ export default {
       } else {
         this.$refs.buymodal.show = false;
         setTimeout(() => {
-          this.$router.push({name: "Login", query: {backTo: encodeURI(`courses/${this.course.slug}`)}});
+          this.$router.push({
+            name: 'Login',
+            query: { backTo: encodeURI(`courses/${this.course.slug}`) }
+          });
         }, 100);
       }
     },
     nextLessonListener(e) {
-      if (! this.next) {
+      if (!this.next) {
         return;
       }
-      if (['cash', 'paid', 'vip'].indexOf(this.nextEpisode.type.toLowerCase()) > 0 && this.notEnrolled) {
+      if (
+        ['cash', 'paid', 'vip'].indexOf(this.nextEpisode.type.toLowerCase()) >
+          0 &&
+        this.notEnrolled
+      ) {
         this.openBuyCourse();
       } else {
         this.loadingNext = true;
-        this.$router.push('/courses/' + this.course.slug + '/unit-' + this.nextEpisode.number);
+        this.$router.push(
+          '/courses/' + this.course.slug + '/unit-' + this.nextEpisode.number
+        );
       }
     },
     prevLessonListener(e) {
-      if (! this.prev) {
+      if (!this.prev) {
         return;
       }
-      if (['cash', 'paid', 'vip'].indexOf(this.prevEpisode.type.toLowerCase()) > 0 && this.notEnrolled) {
+      if (
+        ['cash', 'paid', 'vip'].indexOf(this.prevEpisode.type.toLowerCase()) >
+          0 &&
+        this.notEnrolled
+      ) {
         this.openBuyCourse();
       } else {
         this.loadingPrev = true;
-        this.$router.push('/courses/' + this.course.slug + '/unit-' + this.prevEpisode.number);
+        this.$router.push(
+          '/courses/' + this.course.slug + '/unit-' + this.prevEpisode.number
+        );
       }
     },
     onClickEpisodes(episode) {
-      if (! this.$refs.plyr.player.playing) {
-        this.$router.push('/courses/' + this.course.slug + '/unit-' + episode.number);
+      if (!this.$refs.plyr.player.playing) {
+        this.$router.push(
+          '/courses/' + this.course.slug + '/unit-' + episode.number
+        );
       }
     }
   },
@@ -498,7 +524,15 @@ export default {
   .pay-text {
     font-size: 1rem;
   }
+  .body {
+    /deep/ p {
+      color: #fff !important;
+      font-size: 1em !important;
+      line-height: inherit !important;
+    }
+  }
 }
+
 .pay-text {
   font-size: 1rem;
   font-family: IranSansBold;
