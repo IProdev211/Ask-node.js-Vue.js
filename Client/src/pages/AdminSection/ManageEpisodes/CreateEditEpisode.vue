@@ -166,7 +166,7 @@ export default {
 			data: {
 				id: undefined,
 				title: "",
-				time: 0,
+				time: "00:00:00",
 				number: 1,
 				videoUrl: "",
 				body: "",
@@ -284,7 +284,7 @@ export default {
 		reset() {
 			this.data.id = undefined;
 			this.data.title = "";
-			this.data.time = 0;
+			this.data.time = "00:00:00";
 			this.data.number = 1;
 			this.data.videoUrl = "";
 			this.data.body = "";

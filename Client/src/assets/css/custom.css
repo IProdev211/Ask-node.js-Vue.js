@@ -581,3 +581,8 @@
 .icon-components::before {
   content: '\ea65';
 }
+
+.plyr .plyr__controls .plyr__controls__item.plyr__progress__container {
+  display: flex;
+  flex: auto;
+}
