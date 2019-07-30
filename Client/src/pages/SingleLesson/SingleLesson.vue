@@ -104,7 +104,7 @@
       <!-- VIDEO SECTION -->
       <div class="container">
         <div class="py-3">
-          <vue-plyr class="plyr--video" :key="id">
+          <vue-plyr class="plyr--video" :key="id" ref="plyr">
             <video>
               <source :src="`/api/v1${download}`" type="video/mp4" size="720" />
             </video>
@@ -130,6 +130,7 @@
             :maxepisodes="4"
             :purchased="! notEnrolled"
             @buy="openBuyCourse"
+            @click="onClickEpisodes"
           ></AllUnits>
           <p
             class="quote-text text-center pb-2 d-none d-md-block"
@@ -364,6 +365,11 @@ export default {
       } else {
         this.loadingPrev = true;
         this.$router.push('/courses/' + this.course.slug + '/unit-' + this.prevEpisode.number);
+      }
+    },
+    onClickEpisodes(episode) {
+      if (! this.$refs.plyr.player.playing) {
+        this.$router.push('/courses/' + this.course.slug + '/unit-' + episode.number);
       }
     }
   },

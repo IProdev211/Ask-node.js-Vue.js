@@ -9,22 +9,16 @@
         class="UnitBox d-flex justify-content-between"
         v-for="episode of episodes"
         :key="episode.id"
+        :class="activeEpisode == episode.id ? 'active' : ''"
       >
         <div class="right d-flex justify-content-end">
           <div :class="getUnitBadge(episode.type)">
             <i :class="'fas ' + getEpisodeIcon(episode.type)"></i>
           </div>
           <div class="UnitName pr-3">
-            <router-link
-              :to="'/courses/' + course.slug + '/unit-' + episode.number"
-              v-if="!mustBuy(episode.type)"
-            >
-              <p class="UnitName text-right">{{ episode.title }}</p>
-            </router-link>
             <p
-              @click="throwClickEvent"
+              @click="throwClickEvent(episode)"
               class="UnitName text-right"
-              v-if="mustBuy(episode.type)"
             >{{ episode.title }}</p>
           </div>
         </div>
@@ -54,6 +48,11 @@ export default {
     CustomCard
   },
   props: ['course', 'episodes', 'scrollable', 'maxepisodes', 'purchased'],
+  data() {
+    return {
+      activeEpisode: "",
+    };
+  },
   methods: {
     getEpisodeType(type) {
       switch (type.toLowerCase()) {
@@ -105,9 +104,14 @@ export default {
         ['cash', 'paid', 'vip'].indexOf(type.toLowerCase()) != -1 && !this.purchased
       );
     },
-    throwClickEvent() {
-      this.$emit('buy');
-    }
+    throwClickEvent(episode, index) {
+      this.activeEpisode = episode.id;
+      if (this.mustBuy(episode.type)) {
+        this.$emit('buy');
+      } else {
+        this.$emit("click", episode);
+      }
+    },
   },
   computed: {
     IAmVIP() {
@@ -150,7 +154,7 @@ h4 {
   font-family: IranSansBold !important;
 }
 
-.UnitBox:hover {
+.UnitBox:hover, .active {
   border-right-color: #07d9b6;
   .UnitBadgeUnlocked {
     color: #07d9b6;
