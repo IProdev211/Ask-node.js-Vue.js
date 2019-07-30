@@ -15,6 +15,6 @@ h1 {
   font-size: 2em;
   font-family: IranSansBold;
   line-height: inherit !important;
-  color: rgb(245, 245, 245) !important;
+  color: rgb(255, 255, 255) !important;
 }
 </style>

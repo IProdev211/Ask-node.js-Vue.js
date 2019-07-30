@@ -21,7 +21,7 @@
           class="btn btn-simple animation-on-hover custom-button"
         >
           <i class="fas fa-check pl-2"></i>
-          Mark Complete
+          این بخش را دیدم
         </base-button>
       </div>
 
@@ -47,36 +47,34 @@ export default {
     next: Boolean,
     prev: Boolean,
     loadingNext: Boolean,
-    loadingPrev: Boolean,
+    loadingPrev: Boolean
   },
   methods: {
     nextEpisodeListener(e) {
-      this.$emit("nextLesson");
+      this.$emit('nextLesson');
     },
     prevEpisodeListener(e) {
-      this.$emit("prevLesson");
-    },
+      this.$emit('prevLesson');
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .custom-button {
-  -webkit-box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
-  -moz-box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
-  box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
+  -webkit-box-shadow: 3px 3px 2px -1px rgba(107, 107, 107, 0.6);
+  -moz-box-shadow: 3px 3px 2px -1px rgba(107, 107, 107, 0.6);
+  box-shadow: 3px 3px 2px -1px rgba(107, 107, 107, 0.6);
 }
 
 @media (max-width: 680px) {
   .custom-button {
     font-size: 0.8em !important;
-    -webkit-box-shadow: 0;
-    -moz-box-shadow: 0;
-    box-shadow: 0;
-    // -webkit-box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
-    // -moz-box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
-    // box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 1);
-    padding: 5px 7px;
+
+    -webkit-box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 0);
+    -moz-box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 0);
+    box-shadow: 6px 6px 4px -1px rgba(107, 107, 107, 0);
+    padding: 7px 6px;
   }
 }
 </style>

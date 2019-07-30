@@ -93,11 +93,12 @@ export default {
 .home-blog .category {
   border-radius: 10px;
   position: absolute;
-  padding: 10px 25px;
-  margin: 10px;
-  color: rgb(26, 26, 26) !important;
-  background-color: #f3f3f3 !important;
-  font-size: 0.85em !important;
+  padding: 3px 10px;
+  margin: 8px;
+  color: rgb(211, 211, 211) !important;
+  background-color: #505050 !important;
+  font-family: Arial, Helvetica, sans-serif;
+  // font-size: 0.85em !important;
 }
 .home-blog .card:hover .card-title {
   color: #000285;
