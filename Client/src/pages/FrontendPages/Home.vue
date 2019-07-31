@@ -201,19 +201,17 @@ export default {
   background-position: bottom;
   height: 55vh !important;
   width: 100%;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 2vw));
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 2vw));
 
   .hero-text-section {
     position: relative;
-    top: 45%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 0 10%;
   }
 
   .hero-title {
-    font-size: 4.2em;
+    font-size: 4em;
     line-height: inherit;
     font-family: IranSansBold;
     color: #fff !important;
@@ -242,28 +240,53 @@ export default {
   }
 }
 
-@media (max-width: 680px) {
+// @media (max-width: 680px) {
+//   .hero-content-homepage {
+//     min-height: 60vh !important;
+
+//     .hero-small {
+//       display: block;
+//     }
+
+//     .hero-large {
+//       display: none;
+//     }
+
+//     .btn {
+//       font-weight: inherit;
+//       border-radius: 30px;
+//       padding: 14px 15px;
+//       font-size: 0.8em;
+//       font-family: IranSansBold;
+//     }
+
+//     .hero-title {
+//       font-size: 2.5rem;
+//       line-height: inherit;
+//       color: #fff !important;
+//     }
+//     .hero-subtitle {
+//       font-size: 1.3em;
+//       color: rgba(255, 255, 255, 0.877) !important;
+//       text-align: right !important;
+//       line-height: 1.5em !important;
+//       padding-left: 4em;
+//     }
+//   }
+//   .top-courses-section {
+//     padding: 0 11%;
+//   }
+
+//   .top-courses-section {
+//     .top-section-header {
+//       font-size: 1em !important;
+//     }
+//   }
+// }
+
+@media screen and (max-width: 730px) {
   .hero-content-homepage {
-    // background: linear-gradient((180deg, #30076186), #00000046),
-    //   url(/img/frontend/london-bg-opt.jpg);
-
-    background: linear-gradient(to left, #6723d4e5, #e5b2cad0),
-      url(/img/frontend/london-bg-opt.jpg);
-    background-size: cover;
-    background-position: right;
-    min-height: 40vh !important;
-    // clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3vw));
-
-    .hero-text-section {
-      position: relative;
-      top: 45%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 0 10%;
-      text-align: right !important;
-    }
+    height: 65vh !important;
 
     .hero-small {
       display: block;
@@ -277,21 +300,20 @@ export default {
       font-weight: inherit;
       border-radius: 30px;
       padding: 14px 15px;
-      font-size: 0.9em;
+      font-size: 0.7em;
       font-family: IranSansBold;
     }
-
     .hero-title {
-      font-size: 2.5rem;
+      font-size: 2.3em;
       line-height: inherit;
       color: #fff !important;
+      padding-top: 35px;
+      text-align: right !important;
     }
     .hero-subtitle {
-      font-size: 1.3em;
-      color: rgba(255, 255, 255, 0.877) !important;
+      padding-left: 1.1em;
+      font-size: 1.1em;
       text-align: right !important;
-      line-height: 1.5em !important;
-      padding-left: 4em;
     }
   }
   .top-courses-section {
@@ -301,46 +323,7 @@ export default {
   .top-courses-section {
     .top-section-header {
       font-size: 1em !important;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-content-homepage {
-    // background: linear-gradient((180deg, #30076186), #00000046),
-    //   url(/img/frontend/london-bg-opt.jpg);
-
-    background: linear-gradient(to left, #6723d4e5, #e5b2cad0),
-      url(/img/frontend/london-bg-opt.jpg);
-
-    background-size: cover;
-    background-position: right;
-    height: 65vh !important;
-
-    .hero-text-section {
-      position: relative;
-      top: 43%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 0 10%;
       text-align: right !important;
-    }
-    .btn {
-      font-weight: inherit;
-      border-radius: 30px;
-      padding: 10px 12px;
-      font-size: 0.85em;
-      font-family: IranSansBold;
-    }
-    .hero-title {
-      font-size: 2em;
-      line-height: inherit;
-      color: #fff !important;
-      padding-top: 35px;
-    }
-    .hero-subtitle {
-      padding-left: 1.4em;
-      font-size: 1.1em;
     }
   }
 }
