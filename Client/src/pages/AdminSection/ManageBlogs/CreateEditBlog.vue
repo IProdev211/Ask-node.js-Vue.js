@@ -91,7 +91,31 @@
 import { Select, Option } from 'element-ui';
 import { ImageUpload, TagsInput } from 'src/components/index';
 import CKEditor from '@ckeditor/ckeditor5-vue';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
+import EssentialsPlugin from '@ckeditor/ckeditor5-essentials/src/essentials';
+import BoldPlugin from '@ckeditor/ckeditor5-basic-styles/src/bold';
+import ItalicPlugin from '@ckeditor/ckeditor5-basic-styles/src/italic';
+import CodePlugin from '@ckeditor/ckeditor5-basic-styles/src/code';
+import StrikethroughPlugin from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
+import SubscriptPlugin from '@ckeditor/ckeditor5-basic-styles/src/subscript';
+import SuperscriptPlugin from '@ckeditor/ckeditor5-basic-styles/src/superscript';
+import UnderlinePlugin from '@ckeditor/ckeditor5-basic-styles/src/underline';
+import LinkPlugin from '@ckeditor/ckeditor5-link/src/link';
+import ParagraphPlugin from '@ckeditor/ckeditor5-paragraph/src/paragraph';
+import Heading from '@ckeditor/ckeditor5-heading/src/heading';
+import Font from '@ckeditor/ckeditor5-font/src/font';
+import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import Indent from '@ckeditor/ckeditor5-indent/src/indent';
+import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
+import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar';
+import HeadingButtonsUI from '@ckeditor/ckeditor5-heading/src/headingbuttonsui';
+import ParagraphButtonUI from '@ckeditor/ckeditor5-paragraph/src/paragraphbuttonui';
+import imageupload from '@ckeditor/ckeditor5-image/src/imageupload';
+import Image from '@ckeditor/ckeditor5-image/src/image';
+import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
+import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
+import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import Autocomplete from 'vuejs-auto-complete';
 import backend from '../../../backend';
 import Axios from 'axios';
@@ -124,7 +148,55 @@ export default {
 			imageFile: {},
 			ckeditor: {
 				editor: ClassicEditor,
-				editorConfig: {},
+				editorConfig: {
+					plugins: [
+						Alignment,
+						EssentialsPlugin,
+						BoldPlugin,
+						ItalicPlugin,
+						CodePlugin,
+						StrikethroughPlugin,
+						SubscriptPlugin,
+						SuperscriptPlugin,
+						UnderlinePlugin,
+						LinkPlugin,
+						ParagraphPlugin,
+						Heading,
+						Font,
+						PasteFromOffice,
+						Indent,
+						IndentBlock,
+						HeadingButtonsUI,
+						ParagraphButtonUI,
+						Image,
+						ImageToolbar,
+						ImageCaption,
+						ImageStyle,
+						imageupload,
+					],
+					fontSize: {
+						options: [
+							9,
+							11,
+							13,
+							'default',
+							17,
+							19,
+							21
+						]
+					},
+					toolbar: [
+						'heading', '|',
+						'outdent', 'indent', '|',
+						'bold', 'italic', 'underline', 'strikethrough', 'code', 'subscript', 'superscript',
+						'link',
+						'bulletedList', 'numberedList', 'blockQuote',
+						'alignment',
+						'undo', 'redo',
+						'fontSize', 'fontColor', 'fontBackgroundColor',
+						'imageupload', 'imageTextAlternative', '|', 'imageStyle:full', 'imageStyle:side'
+					],
+				},
 			},
 			data: {
 				id: undefined,

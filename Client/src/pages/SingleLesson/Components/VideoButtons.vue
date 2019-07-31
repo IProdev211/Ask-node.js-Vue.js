@@ -19,6 +19,9 @@
           native-type="submit"
           type="default"
           class="btn btn-simple animation-on-hover custom-button"
+          @click="markAsDoneListener"
+          :loading="loadingMarkAsDone"
+          v-if="canMarkAsDone"
         >
           <i class="fas fa-check pl-2"></i>
           این بخش را دیدم
@@ -47,7 +50,9 @@ export default {
     next: Boolean,
     prev: Boolean,
     loadingNext: Boolean,
-    loadingPrev: Boolean
+    loadingPrev: Boolean,
+    canMarkAsDone: Boolean,
+    loadingMarkAsDone: Boolean,
   },
   methods: {
     nextEpisodeListener(e) {
@@ -55,7 +60,10 @@ export default {
     },
     prevEpisodeListener(e) {
       this.$emit('prevLesson');
-    }
+    },
+    markAsDoneListener(e) {
+      this.$emit('markAsDone');
+    },
   }
 };
 </script>

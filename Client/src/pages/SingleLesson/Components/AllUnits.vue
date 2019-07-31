@@ -16,7 +16,17 @@
             <i :class="'fas ' + getEpisodeIcon(episode.type)"></i>
           </div>
           <div class="UnitName pr-3">
-            <p @click="throwClickEvent(episode)" class="UnitName text-right">{{ episode.title }}</p>
+            <router-link
+              :to="'/courses/' + course.slug + '/unit-' + episode.number"
+              v-if="!mustBuy(episode.type)"
+            >
+              <p class="UnitName text-right">{{ episode.title }}</p>
+            </router-link>
+            <p
+              @click="throwClickEvent"
+              class="UnitName text-right"
+              v-if="mustBuy(episode.type)"
+            >{{ episode.title }}</p>
           </div>
         </div>
         <div class="left d-flex justify-content-between">
@@ -31,7 +41,7 @@
       </div>
     </div>
     <div class="col-md-3">
-      <custom-card />
+      <custom-card :enrolled="purchased" :done="courseDonePercentage" :remain="courseRemainPercentage" />
     </div>
   </div>
 </template>
@@ -44,12 +54,7 @@ export default {
   components: {
     CustomCard
   },
-  props: ['course', 'episodes', 'scrollable', 'maxepisodes', 'purchased'],
-  data() {
-    return {
-      activeEpisode: ''
-    };
-  },
+  props: ['course', 'episodes', 'scrollable', 'maxepisodes', 'purchased', 'courseDonePercentage', 'courseRemainPercentage', 'activeEpisode'],
   methods: {
     getEpisodeType(type) {
       switch (type.toLowerCase()) {
@@ -102,14 +107,9 @@ export default {
         !this.purchased
       );
     },
-    throwClickEvent(episode, index) {
-      this.activeEpisode = episode.id;
-      if (this.mustBuy(episode.type)) {
-        this.$emit('buy');
-      } else {
-        this.$emit('click', episode);
-      }
-    }
+    throwClickEvent() {
+      this.$emit('buy');
+    },
   },
   computed: {
     IAmVIP() {

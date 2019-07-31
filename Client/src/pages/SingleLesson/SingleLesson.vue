@@ -104,7 +104,7 @@
       <!-- VIDEO SECTION -->
       <div class="container">
         <div class="py-3">
-          <vue-plyr class="plyr--video" :key="id" ref="plyr">
+          <vue-plyr class="plyr--video" :key="id">
             <video>
               <source :src="`/api/v1${download}`" type="video/mp4" size="720" />
             </video>
@@ -113,14 +113,14 @@
 
         <!-- VIDEO BUTTONS -->
         <div class="video-buttons">
-          <video-buttons
-            :next="next"
-            :prev="prev"
-            v-on:nextLesson="nextLessonListener"
-            v-on:prevLesson="prevLessonListener"
-            :loadingNext="loadingNext"
-            :loadingPrev="loadingPrev"
-          />
+          <video-buttons :next="next" :prev="prev"
+          v-on:nextLesson="nextLessonListener"
+          v-on:prevLesson="prevLessonListener"
+          :loadingNext="loadingNext"
+          :loadingPrev="loadingPrev"
+          :canMarkAsDone="canMarkAsDone"
+          :loadingMarkAsDone="loadingMarkAsDone"
+          v-on:markAsDone="markAsDone"/>
         </div>
 
         <div class="all-units py-5">
@@ -132,8 +132,10 @@
             :scrollable="false"
             :maxepisodes="4"
             :purchased="! notEnrolled"
+            :courseDonePercentage="courseDonePercentage"
+            :courseRemainPercentage="courseRemainPercentage"
+            :activeEpisode="this.episode ? this.episode.id : ''"
             @buy="openBuyCourse"
-            @click="onClickEpisodes"
           ></AllUnits>
           <p
             class="quote-text text-center pb-2 d-none d-md-block"
@@ -232,7 +234,11 @@ export default {
       nextEpisode: undefined,
       prevEpisode: undefined,
       loadingNext: false,
-      loadingPrev: false
+      loadingPrev: false,
+      canMarkAsDone: false,
+      loadingMarkAsDone: false,
+      courseDonePercentage: 0,
+      courseRemainPercentage: 0,
     };
   },
   methods: {
@@ -291,18 +297,63 @@ export default {
             this.download = this.course.download;
             this.prev = false;
             this.next = false;
-            if (this.course.episodes.length) {
-              this.next = true;
-              this.nextEpisode = this.course.episodes[0];
+            this.nextEpisode = undefined;
+            if (this.episode.number == 1) {
+              this.prev = false;
+              this.prevEpisode = undefined;
+            }
+            for (let i = 0; i < this.course.episodes.length; i++) {
+              if (this.course.episodes[i].number > this.episode.number) {
+                this.next = true;
+                this.nextEpisode = this.course.episodes[i];
+                break;
+              }
+            }
+            for (let i = this.course.episodes.length - 1; i >= 0; i--) {
+              if (this.course.episodes[i].number < this.episode.number) {
+                this.prev = true;
+                this.prevEpisode = this.course.episodes[i];
+                break;
+              }
             }
             this.loadingNext = false;
             this.loadingPrev = false;
-          },
-          err => {
+            this.loadingMarkAsDone = false;
+            this.canMarkAsDone = !this.episode.done;
+            this.courseDonePercentage = this.course.done;
+            this.courseRemainPercentage = (100 - this.course.done).toFixed(2);
+          }, err => {
             this.loadingNext = false;
             this.loadingPrev = false;
+            this.loadingMarkAsDone = false;
+          });
+      } else {
+        this.canMarkAsDone = false;
+        backend.get(`courses/${this.$route.params.slug}`).then(response => {
+          this.course = response.data.data.course;
+          this.notEnrolled = !response.data.data.enrolled;
+          this.enrolledCount = response.data.data.enrolledCount;
+          this.id = this.course.id;
+          this.title = this.course.title;
+          this.type = this.course.type;
+          this.body = this.course.body;
+          this.download = this.course.download;
+          this.prev = false;
+          this.next = false;
+          if (this.course.episodes.length) {
+            this.next = true;
+            this.nextEpisode = this.course.episodes[0];
           }
-        );
+          this.loadingNext = false;
+          this.loadingPrev = false;
+          this.loadingMarkAsDone = false;
+          this.courseDonePercentage = this.course.done;
+          this.courseRemainPercentage = (100 - this.course.done).toFixed(2);
+        }, err => {
+          this.loadingNext = false;
+          this.loadingPrev = false;
+          this.loadingMarkAsDone = false;
+        });
       }
     },
     getEpisodeCreateDate() {
@@ -385,18 +436,31 @@ export default {
       ) {
         this.openBuyCourse();
       } else {
+        console.log("this.prevEpisode", this.prevEpisode);
         this.loadingPrev = true;
         this.$router.push(
           '/courses/' + this.course.slug + '/unit-' + this.prevEpisode.number
         );
       }
     },
-    onClickEpisodes(episode) {
-      if (!this.$refs.plyr.player.playing) {
-        this.$router.push(
-          '/courses/' + this.course.slug + '/unit-' + episode.number
-        );
+    markAsDone() {
+      if (! this.canMarkAsDone) {
+        return;
       }
+      this.loadingMarkAsDone = true;
+      backend.post(`/course/episodes/${this.episode.id}/mark-as-done`).then(response => {
+        this.courseDonePercentage = response.data.done;
+        this.courseRemainPercentage = (100 - response.data.done).toFixed(2);
+        this.loadingMarkAsDone = false;
+        this.canMarkAsDone = false;
+      }, err => {
+        this.loadingMarkAsDone = false;
+				this.$notify({
+					type: 'danger',
+					message: 'ارتباط با سرور بدرستی برقرار نشد.',
+					icon: 'tim-icons icon-bell-55'
+				});
+      });
     }
   },
   computed: {
