@@ -192,7 +192,6 @@ class courseController extends controller {
       for (let x = 0; x < course.episodes.length; x++) {
         if (course.episodes[x].number == req.params.unit) {
           episode = course.episodes[x];
-          course.episodes.splice(x, 1);
           break;
         }
       }

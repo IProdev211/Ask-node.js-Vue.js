@@ -104,7 +104,7 @@
       <!-- VIDEO SECTION -->
       <div class="container">
         <div class="py-3">
-          <vue-plyr class="plyr--video" :key="id" ref="plyr">
+          <vue-plyr class="plyr--video" :key="id">
             <video>
               <source :src="`/api/v1${download}`" type="video/mp4" size="720" />
             </video>
@@ -134,8 +134,8 @@
             :purchased="! notEnrolled"
             :courseDonePercentage="courseDonePercentage"
             :courseRemainPercentage="courseRemainPercentage"
+            :activeEpisode="this.episode ? this.episode.id : ''"
             @buy="openBuyCourse"
-            @click="onClickEpisodes"
           ></AllUnits>
           <p
             class="quote-text text-center pb-2 d-none d-md-block"
@@ -268,10 +268,13 @@ export default {
               if (this.course.episodes[i].number > this.episode.number) {
                 this.next = true;
                 this.nextEpisode = this.course.episodes[i];
-                if (i > 0) {
-                  this.prev = true;
-                  this.prevEpisode = this.course.episodes[i - 1];
-                }
+                break;
+              }
+            }
+            for (let i = this.course.episodes.length - 1; i >= 0; i--) {
+              if (this.course.episodes[i].number < this.episode.number) {
+                this.prev = true;
+                this.prevEpisode = this.course.episodes[i];
                 break;
               }
             }
@@ -382,13 +385,9 @@ export default {
       if (['cash', 'paid', 'vip'].indexOf(this.prevEpisode.type.toLowerCase()) > 0 && this.notEnrolled) {
         this.openBuyCourse();
       } else {
+        console.log("this.prevEpisode", this.prevEpisode);
         this.loadingPrev = true;
         this.$router.push('/courses/' + this.course.slug + '/unit-' + this.prevEpisode.number);
-      }
-    },
-    onClickEpisodes(episode) {
-      if (! this.$refs.plyr.player.playing) {
-        this.$router.push('/courses/' + this.course.slug + '/unit-' + episode.number);
       }
     },
     markAsDone() {
