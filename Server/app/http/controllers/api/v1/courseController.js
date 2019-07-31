@@ -2,10 +2,10 @@ const controller = require('app/http/controllers/api/controller');
 const Course = require('app/models/course');
 const Episode = require('app/models/episode');
 const Comment = require('app/models/comment');
-const passport = require('passport');
 const request = require('request');
 const ZarinpalCheckout = require('zarinpal-checkout');
 const Payment = require('app/models/payment');
+const DoneEpisode = require('app/models/doneEpisode');
 const User = require('app/models/user');
 const Log = require('app/models/log');
 
@@ -106,7 +106,7 @@ class courseController extends controller {
       const user = req.user ? await User.findById(req.user.id) : undefined;
       res.json({
         data: {
-          course: this.filterCourseData(course, user, true),
+          course: await this.filterCourseData(course, user, true),
           enrolled: user && (user.admin || user.checkLearning(course.id)),
           enrolledCount: course.usersCount
         },
@@ -117,7 +117,11 @@ class courseController extends controller {
     }
   }
 
-  filterCourseData(course, user, videoURL = false) {
+  async filterCourseData(course, user, videoURL = false) {
+    const episodes = [];
+    for (const episode of course.episodes) {
+      episodes.push(await this.filterEpisodeData(episode));
+    }
     const data = {
       id: course.id,
       title: course.title,
@@ -136,9 +140,7 @@ class courseController extends controller {
         id: course.user.id,
         name: course.user.name
       },
-      episodes: course.episodes.map(episode => {
-        return this.filterEpisodeData(episode, user);
-      }),
+      episodes: episodes,
       price: course.price,
       oldPrice: course.oldPrice,
       createdAt: course.createdAt,
@@ -146,9 +148,12 @@ class courseController extends controller {
     if (videoURL) {
       data.download = course.download(!!user, user);
     }
+    if (user) {
+      data.done = await this.getCourseDonePercentage(course, user);
+    }
     return data;
   }
-  filterEpisodeData(episode, user) {
+  async filterEpisodeData(episode, user) {
     return {
       time: episode.time,
       downloadCount: episode.downloadCount,
@@ -160,7 +165,8 @@ class courseController extends controller {
       type: episode.type,
       number: episode.number,
       createdAt: episode.createdAt,
-      download: episode.download(!!user, user)
+      download: episode.download(!!user, user),
+      done: await this.hasDoneEpisode(episode, user),
     };
   }
   async singleEpisode(req, res) {
@@ -197,8 +203,8 @@ class courseController extends controller {
       const user = req.user ? await User.findById(req.user.id) : undefined;
       res.json({
         data: {
-          episode: this.filterEpisodeData(episode, user),
-          course: this.filterCourseData(course, user),
+          episode: await this.filterEpisodeData(episode, user),
+          course: await this.filterCourseData(course, user),
           enrolled:
             user && (user.admin || user.checkLearning(episode.course.id)),
           enrolledCount: episode.course.usersCount
@@ -423,6 +429,56 @@ class courseController extends controller {
       ...courses,
       docs: courses.docs.map(this.filterCourse)
     });
+  }
+  async getCourseDonePercentage(course, user) {
+    const donedEpisodes = await DoneEpisode.countDocuments({ user: user.id })
+                                    .populate({
+                                      path: 'episode',
+                                      populate: {
+                                        path: 'course',
+                                        match: {_id: course.id},
+                                      }
+                                    });
+
+    const episodes = await Episode.countDocuments({
+      course: course.id,
+    });
+    return (donedEpisodes * 100 / episodes).toFixed(2);
+  }
+  async markAsDoneEpisode(req, res) {
+    if (! req.user.id) {
+      return this.failed('پیدا نشد!', res, 404);
+    }
+    const episode = await Episode.findById(req.params.episode).populate("course");
+    if (! episode || (! req.user.learning.indexOf(episode.course.id) !== -1 && ! req.user.admin)) {
+      return this.failed('چنین دوره ای یافت نشد !', res, 404);
+    }
+    const has = await DoneEpisode.findOne({
+      user: req.user.id,
+      episode: episode.id,
+    }).exec();
+    if (! has) {
+      const model = new DoneEpisode({
+        user: req.user.id,
+        episode: episode.id,
+      });
+      await model.save();
+    }
+    const done = await this.getCourseDonePercentage(episode.course, req.user);
+    return res.json({
+      done: done,
+      status: "success",
+    });
+  }
+  async hasDoneEpisode(episode, user) {
+    if (! user) {
+      return false;
+    }
+    const has = await DoneEpisode.findOne({
+      user: user.id,
+      episode: episode.id,
+    }).exec();
+    return !!has;
   }
 }
 

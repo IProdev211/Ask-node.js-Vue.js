@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="col-md-3">
-      <custom-card />
+      <custom-card :enrolled="purchased" :done="courseDonePercentage" :remain="courseRemainPercentage" />
     </div>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default {
   components: {
     CustomCard
   },
-  props: ['course', 'episodes', 'scrollable', 'maxepisodes', 'purchased'],
+  props: ['course', 'episodes', 'scrollable', 'maxepisodes', 'purchased', 'courseDonePercentage', 'courseRemainPercentage'],
   data() {
     return {
       activeEpisode: "",

@@ -117,7 +117,10 @@
           v-on:nextLesson="nextLessonListener"
           v-on:prevLesson="prevLessonListener"
           :loadingNext="loadingNext"
-          :loadingPrev="loadingPrev"/>
+          :loadingPrev="loadingPrev"
+          :canMarkAsDone="canMarkAsDone"
+          :loadingMarkAsDone="loadingMarkAsDone"
+          v-on:markAsDone="markAsDone"/>
         </div>
 
         <div class="all-units py-5">
@@ -129,6 +132,8 @@
             :scrollable="false"
             :maxepisodes="4"
             :purchased="! notEnrolled"
+            :courseDonePercentage="courseDonePercentage"
+            :courseRemainPercentage="courseRemainPercentage"
             @buy="openBuyCourse"
             @click="onClickEpisodes"
           ></AllUnits>
@@ -230,6 +235,10 @@ export default {
       prevEpisode: undefined,
       loadingNext: false,
       loadingPrev: false,
+      canMarkAsDone: false,
+      loadingMarkAsDone: false,
+      courseDonePercentage: 0,
+      courseRemainPercentage: 0,
     };
   },
   methods: {
@@ -268,11 +277,17 @@ export default {
             }
             this.loadingNext = false;
             this.loadingPrev = false;
+            this.loadingMarkAsDone = false;
+            this.canMarkAsDone = !this.episode.done;
+            this.courseDonePercentage = this.course.done;
+            this.courseRemainPercentage = (100 - this.course.done).toFixed(2);
           }, err => {
             this.loadingNext = false;
             this.loadingPrev = false;
+            this.loadingMarkAsDone = false;
           });
       } else {
+        this.canMarkAsDone = false;
         backend.get(`courses/${this.$route.params.slug}`).then(response => {
           this.course = response.data.data.course;
           this.notEnrolled = !response.data.data.enrolled;
@@ -290,9 +305,13 @@ export default {
           }
           this.loadingNext = false;
           this.loadingPrev = false;
+          this.loadingMarkAsDone = false;
+          this.courseDonePercentage = this.course.done;
+          this.courseRemainPercentage = (100 - this.course.done).toFixed(2);
         }, err => {
           this.loadingNext = false;
           this.loadingPrev = false;
+          this.loadingMarkAsDone = false;
         });
       }
     },
@@ -371,6 +390,25 @@ export default {
       if (! this.$refs.plyr.player.playing) {
         this.$router.push('/courses/' + this.course.slug + '/unit-' + episode.number);
       }
+    },
+    markAsDone() {
+      if (! this.canMarkAsDone) {
+        return;
+      }
+      this.loadingMarkAsDone = true;
+      backend.post(`/course/episodes/${this.episode.id}/mark-as-done`).then(response => {
+        this.courseDonePercentage = response.data.done;
+        this.courseRemainPercentage = (100 - response.data.done).toFixed(2);
+        this.loadingMarkAsDone = false;
+        this.canMarkAsDone = false;
+      }, err => {
+        this.loadingMarkAsDone = false;
+				this.$notify({
+					type: 'danger',
+					message: 'ارتباط با سرور بدرستی برقرار نشد.',
+					icon: 'tim-icons icon-bell-55'
+				});
+      });
     }
   },
   computed: {

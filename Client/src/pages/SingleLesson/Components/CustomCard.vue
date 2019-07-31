@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- CARD 1 -->
-    <div class="card card-1 text-center">
+    <div class="card card-1 text-center" v-if="enrolled">
       <div class="py-3 px-2">
         <h2 class="title">درصد تکمیل دوره</h2>
         <div>
@@ -10,7 +10,9 @@
             :chart-data="pieChart1.chartData"
             :extra-options="pieChart1.extraOptions"
             :height="120"
+            ref="chart"
           ></pie-chart>
+          <p class="text-center text-white mt-3 mb-0 font-weight-bolder">{{ Number(done) }} %</p>
         </div>
       </div>
     </div>
@@ -51,6 +53,11 @@
 import PieChart from 'src/components/Charts/PieChart';
 
 export default {
+  props: [
+    'enrolled',
+    'done',
+    'remain',
+  ],
   components: {
     PieChart
   },
@@ -58,22 +65,21 @@ export default {
     return {
       pieChart1: {
         chartData: {
-          labels: [1, 2],
           datasets: [
             {
-              label: 'Emails',
+              labels: ["تکمیل شده", "تکمیل نشده"],
               pointRadius: 0,
               pointHoverRadius: 0,
               backgroundColor: ['#00c09d', '#e2e2e2'],
               borderWidth: 0,
-              data: [60, 40]
-            }
-          ]
+              data: [this.done, this.remain],
+            },
+          ],
         },
         extraOptions: {
           maintainAspectRatio: false,
           legend: {
-            display: false
+            display: false,
           },
           responsive: true,
           cutoutPercentage: 70,
@@ -85,7 +91,14 @@ export default {
             xPadding: 12,
             mode: 'nearest',
             intersect: 0,
-            position: 'nearest'
+            position: 'nearest',
+						callbacks: {
+							label: (tooltipItem, item) => {
+                const dataset = item.datasets[tooltipItem.datasetIndex];
+                const index = tooltipItem.index;
+								return Number(dataset.data[index]) + " % " + dataset.labels[index];
+							},
+						},
           },
 
           scales: {
@@ -121,6 +134,14 @@ export default {
         }
       }
     };
+  },
+  watch: {
+    done: function(value, old) {
+      this.pieChart1.chartData.datasets[0].data[0] = value;
+    },
+    remain: function(value, old) {
+      this.pieChart1.chartData.datasets[0].data[1] = value;
+    },
   }
 };
 </script>

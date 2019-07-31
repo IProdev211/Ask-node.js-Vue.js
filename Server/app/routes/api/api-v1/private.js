@@ -40,6 +40,11 @@ router.post(
 router.post('/courses/:course/buy', courseController.buy);
 router.post('/courses/payments/verification', courseController.verification);
 
+router.post(
+  '/course/episodes/:episode/mark-as-done',
+  courseController.markAsDoneEpisode
+);
+
 // Admin section
 
 router.get(
