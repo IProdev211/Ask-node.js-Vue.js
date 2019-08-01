@@ -54,11 +54,7 @@
 import PieChart from 'src/components/Charts/PieChart';
 
 export default {
-  props: [
-    'enrolled',
-    'done',
-    'remain',
-  ],
+  props: ['enrolled', 'done', 'remain'],
   components: {
     PieChart
   },
@@ -68,19 +64,19 @@ export default {
         chartData: {
           datasets: [
             {
-              labels: ["تکمیل شده", "تکمیل نشده"],
+              labels: ['تکمیل شده', 'تکمیل نشده'],
               pointRadius: 0,
               pointHoverRadius: 0,
               backgroundColor: ['#00c09d', '#e2e2e2'],
               borderWidth: 0,
-              data: [this.done, this.remain],
-            },
-          ],
+              data: [this.done, this.remain]
+            }
+          ]
         },
         extraOptions: {
           maintainAspectRatio: false,
           legend: {
-            display: false,
+            display: false
           },
           responsive: true,
           cutoutPercentage: 70,
@@ -93,13 +89,15 @@ export default {
             mode: 'nearest',
             intersect: 0,
             position: 'nearest',
-						callbacks: {
-							label: (tooltipItem, item) => {
+            callbacks: {
+              label: (tooltipItem, item) => {
                 const dataset = item.datasets[tooltipItem.datasetIndex];
                 const index = tooltipItem.index;
-								return Number(dataset.data[index]) + " % " + dataset.labels[index];
-							},
-						},
+                return (
+                  Number(dataset.data[index]) + ' % ' + dataset.labels[index]
+                );
+              }
+            }
           },
 
           scales: {
@@ -142,7 +140,7 @@ export default {
     },
     remain: function(value, old) {
       this.pieChart1.chartData.datasets[0].data[1] = value;
-    },
+    }
   }
 };
 </script>
@@ -181,7 +179,7 @@ export default {
   }
 
   .subtitle {
-    font-size: 0.9em !important;
+    font-size: 1em !important;
   }
 }
 </style>

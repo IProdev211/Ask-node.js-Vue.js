@@ -1,19 +1,22 @@
 <template>
-  <div class="widget-vip card px-2">
+  <div class="widget-vip px-2">
     <div class="row">
-      <div class="col-md-3">
-        <p class="px-4 my-4 vip-title text-black">
+      <div class="col-md-2">
+        <p class="px-2 my-4 vip-title">
           <i class="fas fa-unlock pl-2 icon"></i>
           VIP Access
         </p>
       </div>
-      <div class="col-md-5 my-auto">
-        <p
+      <div class="col-md-7 my-auto">
+        <!-- <p
           class="px-3 my-auto vip-desc text-center py-3 text-black"
-        >با خریداری این پنل شما میتوانید به ویدیوهای ویژه سایت به مدت یک ماه بطور کامل دسترسی داشته باشید.</p>
+        >با خریداری این پنل شما میتوانید به ویدیوهای ویژه سایت به مدت یک ماه بطور کامل دسترسی داشته باشید.</p>-->
+        <p
+          class="my-auto vip-desc text-center py-3 text-black"
+        >با خریداری این پنل شما میتوانید به ویدیوهای ویژه سایت به بطور کامل دسترسی داشته باشید.</p>
       </div>
-      <div class="col-md-3 dropdown-prices my-auto">
-        <base-dropdown title="عضویت" title-classes="btn btn-default px-5">
+      <div class="col-md-2 dropdown-prices my-auto">
+        <base-dropdown title="عضویت" title-classes="btn btn-default animation-on-hover px-5">
           <a class="dropdown-item" href="#" @click.prevent="payment">ماهانه - 39 هزار تومان</a>
           <a class="dropdown-item" href="#" @click.prevent="payment(4)">۴ ماهه - 139 هزار تومان</a>
           <a class="dropdown-item" href="#" @click.prevent="payment(12)">یکساله - 309 هزار تومان</a>
@@ -112,19 +115,20 @@ export default {
 }
 
 .widget-vip {
-  background-image: linear-gradient(90deg, #bf953f, #fcf6ba);
+  background-image: linear-gradient(270deg, #bf953f, #fcf6ba);
   border-radius: 15px;
-}
-
-.text-black {
-  color: black;
+  -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.3);
+  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.12);
 }
 
 .vip-title {
-  font-size: 1.7rem;
-  // font-weight: 600;
+  font-size: 1.2em;
+  color: black;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
   .icon {
-    font-size: 1.6rem;
+    font-size: 1.2em;
   }
 }
 
