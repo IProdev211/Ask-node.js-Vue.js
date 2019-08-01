@@ -44,6 +44,10 @@ router.post(
   '/course/episodes/:episode/mark-as-done',
   courseController.markAsDoneEpisode
 );
+router.post(
+  '/course/episodes/:episode/mark-as-notdone',
+  courseController.markAsNotDoneEpisode
+);
 
 // Admin section
 

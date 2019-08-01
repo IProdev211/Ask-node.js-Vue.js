@@ -23,8 +23,8 @@
           :loading="loadingMarkAsDone"
           v-if="canMarkAsDone"
         >
-          <i class="fas fa-check pl-2"></i>
-          این بخش را دیدم
+          <i :class="'fas fa-' + (isDoneEpisode ? 'times text-danger ' : 'check text-success ') + 'pl-2'"></i>
+          {{ isDoneEpisode ? 'این بخش را ندیدم' : 'این بخش را دیدم'}}
         </base-button>
       </div>
 
@@ -51,6 +51,7 @@ export default {
     prev: Boolean,
     loadingNext: Boolean,
     loadingPrev: Boolean,
+    isDoneEpisode: Boolean,
     canMarkAsDone: Boolean,
     loadingMarkAsDone: Boolean,
   },

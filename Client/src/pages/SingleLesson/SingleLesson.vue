@@ -118,6 +118,7 @@
           v-on:prevLesson="prevLessonListener"
           :loadingNext="loadingNext"
           :loadingPrev="loadingPrev"
+          :isDoneEpisode="isDoneEpisode"
           :canMarkAsDone="canMarkAsDone"
           :loadingMarkAsDone="loadingMarkAsDone"
           v-on:markAsDone="markAsDone"/>
@@ -235,6 +236,7 @@ export default {
       prevEpisode: undefined,
       loadingNext: false,
       loadingPrev: false,
+      isDoneEpisode: false,
       canMarkAsDone: false,
       loadingMarkAsDone: false,
       courseDonePercentage: 0,
@@ -318,8 +320,9 @@ export default {
             }
             this.loadingNext = false;
             this.loadingPrev = false;
+            this.canMarkAsDone = true;
             this.loadingMarkAsDone = false;
-            this.canMarkAsDone = !this.episode.done;
+            this.isDoneEpisode = this.episode.done;
             this.courseDonePercentage = this.course.done;
             this.courseRemainPercentage = (100 - this.course.done).toFixed(2);
           }, err => {
@@ -448,11 +451,18 @@ export default {
         return;
       }
       this.loadingMarkAsDone = true;
-      backend.post(`/course/episodes/${this.episode.id}/mark-as-done`).then(response => {
+      backend.post(`/course/episodes/${this.episode.id}/${this.episode.done ? 'mark-as-notdone' : 'mark-as-done'}`).then(response => {
         this.courseDonePercentage = response.data.done;
         this.courseRemainPercentage = (100 - response.data.done).toFixed(2);
         this.loadingMarkAsDone = false;
-        this.canMarkAsDone = false;
+        this.isDoneEpisode = !this.isDoneEpisode;
+        this.episode.done = !this.episode.done;
+        for (const item of this.course.episodes) {
+          if (item.id == this.episode.id) {
+            item.done = !item.done;
+            break;
+          }
+        }
       }, err => {
         this.loadingMarkAsDone = false;
 				this.$notify({

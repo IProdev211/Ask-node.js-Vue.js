@@ -11,6 +11,7 @@
             :extra-options="pieChart1.extraOptions"
             :height="120"
             ref="chart"
+            :key="done"
           ></pie-chart>
           <p class="text-center text-white mt-3 mb-0 font-weight-bolder">{{ Number(done) }} %</p>
         </div>
