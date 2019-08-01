@@ -407,10 +407,19 @@ class courseController extends controller {
     const page = req.query.page || 1;
     // Update User data
     const user = await User.findById(req.user.id);
+    let condition = {};
+    if (user.vipTime && new Date(user.vipTime) > new Date()) {
+      condition = {
+        $or: [
+          { _id: { $in: user.learning } },
+          { type: "VIP" }
+        ]
+      }
+    } else {
+      condition = { _id: { $in: user.learning } };
+    }
     const courses = await Course.paginate(
-      {
-        _id: { $in: user.learning }
-      },
+      condition,
       {
         page,
         sort: {

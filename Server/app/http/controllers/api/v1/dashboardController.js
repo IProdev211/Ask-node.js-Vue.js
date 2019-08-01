@@ -1,5 +1,6 @@
 const controller = require('app/http/controllers/api/controller');
 const HomeController = require('app/http/controllers/api/v1/homeController');
+const Course = require('app/models/course');
 const Episode = require('app/models/episode');
 const Payment = require('app/models/payment');
 const ZarinpalCheckout = require('zarinpal-checkout');
@@ -10,9 +11,25 @@ const Log = require('app/models/log');
 class dashboardController extends controller {
   async index(req, res) {
     let page = req.query.page || 1;
+    let condition = {};
+    const isVip = req.user.vipTime && new Date(req.user.vipTime) > new Date();
+    if (true || isVip) {
+      condition = {
+        $or: [
+          { _id: { $in: req.user.learning } },
+          { type: "VIP" }
+        ]
+      }
+    } else {
+      condition = { _id: { $in: req.user.learning } };
+    }
+    const courses = await Course.find(condition, "_id").exec();
+    console.log("courses", courses);
     const promises = [
       Episode.countDocuments().exec(),
-      Episode.countDocuments({ course: { $in: req.user.learning } }).exec(),
+      Episode.countDocuments({ course: { $in: courses.map(course => {
+        return course.id;
+      }) } }).exec(),
       Payment.paginate(
         { user: req.user.id },
         {
@@ -31,7 +48,7 @@ class dashboardController extends controller {
     const results = await Promise.all(promises);
     const response = {
       status: true,
-      courses: req.user.learning.length,
+      courses: courses.length,
       episodes: [results[1], results[0]],
       payments: {
         ...results[2]
