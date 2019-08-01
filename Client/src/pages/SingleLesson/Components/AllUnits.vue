@@ -30,6 +30,9 @@
           </div>
         </div>
         <div class="left d-flex justify-content-between">
+          <div class="pl-2 d-flex align-self-center" v-if="purchased">
+            <i :class="episode.done ? 'fas fa-check text-success fas-2x' : 'fas fa-times text-danger fas-2x'"></i>
+          </div>
           <div class="pl-2">
             <p class="detail-price">{{ getEpisodeType(episode.type) }}</p>
           </div>
