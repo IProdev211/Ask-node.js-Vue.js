@@ -31,7 +31,9 @@
         </div>
         <div class="left d-flex justify-content-between">
           <div class="pl-2 d-flex align-self-center" v-if="purchased">
-            <i :class="episode.done ? 'fas fa-check text-success fas-2x' : 'fas fa-times text-danger fas-2x'"></i>
+            <i
+              :class="episode.done ? 'fas fa-eye text-success fas-2x' : 'fas fa-eye-slash text-danger fas-2x'"
+            ></i>
           </div>
           <div class="pl-2">
             <p class="detail-price">{{ getEpisodeType(episode.type) }}</p>
@@ -44,7 +46,11 @@
       </div>
     </div>
     <div class="col-md-3">
-      <custom-card :enrolled="purchased" :done="courseDonePercentage" :remain="courseRemainPercentage" />
+      <custom-card
+        :enrolled="purchased"
+        :done="courseDonePercentage"
+        :remain="courseRemainPercentage"
+      />
     </div>
   </div>
 </template>
@@ -57,7 +63,16 @@ export default {
   components: {
     CustomCard
   },
-  props: ['course', 'episodes', 'scrollable', 'maxepisodes', 'purchased', 'courseDonePercentage', 'courseRemainPercentage', 'activeEpisode'],
+  props: [
+    'course',
+    'episodes',
+    'scrollable',
+    'maxepisodes',
+    'purchased',
+    'courseDonePercentage',
+    'courseRemainPercentage',
+    'activeEpisode'
+  ],
   methods: {
     getEpisodeType(type) {
       switch (type.toLowerCase()) {
@@ -112,7 +127,7 @@ export default {
     },
     throwClickEvent() {
       this.$emit('buy');
-    },
+    }
   },
   computed: {
     IAmVIP() {
