@@ -1,16 +1,16 @@
 <template>
   <section class="container">
     <div class="d-flex justify-content-between py-2">
-      <div class="next-episode" v-if="next">
+      <div class="previous-episode" v-if="prev">
         <base-button
           native-type="submit"
           type="default"
           class="btn animation-on-hover custom-button"
-          @click.prevent="nextEpisodeListener"
-          :loading="loadingNext"
+          @click.prevent="prevEpisodeListener"
+          :loading="loadingPrev"
         >
           <i class="fas fa-caret-right pl-2"></i>
-          جلسه بعدی
+          جلسه قبلی
         </base-button>
       </div>
 
@@ -23,20 +23,22 @@
           :loading="loadingMarkAsDone"
           v-if="canMarkAsDone"
         >
-          <i :class="'fas fa-' + (isDoneEpisode ? 'times text-danger ' : 'check text-success ') + 'pl-2'"></i>
           {{ isDoneEpisode ? 'این بخش را ندیدم' : 'این بخش را دیدم'}}
+          <i
+            :class="'fas fa-' + (isDoneEpisode ? 'eye-slash text-danger ' : 'eye text-success ') + 'pr-2'"
+          ></i>
         </base-button>
       </div>
 
-      <div class="previous-episode" v-if="prev">
+      <div class="next-episode" v-if="next">
         <base-button
           native-type="submit"
           type="default"
           class="btn animation-on-hover custom-button"
-          @click.prevent="prevEpisodeListener"
-          :loading="loadingPrev"
+          @click.prevent="nextEpisodeListener"
+          :loading="loadingNext"
         >
-          جلسه قبلی
+          جلسه بعدی
           <i class="fas fa-caret-left pr-2"></i>
         </base-button>
       </div>
@@ -53,7 +55,7 @@ export default {
     loadingPrev: Boolean,
     isDoneEpisode: Boolean,
     canMarkAsDone: Boolean,
-    loadingMarkAsDone: Boolean,
+    loadingMarkAsDone: Boolean
   },
   methods: {
     nextEpisodeListener(e) {
@@ -64,7 +66,7 @@ export default {
     },
     markAsDoneListener(e) {
       this.$emit('markAsDone');
-    },
+    }
   }
 };
 </script>
