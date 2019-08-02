@@ -73,11 +73,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// @media (max-width: 768px) {
-//   .course-section {
-//     padding: 0 11%;
-//   }
-// }
+@media (max-width: 768px) {
+  .course-section {
+    padding: 0 11%;
+  }
+}
 
 .headerDigits {
   padding: 0 35%;
@@ -89,7 +89,7 @@ export default {
 
 .bullet-point {
   font-size: 2rem;
-  color: #3cecb173;
+  color: #3cecb1d7;
 }
 
 @media only screen and (max-width: 768px) {

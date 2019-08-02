@@ -41,6 +41,7 @@
 										</div>
 									</div>
 									
+									
 									<div class="col-md-12 py-4">
 										<base-input
 											class="blogtext"
@@ -51,11 +52,18 @@
 											<ckeditor @ready="onEditorReady" :editor="ckeditor.editor" v-model="data.content" :config="ckeditor.editorConfig"></ckeditor>
 										</base-input>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-3">
+										<base-input
+										label="Image Alt"
+										placeholder="Image Alt"
+										>
+										</base-input>
+									</div>
+									<div class="col-md-4">
 										<h4 class="lead">Tags</h4>
 										<tags-input v-model="data.tags"></tags-input>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-5">
 										<h4 class="lead">Categories</h4>
 										<tags-input v-model="data.categories" placeholder="Add new Category"></tags-input>
 									</div>

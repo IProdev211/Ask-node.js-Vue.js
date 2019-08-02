@@ -397,7 +397,7 @@ p,
 }
 
 .content-custom {
-  background-color: #f8f8fa;
+  background-color: #ffffff;
   background-attachment: fixed;
 }
 

@@ -3,14 +3,11 @@
     <!-- Hero Section -->
     <section class="hero-content-homepage">
       <div class="hero-text-section text-center">
-        <h1 class="hero-title pb-3">آیا میخواهید مثل یک بومی انگلیسی حرف بزنید؟</h1>
+        <!-- <h1 class="hero-title pb-3">آیا میخواهید مثل یک بومی انگلیسی حرف بزنید؟</h1> -->
+        <h1 class="hero-title pb-3">اسک آریا سریع ترین راه یادگیری زبان</h1>
         <p
-          class="text-center hero-subtitle py-3 hero-large"
-        >باور ما اینست که کاربران ایرانی لایق بهترین ها هستند و باید بهترین و بروزترین فیلم های آموزشی و مقالات در اختیار آنها قرار بگیرد تا بتوانند به سرعت پیشرفت کنند و جزء بهترین ها شوند. با ما همراه باشید تا بهترین ها رو لایق بهترین کاربران کنیم.</p>
-
-        <p
-          class="text-center hero-subtitle py-3 hero-small"
-        >با ما همراه باشید تا بهترین ها رو لایق بهترین کاربران کنیم.</p>
+          class="text-center hero-subtitle py-3"
+        >ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان آموزان در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.</p>
 
         <div class="pt-3 d-flex justify-content-center text-center">
           <div>
@@ -94,14 +91,14 @@
       <ImprovementBanner1></ImprovementBanner1>
     </div>
 
-    <!-- Blog Section-->
-    <div id="blog" class="blog-section pb-2">
-      <blog-section v-bind="{posts: topPosts}"></blog-section>
-    </div>
-
     <!--Improvement Banner 2-->
     <div class="py-4">
       <ImprovementBanner2></ImprovementBanner2>
+    </div>
+
+    <!-- Blog Section-->
+    <div id="blog" class="blog-section pb-2">
+      <blog-section v-bind="{posts: topPosts}"></blog-section>
     </div>
 
     <!--Founder Section-->
@@ -211,7 +208,7 @@ export default {
   }
 
   .hero-title {
-    font-size: 4em;
+    font-size: 4.2em;
     line-height: inherit;
     font-family: IranSansBold;
     color: #fff !important;
@@ -225,10 +222,7 @@ export default {
     text-shadow: 1px 1px #79797949;
     line-height: 1.6em;
     font-family: IranSansDN;
-    color: rgba(255, 255, 255, 0.75) !important;
-  }
-  .hero-small {
-    display: none;
+    color: #fff !important;
   }
 
   .btn {
@@ -240,71 +234,13 @@ export default {
   }
 }
 
-// @media (max-width: 680px) {
-//   .hero-content-homepage {
-//     min-height: 60vh !important;
-
-//     .hero-small {
-//       display: block;
-//     }
-
-//     .hero-large {
-//       display: none;
-//     }
-
-//     .btn {
-//       font-weight: inherit;
-//       border-radius: 30px;
-//       padding: 14px 15px;
-//       font-size: 0.8em;
-//       font-family: IranSansBold;
-//     }
-
-//     .hero-title {
-//       font-size: 2.5rem;
-//       line-height: inherit;
-//       color: #fff !important;
-//     }
-//     .hero-subtitle {
-//       font-size: 1.3em;
-//       color: rgba(255, 255, 255, 0.877) !important;
-//       text-align: right !important;
-//       line-height: 1.5em !important;
-//       padding-left: 4em;
-//     }
-//   }
-//   .top-courses-section {
-//     padding: 0 11%;
-//   }
-
-//   .top-courses-section {
-//     .top-section-header {
-//       font-size: 1em !important;
-//     }
-//   }
-// }
-
 @media screen and (max-width: 730px) {
   .hero-content-homepage {
-    height: 65vh !important;
+    min-height: 65vh !important;
+    background-position: bottom right;
 
-    .hero-small {
-      display: block;
-    }
-
-    .hero-large {
-      display: none;
-    }
-
-    .btn {
-      font-weight: inherit;
-      border-radius: 30px;
-      padding: 14px 15px;
-      font-size: 0.7em;
-      font-family: IranSansBold;
-    }
     .hero-title {
-      font-size: 2.3em;
+      font-size: 2.4em;
       line-height: inherit;
       color: #fff !important;
       padding-top: 35px;
@@ -315,6 +251,13 @@ export default {
       font-size: 1.1em;
       text-align: right !important;
     }
+    .btn {
+      font-weight: inherit;
+      border-radius: 30px;
+      padding: 14px 15px;
+      font-size: 0.7em;
+      font-family: IranSansBold;
+    }
   }
   .top-courses-section {
     padding: 0 11%;
@@ -324,6 +267,20 @@ export default {
     .top-section-header {
       font-size: 1em !important;
       text-align: right !important;
+    }
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .hero-content-homepage {
+    min-height: 80vh !important;
+    background-position: bottom right;
+    .hero-text-section {
+      position: relative;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0 10%;
     }
   }
 }

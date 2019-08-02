@@ -23,7 +23,8 @@ export default {};
 .white-content .card:not(.card-white) {
   border-radius: 30px;
   background-color: #0abcf9;
-  background-image: linear-gradient(035deg, #0abcf9 0%, #2c69d1 74%);
+  background-image: linear-gradient(035deg, #0abdf9f5 0%, #2c69d1f3 74%),
+    url(/img/frontend/london-seemless-bg.svg);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
