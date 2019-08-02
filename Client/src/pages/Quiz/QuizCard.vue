@@ -86,8 +86,9 @@ export default {};
   }
   .btn {
     color: #fff !important;
-    font-size: 0.9em;
-    border-color: #fff !important;
+    font-size: 1em;
+    padding: 10px !important;
+    border-color: rgba(255, 255, 255, 0.226) !important;
   }
   @media (max-width: 680px) {
     .btn {

@@ -2,23 +2,69 @@
   <div class="container pt-5">
     <!-- QUIZ TITLE -->
 
-    <div class="text-right pb-5">
-      <h1 class="quiz-title">
-        آزمون آنلاین
-        <span class="quiz-subtitle text-success">زمان آینده استمراری</span>
-        <div class="w-100"></div>
-        <p class="quiz-code pt-3">32423#</p>
-      </h1>
+    <div class="d-flex justify-content-between pb-3">
+      <div class="text-right">
+        <h1 class="quiz-title">
+          آزمون آنلاین
+          <span class="quiz-subtitle text-success">زمان آینده استمراری</span>
+          <div class="w-100"></div>
+          <p class="quiz-code pt-3">32423#</p>
+        </h1>
+      </div>
+      <div class="timer">
+        <!-- COUNTDOWN TIMER GOES HERE -->
+        <h3>01:32</h3>
+      </div>
     </div>
 
-    <div class="question-number d-flex justify-content-between">
-      <!-- COUNTDOWN TIMER GOES HERE -->
+    <!-- QUESTION -->
+    <div class="mt-2">
+      <h2 class="question text-ltr">
+        <!-- WHEN QUESTION IS PINNED, THE PIN SHOULD BECOME ORANGE -->
+        <i class="fas fa-thumbtack pin pr-4"></i>
+        1) What do we call a group of footballers?
+      </h2>
+    </div>
+
+    <!-- ANSWERS -->
+
+    <!-- IF QUESTION IS ANSWERED CORRECTLY, THE BOX SHOULD BECOME GREEN -- IF IT IS WRONG IT SHOULD BECOME RED-->
+    <div class="answers-section text-ltr d-flex justify-content-center row mt-5">
+      <div class="answer-card col-md-5">
+        <div class="answer-info row d-flex align-items-center">
+          <p class="question-letter">A</p>
+          <p class="answer">A band of musicians</p>
+        </div>
+      </div>
+
+      <div class="answer-card col-md-5">
+        <div class="answer-info row d-flex align-items-center">
+          <p class="question-letter">B</p>
+          <p class="answer">A crew</p>
+        </div>
+      </div>
+
+      <div class="answer-card col-md-5">
+        <div class="answer-info row d-flex align-items-center">
+          <p class="question-letter">C</p>
+          <p class="answer">A flight of steps</p>
+        </div>
+      </div>
+
+      <div class="answer-card col-md-5">
+        <div class="answer-info row d-flex align-items-center">
+          <p class="question-letter">D</p>
+          <p class="answer">A team</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="question-number d-flex justify-content-between mt-5">
       <h3 class="question-number">
         سوال
         <span>1</span> از
         <span>6</span>
       </h3>
-      <h3 class="timer">01:32</h3>
     </div>
 
     <div class="progress">
@@ -31,65 +77,6 @@
         aria-valuemin="0"
         aria-valuemax="100"
       >10%</div>
-    </div>
-
-    <div class="question-number-section pt-5">
-      <!-- WHEN QUESTION IS PINNED, THE BOX SHOULD BE ORANGE -->
-      <!-- WHEN QUESTION IS ANSWERED, THE BOX SHOULD BE BLUE -->
-      <div class="question-number">1</div>
-      <div class="question-number">2</div>
-      <div class="question-number">3</div>
-      <div class="question-number">4</div>
-      <div class="question-number">5</div>
-      <div class="question-number">6</div>
-    </div>
-
-    <!-- QUESTION -->
-    <div class="mt-5">
-      <h2 class="question text-ltr">
-        <!-- WHEN QUESTION IS PINNED, THE PIN SHOULD BECOME ORANGE -->
-        <i class="fas fa-thumbtack pr-2 pin"></i>
-        What do we call a group of footballers?
-      </h2>
-    </div>
-
-    <!-- ANSWERS -->
-    <div class="answers-section mt-5">
-      <div class="answer-card row d-flex align-items-center text-ltr">
-        <p class="question-letter">A</p>
-        <p class="answer">A band of musicians</p>
-        <p class="points ml-auto">
-          <span class="available-points">1</span>
-          xp
-        </p>
-      </div>
-
-      <div class="answer-card row d-flex align-items-center text-ltr">
-        <p class="question-letter">B</p>
-        <p class="answer">A crew</p>
-        <p class="points ml-auto">
-          <span class="available-points">1</span>
-          xp
-        </p>
-      </div>
-
-      <div class="answer-card row d-flex align-items-center text-ltr">
-        <p class="question-letter">C</p>
-        <p class="answer">A flight of steps</p>
-        <p class="points ml-auto">
-          <span class="available-points">1</span>
-          xp
-        </p>
-      </div>
-
-      <div class="answer-card row d-flex align-items-center text-ltr">
-        <p class="question-letter">D</p>
-        <p class="answer">A team</p>
-        <p class="points ml-auto">
-          <span class="available-points">1</span>
-          xp
-        </p>
-      </div>
     </div>
 
     <div class="d-flex justify-content-between py-3">
@@ -148,6 +135,11 @@ export default {
     cursor: pointer;
   }
 }
+
+.progress-bar {
+  background-color: #44ee10;
+}
+
 .question-number-section {
   margin-bottom: 16px;
   padding: 16px;
@@ -177,6 +169,12 @@ export default {
   }
 }
 
+.timer {
+  h3 {
+    font-size: 2.5em;
+  }
+}
+
 .quiz-title {
   font-family: IranSansBold;
   font-size: 2.1em;
@@ -203,6 +201,8 @@ export default {
 .question {
   font-size: 1.8em !important;
   padding-top: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
 }
 
 .question-number {
@@ -216,24 +216,28 @@ export default {
 .answers-section {
   .answer-card {
     padding: 1.4rem 1rem;
+    border-radius: 25px;
     background: #fff;
     border: 0;
     position: relative;
-    width: 100%;
-    margin-bottom: 15px;
+    margin: 10px;
     -webkit-box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
+
     :hover {
       cursor: pointer;
-      background-color: rgba(240, 243, 192, 0.781);
+      background-color: rgba(236, 222, 159, 0.781);
       p {
+        background-color: rgba(240, 243, 192, 0.781);
+      }
+      .row {
         background-color: rgba(240, 243, 192, 0.781);
       }
     }
     .question-letter {
       font-size: 1.5rem;
       color: rgb(196, 196, 196);
-      padding: 0 2rem 0 0;
+      padding: 0 1.2em 0 0;
       font-weight: 600;
       font-family: Arial, Helvetica, sans-serif;
     }
@@ -249,7 +253,6 @@ export default {
   :hover {
     cursor: pointer;
     background-color: rgba(255, 191, 16, 0.247);
-    // font-weight: 600;
 
     p {
       background-color: transparent !important;
