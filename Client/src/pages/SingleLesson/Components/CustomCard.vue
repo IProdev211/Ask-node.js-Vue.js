@@ -98,38 +98,38 @@ export default {
                 );
               }
             }
-          },
-
-          scales: {
-            yAxes: [
-              {
-                display: 0,
-                ticks: {
-                  display: false
-                },
-                gridLines: {
-                  drawBorder: false,
-                  zeroLineColor: 'transparent',
-                  color: 'rgba(255,255,255,0.05)'
-                }
-              }
-            ],
-
-            xAxes: [
-              {
-                display: 0,
-                barPercentage: 1.6,
-                gridLines: {
-                  drawBorder: false,
-                  color: 'rgba(255,255,255,0.1)',
-                  zeroLineColor: 'transparent'
-                },
-                ticks: {
-                  display: false
-                }
-              }
-            ]
           }
+
+          // scales: {
+          //   yAxes: [
+          //     {
+          //       display: 0,
+          //       ticks: {
+          //         display: false
+          //       },
+          //       gridLines: {
+          //         drawBorder: false,
+          //         zeroLineColor: 'transparent',
+          //         color: 'rgba(255,255,255,0.05)'
+          //       }
+          //     }
+          //   ]
+
+          //   xAxes: [
+          //     {
+          //       display: 0,
+          //       barPercentage: 1.6,
+          //       gridLines: {
+          //         drawBorder: false,
+          //         color: 'rgba(255,255,255,0.1)',
+          //         zeroLineColor: 'transparent'
+          //       },
+          //       ticks: {
+          //         display: false
+          //       }
+          //     }
+          //   ]
+          // }
         }
       }
     };
@@ -149,19 +149,15 @@ export default {
 .card-1 {
   background: linear-gradient(180deg, #f44881, #ec454f) !important;
 }
-
 .card-2 {
   background: linear-gradient(180deg, #21c8f6, #637bff) !important;
 }
-
 .card-3 {
   background: linear-gradient(180deg, #6edcc4, #1aab8b) !important;
 }
-
 .card-4 {
   background: linear-gradient(180deg, #8b60ed, #b372bd) !important;
 }
-
 .title {
   font-family: IranSansBold;
   font-size: 1.5em;

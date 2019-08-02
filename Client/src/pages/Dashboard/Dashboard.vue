@@ -61,7 +61,7 @@ export default {
       this.statsCards = [
         {
           title: courses.toString(),
-          subTitle: 'دوره های من',
+          subTitle: 'دوره های تهیه شده ی سما',
           type: 'warning',
           icon: 'tim-icons icon-book-bookmark',
           footer:

@@ -1,16 +1,16 @@
 <template>
   <section class="container">
     <div class="d-flex justify-content-between py-2">
-      <div class="previous-episode" v-if="prev">
+      <div class="next-episode" v-if="next">
         <base-button
           native-type="submit"
-          type="default"
+          type="info"
           class="btn animation-on-hover custom-button"
-          @click.prevent="prevEpisodeListener"
-          :loading="loadingPrev"
+          @click.prevent="nextEpisodeListener"
+          :loading="loadingNext"
         >
           <i class="fas fa-caret-right pl-2"></i>
-          جلسه قبلی
+          پخش بعدی
         </base-button>
       </div>
 
@@ -30,15 +30,15 @@
         </base-button>
       </div>
 
-      <div class="next-episode" v-if="next">
+      <div class="previous-episode" v-if="prev">
         <base-button
           native-type="submit"
-          type="default"
+          type="info"
           class="btn animation-on-hover custom-button"
-          @click.prevent="nextEpisodeListener"
-          :loading="loadingNext"
+          @click.prevent="prevEpisodeListener"
+          :loading="loadingPrev"
         >
-          جلسه بعدی
+          پخش قبلی
           <i class="fas fa-caret-left pr-2"></i>
         </base-button>
       </div>

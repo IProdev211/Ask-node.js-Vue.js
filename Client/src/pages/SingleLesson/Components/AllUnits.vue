@@ -172,20 +172,22 @@ h4 {
 
 .UnitBox:hover,
 .active {
-  border-right-color: #07d9b6;
+  background: #339afb0a !important;
+  border-right-color: #339afb;
   .UnitBadgeUnlocked {
-    color: #07d9b6;
+    color: #339afb;
   }
   .UnitBadgelocked {
-    color: #d82a50;
+    color: #339afb;
   }
   .detail-time {
-    background: #07d9b6 !important;
+    background: #339afb !important;
   }
   .UnitName {
     cursor: pointer;
     font-family: IranSansBold;
-    color: #0caf94;
+    text-decoration: underline;
+    color: #339afb;
   }
 }
 

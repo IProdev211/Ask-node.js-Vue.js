@@ -586,3 +586,7 @@
   display: flex;
   flex: auto;
 }
+
+.el-table th > .cell {
+  font-family: IranSans !important;
+}
