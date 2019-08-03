@@ -596,3 +596,8 @@
     font-size: 10px;
   }
 }
+
+::selection {
+  background-color: #d550d7;
+  color: rgb(255, 255, 255);
+}

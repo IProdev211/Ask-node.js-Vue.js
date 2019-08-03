@@ -91,6 +91,8 @@
       <ImprovementBanner1></ImprovementBanner1>
     </div>
 
+    <!-- <Stressed></Stressed> -->
+
     <!--Improvement Banner 2-->
     <div class="py-4">
       <ImprovementBanner2></ImprovementBanner2>
@@ -115,6 +117,7 @@ import BlogSection from './Components/Blog/BlogSection.vue';
 import OurCourses from './Components/OurCourses/OurCourses.vue';
 import ImprovementBanner1 from './Components/ImprovementBanners/ImprovementBanner1.vue';
 import ImprovementBanner2 from './Components/ImprovementBanners/ImprovementBanner2.vue';
+import Stressed from './Components/RandomComponents/Stressed.vue';
 
 export default {
   data: function() {
@@ -139,7 +142,8 @@ export default {
     Course,
     BlogSection,
     ImprovementBanner1,
-    ImprovementBanner2
+    ImprovementBanner2,
+    Stressed
   },
 
   metaInfo: {

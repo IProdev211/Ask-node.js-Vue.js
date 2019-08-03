@@ -151,18 +151,21 @@ export default {
 
 <style lang="scss" scoped>
 .UnitSection {
-  background: #f5f4f4 !important;
+  background: transparent !important;
   height: 100%;
 }
 .UnitBox {
   -webkit-box-align: center;
-  background: rgb(253, 253, 253) !important;
+  background: rgb(248, 248, 248) !important;
   padding: 19px 15px;
   align-items: center;
-  border-bottom: 1px solid rgba(133, 133, 133, 0.199);
-  border-radius: 0 10px 10px 0;
-  // margin-top: 6px;
+  border-top: 0.5px solid rgba(133, 133, 133, 0.199);
+  border-bottom: 0.5px solid rgba(133, 133, 133, 0.199);
+  border-left: 1px solid rgba(133, 133, 133, 0.199);
   border-right: 11px solid rgba(156, 156, 156, 0.377);
+  border-radius: 0 10px 10px 0;
+
+  // margin-top: 6px;
   transition: all 0.2s ease 0s;
 }
 
