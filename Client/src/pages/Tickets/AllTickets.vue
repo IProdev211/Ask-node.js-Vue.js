@@ -2,15 +2,17 @@
   <section class="container-fluid text-right">
     <!-- SHOULD HAVE PAGINATION -->
     <h1 class="pb-5 text-danger">تیکت ها</h1>
- 
+
     <el-table :data="tableData">
       <el-table-column min-width="50" header-align="center" type="ticket_id"></el-table-column>
-      <el-table-column min-width="230" header-align="right" prop="title" label="عنوان"></el-table-column>
-      <el-table-column min-width="100" header-align="center" prop="department" label="دپارتمان"></el-table-column>
+      <el-table-column min-width="200" header-align="right" prop="title" label="عنوان"></el-table-column>
+      <el-table-column min-width="90" header-align="center" prop="department" label="دپارتمان"></el-table-column>
       <el-table-column min-width="100" header-align="center" prop="date" label="زمان"></el-table-column>
       <el-table-column min-width="100" header-align="center" prop="status" label="وضعیت">
         <template scope="scope" class="text-center">
-          <span :class="getStatusLabelClasses(scope.row.status)">{{ getStatusTranslate(scope.row.status) }}</span>
+          <span
+            :class="getStatusLabelClasses(scope.row.status)"
+          >{{ getStatusTranslate(scope.row.status) }}</span>
         </template>
       </el-table-column>
 
@@ -66,7 +68,7 @@ export default {
     dataLoad(page) {
       const query = {
         page: page,
-        limit: this.pagination.perPage,
+        limit: this.pagination.perPage
       };
       backend.get('/tickets' + this.encodeQueryData(query)).then(response => {
         this.pagination.currentPage = parseInt(response.data.page, 10);
@@ -77,16 +79,26 @@ export default {
           ticket.date = this.date(ticket.date);
           return ticket;
         });
-        if (! response.data.tickets) {
+        if (!response.data.tickets) {
           response.data.tickets = [];
         }
         for (const item of response.data.tickets) {
           switch (item.status) {
-            case 1: this.openTickets = item.count; break;
-            case 2: this.answeredTickets = item.count; break;
-            case 3: this.inprogressTickets = item.count; break;
-            case 4: this.onHoldTickets = item.count; break;
-            case 5: this.closedTickets = item.count; break;
+            case 1:
+              this.openTickets = item.count;
+              break;
+            case 2:
+              this.answeredTickets = item.count;
+              break;
+            case 3:
+              this.inprogressTickets = item.count;
+              break;
+            case 4:
+              this.onHoldTickets = item.count;
+              break;
+            case 5:
+              this.closedTickets = item.count;
+              break;
           }
         }
       });
@@ -95,33 +107,43 @@ export default {
       const ret = [];
       for (const d in data)
         ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
-      return "?" + ret.join('&');
+      return '?' + ret.join('&');
     },
     date(time) {
       return moment(time).format('DD/MM/YYYY');
     },
     getStatusTranslate(status) {
       switch (status) {
-        case 1: return `باز`;
-        case 2: return `پاسخ داده شده`;
-        case 3: return `درحال پیگیری`;
-        case 4: return `On Hold`;
-        case 5: return `بسته شده`;
+        case 1:
+          return `باز`;
+        case 2:
+          return `پاسخ داده شده`;
+        case 3:
+          return `درحال پیگیری`;
+        case 4:
+          return `On Hold`;
+        case 5:
+          return `بسته شده`;
       }
     },
     getStatusLabelClasses(status) {
       switch (status) {
-        case 1: return `badge badge-primary`;
-        case 2: return `badge badge-success`;
-        case 3: return `badge badge-warning`;
-        case 4: return `badge badge-danger`;
-        case 5: return `badge badge-secondary`;
+        case 1:
+          return `badge badge-primary`;
+        case 2:
+          return `badge badge-success`;
+        case 3:
+          return `badge badge-warning`;
+        case 4:
+          return `badge badge-danger`;
+        case 5:
+          return `badge badge-secondary`;
       }
-    },
+    }
   },
   mounted() {
     this.dataLoad(1);
-  },
+  }
 };
 </script>
 

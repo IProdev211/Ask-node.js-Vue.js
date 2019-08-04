@@ -9,13 +9,11 @@
 import ManageTicket from '../AdminSection/ManageTickets/ManageTicket';
 export default {
   components: {
-    ManageTicket,
+    ManageTicket
   },
   methods: {
-    ticketAddListener(ticket) {
-      
-    },
-  },
+    ticketAddListener(ticket) {}
+  }
 };
 </script>
 

@@ -6,7 +6,7 @@
           <i class="pl-2 fas fa-cloud-upload-alt"></i>
           پیوست فایل
         </span>
-        <input type="hidden" value name>
+        <input type="hidden" value name />
         <input
           @change="selectFile"
           type="file"
@@ -15,7 +15,7 @@
           :multiple="false"
           aria-invalid="false"
           :key="this.file"
-        >
+        />
       </span>
       <base-button v-if="fileExists" @click="removeFile" round type="danger">
         <i class="fas fa-times"></i>
@@ -29,7 +29,7 @@ export default {
   name: 'file-upload',
   data() {
     return {
-      fileExists: false,
+      fileExists: false
     };
   },
   methods: {
