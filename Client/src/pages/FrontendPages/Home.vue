@@ -289,6 +289,12 @@ export default {
   }
 }
 
+@media only screen and (min-width: 1500px) {
+  .hero-content-homepage {
+    height: 49vh !important;
+  }
+}
+
 .white-content .card:not(.card-white) {
   border-radius: 20px;
   background: #e7e7e7ec;
