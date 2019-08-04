@@ -1,7 +1,13 @@
 <template>
   <div class="text-ltr container-fluid">
     <div class="container">
-      <ticket-data></ticket-data>
+      <ticket-data
+        :openTickets="openTickets"
+        :answeredTickets="answeredTickets"
+        :inprogressTickets="inprogressTickets"
+        :onHoldTickets="onHoldTickets"
+        :closedTickets="closedTickets"
+      ></ticket-data>
     </div>
     <h2 class="text-center">Manage Tickets</h2>
     <div class="mt-5">
@@ -11,9 +17,10 @@
         <div>
           <div class="d-flex justify-content-between">
             <el-select
-              class="select-primary mb-3 pr-3 pagination-select"
+              class="select-primary mb-3 pagination-select"
               v-model="pagination.perPage"
               placeholder="Per page"
+              @change="changeLimitListener"
             >
               <el-option
                 class="select-primary"
@@ -33,10 +40,11 @@
                 placeholder="Search records"
                 v-model="searchQuery"
                 aria-controls="datatables"
+                @change="searchTicketsListener"
               ></el-input>
             </base-input>
           </div>
-          <el-table :data="queriedData">
+          <el-table :data="tableData" :key="tableKey">
             <el-table-column
               v-for="column in tableColumns"
               :key="column.label"
@@ -44,17 +52,22 @@
               :prop="column.prop"
               :label="column.label"
             ></el-table-column>
+            <el-table-column prop="status" label="Status" :min-width="120">
+              <template scope="scope" class="text-center">
+                <span :class="getStatusLabelClasses(scope.row.status)" :key="scope.row.status">{{ getStatusTranslate(scope.row.status) }}</span>
+              </template>
+            </el-table-column>
             <el-table-column :min-width="135" align="right" label="Actions">
               <div slot-scope="props">
                 <!-- THIS IS FOR MARKING THE TICKET IMPORTANT - WHEN CLICKED THE HEART SHOULD BECOME RED -->
                 <base-button
-                  @click.native="handleLike(props.$index, props.row)"
+                  @click.native="handleHighlight(props.$index, props.row)"
                   class="like btn-link"
                   type="info"
                   size="sm"
                   icon
                 >
-                  <i class="far fa-heart"></i>
+                  <i :class="props.row.isHighlight ? 'fas fa-heart' : 'far fa-heart'"></i>
                 </base-button>
 
                 <!-- THIS IS FOR EDITING THE TICKET -->
@@ -70,11 +83,12 @@
 
                 <!-- THIS IS FOR CLOSING THE TICKET -->
                 <base-button
-                  @click.native="handleEdit(props.$index, props.row)"
+                  @click.native="handleInProgress(props.$index, props.row)"
                   class="edit btn-link"
                   type="warning"
                   size="sm"
                   icon
+                  v-if="props.row.status == 1"
                 >
                   <i class="fas fa-clipboard-check"></i>
                 </base-button>
@@ -94,33 +108,37 @@
           </el-table>
         </div>
         <div
+          v-if="tableData.length"
           slot="footer"
           class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
         >
           <div class>
-            <p class="card-category">Showing {{ from + 1 }} to {{ to }} of {{ total }} entries</p>
+            <p
+              class="card-category"
+            >Showing {{ from + 1 }} to {{ to }} of {{ pagination.total }} entries</p>
           </div>
           <base-pagination
-            class="pagination-no-border"
-            v-model="pagination.currentPage"
-            :per-page="pagination.perPage"
-            :total="total"
+            :value="pagination.currentPage"
+            :per-page="pagination.perpage"
+            :total="pagination.total"
+            :pageCount="pagination.pages"
+            @input="changePageListener"
           ></base-pagination>
         </div>
       </card>
     </div>
-    <manage-ticket></manage-ticket>
+    <manage-ticket @ticket="ticketAddListener" v-bind="ticket"></manage-ticket>
   </div>
 </template>
 <script>
 import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
-import data from './data';
 import Fuse from 'fuse.js';
-// import swal from 'sweetalert2';
-
 import TicketData from './TicketData';
 import ManageTicket from './ManageTicket';
+import Swal from 'sweetalert';
+import backend from '../../../backend';
+import moment from 'moment';
 
 export default {
   components: {
@@ -144,28 +162,23 @@ export default {
       return result.slice(this.from, this.to);
     },
     to() {
-      let highBound = this.from + this.pagination.perPage;
-      if (this.total < highBound) {
-        highBound = this.total;
-      }
-      return highBound;
+      return Math.min(
+        this.pagination.total,
+        this.from + this.pagination.perPage
+      );
     },
     from() {
       return this.pagination.perPage * (this.pagination.currentPage - 1);
     },
-    total() {
-      return this.searchedData.length > 0
-        ? this.searchedData.length
-        : this.tableData.length;
-    }
   },
   data() {
     return {
       pagination: {
-        perPage: 5,
+        perPage: 10,
         currentPage: 1,
-        perPageOptions: [5, 10, 25, 50],
-        total: 0
+        perPageOptions: [5, 10, 15, 20, 30, 50],
+        total: 0,
+        pages: 0
       },
       searchQuery: '',
       propsToSearch: [
@@ -179,115 +192,289 @@ export default {
       ],
       tableColumns: [
         {
-          prop: 'id',
+          prop: 'ticket_id',
           label: 'ID',
-          minWidth: 60
+          minWidth: 60,
         },
         {
-          prop: 'name',
+          prop: 'user.name',
           label: 'Name',
-          minWidth: 200
+          minWidth: 200,
         },
         {
-          prop: 'subject',
+          prop: 'title',
           label: 'Subject',
-          minWidth: 250
+          minWidth: 250,
         },
         {
           prop: 'department',
           label: 'Department',
-          minWidth: 150
+          minWidth: 150,
         },
         {
           prop: 'priority',
           label: 'Priority',
-          minWidth: 100
+          minWidth: 100,
         },
         {
           prop: 'date',
           label: 'Date',
-          minWidth: 120
-        }
+          minWidth: 120,
+        },
       ],
-      tableData: data,
+      tableData: [],
       searchedData: [],
-      fuseSearch: null
+      fuseSearch: null,
+      openTickets: 0,
+      answeredTickets: 0,
+      inprogressTickets: 0,
+      onHoldTickets: 0,
+      closedTickets: 0,
+      ticket: undefined,
+      tableKey: 0,
     };
   },
-  // methods: {
-  //   handleLike(index, row) {
-  //     swal({
-  //       title: `You liked ${row.name}`,
-  //       buttonsStyling: false,
-  //       type: 'success',
-  //       confirmButtonClass: 'btn btn-success btn-fill'
-  //     });
-  //   },
-  //   handleEdit(index, row) {
-  //     swal({
-  //       title: `You want to edit ${row.name}`,
-  //       buttonsStyling: false,
-  //       confirmButtonClass: 'btn btn-info btn-fill'
-  //     });
-  //   },
-  //   handleDelete(index, row) {
-  //     swal({
-  //       title: 'Are you sure?',
-  //       text: `You won't be able to revert this!`,
-  //       type: 'warning',
-  //       showCancelButton: true,
-  //       confirmButtonClass: 'btn btn-success btn-fill',
-  //       cancelButtonClass: 'btn btn-danger btn-fill',
-  //       confirmButtonText: 'Yes, delete it!',
-  //       buttonsStyling: false
-  //     }).then(result => {
-  //       if (result.value) {
-  //         this.deleteRow(row);
-  //         swal({
-  //           title: 'Deleted!',
-  //           text: `You deleted ${row.name}`,
-  //           type: 'success',
-  //           confirmButtonClass: 'btn btn-success btn-fill',
-  //           buttonsStyling: false
-  //         });
-  //       }
-  //     });
-  //   },
-  //   deleteRow(row) {
-  //     let indexToDelete = this.tableData.findIndex(
-  //       tableRow => tableRow.id === row.id
-  //     );
-  //     if (indexToDelete >= 0) {
-  //       this.tableData.splice(indexToDelete, 1);
-  //     }
-  //   }
-  // }
-  // mounted() {
-  //   // Fuse search initialization.
-  //   this.fuseSearch = new Fuse(this.tableData, {
-  //     keys: ['name', 'email'],
-  //     threshold: 0.3
-  //   });
-  // }
-  watch: {
-    /**
-     * Searches through the table data by a given query.
-     * NOTE: If you have a lot of data, it's recommended to do the search on the Server Side and only display the results here.
-     * @param value of the query
-     */
-    searchQuery(value) {
-      let result = this.tableData;
-      if (value !== '') {
-        result = this.fuseSearch.search(this.searchQuery);
+  methods: {
+    handleHighlight(index, row) {
+      backend.post(`admin/tickets/${row.id}/highlight`).then(response => {
+        row.isHighlight = !row.isHighlight;
+        Swal({
+          title: `You ${ row.isHighlight ? 'hightlight' : 'remove hightlight of' }  ${row.ticket_id}: ${row.title}`,
+          icon: 'success',
+          className: 'text-ltr',
+        });
+      }, err => {
+        Swal({
+          title: `Cannot connect to Server !`,
+          className: 'text-ltr',
+          text: "Please check your conection and try again",
+          icon: 'error',
+        });
+      });
+    },
+    handleEdit(index, row) {
+      swal({
+        title: `You want to edit ${row.ticket_id}: ${row.title}`,
+      });
+      this.ticket = row;
+    },
+    handleDelete(index, row) {
+      Swal({
+        title: 'Are you sure?',
+        text: `You won't be able to revert this!`,
+        className: 'text-ltr',
+        icon: 'warning',
+        buttons: {
+          cancel: 'cancel',
+          catch: {
+            text: 'Yes, delete it!',
+            value: true
+          }
+        }
+      }).then(result => {
+        if (!result) return;
+        this.deleteRow(row);
+      });
+    },
+    deleteRow(row) {
+      backend
+        .post(`/admin/tickets/${row.id}/delete`)
+        .then(response => {
+          if (response.data.status === 'error') {
+            this.$notify({
+              type: 'error',
+              message: 'درخواست شما توسط سرور رد شد.',
+              icon: 'tim-icons icon-bell-55'
+            });
+            return;
+          }
+          let indexToDelete = this.tableData.findIndex(
+            tableRow => tableRow.id === row.id
+          );
+          if (indexToDelete >= 0) {
+            this.tableData.splice(indexToDelete, 1);
+          }
+          Swal({
+            title: 'Deleted!',
+            className: 'text-ltr',
+            text: `You deleted ${row.title}`,
+            icon: 'success'
+          });
+          this.pagination.total--;
+        })
+        .catch(error => {
+          this.$notify({
+            type: 'error',
+            message:
+              'در حال حاظر سرور پاسخ درخواست شما را بدرستی ارسال نمیکند.',
+            icon: 'tim-icons icon-bell-55'
+          });
+        });
+    },
+    dataLoad(page) {
+      const query = {
+        page: page,
+        limit: this.pagination.perPage,
+      };
+      if (this.searchQuery) {
+        query.filter = this.searchQuery;
       }
-      this.searchedData = result;
-    }
-  }
+      backend.get('/admin/tickets' + this.encodeQueryData(query)).then(response => {
+        this.pagination.currentPage = parseInt(response.data.page, 10);
+        this.pagination.pages = response.data.totalPages;
+        this.pagination.total = response.data.totalDocs;
+        this.pagination.perPage = response.data.limit;
+        this.tableData = response.data.docs.map(ticket => {
+          ticket.date = this.date(ticket.date);
+          return ticket;
+        });
+        if (! response.data.tickets) {
+          response.data.tickets = [];
+        }
+        for (const item of response.data.tickets) {
+          switch (item.status) {
+            case 1: this.openTickets = item.count; break;
+            case 2: this.answeredTickets = item.count; break;
+            case 3: this.inprogressTickets = item.count; break;
+            case 4: this.onHoldTickets = item.count; break;
+            case 5: this.closedTickets = item.count; break;
+          }
+        }
+      });
+    },
+    date(time) {
+      return moment(time).format('DD/MM/YYYY');
+    },
+    getStatusTranslate(status) {
+      switch (status) {
+        case 1: return `Open`;
+        case 2: return `Answered`;
+        case 3: return `In Progress`;
+        case 4: return `On Hold`;
+        case 5: return `Closed`;
+      }
+    },
+    getStatusLabelClasses(status) {
+      switch (status) {
+        case 1: return `badge badge-primary`;
+        case 2: return `badge badge-success`;
+        case 3: return `badge badge-warning`;
+        case 4: return `badge badge-danger`;
+        case 5: return `badge badge-secondary`;
+      }
+    },
+    encodeQueryData(data) {
+      const ret = [];
+      for (const d in data)
+        ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+      return "?" + ret.join('&');
+    },
+    changePageListener(page) {
+      if (page == this.pagination.currentPage) return;
+      this.dataLoad(page);
+    },
+    changeLimitListener(limit) {
+      this.dataLoad(1);
+    },
+    ticketAddListener(ticket) {
+      this.ticket = undefined;
+      let isNew = true;
+      for (const key in this.tableData) {
+        if (this.tableData[key].id == ticket.id) {
+          isNew = false;
+          switch (this.tableData[key].status) {
+            case 1: this.openTickets--; break;
+            case 2: this.answeredTickets--; break;
+            case 3: this.inprogressTickets--; break;
+            case 4: this.onHoldTickets--; break;
+            case 5: this.closedTickets--; break;
+          }
+          this.tableData[key] = ticket;
+          this.tableKey++;
+          break;
+        }
+      }
+      if (isNew) {
+        ticket.date = this.date(ticket.date);
+        this.tableData.splice(0, 0, ticket);
+      }
+      switch (ticket.status) {
+        case 1: this.openTickets++; break;
+        case 2: this.answeredTickets++; break;
+        case 3: this.inprogressTickets++; break;
+        case 4: this.onHoldTickets++; break;
+        case 5: this.closedTickets++; break;
+      }
+      this.pagination.total++;
+    },
+    searchTicketsListener() {
+      this.dataLoad(1);
+    },
+    handleInProgress(index, row) {
+      Swal({
+        title: 'Mark As In Progress ?',
+        text: `You can change this later by editing ticket`,
+        className: 'text-ltr',
+        icon: 'warning',
+        buttons: {
+          cancel: 'cancel',
+          catch: {
+            text: 'Yes, do it!',
+            value: true
+          }
+        }
+      }).then(result => {
+        if (!result) return;
+        this.markAsInProgress(row);
+      });
+    },
+    markAsInProgress(ticket) {
+      backend
+        .post(`/admin/tickets/${ticket.id}/edit`, {
+          status: 3,
+        })
+        .then(response => {
+          if (response.data.status === 'error') {
+            this.$notify({
+              type: 'error',
+              message: 'درخواست شما توسط سرور رد شد.',
+              icon: 'tim-icons icon-bell-55'
+            });
+            return;
+          }
+          for (const item of this.tableData) {
+            if (ticket.id == item.id) {
+              item.status = 3;
+              break;
+            }
+          }
+          Swal({
+            title: 'Success !',
+            className: 'text-ltr',
+            icon: 'success'
+          });
+        })
+        .catch(error => {
+          this.$notify({
+            type: 'error',
+            message:
+              'در حال حاظر سرور پاسخ درخواست شما را بدرستی ارسال نمیکند.',
+            icon: 'tim-icons icon-bell-55'
+          });
+        });
+    },
+  },
+  mounted() {
+    this.dataLoad(1);
+  },
 };
 </script>
 <style>
 .pagination-select,
 .search-input {
   width: 200px;
+}
+.fa-heart {
+  color: red;
 }
 </style>
