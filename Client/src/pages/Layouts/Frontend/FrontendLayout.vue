@@ -29,6 +29,7 @@
         <router-link class="nav-item" tag="li" to="/comingsoon">
           <a :class="getNavClass('comingsoon')">{{ 'میت آپ' }}</a>
         </router-link>
+
         <router-link class="nav-item" tag="li" to="/contact">
           <a :class="getNavClass('contact')">{{ 'تماس با ما' }}</a>
         </router-link>
@@ -102,6 +103,13 @@
                     <router-link to="/quizzes" class="nav-item dropdown-item">
                       <i class="far fa-check-square pl-2"></i>
                       امتحان ها
+                    </router-link>
+                  </li>
+
+                  <li class="nav-link">
+                    <router-link to="/tickets" class="nav-item dropdown-item">
+                      <i class="fas fa-headset pl-2"></i>
+                      پشتیبانی
                     </router-link>
                   </li>
 

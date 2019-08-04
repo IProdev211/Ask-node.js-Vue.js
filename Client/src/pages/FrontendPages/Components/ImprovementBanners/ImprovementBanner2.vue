@@ -1,6 +1,6 @@
 <template>
-  <section class="container">
-    <div class="card">
+  <section class="bg">
+    <div class="container">
       <div class="text-section">
         <h2 class="pb-5">راه حل؟ دوره های آموزشی مجازی اسک آریا.</h2>
         <p class="main-text">
@@ -20,22 +20,27 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.white-content .card:not(.card-white) {
-  border-radius: 30px;
-  background-color: #0abcf9;
-  background-image: linear-gradient(035deg, #0abdf9f5 0%, #2c69d1f3 74%),
+.bg {
+  background-color: #ee8e6b;
+  background-image: linear-gradient(315deg, #ef6d89ee 0%, #ee8e6bf1 74%),
     url(/img/frontend/london-seemless-bg.svg);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+
+  // background-color: #0abcf9;
+  // background-image: linear-gradient(035deg, #0abdf9f5 0%, #2c69d1f3 74%),
+  //   url(/img/frontend/london-seemless-bg.svg);
+  // border-radius: 30px;
+  // box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  // -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  // -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  // -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
 
 .text-section {
   text-align: right;
-  padding: 3.6em;
+  padding: 6em;
 
   h2 {
+    font-size: 2.5em;
     color: #fff !important;
     line-height: inherit !important;
     font-family: IranSansBold;
@@ -46,7 +51,7 @@ export default {};
   .main-text {
     color: #fff !important;
     line-height: inherit !important;
-    font-size: 1.15em;
+    font-size: 1.3em;
   }
 }
 @media (max-width: 680px) {

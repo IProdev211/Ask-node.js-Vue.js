@@ -196,8 +196,12 @@ export default {
 }
 
 .hero-content-homepage {
-  background: linear-gradient(to left, #7028e4dc, #e5b2cade),
+  // background: linear-gradient(to left, #7028e4dc, #e5b2cade),
+  //   url(/img/frontend/london-bg-opt.jpg);
+  background-color: #6e72fc;
+  background: linear-gradient(315deg, #ad1debe5 0%, #6e73fce1 74%),
     url(/img/frontend/london-bg-opt.jpg);
+  background-color: #6e72fc;
   background-size: cover;
   background-position: bottom;
   height: 55vh !important;
@@ -309,7 +313,7 @@ export default {
 
 @media only screen and (min-width: 1500px) {
   .hero-content-homepage {
-    height: 49vh !important;
+    height: 51vh !important;
   }
 }
 
