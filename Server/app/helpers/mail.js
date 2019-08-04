@@ -13,7 +13,6 @@ if (process.env.NODEMAILER_AUTH_USER && process.env.NODEMAILER_AUTH_PASS) {
   };
 }
 
-console.log("options", options);
 
 const transporter = nodemailer.createTransport(options);
 
