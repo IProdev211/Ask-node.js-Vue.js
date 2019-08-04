@@ -327,7 +327,7 @@ const routes = [
         }
       },
       {
-        path: 'singleticket',
+        path: 'tickets/view/:ticket',
         name: 'Single Ticket',
         components: {
           default: SingleTicket

@@ -13,11 +13,15 @@ const courseValidator = require('app/http/validators/courseValidator');
 const userValidator = require('app/http/validators/userValidator');
 const blogController = require('app/http/controllers/api/v1/admin/blogController');
 const blogValidator = require('app/http/validators/blogValidator');
+const ticketValidator = require('app/http/validators/ticketValidator');
 const episodeValidator = require('app/http/validators/episodeValidator');
 const gate = require('app/helpers/gate');
 const upload = require('app/helpers/uploadImage');
+const fileUpload = require('app/helpers/uploadFile');
 const convertFileToField = require('app/http/middleware/convertFileToField');
 const redirectIfNotAdmin = require('app/http/middleware/redirectIfNotAdmin');
+const adminTicketController = require('app/http/controllers/api/v1/admin/ticketController');
+const ticketController = require('app/http/controllers/api/v1/ticketController');
 
 router.get('/user', HomeController.user);
 router.get('/user/history', HomeController.history);
@@ -47,6 +51,36 @@ router.post(
 router.post(
   '/course/episodes/:episode/mark-as-notdone',
   courseController.markAsNotDoneEpisode
+);
+
+router.get(
+  '/tickets',
+  ticketController.search
+);
+
+router.get(
+  '/tickets/view/:ticket',
+  ticketController.singleTicket
+);
+
+router.post(
+  '/tickets/add',
+  upload.single('file'),
+  convertFileToField.handle,
+  ticketController.store
+);
+
+router.post(
+  '/tickets/reply',
+  fileUpload.single('file'),
+  convertFileToField.handle,
+  ticketValidator.handleReply(),
+  ticketController.reply
+);
+
+router.get(
+  '/tickets/view/:message/:filename',
+  ticketController.downloadFile
 );
 
 // Admin section
@@ -163,6 +197,44 @@ router.post(
   '/admin/episodes/:episode/delete',
   redirectIfNotAdmin.handle,
   adminEpisodeController.destroy
+);
+router.get(
+  '/admin/tickets',
+  redirectIfNotAdmin.handle,
+  adminTicketController.search
+);
+router.post(
+  '/admin/tickets/add',
+  redirectIfNotAdmin.handle,
+  fileUpload.single('file'),
+  convertFileToField.handle,
+  ticketValidator.handle(),
+  adminTicketController.store
+);
+router.post(
+  '/admin/tickets/:ticket/highlight',
+  redirectIfNotAdmin.handle,
+  adminTicketController.toggleHighLight
+);
+router.post(
+  '/admin/tickets/:ticket/delete',
+  redirectIfNotAdmin.handle,
+  adminTicketController.destroy
+);
+router.post(
+  '/admin/tickets/:ticket/edit',
+  redirectIfNotAdmin.handle,
+  adminTicketController.update
+);
+router.post(
+  '/admin/tickets/messages/:message/delete',
+  redirectIfNotAdmin.handle,
+  adminTicketController.destroyMessage
+);
+router.post(
+  '/admin/tickets/messages/:message/edit',
+  redirectIfNotAdmin.handle,
+  adminTicketController.editMessage
 );
 
 module.exports = router;

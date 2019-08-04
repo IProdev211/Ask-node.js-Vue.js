@@ -2,111 +2,238 @@
   <section class="container text-right">
     <div>
       <h1>
-        #001
-        <span class="subtitle">(goes here عنوان تیکت)</span>
+        #{{ticket.ticket_id}}
+        <span class="subtitle">مشاهده تیکت</span>
       </h1>
     </div>
     <div class="container mt-5 pb-5">
-
+      <h2 class="ticket-desc pt-4 pr-3">{{ticket.title}}</h2>
+      <div>
+        
+      </div>
       <!-- CARD RIGHT -->
-      <div class="card-custom my-3">
+      <div v-for="message of messages" :key="message.id" class="card-custom py-4 pb px-5 my-3" :class="message.user.id == ticket.id ? 'ml-5' : 'mr-5'">
         <div class="d-flex justify-content-between">
           <p class="ticket-user">
             <!-- USER PICTURE SHOULD GO INSTEAD OF ICON -->
             <i class="pl-1 text-danger far fa-user"></i>
-            Example User
+            {{message.user.name}}
           </p>
-          <p class="ticket-date">
-            05/06/2019
-            <span class="pr-3">00:28</span>
-          </p>
-        </div>
-        <!-- IF TEXT IS WRITTEN IN FARSI, TEXT SHOULD BE RTL, AND IF IT IS WRITTEN IN ENGLISH IT SHOULD BE LTR -->
-        <p
-          class="pt-4 main-ticket-text"
-        >This example user has asked a question. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum impedit laboriosam quam, perferendis corrupti in quaerat necessitatibus sed, ad dolorum accusamus ea tempora dolor provident magni enim architecto cum adipisci!</p>
+          <p class="ticket-date text-muted font-weight-bold">
+            <!-- ADMIN SHOULD ONLY SEE THESE ICONS - WHEN MESSAGE WANTS TO BE EDITED - IT SHOULD BE EDITED WITH CKEDITOR -->
+            <span class="pl-3" v-if="isAdmin">
+              <base-button class="animation-on-hover btn-sm p-1" type="default" @click="handleEdit(message)">
+                <i class="fas fa-pencil-alt"></i>
+              </base-button>
+              <base-button class="animation-on-hover btn-sm p-1" type="danger" @click="handleDelete(message)">
+                <i class="far fa-trash-alt"></i>
+              </base-button>
+            </span>
 
-        <!-- ADMIN SHOULD ONLY SEE THESE ICONS - WHEN MESSAGE WANTS TO BE EDITED - IT SHOULD BE EDITED WITH CKEDITOR -->
-        <div class="icons text-left pt-3">
-          <i class="fas fa-pencil-alt pl-3"></i>
-          <i class="far fa-trash-alt pl-5 pr-1"></i>
+            <span class="pl-2 font-weight-normal">{{ getTime(message.createdAt) }}</span>
+            {{ getDate(message.createdAt) }}
+          </p>
         </div>
+        <p class="pt-4">{{ message.message }}</p>
+        <hr v-if="message.files.length">
+        <ul v-if="message.files.length">
+          <li v-for="file in message.files" :key="file.name">
+            <a :href="'/api/v1' + file.downloadUrl" >
+              {{ file.name }}
+            </a>
+          </li>
+        </ul>
       </div>
-
-      <!-- CARD LEFT -->
-      <div class="card-custom card-reply-left my-3">
-        <div class="d-flex justify-content-between">
-          <p class="ticket-user">
-            <!-- USER PICTURE SHOULD GO INSTEAD OF ICON -->
-            <i class="pl-2 text-danger far fa-user"></i>
-            Arya Doroudian
-          </p>
-          <p class="ticket-date">
-            05/06/2019
-            <span class="pr-3">23:05</span>
-          </p>
-        </div>
-
-        <!-- IF TEXT IS WRITTEN IN FARSI, TEXT SHOULD BE RTL, AND IF IT IS WRITTEN IN ENGLISH IT SHOULD BE LTR -->
-        <p
-          class="pt-4 main-ticket-text"
-        >This user has answered them. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia doloremque eum provident quia, voluptatum dignissimos minus sequi quibusdam recusandae sapiente laboriosam quisquam ad alias porro nulla praesentium fuga corporis fugiat?</p>
-          <!-- ADMIN SHOULD ONLY SEE THESE ICONS - WHEN MESSAGE WANTS TO BE EDITED - IT SHOULD BE EDITED WITH CKEDITOR -->
-        <div class="icons text-left pt-3">
-          <i class="fas fa-pencil-alt pl-3"></i>
-          <i class="far fa-trash-alt pl-5 pr-1"></i>
-        </div>
-      </div>
-
-      <!-- CARD RIGHT 2 -->
-      <div class="card-custom my-3">
-        <div class="d-flex justify-content-between">
-          <p class="ticket-user">
-            <!-- USER PICTURE SHOULD GO INSTEAD OF ICON -->
-            <i class="pl-1 text-danger far fa-user"></i>
-            Example User
-          </p>
-          <p class="ticket-date">      
-            05/06/2019
-            <span class="pr-3">00:28</span>
-          </p>
-        </div>
-        <p class="pt-4 main-ticket-text">This is an example of a reply</p>
-          <!-- ADMIN SHOULD ONLY SEE THESE ICONS - WHEN MESSAGE WANTS TO BE EDITED - IT SHOULD BE EDITED WITH CKEDITOR -->
-        <div class="icons text-left pt-3">
-          <i class="fas fa-pencil-alt pl-3"></i>
-          <i class="far fa-trash-alt pl-5 pr-1"></i>
-        </div>
-      </div>
-
       <!-- Ticket Reply -->
-      <h4 class="pt-5">پاسخی ارسال کنید!</h4>
-      <base-input>
-        <!-- CKEDITOR SHOULD GO HERE! -->
-        <textarea
-          class="form-control"
-          id="exampleFormControlTextarea1"
-          placeholder="متن تیکت"
-          rows="3"
-        ></textarea>
-      </base-input>
-      <div class="btn-group send-buttons pt-3">
-        <!-- FILE PREVIEW SHOULD BE SHOWN -- ONLY ACCEPT IMAGES FROM USERS - ADMINS CAN UPLOAD ANYTHING THEY WANT (ERRORS SHOULD SHOW IF OTHER FILES ARE UPLOADED) -->
-        <base-button class="animation-on-hover" type="primary" native-type="Submit">
-          <i class="pl-2 fas fa-cloud-upload-alt"></i>
-          پیوست فایل
-        </base-button>
-        <base-button class="animation-on-hover" type="danger" native-type="Submit">
-          <i class="pl-2 far fa-paper-plane"></i>
-          ارسال
-        </base-button>
-      </div>
+      <form @submit.prevent="submitFormListener">
+        <h4 class="pt-5">{{ editingMessage ? 'ویرایش پیام' : 'پاسخی ارسال کنید!' }}</h4>
+        <base-input>
+          <!-- CKEDITOR SHOULD GO HERE! -->
+          <textarea
+            class="form-control"
+            placeholder="متن تیکت"
+            rows="3"
+            v-model="message"
+          ></textarea>
+        </base-input>
+        <div class="btn-group pt-3">
+          <file-upload v-if="isAdmin && !editingMessage" @change="onFileSelect" class="animation-on-hover" :key="uploaderKey"/>
+          <image-upload v-else-if="!editingMessage" @change="onFileSelect" select-text="پیوست فایل" class="animation-on-hover mb-0" :key="uploaderKey"/>
+          <base-button class="animation-on-hover" type="danger" native-type="Submit" :loading="loading">
+            <i class="pl-2 far fa-paper-plane"></i>
+            {{editingMessage ? 'ویرایش' : 'ارسال'}}
+          </base-button>
+        </div>
+      </form>
     </div>
   </section>
 </template>
 
 <script>
-export default {};
+import backend from '../../backend';
+import * as moment from "moment";
+import { ImageUpload } from 'src/components/index';
+import fileUpload from "../AdminSection/ManageTickets/Components/FileUpload";
+import Swal from 'sweetalert';
+
+export default {
+  components: {
+    fileUpload,
+    ImageUpload
+  },
+  data() {
+    return {
+      ticket: {},
+      messages: [],
+      loading: false,
+      message: "",
+      file: undefined,
+      uploaderKey: 0,
+      editingMessage: undefined,
+    };
+  },
+  methods: {
+    dataLoad() {
+      if (! this.$route.params.ticket) {
+        return;
+      }
+      backend.get(`tickets/view/${this.$route.params.ticket}`).then(response => {
+        this.ticket = response.data.ticket;
+        this.messages = response.data.messages;
+      }, error => {
+        
+      });
+    },
+    getDate(date) {
+      return moment(date).format("YYYY/MM/DD");
+    },
+    getTime(time) {
+      return moment(time).format("HH:ss");
+    },
+    submitFormListener() {
+      let haveError = false;
+      if (! this.message) {
+         
+      }
+      if (haveError) {
+        return;
+      }
+      let data = {};
+      if (! this.editingMessage && this.file instanceof File) {
+        data = new FormData();
+        data.append("ticket", this.ticket.id);
+        data.append("message", this.message);
+        data.append("file", this.file);
+      } else {
+        data = {
+          message: this.message,
+        };
+        if (! this.editingMessage) {
+          data.ticket = this.ticket.id;
+        }
+      }
+      let url = '';
+      if (this.editingMessage) {
+        url = `/admin/tickets/messages/${this.editingMessage.id}/edit`
+      } else {
+        url = `tickets/reply`;
+      }
+      backend.post(url, data).then(response => {
+        if (this.editingMessage) {
+          for (const item of this.messages) {
+            if (item.id == this.editingMessage.id) {
+              item.message = data.message;
+              break;
+            }
+          }
+          this.editingMessage = undefined;
+        } else {
+          const messages = this.messages;
+          messages.push(response.data.message);
+          messages.sort(function(x,y)  {
+            return new Date(x.createdAt) - new Date(y.createdAt);
+          });
+          this.messages = messages;
+        }
+        this.resetReplyForm();
+      });
+    },
+    onFileSelect(file) {
+      this.file = file;
+    },
+    resetReplyForm() {
+      this.message = "";
+      this.file = undefined;
+      this.uploaderKey++;
+    },
+    handleDelete(message) {
+      Swal({
+        title: 'Are you sure?',
+        text: `You won't be able to revert this!`,
+        className: 'text-ltr',
+        icon: 'warning',
+        buttons: {
+          cancel: 'cancel',
+          catch: {
+            text: 'Yes, delete it!',
+            value: true
+          }
+        }
+      }).then(result => {
+        if (!result) return;
+        this.deleteMessage(message);
+      });
+    },
+    deleteMessage(message) {
+      backend.post(`/admin/tickets/messages/${message.id}/delete`)
+        .then(response => {
+          if (response.data.status === 'error') {
+            this.$notify({
+              type: 'error',
+              message: 'درخواست شما توسط سرور رد شد.',
+              icon: 'tim-icons icon-bell-55'
+            });
+            return;
+          }
+          let indexToDelete = this.messages.findIndex(
+            item => item.id == message.id
+          );
+          if (indexToDelete >= 0) {
+            this.messages.splice(indexToDelete, 1);
+          }
+          Swal({
+            title: 'Deleted!',
+            className: 'text-ltr',
+            text: `You deleted the message`,
+            icon: 'success'
+          });
+        })
+        .catch(error => {
+          this.$notify({
+            type: 'error',
+            message: 'ارتباط با سرور بدرستی برقرار نشد',
+            icon: 'tim-icons icon-bell-55'
+          });
+        });
+    },
+    handleEdit(message) {
+      this.editingMessage = message;
+      this.message = message.message;
+      document.body.scrollTop += 50;
+      const mainpanel = document.querySelector(".main-panel");
+      mainpanel.scrollTop = mainpanel.scrollHeight;
+    }
+  },
+  mounted() {
+    this.dataLoad();
+    setInterval(this.dataLoad, 4000);
+  },
+  computed: {
+    isAdmin() {
+      return this.$root.$data.user && this.$root.$data.user.admin;
+    }
+  },
+};
 </script>
 
 <style lang="scss" scoped>

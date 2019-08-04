@@ -3,27 +3,27 @@
     <div class="stat-cards text-center">
       <div class="d-flex justify-content-center">
         <div class="stitched1">
-          <h2 class="headerStyling1">1</h2>
+          <h2 class="headerStyling1">{{openTickets}}</h2>
           <p class="subheader">Open</p>
         </div>
 
         <div class="stitched3">
-          <h2 class="headerStyling3">3</h2>
+          <h2 class="headerStyling3">{{answeredTickets}}</h2>
           <p class="subheader">Answered</p>
         </div>
 
         <div class="stitched2">
-          <h2 class="headerStyling2">2</h2>
+          <h2 class="headerStyling2">{{inprogressTickets}}</h2>
           <p class="subheader">In Progress</p>
         </div>
 
         <div class="stitched4">
-          <h2 class="headerStyling4">4</h2>
+          <h2 class="headerStyling4">{{onHoldTickets}}</h2>
           <p class="subheader">On Hold</p>
         </div>
 
         <div class="stitched5">
-          <h2 class="headerStyling5">5</h2>
+          <h2 class="headerStyling5">{{closedTickets}}</h2>
           <p class="subheader">Closed</p>
         </div>
       </div>
@@ -32,6 +32,30 @@
 </template>
 
 <script>
+export default {
+  props: {
+    openTickets: {
+      type: Number,
+      default: 0,
+    },
+    answeredTickets: {
+      type: Number,
+      default: 0,
+    },
+    inprogressTickets: {
+      type: Number,
+      default: 0,
+    },
+    onHoldTickets: {
+      type: Number,
+      default: 0,
+    },
+    closedTickets: {
+      type: Number,
+      default: 0,
+    },
+  }
+};
 </script>
 
 <style lang="scss" scoped>
