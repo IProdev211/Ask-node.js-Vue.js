@@ -240,14 +240,17 @@ export default {
 
 @media screen and (max-width: 730px) {
   .hero-content-homepage {
+    background: linear-gradient(to left, #a315e6dc, #5539d1d2),
+      url(/img/frontend/london-bg-opt.jpg);
+    background-size: cover;
+    background-position: bottom;
     min-height: 65vh !important;
     background-position: bottom right;
 
     .hero-title {
-      font-size: 2.4em;
+      font-size: 2.9em;
       line-height: inherit;
       color: #fff !important;
-      padding-top: 35px;
       text-align: right !important;
     }
     .hero-subtitle {
@@ -259,7 +262,7 @@ export default {
       font-weight: inherit;
       border-radius: 30px;
       padding: 14px 15px;
-      font-size: 0.7em;
+      font-size: 0.9em;
       font-family: IranSansBold;
     }
   }
@@ -285,6 +288,21 @@ export default {
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 0 10%;
+    }
+
+    .hero-title {
+      font-size: 2.3em;
+      padding-top: 30px;
+    }
+    .hero-subtitle {
+      padding-left: 1.1em;
+      font-size: 1.1em;
+      text-align: right !important;
+    }
+    .btn {
+      padding: 14px 15px;
+      font-size: 0.7em;
+      font-family: IranSansBold;
     }
   }
 }

@@ -24,21 +24,9 @@
           </p>
           <p class="ticket-date text-muted font-weight-bold">
             <!-- ADMIN SHOULD ONLY SEE THESE ICONS - WHEN MESSAGE WANTS TO BE EDITED - IT SHOULD BE EDITED WITH CKEDITOR -->
-            <span class="pl-3" v-if="isAdmin">
-              <base-button
-                class="animation-on-hover btn-sm p-1"
-                type="default"
-                @click="handleEdit(message)"
-              >
-                <i class="fas fa-pencil-alt"></i>
-              </base-button>
-              <base-button
-                class="animation-on-hover btn-sm p-1"
-                type="danger"
-                @click="handleDelete(message)"
-              >
-                <i class="far fa-trash-alt"></i>
-              </base-button>
+            <span class="pl-5" v-if="isAdmin">
+              <i @click="handleEdit(message)" class="fas fa-pencil-alt pl-2"></i>
+              <i @click="handleDelete(message)" class="far fa-trash-alt pr-1"></i>
             </span>
 
             <span class="pl-2 font-weight-normal">{{ getTime(message.createdAt) }}</span>
@@ -80,7 +68,7 @@
             native-type="Submit"
             :loading="loading"
           >
-            <i class="pl-2 far fa-paper-plane"></i>
+            <!-- <i class="pl-2 far fa-paper-plane"></i> -->
             {{editingMessage ? 'ویرایش' : 'ارسال'}}
           </base-button>
         </div>

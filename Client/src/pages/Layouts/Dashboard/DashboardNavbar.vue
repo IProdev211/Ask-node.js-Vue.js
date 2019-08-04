@@ -64,6 +64,11 @@
             </li>
             <div class="w-100"></div>
 
+            <li class="nav-link">
+              <router-link to="/tickets" class="nav-item dropdown-item">پشتیبانی</router-link>
+            </li>
+            <div class="w-100"></div>
+
             <!-- <i class="fas fa-tools pl-2"></i> -->
             <li class="nav-link">
               <router-link to="/managementpage" class="nav-item dropdown-item">پنل مدیریت</router-link>
@@ -189,6 +194,10 @@ export default {
     margin-left: 4px;
     margin-right: 9px !important;
   }
+
+  .navbar-nav li {
+    border-bottom: 1px solid #c7c7c765 !important;
+  }
 }
 
 .dropdown-item.active {
@@ -204,9 +213,6 @@ export default {
 .navbar-nav li a {
   font-size: 1em;
   color: #000000;
-}
-
-.navbar-nav li a {
   padding: 0 15px 0 0 !important;
   font-size: 1.05em;
   text-align: right;

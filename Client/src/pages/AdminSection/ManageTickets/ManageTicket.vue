@@ -1,15 +1,15 @@
 <template>
-  <section class="pt-5">
+  <section class="pt-3">
     <h4 v-if="isAdmin" slot="header" class="card-title">Send Ticket</h4>
     <card>
       <form class="text-rtl pt-2" @submit="submitFormListener">
         <div class="form-row">
-          <div class="col-md-6">
+          <div class="col-md-5">
             <label class="pull-right">عنوان</label>
             <base-input v-model="data.title" :error="fieldErrors.title"></base-input>
           </div>
 
-          <div class="col-md-2" v-if="isAdmin">
+          <div class="col-md-3" v-if="isAdmin">
             <label class="pull-right">مربوط به</label>
             <autocomplete
               class="d-flex"
@@ -80,7 +80,7 @@
           <file-upload v-if="isAdmin && !data.id" @change="onFileSelect" class="animation-on-hover"/>
           <image-upload v-else-if="!data.id" @change="onFileSelect" select-text="پیوست فایل" class="animation-on-hover mb-0"/>
           <base-button class="animation-on-hover" type="danger" native-type="Submit" :loading="loading">
-            <i class="pl-2 far fa-paper-plane"></i>
+            <!-- <i class="pl-2 far fa-paper-plane"></i> -->
             {{ data.id ? "ویرایش" : "ارسال" }}
           </base-button>
         </div>
@@ -241,6 +241,14 @@ export default {
 <style lang="scss" scoped>
 input[type="file"] {
   display: none;
+}
+
+.white-content .el-table table > thead > tr > th {
+  text-align: center !important;
+}
+
+.white-content .el-table table > tbody > tr > td {
+  text-align: center !important;
 }
 </style>
 

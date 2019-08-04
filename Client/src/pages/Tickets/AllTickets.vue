@@ -6,9 +6,9 @@
     <el-table :data="tableData">
       <el-table-column min-width="50" header-align="center" type="ticket_id"></el-table-column>
       <el-table-column min-width="200" header-align="right" prop="title" label="عنوان"></el-table-column>
-      <el-table-column min-width="90" header-align="center" prop="department" label="دپارتمان"></el-table-column>
+      <el-table-column min-width="110" header-align="center" prop="department" label="دپارتمان"></el-table-column>
       <el-table-column min-width="100" header-align="center" prop="date" label="زمان"></el-table-column>
-      <el-table-column min-width="100" header-align="center" prop="status" label="وضعیت">
+      <el-table-column min-width="120" header-align="center" prop="status" label="وضعیت">
         <template scope="scope" class="text-center">
           <span
             :class="getStatusLabelClasses(scope.row.status)"

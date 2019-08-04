@@ -12,8 +12,6 @@
     <h2 class="text-center">Manage Tickets</h2>
     <div class="mt-5">
       <card card-body-classes="table-full-width">
-        <!-- SEARCH NEEDS TO WORK & HEART IS FOR IMPORTANT MESSAGES  -->
-        <!-- TICKETS SHOULD BE SORTED FROM NEWEST TO OLDEST -->
         <div>
           <div class="d-flex justify-content-between">
             <el-select
@@ -60,9 +58,8 @@
                 >{{ getStatusTranslate(scope.row.status) }}</span>
               </template>
             </el-table-column>
-            <el-table-column :min-width="135" align="right" label="Actions">
+            <el-table-column :min-width="155" align="center" label="Actions">
               <div slot-scope="props">
-                <!-- THIS IS FOR MARKING THE TICKET IMPORTANT - WHEN CLICKED THE HEART SHOULD BECOME RED -->
                 <base-button
                   @click.native="handleHighlight(props.$index, props.row)"
                   class="like btn-link"
@@ -73,7 +70,6 @@
                   <i :class="props.row.isHighlight ? 'fas fa-heart' : 'far fa-heart'"></i>
                 </base-button>
 
-                <!-- THIS IS FOR EDITING THE TICKET -->
                 <base-button
                   @click.native="handleEdit(props.$index, props.row)"
                   class="edit btn-link"
@@ -85,7 +81,7 @@
                 </base-button>
 
                 <!-- THIS IS FOR CLOSING THE TICKET -->
-                <base-button
+                <!-- <base-button
                   @click.native="handleInProgress(props.$index, props.row)"
                   class="edit btn-link"
                   type="warning"
@@ -94,9 +90,8 @@
                   v-if="props.row.status == 1"
                 >
                   <i class="fas fa-clipboard-check"></i>
-                </base-button>
+                </base-button>-->
 
-                <!-- THIS IS FOR DELETING THE TICKET -->
                 <base-button
                   @click.native="handleDelete(props.$index, props.row)"
                   class="remove btn-link"
@@ -202,17 +197,17 @@ export default {
         {
           prop: 'user.name',
           label: 'Name',
-          minWidth: 200
+          minWidth: 250
         },
         {
           prop: 'title',
           label: 'Subject',
-          minWidth: 250
+          minWidth: 200
         },
         {
           prop: 'department',
           label: 'Department',
-          minWidth: 150
+          minWidth: 130
         },
         {
           prop: 'priority',
@@ -519,12 +514,21 @@ export default {
   }
 };
 </script>
-<style>
+
+<style lang="scss" scoped>
 .pagination-select,
 .search-input {
   width: 200px;
 }
 .fa-heart {
   color: red;
+}
+
+.white-content .el-table table > thead > tr > th {
+  text-align: center !important;
+}
+
+.white-content .el-table table > tbody > tr > td {
+  text-align: center !important;
 }
 </style>
