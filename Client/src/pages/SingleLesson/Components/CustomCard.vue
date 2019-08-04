@@ -54,11 +54,7 @@
 import PieChart from 'src/components/Charts/PieChart';
 
 export default {
-  props: [
-    'enrolled',
-    'done',
-    'remain',
-  ],
+  props: ['enrolled', 'done', 'remain'],
   components: {
     PieChart
   },
@@ -68,19 +64,19 @@ export default {
         chartData: {
           datasets: [
             {
-              labels: ["تکمیل شده", "تکمیل نشده"],
+              labels: ['تکمیل شده', 'تکمیل نشده'],
               pointRadius: 0,
               pointHoverRadius: 0,
               backgroundColor: ['#00c09d', '#e2e2e2'],
               borderWidth: 0,
-              data: [this.done, this.remain],
-            },
-          ],
+              data: [this.done, this.remain]
+            }
+          ]
         },
         extraOptions: {
           maintainAspectRatio: false,
           legend: {
-            display: false,
+            display: false
           },
           responsive: true,
           cutoutPercentage: 70,
@@ -93,45 +89,47 @@ export default {
             mode: 'nearest',
             intersect: 0,
             position: 'nearest',
-						callbacks: {
-							label: (tooltipItem, item) => {
+            callbacks: {
+              label: (tooltipItem, item) => {
                 const dataset = item.datasets[tooltipItem.datasetIndex];
                 const index = tooltipItem.index;
-								return Number(dataset.data[index]) + " % " + dataset.labels[index];
-							},
-						},
-          },
-
-          scales: {
-            yAxes: [
-              {
-                display: 0,
-                ticks: {
-                  display: false
-                },
-                gridLines: {
-                  drawBorder: false,
-                  zeroLineColor: 'transparent',
-                  color: 'rgba(255,255,255,0.05)'
-                }
+                return (
+                  Number(dataset.data[index]) + ' % ' + dataset.labels[index]
+                );
               }
-            ],
-
-            xAxes: [
-              {
-                display: 0,
-                barPercentage: 1.6,
-                gridLines: {
-                  drawBorder: false,
-                  color: 'rgba(255,255,255,0.1)',
-                  zeroLineColor: 'transparent'
-                },
-                ticks: {
-                  display: false
-                }
-              }
-            ]
+            }
           }
+
+          // scales: {
+          //   yAxes: [
+          //     {
+          //       display: 0,
+          //       ticks: {
+          //         display: false
+          //       },
+          //       gridLines: {
+          //         drawBorder: false,
+          //         zeroLineColor: 'transparent',
+          //         color: 'rgba(255,255,255,0.05)'
+          //       }
+          //     }
+          //   ]
+
+          //   xAxes: [
+          //     {
+          //       display: 0,
+          //       barPercentage: 1.6,
+          //       gridLines: {
+          //         drawBorder: false,
+          //         color: 'rgba(255,255,255,0.1)',
+          //         zeroLineColor: 'transparent'
+          //       },
+          //       ticks: {
+          //         display: false
+          //       }
+          //     }
+          //   ]
+          // }
         }
       }
     };
@@ -142,7 +140,7 @@ export default {
     },
     remain: function(value, old) {
       this.pieChart1.chartData.datasets[0].data[1] = value;
-    },
+    }
   }
 };
 </script>
@@ -151,19 +149,15 @@ export default {
 .card-1 {
   background: linear-gradient(180deg, #f44881, #ec454f) !important;
 }
-
 .card-2 {
   background: linear-gradient(180deg, #21c8f6, #637bff) !important;
 }
-
 .card-3 {
   background: linear-gradient(180deg, #6edcc4, #1aab8b) !important;
 }
-
 .card-4 {
   background: linear-gradient(180deg, #8b60ed, #b372bd) !important;
 }
-
 .title {
   font-family: IranSansBold;
   font-size: 1.5em;
@@ -175,13 +169,13 @@ export default {
   color: white !important;
 }
 
-@media only screen and (min-device-width: 768px) {
+@media screen and (max-width: 768px) {
   .title {
     font-size: 1.1em !important;
   }
 
   .subtitle {
-    font-size: 0.85em !important;
+    font-size: 1em !important;
   }
 }
 </style>

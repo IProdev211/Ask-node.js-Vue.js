@@ -251,23 +251,59 @@ export default {
 .card-custom {
   background-color: rgb(236, 236, 236);
   border-radius: 25px;
-}
-.ticket-user {
-  font-size: 0.9rem;
-  color: rgba(145, 145, 145, 0.788);
+  padding: 2em 3em;
 }
 
-.ticket-date {
-  i:hover {
-    cursor: pointer;
-    color: rgb(255, 136, 0);
+.send-buttons {
+  i {
+  color: white;
   }
 }
 
+.ticket-date {
+font-family: IranSansBold;
+color: rgba(145, 145, 145, 0.85);
+
+  span {
+  font-family: IranSans;
+  }
+}
+
+.card-reply-left {
+  margin-right: 2em;
+  margin-left: -2em;
+}
+
+.ticket-user {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  color: rgba(77, 77, 77, 0.877);
+}
+
+i {
+  color: rgba(145, 145, 145, 0.788);
+}
+i:hover {
+  cursor: pointer;
+  color: rgb(255, 136, 0);
+}
+
 @media (max-width: 768px) {
-  .ticket-user,
+  .ticket-user {
+    font-size: 0.8em;
+    width: 100%;
+  }
   .ticket-date {
-    font-size: 0.7rem;
+    font-size: 0.8em;
+    width: 100%;
+    display: block;
+  }
+
+  .card-custom {
+    padding: 20px;
+    .main-ticket-text {
+      font-size: 0.94em;
+    }
   }
 }
 </style>

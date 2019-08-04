@@ -2,13 +2,7 @@
   <section class="container-fluid text-right">
     <!-- SHOULD HAVE PAGINATION -->
     <h1 class="pb-5 text-danger">تیکت ها</h1>
-    <div class="pb-5">
-      <router-link to="/createticket">
-        <base-button round type="success">
-          <i class="pl-3 fas fa-eye"></i> تیکت جدید
-        </base-button>
-      </router-link>
-    </div>
+ 
     <el-table :data="tableData">
       <el-table-column min-width="50" header-align="center" type="ticket_id"></el-table-column>
       <el-table-column min-width="230" header-align="right" prop="title" label="عنوان"></el-table-column>

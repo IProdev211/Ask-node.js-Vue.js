@@ -31,7 +31,9 @@
         </div>
         <div class="left d-flex justify-content-between">
           <div class="pl-2 d-flex align-self-center" v-if="purchased">
-            <i :class="episode.done ? 'fas fa-check text-success fas-2x' : 'fas fa-times text-danger fas-2x'"></i>
+            <i
+              :class="episode.done ? 'fas fa-eye text-success fas-2x' : 'fas fa-eye-slash text-danger fas-2x'"
+            ></i>
           </div>
           <div class="pl-2">
             <p class="detail-price">{{ getEpisodeType(episode.type) }}</p>
@@ -44,7 +46,11 @@
       </div>
     </div>
     <div class="col-md-3">
-      <custom-card :enrolled="purchased" :done="courseDonePercentage" :remain="courseRemainPercentage" />
+      <custom-card
+        :enrolled="purchased"
+        :done="courseDonePercentage"
+        :remain="courseRemainPercentage"
+      />
     </div>
   </div>
 </template>
@@ -57,7 +63,16 @@ export default {
   components: {
     CustomCard
   },
-  props: ['course', 'episodes', 'scrollable', 'maxepisodes', 'purchased', 'courseDonePercentage', 'courseRemainPercentage', 'activeEpisode'],
+  props: [
+    'course',
+    'episodes',
+    'scrollable',
+    'maxepisodes',
+    'purchased',
+    'courseDonePercentage',
+    'courseRemainPercentage',
+    'activeEpisode'
+  ],
   methods: {
     getEpisodeType(type) {
       switch (type.toLowerCase()) {
@@ -106,12 +121,13 @@ export default {
     },
     mustBuy(type) {
       return (
-        ['cash', 'paid', 'vip'].indexOf(type.toLowerCase()) != -1 && !this.purchased
+        ['cash', 'paid', 'vip'].indexOf(type.toLowerCase()) != -1 &&
+        !this.purchased
       );
     },
     throwClickEvent() {
       this.$emit('buy');
-    },
+    }
   },
   computed: {
     IAmVIP() {
@@ -154,21 +170,24 @@ h4 {
   font-family: IranSansBold !important;
 }
 
-.UnitBox:hover, .active {
-  border-right-color: #07d9b6;
+.UnitBox:hover,
+.active {
+  background: #339afb0a !important;
+  border-right-color: #339afb;
   .UnitBadgeUnlocked {
-    color: #07d9b6;
+    color: #339afb;
   }
   .UnitBadgelocked {
-    color: #d82a50;
+    color: #339afb;
   }
   .detail-time {
-    background: #07d9b6 !important;
+    background: #339afb !important;
   }
   .UnitName {
     cursor: pointer;
     font-family: IranSansBold;
-    color: #0caf94;
+    text-decoration: underline;
+    color: #339afb;
   }
 }
 
@@ -216,7 +235,7 @@ h4 {
   }
 
   .UnitName {
-    font-size: 0.75rem;
+    font-size: 0.86rem;
   }
 
   .detail-time {

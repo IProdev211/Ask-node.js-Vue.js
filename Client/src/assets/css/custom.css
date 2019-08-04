@@ -586,3 +586,13 @@
   display: flex;
   flex: auto;
 }
+
+.white-content .el-table table > thead > tr > th {
+  font-family: IranSans !important;
+}
+
+@media (max-width: 680px) {
+  .white-content .el-table table > thead > tr > th {
+    font-size: 10px;
+  }
+}

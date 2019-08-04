@@ -51,7 +51,7 @@
     "vee-validate": "^2.2.13",
     "vue": "^2.6.9",
     "vue-chartjs": "^3.4.2",
-    "vue-google-login": "^2.0.1",
+    "vue-google-login": "^2.0.2",
     "vue-i18n": "^8.12.0",
     "vue-meta": "^2.2.0",
     "vue-plyr": "^5.1.3",

@@ -113,15 +113,18 @@
 
         <!-- VIDEO BUTTONS -->
         <div class="video-buttons">
-          <video-buttons :next="next" :prev="prev"
-          v-on:nextLesson="nextLessonListener"
-          v-on:prevLesson="prevLessonListener"
-          :loadingNext="loadingNext"
-          :loadingPrev="loadingPrev"
-          :isDoneEpisode="isDoneEpisode"
-          :canMarkAsDone="canMarkAsDone"
-          :loadingMarkAsDone="loadingMarkAsDone"
-          v-on:markAsDone="markAsDone"/>
+          <video-buttons
+            :next="next"
+            :prev="prev"
+            v-on:nextLesson="nextLessonListener"
+            v-on:prevLesson="prevLessonListener"
+            :loadingNext="loadingNext"
+            :loadingPrev="loadingPrev"
+            :isDoneEpisode="isDoneEpisode"
+            :canMarkAsDone="canMarkAsDone"
+            :loadingMarkAsDone="loadingMarkAsDone"
+            v-on:markAsDone="markAsDone"
+          />
         </div>
 
         <div class="all-units py-5">
@@ -169,7 +172,7 @@
           @click="buyCourseListener"
           native-type="button"
           class="btn-block btn-success d-block w-100"
-        >{{ this.$root._data.user ?  "پرداخت از درگاه" : "ورود" }}</base-button>
+        >{{ this.$root._data.user ? "پرداخت از درگاه" : "ورود" }}</base-button>
       </div>
     </modal>
   </div>
@@ -240,7 +243,7 @@ export default {
       canMarkAsDone: false,
       loadingMarkAsDone: false,
       courseDonePercentage: 0,
-      courseRemainPercentage: 0,
+      courseRemainPercentage: 0
     };
   },
   methods: {
@@ -250,75 +253,81 @@ export default {
           .get(
             `courses/${this.$route.params.course}/unit-${this.$route.params.unit}`
           )
-          .then(response => {
-            this.episode = response.data.data.episode;
+          .then(
+            response => {
+              this.episode = response.data.data.episode;
+              this.course = response.data.data.course;
+              this.notEnrolled = !response.data.data.enrolled;
+              this.enrolledCount = response.data.data.enrolledCount;
+              this.id = this.episode.id;
+              this.title = this.episode.title;
+              this.type = this.episode.type.toLowerCase();
+              this.body = this.episode.body;
+              this.download = this.episode.download;
+              this.next = false;
+              this.nextEpisode = undefined;
+              if (this.episode.number == 1) {
+                this.prev = false;
+                this.prevEpisode = undefined;
+              }
+              for (let i = 0; i < this.course.episodes.length; i++) {
+                if (this.course.episodes[i].number > this.episode.number) {
+                  this.next = true;
+                  this.nextEpisode = this.course.episodes[i];
+                  break;
+                }
+              }
+              for (let i = this.course.episodes.length - 1; i >= 0; i--) {
+                if (this.course.episodes[i].number < this.episode.number) {
+                  this.prev = true;
+                  this.prevEpisode = this.course.episodes[i];
+                  break;
+                }
+              }
+              this.loadingNext = false;
+              this.loadingPrev = false;
+              this.canMarkAsDone = true;
+              this.loadingMarkAsDone = false;
+              this.isDoneEpisode = this.episode.done;
+              this.courseDonePercentage = this.course.done;
+              this.courseRemainPercentage = (100 - this.course.done).toFixed(2);
+            },
+            err => {
+              this.loadingNext = false;
+              this.loadingPrev = false;
+              this.loadingMarkAsDone = false;
+            }
+          );
+      } else {
+        this.canMarkAsDone = false;
+        backend.get(`courses/${this.$route.params.slug}`).then(
+          response => {
             this.course = response.data.data.course;
             this.notEnrolled = !response.data.data.enrolled;
             this.enrolledCount = response.data.data.enrolledCount;
-            this.id = this.episode.id;
-            this.title = this.episode.title;
-            this.type = this.episode.type.toLowerCase();
-            this.body = this.episode.body;
-            this.download = this.episode.download;
+            this.id = this.course.id;
+            this.title = this.course.title;
+            this.type = this.course.type;
+            this.body = this.course.body;
+            this.download = this.course.download;
+            this.prev = false;
             this.next = false;
-            this.nextEpisode = undefined;
-            if (this.episode.number == 1) {
-              this.prev = false;
-              this.prevEpisode = undefined;
-            }
-            for (let i = 0; i < this.course.episodes.length; i++) {
-              if (this.course.episodes[i].number > this.episode.number) {
-                this.next = true;
-                this.nextEpisode = this.course.episodes[i];
-                break;
-              }
-            }
-            for (let i = this.course.episodes.length - 1; i >= 0; i--) {
-              if (this.course.episodes[i].number < this.episode.number) {
-                this.prev = true;
-                this.prevEpisode = this.course.episodes[i];
-                break;
-              }
+            if (this.course.episodes.length) {
+              this.next = true;
+              this.nextEpisode = this.course.episodes[0];
             }
             this.loadingNext = false;
             this.loadingPrev = false;
-            this.canMarkAsDone = true;
             this.loadingMarkAsDone = false;
-            this.isDoneEpisode = this.episode.done;
             this.courseDonePercentage = this.course.done;
             this.courseRemainPercentage = (100 - this.course.done).toFixed(2);
-          }, err => {
+          },
+          err => {
             this.loadingNext = false;
             this.loadingPrev = false;
             this.loadingMarkAsDone = false;
-          });
-      } else {
-        this.canMarkAsDone = false;
-        backend.get(`courses/${this.$route.params.slug}`).then(response => {
-          this.course = response.data.data.course;
-          this.notEnrolled = !response.data.data.enrolled;
-          this.enrolledCount = response.data.data.enrolledCount;
-          this.id = this.course.id;
-          this.title = this.course.title;
-          this.type = this.course.type;
-          this.body = this.course.body;
-          this.download = this.course.download;
-          this.prev = false;
-          this.next = false;
-          if (this.course.episodes.length) {
-            this.next = true;
-            this.nextEpisode = this.course.episodes[0];
           }
-          this.loadingNext = false;
-          this.loadingPrev = false;
-          this.loadingMarkAsDone = false;
-          this.courseDonePercentage = this.course.done;
-          this.courseRemainPercentage = (100 - this.course.done).toFixed(2);
-        }, err => {
-          this.loadingNext = false;
-          this.loadingPrev = false;
-          this.loadingMarkAsDone = false;
-        });
+        );
       }
     },
     getEpisodeCreateDate() {
@@ -366,58 +375,82 @@ export default {
       } else {
         this.$refs.buymodal.show = false;
         setTimeout(() => {
-          this.$router.push({name: "Login", query: {backTo: encodeURI(`courses/${this.course.slug}`)}});
+          this.$router.push({
+            name: 'Login',
+            query: { backTo: encodeURI(`courses/${this.course.slug}`) }
+          });
         }, 100);
       }
     },
     nextLessonListener(e) {
-      if (! this.next) {
+      if (!this.next) {
         return;
       }
-      if (['cash', 'paid', 'vip'].indexOf(this.nextEpisode.type.toLowerCase()) > 0 && this.notEnrolled) {
+      if (
+        ['cash', 'paid', 'vip'].indexOf(this.nextEpisode.type.toLowerCase()) >
+          0 &&
+        this.notEnrolled
+      ) {
         this.openBuyCourse();
       } else {
         this.loadingNext = true;
-        this.$router.push('/courses/' + this.course.slug + '/unit-' + this.nextEpisode.number);
+        this.$router.push(
+          '/courses/' + this.course.slug + '/unit-' + this.nextEpisode.number
+        );
       }
     },
     prevLessonListener(e) {
-      if (! this.prev) {
+      if (!this.prev) {
         return;
       }
-      if (['cash', 'paid', 'vip'].indexOf(this.prevEpisode.type.toLowerCase()) > 0 && this.notEnrolled) {
+      if (
+        ['cash', 'paid', 'vip'].indexOf(this.prevEpisode.type.toLowerCase()) >
+          0 &&
+        this.notEnrolled
+      ) {
         this.openBuyCourse();
       } else {
-        console.log("this.prevEpisode", this.prevEpisode);
+        console.log('this.prevEpisode', this.prevEpisode);
         this.loadingPrev = true;
-        this.$router.push('/courses/' + this.course.slug + '/unit-' + this.prevEpisode.number);
+        this.$router.push(
+          '/courses/' + this.course.slug + '/unit-' + this.prevEpisode.number
+        );
       }
     },
     markAsDone() {
-      if (! this.canMarkAsDone) {
+      if (!this.canMarkAsDone) {
         return;
       }
       this.loadingMarkAsDone = true;
-      backend.post(`/course/episodes/${this.episode.id}/${this.episode.done ? 'mark-as-notdone' : 'mark-as-done'}`).then(response => {
-        this.courseDonePercentage = response.data.done;
-        this.courseRemainPercentage = (100 - response.data.done).toFixed(2);
-        this.loadingMarkAsDone = false;
-        this.isDoneEpisode = !this.isDoneEpisode;
-        this.episode.done = !this.episode.done;
-        for (const item of this.course.episodes) {
-          if (item.id == this.episode.id) {
-            item.done = !item.done;
-            break;
+      backend
+        .post(
+          `/course/episodes/${this.episode.id}/${
+            this.episode.done ? 'mark-as-notdone' : 'mark-as-done'
+          }`
+        )
+        .then(
+          response => {
+            this.courseDonePercentage = response.data.done;
+            this.courseRemainPercentage = (100 - response.data.done).toFixed(2);
+            this.loadingMarkAsDone = false;
+            this.isDoneEpisode = !this.isDoneEpisode;
+            this.episode.done = !this.episode.done;
+            for (const item of this.course.episodes) {
+              if (item.id == this.episode.id) {
+                item.done = !item.done;
+                break;
+              }
+            }
+          },
+          err => {
+            this.loadingMarkAsDone = false;
+            this.$notify({
+              type: 'danger',
+              message: 'ارتباط با سرور بدرستی برقرار نشد.',
+              icon: 'tim-icons icon-bell-55'
+            });
           }
-        }
-      }, err => {
-        this.loadingMarkAsDone = false;
-				this.$notify({
-					type: 'danger',
-					message: 'ارتباط با سرور بدرستی برقرار نشد.',
-					icon: 'tim-icons icon-bell-55'
-				});
-      });
+        );
     }
   },
   computed: {
@@ -545,7 +578,15 @@ export default {
   .pay-text {
     font-size: 1rem;
   }
+  .body {
+    /deep/ p {
+      color: #fff !important;
+      font-size: 1em !important;
+      line-height: inherit !important;
+    }
+  }
 }
+
 .pay-text {
   font-size: 1rem;
   font-family: IranSansBold;

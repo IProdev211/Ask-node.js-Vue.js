@@ -2,7 +2,7 @@
   <ul class="pagination" :class="paginationClass">
     <li class="page-item prev-page" v-if="showArrows" :class="{ disabled: value === 1 }">
       <a class="page-link" aria-label="Previous" @click="prevPage">
-        <i class="tim-icons icon-double-left" aria-hidden="true"></i>
+        <i class="tim-icons icon-double-right" aria-hidden="true"></i>
       </a>
     </li>
     <li
@@ -19,7 +19,7 @@
       :class="{ disabled: value === totalPages }"
     >
       <a class="page-link" aria-label="Next" @click="nextPage">
-        <i class="tim-icons icon-double-right" aria-hidden="true"></i>
+        <i class="tim-icons icon-double-left" aria-hidden="true"></i>
       </a>
     </li>
   </ul>
