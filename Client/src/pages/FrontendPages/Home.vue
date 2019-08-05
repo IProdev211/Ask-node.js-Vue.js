@@ -33,39 +33,13 @@
       </div>
     </section>
 
-    <!-- <div class="container-fluid py-4">
-      <el-carousel :autoplay="true" :interval="4000" type="card" arrow="always" height="240px">
-        <el-carousel-item>
-          <img
-            class="img-fluid"
-            src="img/frontend/london-bg-opt.jpg"
-            alt="Picture of our fearless leader 2"
-          >
-        </el-carousel-item>
-        <el-carousel-item>
-          <img
-            class="img-fluid"
-            src="img/frontend/london-bg-opt.jpg"
-            alt="Picture of our fearless leader 2"
-          >
-        </el-carousel-item>
-        <el-carousel-item>
-          <img
-            class="img-fluid"
-            src="img/frontend/london-bg-opt.jpg"
-            alt="Picture of our fearless leader 2"
-          >
-        </el-carousel-item>
-      </el-carousel>
-    </div>-->
-
     <!-- Top Courses Section -->
     <div class="container py-5">
       <div class="top-courses-section">
         <div class="d-flex justify-content-between">
           <p class="text-right top-section-header pt-1">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
-        <div class="pt-4">
+        <div class="pt-4 padding-test">
           <!--<Carousel :perPageCustom="[[0, 1], [576, 2], [768, 3], [992, 4]]">
             <slide 
                 v-for="course in topCourses"
@@ -74,11 +48,21 @@
                 <Course v-bind="course"></Course>
             </slide>
           </Carousel>-->
-          <el-carousel type="card" :interval="5000" arrow="always">
-            <el-carousel-item v-for="course in topCourses" :key="course.id" class="col-sm">
-              <Course v-bind="course"></Course>
-            </el-carousel-item>
-          </el-carousel>
+
+          <div
+            class="col-lg-3 col-md-6 col-sm-12 d-none d-md-block"
+            v-for="course in topCourses"
+            v-bind:key="course.id"
+          >
+            <Course v-bind="course"></Course>
+          </div>
+          <div class="d-sm-none">
+            <el-carousel type="card" :autoplay="true" :interval="5000" arrow="always">
+              <el-carousel-item v-for="course in topCourses" :key="course.id" class="col-sm">
+                <Course v-bind="course"></Course>
+              </el-carousel-item>
+            </el-carousel>
+          </div>
         </div>
         <div class="pt-3">
           <router-link to="allcourses">
@@ -99,14 +83,14 @@
 
     <!-- <Stressed></Stressed> -->
 
-    <!--Improvement Banner 2-->
-    <div class="py-4">
-      <ImprovementBanner2></ImprovementBanner2>
-    </div>
-
     <!-- Blog Section-->
     <div id="blog" class="blog-section pb-2">
       <blog-section v-bind="{posts: topPosts}"></blog-section>
+    </div>
+
+    <!--Improvement Banner 2-->
+    <div class="pt-4">
+      <ImprovementBanner2></ImprovementBanner2>
     </div>
 
     <!--Founder Section-->
@@ -125,7 +109,7 @@ import ImprovementBanner1 from './Components/ImprovementBanners/ImprovementBanne
 import ImprovementBanner2 from './Components/ImprovementBanners/ImprovementBanner2.vue';
 import Stressed from './Components/RandomComponents/Stressed.vue';
 // import { Carousel, Slide } from 'vue-carousel';
-import { Carousel, CarouselItem } from "element-ui";
+import { Carousel, CarouselItem } from 'element-ui';
 
 export default {
   data: function() {
@@ -153,7 +137,7 @@ export default {
     ImprovementBanner2,
     Stressed,
     [Carousel.name]: Carousel,
-    [CarouselItem.name]: CarouselItem,
+    [CarouselItem.name]: CarouselItem
     // Slide,
   },
 
@@ -201,12 +185,21 @@ export default {
 </script>
 
 <style lang="scss">
-.VueCarousel-inner {
-  direction: ltr;
-  .VueCarousel-slide {
-    padding: 0 10px;
-  }
+// .VueCarousel-inner {
+//   direction: ltr;
+//   .VueCarousel-slide {
+//     padding: 0 10px;
+//   }
+// }
+
+.el-carousel__container {
+  height: 500px !important;
 }
+
+.el-carousel__item--card {
+  width: 75% !important;
+}
+
 .sticky {
   position: sticky;
   top: 0;
@@ -287,9 +280,9 @@ export default {
       font-family: IranSansBold;
     }
   }
-  .top-courses-section {
-  //  padding: 0 11%;
-  }
+  // .top-courses-section {
+  //   padding: 0 11%;
+  // }
 
   .top-courses-section {
     .top-section-header {

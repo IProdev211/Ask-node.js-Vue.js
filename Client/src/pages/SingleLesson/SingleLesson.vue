@@ -66,34 +66,37 @@
 
       <!-------------- COURSE INFO SECTION  -------------->
       <div class="container">
-        <div class="pb-3">
+        <div class="pt-3 pb-2">
           <span
             class="head-section purchase-status text-right"
             v-if="notEnrolled && type.toLowerCase() != 'free'"
           >
-            <p v-if="type == 'paid'" class="pay-text text-danger">
-              <i class="fas fa-info pl-3"></i>
+            <p v-if="type == 'paid'" class="pay-text text-center text-info">
+              <!-- <i class="fas fa-info pl-3"></i> -->
               برای دسترسی به این درس لطفا لینک
               خرید را دنبال کنید.
               <span
                 class="text-right"
                 v-if="type.toLowerCase() == 'paid'"
               >
+                <div class="w-100 d-md-none pt-2"></div>
+
                 <span class="pr-2">
                   <base-button
                     @click="openBuyCourse"
                     native-type="button"
-                    class="btn-fill btn-danger btn btn-sm"
+                    class="btn-fill btn-info btn"
                   >تهیه درس غیرحضوری</base-button>
                 </span>
               </span>
             </p>
-            <p v-else-if="type.toLowerCase() == 'vip'" class="text-danger pay-text">
-              <i class="fas fa-info pl-3"></i>
+            <p v-else-if="type.toLowerCase() == 'vip'" class="text-info text-center pay-text">
+              <!-- <i class="fas fa-info pl-3"></i> -->
               برای دسترسی به این درس اکانت VIP تهیه کنید.
-              <span class="pr-2">
+              <span class="text-center pr-3">
+                <div class="w-100 d-md-none pt-2"></div>
                 <router-link to="/courses">
-                  <base-button native-type="submit" type="danger" class="btn btn-sm">تهیه عضویت ویژه</base-button>
+                  <base-button native-type="submit" type="info" class="btn">تهیه عضویت ویژه</base-button>
                 </router-link>
               </span>
             </p>
@@ -258,7 +261,7 @@ export default {
               this.episode = response.data.data.episode;
               this.course = response.data.data.course;
               this.notEnrolled = !response.data.data.enrolled;
-            //   console.log("this.notEnrolled", this.notEnrolled);
+              //   console.log("this.notEnrolled", this.notEnrolled);
               this.enrolledCount = response.data.data.enrolledCount;
               this.id = this.episode.id;
               this.title = this.episode.title;
@@ -305,7 +308,7 @@ export default {
           response => {
             this.course = response.data.data.course;
             this.notEnrolled = !response.data.data.enrolled;
-            console.log("this.notEnrolled", this.notEnrolled);
+            console.log('this.notEnrolled', this.notEnrolled);
             this.enrolledCount = response.data.data.enrolledCount;
             this.id = this.course.id;
             this.title = this.course.title;
@@ -340,7 +343,7 @@ export default {
         .format('YYYY/MM/DD');
     },
     getCoursePrice() {
-      console.log("this.course.type.price", this.course.type);
+      console.log('this.course.type.price', this.course.type);
       switch (this.type.toLowerCase()) {
         case 'free':
           return 'رایگان !';
