@@ -69,11 +69,13 @@
           </div>
         </div>
         <base-input v-if="!data.id">
+          <ckeditor v-if="isAdmin" @ready="onEditorReady" :editor="ckeditor.editor" v-model="data.message" :config="ckeditor.editorConfig"></ckeditor>
           <textarea
             class="form-control"
             placeholder="متن تیکت"
             rows="3"
             v-model="data.message" :error="fieldErrors.message"
+            v-else
           ></textarea>
         </base-input>
         <div class="btn-group pt-3">
@@ -95,6 +97,33 @@ import Autocomplete from 'vuejs-auto-complete';
 import fileUpload from "./Components/FileUpload";
 import backend from '../../../backend';
 
+import CKEditor from '@ckeditor/ckeditor5-vue';
+import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
+import EssentialsPlugin from '@ckeditor/ckeditor5-essentials/src/essentials';
+import BoldPlugin from '@ckeditor/ckeditor5-basic-styles/src/bold';
+import ItalicPlugin from '@ckeditor/ckeditor5-basic-styles/src/italic';
+import CodePlugin from '@ckeditor/ckeditor5-basic-styles/src/code';
+import StrikethroughPlugin from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
+import SubscriptPlugin from '@ckeditor/ckeditor5-basic-styles/src/subscript';
+import SuperscriptPlugin from '@ckeditor/ckeditor5-basic-styles/src/superscript';
+import UnderlinePlugin from '@ckeditor/ckeditor5-basic-styles/src/underline';
+import LinkPlugin from '@ckeditor/ckeditor5-link/src/link';
+import ParagraphPlugin from '@ckeditor/ckeditor5-paragraph/src/paragraph';
+import Heading from '@ckeditor/ckeditor5-heading/src/heading';
+import Font from '@ckeditor/ckeditor5-font/src/font';
+import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import Indent from '@ckeditor/ckeditor5-indent/src/indent';
+import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
+import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar';
+import HeadingButtonsUI from '@ckeditor/ckeditor5-heading/src/headingbuttonsui';
+import ParagraphButtonUI from '@ckeditor/ckeditor5-paragraph/src/paragraphbuttonui';
+import imageupload from '@ckeditor/ckeditor5-image/src/imageupload';
+import Image from '@ckeditor/ckeditor5-image/src/image';
+import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
+import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
+import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
+
 export default {
   props: [
 		'id',
@@ -107,7 +136,8 @@ export default {
   components: {
     Autocomplete,
     fileUpload,
-    ImageUpload
+    ImageUpload,
+		ckeditor: CKEditor.component,
   },
   data() {
     return {
@@ -124,6 +154,58 @@ export default {
       fieldErrors: {},
       formErrors: {},
       loading: false,
+      ckeditor: {
+				editor: ClassicEditor,
+				editorConfig: {
+					plugins: [
+						Alignment,
+						EssentialsPlugin,
+						BoldPlugin,
+						ItalicPlugin,
+						CodePlugin,
+						StrikethroughPlugin,
+						SubscriptPlugin,
+						SuperscriptPlugin,
+						UnderlinePlugin,
+						LinkPlugin,
+						ParagraphPlugin,
+						Heading,
+						Font,
+						PasteFromOffice,
+						Indent,
+						IndentBlock,
+						HeadingButtonsUI,
+						ParagraphButtonUI,
+						Image,
+						ImageToolbar,
+						ImageCaption,
+						ImageStyle,
+						imageupload,
+					],
+					fontSize: {
+						options: [
+							9,
+							11,
+							13,
+							'default',
+							17,
+							19,
+							21
+						]
+					},
+					toolbar: [
+						'heading', '|',
+						'outdent', 'indent', '|',
+						'bold', 'italic', 'underline', 'strikethrough', 'code', 'subscript', 'superscript',
+						'link',
+						'bulletedList', 'numberedList', 'blockQuote',
+						'alignment',
+						'undo', 'redo',
+						'fontSize', 'fontColor', 'fontBackgroundColor',
+						'imageupload', 'imageTextAlternative', '|', 'imageStyle:full', 'imageStyle:side'
+					],
+				},
+			},
     };
   },
   methods: {
@@ -208,6 +290,39 @@ export default {
         this.data[key] = undefined;
       }
     },
+    onEditorReady(editor) {
+			editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
+				class ImageUploadAdapter {
+					constructor(loader) {
+						this.loader = loader
+					}
+					upload() {
+						const uploader = (file) => {
+							return new Promise((resolve, reject) => {
+								const data = new FormData();
+								data.append("file", file);
+								backend.post("admin/blog/images/upload", data, {
+									CancelToken: source.token,
+									onUploadProgress: progressEvent => {
+										loader.uploadTotal = progressEvent.total;
+										loader.uploaded = progressEvent.loaded;
+									},
+								}).then(response => {
+									resolve({
+										default: response.data.image,
+									});
+								}, reject);
+							});
+						};
+						return loader.file.then( uploader );
+					}
+					abort() {
+						source.cancel();
+					}
+				}
+				return new ImageUploadAdapter( loader );
+			};
+		},
   },
   watch: {
     id: function(value, old) {
@@ -238,10 +353,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-input[type="file"] {
-  display: none;
-}
+<style lang="scss">
 
 .white-content .el-table table > thead > tr > th {
   text-align: center !important;
@@ -249,6 +361,9 @@ input[type="file"] {
 
 .white-content .el-table table > tbody > tr > td {
   text-align: center !important;
+}
+.ck-editor__editable {
+    min-height: 300px;
 }
 </style>
 
