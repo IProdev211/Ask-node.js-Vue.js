@@ -43,6 +43,11 @@
             </base-input>
           </div>
           <el-table :data="tableData" :key="tableKey">
+            <el-table-column prop="ticket_id" label="ID" :min-width="60">
+              <template scope="scope" class="text-center">
+                <router-link :to="`/tickets/view/${scope.row.id}`">{{ scope.row.ticket_id }}</router-link>
+              </template>
+            </el-table-column>
             <el-table-column
               v-for="column in tableColumns"
               :key="column.label"
@@ -189,11 +194,6 @@ export default {
         'date'
       ],
       tableColumns: [
-        {
-          prop: 'ticket_id',
-          label: 'ID',
-          minWidth: 60
-        },
         {
           prop: 'user.name',
           label: 'Name',
