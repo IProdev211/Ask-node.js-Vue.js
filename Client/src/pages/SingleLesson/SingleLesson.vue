@@ -69,15 +69,15 @@
         <div class="pb-3">
           <span
             class="head-section purchase-status text-right"
-            v-if="notEnrolled && type != 'free'"
+            v-if="notEnrolled && type.toLowerCase() != 'free'"
           >
             <p v-if="type == 'paid'" class="pay-text text-danger">
-              <i class="fas fa-info pl-3 pay-icon"></i>
+              <i class="fas fa-info pl-3"></i>
               برای دسترسی به این درس لطفا لینک
               خرید را دنبال کنید.
               <span
                 class="text-right"
-                v-if="notEnrolled && type == 'paid'"
+                v-if="type.toLowerCase() == 'paid'"
               >
                 <span class="pr-2">
                   <base-button
@@ -88,8 +88,8 @@
                 </span>
               </span>
             </p>
-            <p v-else-if="type == 'vip'" class="text-danger pay-text">
-              <i class="fas fa-info pl-3 pay-icon"></i>
+            <p v-else-if="type.toLowerCase() == 'vip'" class="text-danger pay-text">
+              <i class="fas fa-info pl-3"></i>
               برای دسترسی به این درس اکانت VIP تهیه کنید.
               <span class="pr-2">
                 <router-link to="/courses">
@@ -258,6 +258,7 @@ export default {
               this.episode = response.data.data.episode;
               this.course = response.data.data.course;
               this.notEnrolled = !response.data.data.enrolled;
+            //   console.log("this.notEnrolled", this.notEnrolled);
               this.enrolledCount = response.data.data.enrolledCount;
               this.id = this.episode.id;
               this.title = this.episode.title;
@@ -304,6 +305,7 @@ export default {
           response => {
             this.course = response.data.data.course;
             this.notEnrolled = !response.data.data.enrolled;
+            console.log("this.notEnrolled", this.notEnrolled);
             this.enrolledCount = response.data.data.enrolledCount;
             this.id = this.course.id;
             this.title = this.course.title;
@@ -338,7 +340,8 @@ export default {
         .format('YYYY/MM/DD');
     },
     getCoursePrice() {
-      switch (this.course.type.toLowerCase()) {
+      console.log("this.course.type.price", this.course.type);
+      switch (this.type.toLowerCase()) {
         case 'free':
           return 'رایگان !';
         case 'cash':
