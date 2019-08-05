@@ -36,24 +36,24 @@ export default {
   props: {
     openTickets: {
       type: Number,
-      default: 0,
+      default: 0
     },
     answeredTickets: {
       type: Number,
-      default: 0,
+      default: 0
     },
     inprogressTickets: {
       type: Number,
-      default: 0,
+      default: 0
     },
     onHoldTickets: {
       type: Number,
-      default: 0,
+      default: 0
     },
     closedTickets: {
       type: Number,
-      default: 0,
-    },
+      default: 0
+    }
   }
 };
 </script>

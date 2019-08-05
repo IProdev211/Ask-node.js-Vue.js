@@ -12,8 +12,6 @@
     <h2 class="text-center">Manage Tickets</h2>
     <div class="mt-5">
       <card card-body-classes="table-full-width">
-        <!-- SEARCH NEEDS TO WORK & HEART IS FOR IMPORTANT MESSAGES  -->
-        <!-- TICKETS SHOULD BE SORTED FROM NEWEST TO OLDEST -->
         <div>
           <div class="d-flex justify-content-between">
             <el-select
@@ -54,12 +52,14 @@
             ></el-table-column>
             <el-table-column prop="status" label="Status" :min-width="120">
               <template scope="scope" class="text-center">
-                <span :class="getStatusLabelClasses(scope.row.status)" :key="scope.row.status">{{ getStatusTranslate(scope.row.status) }}</span>
+                <span
+                  :class="getStatusLabelClasses(scope.row.status)"
+                  :key="scope.row.status"
+                >{{ getStatusTranslate(scope.row.status) }}</span>
               </template>
             </el-table-column>
-            <el-table-column :min-width="135" align="right" label="Actions">
+            <el-table-column :min-width="155" align="center" label="Actions">
               <div slot-scope="props">
-                <!-- THIS IS FOR MARKING THE TICKET IMPORTANT - WHEN CLICKED THE HEART SHOULD BECOME RED -->
                 <base-button
                   @click.native="handleHighlight(props.$index, props.row)"
                   class="like btn-link"
@@ -70,7 +70,6 @@
                   <i :class="props.row.isHighlight ? 'fas fa-heart' : 'far fa-heart'"></i>
                 </base-button>
 
-                <!-- THIS IS FOR EDITING THE TICKET -->
                 <base-button
                   @click.native="handleEdit(props.$index, props.row)"
                   class="edit btn-link"
@@ -82,7 +81,7 @@
                 </base-button>
 
                 <!-- THIS IS FOR CLOSING THE TICKET -->
-                <base-button
+                <!-- <base-button
                   @click.native="handleInProgress(props.$index, props.row)"
                   class="edit btn-link"
                   type="warning"
@@ -91,9 +90,8 @@
                   v-if="props.row.status == 1"
                 >
                   <i class="fas fa-clipboard-check"></i>
-                </base-button>
+                </base-button>-->
 
-                <!-- THIS IS FOR DELETING THE TICKET -->
                 <base-button
                   @click.native="handleDelete(props.$index, props.row)"
                   class="remove btn-link"
@@ -169,7 +167,7 @@ export default {
     },
     from() {
       return this.pagination.perPage * (this.pagination.currentPage - 1);
-    },
+    }
   },
   data() {
     return {
@@ -194,33 +192,33 @@ export default {
         {
           prop: 'ticket_id',
           label: 'ID',
-          minWidth: 60,
+          minWidth: 60
         },
         {
           prop: 'user.name',
           label: 'Name',
-          minWidth: 200,
+          minWidth: 250
         },
         {
           prop: 'title',
           label: 'Subject',
-          minWidth: 250,
+          minWidth: 200
         },
         {
           prop: 'department',
           label: 'Department',
-          minWidth: 150,
+          minWidth: 130
         },
         {
           prop: 'priority',
           label: 'Priority',
-          minWidth: 100,
+          minWidth: 100
         },
         {
           prop: 'date',
           label: 'Date',
-          minWidth: 120,
-        },
+          minWidth: 120
+        }
       ],
       tableData: [],
       searchedData: [],
@@ -231,30 +229,35 @@ export default {
       onHoldTickets: 0,
       closedTickets: 0,
       ticket: undefined,
-      tableKey: 0,
+      tableKey: 0
     };
   },
   methods: {
     handleHighlight(index, row) {
-      backend.post(`admin/tickets/${row.id}/highlight`).then(response => {
-        row.isHighlight = !row.isHighlight;
-        Swal({
-          title: `You ${ row.isHighlight ? 'hightlight' : 'remove hightlight of' }  ${row.ticket_id}: ${row.title}`,
-          icon: 'success',
-          className: 'text-ltr',
-        });
-      }, err => {
-        Swal({
-          title: `Cannot connect to Server !`,
-          className: 'text-ltr',
-          text: "Please check your conection and try again",
-          icon: 'error',
-        });
-      });
+      backend.post(`admin/tickets/${row.id}/highlight`).then(
+        response => {
+          row.isHighlight = !row.isHighlight;
+          Swal({
+            title: `You ${
+              row.isHighlight ? 'hightlight' : 'remove hightlight of'
+            }  ${row.ticket_id}: ${row.title}`,
+            icon: 'success',
+            className: 'text-ltr'
+          });
+        },
+        err => {
+          Swal({
+            title: `Cannot connect to Server !`,
+            className: 'text-ltr',
+            text: 'Please check your conection and try again',
+            icon: 'error'
+          });
+        }
+      );
     },
     handleEdit(index, row) {
       swal({
-        title: `You want to edit ${row.ticket_id}: ${row.title}`,
+        title: `You want to edit ${row.ticket_id}: ${row.title}`
       });
       this.ticket = row;
     },
@@ -314,60 +317,82 @@ export default {
     dataLoad(page) {
       const query = {
         page: page,
-        limit: this.pagination.perPage,
+        limit: this.pagination.perPage
       };
       if (this.searchQuery) {
         query.filter = this.searchQuery;
       }
-      backend.get('/admin/tickets' + this.encodeQueryData(query)).then(response => {
-        this.pagination.currentPage = parseInt(response.data.page, 10);
-        this.pagination.pages = response.data.totalPages;
-        this.pagination.total = response.data.totalDocs;
-        this.pagination.perPage = response.data.limit;
-        this.tableData = response.data.docs.map(ticket => {
-          ticket.date = this.date(ticket.date);
-          return ticket;
-        });
-        if (! response.data.tickets) {
-          response.data.tickets = [];
-        }
-        for (const item of response.data.tickets) {
-          switch (item.status) {
-            case 1: this.openTickets = item.count; break;
-            case 2: this.answeredTickets = item.count; break;
-            case 3: this.inprogressTickets = item.count; break;
-            case 4: this.onHoldTickets = item.count; break;
-            case 5: this.closedTickets = item.count; break;
+      backend
+        .get('/admin/tickets' + this.encodeQueryData(query))
+        .then(response => {
+          this.pagination.currentPage = parseInt(response.data.page, 10);
+          this.pagination.pages = response.data.totalPages;
+          this.pagination.total = response.data.totalDocs;
+          this.pagination.perPage = response.data.limit;
+          this.tableData = response.data.docs.map(ticket => {
+            ticket.date = this.date(ticket.date);
+            return ticket;
+          });
+          if (!response.data.tickets) {
+            response.data.tickets = [];
           }
-        }
-      });
+          for (const item of response.data.tickets) {
+            switch (item.status) {
+              case 1:
+                this.openTickets = item.count;
+                break;
+              case 2:
+                this.answeredTickets = item.count;
+                break;
+              case 3:
+                this.inprogressTickets = item.count;
+                break;
+              case 4:
+                this.onHoldTickets = item.count;
+                break;
+              case 5:
+                this.closedTickets = item.count;
+                break;
+            }
+          }
+        });
     },
     date(time) {
       return moment(time).format('DD/MM/YYYY');
     },
     getStatusTranslate(status) {
       switch (status) {
-        case 1: return `Open`;
-        case 2: return `Answered`;
-        case 3: return `In Progress`;
-        case 4: return `On Hold`;
-        case 5: return `Closed`;
+        case 1:
+          return `Open`;
+        case 2:
+          return `Answered`;
+        case 3:
+          return `In Progress`;
+        case 4:
+          return `On Hold`;
+        case 5:
+          return `Closed`;
       }
     },
     getStatusLabelClasses(status) {
       switch (status) {
-        case 1: return `badge badge-primary`;
-        case 2: return `badge badge-success`;
-        case 3: return `badge badge-warning`;
-        case 4: return `badge badge-danger`;
-        case 5: return `badge badge-secondary`;
+        case 1:
+          return `badge badge-primary`;
+        case 2:
+          return `badge badge-success`;
+        case 3:
+          return `badge badge-warning`;
+        case 4:
+          return `badge badge-danger`;
+        case 5:
+          return `badge badge-secondary`;
       }
     },
     encodeQueryData(data) {
       const ret = [];
       for (const d in data)
         ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
-      return "?" + ret.join('&');
+      return '?' + ret.join('&');
     },
     changePageListener(page) {
       if (page == this.pagination.currentPage) return;
@@ -383,11 +408,21 @@ export default {
         if (this.tableData[key].id == ticket.id) {
           isNew = false;
           switch (this.tableData[key].status) {
-            case 1: this.openTickets--; break;
-            case 2: this.answeredTickets--; break;
-            case 3: this.inprogressTickets--; break;
-            case 4: this.onHoldTickets--; break;
-            case 5: this.closedTickets--; break;
+            case 1:
+              this.openTickets--;
+              break;
+            case 2:
+              this.answeredTickets--;
+              break;
+            case 3:
+              this.inprogressTickets--;
+              break;
+            case 4:
+              this.onHoldTickets--;
+              break;
+            case 5:
+              this.closedTickets--;
+              break;
           }
           this.tableData[key] = ticket;
           this.tableKey++;
@@ -399,11 +434,21 @@ export default {
         this.tableData.splice(0, 0, ticket);
       }
       switch (ticket.status) {
-        case 1: this.openTickets++; break;
-        case 2: this.answeredTickets++; break;
-        case 3: this.inprogressTickets++; break;
-        case 4: this.onHoldTickets++; break;
-        case 5: this.closedTickets++; break;
+        case 1:
+          this.openTickets++;
+          break;
+        case 2:
+          this.answeredTickets++;
+          break;
+        case 3:
+          this.inprogressTickets++;
+          break;
+        case 4:
+          this.onHoldTickets++;
+          break;
+        case 5:
+          this.closedTickets++;
+          break;
       }
       this.pagination.total++;
     },
@@ -431,7 +476,7 @@ export default {
     markAsInProgress(ticket) {
       backend
         .post(`/admin/tickets/${ticket.id}/edit`, {
-          status: 3,
+          status: 3
         })
         .then(response => {
           if (response.data.status === 'error') {
@@ -462,19 +507,28 @@ export default {
             icon: 'tim-icons icon-bell-55'
           });
         });
-    },
+    }
   },
   mounted() {
     this.dataLoad(1);
-  },
+  }
 };
 </script>
-<style>
+
+<style lang="scss" scoped>
 .pagination-select,
 .search-input {
   width: 200px;
 }
 .fa-heart {
   color: red;
+}
+
+.white-content .el-table table > thead > tr > th {
+  text-align: center !important;
+}
+
+.white-content .el-table table > tbody > tr > td {
+  text-align: center !important;
 }
 </style>

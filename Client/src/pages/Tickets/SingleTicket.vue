@@ -8,11 +8,14 @@
     </div>
     <div class="container mt-5 pb-5">
       <h2 class="ticket-desc pt-4 pr-3">{{ticket.title}}</h2>
-      <div>
-        
-      </div>
+      <div></div>
       <!-- CARD RIGHT -->
-      <div v-for="message of messages" :key="message.id" class="card-custom py-4 pb px-5 my-3" :class="message.user.id == ticket.id ? 'ml-5' : 'mr-5'">
+      <div
+        v-for="message of messages"
+        :key="message.id"
+        class="card-custom py-4 pb px-5 my-3"
+        :class="message.user.id == ticket.id ? 'ml-5' : 'mr-5'"
+      >
         <div class="d-flex justify-content-between">
           <p class="ticket-user">
             <!-- USER PICTURE SHOULD GO INSTEAD OF ICON -->
@@ -21,13 +24,9 @@
           </p>
           <p class="ticket-date text-muted font-weight-bold">
             <!-- ADMIN SHOULD ONLY SEE THESE ICONS - WHEN MESSAGE WANTS TO BE EDITED - IT SHOULD BE EDITED WITH CKEDITOR -->
-            <span class="pl-3" v-if="isAdmin">
-              <base-button class="animation-on-hover btn-sm p-1" type="default" @click="handleEdit(message)">
-                <i class="fas fa-pencil-alt"></i>
-              </base-button>
-              <base-button class="animation-on-hover btn-sm p-1" type="danger" @click="handleDelete(message)">
-                <i class="far fa-trash-alt"></i>
-              </base-button>
+            <span class="pl-5" v-if="isAdmin">
+              <i @click="handleEdit(message)" class="fas fa-pencil-alt pl-2"></i>
+              <i @click="handleDelete(message)" class="far fa-trash-alt pr-1"></i>
             </span>
 
             <span class="pl-2 font-weight-normal">{{ getTime(message.createdAt) }}</span>
@@ -35,12 +34,10 @@
           </p>
         </div>
         <p class="pt-4">{{ message.message }}</p>
-        <hr v-if="message.files.length">
+        <hr v-if="message.files.length" />
         <ul v-if="message.files.length">
           <li v-for="file in message.files" :key="file.name">
-            <a :href="'/api/v1' + file.downloadUrl" >
-              {{ file.name }}
-            </a>
+            <a :href="'/api/v1' + file.downloadUrl">{{ file.name }}</a>
           </li>
         </ul>
       </div>
@@ -49,18 +46,29 @@
         <h4 class="pt-5">{{ editingMessage ? 'ویرایش پیام' : 'پاسخی ارسال کنید!' }}</h4>
         <base-input>
           <!-- CKEDITOR SHOULD GO HERE! -->
-          <textarea
-            class="form-control"
-            placeholder="متن تیکت"
-            rows="3"
-            v-model="message"
-          ></textarea>
+          <textarea class="form-control" placeholder="متن تیکت" rows="3" v-model="message"></textarea>
         </base-input>
         <div class="btn-group pt-3">
-          <file-upload v-if="isAdmin && !editingMessage" @change="onFileSelect" class="animation-on-hover" :key="uploaderKey"/>
-          <image-upload v-else-if="!editingMessage" @change="onFileSelect" select-text="پیوست فایل" class="animation-on-hover mb-0" :key="uploaderKey"/>
-          <base-button class="animation-on-hover" type="danger" native-type="Submit" :loading="loading">
-            <i class="pl-2 far fa-paper-plane"></i>
+          <file-upload
+            v-if="isAdmin && !editingMessage"
+            @change="onFileSelect"
+            class="animation-on-hover"
+            :key="uploaderKey"
+          />
+          <image-upload
+            v-else-if="!editingMessage"
+            @change="onFileSelect"
+            select-text="پیوست فایل"
+            class="animation-on-hover mb-0"
+            :key="uploaderKey"
+          />
+          <base-button
+            class="animation-on-hover"
+            type="danger"
+            native-type="Submit"
+            :loading="loading"
+          >
+            <!-- <i class="pl-2 far fa-paper-plane"></i> -->
             {{editingMessage ? 'ویرایش' : 'ارسال'}}
           </base-button>
         </div>
@@ -71,9 +79,9 @@
 
 <script>
 import backend from '../../backend';
-import * as moment from "moment";
+import * as moment from 'moment';
 import { ImageUpload } from 'src/components/index';
-import fileUpload from "../AdminSection/ManageTickets/Components/FileUpload";
+import fileUpload from '../AdminSection/ManageTickets/Components/FileUpload';
 import Swal from 'sweetalert';
 
 export default {
@@ -86,55 +94,55 @@ export default {
       ticket: {},
       messages: [],
       loading: false,
-      message: "",
+      message: '',
       file: undefined,
       uploaderKey: 0,
-      editingMessage: undefined,
+      editingMessage: undefined
     };
   },
   methods: {
     dataLoad() {
-      if (! this.$route.params.ticket) {
+      if (!this.$route.params.ticket) {
         return;
       }
-      backend.get(`tickets/view/${this.$route.params.ticket}`).then(response => {
-        this.ticket = response.data.ticket;
-        this.messages = response.data.messages;
-      }, error => {
-        
-      });
+      backend.get(`tickets/view/${this.$route.params.ticket}`).then(
+        response => {
+          this.ticket = response.data.ticket;
+          this.messages = response.data.messages;
+        },
+        error => {}
+      );
     },
     getDate(date) {
-      return moment(date).format("YYYY/MM/DD");
+      return moment(date).format('YYYY/MM/DD');
     },
     getTime(time) {
-      return moment(time).format("HH:ss");
+      return moment(time).format('HH:ss');
     },
     submitFormListener() {
       let haveError = false;
-      if (! this.message) {
-         
+      if (!this.message) {
       }
       if (haveError) {
         return;
       }
       let data = {};
-      if (! this.editingMessage && this.file instanceof File) {
+      if (!this.editingMessage && this.file instanceof File) {
         data = new FormData();
-        data.append("ticket", this.ticket.id);
-        data.append("message", this.message);
-        data.append("file", this.file);
+        data.append('ticket', this.ticket.id);
+        data.append('message', this.message);
+        data.append('file', this.file);
       } else {
         data = {
-          message: this.message,
+          message: this.message
         };
-        if (! this.editingMessage) {
+        if (!this.editingMessage) {
           data.ticket = this.ticket.id;
         }
       }
       let url = '';
       if (this.editingMessage) {
-        url = `/admin/tickets/messages/${this.editingMessage.id}/edit`
+        url = `/admin/tickets/messages/${this.editingMessage.id}/edit`;
       } else {
         url = `tickets/reply`;
       }
@@ -150,7 +158,7 @@ export default {
         } else {
           const messages = this.messages;
           messages.push(response.data.message);
-          messages.sort(function(x,y)  {
+          messages.sort(function(x, y) {
             return new Date(x.createdAt) - new Date(y.createdAt);
           });
           this.messages = messages;
@@ -162,7 +170,7 @@ export default {
       this.file = file;
     },
     resetReplyForm() {
-      this.message = "";
+      this.message = '';
       this.file = undefined;
       this.uploaderKey++;
     },
@@ -185,7 +193,8 @@ export default {
       });
     },
     deleteMessage(message) {
-      backend.post(`/admin/tickets/messages/${message.id}/delete`)
+      backend
+        .post(`/admin/tickets/messages/${message.id}/delete`)
         .then(response => {
           if (response.data.status === 'error') {
             this.$notify({
@@ -220,7 +229,7 @@ export default {
       this.editingMessage = message;
       this.message = message.message;
       document.body.scrollTop += 50;
-      const mainpanel = document.querySelector(".main-panel");
+      const mainpanel = document.querySelector('.main-panel');
       mainpanel.scrollTop = mainpanel.scrollHeight;
     }
   },
@@ -232,7 +241,7 @@ export default {
     isAdmin() {
       return this.$root.$data.user && this.$root.$data.user.admin;
     }
-  },
+  }
 };
 </script>
 
@@ -256,16 +265,16 @@ export default {
 
 .send-buttons {
   i {
-  color: white;
+    color: white;
   }
 }
 
 .ticket-date {
-font-family: IranSansBold;
-color: rgba(145, 145, 145, 0.85);
+  font-family: IranSansBold;
+  color: rgba(145, 145, 145, 0.85);
 
   span {
-  font-family: IranSans;
+    font-family: IranSans;
   }
 }
 

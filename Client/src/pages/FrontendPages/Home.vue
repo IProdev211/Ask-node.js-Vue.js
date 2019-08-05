@@ -91,6 +91,8 @@
       <ImprovementBanner1></ImprovementBanner1>
     </div>
 
+    <!-- <Stressed></Stressed> -->
+
     <!--Improvement Banner 2-->
     <div class="py-4">
       <ImprovementBanner2></ImprovementBanner2>
@@ -115,6 +117,7 @@ import BlogSection from './Components/Blog/BlogSection.vue';
 import OurCourses from './Components/OurCourses/OurCourses.vue';
 import ImprovementBanner1 from './Components/ImprovementBanners/ImprovementBanner1.vue';
 import ImprovementBanner2 from './Components/ImprovementBanners/ImprovementBanner2.vue';
+import Stressed from './Components/RandomComponents/Stressed.vue';
 
 export default {
   data: function() {
@@ -139,7 +142,8 @@ export default {
     Course,
     BlogSection,
     ImprovementBanner1,
-    ImprovementBanner2
+    ImprovementBanner2,
+    Stressed
   },
 
   metaInfo: {
@@ -192,8 +196,12 @@ export default {
 }
 
 .hero-content-homepage {
-  background: linear-gradient(to left, #7028e4dc, #e5b2cade),
+  // background: linear-gradient(to left, #7028e4dc, #e5b2cade),
+  //   url(/img/frontend/london-bg-opt.jpg);
+  background-color: #6e72fc;
+  background: linear-gradient(315deg, #ad1debe5 0%, #6e73fce1 74%),
     url(/img/frontend/london-bg-opt.jpg);
+  background-color: #6e72fc;
   background-size: cover;
   background-position: bottom;
   height: 55vh !important;
@@ -236,14 +244,17 @@ export default {
 
 @media screen and (max-width: 730px) {
   .hero-content-homepage {
+    background: linear-gradient(to left, #a315e6dc, #5539d1d2),
+      url(/img/frontend/london-bg-opt.jpg);
+    background-size: cover;
+    background-position: bottom;
     min-height: 65vh !important;
     background-position: bottom right;
 
     .hero-title {
-      font-size: 2.4em;
+      font-size: 2.9em;
       line-height: inherit;
       color: #fff !important;
-      padding-top: 35px;
       text-align: right !important;
     }
     .hero-subtitle {
@@ -255,7 +266,7 @@ export default {
       font-weight: inherit;
       border-radius: 30px;
       padding: 14px 15px;
-      font-size: 0.7em;
+      font-size: 0.9em;
       font-family: IranSansBold;
     }
   }
@@ -282,6 +293,27 @@ export default {
       transform: translate(-50%, -50%);
       padding: 0 10%;
     }
+
+    .hero-title {
+      font-size: 2.3em;
+      padding-top: 30px;
+    }
+    .hero-subtitle {
+      padding-left: 1.1em;
+      font-size: 1.1em;
+      text-align: right !important;
+    }
+    .btn {
+      padding: 14px 15px;
+      font-size: 0.7em;
+      font-family: IranSansBold;
+    }
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .hero-content-homepage {
+    height: 51vh !important;
   }
 }
 

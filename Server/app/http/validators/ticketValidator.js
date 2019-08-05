@@ -11,7 +11,7 @@ class ticketValidator extends validator {
         .withMessage('فیلد عنوان تیکت نمیتواند خالی بماند'),
       check('user').custom(async (value, { req }) => {
         const user = await User.findById(value);
-        if (! user) {
+        if (!user) {
           throw new Error('کاربری با این مشخصات در سیستم پیدا نشد');
         }
         req.body.user = user;
@@ -24,12 +24,8 @@ class ticketValidator extends validator {
         .not()
         .isEmpty()
         .withMessage('اولویت تیکت نمیتواند خالی بماند')
-        .custom(async (value, {req}) => {
-          if ([
-            "عادی",
-            "مهم",
-            "فوری",
-          ].indexOf(value) == -1) {
+        .custom(async (value, { req }) => {
+          if (['عادی', 'مهم', 'فوری'].indexOf(value) == -1) {
             throw new Error('اولویت مشخص شده نامعتبر است.');
           }
         }),
@@ -37,12 +33,8 @@ class ticketValidator extends validator {
         .not()
         .isEmpty()
         .withMessage('دپارتمان تیکت نمیتواند خالی بماند')
-        .custom(async (value, {req}) => {
-          if ([
-            "پشتیبانی",
-            "فروش و مالی",
-            "آموزش",
-          ].indexOf(value) == -1) {
+        .custom(async (value, { req }) => {
+          if (['پشتیبانی', 'فروش و مالی', 'آموزش'].indexOf(value) == -1) {
             throw new Error('دپارتمان مشخص شده نامعتبر است.');
           }
         })
@@ -52,7 +44,7 @@ class ticketValidator extends validator {
     return [
       check('file').custom(async (value, { req }) => {
         if (value === undefined || (req.user && req.user.admin)) return;
-  
+
         let fileExt = ['.png', '.jpg', '.jpeg', '.svg'];
         if (!fileExt.includes(path.extname(value)))
           throw new Error('پسوند فایل وارد شده از پسوندهای تصاویر نیست');
@@ -60,7 +52,7 @@ class ticketValidator extends validator {
       check('message')
         .not()
         .isEmpty()
-        .withMessage('متن تیکت نمیتواند خالی بماند'),
+        .withMessage('متن تیکت نمیتواند خالی بماند')
     ];
   }
 }
