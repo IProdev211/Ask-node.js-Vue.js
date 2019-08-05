@@ -29,6 +29,7 @@ export default {
   name: 'file-upload',
   data() {
     return {
+      file: null,
       fileExists: false
     };
   },

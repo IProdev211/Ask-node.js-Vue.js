@@ -83,6 +83,7 @@ import * as moment from 'moment';
 import { ImageUpload } from 'src/components/index';
 import fileUpload from '../AdminSection/ManageTickets/Components/FileUpload';
 import Swal from 'sweetalert';
+import axios from 'axios';
 
 export default {
   components: {
@@ -97,15 +98,19 @@ export default {
       message: '',
       file: undefined,
       uploaderKey: 0,
-      editingMessage: undefined
+      editingMessage: undefined,
+      loadMessageInterval: undefined,
     };
   },
   methods: {
-    dataLoad() {
+    dataLoad(client) {
       if (!this.$route.params.ticket) {
         return;
       }
-      backend.get(`tickets/view/${this.$route.params.ticket}`).then(
+      if (! client) {
+        client = backend;
+      }
+      client.get(`tickets/view/${this.$route.params.ticket}`).then(
         response => {
           this.ticket = response.data.ticket;
           this.messages = response.data.messages;
@@ -235,7 +240,14 @@ export default {
   },
   mounted() {
     this.dataLoad();
-    setInterval(this.dataLoad, 4000);
+    if (! this.loadMessageInterval) {
+      const client = axios.create({
+        baseURL: backend.defaults.baseURL,
+      }); 
+      this.loadMessageInterval = setInterval(() => {
+        this.dataLoad(client);
+      }, 4000);
+    }
   },
   computed: {
     isAdmin() {
