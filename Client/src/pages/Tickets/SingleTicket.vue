@@ -14,7 +14,7 @@
         v-for="message of messages"
         :key="message.id"
         class="card-custom py-4 pb px-5 my-3"
-        :class="message.user.id == ticket.id ? 'ml-5' : 'mr-5'"
+        :class="message.user.id == ticket.user.id ? 'ml-5' : 'mr-5'"
       >
         <div class="d-flex justify-content-between">
           <p class="ticket-user">
