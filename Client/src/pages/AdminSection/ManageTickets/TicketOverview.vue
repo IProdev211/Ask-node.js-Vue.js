@@ -42,41 +42,67 @@
               ></el-input>
             </base-input>
           </div>
-          <el-table :data="tableData" :key="tableKey">
-            <el-table-column prop="ticket_id" label="ID" :min-width="60">
-              <template scope="scope" class="text-center">
-                <router-link :to="`/tickets/view/${scope.row.id}`">{{ scope.row.ticket_id }}</router-link>
-              </template>
-            </el-table-column>
-            <el-table-column
-              v-for="column in tableColumns"
-              :key="column.label"
-              :min-width="column.minWidth"
-              :prop="column.prop"
-              :label="column.label"
-            ></el-table-column>
-            <el-table-column prop="status" label="Status" :min-width="120">
-              <template scope="scope" class="text-center">
-                <span
-                  :class="getStatusLabelClasses(scope.row.status)"
-                  :key="scope.row.status"
-                >{{ getStatusTranslate(scope.row.status) }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column :min-width="155" align="center" label="Actions">
-              <div slot-scope="props">
+        </div>
+
+        <!-------------- NEW TICKET DESIGN -------------->
+        <div class="single-ticket-row" v-for="ticket in tickets" :key="ticket.id">
+          <div class="ticket-card d-flex justify-content-between align-items-center row text-right">
+            <div class="ticket-id">
+              <h3>#</h3>
+              <p>{{ ticket.ticket_id }}</p>
+            </div>
+
+            <div class="ticket-username">
+              <h3>نام کاربر</h3>
+              <p>{{ ticket.user.name }}</p>
+            </div>
+
+            <div class="w-100 d-md-none pt-2"></div>
+
+            <div class="ticket-title">
+              <h3>عنوان</h3>
+              <p :title="ticket.title">{{ ticket.title.substring(0, 35) + (ticket.title.length > 35 ? ' ...' : '') }}</p>
+            </div>
+
+            <div class="w-100 d-md-none pt-3"></div>
+            <div class="ticket-dept">
+              <h3>دپارتمان</h3>
+              <p>{{ ticket.department }}</p>
+            </div>
+
+            <div class="ticket-priority">
+              <h3>اولویت</h3>
+              <p>{{ ticket.priority }}</p>
+            </div>
+
+            <div class="ticket-date">
+              <h3>زمان</h3>
+              <p>{{ date(ticket.date) }}</p>
+            </div>
+
+            <div class="w-100 d-md-none pt-3"></div>
+            <div class="ticket-status">
+              <h3>وضعیت</h3>
+              <span
+                :class="getStatusLabelClasses(ticket.status)"
+              >{{ getStatusTranslate(ticket.status) }}</span>
+            </div>
+
+            <div class="ticket-actions">
+              <h3>اقدامات</h3>
+              <div class="icon-group">
                 <base-button
-                  @click.native="handleHighlight(props.$index, props.row)"
+                  @click.native="handleHighlight(ticket)"
                   class="like btn-link"
                   type="info"
                   size="sm"
                   icon
                 >
-                  <i :class="props.row.isHighlight ? 'fas fa-heart' : 'far fa-heart'"></i>
+                  <i class="pr-2" :class="ticket.isHighlight ? 'fas fa-heart' : 'far fa-heart'"></i>
                 </base-button>
 
                 <base-button
-                  @click.native="handleEdit(props.$index, props.row)"
+                  @click.native="handleEdit(ticket)"
                   class="edit btn-link"
                   type="warning"
                   size="sm"
@@ -85,20 +111,8 @@
                   <i class="fas fa-pencil-alt"></i>
                 </base-button>
 
-                <!-- THIS IS FOR CLOSING THE TICKET -->
-                <!-- <base-button
-                  @click.native="handleInProgress(props.$index, props.row)"
-                  class="edit btn-link"
-                  type="warning"
-                  size="sm"
-                  icon
-                  v-if="props.row.status == 1"
-                >
-                  <i class="fas fa-clipboard-check"></i>
-                </base-button>-->
-
                 <base-button
-                  @click.native="handleDelete(props.$index, props.row)"
+                  @click.native="handleDelete(ticket)"
                   class="remove btn-link"
                   type="danger"
                   size="sm"
@@ -107,11 +121,20 @@
                   <i class="tim-icons icon-simple-remove"></i>
                 </base-button>
               </div>
-            </el-table-column>
-          </el-table>
+            </div>
+
+            <div class="w-100 d-md-none pt-3"></div>
+            <div class="view-ticket">
+              <router-link :to="`/tickets/view/${ticket.id}`">
+                <base-button class="px-3" round type="info">
+                  <i class="pl-3 fas fa-eye"></i> نمایش
+                </base-button>
+              </router-link>
+            </div>
+          </div>
         </div>
         <div
-          v-if="tableData.length"
+          v-if="tickets.length"
           slot="footer"
           class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
         >
@@ -130,69 +153,6 @@
         </div>
       </card>
     </div>
-
-    <!-------------- NEW TICKET DESIGN -------------->
-    <div class="single-ticket-row">
-      <div class="ticket-card d-flex justify-content-between align-items-center row text-right">
-        <div class="ticket-id">
-          <h3>ID</h3>
-          <p>12</p>
-        </div>
-
-        <div class="ticket-username">
-          <h3>نام کاربر</h3>
-          <p>Fateme Memarzadeh</p>
-        </div>
-
-        <div class="w-100 d-md-none pt-2"></div>
-
-        <div class="ticket-title">
-          <!-- THERE SHOULD BE A LIMIT OF 7 WORDS SHOWING THEN 3 ... - FOR EXAMPLE:   با آدرس وشنبه گزارش ورود به سیستم... -->
-          <h3>عنوان</h3>
-          <p>وشنبه گزارش ورود به سیستم با آدرس...</p>
-        </div>
-
-        <div class="w-100 d-md-none pt-3"></div>
-        <div class="ticket-dept">
-          <h3>دپارتمان</h3>
-          <p>فروش و مالی</p>
-        </div>
-
-        <div class="ticket-priority">
-          <h3>اولویت</h3>
-          <p>فوری</p>
-        </div>
-
-        <div class="ticket-date">
-          <h3>زمان</h3>
-          <p>04/08/2019</p>
-        </div>
-
-        <div class="w-100 d-md-none pt-3"></div>
-        <div class="ticket-status">
-          <h3>وضعیت</h3>
-          <badge type="success">پاسخ داده شده</badge>
-        </div>
-
-        <div class="ticket-actions">
-          <h3>اقدامات</h3>
-          <div class="icon-group">
-            <i class="fas fa-pencil-alt"></i>
-            <i class="tim-icons icon-simple-remove pr-2"></i>
-            <i class="far fa-heart pr-2"></i>
-            <!-- <i class="fas fa-heart"></i> -->
-          </div>
-        </div>
-
-        <div class="w-100 d-md-none pt-3"></div>
-        <div class="view-ticket">
-          <base-button class="btn-sm" round type="info">
-            <i class="pl-3 fas fa-eye"></i> نمایش
-          </base-button>
-        </div>
-      </div>
-    </div>
-
     <manage-ticket @ticket="ticketAddListener" v-bind="ticket"></manage-ticket>
   </div>
 </template>
@@ -224,7 +184,7 @@ export default {
      * Returns a page from the searched data or the whole data. Search is performed in the watch section below
      */
     queriedData() {
-      let result = this.tableData;
+      let result = this.tickets;
       if (this.searchedData.length > 0) {
         result = this.searchedData;
       }
@@ -259,34 +219,7 @@ export default {
         'priority',
         'date'
       ],
-      tableColumns: [
-        {
-          prop: 'user.name',
-          label: 'Name',
-          minWidth: 250
-        },
-        {
-          prop: 'title',
-          label: 'Subject',
-          minWidth: 200
-        },
-        {
-          prop: 'department',
-          label: 'Department',
-          minWidth: 130
-        },
-        {
-          prop: 'priority',
-          label: 'Priority',
-          minWidth: 100
-        },
-        {
-          prop: 'date',
-          label: 'Date',
-          minWidth: 120
-        }
-      ],
-      tableData: [],
+      tickets: [],
       searchedData: [],
       fuseSearch: null,
       openTickets: 0,
@@ -299,14 +232,14 @@ export default {
     };
   },
   methods: {
-    handleHighlight(index, row) {
-      backend.post(`admin/tickets/${row.id}/highlight`).then(
+    handleHighlight(ticket) {
+      backend.post(`admin/tickets/${ticket.id}/highlight`).then(
         response => {
-          row.isHighlight = !row.isHighlight;
+          ticket.isHighlight = !ticket.isHighlight;
           Swal({
             title: `You ${
-              row.isHighlight ? 'hightlight' : 'remove hightlight of'
-            }  ${row.ticket_id}: ${row.title}`,
+              ticket.isHighlight ? 'hightlight' : 'remove hightlight of'
+            }  ${ticket.ticket_id}: ${ticket.title}`,
             icon: 'success',
             className: 'text-ltr'
           });
@@ -321,13 +254,13 @@ export default {
         }
       );
     },
-    handleEdit(index, row) {
+    handleEdit(ticket) {
       swal({
-        title: `You want to edit ${row.ticket_id}: ${row.title}`
+        title: `You want to edit ${ticket.ticket_id}: ${ticket.title}`
       });
-      this.ticket = row;
+      this.ticket = ticket;
     },
-    handleDelete(index, row) {
+    handleDelete(ticket) {
       Swal({
         title: 'Are you sure?',
         text: `You won't be able to revert this!`,
@@ -342,12 +275,12 @@ export default {
         }
       }).then(result => {
         if (!result) return;
-        this.deleteRow(row);
+        this.deleteRow(ticket);
       });
     },
-    deleteRow(row) {
+    deleteRow(ticket) {
       backend
-        .post(`/admin/tickets/${row.id}/delete`)
+        .post(`/admin/tickets/${ticket.id}/delete`)
         .then(response => {
           if (response.data.status === 'error') {
             this.$notify({
@@ -357,16 +290,16 @@ export default {
             });
             return;
           }
-          let indexToDelete = this.tableData.findIndex(
-            tableRow => tableRow.id === row.id
+          let indexToDelete = this.tickets.findIndex(
+            tableRow => tableRow.id === ticket.id
           );
           if (indexToDelete >= 0) {
-            this.tableData.splice(indexToDelete, 1);
+            this.tickets.splice(indexToDelete, 1);
           }
           Swal({
             title: 'Deleted!',
             className: 'text-ltr',
-            text: `You deleted ${row.title}`,
+            text: `You deleted ${ticket.title}`,
             icon: 'success'
           });
           this.pagination.total--;
@@ -395,10 +328,7 @@ export default {
           this.pagination.pages = response.data.totalPages;
           this.pagination.total = response.data.totalDocs;
           this.pagination.perPage = response.data.limit;
-          this.tableData = response.data.docs.map(ticket => {
-            ticket.date = this.date(ticket.date);
-            return ticket;
-          });
+          this.tickets = response.data.docs;
           if (!response.data.tickets) {
             response.data.tickets = [];
           }
@@ -470,10 +400,10 @@ export default {
     ticketAddListener(ticket) {
       this.ticket = undefined;
       let isNew = true;
-      for (const key in this.tableData) {
-        if (this.tableData[key].id == ticket.id) {
+      for (const key in this.tickets) {
+        if (this.tickets[key].id == ticket.id) {
           isNew = false;
-          switch (this.tableData[key].status) {
+          switch (this.tickets[key].status) {
             case 1:
               this.openTickets--;
               break;
@@ -490,14 +420,13 @@ export default {
               this.closedTickets--;
               break;
           }
-          this.tableData[key] = ticket;
+          this.tickets[key] = ticket;
           this.tableKey++;
           break;
         }
       }
       if (isNew) {
-        ticket.date = this.date(ticket.date);
-        this.tableData.splice(0, 0, ticket);
+        this.tickets.splice(0, 0, ticket);
       }
       switch (ticket.status) {
         case 1:
@@ -521,7 +450,7 @@ export default {
     searchTicketsListener() {
       this.dataLoad(1);
     },
-    handleInProgress(index, row) {
+    handleInProgress(ticket) {
       Swal({
         title: 'Mark As In Progress ?',
         text: `You can change this later by editing ticket`,
@@ -536,7 +465,7 @@ export default {
         }
       }).then(result => {
         if (!result) return;
-        this.markAsInProgress(row);
+        this.markAsInProgress(ticket);
       });
     },
     markAsInProgress(ticket) {
@@ -553,7 +482,7 @@ export default {
             });
             return;
           }
-          for (const item of this.tableData) {
+          for (const item of this.tickets) {
             if (ticket.id == item.id) {
               item.status = 3;
               break;
@@ -601,10 +530,11 @@ export default {
 .single-ticket-row {
   .ticket-card {
     padding: 0.8em 2em;
-    background-color: rgb(226, 226, 226);
-    border-radius: 15px 0 0 15px;
+  //  background-color: rgb(226, 226, 226);
+  //  border-radius: 15px 0 0 15px;
     color: rgb(41, 41, 41);
-    border: 1px solid rgb(214, 214, 214);
+  //  border: 1px solid rgb(214, 214, 214);
+    border-bottom: 1px solid rgb(214, 214, 214);
 
     h3 {
       font-size: 1.1em;
@@ -633,6 +563,11 @@ export default {
       }
     }
   }
+  &:last-child {
+    .ticket-card {
+      border-bottom: none;
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -640,8 +575,8 @@ export default {
     .ticket-card {
       margin-top: 10px;
       padding: 0.8em 2em;
-      background-color: rgb(226, 226, 226);
-      border-radius: 15px;
+    //  background-color: rgb(226, 226, 226);
+    //  border-radius: 15px;
       color: rgb(41, 41, 41);
 
       h3 {

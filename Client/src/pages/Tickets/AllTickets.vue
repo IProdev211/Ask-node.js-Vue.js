@@ -9,29 +9,42 @@
         </base-button>
       </router-link>
     </div>
-    <el-table :data="tableData">
-      <el-table-column min-width="50" header-align="center" type="ticket_id"></el-table-column>
-      <el-table-column min-width="200" header-align="right" prop="title" label="عنوان"></el-table-column>
-      <el-table-column min-width="110" header-align="center" prop="department" label="دپارتمان"></el-table-column>
-      <el-table-column min-width="100" header-align="center" prop="date" label="زمان"></el-table-column>
-      <el-table-column min-width="120" header-align="center" prop="status" label="وضعیت">
-        <template scope="scope" class="text-center">
-          <span
-            :class="getStatusLabelClasses(scope.row.status)"
-          >{{ getStatusTranslate(scope.row.status) }}</span>
-        </template>
-      </el-table-column>
 
-      <el-table-column min-width="150" header-align="right">
-        <div slot-scope="{row}" class="text-right">
-          <router-link :to="`/tickets/view/${row.id}`">
+    <!-------------- NEW TICKET DESIGN -------------->
+    <div class="single-ticket-row" v-for="ticket in tickets" :key="ticket.id">
+      <div class="ticket-card d-flex justify-content-between align-items-center row">
+        <div class="ticket-name">
+          <h3>عنوان</h3>
+          <p :title="ticket.title">{{ ticket.title.substring(0, 35) + (ticket.title.length > 35 ? ' ...' : '') }}</p>
+        </div>
+
+        <div class="ticket-dept">
+          <h3>دپارتمان</h3>
+          <p>{{ ticket.department }}</p>
+        </div>
+
+        <div class="ticket-date">
+          <h3>زمان</h3>
+          <p>{{ date(ticket.date) }}</p>
+        </div>
+
+        <div class="ticket-status">
+          <h3>وضعیت</h3>
+          <span
+            :class="getStatusLabelClasses(ticket.status)"
+          >{{ getStatusTranslate(ticket.status) }}</span>
+        </div>
+        <div class="w-100 d-md-none"></div>
+        <div class="view-ticket">
+          <router-link :to="`/tickets/view/${ticket.id}`">
             <base-button class="px-3" round type="info">
               <i class="pl-3 fas fa-eye"></i> نمایش
             </base-button>
           </router-link>
         </div>
-      </el-table-column>
-    </el-table>
+      </div>
+    </div>
+
     <base-pagination
       :value="pagination.currentPage"
       :per-page="pagination.perpage"
@@ -39,102 +52,6 @@
       :pageCount="pagination.pages"
       @input="changePageListener"
     ></base-pagination>
-
-    <!-------------- NEW TICKET DESIGN -------------->
-    <div class="single-ticket-row">
-      <div class="ticket-card d-flex justify-content-between align-items-center row">
-        <div class="ticket-name">
-          <!-- THERE SHOULD BE A LIMIT OF 7 WORDS SHOWING THEN 3 ... - FOR EXAMPLE:   با آدرس وشنبه گزارش ورود به سیستم... -->
-          <h3>عنوان</h3>
-          <p>وشنبه گزارش ورود به سیستم با آدرس...</p>
-        </div>
-
-        <div class="ticket-dept">
-          <h3>دپارتمان</h3>
-          <p>فروش و مالی</p>
-        </div>
-
-        <div class="ticket-date">
-          <h3>زمان</h3>
-          <p>04/08/2019</p>
-        </div>
-
-        <div class="ticket-status">
-          <h3>وضعیت</h3>
-          <badge type="success">پاسخ داده شده</badge>
-        </div>
-        <div class="w-100 d-md-none"></div>
-        <div class="view-ticket">
-          <base-button class="px-3" round type="info">
-            <i class="pl-3 fas fa-eye"></i> نمایش
-          </base-button>
-        </div>
-      </div>
-    </div>
-
-    <div class="single-ticket-row">
-      <div class="ticket-card d-flex justify-content-between align-items-center row">
-        <div class="ticket-name">
-          <!-- THERE SHOULD BE A LIMIT OF 7 WORDS SHOWING THEN 3 ... - FOR EXAMPLE:   با آدرس وشنبه گزارش ورود به سیستم... -->
-          <h3>عنوان</h3>
-          <p>وشنبه گزارش ورود به سیستم با آدرس...</p>
-        </div>
-
-        <div class="ticket-dept">
-          <h3>دپارتمان</h3>
-          <p>فروش و مالی</p>
-        </div>
-
-        <div class="ticket-date">
-          <h3>زمان</h3>
-          <p>04/08/2019</p>
-        </div>
-
-        <div class="ticket-status">
-          <h3>وضعیت</h3>
-          <badge type="success">پاسخ داده شده</badge>
-        </div>
-        <div class="w-100 d-md-none"></div>
-        <div class="view-ticket">
-          <base-button class="px-3" round type="info">
-            <i class="pl-3 fas fa-eye"></i> نمایش
-          </base-button>
-        </div>
-      </div>
-    </div>
-
-    <div class="single-ticket-row">
-      <div class="ticket-card d-flex justify-content-between align-items-center row">
-        <div class="ticket-name">
-          <!-- THERE SHOULD BE A LIMIT OF 7 WORDS SHOWING THEN 3 ... - FOR EXAMPLE:   با آدرس وشنبه گزارش ورود به سیستم... -->
-          <h3>عنوان</h3>
-          <p>وشنبه گزارش ورود به سیستم با آدرس...</p>
-
-          <!-- <p>وشنبه گزارش ورود به سیستم با آدرس آی پی وشنبه 14/05/1398 13:25:35 - گزارش ورود به سیستم با آدرس آی پی</p> -->
-        </div>
-
-        <div class="ticket-dept">
-          <h3>دپارتمان</h3>
-          <p>فروش و مالی</p>
-        </div>
-
-        <div class="ticket-date">
-          <h3>زمان</h3>
-          <p>04/08/2019</p>
-        </div>
-
-        <div class="ticket-status">
-          <h3>وضعیت</h3>
-          <badge type="success">پاسخ داده شده</badge>
-        </div>
-        <div class="w-100 d-md-none"></div>
-        <div class="view-ticket">
-          <base-button class="px-3" round type="info">
-            <i class="pl-3 fas fa-eye"></i> نمایش
-          </base-button>
-        </div>
-      </div>
-    </div>
   </section>
 </template>
 
@@ -162,7 +79,7 @@ export default {
         total: 0,
         pages: 0
       },
-      tableData: []
+      tickets: []
     };
   },
   methods: {
@@ -180,7 +97,7 @@ export default {
         this.pagination.pages = response.data.totalPages;
         this.pagination.total = response.data.totalDocs;
         this.pagination.perPage = response.data.limit;
-        this.tableData = response.data.docs.map(ticket => {
+        this.tickets = response.data.docs.map(ticket => {
           ticket.date = this.date(ticket.date);
           return ticket;
         });
