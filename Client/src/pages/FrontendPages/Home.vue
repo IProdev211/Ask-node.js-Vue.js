@@ -65,14 +65,15 @@
         <div class="d-flex justify-content-between">
           <p class="text-right top-section-header pt-1">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
-        <div class="row pt-4">
-          <div
-            class="col-lg-3 col-md-6 col-sm-12"
-            v-for="course in topCourses"
-            v-bind:key="course.id"
-          >
-            <Course v-bind="course"></Course>
-          </div>
+        <div class="pt-4">
+          <Carousel :perPageCustom="[[0, 1], [576, 2], [768, 3], [992, 4]]">
+            <slide 
+                v-for="course in topCourses"
+                :per-page="1"
+                v-bind:key="course.id">
+                <Course v-bind="course"></Course>
+            </slide>
+          </Carousel>
         </div>
         <div class="pt-3">
           <router-link to="allcourses">
@@ -118,6 +119,7 @@ import OurCourses from './Components/OurCourses/OurCourses.vue';
 import ImprovementBanner1 from './Components/ImprovementBanners/ImprovementBanner1.vue';
 import ImprovementBanner2 from './Components/ImprovementBanners/ImprovementBanner2.vue';
 import Stressed from './Components/RandomComponents/Stressed.vue';
+import { Carousel, Slide } from 'vue-carousel';
 
 export default {
   data: function() {
@@ -143,7 +145,9 @@ export default {
     BlogSection,
     ImprovementBanner1,
     ImprovementBanner2,
-    Stressed
+    Stressed,
+    Carousel,
+    Slide,
   },
 
   metaInfo: {
@@ -189,7 +193,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.VueCarousel-inner {
+  direction: ltr;
+  .VueCarousel-slide {
+    padding: 0 10px;
+  }
+}
 .sticky {
   position: sticky;
   top: 0;

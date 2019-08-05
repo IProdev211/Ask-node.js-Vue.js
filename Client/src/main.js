@@ -10,6 +10,7 @@ import VuePlyr from 'vue-plyr';
 var VueScrollTo = require('vue-scrollto');
 import NProgress from 'nprogress';
 import VueMeta from 'vue-meta';
+import VueCarousel from 'vue-carousel';
 // import ElementUI from 'element-ui';
 
 // plugin setup
@@ -19,6 +20,7 @@ Vue.use(CKEditor);
 Vue.use(VuePlyr);
 Vue.use(NProgress);
 Vue.use(VueMeta);
+Vue.use(VueCarousel);
 // Vue.use(ElementUI);
 
 import 'vue-plyr/dist/vue-plyr.css';
