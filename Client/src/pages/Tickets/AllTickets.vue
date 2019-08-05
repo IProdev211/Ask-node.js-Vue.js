@@ -39,6 +39,102 @@
       :pageCount="pagination.pages"
       @input="changePageListener"
     ></base-pagination>
+
+    <!-------------- NEW TICKET DESIGN -------------->
+    <div class="single-ticket-row">
+      <div class="ticket-card d-flex justify-content-between align-items-center row">
+        <div class="ticket-name">
+          <!-- THERE SHOULD BE A LIMIT OF 7 WORDS SHOWING THEN 3 ... - FOR EXAMPLE:   با آدرس وشنبه گزارش ورود به سیستم... -->
+          <h3>عنوان</h3>
+          <p>وشنبه گزارش ورود به سیستم با آدرس...</p>
+        </div>
+
+        <div class="ticket-dept">
+          <h3>دپارتمان</h3>
+          <p>فروش و مالی</p>
+        </div>
+
+        <div class="ticket-date">
+          <h3>زمان</h3>
+          <p>04/08/2019</p>
+        </div>
+
+        <div class="ticket-status">
+          <h3>وضعیت</h3>
+          <badge type="success">پاسخ داده شده</badge>
+        </div>
+        <div class="w-100 d-md-none"></div>
+        <div class="view-ticket">
+          <base-button class="px-3" round type="info">
+            <i class="pl-3 fas fa-eye"></i> نمایش
+          </base-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="single-ticket-row">
+      <div class="ticket-card d-flex justify-content-between align-items-center row">
+        <div class="ticket-name">
+          <!-- THERE SHOULD BE A LIMIT OF 7 WORDS SHOWING THEN 3 ... - FOR EXAMPLE:   با آدرس وشنبه گزارش ورود به سیستم... -->
+          <h3>عنوان</h3>
+          <p>وشنبه گزارش ورود به سیستم با آدرس...</p>
+        </div>
+
+        <div class="ticket-dept">
+          <h3>دپارتمان</h3>
+          <p>فروش و مالی</p>
+        </div>
+
+        <div class="ticket-date">
+          <h3>زمان</h3>
+          <p>04/08/2019</p>
+        </div>
+
+        <div class="ticket-status">
+          <h3>وضعیت</h3>
+          <badge type="success">پاسخ داده شده</badge>
+        </div>
+        <div class="w-100 d-md-none"></div>
+        <div class="view-ticket">
+          <base-button class="px-3" round type="info">
+            <i class="pl-3 fas fa-eye"></i> نمایش
+          </base-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="single-ticket-row">
+      <div class="ticket-card d-flex justify-content-between align-items-center row">
+        <div class="ticket-name">
+          <!-- THERE SHOULD BE A LIMIT OF 7 WORDS SHOWING THEN 3 ... - FOR EXAMPLE:   با آدرس وشنبه گزارش ورود به سیستم... -->
+          <h3>عنوان</h3>
+          <p>وشنبه گزارش ورود به سیستم با آدرس...</p>
+
+          <!-- <p>وشنبه گزارش ورود به سیستم با آدرس آی پی وشنبه 14/05/1398 13:25:35 - گزارش ورود به سیستم با آدرس آی پی</p> -->
+        </div>
+
+        <div class="ticket-dept">
+          <h3>دپارتمان</h3>
+          <p>فروش و مالی</p>
+        </div>
+
+        <div class="ticket-date">
+          <h3>زمان</h3>
+          <p>04/08/2019</p>
+        </div>
+
+        <div class="ticket-status">
+          <h3>وضعیت</h3>
+          <badge type="success">پاسخ داده شده</badge>
+        </div>
+        <div class="w-100 d-md-none"></div>
+        <div class="view-ticket">
+          <base-button class="px-3" round type="info">
+            <i class="pl-3 fas fa-eye"></i> نمایش
+          </base-button>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -48,11 +144,14 @@ import { BasePagination } from 'src/components';
 import backend from '../../backend';
 import moment from 'moment';
 
+import { Badge } from 'src/components';
+
 export default {
   components: {
     [Table.name]: Table,
     [TableColumn.name]: TableColumn,
-    BasePagination
+    BasePagination,
+    Badge
   },
   data() {
     return {
@@ -157,5 +256,75 @@ export default {
 h1 {
   font-family: IranSansBold;
 }
-</style>
 
+.single-ticket-row {
+  .ticket-card {
+    padding: 0.8em 2em;
+    background-color: rgb(226, 226, 226);
+    border-radius: 15px 0 0 15px;
+    color: rgb(41, 41, 41);
+    border: 1px solid rgb(214, 214, 214);
+
+    h3 {
+      font-size: 1.1em;
+      font-family: IranSansBold;
+      padding: 0;
+      margin: 0;
+    }
+
+    p {
+      font-size: 0.9em;
+      font-family: IranSans;
+      padding-top: 10px;
+    }
+
+    .badge {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .single-ticket-row {
+    .ticket-card {
+      margin-top: 10px;
+      padding: 0.8em 2em;
+      background-color: rgb(226, 226, 226);
+      border-radius: 15px;
+      color: rgb(41, 41, 41);
+
+      h3 {
+        font-size: 1em;
+        font-family: IranSansBold;
+        padding: 0;
+        margin: 0;
+      }
+
+      p {
+        font-size: 0.9em;
+        font-family: IranSans;
+        padding-top: 10px;
+      }
+
+      .badge {
+        margin-top: 10px;
+      }
+
+      .ticket-name {
+        width: 100%;
+      }
+      .ticket-dept {
+        padding-top: 1.1em;
+        // width: 100%;
+      }
+      .ticket-date {
+        padding-top: 1.1em;
+        // width: 100%;
+      }
+      .ticket-status {
+        padding-top: 1.1em;
+      }
+    }
+  }
+}
+</style>

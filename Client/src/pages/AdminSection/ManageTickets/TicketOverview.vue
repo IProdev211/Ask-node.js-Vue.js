@@ -1,5 +1,5 @@
 <template>
-  <div class="text-ltr container-fluid">
+  <div class="container-fluid">
     <div class="container">
       <ticket-data
         :openTickets="openTickets"
@@ -130,6 +130,69 @@
         </div>
       </card>
     </div>
+
+    <!-------------- NEW TICKET DESIGN -------------->
+    <div class="single-ticket-row">
+      <div class="ticket-card d-flex justify-content-between align-items-center row text-right">
+        <div class="ticket-id">
+          <h3>ID</h3>
+          <p>12</p>
+        </div>
+
+        <div class="ticket-username">
+          <h3>نام کاربر</h3>
+          <p>Fateme Memarzadeh</p>
+        </div>
+
+        <div class="w-100 d-md-none pt-2"></div>
+
+        <div class="ticket-title">
+          <!-- THERE SHOULD BE A LIMIT OF 7 WORDS SHOWING THEN 3 ... - FOR EXAMPLE:   با آدرس وشنبه گزارش ورود به سیستم... -->
+          <h3>عنوان</h3>
+          <p>وشنبه گزارش ورود به سیستم با آدرس...</p>
+        </div>
+
+        <div class="w-100 d-md-none pt-3"></div>
+        <div class="ticket-dept">
+          <h3>دپارتمان</h3>
+          <p>فروش و مالی</p>
+        </div>
+
+        <div class="ticket-priority">
+          <h3>اولویت</h3>
+          <p>فوری</p>
+        </div>
+
+        <div class="ticket-date">
+          <h3>زمان</h3>
+          <p>04/08/2019</p>
+        </div>
+
+        <div class="w-100 d-md-none pt-3"></div>
+        <div class="ticket-status">
+          <h3>وضعیت</h3>
+          <badge type="success">پاسخ داده شده</badge>
+        </div>
+
+        <div class="ticket-actions">
+          <h3>اقدامات</h3>
+          <div class="icon-group">
+            <i class="fas fa-pencil-alt"></i>
+            <i class="tim-icons icon-simple-remove pr-2"></i>
+            <i class="far fa-heart pr-2"></i>
+            <!-- <i class="fas fa-heart"></i> -->
+          </div>
+        </div>
+
+        <div class="w-100 d-md-none pt-3"></div>
+        <div class="view-ticket">
+          <base-button class="btn-sm" round type="info">
+            <i class="pl-3 fas fa-eye"></i> نمایش
+          </base-button>
+        </div>
+      </div>
+    </div>
+
     <manage-ticket @ticket="ticketAddListener" v-bind="ticket"></manage-ticket>
   </div>
 </template>
@@ -143,6 +206,8 @@ import Swal from 'sweetalert';
 import backend from '../../../backend';
 import moment from 'moment';
 
+import { Badge } from 'src/components';
+
 export default {
   components: {
     BasePagination,
@@ -151,7 +216,8 @@ export default {
     [Table.name]: Table,
     [TableColumn.name]: TableColumn,
     TicketData,
-    ManageTicket
+    ManageTicket,
+    Badge
   },
   computed: {
     /***
@@ -530,5 +596,92 @@ export default {
 
 .white-content .el-table table > tbody > tr > td {
   text-align: center !important;
+}
+
+.single-ticket-row {
+  .ticket-card {
+    padding: 0.8em 2em;
+    background-color: rgb(226, 226, 226);
+    border-radius: 15px 0 0 15px;
+    color: rgb(41, 41, 41);
+    border: 1px solid rgb(214, 214, 214);
+
+    h3 {
+      font-size: 1.1em;
+      font-family: IranSansBold;
+      padding: 0;
+      margin: 0;
+    }
+
+    p {
+      font-size: 0.9em;
+      font-family: IranSans;
+      padding-top: 10px;
+    }
+
+    .badge {
+      margin-top: 10px;
+    }
+
+    .ticket-actions {
+      i {
+        color: rgb(140, 0, 255);
+
+        .icon-group {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .single-ticket-row {
+    .ticket-card {
+      margin-top: 10px;
+      padding: 0.8em 2em;
+      background-color: rgb(226, 226, 226);
+      border-radius: 15px;
+      color: rgb(41, 41, 41);
+
+      h3 {
+        font-size: 1em;
+        font-family: IranSansBold;
+        padding: 0;
+        margin: 0;
+      }
+
+      p {
+        font-size: 0.9em;
+        font-family: IranSans;
+        padding-top: 10px;
+      }
+
+      .badge {
+        margin-top: 10px;
+      }
+
+      .ticket-username {
+        margin-right: 0 !important;
+      }
+
+      .ticket-title {
+        width: 100%;
+      }
+      .ticket-dept {
+        padding-top: 1.1em;
+        // width: 100%;
+      }
+
+      .ticket-priority {
+        padding-top: 1.1em;
+      }
+
+      .ticket-date {
+        padding-top: 1.1em;
+        // width: 100%;
+      }
+    }
+  }
 }
 </style>
