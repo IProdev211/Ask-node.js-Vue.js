@@ -66,14 +66,19 @@
           <p class="text-right top-section-header pt-1">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
         <div class="pt-4">
-          <Carousel :perPageCustom="[[0, 1], [576, 2], [768, 3], [992, 4]]">
+          <!--<Carousel :perPageCustom="[[0, 1], [576, 2], [768, 3], [992, 4]]">
             <slide 
                 v-for="course in topCourses"
                 :per-page="1"
                 v-bind:key="course.id">
                 <Course v-bind="course"></Course>
             </slide>
-          </Carousel>
+          </Carousel>-->
+          <el-carousel type="card" :interval="5000" arrow="always">
+            <el-carousel-item v-for="course in topCourses" :key="course.id" class="col-sm">
+              <Course v-bind="course"></Course>
+            </el-carousel-item>
+          </el-carousel>
         </div>
         <div class="pt-3">
           <router-link to="allcourses">
@@ -119,7 +124,8 @@ import OurCourses from './Components/OurCourses/OurCourses.vue';
 import ImprovementBanner1 from './Components/ImprovementBanners/ImprovementBanner1.vue';
 import ImprovementBanner2 from './Components/ImprovementBanners/ImprovementBanner2.vue';
 import Stressed from './Components/RandomComponents/Stressed.vue';
-import { Carousel, Slide } from 'vue-carousel';
+// import { Carousel, Slide } from 'vue-carousel';
+import { Carousel, CarouselItem } from "element-ui";
 
 export default {
   data: function() {
@@ -146,8 +152,9 @@ export default {
     ImprovementBanner1,
     ImprovementBanner2,
     Stressed,
-    Carousel,
-    Slide,
+    [Carousel.name]: Carousel,
+    [CarouselItem.name]: CarouselItem,
+    // Slide,
   },
 
   metaInfo: {
@@ -281,7 +288,7 @@ export default {
     }
   }
   .top-courses-section {
-    padding: 0 11%;
+  //  padding: 0 11%;
   }
 
   .top-courses-section {
