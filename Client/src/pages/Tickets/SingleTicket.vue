@@ -9,7 +9,6 @@
     <div class="container mt-5 pb-5">
       <h2 class="ticket-desc pt-4 pr-3">{{ticket.title}}</h2>
       <div></div>
-      <!-- CARD RIGHT -->
       <div
         v-for="message of messages"
         :key="message.id"
@@ -23,7 +22,6 @@
             {{message.user.name}}
           </p>
           <p class="ticket-date text-muted font-weight-bold">
-            <!-- ADMIN SHOULD ONLY SEE THESE ICONS - WHEN MESSAGE WANTS TO BE EDITED - IT SHOULD BE EDITED WITH CKEDITOR -->
             <span class="pl-5" v-if="isAdmin">
               <i @click="handleEdit(message)" class="fas fa-pencil-alt pl-2"></i>
               <i @click="handleDelete(message)" class="far fa-trash-alt pr-1"></i>
@@ -42,14 +40,21 @@
           </li>
         </ul>
       </div>
+
       <!-- Ticket Reply -->
       <form @submit.prevent="submitFormListener">
         <h4 class="pt-5">{{ editingMessage ? 'ویرایش پیام' : 'پاسخی ارسال کنید!' }}</h4>
         <base-input>
-          <ckeditor v-if="isAdmin" @ready="onEditorReady" :editor="ckeditor.editor" v-model="message" :config="ckeditor.editorConfig"></ckeditor>
+          <ckeditor
+            v-if="isAdmin"
+            @ready="onEditorReady"
+            :editor="ckeditor.editor"
+            v-model="message"
+            :config="ckeditor.editorConfig"
+          ></ckeditor>
           <textarea v-else class="form-control" placeholder="متن تیکت" rows="3" v-model="message"></textarea>
         </base-input>
-        <div class="btn-group pt-3">
+        <div class="pt-3">
           <file-upload
             v-if="isAdmin && !editingMessage"
             @change="onFileSelect"
@@ -68,10 +73,7 @@
             type="danger"
             native-type="Submit"
             :loading="loading"
-          >
-            <!-- <i class="pl-2 far fa-paper-plane"></i> -->
-            {{editingMessage ? 'ویرایش' : 'ارسال'}}
-          </base-button>
+          >{{editingMessage ? 'ویرایش' : 'ارسال'}}</base-button>
         </div>
       </form>
     </div>
@@ -129,57 +131,67 @@ export default {
       editingMessage: undefined,
       loadMessageInterval: undefined,
       ckeditor: {
-				editor: ClassicEditor,
-				editorConfig: {
-					plugins: [
-						Alignment,
-						EssentialsPlugin,
-						BoldPlugin,
-						ItalicPlugin,
-						CodePlugin,
-						StrikethroughPlugin,
-						SubscriptPlugin,
-						SuperscriptPlugin,
-						UnderlinePlugin,
-						LinkPlugin,
-						ParagraphPlugin,
-						Heading,
-						Font,
-						PasteFromOffice,
-						Indent,
-						IndentBlock,
-						HeadingButtonsUI,
-						ParagraphButtonUI,
-						Image,
-						ImageToolbar,
-						ImageCaption,
-						ImageStyle,
-						imageupload,
-					],
-					fontSize: {
-						options: [
-							9,
-							11,
-							13,
-							'default',
-							17,
-							19,
-							21
-						]
-					},
-					toolbar: [
-						'heading', '|',
-						'outdent', 'indent', '|',
-						'bold', 'italic', 'underline', 'strikethrough', 'code', 'subscript', 'superscript',
-						'link',
-						'bulletedList', 'numberedList', 'blockQuote',
-						'alignment',
-						'undo', 'redo',
-						'fontSize', 'fontColor', 'fontBackgroundColor',
-						'imageupload', 'imageTextAlternative', '|', 'imageStyle:full', 'imageStyle:side'
-					],
-				},
-			},
+        editor: ClassicEditor,
+        editorConfig: {
+          plugins: [
+            Alignment,
+            EssentialsPlugin,
+            BoldPlugin,
+            ItalicPlugin,
+            CodePlugin,
+            StrikethroughPlugin,
+            SubscriptPlugin,
+            SuperscriptPlugin,
+            UnderlinePlugin,
+            LinkPlugin,
+            ParagraphPlugin,
+            Heading,
+            Font,
+            PasteFromOffice,
+            Indent,
+            IndentBlock,
+            HeadingButtonsUI,
+            ParagraphButtonUI,
+            Image,
+            ImageToolbar,
+            ImageCaption,
+            ImageStyle,
+            imageupload
+          ],
+          fontSize: {
+            options: [9, 11, 13, 'default', 17, 19, 21]
+          },
+          toolbar: [
+            'heading',
+            '|',
+            'outdent',
+            'indent',
+            '|',
+            'bold',
+            'italic',
+            'underline',
+            'strikethrough',
+            'code',
+            'subscript',
+            'superscript',
+            'link',
+            'bulletedList',
+            'numberedList',
+            'blockQuote',
+            'alignment',
+            'undo',
+            'redo',
+            'fontSize',
+            'fontColor',
+            'fontBackgroundColor',
+            'imageupload',
+            'imageTextAlternative',
+            '|',
+            'imageStyle:full',
+            'imageStyle:side'
+          ]
+        }
+      }
     };
   },
   methods: {
@@ -187,7 +199,7 @@ export default {
       if (!this.$route.params.ticket) {
         return;
       }
-      if (! client) {
+      if (!client) {
         client = backend;
       }
       client.get(`tickets/view/${this.$route.params.ticket}`).then(
@@ -318,45 +330,47 @@ export default {
       mainpanel.scrollTop = mainpanel.scrollHeight;
     },
     onEditorReady(editor) {
-			editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
-				class ImageUploadAdapter {
-					constructor(loader) {
-						this.loader = loader
-					}
-					upload() {
-						const uploader = (file) => {
-							return new Promise((resolve, reject) => {
-								const data = new FormData();
-								data.append("file", file);
-								backend.post("admin/blog/images/upload", data, {
-									CancelToken: source.token,
-									onUploadProgress: progressEvent => {
-										loader.uploadTotal = progressEvent.total;
-										loader.uploaded = progressEvent.loaded;
-									},
-								}).then(response => {
-									resolve({
-										default: response.data.image,
-									});
-								}, reject);
-							});
-						};
-						return loader.file.then( uploader );
-					}
-					abort() {
-						source.cancel();
-					}
-				}
-				return new ImageUploadAdapter( loader );
-			};
-		},
+      editor.plugins.get('FileRepository').createUploadAdapter = loader => {
+        class ImageUploadAdapter {
+          constructor(loader) {
+            this.loader = loader;
+          }
+          upload() {
+            const uploader = file => {
+              return new Promise((resolve, reject) => {
+                const data = new FormData();
+                data.append('file', file);
+                backend
+                  .post('admin/blog/images/upload', data, {
+                    CancelToken: source.token,
+                    onUploadProgress: progressEvent => {
+                      loader.uploadTotal = progressEvent.total;
+                      loader.uploaded = progressEvent.loaded;
+                    }
+                  })
+                  .then(response => {
+                    resolve({
+                      default: response.data.image
+                    });
+                  }, reject);
+              });
+            };
+            return loader.file.then(uploader);
+          }
+          abort() {
+            source.cancel();
+          }
+        }
+        return new ImageUploadAdapter(loader);
+      };
+    }
   },
   mounted() {
     this.dataLoad();
-    if (! this.loadMessageInterval) {
+    if (!this.loadMessageInterval) {
       const client = axios.create({
-        baseURL: backend.defaults.baseURL,
-      }); 
+        baseURL: backend.defaults.baseURL
+      });
       this.loadMessageInterval = setInterval(() => {
         this.dataLoad(client);
       }, 4000);
@@ -422,7 +436,7 @@ i:hover {
   color: rgb(255, 136, 0);
 }
 .ck-editor__editable {
-    min-height: 250px;
+  min-height: 250px;
 }
 
 @media (max-width: 768px) {

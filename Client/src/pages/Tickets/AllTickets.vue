@@ -15,7 +15,9 @@
       <div class="ticket-card d-flex justify-content-between align-items-center row">
         <div class="ticket-name">
           <h3>عنوان</h3>
-          <p :title="ticket.title">{{ ticket.title.substring(0, 35) + (ticket.title.length > 35 ? ' ...' : '') }}</p>
+          <p
+            :title="ticket.title"
+          >{{ ticket.title.substring(0, 35) + (ticket.title.length > 35 ? ' ...' : '') }}</p>
         </div>
 
         <div class="ticket-dept">
@@ -45,13 +47,15 @@
       </div>
     </div>
 
-    <base-pagination
-      :value="pagination.currentPage"
-      :per-page="pagination.perpage"
-      :total="pagination.total"
-      :pageCount="pagination.pages"
-      @input="changePageListener"
-    ></base-pagination>
+    <div class="pt-4">
+      <base-pagination
+        :value="pagination.currentPage"
+        :per-page="pagination.perpage"
+        :total="pagination.total"
+        :pageCount="pagination.pages"
+        @input="changePageListener"
+      ></base-pagination>
+    </div>
   </section>
 </template>
 
@@ -176,9 +180,10 @@ h1 {
 
 .single-ticket-row {
   .ticket-card {
-    padding: 0.8em 2em;
+    padding: 2em 2em;
+    margin-bottom: 20px;
     background-color: rgb(226, 226, 226);
-    border-radius: 15px 0 0 15px;
+    border-radius: 15px;
     color: rgb(41, 41, 41);
     border: 1px solid rgb(214, 214, 214);
 
@@ -197,6 +202,9 @@ h1 {
 
     .badge {
       margin-top: 10px;
+    }
+    i {
+      color: white;
     }
   }
 }

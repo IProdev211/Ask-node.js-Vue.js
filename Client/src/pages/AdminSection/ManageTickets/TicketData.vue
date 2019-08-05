@@ -1,7 +1,7 @@
 <template>
   <div class="container text-ltr pb-5">
-    <div class="stat-cards text-center">
-      <div class="d-flex justify-content-center">
+    <div class="stat-cards d-flex justify-content-center text-center">
+      <div class="row">
         <div class="stitched1">
           <h2 class="headerStyling1">{{openTickets}}</h2>
           <p class="subheader">Open</p>
@@ -60,7 +60,7 @@ export default {
 
 <style lang="scss" scoped>
 .stitched1 {
-  padding: 10px;
+  padding: 5px;
   margin: 5px;
   background: rgb(30, 37, 59);
   color: #fff;
@@ -80,13 +80,13 @@ export default {
     padding: 0;
   }
   .subheader {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #fff;
   }
 }
 
 .stitched2 {
-  padding: 10px;
+  padding: 5px;
   margin: 5px;
   background: rgb(30, 37, 59);
   color: #fff;
@@ -101,18 +101,17 @@ export default {
 
   .headerStyling2 {
     color: #21c8f6;
-    // font-weight: 600;
     margin: 0;
     padding: 0;
   }
   .subheader {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #fff;
   }
 }
 
 .stitched3 {
-  padding: 10px;
+  padding: 5px;
   margin: 5px;
   background: rgb(30, 37, 59);
   color: #fff;
@@ -132,13 +131,13 @@ export default {
     padding: 0;
   }
   .subheader {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #fff;
   }
 }
 
 .stitched4 {
-  padding: 10px;
+  padding: 5px;
   margin: 5px;
   background: rgb(30, 37, 59);
   color: #fff;
@@ -153,18 +152,17 @@ export default {
 
   .headerStyling4 {
     color: #ff0080;
-    // font-weight: 600;
     margin: 0;
     padding: 0;
   }
   .subheader {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #fff;
   }
 }
 
 .stitched5 {
-  padding: 10px;
+  padding: 5px;
   margin: 5px;
   background: rgb(30, 37, 59);
   color: #fff;
@@ -179,24 +177,19 @@ export default {
 
   .headerStyling5 {
     color: #37e771;
-    // font-weight: 600;
     margin: 0;
     padding: 0;
   }
   .subheader {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #fff;
   }
 }
 
-.stat-cards {
-  padding: 0 30%;
-}
-
-@media (max-width: 800px) {
-  .stat-cards {
-    padding: 0 01%;
-  }
-}
+// @media (max-width: 800px) {
+//   .stat-cards {
+//     padding: 0 01%;
+//   }
+// }
 </style>
 

@@ -1,159 +1,163 @@
 <template>
-  <div class="container-fluid">
-    <div class="container">
-      <ticket-data
-        :openTickets="openTickets"
-        :answeredTickets="answeredTickets"
-        :inprogressTickets="inprogressTickets"
-        :onHoldTickets="onHoldTickets"
-        :closedTickets="closedTickets"
-      ></ticket-data>
-    </div>
+  <div class="container">
+    <ticket-data
+      :openTickets="openTickets"
+      :answeredTickets="answeredTickets"
+      :inprogressTickets="inprogressTickets"
+      :onHoldTickets="onHoldTickets"
+      :closedTickets="closedTickets"
+    ></ticket-data>
+
     <h2 class="text-center">Manage Tickets</h2>
     <div class="mt-5">
-      <card card-body-classes="table-full-width">
-        <div>
-          <div class="d-flex justify-content-between">
-            <el-select
-              class="select-primary mb-3 pagination-select"
-              v-model="pagination.perPage"
-              placeholder="Per page"
-              @change="changeLimitListener"
-            >
-              <el-option
-                class="select-primary"
-                v-for="item in pagination.perPageOptions"
-                :key="item"
-                :label="item"
-                :value="item"
-              ></el-option>
-            </el-select>
+      <!-- <card card-body-classes="table-full-width"> -->
+      <div>
+        <div class="d-flex justify-content-between">
+          <el-select
+            class="select-primary mb-3 pagination-select"
+            v-model="pagination.perPage"
+            placeholder="Per page"
+            @change="changeLimitListener"
+          >
+            <el-option
+              class="select-primary"
+              v-for="item in pagination.perPageOptions"
+              :key="item"
+              :label="item"
+              :value="item"
+            ></el-option>
+          </el-select>
 
-            <base-input>
-              <el-input
-                type="search"
-                class="mb-3 search-input"
-                clearable
-                prefix-icon="el-icon-search"
-                placeholder="Search records"
-                v-model="searchQuery"
-                aria-controls="datatables"
-                @change="searchTicketsListener"
-              ></el-input>
-            </base-input>
-          </div>
+          <base-input>
+            <el-input
+              type="search"
+              class="mb-3 search-input"
+              clearable
+              prefix-icon="el-icon-search"
+              placeholder="Search records"
+              v-model="searchQuery"
+              aria-controls="datatables"
+              @change="searchTicketsListener"
+            ></el-input>
+          </base-input>
         </div>
+      </div>
 
-        <!-------------- NEW TICKET DESIGN -------------->
-        <div class="single-ticket-row" v-for="ticket in tickets" :key="ticket.id">
-          <div class="ticket-card d-flex justify-content-between align-items-center row text-right">
-            <div class="ticket-id">
-              <h3>#</h3>
-              <p>{{ ticket.ticket_id }}</p>
-            </div>
-
-            <div class="ticket-username">
-              <h3>نام کاربر</h3>
-              <p>{{ ticket.user.name }}</p>
-            </div>
-
-            <div class="w-100 d-md-none pt-2"></div>
-
-            <div class="ticket-title">
-              <h3>عنوان</h3>
-              <p :title="ticket.title">{{ ticket.title.substring(0, 35) + (ticket.title.length > 35 ? ' ...' : '') }}</p>
-            </div>
-
-            <div class="w-100 d-md-none pt-3"></div>
-            <div class="ticket-dept">
-              <h3>دپارتمان</h3>
-              <p>{{ ticket.department }}</p>
-            </div>
-
-            <div class="ticket-priority">
-              <h3>اولویت</h3>
-              <p>{{ ticket.priority }}</p>
-            </div>
-
-            <div class="ticket-date">
-              <h3>زمان</h3>
-              <p>{{ date(ticket.date) }}</p>
-            </div>
-
-            <div class="w-100 d-md-none pt-3"></div>
-            <div class="ticket-status">
-              <h3>وضعیت</h3>
-              <span
-                :class="getStatusLabelClasses(ticket.status)"
-              >{{ getStatusTranslate(ticket.status) }}</span>
-            </div>
-
-            <div class="ticket-actions">
-              <h3>اقدامات</h3>
-              <div class="icon-group">
-                <base-button
-                  @click.native="handleHighlight(ticket)"
-                  class="like btn-link"
-                  type="info"
-                  size="sm"
-                  icon
-                >
-                  <i class="pr-2" :class="ticket.isHighlight ? 'fas fa-heart' : 'far fa-heart'"></i>
-                </base-button>
-
-                <base-button
-                  @click.native="handleEdit(ticket)"
-                  class="edit btn-link"
-                  type="warning"
-                  size="sm"
-                  icon
-                >
-                  <i class="fas fa-pencil-alt"></i>
-                </base-button>
-
-                <base-button
-                  @click.native="handleDelete(ticket)"
-                  class="remove btn-link"
-                  type="danger"
-                  size="sm"
-                  icon
-                >
-                  <i class="tim-icons icon-simple-remove"></i>
-                </base-button>
-              </div>
-            </div>
-
-            <div class="w-100 d-md-none pt-3"></div>
-            <div class="view-ticket">
-              <router-link :to="`/tickets/view/${ticket.id}`">
-                <base-button class="px-3" round type="info">
-                  <i class="pl-3 fas fa-eye"></i> نمایش
-                </base-button>
-              </router-link>
-            </div>
+      <!-------------- NEW TICKET DESIGN -------------->
+      <div class="single-ticket-row" v-for="ticket in tickets" :key="ticket.id">
+        <div class="ticket-card d-flex justify-content-between align-items-center row text-right">
+          <div class="ticket-id">
+            <h3>#</h3>
+            <p>{{ ticket.ticket_id }}</p>
           </div>
-        </div>
-        <div
-          v-if="tickets.length"
-          slot="footer"
-          class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
-        >
-          <div class>
+
+          <div class="ticket-username">
+            <h3>نام کاربر</h3>
+            <p>{{ ticket.user.name }}</p>
+          </div>
+
+          <!-- <div class="w-100 d-md-none pt-2"></div> -->
+
+          <div class="ticket-title">
+            <h3>عنوان</h3>
             <p
-              class="card-category"
-            >Showing {{ from + 1 }} to {{ to }} of {{ pagination.total }} entries</p>
+              :title="ticket.title"
+            >{{ ticket.title.substring(0, 15) + (ticket.title.length > 10 ? '' : '...') }}</p>
+            <!-- >{{ ticket.title.substring(0, 35) + (ticket.title.length > 35 ? ' ...' : '') }}</p> -->
           </div>
-          <base-pagination
-            :value="pagination.currentPage"
-            :per-page="pagination.perpage"
-            :total="pagination.total"
-            :pageCount="pagination.pages"
-            @input="changePageListener"
-          ></base-pagination>
+
+          <div class="w-100 d-md-none pt-3"></div>
+          <div class="ticket-dept">
+            <h3>دپارتمان</h3>
+            <p>{{ ticket.department }}</p>
+          </div>
+
+          <div class="ticket-priority">
+            <h3>اولویت</h3>
+            <p>{{ ticket.priority }}</p>
+          </div>
+
+          <div class="ticket-date">
+            <h3>زمان</h3>
+            <p>{{ date(ticket.date) }}</p>
+          </div>
+
+          <div class="w-100 d-md-none pt-4"></div>
+          <div class="ticket-status">
+            <h3>وضعیت</h3>
+            <span
+              :class="getStatusLabelClasses(ticket.status)"
+            >{{ getStatusTranslate(ticket.status) }}</span>
+          </div>
+
+          <div class="ticket-actions">
+            <h3>اقدامات</h3>
+            <div class="icon-group">
+              <base-button
+                @click.native="handleHighlight(ticket)"
+                class="like btn-link"
+                type="info"
+                size="sm"
+                icon
+              >
+                <i class="pr-2" :class="ticket.isHighlight ? 'fas fa-heart' : 'far fa-heart'"></i>
+              </base-button>
+
+              <base-button
+                @click.native="handleEdit(ticket)"
+                class="edit btn-link"
+                type="warning"
+                size="sm"
+                icon
+              >
+                <i class="fas fa-pencil-alt"></i>
+              </base-button>
+
+              <base-button
+                @click.native="handleDelete(ticket)"
+                class="remove btn-link"
+                type="danger"
+                size="sm"
+                icon
+              >
+                <i class="tim-icons icon-simple-remove"></i>
+              </base-button>
+            </div>
+          </div>
+
+          <div class="w-100 d-md-none pt-3"></div>
+          <div class="view-ticket">
+            <router-link :to="`/tickets/view/${ticket.id}`">
+              <base-button class="px-3" round type="info">
+                <i class="pl-3 fas fa-eye"></i> نمایش
+              </base-button>
+            </router-link>
+          </div>
         </div>
-      </card>
+      </div>
+      <div
+        v-if="tickets.length"
+        slot="footer"
+        class="col-12 pt-5 d-flex justify-content-center justify-content-sm-between flex-wrap"
+      >
+        <div class>
+          <p
+            class="card-category"
+          >Showing {{ from + 1 }} to {{ to }} of {{ pagination.total }} entries</p>
+        </div>
+        <base-pagination
+          :value="pagination.currentPage"
+          :per-page="pagination.perpage"
+          :total="pagination.total"
+          :pageCount="pagination.pages"
+          @input="changePageListener"
+        ></base-pagination>
+      </div>
+      <!-- </card> -->
     </div>
-    <manage-ticket @ticket="ticketAddListener" v-bind="ticket"></manage-ticket>
+    <div class="pt-5">
+      <manage-ticket @ticket="ticketAddListener" v-bind="ticket"></manage-ticket>
+    </div>
   </div>
 </template>
 <script>
@@ -529,12 +533,12 @@ export default {
 
 .single-ticket-row {
   .ticket-card {
-    padding: 0.8em 2em;
-  //  background-color: rgb(226, 226, 226);
-  //  border-radius: 15px 0 0 15px;
+    padding: 2em 2em;
+    margin-bottom: 10px;
+    background-color: rgb(226, 226, 226);
+    border-radius: 15px;
     color: rgb(41, 41, 41);
-  //  border: 1px solid rgb(214, 214, 214);
-    border-bottom: 1px solid rgb(214, 214, 214);
+    border: 1px solid rgb(214, 214, 214);
 
     h3 {
       font-size: 1.1em;
@@ -574,35 +578,37 @@ export default {
   .single-ticket-row {
     .ticket-card {
       margin-top: 10px;
-      padding: 0.8em 2em;
-    //  background-color: rgb(226, 226, 226);
-    //  border-radius: 15px;
+      padding: 2em;
+      background-color: rgb(226, 226, 226);
+      border-radius: 15px;
       color: rgb(41, 41, 41);
 
       h3 {
-        font-size: 1em;
+        font-size: 1.2em;
         font-family: IranSansBold;
+        color: rgb(129, 129, 129);
         padding: 0;
         margin: 0;
       }
 
       p {
-        font-size: 0.9em;
+        font-size: 1em;
         font-family: IranSans;
         padding-top: 10px;
+        color: rgb(0, 0, 0);
       }
 
       .badge {
         margin-top: 10px;
       }
 
-      .ticket-username {
-        margin-right: 0 !important;
-      }
+      // .ticket-username {
+      //   margin-right: 0 !important;
+      // }
 
-      .ticket-title {
-        width: 100%;
-      }
+      // .ticket-title {
+      //   width: 100%;
+      // }
       .ticket-dept {
         padding-top: 1.1em;
         // width: 100%;

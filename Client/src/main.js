@@ -7,10 +7,10 @@ import backend from './backend';
 import router from './routes/router';
 import CKEditor from '@ckeditor/ckeditor5-vue';
 import VuePlyr from 'vue-plyr';
-var VueScrollTo = require('vue-scrollto');
 import NProgress from 'nprogress';
 import VueMeta from 'vue-meta';
 import VueCarousel from 'vue-carousel';
+var VueScrollTo = require('vue-scrollto');
 // import ElementUI from 'element-ui';
 
 // plugin setup
