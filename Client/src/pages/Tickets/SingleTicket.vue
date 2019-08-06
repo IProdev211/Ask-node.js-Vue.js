@@ -214,7 +214,7 @@ export default {
       return moment(date).format('YYYY/MM/DD');
     },
     getTime(time) {
-      return moment(time).format('HH:ss');
+      return moment(time).format('HH:mm');
     },
     submitFormListener() {
       let haveError = false;
