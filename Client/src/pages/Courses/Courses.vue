@@ -1,5 +1,5 @@
 <template>
-  <div class="container pb-5">
+  <div class="container pb-5 mb-5">
     <div class="d-flex justify-content-around d-flex align-items-center text-center headerDigits">
       <div>
         <h2 class="headerStyling">{{ total }}</h2>

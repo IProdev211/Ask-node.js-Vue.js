@@ -1,5 +1,5 @@
 <template>
-  <div class="CourseCard hover" @click="onClick">
+  <div class="CourseCard hover mb-4" @click="onClick">
     <div class="CourseCard__courseimage">
       <img class="CourseCard__courseimage" :src="thumb" />
     </div>
@@ -74,9 +74,9 @@ export default {
       console.log('salam', this.tags);
       if (this.tags.toLowerCase().search('coming soon') >= 0) {
         Swal({
-          title: 'Coming Soon!',
-          className: 'text-ltr',
-          icon: 'success'
+          title: 'وضعیت دوره: در حال برگزاری',
+          className: 'text-rtl',
+          icon: 'info'
         });
       } else {
         this.$router.push('courses/' + this.slug);

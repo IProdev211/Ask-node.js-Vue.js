@@ -8,7 +8,7 @@
       class="auth-navbar fixed-top"
     >
       <router-link to="/">
-        <img src="/img/askarya-logo.png" width="110" alt="Ask Arya Logo">
+        <img src="/img/askarya-logo.png" width="110" alt="Ask Arya Logo" />
       </router-link>
 
       <ul class="navbar-nav">
@@ -145,7 +145,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .nav-item {
   font-size: 1.2rem;
 }

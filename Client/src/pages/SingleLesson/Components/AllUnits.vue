@@ -251,7 +251,7 @@ h4 {
 
 @media (max-width: 768px) {
   .UnitBox {
-    padding: 20px 7px;
+    padding: 16px 7px;
   }
 
   .UnitName {
@@ -273,6 +273,14 @@ h4 {
   .UnitBadgeVIP,
   .UnitBadgelocked {
     font-size: 0.9rem;
+  }
+
+  .UnitBox:active {
+    background: #b1cfee73 !important;
+  }
+
+  .UnitBox:hover {
+    background: transparent !important;
   }
 }
 </style>

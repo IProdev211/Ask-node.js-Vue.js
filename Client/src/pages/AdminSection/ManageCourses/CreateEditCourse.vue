@@ -381,7 +381,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .image-preview {
 	width: 200px;
 	height: 200px;

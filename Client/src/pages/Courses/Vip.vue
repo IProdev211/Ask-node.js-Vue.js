@@ -1,5 +1,5 @@
 <template>
-  <div class="widget-vip px-2 mb-3">
+  <div class="widget-vip px-2 mb-5">
     <div class="row">
       <div class="col-md-2">
         <p class="px-2 my-4 vip-title">
@@ -127,7 +127,7 @@ export default {
 }
 
 .dropdown.show .dropdown-menu {
-  border-radius: 20px;
+  border-radius: 20px !important;
 }
 
 .dropdown-menu .dropdown-item {

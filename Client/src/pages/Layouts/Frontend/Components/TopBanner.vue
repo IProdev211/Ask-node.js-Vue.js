@@ -25,7 +25,7 @@ export default {};
   justify-content: center;
   align-items: center;
   // background: #fff;
-  padding: 7px 10px;
+  padding: 9px 10px;
   margin: 0 20%;
   // -webkit-border-radius: 3px;
   // border-radius: 3px;
@@ -40,7 +40,7 @@ export default {};
 
   a {
     color: rgb(255, 255, 255) !important;
-    text-shadow: 1px 1px rgba(117, 165, 209, 0.349);
+    text-shadow: 1px 1px rgba(117, 165, 209, 0.2);
   }
 }
 

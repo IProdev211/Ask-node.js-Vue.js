@@ -61,7 +61,7 @@
   display: inline-block;
   font: normal normal normal 1em/1 'Nucleo';
   vertical-align: middle;
-  speak: none;
+  /* speak: none; */
   text-transform: none;
   /* Better Font Rendering */
   -webkit-font-smoothing: antialiased;
@@ -591,13 +591,36 @@
   font-family: IranSans !important;
 }
 
+.el-table th > .cell {
+  font-family: IranSansBold !important;
+}
+
 @media (max-width: 680px) {
   .white-content .el-table table > thead > tr > th {
     font-size: 10px;
+    font-family: IranSansBold !important;
   }
 }
 
 ::selection {
-  background-color: #d550d7;
+  background-color: #931fb1;
   color: rgb(255, 255, 255);
+}
+
+.el-carousel__container {
+  height: 500px !important;
+}
+
+.el-carousel__item--card {
+  width: 70% !important;
+}
+
+.el-carousel__arrow {
+  background-color: rgba(31, 45, 61, 0.5) !important;
+  height: 46px !important;
+  width: 46px !important;
+}
+
+.el-carousel__arrow:hover {
+  background-color: rgba(31, 45, 61, 0.6) !important;
 }

@@ -20,7 +20,7 @@
 
     <!-- CARD 2 -->
     <div class="card card-2 text-center">
-      <div class="py-3 px-2">
+      <div class="py-3 px-3">
         <h2 class="title">يادگيری فعال</h2>
         <p
           class="subtitle"
@@ -30,7 +30,7 @@
 
     <!-- CARD 4 -->
     <div class="card card-4 text-center">
-      <div class="py-3 px-2">
+      <div class="py-3 px-3">
         <h2 class="title">استاندارد های اروپا</h2>
         <p
           class="subtitle"
@@ -40,7 +40,7 @@
 
     <!-- CARD 3 -->
     <div class="card card-3 text-center">
-      <div class="py-3 px-2">
+      <div class="py-3 px-3">
         <h2 class="title">یادگیری سریع</h2>
         <p
           class="subtitle"
@@ -151,6 +151,10 @@ export default {
   font-size: 1.4em;
 }
 
+.card {
+  border-radius: 10px;
+}
+
 .card-1 {
   background: linear-gradient(180deg, #f44881, #ec454f) !important;
 }
@@ -172,7 +176,7 @@ export default {
 
 .title {
   font-family: IranSansBold;
-  font-size: 1.5em;
+  font-size: 1.25em;
   color: white !important;
 }
 
@@ -183,7 +187,7 @@ export default {
 
 @media screen and (max-width: 768px) {
   .title {
-    font-size: 1.1em !important;
+    font-size: 1.2em !important;
   }
 
   .subtitle {

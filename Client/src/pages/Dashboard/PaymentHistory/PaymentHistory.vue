@@ -83,7 +83,7 @@ export default {
         if (payment.course) {
           product = payment.course.title;
         } else if (payment.vip) {
-          if (! payment.vipMonth) {
+          if (!payment.vipMonth) {
             if (payment.price === 39000) {
               payment.vipMonth = 1;
             } else if (payment.price === 139000) {
@@ -120,17 +120,17 @@ export default {
         {
           prop: 'date',
           label: 'تاریخ پرداخت',
-          minWidth: 110
+          minWidth: 105
         },
         {
           prop: 'price',
-          label: 'مقدار پرداختی',
-          minWidth: 90
+          label: 'مبلغ کل',
+          minWidth: 85
         },
         {
           prop: 'status',
           label: 'وضعیت پرداخت',
-          minWidth: 90
+          minWidth: 105
         }
       ],
       searchedData: [],

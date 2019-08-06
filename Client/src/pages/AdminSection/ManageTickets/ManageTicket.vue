@@ -353,7 +353,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .white-content .el-table table > thead > tr > th {
   text-align: center !important;

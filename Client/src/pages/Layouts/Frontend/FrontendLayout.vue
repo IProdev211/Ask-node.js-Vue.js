@@ -113,6 +113,13 @@
                     </router-link>
                   </li>
 
+                  <li class="nav-link">
+                    <router-link to="/managementpage" class="nav-item dropdown-item">
+                      <i class="fas fa-tools pl-2"></i>
+                      پنل مدیریت
+                    </router-link>
+                  </li>
+
                   <!-- <li class="nav-link">
                     <router-link to="/points" class="nav-item dropdown-item">
                       <i class="i-custom fas fa-gem pl-2"></i>
