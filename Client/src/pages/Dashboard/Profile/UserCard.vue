@@ -200,12 +200,15 @@ export default {
 }
 
 .title {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
 }
+
 .emailText {
   font-size: 1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
 .box {
   height: 100%;
 }
