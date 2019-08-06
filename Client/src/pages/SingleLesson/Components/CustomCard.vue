@@ -67,6 +67,7 @@ export default {
               labels: ['تکمیل شده', 'تکمیل نشده'],
               pointRadius: 0,
               pointHoverRadius: 0,
+              titleFontFamily: 'IranSansBold',
               backgroundColor: ['#00c09d', '#e2e2e2'],
               borderWidth: 0,
               data: [this.done, this.remain]
@@ -81,6 +82,7 @@ export default {
           responsive: true,
           cutoutPercentage: 70,
           tooltips: {
+            titleFontFamily: 'IranSansBold',
             backgroundColor: '#f5f5f5',
             titleFontColor: '#333',
             bodyFontColor: '#666',
@@ -146,6 +148,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+pie-chart {
+  font-family: IranSansBold !important;
+}
 .percent-text {
   font-family: IranSansBold;
   font-size: 1.4em;

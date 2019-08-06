@@ -51,8 +51,6 @@
       <ImprovementBanner1></ImprovementBanner1>
     </div>
 
-    <!-- <Stressed></Stressed> -->
-
     <!-- Blog Section-->
     <div id="blog" class="blog-section pb-2">
       <blog-section v-bind="{posts: topPosts}"></blog-section>
@@ -78,7 +76,6 @@ import BlogSection from './Components/Blog/BlogSection.vue';
 import OurCourses from './Components/OurCourses/OurCourses.vue';
 import ImprovementBanner1 from './Components/ImprovementBanners/ImprovementBanner1.vue';
 import ImprovementBanner2 from './Components/ImprovementBanners/ImprovementBanner2.vue';
-import Stressed from './Components/RandomComponents/Stressed.vue';
 // import { Carousel, Slide } from 'vue-carousel';
 import { Carousel, CarouselItem } from 'element-ui';
 
@@ -107,10 +104,8 @@ export default {
     BlogSection,
     ImprovementBanner1,
     ImprovementBanner2,
-    Stressed,
     [Carousel.name]: Carousel,
     [CarouselItem.name]: CarouselItem
-    // Slide,
   },
 
   metaInfo: {
@@ -126,9 +121,7 @@ export default {
       // OpenGraph data (Most widely used)
       { property: 'og:title', content: 'Ask Arya English' },
       { property: 'og:site_name', content: 'Ask Arya English' },
-      // The list of types is available here: http://ogp.me/#types
       { property: 'og:type', content: 'website' },
-      // Should the the same as your canonical link, see below.
       {
         property: 'og:url',
         content: 'https://www.askarya.ir/'
@@ -137,13 +130,11 @@ export default {
         property: 'og:image',
         content: 'https://www.askarya.ir/img/askarya-logo.png'
       },
-      // Often the same as your meta description, but not always.
       {
         property: 'og:description',
         content:
           'ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان آموزان در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.'
       },
-      // Google / Schema.org markup:
       { itemprop: 'name', content: 'Ask Arya English' },
       {
         itemprop: 'description',
@@ -166,10 +157,10 @@ export default {
 //   width: 75% !important;
 // }
 
-.sticky {
-  position: sticky;
-  top: 0;
-}
+// .sticky {
+//   position: sticky;
+//   top: 0;
+// }
 
 .white-content .card:not(.card-white) {
   border-radius: 20px;

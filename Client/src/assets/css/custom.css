@@ -603,7 +603,7 @@
 }
 
 ::selection {
-  background-color: #931fb1;
+  background-color: #0ad688;
   color: rgb(255, 255, 255);
 }
 
@@ -623,4 +623,8 @@
 
 .el-carousel__arrow:hover {
   background-color: rgba(31, 45, 61, 0.6) !important;
+}
+
+.swal-title {
+  font-family: IranSansBold !important;
 }

@@ -8,7 +8,7 @@
 
     <!------------------ ANSWER SECTION ------------------>
     <!-- IF QUESTION IS ANSWERED CORRECTLY, THE BOX SHOULD BECOME GREEN -- IF IT IS WRONG IT SHOULD BECOME RED-->
-    <div class="answers-section text-ltr d-flex justify-content-center row mt-5">
+    <div class="answers-section text-ltr d-flex justify-content-center row px-2 mt-5">
       <div class="answer-card col-md-5">
         <div class="answer-info row d-flex align-items-center">
           <p class="question-letter">A</p>

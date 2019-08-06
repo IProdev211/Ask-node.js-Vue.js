@@ -1,32 +1,27 @@
 const controller = require('app/http/controllers/api/controller');
 const Ticket = require('app/models/ticket');
 const ticketMessage = require('app/models/ticketmessage');
-const path = require("path");
+const path = require('path');
 
 class ticketController extends controller {
   async search(req, res, next) {
     try {
       const page = req.query.page || 1;
       const condition = {};
-      if (! req.user.admin) {
+      if (!req.user.admin) {
         condition.user = req.user.id;
       }
-      const tickets = await Ticket.paginate(
-        condition,
-        {
-          page,
-          sort: {
-            answerAt: -1
-          },
-          limit: 4,
-          populate: [
-            { path: 'user' },
-          ]
-        }
-      );
+      const tickets = await Ticket.paginate(condition, {
+        page,
+        sort: {
+          answerAt: -1
+        },
+        limit: 4,
+        populate: [{ path: 'user' }]
+      });
       res.json({
         ...tickets,
-        docs: tickets.docs.map(this.filterTicket),
+        docs: tickets.docs.map(this.filterTicket)
       });
     } catch (err) {
       this.failed(err.message, res);
@@ -40,23 +35,23 @@ class ticketController extends controller {
       title: ticket.title,
       user: {
         id: ticket.user.id,
-        name: ticket.user.name,
+        name: ticket.user.name
       },
       department: ticket.department,
       priority: ticket.priority,
       date: ticket.createdAt,
       isHighlight: ticket.isHighlight,
       answerAt: ticket.answerAt,
-      status: ticket.status,
+      status: ticket.status
     };
   }
   filterMessage(message) {
     const files = [];
     message.files.map(file => {
-      if (! file) {
+      if (!file) {
         return;
       }
-      const name = file.split("/").pop();
+      const name = file.split('/').pop();
       files.push({
         name: name,
         downloadUrl: `/tickets/view/${message.id}/${name}`
@@ -67,11 +62,11 @@ class ticketController extends controller {
       user: {
         id: message.user.id,
         name: message.user.name,
-        isAdmin: message.user.admin,
+        isAdmin: message.user.admin
       },
       message: message.message,
       createdAt: message.createdAt,
-      files: files,
+      files: files
     };
   }
 
@@ -80,17 +75,23 @@ class ticketController extends controller {
       const condition = {
         _id: req.params.ticket
       };
-      if (! req.user.admin) {
+      if (!req.user.admin) {
         condition.user = req.user.id;
       }
-      const ticket = await Ticket.findOne(condition).populate("user").exec();
-      if (! ticket) return this.failed('چنین تیکتی یافت نشد', res, 404);
+      const ticket = await Ticket.findOne(condition)
+        .populate('user')
+        .exec();
+      if (!ticket) return this.failed('چنین تیکتی یافت نشد', res, 404);
 
-      const messages = await ticketMessage.find({
-        ticket: ticket.id,
-      }).populate("user").sort({
-        createdAt: 1
-      }).exec();
+      const messages = await ticketMessage
+        .find({
+          ticket: ticket.id
+        })
+        .populate('user')
+        .sort({
+          createdAt: 1
+        })
+        .exec();
       res.json({
         ticket: await this.filterTicket(ticket),
         messages: messages.map(message => {
@@ -110,13 +111,13 @@ class ticketController extends controller {
       file = this.getUrlFile(`${req.file.destination}/${req.file.filename}`);
     }
     let { title, message, priority, department } = req.body;
-    
+
     const ticket = await new Ticket({
       title,
       user: req.user.id,
       priority,
       department,
-      status: 1,
+      status: 1
     });
     await ticket.save();
 
@@ -124,7 +125,7 @@ class ticketController extends controller {
       message,
       ticket: ticket.id,
       user: req.user.id,
-      files: [file],
+      files: [file]
     });
     await ticketmessage.save();
 
@@ -137,9 +138,8 @@ class ticketController extends controller {
   }
 
   async reply(req, res) {
-
-    const ticket = await Ticket.findById(req.body.ticket).populate("user");
-    if (! ticket) return this.failed('چنین تیکتی یافت نشد', res, 404);
+    const ticket = await Ticket.findById(req.body.ticket).populate('user');
+    if (!ticket) return this.failed('چنین تیکتی یافت نشد', res, 404);
 
     let file;
     if (req.file) {
@@ -150,13 +150,13 @@ class ticketController extends controller {
       message: req.body.message,
       ticket: ticket.id,
       user: req.user.id,
-      files: [file],
+      files: [file]
     });
     await ticketmessage.save();
 
     const update = {
-      answerAt: Date.now(),
-    }
+      answerAt: Date.now()
+    };
     if (ticket.user.id == req.user.id) {
       update.status = 1;
     } else {
@@ -164,7 +164,7 @@ class ticketController extends controller {
     }
 
     await Ticket.findByIdAndUpdate(req.body.ticket, {
-      $set: update,
+      $set: update
     }).exec();
 
     ticketmessage.user = req.user;
@@ -175,15 +175,15 @@ class ticketController extends controller {
       status: 'success'
     });
   }
-  
+
   async downloadFile(req, res) {
     const message = await ticketMessage.findById(req.params.message).populate({
-      path: "ticket",
+      path: 'ticket',
       populate: {
-        path: "user",
-      },
+        path: 'user'
+      }
     });
-    if (! req.user.admin && message.ticket.user.id != req.user.id) {
+    if (!req.user.admin && message.ticket.user.id != req.user.id) {
       return this.failed('چنین تیکتی یافت نشد', res, 404);
     }
     let file;
@@ -195,10 +195,18 @@ class ticketController extends controller {
         }
       }
     }
-    if (! file) {
+    if (!file) {
       return this.failed('چنین فایلی یافت نشد', res, 404);
     }
-    const publicPath = path.resolve(__dirname, "..", "..", "..", "..", "..", "public");
+    const publicPath = path.resolve(
+      __dirname,
+      '..',
+      '..',
+      '..',
+      '..',
+      '..',
+      'public'
+    );
     return res.download(path.join(publicPath, file));
   }
   getUrlFile(dir) {

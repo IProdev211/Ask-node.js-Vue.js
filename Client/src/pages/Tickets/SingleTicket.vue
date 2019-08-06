@@ -1,38 +1,41 @@
 <template>
-  <section class="container text-right">
-    <div>
+  <section class="container-fluid text-right">
+    <div class="ticket-number mb-4">
       <h1>
         #{{ticket.ticket_id}}
         <span class="subtitle">مشاهده تیکت</span>
       </h1>
     </div>
-    <div class="container mt-5 pb-5">
-      <h2 class="ticket-desc pt-4 pr-3">{{ticket.title}}</h2>
-      <div></div>
+    <div class="my-5">
+      <h2 class="ticket-desc py-5 pr-3">{{ticket.title}}</h2>
       <div
         v-for="message of messages"
         :key="message.id"
-        class="card-custom py-4 pb px-5 my-3"
+        class="card-custom my-3"
         :class="message.user.id == ticket.user.id ? 'ml-5' : 'mr-5'"
       >
-        <div class="d-flex justify-content-between">
+        <div class="ticket-meta d-flex justify-content-between row">
           <p class="ticket-user">
             <!-- USER PICTURE SHOULD GO INSTEAD OF ICON -->
             <i class="pl-1 text-danger far fa-user"></i>
             {{message.user.name}}
           </p>
-          <p class="ticket-date text-muted font-weight-bold">
-            <span class="pl-5" v-if="isAdmin">
-              <i @click="handleEdit(message)" class="fas fa-pencil-alt pl-2"></i>
-              <i @click="handleDelete(message)" class="far fa-trash-alt pr-1"></i>
-            </span>
 
-            <span class="pl-2 font-weight-normal">{{ getTime(message.createdAt) }}</span>
+          <p class="ticket-date">
+            <span class="pl-2">{{ getTime(message.createdAt) }}</span>
             {{ getDate(message.createdAt) }}
           </p>
         </div>
+        <div class="w-100 d-md-none"></div>
+
         <p class="pt-4 text-break" v-if="message.user.isAdmin" v-html="message.message"></p>
         <p class="pt-4 text-break" v-else>{{ message.message }}</p>
+
+        <div class="text-left pt-2" v-if="isAdmin">
+          <i @click="handleEdit(message)" class="fas fa-pencil-alt pl-3"></i>
+          <i @click="handleDelete(message)" class="far fa-trash-alt pr-1"></i>
+        </div>
+
         <hr v-if="message.files.length" />
         <ul v-if="message.files.length">
           <li v-for="file in message.files" :key="file.name">
@@ -41,7 +44,7 @@
         </ul>
       </div>
 
-      <!-- Ticket Reply -->
+      <!--------------------------- Ticket Reply --------------------------->
       <form @submit.prevent="submitFormListener">
         <h4 class="pt-5">{{ editingMessage ? 'ویرایش پیام' : 'پاسخی ارسال کنید!' }}</h4>
         <base-input>
@@ -385,21 +388,51 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.subtitle {
-  font-size: 1rem;
+.ticket-number {
+  h1,
+  .subtitle {
+    font-size: 1.4em;
+    font-family: IranSans;
+    color: rgba(0, 0, 0, 0.562);
+  }
 }
+
 .ticket-desc {
-  font-size: 1.25rem;
+  font-size: 1.4em;
+  font-family: IranSansDN;
+  color: rgba(85, 85, 85, 0.85);
 }
-.main-card {
-  border-radius: 25px;
-  min-height: 70vh;
-  background-color: transparent !important;
-}
+
 .card-custom {
   background-color: rgb(236, 236, 236);
   border-radius: 25px;
   padding: 2em 3em;
+
+  .ticket-date {
+    font-family: IranSans;
+    color: rgba(145, 145, 145, 0.85);
+
+    span {
+      font-family: IranSansBold;
+    }
+  }
+
+  .ticket-user {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  i {
+    font-size: 1.15em;
+    color: rgba(145, 145, 145, 0.788);
+  }
+
+  i:hover {
+    cursor: pointer;
+    color: rgb(174, 0, 255);
+  }
 }
 
 .send-buttons {
@@ -408,54 +441,47 @@ export default {
   }
 }
 
-.ticket-date {
-  font-family: IranSansBold;
-  color: rgba(145, 145, 145, 0.85);
-
-  span {
-    font-family: IranSans;
-  }
-}
-
 .card-reply-left {
-  margin-right: 2em;
-  margin-left: -2em;
-}
-
-.ticket-user {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
-  color: rgba(77, 77, 77, 0.877);
-}
-
-i {
-  color: rgba(145, 145, 145, 0.788);
-}
-i:hover {
-  cursor: pointer;
-  color: rgb(255, 136, 0);
-}
-.ck-editor__editable {
-  min-height: 250px;
+  margin-right: 1em;
+  margin-left: -1em;
 }
 
 @media (max-width: 768px) {
   .ticket-user {
-    font-size: 0.8em;
+    font-size: 0.9em !important;
     width: 100%;
   }
   .ticket-date {
     font-size: 0.8em;
     width: 100%;
     display: block;
+    color: rgba(0, 0, 0, 0.4) !important;
+    font-family: IranSansBold !important;
   }
 
   .card-custom {
-    padding: 20px;
+    padding: 15px !important;
     .main-ticket-text {
       font-size: 0.94em;
     }
   }
+
+  .ticket-meta {
+    padding-right: 1em;
+  }
+}
+
+.ck-editor__editable {
+  min-height: 150px !important;
+}
+
+.ck.ck-editor__editable_inline {
+  min-height: 150px !important;
+}
+
+.ticket-main-text {
+  // font-size: 1.2em !important;
+  font-family: IranSans;
 }
 </style>
 

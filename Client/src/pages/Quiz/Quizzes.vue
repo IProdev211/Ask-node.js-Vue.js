@@ -1,30 +1,36 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <h1 class="text-right">امتحان های شما</h1>
 
     <!-- New Quizzes -->
     <div class="row pt-5">
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <quiz-card />
+      <div class="col-12">
+        <free-quiz-card />
       </div>
 
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <quiz-card />
+      <div class="col-12">
+        <free-quiz-card />
       </div>
 
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <quiz-card />
+      <div class="col-12">
+        <free-quiz-card />
+      </div>
+
+      <div class="col-12">
+        <paid-quiz-card />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import QuizCard from './QuizCard.vue';
+import FreeQuizCard from './QuizComponents/FreeQuizCard.vue';
+import PaidQuizCard from './QuizComponents/PaidQuizCard.vue';
 
 export default {
   components: {
-    QuizCard
+    FreeQuizCard,
+    PaidQuizCard
   }
 };
 </script>

@@ -183,6 +183,11 @@ export default {
   font-family: IranSansBold;
 }
 
+.dropdown-item:hover,
+.dropdown-item:active {
+  background-color: transparent !important;
+}
+
 $scaleSize: 0.95;
 @keyframes zoomIn95 {
   from {

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <ticket-data
       :openTickets="openTickets"
       :answeredTickets="answeredTickets"
@@ -56,14 +56,13 @@
             <p>{{ ticket.user.name }}</p>
           </div>
 
-          <!-- <div class="w-100 d-md-none pt-2"></div> -->
+          <div class="w-100 d-md-none pt-2"></div>
 
           <div class="ticket-title">
             <h3>عنوان</h3>
             <p
               :title="ticket.title"
-            >{{ ticket.title.substring(0, 15) + (ticket.title.length > 10 ? '' : '...') }}</p>
-            <!-- >{{ ticket.title.substring(0, 35) + (ticket.title.length > 35 ? ' ...' : '') }}</p> -->
+            >{{ ticket.title.substring(0, 35) + (ticket.title.length > 35 ? ' ...' : '') }}</p>
           </div>
 
           <div class="w-100 d-md-none pt-3"></div>
@@ -533,24 +532,31 @@ export default {
 
 .single-ticket-row {
   .ticket-card {
-    padding: 2em 2em;
+    padding: 1.5em 2.5em;
     margin-bottom: 10px;
-    background-color: rgb(226, 226, 226);
+    background-color: #7f5a83;
+    background-image: linear-gradient(270deg, #0d324d 0%, #553258 74%);
+    // background-color: rgb(226, 226, 226);
     border-radius: 15px;
-    color: rgb(41, 41, 41);
-    border: 1px solid rgb(214, 214, 214);
+    border: 1px solid rgb(59, 59, 59);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
 
     h3 {
-      font-size: 1.1em;
-      font-family: IranSansBold;
+      font-size: 1em;
+      color: rgba(255, 255, 255, 0.45) !important;
+      text-align: right;
+      font-family: IranSans;
       padding: 0;
       margin: 0;
     }
 
     p {
-      font-size: 0.9em;
-      font-family: IranSans;
-      padding-top: 10px;
+      font-size: 1.2em;
+      color: #fff !important;
+      text-align: right;
+      // font-size: 0.9em;
+      // font-family: IranSans;
+      // padding-top: 10px;
     }
 
     .badge {
@@ -559,7 +565,7 @@ export default {
 
     .ticket-actions {
       i {
-        color: rgb(140, 0, 255);
+        color: #fff;
 
         .icon-group {
           margin-top: 10px;
@@ -584,18 +590,17 @@ export default {
       color: rgb(41, 41, 41);
 
       h3 {
-        font-size: 1.2em;
-        font-family: IranSansBold;
+        font-size: 1em;
+        font-family: IranSans;
         color: rgb(129, 129, 129);
         padding: 0;
         margin: 0;
       }
 
       p {
-        font-size: 1em;
+        font-size: 1.1em;
         font-family: IranSans;
         padding-top: 10px;
-        color: rgb(0, 0, 0);
       }
 
       .badge {

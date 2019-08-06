@@ -1,14 +1,12 @@
 <template>
   <section class="container">
     <div class="row d-flex justify-content-between align-items-center pb-3">
+      <p class="quiz-title">زمان آینده استمراری</p>
+
       <div class="timer">
         <!-- COUNTDOWN TIMER GOES HERE -->
         <h3>01:32</h3>
       </div>
-      <p class="quiz-title">
-        زمان آینده استمراری
-        <span class="quiz-subtitle">- آزمون آنلاین</span>
-      </p>
     </div>
 
     <!-- <div>
@@ -53,16 +51,9 @@ section {
     color: rgba(0, 0, 0, 0.514);
   }
 
-  .quiz-subtitle {
-    color: rgb(0, 0, 0);
-    font-family: IranSansDN;
-    font-size: 0.7em !important;
-    padding-right: 5px;
-  }
-
   .timer h3 {
     font-size: 3em;
-    color: rgb(0, 0, 0);
+    color: rgb(235, 101, 86);
     font-family: IranSansBold;
     padding: 0;
     margin: 0;
@@ -95,11 +86,6 @@ section {
 
   .quiz-title {
     font-size: 1.4em !important;
-  }
-
-  .quiz-subtitle {
-    font-size: 1.2em !important;
-    margin-bottom: 20px !important;
   }
 
   .question-number {
