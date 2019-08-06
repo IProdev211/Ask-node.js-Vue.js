@@ -7,7 +7,7 @@
         <h1 class="hero-title pb-3">اسک آریا سریع ترین راه یادگیری زبان</h1>
         <p
           class="text-center hero-subtitle py-3"
-        >ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان آموزان در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.</p>
+        >ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان برای شما در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.</p>
 
         <div class="pt-3 d-flex justify-content-center text-center">
           <div>
@@ -50,7 +50,7 @@
           </Carousel>-->
 
           <div
-            class="col-lg-3 col-md-6 col-sm-12 d-none d-md-block"
+            class="col-lg-3 col-md-6 col-sm-12 mb-4 d-none d-md-block"
             v-for="course in topCourses"
             v-bind:key="course.id"
           >
@@ -64,7 +64,7 @@
             </el-carousel>
           </div>
         </div>
-        <div class="pt-3">
+        <div class="pt-5">
           <router-link to="allcourses">
             <base-button
               native-type="submit"
@@ -206,8 +206,6 @@ export default {
 }
 
 .hero-content-homepage {
-  // background: linear-gradient(to left, #7028e4dc, #e5b2cade),
-  //   url(/img/frontend/london-bg-opt.jpg);
   background-color: #6e72fc;
   background: linear-gradient(315deg, #ad1debe5 0%, #6e73fce1 74%),
     url(/img/frontend/london-bg-opt.jpg);
@@ -323,7 +321,7 @@ export default {
 
 @media only screen and (min-width: 1500px) {
   .hero-content-homepage {
-    height: 51vh !important;
+    height: 50vh !important;
   }
 }
 
@@ -340,8 +338,6 @@ export default {
   font-size: 1.3em;
   color: rgb(216, 216, 216);
   font-family: IranSansBold;
-  // margin: 0;
-  // padding: 0;
 }
 
 .fadeline2 {

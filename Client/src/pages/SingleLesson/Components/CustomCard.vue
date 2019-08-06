@@ -13,7 +13,7 @@
             ref="chart"
             :key="done"
           ></pie-chart>
-          <p class="text-center text-white mt-3 mb-0 font-weight-bolder">{{ Number(done) }} %</p>
+          <p class="text-center text-white mt-3 mb-0 percent-text">{{ Number(done) }} %</p>
         </div>
       </div>
     </div>
@@ -146,18 +146,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.percent-text {
+  font-family: IranSansBold;
+  font-size: 1.4em;
+}
+
 .card-1 {
   background: linear-gradient(180deg, #f44881, #ec454f) !important;
 }
+
 .card-2 {
-  background: linear-gradient(180deg, #21c8f6, #637bff) !important;
+  background-image: linear-gradient(180deg, #21c8f6f8, #637afff3),
+    url(/img/frontend/london-seemless-bg.svg) !important;
 }
+
 .card-3 {
-  background: linear-gradient(180deg, #6edcc4, #1aab8b) !important;
+  background-image: linear-gradient(180deg, #6edcc4fa, #1aab8cf8),
+    url(/img/frontend/london-seemless-bg.svg) !important;
 }
+
 .card-4 {
-  background: linear-gradient(180deg, #8b60ed, #b372bd) !important;
+  background-image: linear-gradient(180deg, #8a60edfa, #b372bdf3),
+    url(/img/frontend/london-seemless-bg.svg) !important;
 }
+
 .title {
   font-family: IranSansBold;
   font-size: 1.5em;

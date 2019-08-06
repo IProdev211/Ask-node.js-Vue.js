@@ -30,12 +30,21 @@
           </div>
         </div>
         <div class="left d-flex justify-content-between">
-          <div class="pl-2 d-flex align-self-center" v-if="purchased">
+          <!-- <div class="pl-2 d-flex align-self-center" v-if="purchased">
             <i
               :class="episode.done ? 'fas fa-eye text-success fas-2x' : 'fas fa-eye-slash text-danger fas-2x'"
             ></i>
+          </div>-->
+
+          <div class="pl-2 d-flex align-self-center" v-if="purchased">
+            <p class="detail-price-purchased">
+              <i
+                :class="episode.done ? 'fas fa-eye text-success fas-2x' : 'fas fa-eye-slash text-danger fas-2x'"
+              ></i>
+            </p>
           </div>
-          <div class="pl-2">
+
+          <div class="pl-2" v-else>
             <p class="detail-price">{{ getEpisodeType(episode.type) }}</p>
           </div>
 
@@ -232,19 +241,27 @@ h4 {
   border-radius: 8px;
 }
 
+.detail-price-purchased {
+  font-size: 1.1em;
+  margin: 0;
+  align-self: center;
+  background: transparent !important;
+  padding: 8px 15px;
+}
+
 @media (max-width: 768px) {
   .UnitBox {
     padding: 20px 7px;
   }
 
   .UnitName {
-    font-size: 0.86rem;
+    font-size: 1em;
   }
 
   .detail-time {
-    font-size: 0.6rem;
+    font-size: 0.9em;
     align-self: center;
-    padding: 7px;
+    padding: 6px 8px;
   }
 
   .detail-price {

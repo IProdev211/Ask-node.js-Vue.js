@@ -18,14 +18,15 @@
         <base-button
           native-type="submit"
           type="default"
-          class="btn btn-simple animation-on-hover custom-button"
+          class="btn btn-round animation-on-hover custom-button"
           @click="markAsDoneListener"
           :loading="loadingMarkAsDone"
           v-if="canMarkAsDone"
+          :class="(isDoneEpisode ? 'btn-success ' : 'btn-danger ')"
         >
           {{ isDoneEpisode ? 'این بخش را ندیدم' : 'این بخش را دیدم'}}
           <i
-            :class="'fas fa-' + (isDoneEpisode ? 'eye-slash text-danger ' : 'eye text-success ') + 'pr-2'"
+            :class="'fas fa-' + (isDoneEpisode ? 'eye-slash text-white ' : 'eye text-white ') + 'pr-2'"
           ></i>
         </base-button>
       </div>
