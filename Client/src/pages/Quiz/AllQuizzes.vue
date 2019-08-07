@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <h1 class="text-right">امتحان های شما</h1>
+    <h1 class="text-right mt-2 mb-5">امتحان های شما</h1>
 
     <!-- New Quizzes -->
     <div class="row pt-5">

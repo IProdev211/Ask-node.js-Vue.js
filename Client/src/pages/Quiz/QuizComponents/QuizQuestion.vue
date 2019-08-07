@@ -68,8 +68,8 @@ export default {};
     border: 0;
     position: relative;
     margin: 10px;
-    -webkit-box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 20px 0px rgba(119, 45, 45, 0.2);
+    box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.2);
 
     :hover {
       cursor: pointer;

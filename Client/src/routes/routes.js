@@ -30,14 +30,19 @@ const VerificationPayments = () =>
     /* webpackChunkName: "extra" */ 'src/pages/Courses/VerificationPayments.vue'
   );
 
+const QuizInformationPage = () =>
+  import(
+    /* webpackChunkName: "extra" */ 'src/pages/Quiz/QuizInformationPage.vue'
+  );
+
 const SingleQuizLayout = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/SingleQuizLayout.vue');
 
 const GradeSheet = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/GradeSheet.vue');
 
-const Quizzes = () =>
-  import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/Quizzes.vue');
+const AllQuizzes = () =>
+  import(/* webpackChunkName: "extra" */ 'src/pages/Quiz/AllQuizzes.vue');
 
 const Points = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/Points/Points.vue');
@@ -284,9 +289,9 @@ const routes = [
       // },
       {
         path: 'quizzes',
-        name: 'Quizzes',
+        name: 'AllQuizzes',
         components: {
-          default: Quizzes
+          default: AllQuizzes
         }
       },
       {
@@ -354,13 +359,7 @@ const routes = [
           default: CreateTicket
         }
       },
-      {
-        path: 'quizoverview',
-        name: 'Quiz Overview',
-        components: {
-          default: QuizOverview
-        }
-      },
+
       {
         path: 'points',
         name: 'Points',
@@ -386,6 +385,13 @@ const routes = [
         name: 'Single Lesson',
         components: {
           default: SingleLesson
+        }
+      },
+      {
+        path: 'quizinformation',
+        name: 'Quiz Information Page',
+        components: {
+          default: QuizInformationPage
         }
       },
       {

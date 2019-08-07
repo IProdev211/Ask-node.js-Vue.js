@@ -53,7 +53,7 @@ section {
 
   .timer h3 {
     font-size: 3em;
-    color: rgb(235, 101, 86);
+    color: rgb(44, 44, 44);
     font-family: IranSansBold;
     padding: 0;
     margin: 0;

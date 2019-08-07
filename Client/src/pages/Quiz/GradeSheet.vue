@@ -1,38 +1,37 @@
 <template>
-  <section class="container">
+  <div class="container">
     <h1 class="page-title text-right pt-5">کارنامه شما</h1>
-    <div class="card">
-      <div class="text-section">
-        <div class="text-center quiz-title pt-3 pb-2">
-          <h2>Common Noun Quiz</h2>
-          <div class="pt-2">
-            <router-link to="/courses/دوره-ی-گرامر-انگلیسی">General English Course</router-link>
-          </div>
+    <div class="card text-center">
+      <div class="quiz-title pt-3 pb-2">
+        <h2>Common Noun Quiz</h2>
+        <div class="pt-2">
+          <router-link to="/courses/دوره-ی-گرامر-انگلیسی">General English Course</router-link>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center py-5 text-center">
+        <div class="pl-5">
+          <h3 class="quiz-info">
+            <span>20 دقیقه</span>
+            <div class="w-100 pb-3"></div>مدت زمان امتحان
+          </h3>
         </div>
 
-        <div class="d-flex justify-content-center py-5 text-center">
-          <div class="pl-5">
-            <h3 class="quiz-info">
-              <span>20 دقیقه</span>
-              <div class="w-100 pb-3"></div>مدت زمان امتحان
-            </h3>
-          </div>
-
-          <div class="pr-5">
-            <h3 class="quiz-info text-center">
-              <span>28</span>
-              <div class="w-100 pb-3"></div>تعداد سوالات
-            </h3>
-          </div>
+        <div class="pr-5">
+          <h3 class="quiz-info text-center">
+            <span>28</span>
+            <div class="w-100 pb-3"></div>تعداد سوالات
+          </h3>
         </div>
+      </div>
 
-        <p class="pt-3 exam-description">
-          آزمون تعیین سطح انگلیسی حاضر آزمون استانداری است که توسط دانشگاه کمبریج طراحی شده است. این آزمون تعیین سطح شامل 25 سوال چند گزینه ای است که همه آنها مربوط به انگلیسی عمومی می باشند.
-          با پاسخ دادن به هر سوال یک امتیاز دریافت خواهید کرد و مجموع امتیازات هم 25 است. در نظر داشته باشید برای اتمام آزمون باید به تمامی سوالات پاسخ داده شود.
-          با انجام این آزمون تعیین سطح آنلاین کاملا رایگان، از سطح تقریبی زبان خود آگاه خواهید شد. به طور کلی (طبق دانشگاه کمبریج) امتیازات کسب شده را می توان به با سطوح زیر تفسیر کرد:
-        </p>
+      <p class="pt-3 exam-description">
+        آزمون تعیین سطح انگلیسی حاضر آزمون استانداری است که توسط دانشگاه کمبریج طراحی شده است. این آزمون تعیین سطح شامل 25 سوال چند گزینه ای است که همه آنها مربوط به انگلیسی عمومی می باشند.
+        با پاسخ دادن به هر سوال یک امتیاز دریافت خواهید کرد و مجموع امتیازات هم 25 است. در نظر داشته باشید برای اتمام آزمون باید به تمامی سوالات پاسخ داده شود.
+        با انجام این آزمون تعیین سطح آنلاین کاملا رایگان، از سطح تقریبی زبان خود آگاه خواهید شد. به طور کلی (طبق دانشگاه کمبریج) امتیازات کسب شده را می توان به با سطوح زیر تفسیر کرد:
+      </p>
 
-        <!-- <div class="py-5 text-center">
+      <!-- <div class="py-5 text-center">
         <router-link to="/singlequizlayout">
           <base-button
             native-type="submit"
@@ -40,10 +39,9 @@
             class="btn btn-simple animation-on-hover"
           >Start Quiz</base-button>
         </router-link>
-        </div>-->
-      </div>
+      </div>-->
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -58,25 +56,14 @@ export default {};
 }
 
 .white-content .card:not(.card-white) {
-  margin: 40px;
   border-radius: 30px;
-  text-align: right;
+  padding: 2em;
   background-color: #7f53ac;
   background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
-
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   -o-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-}
-.text-section {
-  padding: 3.6em;
-}
-
-@media (max-width: 680px) {
-  .text-section {
-    padding: 2em;
-  }
 }
 
 .quiz-title {
