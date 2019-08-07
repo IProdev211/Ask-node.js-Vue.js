@@ -1,84 +1,80 @@
 <template>
   <section>
-    <div class="text-ltr">
+    <div>
+      <h2 class="text-center">Episode Overview</h2>
+    </div>
+    <div class="mt-5">
       <div>
-        <h2 class="text-center">Episode Overview</h2>
-      </div>
-      <div class="mt-5">
-        <div>
-          <card card-body-classes="table-full-width">
-            <div>
-              <div
-                class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
+        <card card-body-classes="table-full-width">
+          <div>
+            <div class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap">
+              <el-select
+                class="select-primary mb-3 pagination-select"
+                v-model="pagination.perPage"
+                placeholder="Per page"
+                @change="changeLimitListener"
               >
-                <el-select
-                  class="select-primary mb-3 pagination-select"
-                  v-model="pagination.perPage"
-                  placeholder="Per page"
-                  @change="changeLimitListener"
-                >
-                  <el-option
-                    class="select-primary"
-                    v-for="item in pagination.perPageOptions"
-                    :key="item"
-                    :label="item"
-                    :value="item"
-                  ></el-option>
-                </el-select>
-              </div>
-              <el-table :data="tableData">
-                <el-table-column
-                  align="left"
-                  v-for="column in tableColumns"
-                  :key="column.label"
-                  :min-width="column.minWidth"
-                  :prop="column.prop"
-                  :label="column.label"
-                ></el-table-column>
-                <el-table-column :min-width="105" align="center" label="Settings">
-                  <div slot-scope="props">
-                    <base-button
-                      @click.native="handleEdit(props.$index, props.row)"
-                      class="edit btn-link"
-                      type="warning"
-                      size="sm"
-                      icon
-                    >
-                      <i class="tim-icons icon-pencil"></i>
-                    </base-button>
-                    <base-button
-                      @click.native="handleDelete(props.$index, props.row)"
-                      class="remove btn-link"
-                      type="danger"
-                      size="sm"
-                      icon
-                    >
-                      <i class="tim-icons icon-simple-remove"></i>
-                    </base-button>
-                  </div>
-                </el-table-column>
-              </el-table>
+                <el-option
+                  class="select-primary"
+                  v-for="item in pagination.perPageOptions"
+                  :key="item"
+                  :label="item"
+                  :value="item"
+                ></el-option>
+              </el-select>
             </div>
-            <div
-              slot="footer"
-              class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
-            >
-              <div class>
-                <p
-                  class="card-category"
-                >Showing {{ from + 1 }} to {{ to }} of {{ pagination.total }} entries</p>
-              </div>
-              <base-pagination
-                v-model="pagination.currentPage"
-                :value="pagination.currentPage"
-                :per-page="pagination.perpage"
-                :total="pagination.total"
-                :pageCount="pagination.pages"
-                v-on:input="changePageListener"
-              ></base-pagination>
+            <el-table :data="tableData">
+              <el-table-column
+                align="left"
+                v-for="column in tableColumns"
+                :key="column.label"
+                :min-width="column.minWidth"
+                :prop="column.prop"
+                :label="column.label"
+              ></el-table-column>
+              <el-table-column :min-width="105" align="center" label="Settings">
+                <div slot-scope="props">
+                  <base-button
+                    @click.native="handleEdit(props.$index, props.row)"
+                    class="edit btn-link"
+                    type="warning"
+                    size="sm"
+                    icon
+                  >
+                    <i class="tim-icons icon-pencil"></i>
+                  </base-button>
+                  <base-button
+                    @click.native="handleDelete(props.$index, props.row)"
+                    class="remove btn-link"
+                    type="danger"
+                    size="sm"
+                    icon
+                  >
+                    <i class="tim-icons icon-simple-remove"></i>
+                  </base-button>
+                </div>
+              </el-table-column>
+            </el-table>
+          </div>
+          <div
+            slot="footer"
+            class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
+          >
+            <div class>
+              <p
+                class="card-category"
+              >Showing {{ from + 1 }} to {{ to }} of {{ pagination.total }} entries</p>
             </div>
-          </card>
-        </div>
+            <base-pagination
+              v-model="pagination.currentPage"
+              :value="pagination.currentPage"
+              :per-page="pagination.perpage"
+              :total="pagination.total"
+              :pageCount="pagination.pages"
+              v-on:input="changePageListener"
+            ></base-pagination>
+          </div>
+        </card>
       </div>
     </div>
     <div class="pt-3">
@@ -128,18 +124,18 @@ export default {
         },
         {
           prop: 'number',
-          label: 'Episode No.',
+          label: 'Order',
           minWidth: 70
         },
         {
           prop: 'viewCount',
-          label: 'Episode Views',
-          minWidth: 80
+          label: ' Views',
+          minWidth: 70
         },
         {
           prop: 'type',
-          label: 'Episode Type',
-          minWidth: 80
+          label: 'Type',
+          minWidth: 70
         }
       ],
       pagination: {
@@ -272,9 +268,12 @@ export default {
             insertedKey = i;
             break;
           }
-          if (this.tableData[i+1] !== undefined && this.tableData[i+1].course.id !== episode.course.id) {
-            this.tableData.splice(i+1, 0, episode);
-            insertedKey = i+1;
+          if (
+            this.tableData[i + 1] !== undefined &&
+            this.tableData[i + 1].course.id !== episode.course.id
+          ) {
+            this.tableData.splice(i + 1, 0, episode);
+            insertedKey = i + 1;
             break;
           }
         }

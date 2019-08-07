@@ -1,26 +1,26 @@
 <template>
   <div v-if="post.id">
     <div class="heading-section">
-      <div class="container">
-        <div class="text-center">
-          <BlogHeader :title="post.name"></BlogHeader>
-          <img class="blog-img" :src="post.image" :alt="post.name" />
-          <div class="pt-5">
-            <BlogInfo
-              :name="post.author.name"
-              :createdAt="post.createdAt"
-              :categories="post.categories"
-            ></BlogInfo>
-          </div>
+      <div class="container text-center">
+        <BlogHeader :title="post.name"></BlogHeader>
+        <img class="blog-img" :src="post.image" :alt="post.name" />
+        <div class="my-4">
+          <BlogInfo
+            :name="post.author.name"
+            :createdAt="post.createdAt"
+            :categories="post.categories"
+          ></BlogInfo>
         </div>
       </div>
     </div>
-    <div class="main-blog-section d-flex justify-content-between">
-      <div class="main-blog-text">
-        <div v-html="post.content"></div>
-      </div>
-      <div class="sticky">
-        <custom-card :class="sticky" />
+    <div class="main-blog-section container">
+      <div class="row">
+        <div class="main-blog-text col-md-9">
+          <div v-html="post.content"></div>
+        </div>
+        <div class="sticky col-md-3">
+          <custom-card :class="sticky" />
+        </div>
       </div>
     </div>
     <div>
@@ -70,8 +70,8 @@ export default {
   margin-bottom: 2em;
   background-color: #7f53ac;
   background-image: linear-gradient(to left, #9737e6 0%, #64a4ee 74%);
-  border-bottom-left-radius: 30%;
-  border-bottom-right-radius: 30%;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 35%;
 }
 
 .blog-img {
@@ -81,11 +81,12 @@ export default {
 }
 
 .main-blog-section {
-  padding: 3em 5%;
+  padding: 3em 0 5em 0;
 }
 
 .main-blog-text {
-  margin: 0 15%;
+  // margin: 0 15%;
+  padding: 0 10%;
   font-size: 1.4em !important;
   line-height: 2.1em !important;
 }
@@ -93,6 +94,7 @@ export default {
 .sticky {
   position: -webkit-sticky;
   position: sticky;
+  margin-top: 2em;
   top: 10em;
 }
 
@@ -100,7 +102,7 @@ export default {
   display: none;
 }
 
-@media only screen and (max-width: 1258px) {
+@media only screen and (max-width: 767px) {
   .heading-section {
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;
@@ -112,10 +114,10 @@ export default {
   }
 
   .main-blog-section {
-    padding: 0 5% 8% 5%;
+    padding: 0 3% 8% 3%;
   }
   .main-blog-text {
-    margin: 0 8% !important;
+    margin: 0 !important;
     font-size: 1.2em !important;
   }
 

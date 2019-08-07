@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div
-      class="col-md-9 card UnitSection mb-5"
+      class="col-md-9 UnitSection mb-5"
       v-if="episodes.length"
       :style="scrollable ? {'overflow-y': 'auto'} : ''"
     >
@@ -173,8 +173,6 @@ export default {
   border-left: 1px solid rgba(133, 133, 133, 0.199);
   border-right: 11px solid rgba(156, 156, 156, 0.377);
   border-radius: 0 10px 10px 0;
-
-  // margin-top: 6px;
   transition: all 0.2s ease 0s;
 }
 
@@ -184,7 +182,7 @@ h4 {
 
 .UnitBox:hover,
 .active {
-  background: #339afb0a !important;
+  background: #339afb2c !important;
   border-right-color: #339afb;
   .UnitBadgeUnlocked {
     color: #339afb;

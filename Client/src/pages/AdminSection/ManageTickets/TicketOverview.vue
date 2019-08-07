@@ -11,36 +11,34 @@
     <h2 class="text-center">Manage Tickets</h2>
     <div class="mt-5">
       <!-- <card card-body-classes="table-full-width"> -->
-      <div>
-        <div class="d-flex justify-content-between">
-          <el-select
-            class="select-primary mb-3 pagination-select"
-            v-model="pagination.perPage"
-            placeholder="Per page"
-            @change="changeLimitListener"
-          >
-            <el-option
-              class="select-primary"
-              v-for="item in pagination.perPageOptions"
-              :key="item"
-              :label="item"
-              :value="item"
-            ></el-option>
-          </el-select>
+      <div class="d-flex justify-content-between mb-5">
+        <el-select
+          class="select-primary mb-3 pagination-select"
+          v-model="pagination.perPage"
+          placeholder="Per page"
+          @change="changeLimitListener"
+        >
+          <el-option
+            class="select-primary"
+            v-for="item in pagination.perPageOptions"
+            :key="item"
+            :label="item"
+            :value="item"
+          ></el-option>
+        </el-select>
 
-          <base-input>
-            <el-input
-              type="search"
-              class="mb-3 search-input"
-              clearable
-              prefix-icon="el-icon-search"
-              placeholder="Search records"
-              v-model="searchQuery"
-              aria-controls="datatables"
-              @change="searchTicketsListener"
-            ></el-input>
-          </base-input>
-        </div>
+        <base-input>
+          <el-input
+            type="search"
+            class="mb-3 search-input"
+            clearable
+            prefix-icon="el-icon-search"
+            placeholder="Search records"
+            v-model="searchQuery"
+            aria-controls="datatables"
+            @change="searchTicketsListener"
+          ></el-input>
+        </base-input>
       </div>
 
       <!-------------- NEW TICKET DESIGN -------------->
@@ -241,8 +239,14 @@ export default {
           ticket.isHighlight = !ticket.isHighlight;
           Swal({
             title: `You ${
-              ticket.isHighlight ? 'hightlight' : 'remove hightlight of'
-            }  ${ticket.ticket_id}: ${ticket.title}`,
+              ticket.isHighlight
+                ? 'Hightlighted Ticket No. -'
+                : ' Unhightlighted Ticket No. -'
+            }  ${ticket.ticket_id}`,
+
+            //  title: `You ${
+            //   ticket.isHighlight ? 'hightlighted' : 'removed hightlight of'
+            // }  ${ticket.ticket_id}: ${ticket.title}`,
             icon: 'success',
             className: 'text-ltr'
           });
@@ -259,7 +263,9 @@ export default {
     },
     handleEdit(ticket) {
       swal({
-        title: `You want to edit ${ticket.ticket_id}: ${ticket.title}`
+        title: `Do you want to edit ticket number: ${ticket.ticket_id}?`,
+        // title: `Do you want to edit Ticket: ${ticket.ticket_id}: ${ticket.title}?`,
+        className: 'text-ltr'
       });
       this.ticket = ticket;
     },
@@ -578,6 +584,16 @@ export default {
       border-bottom: none;
     }
   }
+}
+
+.ticket-card:hover,
+.ticket-card:focus {
+  -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.6);
+  box-shadow: 40px rgba(121, 121, 121, 0.6);
+  transition: transform 0.6s;
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {

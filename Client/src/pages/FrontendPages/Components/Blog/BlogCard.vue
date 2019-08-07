@@ -34,7 +34,7 @@ export default {
         .format('YYYY-MM-DD');
     },
     isLtr: function() {
-      const regex = /[\u0590-\u083F]|[\u08A0-\u08FF]|[\uFB1D-\uFDFF]|[\uFE70-\uFEFF]/mg;
+      const regex = /[\u0590-\u083F]|[\u08A0-\u08FF]|[\uFB1D-\uFDFF]|[\uFE70-\uFEFF]/gm;
       return !regex.test(this.name.trim());
     }
   }
@@ -60,15 +60,16 @@ export default {
   -webkit-transform: translateY(0);
   transform: translateY(0);
   border: 1px solid rgba(218, 218, 218, 0.582);
-  border-radius: 20px;
+  border-radius: 10px;
   background: transparent;
 }
 .card-body {
   background: rgb(241, 241, 241);
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 10px 10px;
 }
 
 .blog-info {
+  background-color: #000285;
   color: rgba(0, 0, 0, 0.4);
 }
 
@@ -98,7 +99,6 @@ export default {
   color: rgb(211, 211, 211) !important;
   background-color: #505050 !important;
   font-family: Arial, Helvetica, sans-serif;
-  // font-size: 0.85em !important;
 }
 .home-blog .card:hover .card-title {
   color: #000285;
