@@ -8,6 +8,8 @@
           <span>{{ name }}</span>
         </p>
       </div>
+      <div class="w-100 d-md-none pt-1"></div>
+
       <div class="item-section">
         <p class="info-items d-flex align-items-center">
           <i class="icon far fa-calendar-alt pl-2"></i>
@@ -15,6 +17,8 @@
           <span class="item-date">{{ dateFormated() }}</span>
         </p>
       </div>
+      <div class="w-100 d-md-none pt-1"></div>
+
       <div class="item-section">
         <p class="info-items post-categories d-flex align-items-center">
           <i class="icon fas fa-bullseye pl-2"></i>
@@ -45,7 +49,7 @@ export default {
 
 <style lang="scss" scoped>
 .item-section {
-  padding-right: 3em;
+  padding-right: 4em;
 }
 
 @media (max-width: 680px) {
@@ -57,10 +61,10 @@ export default {
 
 .info-items {
   font-size: 0.9rem;
-  font-family: IranSans;
+  font-family: IranSansBold;
   padding-top: 3px;
 
-  color: rgba(255, 255, 255, 0.938) !important;
+  color: rgb(255, 255, 255) !important;
   .icon {
     font-size: 1.1rem;
   }
@@ -68,9 +72,9 @@ export default {
 
 span {
   font-size: 0.85rem;
-  color: rgba(230, 230, 230, 0.938) !important;
-  font-family: IranSansBold;
-  padding-right: 3px;
+  color: rgb(255, 255, 255) !important;
+  font-family: IranSans;
+  padding-right: 5px;
 }
 
 .item-date {

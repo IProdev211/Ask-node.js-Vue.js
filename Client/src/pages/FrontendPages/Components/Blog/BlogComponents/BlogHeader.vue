@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-center">{{ title }}</h1>
+    <h1 class="text-center pt-2">{{ title }}</h1>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 h1 {
-  font-size: 2em;
+  font-size: 2.2em;
   font-family: IranSansBold;
   line-height: inherit !important;
   color: rgb(255, 255, 255) !important;

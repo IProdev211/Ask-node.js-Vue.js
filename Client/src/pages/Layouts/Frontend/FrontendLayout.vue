@@ -65,7 +65,7 @@
                     data-toggle="dropdown"
                     aria-expanded="true"
                   >
-                    <div class="d-none d-md-block">
+                    <div class="user-item d-none d-md-block">
                       <div class="row pl-4">
                         <div class="photo">
                           <img :src="userAvatar" />
@@ -344,7 +344,15 @@ export default {
 @media (min-width: 768px) and (max-width: 1000px) {
   .ipad-fix {
     width: 100% !important;
-    padding: 30px 0;
+    // padding: 30px 0;
+  }
+
+  .user-item {
+    padding-right: 2em !important;
+  }
+
+  .dropdown-toggle[aria-expanded='true']:after {
+    display: none;
   }
 }
 
@@ -355,6 +363,10 @@ export default {
   .navbar-nav li {
     font-size: 0.9em !important;
   }
+}
+
+.dropdown-toggle[aria-expanded='true']:after {
+  display: none;
 }
 
 .profile-link-text {
