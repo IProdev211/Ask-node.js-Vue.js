@@ -5,7 +5,6 @@
         <div class="text-center">
           <BlogHeader :title="post.name"></BlogHeader>
           <img class="blog-img avatar" :src="post.image" :alt="post.name" />
-
           <div class="pt-5">
             <BlogInfo
               :name="post.author.name"
@@ -16,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="container text-ltr py-5">
+    <div class="container main-blog-text text-ltr py-5">
       <h3 class="subheading text-center py-3">{{post.name}}</h3>
       <div v-html="post.content"></div>
     </div>
@@ -53,18 +52,9 @@ export default {
 
 <style lang="scss" scoped>
 .heading-section {
-  padding: 2.5em 0;
+  padding: 2em 0;
   background-color: #0abcf9;
   background-image: linear-gradient(135deg, #0abcf9 0%, #2c69d1 74%);
-}
-
-@media only screen and (min-width: 700px) {
-  .row {
-    padding: 2em 3.5em;
-  }
-  .blog-img {
-    width: 12rem;
-  }
 }
 
 .subheading {
@@ -74,5 +64,18 @@ export default {
 .blog-img {
   width: 9em;
   height: 9em;
+}
+
+.main-blog-text {
+  padding: 0 18%;
+}
+
+@media only screen and (min-width: 700px) {
+  .row {
+    padding: 2em 3.5em;
+  }
+  .blog-img {
+    width: 12rem;
+  }
 }
 </style>
