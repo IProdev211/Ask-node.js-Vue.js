@@ -16,8 +16,8 @@
       >
         <div class="ticket-meta d-flex justify-content-between row">
           <p class="ticket-user">
-            <!-- USER PICTURE SHOULD GO INSTEAD OF ICON -->
-            <i class="pl-1 text-danger far fa-user"></i>
+            <img :src="message.user.avatar" :alt="message.user.name" class="user-avatar" v-if="message.user.avatar" width="30px">
+            <i class="pl-1 text-danger far fa-user" v-else></i>
             {{message.user.name}}
           </p>
 
@@ -388,6 +388,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.user-avatar {
+  width: 30px;
+}
 .ticket-number {
   h1,
   .subtitle {
