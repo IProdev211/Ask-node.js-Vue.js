@@ -76,7 +76,8 @@ export default {
         Swal({
           title: 'وضعیت دوره: در حال برگزاری',
           className: 'text-rtl',
-          icon: 'info'
+          icon: 'info',
+          button: 'بسیار خوب'
         });
       } else {
         this.$router.push('courses/' + this.slug);

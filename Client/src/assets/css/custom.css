@@ -628,3 +628,7 @@
 .swal-title {
   font-family: IranSansBold !important;
 }
+
+.swal-button {
+  font-family: IranSansDN !important;
+}

@@ -14,6 +14,7 @@
       </div>
     </div>
     <div class="main-blog-section container">
+      <h3 class="subheading text-center">{{post.name}}</h3>
       <div class="row">
         <div class="main-blog-text col-md-9">
           <div v-html="post.content"></div>
@@ -70,8 +71,8 @@ export default {
   margin-bottom: 2em;
   background-color: #7f53ac;
   background-image: linear-gradient(to left, #9737e6 0%, #64a4ee 74%);
-  border-bottom-left-radius: 35%;
-  border-bottom-right-radius: 35%;
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
 }
 
 .blog-img {
@@ -81,21 +82,22 @@ export default {
 }
 
 .main-blog-section {
-  padding: 3em 0 5em 0;
+  padding: 2em 0 5em 0;
 }
 
 .main-blog-text {
   // margin: 0 15%;
   padding: 0 10%;
-  font-size: 1.4em !important;
+  font-size: 1.3em !important;
   line-height: 2.1em !important;
+  direction: ltr !important;
 }
 
 .sticky {
   position: -webkit-sticky;
   position: sticky;
-  margin-top: 2em;
-  top: 10em;
+  margin-top: 1.9em;
+  top: 9em;
 }
 
 .small-devices {
@@ -104,8 +106,8 @@ export default {
 
 @media only screen and (max-width: 767px) {
   .heading-section {
-    border-bottom-left-radius: 10%;
-    border-bottom-right-radius: 10%;
+    border-bottom-left-radius: 1%;
+    border-bottom-right-radius: 1%;
   }
 
   .blog-img {

@@ -200,6 +200,7 @@ export default {
             title: `شما با موفقیت ثبت نام کردید!`,
             text: 'ایمیل حاوی لینک فعال سازی به ایمیل شما ارسال شد. بعد از تایید آدرس ایمیل میتوانید از قسمت ورود با اطلاعاتی که وارد کردید وارد شوید.',
             className: 'text-center',
+            button: 'بسیار خوب'
           });
         } else {
           this.$root.$data.user = response.data.user;
@@ -208,6 +209,7 @@ export default {
             title: `شما با موفقیت ثبت نام کردید!`,
             className: 'text-center',
             text: '',
+            button: 'بسیار خوب'
           });
           this.$router.push(this.$route.query.backTo || "dashboard");
         }

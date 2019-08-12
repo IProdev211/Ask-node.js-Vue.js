@@ -1,65 +1,67 @@
 <template>
   <div>
     <div v-if="id" :key="id">
-      <div class="top-banner">
-        <div class="pt-4 pb-2">
-          <div class="text-center">
-            <!-- Course Title -->
-            <h1 class="course-title">{{ title }}</h1>
-            <p class="episode-title" v-if="episode.id">{{ course.title }}</p>
-            <!-- Course Image -->
-            <img class="course-image rounded-circle img-fluid py-4" :src="course.image" />
+      <!-- Course Title & Description -->
+      <div class="text-right px-5">
+        <h1 class="course-title">{{ title }}</h1>
+        <p class="episode-title" v-if="episode.id">{{ course.title }}</p>
+        <div class="body container pt-3" v-html="body"></div>
+      </div>
+      <div class="top-banner text-center">
+        <div class="pt-5 text-center container">
+          <!-- Course Image -->
+          <img class="course-image rounded-circle img-fluid py-4" :src="course.image" />
+          <div class="w-100"></div>
+
+          <!------------ COURSE INFORMATION ------------>
+          <!-- COURSE CREATED AT -->
+          <div class="co">
+            <h5 class="icon-data">
+              <i class="pl-1 icon far fa-calendar-alt"></i>
+              <span class="icon-text pr-1 d-none d-md-block">ایجاد شده در</span>
+              {{ getEpisodeCreateDate() }}
+            </h5>
           </div>
+          <div class="w-100"></div>
 
-          <div class="body text-center container pt-3 px-5" v-html="body"></div>
-          <!-- COURSE INFORMATION -->
-          <div class="container pt-5 text-center d-flex justify-content-between">
-            <!-- COURSE CREATED AT -->
-            <div class="col">
-              <h5 class="icon-data">
-                <i class="pl-1 icon far fa-calendar-alt"></i>
-                <span class="icon-text pr-1 d-none d-md-block">ایجاد شده در</span>
-                {{ getEpisodeCreateDate() }}
-              </h5>
-            </div>
+          <!-- COURSE LENGTH -->
+          <div class="co">
+            <h5 class="icon-data">
+              <i class="pl-1 icon far fa-clock"></i>
+              <span
+                class="icon-text pr-1 d-none d-md-block"
+              >{{ episode.time ? "زمان این درس" : "زمان کل دوره" }}</span>
+              {{ episode.time ? episodeTime : courseTime }}
+            </h5>
+          </div>
+          <div class="w-100"></div>
 
-            <!-- COURSE LENGTH -->
-            <div class="col">
-              <h5 class="icon-data">
-                <i class="pl-1 icon far fa-clock"></i>
-                <span
-                  class="icon-text pr-1 d-none d-md-block"
-                >{{ episode.time ? "زمان این درس" : "زمان کل دوره" }}</span>
-                {{ episode.time ? episodeTime : courseTime }}
-              </h5>
-            </div>
+          <!-- COURSE USERS  -->
+          <div class="co" v-if="notEnrolled">
+            <h5 class="icon-data">
+              <i class="pl-1 icon fas fa-users"></i>
+              <span class="icon-text pr-1 d-none d-md-block">تعداد شرکت کنندگان</span>
+              {{ enrolledCount }}
+            </h5>
+          </div>
+          <div class="w-100"></div>
 
-            <!-- COURSE USERS  -->
-            <div class="col" v-if="notEnrolled">
-              <h5 class="icon-data">
-                <i class="pl-1 icon fas fa-users"></i>
-                <span class="icon-text pr-1 d-none d-md-block">تعداد شرکت کنندگان</span>
-                {{ enrolledCount }}
-              </h5>
-            </div>
-
-            <!-- COURSE PRICE  -->
-            <div class="col" v-if="notEnrolled && type == 'paid'">
-              <h5 class="icon-data">
-                <i class="pl-1 icon fas fa-money-check-alt"></i>
-                <span class="icon-text pr-1 d-none d-md-block">قیمت</span>
-                {{ getCoursePrice() }}
-              </h5>
-            </div>
-
-            <!-- INSTRUCTOR -->
-            <div class="col">
-              <h5 class="icon-data">
-                <i class="pl-1 icon fas fa-chalkboard-teacher"></i>
-                <span class="icon-text pr-1 d-none d-md-block">مدرس</span>
-                {{ course.user.name }}
-              </h5>
-            </div>
+          <!-- COURSE PRICE  -->
+          <div class="co" v-if="notEnrolled && type == 'paid'">
+            <h5 class="icon-data">
+              <i class="pl-1 icon fas fa-money-check-alt"></i>
+              <span class="icon-text pr-1 d-none d-md-block">قیمت</span>
+              {{ getCoursePrice() }}
+            </h5>
+          </div>
+          <div class="w-100"></div>
+          <!-- INSTRUCTOR -->
+          <div class="co">
+            <h5 class="icon-data">
+              <i class="pl-1 icon fas fa-chalkboard-teacher"></i>
+              <span class="icon-text pr-1 d-none d-md-block">مدرس</span>
+              {{ course.user.name }}
+            </h5>
           </div>
         </div>
       </div>
@@ -487,6 +489,14 @@ export default {
 
 
 <style lang="scss" scoped>
+.top-banner {
+  background-image: linear-gradient(270deg, #351dbd, #b835cc);
+  -webkit-box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.2);
+  box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.2);
+  border-radius: 15px;
+  margin: 3em;
+  width: 20%;
+}
 .swal-text-center {
   .swal-text {
     text-align: center !important;
@@ -497,35 +507,31 @@ export default {
   font-family: IranSansDNBold;
 }
 
-.top-banner {
-  background-image: linear-gradient(270deg, #351dbd, #b835cc);
+.course-title {
+  font-size: 1.7rem;
+  font-family: IranSansBold;
+  color: rgb(20, 20, 20) !important;
+  line-height: inherit;
+  // margin: 0;
+  // padding: 0;
+}
 
-  .course-title {
-    font-size: 1.7rem;
-    font-family: IranSansBold;
-    color: #fff !important;
-    line-height: inherit;
-    margin: 0;
-    padding: 0;
-  }
+.episode-title {
+  font-size: 1em;
+  color: rgba(20, 20, 20, 0.795) !important;
+}
 
-  .episode-title {
-    font-size: 1em;
-    color: rgba(255, 255, 255, 0.795) !important;
-  }
+.course-explanation {
+  font-size: 1.2rem;
+  font-family: IranSans;
+  color: rgb(0, 0, 0) !important;
+}
 
-  .course-explanation {
-    font-size: 1.2rem;
-    font-family: IranSans;
-    color: #fff !important;
-  }
-
-  .body {
-    /deep/ p {
-      color: #fff !important;
-      font-size: 1.1em !important;
-      line-height: inherit !important;
-    }
+.body {
+  /deep/ p {
+    color: rgb(26, 26, 26) !important;
+    font-size: 1.1em !important;
+    line-height: inherit !important;
   }
 }
 
