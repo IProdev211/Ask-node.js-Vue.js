@@ -1,79 +1,73 @@
 <template>
   <div>
     <div v-if="id" :key="id">
-      <!-- Course Title & Description -->
-      <div class="text-right px-5">
-        <h1 class="course-title">{{ title }}</h1>
-        <p class="episode-title" v-if="episode.id">{{ course.title }}</p>
-        <div class="body container pt-3" v-html="body"></div>
-      </div>
-      <div class="top-banner text-center">
-        <div class="pt-5 text-center container">
-          <!-- Course Image -->
-          <img class="course-image rounded-circle img-fluid py-4" :src="course.image" />
-          <div class="w-100"></div>
-
-          <!------------ COURSE INFORMATION ------------>
-          <!-- COURSE CREATED AT -->
-          <div class="co">
-            <h5 class="icon-data">
-              <i class="pl-1 icon far fa-calendar-alt"></i>
-              <span class="icon-text pr-1 d-none d-md-block">ایجاد شده در</span>
-              {{ getEpisodeCreateDate() }}
-            </h5>
+      <div class="top-banner">
+        <div class="container">
+          <!-- Course Title & Description -->
+          <div class="text-center px-5 py-5">
+            <h1 class="course-title">{{ title }}</h1>
+            <!-- Course Image -->
+            <img class="course-image rounded-circle img-fluid py-4" :src="course.image" />
+            <p class="episode-title" v-if="episode.id">{{ course.title }}</p>
+            <div class="body pt-3" v-html="body"></div>
           </div>
-          <div class="w-100"></div>
+          <div class="py-3 d-flex justify-content-around text-center">
+            <!-- COURSE CREATED AT -->
+            <div class="co">
+              <h5 class="icon-data">
+                <i class="pl-1 icon far fa-calendar-alt"></i>
+                <span class="icon-text pr-1 d-none d-md-block">ایجاد شده در</span>
+                {{ getEpisodeCreateDate() }}
+              </h5>
+            </div>
 
-          <!-- COURSE LENGTH -->
-          <div class="co">
-            <h5 class="icon-data">
-              <i class="pl-1 icon far fa-clock"></i>
-              <span
-                class="icon-text pr-1 d-none d-md-block"
-              >{{ episode.time ? "زمان این درس" : "زمان کل دوره" }}</span>
-              {{ episode.time ? episodeTime : courseTime }}
-            </h5>
-          </div>
-          <div class="w-100"></div>
+            <!-- COURSE LENGTH -->
+            <div class="co">
+              <h5 class="icon-data">
+                <i class="pl-1 icon far fa-clock"></i>
+                <span
+                  class="icon-text pr-1 d-none d-md-block"
+                >{{ episode.time ? "زمان این درس" : "زمان کل دوره" }}</span>
+                {{ episode.time ? episodeTime : courseTime }}
+              </h5>
+            </div>
 
-          <!-- COURSE USERS  -->
-          <div class="co" v-if="notEnrolled">
-            <h5 class="icon-data">
-              <i class="pl-1 icon fas fa-users"></i>
-              <span class="icon-text pr-1 d-none d-md-block">تعداد شرکت کنندگان</span>
-              {{ enrolledCount }}
-            </h5>
-          </div>
-          <div class="w-100"></div>
+            <!-- COURSE USERS  -->
+            <div class="co" v-if="notEnrolled">
+              <h5 class="icon-data">
+                <i class="pl-1 icon fas fa-users"></i>
+                <span class="icon-text pr-1 d-none d-md-block">تعداد شرکت کنندگان</span>
+                {{ enrolledCount }}
+              </h5>
+            </div>
 
-          <!-- COURSE PRICE  -->
-          <div class="co" v-if="notEnrolled && type == 'paid'">
-            <h5 class="icon-data">
-              <i class="pl-1 icon fas fa-money-check-alt"></i>
-              <span class="icon-text pr-1 d-none d-md-block">قیمت</span>
-              {{ getCoursePrice() }}
-            </h5>
-          </div>
-          <div class="w-100"></div>
-          <!-- INSTRUCTOR -->
-          <div class="co">
-            <h5 class="icon-data">
-              <i class="pl-1 icon fas fa-chalkboard-teacher"></i>
-              <span class="icon-text pr-1 d-none d-md-block">مدرس</span>
-              {{ course.user.name }}
-            </h5>
+            <!-- COURSE PRICE  -->
+            <div class="co" v-if="notEnrolled && type == 'paid'">
+              <h5 class="icon-data">
+                <i class="pl-1 icon fas fa-money-check-alt"></i>
+                <span class="icon-text pr-1 d-none d-md-block">قیمت</span>
+                {{ getCoursePrice() }}
+              </h5>
+            </div>
+
+            <!-- INSTRUCTOR -->
+            <div class="co">
+              <h5 class="icon-data">
+                <i class="pl-1 icon fas fa-chalkboard-teacher"></i>
+                <span class="icon-text pr-1 d-none d-md-block">مدرس</span>
+                {{ course.user.name }}
+              </h5>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-------------- COURSE INFO SECTION  -------------->
-      <div class="container">
-        <div class="pt-3 pb-2">
+        <!-------------- COURSE INFO SECTION  -------------->
+        <div class="pt-3 pb-4">
           <span
             class="head-section purchase-status text-right"
             v-if="notEnrolled && type.toLowerCase() != 'free'"
           >
-            <p v-if="type == 'paid'" class="pay-text text-center text-info">
+            <p v-if="type == 'paid'" class="pay-text text-center">
               <!-- <i class="fas fa-info pl-3"></i> -->
               برای دسترسی به این درس لطفا لینک
               خرید را دنبال کنید.
@@ -92,7 +86,7 @@
                 </span>
               </span>
             </p>
-            <p v-else-if="type.toLowerCase() == 'vip'" class="text-info text-center pay-text">
+            <p v-else-if="type.toLowerCase() == 'vip'" class="text-center pay-text">
               <!-- <i class="fas fa-info pl-3"></i> -->
               برای دسترسی به این درس اکانت VIP تهیه کنید.
               <span class="text-center pr-3">
@@ -105,57 +99,49 @@
           </span>
         </div>
       </div>
+    </div>
 
-      <!-- VIDEO SECTION -->
-      <div class="container">
-        <div class="py-3">
-          <vue-plyr class="plyr--video" :key="id">
-            <video>
-              <source :src="`/api/v1${download}`" type="video/mp4" size="720" />
-            </video>
-          </vue-plyr>
-        </div>
-
-        <!-- VIDEO BUTTONS -->
-        <div class="video-buttons">
-          <video-buttons
-            :next="next"
-            :prev="prev"
-            v-on:nextLesson="nextLessonListener"
-            v-on:prevLesson="prevLessonListener"
-            :loadingNext="loadingNext"
-            :loadingPrev="loadingPrev"
-            :isDoneEpisode="isDoneEpisode"
-            :canMarkAsDone="canMarkAsDone"
-            :loadingMarkAsDone="loadingMarkAsDone"
-            v-on:markAsDone="markAsDone"
-          />
-        </div>
-
-        <div class="all-units py-5">
-          <h4 class="text-right pr-3 pt-4">سرفصل دوره</h4>
-          <!-- Timeline Unit Section -->
-          <AllUnits
-            :course="course"
-            :episodes="course.episodes"
-            :scrollable="false"
-            :maxepisodes="4"
-            :purchased="! notEnrolled"
-            :courseDonePercentage="courseDonePercentage"
-            :courseRemainPercentage="courseRemainPercentage"
-            :activeEpisode="this.episode ? this.episode.id : ''"
-            @buy="openBuyCourse"
-          ></AllUnits>
-          <p
-            class="quote-text text-center pb-2 d-none d-md-block"
-          >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
-        </div>
-
-        <!-- <div class="row pt-4">
-            <div class="col-lg-3 col-md-6" v-for="course in topCourses" v-bind:key="course.id">
-              <Course v-bind="course"></Course>
-            </div>
-        </div>-->
+    <!-- VIDEO SECTION -->
+    <div class="container">
+      <div class="py-3">
+        <vue-plyr class="plyr--video" :key="id">
+          <video>
+            <source :src="`/api/v1${download}`" type="video/mp4" size="720" />
+          </video>
+        </vue-plyr>
+      </div>
+      <!-- VIDEO BUTTONS -->
+      <div class="video-buttons">
+        <video-buttons
+          :next="next"
+          :prev="prev"
+          v-on:nextLesson="nextLessonListener"
+          v-on:prevLesson="prevLessonListener"
+          :loadingNext="loadingNext"
+          :loadingPrev="loadingPrev"
+          :isDoneEpisode="isDoneEpisode"
+          :canMarkAsDone="canMarkAsDone"
+          :loadingMarkAsDone="loadingMarkAsDone"
+          v-on:markAsDone="markAsDone"
+        />
+      </div>
+      <div class="all-units py-5">
+        <h4 class="text-right pr-3 pt-4">سرفصل دوره</h4>
+        <!-- Timeline Unit Section -->
+        <AllUnits
+          :course="course"
+          :episodes="course.episodes"
+          :scrollable="false"
+          :maxepisodes="4"
+          :purchased="! notEnrolled"
+          :courseDonePercentage="courseDonePercentage"
+          :courseRemainPercentage="courseRemainPercentage"
+          :activeEpisode="this.episode ? this.episode.id : ''"
+          @buy="openBuyCourse"
+        ></AllUnits>
+        <p
+          class="quote-text text-center pb-2 d-none d-md-block"
+        >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
       </div>
     </div>
     <modal ref="buymodal" centered="true" footerClasses="justify-content-center" type="notice">
@@ -490,12 +476,16 @@ export default {
 
 <style lang="scss" scoped>
 .top-banner {
-  background-image: linear-gradient(270deg, #351dbd, #b835cc);
-  -webkit-box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.2);
-  box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.2);
-  border-radius: 15px;
-  margin: 3em;
-  width: 20%;
+  background-image: linear-gradient(270deg, #870eb8, #351dbd);
+  // -webkit-box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.2);
+  // box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.2);
+  // border-radius: 15px;
+  // margin: 3em;
+  // width: 20%;
+}
+
+.custom-padding {
+  padding: 0 10%;
 }
 .swal-text-center {
   .swal-text {
@@ -510,7 +500,7 @@ export default {
 .course-title {
   font-size: 1.7rem;
   font-family: IranSansBold;
-  color: rgb(20, 20, 20) !important;
+  color: rgb(255, 255, 255) !important;
   line-height: inherit;
   // margin: 0;
   // padding: 0;
@@ -518,18 +508,18 @@ export default {
 
 .episode-title {
   font-size: 1em;
-  color: rgba(20, 20, 20, 0.795) !important;
+  color: rgba(255, 255, 255, 0.795) !important;
 }
 
 .course-explanation {
   font-size: 1.2rem;
   font-family: IranSans;
-  color: rgb(0, 0, 0) !important;
+  color: rgb(255, 255, 255) !important;
 }
 
 .body {
   /deep/ p {
-    color: rgb(26, 26, 26) !important;
+    color: rgb(255, 255, 255) !important;
     font-size: 1.1em !important;
     line-height: inherit !important;
   }
@@ -545,14 +535,14 @@ export default {
 
 .icon {
   font-size: 1.4em;
-  color: rgba(255, 255, 255, 0.815) !important;
+  color: rgba(255, 255, 255, 1) !important;
   display: block;
   padding-bottom: 8px;
 }
 
 .icon-text {
   font-size: 0.75em;
-  color: rgba(255, 255, 255, 0.493) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
   font-family: IranSans;
   padding-left: 0;
   display: block;
@@ -562,7 +552,7 @@ export default {
 .icon-data {
   font-size: 1.1em;
   font-family: IranSansBold;
-  color: rgba(255, 255, 255, 0.87) !important;
+  color: rgba(255, 255, 255, 1) !important;
 }
 
 @media (max-width: 768px) {
@@ -579,7 +569,7 @@ export default {
   }
 
   .icon-data {
-    font-size: 0.7rem;
+    font-size: 0.9em;
   }
 
   .icon-text {
@@ -602,6 +592,7 @@ export default {
 .pay-text {
   font-size: 1rem;
   font-family: IranSansBold;
+  color: #fff !important;
 }
 
 .pay-icon {
