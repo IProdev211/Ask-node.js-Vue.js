@@ -9,7 +9,7 @@
 
       <div class="pt-3 d-flex justify-content-center text-center">
         <div>
-          <router-link to="login">
+          <router-link to="dashboard">
             <base-button
               native-type="submit"
               type="warning"

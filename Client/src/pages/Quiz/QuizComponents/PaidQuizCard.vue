@@ -177,10 +177,10 @@ i {
 .paid-quiz-card:focus {
   -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.6);
   box-shadow: 40px rgba(121, 121, 121, 0.6);
-  transition: transform 0.6s;
-  -webkit-transform: translateY(-3px);
-  transform: translateY(-3px);
-  cursor: pointer;
+  // transition: transform 0.6s;
+  // -webkit-transform: translateY(-3px);
+  // transform: translateY(-3px);
+  // cursor: pointer;
 }
 
 .farsi {

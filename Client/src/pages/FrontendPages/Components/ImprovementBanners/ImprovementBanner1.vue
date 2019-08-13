@@ -10,6 +10,30 @@
           <br />
           <br />به احتمال خیلی زیاد این داستان برای شما هم اتفاق افتاده، داستانی که گفته شد عموما برای اکثر زبان آموزان ها اتفاق میافتد. که هم داستان کلافه کننده ای هست و بیشتر از آن نا امید کننده.
         </p>
+
+        <div class="text-left">
+          <base-button
+            v-scroll-to="{
+              el: '#element',
+              duration: 900,
+              easing: 'linear',
+              offset: -20,
+              force: true,
+              cancelable: true,
+              onStart: onStart,
+              onDone: onDone,
+              onCancel: onCancel,
+              x: false,
+              y: true
+            }"
+            native-type="submit"
+            type="success"
+            class="btn btn-lg btn-round animation-on-hover"
+          >
+            <!-- <i class="fas fa-info-circle ml-2"></i> -->
+            راه حل؟
+          </base-button>
+        </div>
       </div>
     </div>
   </section>
@@ -34,7 +58,7 @@ export default {};
 }
 .text-section {
   text-align: right;
-  padding: 6em 0;
+  padding: 6em 0 4em 0;
 
   h2 {
     font-size: 2.5em;
@@ -52,6 +76,12 @@ export default {};
   }
 }
 
+.rtl .btn {
+  font-family: IranSansBold;
+  font-size: 1em !important;
+  padding: 0.9em 2em;
+}
+
 @media (max-width: 680px) {
   .text-section {
     padding: 2em;
@@ -60,6 +90,11 @@ export default {};
     }
     .main-text {
       font-size: 1.1em;
+    }
+    .rtl .btn {
+      font-family: IranSansBold;
+      font-weight: inherit;
+      padding: 0.6em 1.5em;
     }
   }
 }

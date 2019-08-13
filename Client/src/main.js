@@ -20,6 +20,7 @@ Vue.use(CKEditor);
 Vue.use(VuePlyr);
 Vue.use(NProgress);
 Vue.use(VueMeta);
+
 // Vue.use(VueCarousel);
 // Vue.use(ElementUI);
 

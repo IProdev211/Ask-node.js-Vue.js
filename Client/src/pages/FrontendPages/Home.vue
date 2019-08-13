@@ -1,8 +1,7 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <HeroSection />
-
+    <HeroSection id="hero" />
     <!-- Top Courses Section -->
     <div class="container py-5">
       <div class="top-courses-section">
@@ -10,15 +9,6 @@
           <p class="text-right top-section-header pt-1">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
         <div class="pt-4 padding-test">
-          <!--<Carousel :perPageCustom="[[0, 1], [576, 2], [768, 3], [992, 4]]">
-            <slide 
-                v-for="course in topCourses"
-                :per-page="1"
-                v-bind:key="course.id">
-                <Course v-bind="course"></Course>
-            </slide>
-          </Carousel>-->
-
           <div
             class="col-lg-3 col-md-6 col-sm-12 d-none d-md-block"
             v-for="course in topCourses"
@@ -57,7 +47,7 @@
     </div>
 
     <!--Improvement Banner 2-->
-    <div class="pt-4">
+    <div id="element" class="pt-4">
       <ImprovementBanner2></ImprovementBanner2>
     </div>
 
@@ -65,6 +55,42 @@
     <!-- <div class="founder-section-homepage pb-4">
       <founder-section></founder-section>
     </div>-->
+
+    <!-- <base-button
+        v-scroll-to="{
+              el: '#hero',
+              duration: 900,
+              easing: 'linear',
+              offset: -1000,
+              force: true,
+              cancelable: true,
+              onStart: onStart,
+              onDone: onDone,
+              onCancel: onCancel,
+              x: false,
+              y: true
+            }"
+        native-type="submit"
+        type="success"
+        class="btn btn-lg btn-round go-to-top animation-on-hover"
+    ></base-button>-->
+
+    <i
+      v-scroll-to="{
+              el: '#hero',
+              duration: 900,
+              easing: 'linear',
+              offset: -1000,
+              force: true,
+              cancelable: true,
+              onStart: onStart,
+              onDone: onDone,
+              onCancel: onCancel,
+              x: false,
+              y: true
+            }"
+      class="fas fa-chevron-up go-to-top"
+    ></i>
   </div>
 </template>
 
@@ -149,19 +175,6 @@ export default {
 
 
 <style lang="scss" scoped>
-// .el-carousel__container {
-//   height: 500px !important;
-// }
-
-// .el-carousel__item--card {
-//   width: 75% !important;
-// }
-
-// .sticky {
-//   position: sticky;
-//   top: 0;
-// }
-
 .white-content .card:not(.card-white) {
   border-radius: 20px;
   background: #e7e7e7ec;
@@ -189,5 +202,36 @@ export default {
 }
 .btn {
   font-weight: inherit;
+}
+
+.go-to-top {
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  left: 20px; /* Place the button 30px from the left */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10px; /* Some padding */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 2em; /* Increase font size */
+  background-color: rgba(0, 0, 0, 0.11); /* Set a background color */
+}
+
+.go-to-top:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+  color: white;
+}
+
+@media (max-width: 760px) {
+  .go-to-top {
+    bottom: 20px; /* Place the button at the bottom of the page */
+    left: 30px; /* Place the button 30px from the left */
+    z-index: 99; /* Make sure it does not overlap */
+    padding: 6px; /* Some padding */
+    font-size: 1.6em; /* Increase font size */
+    background-color: rgba(0, 0, 0, 0.03); /* Set a background color */
+    color: rgba(15, 15, 15, 0.2);
+  }
 }
 </style>
