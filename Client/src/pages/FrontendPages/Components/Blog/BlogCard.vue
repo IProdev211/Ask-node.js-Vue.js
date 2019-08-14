@@ -6,11 +6,12 @@
         <div class="category">{{ categories.length ? categories[categories.length - 1].name : "" }}</div>
         <div class="card-body">
           <h3 class="card-title text-center" :class="isLtr ? 'title-ltr' : ''">{{ name }}</h3>
-          <div class="d-flex justify-content-around card-footer">
+          <div class="d-flex justify-content-between card-footer">
             <span class="card-footer-text">
-              {{views}}
+              {{ views }}
               <i class="fa fa-eye"></i>
             </span>
+
             <div class="card-footer-text">
               <span class="pl-2">{{ publishedAt }}</span>
               <i class="far fa-calendar-alt"></i>
@@ -44,11 +45,11 @@ export default {
 .card .card-footer {
   background-color: transparent;
   border-top: 1px solid rgba(158, 158, 158, 0.1);
-  padding: 15px 0 0 0;
+  padding: 1em 0.5em 0 0.5em;
 
   .card-footer-text {
-    color: #919191 !important;
-    font-size: 0.82rem;
+    color: #585858 !important;
+    font-size: 1em;
   }
 }
 
@@ -93,12 +94,13 @@ export default {
 }
 
 .home-blog .category {
+  top: 1em;
+  left: 1em;
   border-radius: 10px;
   position: absolute;
-  padding: 3px 10px;
-  margin: 8px;
-  color: rgb(211, 211, 211) !important;
-  background-color: #505050 !important;
+  padding: 4px 11px;
+  color: rgb(54, 54, 54) !important;
+  background-color: #fff !important;
   font-family: Arial, Helvetica, sans-serif;
 }
 

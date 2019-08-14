@@ -16,10 +16,10 @@
     <div class="main-blog-section container">
       <h3 class="subheading text-center">{{post.name}}</h3>
       <div class="row">
-        <div class="main-blog-text col-md-9">
+        <div class="main-blog-text col-lg-9 col-md-6">
           <div v-html="post.content"></div>
         </div>
-        <div class="sticky col-md-3">
+        <div class="sticky col-lg-3 col-md-6">
           <custom-card :class="sticky" />
         </div>
       </div>
@@ -36,7 +36,6 @@ import BlogInfo from './BlogComponents/BlogInfo.vue';
 import RelatedCards from './BlogComponents/RelatedCards.vue';
 
 import CustomCard from '../../../SingleLesson/Components/CustomCard';
-
 import backend from '../../../../backend';
 
 export default {
@@ -96,8 +95,8 @@ export default {
 .sticky {
   position: -webkit-sticky;
   position: sticky;
-  margin-top: 1.9em;
-  top: 9em;
+  margin-top: 1em;
+  top: 8em;
 }
 
 .small-devices {

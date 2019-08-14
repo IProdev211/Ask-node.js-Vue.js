@@ -183,7 +183,7 @@ h1 {
     padding: 1.5em 2.5em;
     margin-bottom: 10px;
     background-color: #7f5a83;
-    background-image: linear-gradient(270deg, #0d324d 0%, #3f0d77 74%);
+    background-image: linear-gradient(270deg, #070849, #4a054d);
     // background-color: rgb(226, 226, 226);
     border-radius: 15px;
     border: 1px solid rgb(59, 59, 59);

@@ -201,7 +201,7 @@ export default {
 
 .title {
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 300;
+  font-weight: bold;
 }
 
 .emailText {

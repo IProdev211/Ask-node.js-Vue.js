@@ -215,7 +215,7 @@ export default {
   padding: 10px; /* Some padding */
   border-radius: 5px; /* Rounded corners */
   font-size: 2em; /* Increase font size */
-  background-color: rgba(0, 0, 0, 0.11); /* Set a background color */
+  background-color: rgba(0, 0, 0, 0.15); /* Set a background color */
 }
 
 .go-to-top:hover {
@@ -225,13 +225,13 @@ export default {
 
 @media (max-width: 760px) {
   .go-to-top {
-    bottom: 20px; /* Place the button at the bottom of the page */
-    left: 30px; /* Place the button 30px from the left */
+    bottom: 15px; /* Place the button at the bottom of the page */
+    left: 15px; /* Place the button 30px from the left */
     z-index: 99; /* Make sure it does not overlap */
-    padding: 6px; /* Some padding */
+    padding: 0.3em; /* Some padding */
     font-size: 1.6em; /* Increase font size */
-    background-color: rgba(0, 0, 0, 0.03); /* Set a background color */
-    color: rgba(15, 15, 15, 0.2);
+    background-color: rgba(0, 0, 0, 0.02); /* Set a background color */
+    color: rgba(15, 15, 15, 0.13);
   }
 }
 </style>

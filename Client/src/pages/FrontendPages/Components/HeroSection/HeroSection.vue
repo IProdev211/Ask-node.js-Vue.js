@@ -56,7 +56,7 @@ export default {};
   }
 
   .hero-title {
-    font-size: 4.2em;
+    font-size: 4.4em;
     line-height: inherit;
     font-family: IranSansBold !important;
     color: #fff !important;
