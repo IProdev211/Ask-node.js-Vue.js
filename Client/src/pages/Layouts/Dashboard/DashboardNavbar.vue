@@ -177,17 +177,18 @@ export default {
   color: rgb(255, 0, 98);
   font-family: IranSansBold;
   text-decoration: none;
-  background-color: transparent;
+  background-color: transparent !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: transparent !important;
 }
 
 .rtl .dropdown-toggle:after {
   margin-right: 0.255em;
   margin-left: 0;
   display: none;
-}
-
-.navbar-toggler {
-  margin-right: auto;
 }
 
 ///////////////////////////

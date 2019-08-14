@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="container">
-      <h4 class="title text-right pt-2">اعلانات</h4>
+      <h4 class="title text-right pt-4">اعلانات</h4>
       <div class="text-right" v-if="logs.length">
         <div class="Message pt-4" v-for="log of logs" :key="log.id">
           <p class="text-justify">

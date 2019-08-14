@@ -9,7 +9,7 @@
       </div>-->
 
       <div class="userSection text-center">
-        <div class="photo avatar mb-3">
+        <div class="photo avatar mt-5 mb-4">
           <img :src="userAvatar" />
         </div>
         <p>

@@ -3,10 +3,7 @@
     <div class="container">
       <notifications></notifications>
     </div>
-    <!-- <sidebar-fixed-toggle-button /> -->
     <side-bar :background-color="sidebarBackground">
-      <!-- <side-bar :background-color="sidebarBackground" :short-title="'پنل کاربری'" :title="'داشبورد'"> -->
-
       <template slot="links">
         <sidebar-item
           :link="{
@@ -55,9 +52,7 @@
   </div>
 </template>
 <script>
-/* eslint-disable no-new */
 import backend from '../../../backend';
-
 import PerfectScrollbar from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 

@@ -120,13 +120,6 @@
                     </router-link>
                   </li>
 
-                  <!-- <li class="nav-link">
-                    <router-link to="/points" class="nav-item dropdown-item">
-                      <i class="i-custom fas fa-gem pl-2"></i>
-                      امتیاز
-                    </router-link>
-                  </li>-->
-
                   <li class="nav-link pr-3">
                     <router-link
                       class="nav-item dropdown-item"
@@ -217,7 +210,7 @@
             طراحی و تولید شده توسط
             <router-link to="/terms">اسک آریا</router-link>، با افتخار در ایران
             <i class="tim-icons icon-heart-2"></i>
-            سال ١٣٩۴
+            سال ١٣٩۸
           </div>
         </footer>
       </div>
@@ -341,6 +334,11 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+.dropdown-item.active {
+  color: rgb(255, 0, 98);
+  background-color: transparent !important;
+}
+
 @media (min-width: 768px) and (max-width: 1000px) {
   .ipad-fix {
     width: 100% !important;

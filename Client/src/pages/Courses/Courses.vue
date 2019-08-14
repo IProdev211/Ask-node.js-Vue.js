@@ -22,7 +22,7 @@
     >محتوای جدید هر هفته اضافه می شود!</h3>
 
     <div class="row">
-      <!-- Courses Go Here  -->
+      <!-- Courses  -->
       <div
         class="col-lg-3 col-md-6 course-section"
         v-for="course in courses"
@@ -31,12 +31,7 @@
         <Course v-bind="course"></Course>
       </div>
 
-      <!-- VIP - ORIGINAL CODE
-      <div class="col-lg-12 my-5" v-if="!isVIP">
-        <Vip></Vip>
-      </div>-->
-
-      <!-- VIP - EDITED CODE TO ALWAYS SHOW THE BUY BUTTON  -->
+      <!-- VIP -->
       <div class="col-lg-12 my-5">
         <Vip></Vip>
       </div>

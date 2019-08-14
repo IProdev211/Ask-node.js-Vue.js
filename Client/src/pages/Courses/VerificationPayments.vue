@@ -26,9 +26,9 @@
             <i class="fa fa-5x fa-exclamation-circle text-danger"></i>
           </h2>
           <h3 class="mt-4 mb-2 text-danger">تراکنش ناموفق</h3>
-          <p class="text-light text-center">
+          <p class="text-light text-right text-rtl">
             تراکنش شما با موفقیت پرداخت نشد.
-            <br>درصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی طی 48 ساعت آینده مرجوع خواهد شد.
+            <br />درصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی طی 48 ساعت آینده مرجوع خواهد شد.
           </p>
           <p>
             <router-link v-if="course.id" :to="`/courses/${course.slug}`">

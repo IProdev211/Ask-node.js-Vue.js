@@ -3,15 +3,12 @@
     <card class="card-user">
       <p class="card-text"></p>
       <div class="author">
-        <!-- <div class="block block-one"></div>
-        <div class="block block-two"></div>
-        <div class="block block-three"></div>
-        <div class="block block-four"></div> -->
+    
         <img class="avatar" :src="userAvatar" alt="Users Profile Image">
         <h2 class="title">
           {{ user.name }}
           <br>
-          <span class="description emailText px-1">{{ user.email }}</span>
+          <span class=" emailText px-1">{{ user.email }}</span>
         </h2>
         <p class="description">
           <i class="fas fa-check tick px-2"></i>{{ user.admin ? "مدیر" : "دانشجو"}} -
@@ -27,15 +24,15 @@
             <base-button
               @click="showForm = !showForm"
               native-type="submit"
-              class="btn-fill btn btn-sm"
+              class="btn-fill btn btn-round"
             >{{ 'ویرایش مشخصات' }}</base-button>
           </div>
-          <div class="pt-3 px-2">
+          <div class="pt-3">
             <router-link to="courses">
               <base-button
                 native-type="submit"
                 type="primary"
-                class="btn-fill btn btn-sm"
+                class="btn-fill btn btn-round"
               >{{ 'شارژ VIP' }}</base-button>
             </router-link>
           </div>
@@ -199,14 +196,24 @@ export default {
   height: 7em;
 }
 
+.btn {
+  padding: 10px 15px;
+}
+
 .title {
+  font-size: 2em;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
+}
+
+.description {
+  font-size: 1.1em;
 }
 
 .emailText {
   font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
 }
 
 .box {

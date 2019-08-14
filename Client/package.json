@@ -50,7 +50,6 @@
     "tween.js": "^16.6.0",
     "vee-validate": "^2.2.15",
     "vue": "^2.6.9",
-    "vue-carousel": "^0.18.0",
     "vue-chartjs": "^3.4.2",
     "vue-google-login": "^2.0.2",
     "vue-i18n": "^8.14.0",

@@ -7,7 +7,7 @@
         طراحی و تولید شده توسط
         <router-link to="/terms">اسک آریا</router-link>، با افتخار در ایران
         <i class="tim-icons icon-heart-2"></i>
-        سال ١٣٩۴
+        سال ١٣٩۸
       </div>
     </footer>
   </section>
@@ -33,6 +33,7 @@ export default {
 
 .footer-bottom {
   // background: #37393b;
+  background: transparent !important;
   padding: 25px 0;
   color: #fff !important;
   line-height: 2;
