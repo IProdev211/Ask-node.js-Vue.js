@@ -9,7 +9,9 @@
         v-model="model"
       />
       <span class="form-check-sign"></span>
-      <slot> <span v-if="inline">&nbsp;</span> </slot>
+      <slot>
+        <span v-if="inline">&nbsp;</span>
+      </slot>
     </label>
   </div>
 </template>

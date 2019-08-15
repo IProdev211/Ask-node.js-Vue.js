@@ -113,6 +113,10 @@
 /* .input-group {
   border: 1px solid black !important;
 } */
+/* 
+.white-content .form-control {
+  border-color: #cad1d7;
+}
 
 .white-content .input-group-prepend .input-group-text {
   border-left: none !important;
@@ -136,12 +140,29 @@
 }
 
 .input-group .form-control:last-child {
-  font-family: IranSans !important;
-  /* border-right: 0 none !important;
-  border-top: 1px solid #838383;
-  border-bottom: 1px solid #838383;
-  border-left: 1px solid #838383;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 10px; */
+  border-right: 0 none !important;
+  font-family: IranSans;
+
+  border-left: 1px solid #cad1d7 !important;
 }
+
+.input-group-text {
+  border-top: 1px solid #cad1d7 !important;
+  border-bottom: 1px solid #cad1d7 !important;
+}
+
+.input-group-prepend {
+  border-right: 1px solid #cad1d7 !important;
+}
+
+.input-group .form-control:focus {
+  border-color: #cad1d7 !important;
+}
+
+.input-group-prepend:focus {
+  border-color: #cad1d7 !important;
+}
+
+.input-group:focus {
+  border-color: #cad1d7 !important;
+} */

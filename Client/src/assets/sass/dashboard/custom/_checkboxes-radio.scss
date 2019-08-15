@@ -48,12 +48,13 @@
 .form-check input[type='checkbox']:checked + .form-check-sign::before,
 .form-check input[type='checkbox']:checked + .form-check-sign::before {
   border: none;
-  background-color: $primary;
+  // background-color: $primary;
+  background-color: #0bd49f;
 }
 
 .form-check .form-check-sign::after {
   font-family: 'Font Awesome 5 Free';
-  content: '\f00d';
+  content: '\f00c';
   top: 0px;
   text-align: center;
   font-size: 14px;
