@@ -45,14 +45,14 @@
 
 <script>
 import BlogCard from './BlogCard.vue';
-import { Carousel, Slide } from 'vue-carousel';
+// import { Carousel, Slide } from 'vue-carousel';
 
 export default {
   props: ['posts'],
   components: {
-    BlogCard,
-    Carousel,
-    Slide
+    BlogCard
+    // Carousel,
+    // Slide
   }
 };
 </script>

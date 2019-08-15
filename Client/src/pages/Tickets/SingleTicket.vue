@@ -1,6 +1,6 @@
 <template>
   <section class="container-fluid text-right">
-    <div class="ticket-number mb-4">
+    <div class="ticket-number mb-2">
       <h1>
         #{{ticket.ticket_id}}
         <span class="subtitle">مشاهده تیکت</span>
@@ -16,7 +16,12 @@
       >
         <div class="ticket-meta d-flex justify-content-between row">
           <p class="ticket-user">
-            <img :src="message.user.avatar" :alt="message.user.name" class="user-avatar" v-if="message.user.avatar" width="30px">
+            <img
+              :src="message.user.avatar"
+              :alt="message.user.name"
+              class="user-avatar avatar"
+              v-if="message.user.avatar"
+            />
             <i class="pl-1 text-danger far fa-user" v-else></i>
             {{message.user.name}}
           </p>
@@ -388,9 +393,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.user-avatar {
-  width: 30px;
+.avatar {
+  width: 2.5em;
+  height: 2.5em;
+  margin-left: 10px;
 }
+
 .ticket-number {
   h1,
   .subtitle {
@@ -407,7 +415,7 @@ export default {
 }
 
 .card-custom {
-  background-color: rgb(236, 236, 236);
+  background-color: rgba(236, 236, 236, 0.705);
   border-radius: 25px;
   padding: 2em 3em;
 
@@ -471,6 +479,12 @@ export default {
 
   .ticket-meta {
     padding-right: 1em;
+  }
+
+  .avatar {
+    width: 1.8em;
+    height: 1.8em;
+    margin-left: 10px;
   }
 }
 
