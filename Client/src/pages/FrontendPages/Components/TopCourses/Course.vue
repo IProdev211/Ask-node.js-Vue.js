@@ -238,6 +238,11 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .CourseCard {
+    -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0);
+    box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0);
+  }
+
   .CourseCard__course__info {
     margin: 0 14%;
   }

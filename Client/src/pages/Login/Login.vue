@@ -214,7 +214,7 @@ export default {
 <style lang="scss" scoped>
 .bg {
   background-color: rgb(8, 7, 104);
-  min-height: 80vh;
+  min-height: 100vh;
 }
 
 .card-title {
@@ -235,7 +235,7 @@ export default {
 }
 
 .login-section {
-  min-height: 80vh;
+  min-height: 100vh;
   background-color: #f5f7fa;
 }
 

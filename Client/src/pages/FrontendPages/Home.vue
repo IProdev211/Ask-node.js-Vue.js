@@ -102,7 +102,6 @@ import BlogSection from './Components/Blog/BlogSection.vue';
 import OurCourses from './Components/OurCourses/OurCourses.vue';
 import ImprovementBanner1 from './Components/ImprovementBanners/ImprovementBanner1.vue';
 import ImprovementBanner2 from './Components/ImprovementBanners/ImprovementBanner2.vue';
-// import { Carousel, Slide } from 'vue-carousel';
 import { Carousel, CarouselItem } from 'element-ui';
 
 export default {

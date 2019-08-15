@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="id" :key="id">
-      <div class="top-banner">
+      <div class="top-banner" id="top">
         <div class="container">
           <!-- Course Title & Description -->
           <div class="text-center px-5 py-5">
@@ -166,12 +166,29 @@
         >{{ this.$root._data.user ? "پرداخت از درگاه" : "ورود" }}</base-button>
       </div>
     </modal>
+    <i
+      v-scroll-to="{
+              el: '#top',
+              duration: 900,
+              easing: 'linear',
+              offset: -1000,
+              force: true,
+              cancelable: true,
+              onStart: onStart,
+              onDone: onDone,
+              onCancel: onCancel,
+              x: false,
+              y: true
+            }"
+      class="fas fa-chevron-up go-to-top"
+    ></i>
   </div>
 </template>
 <script>
 import AllUnits from './Components/AllUnits.vue';
 import CustomCard from './Components/CustomCard.vue';
 import VideoButtons from './Components/VideoButtons.vue';
+import { Carousel, CarouselItem } from 'element-ui';
 
 import moment from 'jalali-moment';
 import backend from '../../backend';
@@ -183,7 +200,9 @@ export default {
     AllUnits,
     CustomCard,
     VideoButtons,
-    modal: Modal
+    modal: Modal,
+    [Carousel.name]: Carousel,
+    [CarouselItem.name]: CarouselItem
   },
   data() {
     return {
@@ -645,6 +664,37 @@ h4 {
 @media (min-width: 480px) {
   .plyr--video .plyr__controls {
     border-radius: 25px !important;
+  }
+}
+
+.go-to-top {
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  left: 20px; /* Place the button 30px from the left */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10px; /* Some padding */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 2em; /* Increase font size */
+  background-color: rgba(0, 0, 0, 0.15); /* Set a background color */
+}
+
+.go-to-top:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+  color: white;
+}
+
+@media (max-width: 760px) {
+  .go-to-top {
+    bottom: 15px; /* Place the button at the bottom of the page */
+    left: 15px; /* Place the button 30px from the left */
+    z-index: 99; /* Make sure it does not overlap */
+    padding: 0.3em; /* Some padding */
+    font-size: 1.6em; /* Increase font size */
+    background-color: rgba(0, 0, 0, 0.02); /* Set a background color */
+    color: rgba(15, 15, 15, 0.13);
   }
 }
 </style>
