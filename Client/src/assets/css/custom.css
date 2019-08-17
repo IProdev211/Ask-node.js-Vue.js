@@ -110,59 +110,7 @@
   text-align: center !important;
 }
 
-/* .input-group {
-  border: 1px solid black !important;
-} */
-/* 
-.white-content .form-control {
-  border-color: #cad1d7;
+.has-success.form-group .form-control,
+.has-danger.form-group .form-control {
+  direction: ltr !important;
 }
-
-.white-content .input-group-prepend .input-group-text {
-  border-left: none !important;
-}
-
-.input-group .form-control:last-child {
-  border-right: 0 none !important;
-  font-family: IranSans;
-  border-bottom-left-radius: 4px !important;
-  border-top-left-radius: 4px !important;
-}
-
-.input-group > .input-group-prepend > .input-group-text {
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-}
-
-.form-group .input-group-prepend .input-group-text,
-.input-group .input-group-prepend .input-group-text {
-  padding: 10px 18px 10px 0 !important;
-}
-
-.input-group .form-control:last-child {
-  border-right: 0 none !important;
-  font-family: IranSans;
-
-  border-left: 1px solid #cad1d7 !important;
-}
-
-.input-group-text {
-  border-top: 1px solid #cad1d7 !important;
-  border-bottom: 1px solid #cad1d7 !important;
-}
-
-.input-group-prepend {
-  border-right: 1px solid #cad1d7 !important;
-}
-
-.input-group .form-control:focus {
-  border-color: #cad1d7 !important;
-}
-
-.input-group-prepend:focus {
-  border-color: #cad1d7 !important;
-}
-
-.input-group:focus {
-  border-color: #cad1d7 !important;
-} */

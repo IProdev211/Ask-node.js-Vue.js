@@ -50,6 +50,7 @@
   .form-control-feedback,
   .control-label {
     color: $danger-states;
+    text-align: right !important;
   }
 }
 .has-success {

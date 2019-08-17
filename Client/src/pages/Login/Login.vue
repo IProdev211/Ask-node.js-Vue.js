@@ -3,7 +3,7 @@
     <div class="col-lg-3 col-md-5 col-sm-12 login-section">
       <div class="container">
         <form @submit="checkForm">
-          <h1 class="login-title py-5">ورود به سایت</h1>
+          <h1 class="login-title pt-5 pb-3">ورود به سایت</h1>
           <div class="row">
             <div class="col-12">
               <base-input
@@ -28,7 +28,7 @@
           </div>
           <div class="text-right text-rtl">
             <base-checkbox
-              class="pb-4"
+              class="pb-3"
               name="remember"
               :checked="remember"
               @input="() => {remember = !remember;}"
@@ -37,34 +37,34 @@
             </base-checkbox>
           </div>
 
-          <div class="text-center pb-3">
+          <div class="text-center pb-2">
             <a :href="googleAuthUrl">
               <h4 class="googleicon">
                 <i class="fab fa-google icon"></i>
               </h4>
             </a>
-            <p class="google-text pt-1">شما میتوانید با اکانت گوگل وارد سایت شوید</p>
+            <p class="google-text">شما میتوانید با اکانت گوگل وارد سایت شوید</p>
           </div>
-          <div class="py-3 d-flex justify-content-center">
+          <div class="py-2 d-flex justify-content-center">
             <vue-recaptcha :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
           </div>
-          <div class="text-right pt-4" v-if="formErrors.length">
-            <p>لطفا اشتباهات زیر را تصحیح کنید:</p>
-            <ul class="pt-2">
+          <div class="text-right pt-2" v-if="formErrors.length">
+            <p class="pb-1 text-danger font-weight-bold">لطفا اشتباهات زیر را تصحیح کنید:</p>
+            <ul>
               <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
             </ul>
           </div>
 
-          <div class="py-3" slot="footer">
+          <div slot="footer">
             <base-button
               type="primary"
               nativeType="submit"
-              class="mb-3 animation-on-hover"
+              class="mb-2 animation-on-hover"
               size="lg"
               :loading="loading"
               block
             >ورود</base-button>
-            <div class="pt-3 d-flex justify-content-around">
+            <div class="pt-2 d-flex justify-content-around">
               <div class="pull-right">
                 <h6>
                   <router-link to="/forgotpassword" class="footer-link">رمز عبور را فراموش کرده ام</router-link>
@@ -213,8 +213,13 @@ export default {
 </script>
 <style lang="scss" scoped>
 .bg {
+  height: 100vh;
   background-color: rgb(8, 7, 104);
-  min-height: 100vh;
+}
+
+.login-section {
+  height: 100vh;
+  background-color: #f5f7fa;
 }
 
 .card-title {
@@ -232,11 +237,6 @@ export default {
     height: 40em;
     width: 40em;
   }
-}
-
-.login-section {
-  min-height: 100vh;
-  background-color: #f5f7fa;
 }
 
 .login-title {
@@ -270,6 +270,7 @@ export default {
   font-size: 0.9rem;
   color: rgb(128, 128, 128) !important;
 }
+
 .footer-link:hover {
   color: #cc51e1 !important;
   font-family: IranSansBold;

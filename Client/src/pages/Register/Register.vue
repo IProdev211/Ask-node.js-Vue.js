@@ -1,9 +1,9 @@
 <template>
   <div class="bg">
-    <div class="col-lg-3 col-md-5 col-sm-12 login-section">
+    <div class="col-lg-3 col-md-5 col-sm-12 register-section">
       <div class="container">
         <form @submit="checkForm" id="register-form">
-          <h1 class="login-title py-5">فرم عضویت</h1>
+          <h1 class="login-title pt-5 pb-3">فرم عضویت</h1>
           <div class="row">
             <div class="col-md-12 text-rtl">
               <base-input
@@ -33,30 +33,31 @@
               ></base-input>
             </div>
           </div>
-          <div class="text-right pb-3">
+          <div class="text-right pb-2">
             <base-checkbox
               v-model="terms"
-              class="pb-3"
+              class="pb-3 text-right"
               :class="{'has-danger': fieldErrors.terms !== undefined, 'terms-checkbox': true}"
             >
-              <router-link to="/terms">شرایط را قبول دارم</router-link>
+              <router-link to="/terms">
+                <i class="fas fa-info-circle pl-1"></i>
+                شرایط را قبول دارم
+              </router-link>
             </base-checkbox>
           </div>
-          <div class="row d-flex justify-content-around">
-            <div class="text-center pb-3">
-              <a :href="googleAuthUrl">
-                <h4 class="googleicon">
-                  <i class="fab fa-google icon"></i>
-                </h4>
-              </a>
-              <p class="px-5 google-text">شما میتوانید بدون ثبت نام با اکانت گوگل وارد سایت شوید.</p>
-            </div>
+          <div class="text-center">
+            <a :href="googleAuthUrl">
+              <h4 class="googleicon">
+                <i class="fab fa-google icon"></i>
+              </h4>
+            </a>
+            <p class="google-text">شما میتوانید بدون ثبت نام با اکانت گوگل وارد سایت شوید.</p>
           </div>
-          <div class="d-flex justify-content-center pb-3">
+          <div class="d-flex justify-content-center py-3">
             <vue-recaptcha :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
           </div>
-          <div v-if="formErrors.length">
-            <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
+          <div class="text-right pt-2" v-if="formErrors.length">
+            <p class="pb-1 text-danger font-weight-bold">لطفا اشتباهات زیر را تصحیح کنید:</p>
             <ul>
               <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
             </ul>
@@ -68,6 +69,7 @@
             round
             block
             size="lg"
+            class="mb-3 animation-on-hover"
           >عضویت</base-button>
         </form>
       </div>
@@ -217,7 +219,12 @@ export default {
 <style lang="scss" scoped>
 .bg {
   background-color: rgb(8, 7, 104);
-  min-height: 100vh;
+  height: 100vh;
+}
+
+.register-section {
+  height: 100vh;
+  background-color: #f5f7fa;
 }
 
 .card-title {
@@ -235,11 +242,6 @@ export default {
     height: 40em;
     width: 40em;
   }
-}
-
-.login-section {
-  min-height: 100vh;
-  background-color: #f5f7fa;
 }
 
 .login-title {
@@ -265,7 +267,7 @@ export default {
 }
 
 .google-text {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: rgb(94, 94, 94) !important;
 }
 
@@ -273,8 +275,15 @@ export default {
   font-size: 0.9rem;
   color: rgb(128, 128, 128) !important;
 }
+
 .footer-link:hover {
   color: #cc51e1 !important;
   font-family: IranSansBold;
+}
+
+@media (max-width: 760px) {
+  .register-section {
+    padding-bottom: 100px !important;
+  }
 }
 </style>
