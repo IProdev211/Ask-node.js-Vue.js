@@ -26,9 +26,9 @@
           <a :class="getNavClass('privateclasses')">{{ 'کلاس های حضوری' }}</a>
         </router-link>
 
-        <router-link class="nav-item" tag="li" to="/comingsoon">
+        <!-- <router-link class="nav-item" tag="li" to="/comingsoon">
           <a :class="getNavClass('comingsoon')">{{ 'میت آپ' }}</a>
-        </router-link>
+        </router-link> -->
 
         <router-link class="nav-item" tag="li" to="/contact">
           <a :class="getNavClass('contact')">{{ 'تماس با ما' }}</a>
@@ -281,9 +281,9 @@ export default {
         case 'allcourses':
           isActive = this.$route.name == 'AllCourses';
           break;
-        case 'comingsoon':
-          isActive = this.$route.name == 'ComingSoon';
-          break;
+        // case 'comingsoon':
+        //   isActive = this.$route.name == 'ComingSoon';
+        //   break;
         case 'contact':
           isActive = this.$route.name == 'Contact';
           break;
