@@ -56,7 +56,7 @@ export default {};
   }
 
   .hero-title {
-    font-size: 4.4em;
+    font-size: 4.5em;
     line-height: inherit;
     font-family: IranSansBold !important;
     color: #fff !important;
@@ -67,10 +67,10 @@ export default {};
 
   .hero-subtitle {
     font-size: 1.3em;
-    text-shadow: 1px 1px #79797949;
+    // text-shadow: 1px 1px #79797949;
     line-height: 1.6em;
-    font-family: IranSansDN;
-    color: #fff !important;
+    font-family: IranSans;
+    color: rgba(255, 255, 255, 0.9) !important;
   }
 
   .btn {

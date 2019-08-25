@@ -1,13 +1,13 @@
 <template>
   <div class="bg">
-    <div class="text-center">
-      <h1 class="display-1 text-danger">صفحه مورد نظر پیدا نشد</h1>
-      <h3 class="display-2">خطای ۴۰۴</h3>
-      <div class="pt-3 px-2">
+    <div class="text-center pt-5 container">
+      <h1 class="display-1 text-danger pt-3">خطای ۴۰۴</h1>
+      <p class="subtitle">صفحه مورد نظر پیدا نشد</p>
+      <div class="pt-5">
         <router-link to="/">
           <base-button
             native-type="submit"
-            type="success"
+            type="danger"
             class="btn btn-simple"
           >{{ 'مشاهده صفحه اصلی' }}</base-button>
         </router-link>
@@ -21,7 +21,18 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  font-size: 4em;
+  font-family: IranSansBold !important;
+}
+
+.subtitle {
+  font-size: 1.5em;
+  color: rgb(95, 95, 95) !important;
+  font-family: IranSans !important;
+}
+
 .bg {
-  min-height: 100vh;
+  height: 70vh;
 }
 </style>
