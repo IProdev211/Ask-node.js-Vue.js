@@ -150,9 +150,7 @@ class authController extends controller {
       subject: 'ریست کردن پسورد',
       html: `<h2>ریست کردن پسورد</h2>
              <p>برای ریست کردن پسورد بر روی لینک زیر کلیک کنید</p>
-             <a href="${config.siteurl}/auth/password/reset/${
-        newPasswordReset.token
-      }">ریست کردن</a>`
+             <a href="${config.siteurl}/auth/password/reset/${newPasswordReset.token}">ریست کردن</a>`
     };
 
     mail.sendMail(mailOptions, err => {
@@ -216,9 +214,7 @@ class authController extends controller {
       html: `
                       <h2>فعال سازی اکانت اسک آریا</h2>
                       <p>برای فعال شدن اکانت بر روی لینک زیر کلیک کنید</p>
-                      <a href="${config.siteurl}/user/activation/${
-        newActiveCode.code
-      }">فعال سازی</a>
+                      <a href="${config.siteurl}/user/activation/${newActiveCode.code}">فعال سازی</a>
                   ` // html body
     };
 

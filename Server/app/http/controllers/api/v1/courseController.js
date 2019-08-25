@@ -73,7 +73,7 @@ class courseController extends controller {
       oldPrice: course.oldPrice,
       createdAt: course.createdAt,
       time: course.time,
-      tags: course.tags || "",
+      tags: course.tags || '',
       episodes: course.episodesCount
     };
   }
@@ -143,7 +143,7 @@ class courseController extends controller {
       episodes: episodes,
       price: course.price,
       oldPrice: course.oldPrice,
-      createdAt: course.createdAt,
+      createdAt: course.createdAt
     };
     if (videoURL) {
       data.download = course.download(!!user, user);
@@ -166,7 +166,7 @@ class courseController extends controller {
       number: episode.number,
       createdAt: episode.createdAt,
       download: episode.download(!!user, user),
-      done: await this.hasDoneEpisode(episode, user),
+      done: await this.hasDoneEpisode(episode, user)
     };
   }
   async singleEpisode(req, res) {
@@ -221,7 +221,7 @@ class courseController extends controller {
       return this.failed('چنین دوره ای یافت نشد', res, 404);
     }
     const course = await Course.findById(req.params.id);
-    if (!course || ! course.id || !course.validateDownload(mac, t)) {
+    if (!course || !course.id || !course.validateDownload(mac, t)) {
       return this.failed('چنین دوره ای یافت نشد', res, 404);
     }
     const reqo = request(course.videoUrl);
@@ -237,11 +237,11 @@ class courseController extends controller {
     let episode;
 
     if (req.user) {
-      episode = await Episode.findById(req.params.id)
+      episode = await Episode.findById(req.params.id);
     } else {
-      episode = await Episode.find({type: 'free', id: req.params.id}).exec();
+      episode = await Episode.find({ type: 'free', id: req.params.id }).exec();
     }
-    if (! episode || ! episode.id || !episode.validateDownload(mac, t)) {
+    if (!episode || !episode.id || !episode.validateDownload(mac, t)) {
       return this.failed('چنین درسی یافت نشد', res, 404);
     }
     const reqo = request(episode.videoUrl);
@@ -379,9 +379,7 @@ class courseController extends controller {
             ip: ip,
             user: payment.user.id,
             type: 'buy_course',
-            title: ` با تشکر از حسن انتخاب شما, خرید دوره ${
-              payment.course.title
-            } با موفقیت انجام شد و هم اکنون می توانید بصورت کامل از این دوره استفاده کنید. `
+            title: ` با تشکر از حسن انتخاب شما, خرید دوره ${payment.course.title} با موفقیت انجام شد و هم اکنون می توانید بصورت کامل از این دوره استفاده کنید. `
           });
           buyCourseLog.save();
           return res.json({
@@ -410,29 +408,23 @@ class courseController extends controller {
     let condition = {};
     if (user.vipTime && new Date(user.vipTime) > new Date()) {
       condition = {
-        $or: [
-          { _id: { $in: user.learning } },
-          { type: "VIP" }
-        ]
-      }
+        $or: [{ _id: { $in: user.learning } }, { type: 'VIP' }]
+      };
     } else {
       condition = { _id: { $in: user.learning } };
     }
-    const courses = await Course.paginate(
-      condition,
-      {
-        page,
-        sort: {
-          createdAt: 1
-        },
-        limit: 24,
-        populate: [
-          { path: 'categories' },
-          { path: 'user' },
-          { path: 'episodesCount' }
-        ]
-      }
-    );
+    const courses = await Course.paginate(condition, {
+      page,
+      sort: {
+        createdAt: 1
+      },
+      limit: 24,
+      populate: [
+        { path: 'categories' },
+        { path: 'user' },
+        { path: 'episodesCount' }
+      ]
+    });
     res.json({
       ...courses,
       docs: courses.docs.map(this.filterCourse)
@@ -443,81 +435,87 @@ class courseController extends controller {
     for (const item of course.episodes) {
       items.push(item.id);
     }
-    if (! items.length) {
+    if (!items.length) {
       return 0;
     }
     const donedEpisodes = await DoneEpisode.countDocuments({
       user: user.id,
-      episode: { $in: items },
+      episode: { $in: items }
     }).exec();
-    return (donedEpisodes * 100 / items.length).toFixed(2);
+    return ((donedEpisodes * 100) / items.length).toFixed(2);
   }
   async markAsDoneEpisode(req, res) {
-    if (! req.user.id) {
+    if (!req.user.id) {
       return this.failed('پیدا نشد!', res, 404);
     }
     const episode = await Episode.findById(req.params.episode).populate({
-      path: "course",
+      path: 'course',
       populate: [
         {
           path: 'episodes',
           options: { sort: { number: 1 } }
-        },
-      ],
+        }
+      ]
     });
-    if (! episode || (! req.user.learning.indexOf(episode.course.id) !== -1 && ! req.user.admin)) {
+    if (
+      !episode ||
+      (!req.user.learning.indexOf(episode.course.id) !== -1 && !req.user.admin)
+    ) {
       return this.failed('چنین دوره ای یافت نشد !', res, 404);
     }
     const has = await this.hasDoneEpisode(episode, req.id);
-    if (! has) {
+    if (!has) {
       const model = new DoneEpisode({
         user: req.user.id,
-        episode: episode.id,
+        episode: episode.id
       });
       await model.save();
     }
     const done = await this.getCourseDonePercentage(episode.course, req.user);
     return res.json({
       done: done,
-      status: "success",
+      status: 'success'
     });
   }
   async markAsNotDoneEpisode(req, res) {
-    if (! req.user.id) {
+    if (!req.user.id) {
       return this.failed('پیدا نشد!', res, 404);
     }
     const episode = await Episode.findById(req.params.episode).populate({
-      path: "course",
+      path: 'course',
       populate: [
         {
           path: 'episodes',
           options: { sort: { number: 1 } }
-        },
-      ],
+        }
+      ]
     });
-    if (! episode || (! req.user.learning.indexOf(episode.course.id) !== -1 && ! req.user.admin)) {
+    if (
+      !episode ||
+      (!req.user.learning.indexOf(episode.course.id) !== -1 && !req.user.admin)
+    ) {
       return this.failed('چنین دوره ای یافت نشد !', res, 404);
     }
     const has = await this.hasDoneEpisode(episode, req.user);
     if (has) {
       await DoneEpisode.deleteOne({
         user: req.user.id,
-        episode: episode.id,
+        episode: episode.id
       });
     }
     const done = await this.getCourseDonePercentage(episode.course, req.user);
     return res.json({
       done: done,
-      status: "success",
+      status: 'success'
     });
   }
   async hasDoneEpisode(episode, user) {
-    if (! user) {
+    if (!user) {
       return false;
     }
     const has = await DoneEpisode.findOne({
       user: user.id,
-      episode: episode.id,
+      episode: episode.id
     }).exec();
     return !!has;
   }

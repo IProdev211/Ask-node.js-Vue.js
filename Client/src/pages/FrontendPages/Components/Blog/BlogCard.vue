@@ -45,10 +45,10 @@ export default {
 .card .card-footer {
   background-color: transparent;
   border-top: 1px solid rgba(158, 158, 158, 0.1);
-  padding: 1em 0.5em 0 0.5em;
+  padding: 1em 1.2em 0 1.2em;
 
   .card-footer-text {
-    color: #585858 !important;
+    color: #646464 !important;
     font-size: 1em;
   }
 }

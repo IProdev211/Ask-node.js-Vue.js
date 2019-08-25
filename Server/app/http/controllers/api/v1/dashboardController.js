@@ -15,21 +15,22 @@ class dashboardController extends controller {
     const isVip = req.user.vipTime && new Date(req.user.vipTime) > new Date();
     if (true || isVip) {
       condition = {
-        $or: [
-          { _id: { $in: req.user.learning } },
-          { type: "VIP" }
-        ]
-      }
+        $or: [{ _id: { $in: req.user.learning } }, { type: 'VIP' }]
+      };
     } else {
       condition = { _id: { $in: req.user.learning } };
     }
-    const courses = await Course.find(condition, "_id").exec();
-    console.log("courses", courses);
+    const courses = await Course.find(condition, '_id').exec();
+    console.log('courses', courses);
     const promises = [
       Episode.countDocuments().exec(),
-      Episode.countDocuments({ course: { $in: courses.map(course => {
-        return course.id;
-      }) } }).exec(),
+      Episode.countDocuments({
+        course: {
+          $in: courses.map(course => {
+            return course.id;
+          })
+        }
+      }).exec(),
       Payment.paginate(
         { user: req.user.id },
         {
@@ -174,7 +175,7 @@ class dashboardController extends controller {
           vip: true,
           resnumber: response.authority,
           price: price,
-          vipMonth: vipMonth,
+          vipMonth: vipMonth
         });
         await payment.save();
         return res.json({

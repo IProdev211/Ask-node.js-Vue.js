@@ -91,7 +91,7 @@ class userController extends controller {
       });
       delete req.body.courses;
     }
-    let { name, email, password, xp, active} = req.body;
+    let { name, email, password, xp, active } = req.body;
 
     const newUser = new User({
       name: name,
@@ -128,10 +128,10 @@ class userController extends controller {
             return {
               id: course.id,
               title: course.title,
-              signupDate: payment.updatedAt,
+              signupDate: payment.updatedAt
             };
-          }),
-        }),
+          })
+        })
       },
       status: 'success'
     });
@@ -150,7 +150,7 @@ class userController extends controller {
     }
     let courses = [];
     if (req.body.courses) {
-      if (! user.learning) {
+      if (!user.learning) {
         user.learning = [];
       }
       const items = [];
@@ -199,7 +199,7 @@ class userController extends controller {
     }).populate('course');
     for (const payment of payments) {
       userPayments.sum += payment.price;
-      if (! payment.course) continue;
+      if (!payment.course) continue;
       userPayments.courses.push({
         id: payment.course.id,
         title: payment.course.title,

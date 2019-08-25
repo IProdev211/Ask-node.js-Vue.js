@@ -51,6 +51,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import backend from '../../../backend';
 import PerfectScrollbar from 'perfect-scrollbar';
@@ -60,16 +61,16 @@ function hasElement(className) {
   return document.getElementsByClassName(className).length > 0;
 }
 
-function initScrollbar(className) {
-  if (hasElement(className)) {
-    new PerfectScrollbar(`.${className}`);
-  } else {
-    // try to init it later in case this component is loaded async
-    setTimeout(() => {
-      initScrollbar(className);
-    }, 100);
-  }
-}
+// function initScrollbar(className) {
+//   if (hasElement(className)) {
+//     new PerfectScrollbar(`.${className}`);
+//   } else {
+//     // try to init it later in case this component is loaded async
+//     setTimeout(() => {
+//       initScrollbar(className);
+//     }, 100);
+//   }
+// }
 
 import DashboardNavbar from './DashboardNavbar.vue';
 import ContentFooter from './ContentFooter.vue';

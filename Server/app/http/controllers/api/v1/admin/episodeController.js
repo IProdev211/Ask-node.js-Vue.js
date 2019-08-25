@@ -89,7 +89,9 @@ class episodeController extends controller {
   }
   async update(req, res, next) {
     if (!(await this.validationData(req, res))) return;
-    const episode = await Episode.findById(req.params.episode).populate("course").exec();
+    const episode = await Episode.findById(req.params.episode)
+      .populate('course')
+      .exec();
 
     if (!episode) {
       this.failed('چنین دوره ای وجود ندارد', res, 404);
@@ -154,8 +156,8 @@ class episodeController extends controller {
     const petime = this.timeToSeconds(episode.time);
     const etime = this.timeToSeconds(newEpisode.time);
     await Course.findByIdAndUpdate(episode.course.id, {
-      $set: { time: this.secondsToTime((ctime - petime) + etime) }
-    })
+      $set: { time: this.secondsToTime(ctime - petime + etime) }
+    });
     newEpisode.course = episode.course;
     return res.json({
       episode: this.filterEpisodeData(newEpisode),
