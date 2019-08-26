@@ -157,7 +157,9 @@ pie-chart {
 }
 
 .card {
-  border-radius: 10px;
+  border-radius: 10px !important;
+  -webkit-box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0) !important;
+  box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0) !important;
 }
 
 .card-1 {
@@ -165,17 +167,17 @@ pie-chart {
 }
 
 .card-2 {
-  background-image: linear-gradient(180deg, #21c8f6f8, #637afff3),
+  background-image: linear-gradient(180deg, #21c8f6f8, #637afff6),
     url(/img/frontend/london-seemless-bg.svg) !important;
 }
 
 .card-3 {
-  background-image: linear-gradient(180deg, #6edcc4fa, #1aab8cf8),
+  background-image: linear-gradient(180deg, #62d1b9fa, #20b897f3),
     url(/img/frontend/london-seemless-bg.svg) !important;
 }
 
 .card-4 {
-  background-image: linear-gradient(180deg, #8a60edfa, #b372bdf3),
+  background-image: linear-gradient(180deg, #7f57dbfa, #b372bdf3),
     url(/img/frontend/london-seemless-bg.svg) !important;
 }
 

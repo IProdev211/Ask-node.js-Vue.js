@@ -44,8 +44,10 @@ export default {};
   background-color: #6e72fc;
   background-size: cover;
   background-position: bottom;
-  height: 55vh !important;
+  height: 60vh !important;
   width: 100%;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0 100%);
 
   .hero-text-section {
     position: relative;
@@ -90,6 +92,8 @@ export default {};
     background-position: bottom;
     min-height: 65vh !important;
     background-position: bottom right;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
 
     .hero-title {
       font-size: 2.6em;

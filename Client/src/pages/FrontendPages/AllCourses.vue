@@ -81,7 +81,7 @@ export default {
 
 @media (max-width: 468px) {
   .course-section {
-    padding: 0 11%;
+    padding: 0 14%;
   }
 }
 

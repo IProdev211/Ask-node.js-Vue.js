@@ -3,12 +3,12 @@
     <!-- Hero Section -->
     <HeroSection id="hero" />
     <!-- Top Courses Section -->
-    <div class="container py-5">
+    <div class="container pt-5 pb-2">
       <div class="top-courses-section">
         <div class="d-flex justify-content-between">
-          <p class="text-right top-section-header pt-1">پیشنهادهای ویژه اسک آریا برای شما</p>
+          <p class="text-right top-section-header pt-1 pb-4">پیشنهادهای ویژه اسک آریا برای شما</p>
         </div>
-        <div class="pt-4 padding-test">
+        <div class="pt-2">
           <div
             class="col-lg-3 col-md-6 col-sm-12 d-none d-md-block"
             v-for="course in topCourses"
@@ -24,12 +24,12 @@
             </el-carousel>
           </div>
         </div>
-        <div class="pt-5">
+        <div>
           <router-link to="allcourses">
             <base-button
               native-type="submit"
               type="default"
-              class="btn btn-round animation-on-hover"
+              class="btn btn-round animation-on-hover mt-4"
             >مشاهده همه دوره ها</base-button>
           </router-link>
         </div>

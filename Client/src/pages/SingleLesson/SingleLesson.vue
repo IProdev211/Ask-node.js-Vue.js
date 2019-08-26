@@ -101,7 +101,7 @@
 
     <!-- VIDEO SECTION -->
     <div class="container">
-      <div class="py-3">
+      <div class="pt-5">
         <vue-plyr class="plyr--video" :key="id">
           <video>
             <source :src="`/api/v1${download}`" type="video/mp4" size="720" />
@@ -124,7 +124,7 @@
         />
       </div>
       <div class="all-units py-5">
-        <h4 class="text-right pr-3 pt-4">سرفصل دوره</h4>
+        <h4 class="text-right pr-3 py-4">سرفصل دوره</h4>
         <!-- Timeline Unit Section -->
         <AllUnits
           :course="course"
