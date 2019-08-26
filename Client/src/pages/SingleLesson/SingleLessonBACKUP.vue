@@ -42,8 +42,7 @@
             </div>
 
             <!-- COURSE PRICE  -->
-            <!-- <div class="co" v-if="notEnrolled && type == 'paid'"> -->
-            <div class="co" v-if="notEnrolled">
+            <div class="co" v-if="notEnrolled && type == 'paid'">
               <h5 class="icon-data">
                 <i class="pl-1 icon fas fa-money-check-alt"></i>
                 <span class="icon-text pr-1 d-none d-md-block">قیمت</span>
@@ -63,27 +62,30 @@
         </div>
 
         <!-------------- COURSE INFO SECTION  -------------->
-        <div class="py-3 container">
+        <div class="pt-3 pb-4">
           <span
-            class="head-section purchase-status text-center"
+            class="head-section purchase-status text-right"
             v-if="notEnrolled && type.toLowerCase() != 'free'"
           >
-            <!-- <p v-if="type == 'paid'" class="pay-text text-center">
+            <p v-if="type == 'paid'" class="pay-text text-center">
+              <!-- <i class="fas fa-info pl-3"></i> -->
               برای دسترسی به این درس لطفا لینک
-            خرید را دنبال کنید.-->
-            <div class="text-center" v-if="type.toLowerCase() == 'paid'">
-              <!-- <div class="w-100 d-md-none pt-2"></div> -->
-              <p class="text-center pay-text">
-                برای دسترسی به این درس لطفا لینک
-                خرید را دنبال کنید.
-                <base-button
-                  @click="openBuyCourse"
-                  native-type="button"
-                  class="btn-sm btn-danger btn mr-2"
-                >تهیه درس</base-button>
-              </p>
-            </div>
-            <!-- </p> -->
+              خرید را دنبال کنید.
+              <span
+                class="text-right"
+                v-if="type.toLowerCase() == 'paid'"
+              >
+                <div class="w-100 d-md-none pt-2"></div>
+
+                <span class="pr-2">
+                  <base-button
+                    @click="openBuyCourse"
+                    native-type="button"
+                    class="btn-fill btn-info btn"
+                  >تهیه درس غیرحضوری</base-button>
+                </span>
+              </span>
+            </p>
             <p v-else-if="type.toLowerCase() == 'vip'" class="text-center pay-text">
               <!-- <i class="fas fa-info pl-3"></i> -->
               برای دسترسی به این درس اکانت VIP تهیه کنید.
@@ -586,8 +588,7 @@ export default {
   }
 
   .icon-data {
-    font-size: 0.85em;
-    font-family: IranSans;
+    font-size: 0.9em;
   }
 
   .icon-text {
@@ -596,9 +597,8 @@ export default {
   }
 
   .pay-text {
-    font-size: 0.7em !important;
+    font-size: 1rem;
   }
-
   .body {
     /deep/ p {
       color: #fff !important;
@@ -609,8 +609,8 @@ export default {
 }
 
 .pay-text {
-  font-size: 0.85em;
-  font-family: IranSans;
+  font-size: 1rem;
+  font-family: IranSansBold;
   color: #fff !important;
 }
 

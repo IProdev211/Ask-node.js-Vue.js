@@ -17,15 +17,16 @@
       slot="footer"
       class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
     >
-      <!-- <div class>
-        <p class="card-category">Showing {{ from + 1 }} to {{ to }} of {{ total }} entries</p>
-      </div>-->
       <base-pagination
         class="pagination-no-border text-rtl"
         v-model="pagination.currentPage"
         :per-page="pagination.perPage"
         :total="total"
       ></base-pagination>
+
+      <!-- <div class>
+        <p class="card-category">Showing {{ from + 1 }} to {{ to }} of {{ total }} entries</p>
+      </div>-->
     </div>
   </card>
 </template>
@@ -71,7 +72,7 @@ export default {
     },
     pagination() {
       return {
-        perPage: 3,
+        perPage: 20,
         currentPage: this.payments.page,
         total: this.payments.total
       };

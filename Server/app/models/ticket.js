@@ -22,17 +22,17 @@ const ticketSchema = Schema(
     priority: { type: String, required: true },
     status: { type: Number, default: OPEN },
     files: { type: [String], default: null },
-    isHighlight: { type: Boolean, default: false },
+    isHighlight: { type: Boolean, default: false }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 );
 
 ticketSchema.plugin(mongoosePaginate);
 ticketSchema.plugin(autoIncrement.plugin, {
-  model: "Ticket",
+  model: 'Ticket',
   field: 'ticket_id',
   startAt: 1,
-  incrementBy: 1,
+  incrementBy: 1
 });
 
 /* ticketSchema.pre('save', async function(next) {
@@ -42,7 +42,5 @@ ticketSchema.plugin(autoIncrement.plugin, {
   }
   next();
 }); */
-
-
 
 module.exports = mongoose.model('Ticket', ticketSchema);
