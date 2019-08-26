@@ -117,7 +117,7 @@
                 size="sm"
                 icon
               >
-                <i class="tim-icons icon-simple-remove"></i>
+                <i class="fas fa-times"></i>
               </base-button>
             </div>
           </div>
@@ -540,29 +540,35 @@ export default {
   .ticket-card {
     padding: 1.5em 2.5em;
     margin-bottom: 10px;
-    background-color: #7f5a83;
-    background-image: linear-gradient(270deg, #0d324d 0%, #553258 74%);
+    // background-color: #7f5a83;
+    // background-image: linear-gradient(270deg, #0d324d 0%, #553258 74%);
+    background-color: #6e6e6e;
+    background-image: linear-gradient(
+      270deg,
+      rgb(218, 218, 218) 0%,
+      rgb(231, 231, 231) 74%
+    );
     // background-color: rgb(226, 226, 226);
     border-radius: 15px;
-    border: 1px solid rgb(59, 59, 59);
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
+    border: 1px solid rgb(216, 216, 216);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.19),
+      0 6px 6px rgba(158, 158, 158, 0.23) !important;
 
     h3 {
-      font-size: 1em;
-      color: rgba(255, 255, 255, 0.45) !important;
+      font-size: 0.9em;
+      color: rgba(65, 65, 65, 0.5) !important;
       text-align: right;
-      font-family: IranSans;
+      font-family: IranSansBold;
       padding: 0;
       margin: 0;
     }
 
     p {
-      font-size: 1.2em;
-      color: #fff !important;
+      font-size: 1em;
+      color: rgba(39, 39, 39, 0.89) !important;
       text-align: right;
-      // font-size: 0.9em;
-      // font-family: IranSans;
-      // padding-top: 10px;
+      font-family: IranSans;
+      padding-top: 5px;
     }
 
     .badge {
@@ -571,7 +577,7 @@ export default {
 
     .ticket-actions {
       i {
-        color: #fff;
+        color: #1669f5;
 
         .icon-group {
           margin-top: 10px;

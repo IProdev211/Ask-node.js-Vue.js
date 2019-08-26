@@ -1,91 +1,87 @@
 <template>
   <section>
-    <div class="text-ltr">
+    <div>
+      <h2 class="text-center">Courses Overview</h2>
+      <p class="text-center">
+        Here is a list of all active courses on this site
+        <a
+          href="/courses"
+          target="_blank"
+        >ALL COURSES</a>
+      </p>
+    </div>
+    <div class="mt-5">
       <div>
-        <h2 class="text-center">Courses Overview</h2>
-        <p class="text-center">
-          Here is a list of all active courses on this site
-          <a
-            href="/courses"
-            target="_blank"
-          >ALL COURSES</a>
-        </p>
-      </div>
-      <div class="mt-5">
-        <div>
-          <card card-body-classes="table-full-width">
-            <div>
-              <div
-                class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
+        <card card-body-classes="table-full-width">
+          <div>
+            <div class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap">
+              <el-select
+                class="select-primary mb-3 pagination-select"
+                v-model="pagination.perPage"
+                placeholder="Per page"
+                v-on:change="changeLimitListener"
               >
-                <el-select
-                  class="select-primary mb-3 pagination-select"
-                  v-model="pagination.perPage"
-                  placeholder="Per page"
-                  v-on:change="changeLimitListener"
-                >
-                  <el-option
-                    class="select-primary"
-                    v-for="item in pagination.perPageOptions"
-                    :key="item"
-                    :label="item"
-                    :value="item"
-                  ></el-option>
-                </el-select>
-              </div>
-              <el-table :data="tableData">
-                <el-table-column
-                  v-for="column in tableColumns"
-                  :key="column.label"
-                  :min-width="column.minWidth"
-                  :prop="column.prop"
-                  :label="column.label"
-                ></el-table-column>
-                <el-table-column :min-width="105" align="center" label="Settings">
-                  <div slot-scope="props">
-                    <base-button
-                      @click.native="handleEdit(props.$index, props.row)"
-                      class="edit btn-link"
-                      type="warning"
-                      size="sm"
-                      icon
-                    >
-                      <i class="tim-icons icon-pencil"></i>
-                    </base-button>
-                    <base-button
-                      @click.native="handleDelete(props.$index, props.row)"
-                      class="remove btn-link"
-                      type="danger"
-                      size="sm"
-                      icon
-                    >
-                      <i class="tim-icons icon-simple-remove"></i>
-                    </base-button>
-                  </div>
-                </el-table-column>
-              </el-table>
+                <el-option
+                  class="select-primary"
+                  v-for="item in pagination.perPageOptions"
+                  :key="item"
+                  :label="item"
+                  :value="item"
+                ></el-option>
+              </el-select>
             </div>
-            <div
-              v-if="tableData.length"
-              slot="footer"
-              class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
-            >
-              <div class>
-                <p
-                  class="card-category"
-                >Showing {{ from + 1 }} to {{ to }} of {{ pagination.total }} entries</p>
-              </div>
-              <base-pagination
-                v-model="pagination.currentPage"
-                :value="pagination.currentPage"
-                :per-page="pagination.perpage"
-                :total="pagination.total"
-                :pageCount="pagination.pages"
-                v-on:input="changePageListener"
-              ></base-pagination>
+            <el-table :data="tableData">
+              <el-table-column
+                v-for="column in tableColumns"
+                :key="column.label"
+                :min-width="column.minWidth"
+                :prop="column.prop"
+                :label="column.label"
+              ></el-table-column>
+              <el-table-column :min-width="105" align="center" label="Settings">
+                <div slot-scope="props">
+                  <base-button
+                    @click.native="handleEdit(props.$index, props.row)"
+                    class="edit btn-link"
+                    type="warning"
+                    size="sm"
+                    icon
+                  >
+                    <i class="fas fa-pencil-alt"></i>
+                  </base-button>
+                  <base-button
+                    @click.native="handleDelete(props.$index, props.row)"
+                    class="remove btn-link"
+                    type="danger"
+                    size="sm"
+                    icon
+                  >
+                    <i class="fas fa-times"></i>
+                  </base-button>
+                </div>
+              </el-table-column>
+            </el-table>
+          </div>
+          <div
+            v-if="tableData.length"
+            slot="footer"
+            class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
+          >
+            <div class>
+              <p
+                class="card-category"
+              >Showing {{ from + 1 }} to {{ to }} of {{ pagination.total }} entries</p>
             </div>
-          </card>
-        </div>
+            <base-pagination
+              v-model="pagination.currentPage"
+              :value="pagination.currentPage"
+              :per-page="pagination.perpage"
+              :total="pagination.total"
+              :pageCount="pagination.pages"
+              v-on:input="changePageListener"
+            ></base-pagination>
+          </div>
+        </card>
       </div>
     </div>
     <div class="pt-3">
@@ -134,13 +130,13 @@ export default {
         {
           prop: 'title',
           label: 'Course Name',
-          minWidth: 220
+          minWidth: 170
         },
-        {
-          prop: 'comments',
-          label: 'comments',
-          minWidth: 80
-        },
+        // {
+        //   prop: 'comments',
+        //   label: 'comments',
+        //   minWidth: 80
+        // },
         {
           prop: 'users',
           label: 'Course Users',

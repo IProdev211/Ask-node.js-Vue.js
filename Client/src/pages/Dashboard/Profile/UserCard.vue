@@ -3,20 +3,27 @@
     <card class="card-user">
       <p class="card-text"></p>
       <div class="author">
-    
-        <img class="avatar" :src="userAvatar" alt="Users Profile Image">
+        <img class="avatar" :src="userAvatar" alt="Users Profile Image" />
         <h2 class="title">
           {{ user.name }}
-          <br>
-          <span class=" emailText px-1">{{ user.email }}</span>
+          <br />
+          <span class="emailText px-1">{{ user.email }}</span>
         </h2>
         <p class="description">
-          <i class="fas fa-check tick px-2"></i>{{ user.admin ? "مدیر" : "دانشجو"}} -
-          <span class="description" :class="user.active ? 'tick' : 'cross'">{{ user.active ? "فعال" : "غیر فعال" }}</span>
+          <i class="fas fa-check tick px-2"></i>
+          {{ user.admin ? "مدیر" : "دانشجو"}} -
+          <span
+            class="description"
+            :class="user.active ? 'tick' : 'cross'"
+          >{{ user.active ? "فعال" : "غیر فعال" }}</span>
         </p>
         <p class="description">
-          <i class="fas px-2" :class="isVIP ? 'fa-check tick' : 'fa-times cross'"></i>{{ 'وضعیت عضویت ویژه' }} -
-          <span class="description" :class="isVIP ? 'tick' : 'cross'">{{ isVIP ? "فعال" : "غیر فعال" }} </span>
+          <i class="fas px-2" :class="isVIP ? 'fa-check tick' : 'fa-times cross'"></i>
+          {{ 'وضعیت عضویت ویژه' }} -
+          <span
+            class="description"
+            :class="isVIP ? 'tick' : 'cross'"
+          >{{ isVIP ? "فعال" : "غیر فعال" }}</span>
           <!-- <span class="vip-date"> روز دیگر شارژ دارید </span> -->
         </p>
         <div class="row d-flex justify-content-center">
@@ -25,7 +32,10 @@
               @click="showForm = !showForm"
               native-type="submit"
               class="btn-fill btn btn-round"
-            >{{ 'ویرایش مشخصات' }}</base-button>
+            >
+              <i class="fas fa-pencil-alt pl-2"></i>
+              {{ 'ویرایش مشخصات' }}
+            </base-button>
           </div>
           <div class="pt-3">
             <router-link to="courses">
@@ -42,12 +52,12 @@
       <!-- Edit Profile Section -->
       <div class="editUserForm">
         <form v-if="showForm" @submit.prevent="updateProfile">
-          <p v-if="formErrors.length">
+          <div v-if="formErrors.length">
             <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
             <ul>
               <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
             </ul>
-          </p>
+          </div>
           <div class="row pt-3">
             <div class="col-md-4 text-ltr">
               <label class="pull-right">نام و نام خانوادگی</label>
@@ -67,7 +77,7 @@
                 :error="fieldErrors.email"
               ></base-input>
             </div>
-             <div class="col-md-4 text-ltr">
+            <div class="col-md-4 text-ltr">
               <label class="pull-right">تغییر رمز عبور</label>
               <base-input
                 type="password"
@@ -77,11 +87,7 @@
               ></base-input>
             </div>
             <div class="col-md-3 pt-3">
-              <image-upload
-                type="avatar"
-                select-text="+ آپلود عکس"
-                @change="onAvatarChange"
-              />
+              <image-upload type="avatar" select-text="+ آپلود عکس" @change="onAvatarChange" />
             </div>
             <div class="col-md-2 mt-3 mr-auto">
               <base-button
@@ -97,14 +103,14 @@
   </section>
 </template>
 <script>
-import backend from "../../../backend";
+import backend from '../../../backend';
 import { ImageUpload } from 'src/components/index';
 
 export default {
   components: {
     ImageUpload
   },
-  props: ["user"],
+  props: ['user'],
   data() {
     return {
       showForm: false,
@@ -115,12 +121,12 @@ export default {
       email: this.$root.$data.user.email,
       lang: this.$root.$data.user.lang,
       avatar: null,
-      password: "",
+      password: ''
     };
   },
   computed: {
     isVIP() {
-      return (this.user.vipTime && new Date(this.user.vipTime) > new Date());
+      return this.user.vipTime && new Date(this.user.vipTime) > new Date();
     },
     userAvatar() {
       return this.user.avatar || '/img/default-avatar.png';
@@ -147,45 +153,50 @@ export default {
       if (haveError) {
         return;
       }
-      const errorHandler = (response) => {
-        if (response && response.data && response.data.status === "error") {
-          this.formErrors = Array.isArray(response.data.data) ? response.data.data : [response.data.data];
-          return;
-        };
-      }
-      this.loading = true;
-      var formData = new FormData();
-      formData.append("name", this.name);
-      formData.append("email", this.email);
-      formData.append("lang", this.lang);
-      if (this.avatar) {
-        formData.append("avatar", this.avatar, this.avatar.name);
-      }
-      if (this.password) {
-        formData.append("password", this.password);
-      }
-      backend.put("profile", formData).then((response) => {
-        this.loading = false;
-        if (response.data.status === "error") {
-          errorHandler(response);
+      const errorHandler = response => {
+        if (response && response.data && response.data.status === 'error') {
+          this.formErrors = Array.isArray(response.data.data)
+            ? response.data.data
+            : [response.data.data];
           return;
         }
-        this.$root.$data.user = response.data.user;
-        this.$notify({
-          type: 'success',
-          message: `مشخصات شما با موفقیت به روز شده!`,
-          icon: 'tim-icons icon-bell-55'
+      };
+      this.loading = true;
+      var formData = new FormData();
+      formData.append('name', this.name);
+      formData.append('email', this.email);
+      formData.append('lang', this.lang);
+      if (this.avatar) {
+        formData.append('avatar', this.avatar, this.avatar.name);
+      }
+      if (this.password) {
+        formData.append('password', this.password);
+      }
+      backend
+        .put('profile', formData)
+        .then(response => {
+          this.loading = false;
+          if (response.data.status === 'error') {
+            errorHandler(response);
+            return;
+          }
+          this.$root.$data.user = response.data.user;
+          this.$notify({
+            type: 'success',
+            message: `مشخصات شما با موفقیت به روز شده!`,
+            icon: 'tim-icons icon-bell-55'
+          });
+          this.$router.push('dashboard');
+        })
+        .catch(error => {
+          this.loading = false;
+          errorHandler(error.response);
         });
-        this.$router.push("dashboard");
-      }).catch((error) => {
-        this.loading = false;
-        errorHandler(error.response);
-      });
     },
     onAvatarChange(file) {
       this.avatar = file;
     }
-  },
+  }
 };
 </script>
 
@@ -237,5 +248,4 @@ export default {
   font-size: 0.8rem;
   color: rgb(141, 141, 141);
 }
-
 </style>
