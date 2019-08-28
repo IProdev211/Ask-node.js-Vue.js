@@ -52,9 +52,9 @@
     </div>
 
     <!--Founder Section-->
-    <!-- <div class="founder-section-homepage pb-4">
+    <div class="founder-section-homepage py-5">
       <founder-section></founder-section>
-    </div>-->
+    </div>
 
     <!-- <base-button
         v-scroll-to="{

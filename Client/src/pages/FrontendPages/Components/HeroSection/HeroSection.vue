@@ -86,14 +86,14 @@ export default {};
 
 @media screen and (max-width: 730px) {
   .hero-content-homepage {
-    background: linear-gradient(to left, #a315e6dc, #5539d1d2),
+    background: linear-gradient(225deg, #e6158fc7, #462bbdd2),
       url(/img/frontend/london-bg-opt.jpg);
     background-size: cover;
     background-position: bottom;
     min-height: 65vh !important;
     background-position: bottom right;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5vw), 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5vw), 0 100%);
 
     .hero-title {
       font-size: 2.6em;
@@ -114,9 +114,6 @@ export default {};
       font-family: IranSansBold;
     }
   }
-  // .top-courses-section {
-  //   padding: 0 11%;
-  // }
 
   .top-courses-section {
     .top-section-header {

@@ -46,22 +46,24 @@ export default {};
 <style lang="scss" scoped>
 .bg {
   background-color: #2876f9;
-  background: linear-gradient(315deg, #6e17cbe7 0%, #2875f9c7 74%),
+  background: linear-gradient(270deg, #38048de7 50%, #1a54b9c7),
     url(/img/frontend/confused-banner.svg) no-repeat;
   background-position: bottom left;
   background-size: cover;
-  // border-radius: 30px;
-  // box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  // -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  // -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  // -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  border-radius: 30px;
+  margin: 2% 12%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
+
 .text-section {
   text-align: right;
-  padding: 6em 0 4em 0;
+  padding: 3em 2em;
 
   h2 {
-    font-size: 2.5em;
+    font-size: 2em;
     color: #fff !important;
     line-height: inherit !important;
     font-family: IranSansBold;
@@ -71,8 +73,8 @@ export default {};
 
   .main-text {
     color: #fff !important;
-    line-height: inherit !important;
     font-size: 1.3em;
+    line-height: 1.7em !important;
   }
 }
 
@@ -83,8 +85,16 @@ export default {};
 }
 
 @media (max-width: 680px) {
+  .bg {
+    margin: 1.2em;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  }
   .text-section {
-    padding: 2em;
+    padding: 2em 0.5em;
+
     h2 {
       font-size: 1.6em;
     }

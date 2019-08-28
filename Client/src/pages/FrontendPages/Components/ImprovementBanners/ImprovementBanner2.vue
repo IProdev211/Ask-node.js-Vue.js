@@ -24,23 +24,20 @@ export default {};
   background-color: #ee8e6b;
   background-image: linear-gradient(315deg, #ef6d89ee 0%, #ee8e6bf1 74%),
     url(/img/frontend/london-seemless-bg.svg);
-
-  // background-color: #0abcf9;
-  // background-image: linear-gradient(035deg, #0abdf9f5 0%, #2c69d1f3 74%),
-  //   url(/img/frontend/london-seemless-bg.svg);
-  // border-radius: 30px;
-  // box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  // -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  // -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  // -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  border-radius: 30px;
+  margin: 2% 12%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
 
 .text-section {
   text-align: right;
-  padding: 6em;
+  padding: 3em 2em;
 
   h2 {
-    font-size: 2.5em;
+    font-size: 2em;
     color: #fff !important;
     line-height: inherit !important;
     font-family: IranSansBold;
@@ -50,13 +47,21 @@ export default {};
 
   .main-text {
     color: #fff !important;
-    line-height: inherit !important;
     font-size: 1.3em;
+    line-height: 1.7em !important;
   }
 }
 @media (max-width: 680px) {
+  .bg {
+    margin: 1.2em;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  }
+
   .text-section {
-    padding: 2em;
+    padding: 2em 0.5em;
     h2 {
       font-size: 1.6em;
     }

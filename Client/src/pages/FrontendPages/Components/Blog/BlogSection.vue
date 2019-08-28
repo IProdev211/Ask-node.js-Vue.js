@@ -68,10 +68,11 @@ export default {
 }
 
 .section-header {
-  font-size: 1.4rem;
+  font-size: 1.6em;
   font-family: IranSansBold;
   margin: 0 0 7px 0;
 }
+
 .subtitle {
   font-size: 0.95rem;
   color: rgb(150, 150, 150) !important;
