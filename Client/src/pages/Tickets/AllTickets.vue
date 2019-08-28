@@ -180,15 +180,13 @@ h1 {
 
 .single-ticket-row {
   .ticket-card {
-    padding: 1.5em 2.5em;
-    margin-bottom: 10px;
-    // background-color: #7f5a83;
-    // background-image: linear-gradient(270deg, #0d324d 0%, #553258 74%);
+    padding: 1.8em 2.5em;
+    margin-bottom: 20px;
     background-color: #6e6e6e;
     background-image: linear-gradient(
       270deg,
-      rgb(218, 218, 218) 0%,
-      rgb(231, 231, 231) 74%
+      rgb(238, 238, 238) 0%,
+      rgb(231, 231, 231) 70%
     );
     // background-color: rgb(226, 226, 226);
     border-radius: 15px;
@@ -206,11 +204,11 @@ h1 {
     }
 
     p {
-      font-size: 1em;
+      font-size: 1.1em;
       color: rgba(39, 39, 39, 0.89) !important;
       text-align: right;
       font-family: IranSans;
-      padding-top: 5px;
+      padding-top: 10px;
     }
 
     .badge {

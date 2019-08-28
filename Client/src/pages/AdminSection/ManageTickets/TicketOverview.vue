@@ -538,17 +538,16 @@ export default {
 
 .single-ticket-row {
   .ticket-card {
-    padding: 1.5em 2.5em;
-    margin-bottom: 10px;
+    padding: 2em 2.5em;
+    margin-bottom: 20px;
     // background-color: #7f5a83;
     // background-image: linear-gradient(270deg, #0d324d 0%, #553258 74%);
     background-color: #6e6e6e;
     background-image: linear-gradient(
       270deg,
-      rgb(218, 218, 218) 0%,
-      rgb(231, 231, 231) 74%
+      rgb(238, 238, 238) 0%,
+      rgb(231, 231, 231) 70%
     );
-    // background-color: rgb(226, 226, 226);
     border-radius: 15px;
     border: 1px solid rgb(216, 216, 216);
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.19),

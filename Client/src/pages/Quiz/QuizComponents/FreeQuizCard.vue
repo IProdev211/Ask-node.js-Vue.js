@@ -3,26 +3,26 @@
     <div class="free-quiz-card d-flex justify-content-between align-items-center row">
       <div class="block-element">
         <p class="quiz-title">نام امتحان</p>
-        <h3 class="quiz-title-info">Proper Nouns Quiz</h3>
+        <h3 class="quiz-info">Proper Nouns Quiz</h3>
       </div>
 
       <div class="w-100 d-md-none py-3"></div>
 
       <div class="block-element">
-        <p class="quiz-subtitle">دوره مرتبط</p>
-        <h3 class="quiz-subtitle-info">General Grammar Course</h3>
+        <p class="quiz-title">دوره مرتبط</p>
+        <h3 class="quiz-info">General Grammar Course</h3>
       </div>
 
       <div class="w-100 d-md-none py-3"></div>
 
       <div>
-        <p class="quiz-time">مدت زمان امتحان</p>
-        <h3 class="quiz-time-info">20 دقیقه</h3>
+        <p class="quiz-title">مدت زمان امتحان</p>
+        <h3 class="quiz-info">20 دقیقه</h3>
       </div>
 
       <div>
-        <p class="quiz-questions">تعداد سوالات</p>
-        <h3 class="quiz-questions-info">15 سوال</h3>
+        <p class="quiz-title">تعداد سوالات</p>
+        <h3 class="quiz-info">15 سوال</h3>
       </div>
 
       <div class="w-100 d-md-none py-2"></div>
@@ -52,7 +52,7 @@ export default {};
 
 <style lang="scss" scoped>
 .free-quiz-card {
-  padding: 1.5em 2em;
+  padding: 2em;
   margin-bottom: 15px;
   background-color: #6e72fc;
   background-image: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%) !important;
@@ -63,65 +63,13 @@ export default {};
 .quiz-title {
   font-size: 1em;
   color: rgba(255, 255, 255, 0.4) !important;
+  font-family: IranSansBold;
   text-align: right;
 }
-.quiz-title-info {
-  font-size: 1.5em;
-  color: #fff !important;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-align: right;
-}
-
-.quiz-subtitle {
-  font-size: 1em;
-  color: rgba(255, 255, 255, 0.4) !important;
-  text-align: right;
-  font-family: IranSans;
-}
-
-.quiz-subtitle-info {
-  font-size: 1.5em;
-  color: #fff !important;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-align: right;
-}
-
-.quiz-time {
-  font-size: 1em;
-  color: rgba(255, 255, 255, 0.4) !important;
-  text-align: right;
-  font-family: IranSans;
-}
-
-.quiz-time-info {
+.quiz-info {
   font-size: 1.2em;
   color: #fff !important;
-  text-align: right;
-}
-
-.quiz-questions {
-  font-size: 1em;
-  color: rgba(255, 255, 255, 0.4) !important;
-  text-align: right;
-  font-family: IranSans;
-}
-
-.quiz-questions-info {
-  font-size: 1.2em;
-  color: #fff !important;
-  text-align: right;
-}
-
-.quiz-price {
-  font-size: 1em;
-  color: rgba(255, 255, 255, 0.4) !important;
-  text-align: right;
-  font-family: IranSans;
-}
-
-.quiz-price-info {
-  font-size: 1.2em;
-  color: #fff !important;
+  font-family: IranSansDN;
   text-align: right;
 }
 

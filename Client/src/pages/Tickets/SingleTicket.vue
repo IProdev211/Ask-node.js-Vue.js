@@ -7,7 +7,7 @@
       </h1>
     </div>
     <div class="my-5">
-      <h2 class="ticket-desc py-5 pr-3">{{ticket.title}}</h2>
+      <h2 class="ticket-desc text-center py-5">{{ticket.title}}</h2>
       <div
         v-for="message of messages"
         :key="message.id"
@@ -404,20 +404,21 @@ export default {
   .subtitle {
     font-size: 1.4em;
     font-family: IranSans;
-    color: rgba(0, 0, 0, 0.562);
+    color: rgba(0, 0, 0, 0.5);
   }
 }
 
 .ticket-desc {
   font-size: 1.4em;
-  font-family: IranSansDN;
-  color: rgba(85, 85, 85, 0.85);
+  font-family: IranSansBold;
+  color: rgb(51, 51, 51) !important;
 }
 
 .card-custom {
-  background-color: rgba(236, 236, 236, 0.705);
+  background-color: rgb(240, 240, 240);
   border-radius: 25px;
   padding: 2em 3em;
+  border: 1px solid rgba(230, 230, 230, 0.801);
 
   .ticket-date {
     font-family: IranSans;
