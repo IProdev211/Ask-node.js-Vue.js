@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="main-blog-section container">
-      <h3 class="subheading text-center">{{post.name}}</h3>
+      <h3 class="post-title">{{post.name}}</h3>
       <div class="row">
         <div class="main-blog-text col-lg-9 col-md-6">
           <div v-html="post.content"></div>
@@ -80,6 +80,12 @@ export default {
   border-radius: 20px;
 }
 
+.post-title {
+  text-align: center;
+  font-family: IranSansBold;
+  padding-bottom: 2em;
+}
+
 .main-blog-section {
   padding: 2em 0 5em 0;
 }
@@ -96,7 +102,7 @@ export default {
   position: -webkit-sticky;
   position: sticky;
   margin-top: 1em;
-  top: 8em;
+  top: 7em;
 }
 
 .small-devices {

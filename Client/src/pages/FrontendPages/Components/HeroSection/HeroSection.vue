@@ -46,8 +46,8 @@ export default {};
   background-position: bottom;
   height: 60vh !important;
   width: 100%;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0 100%);
+  // -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0 100%);
+  // clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0 100%);
 
   .hero-text-section {
     position: relative;
@@ -92,8 +92,8 @@ export default {};
     background-position: bottom;
     min-height: 65vh !important;
     background-position: bottom right;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5vw), 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5vw), 0 100%);
+    // -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5vw), 0 100%);
+    // clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5vw), 0 100%);
 
     .hero-title {
       font-size: 2.6em;

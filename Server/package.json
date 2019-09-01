@@ -50,7 +50,7 @@
     "sitemap": "^4.1.1",
     "sprintf-js": "^1.1.2",
     "striptags": "^3.1.1",
-    "sweetalert2": "^8.16.3",
+    "sweetalert2": "^8.17.1",
     "unique-string": "^2.0.0",
     "validator": "^11.1.0",
     "zarinpal-checkout": "^0.2.7"

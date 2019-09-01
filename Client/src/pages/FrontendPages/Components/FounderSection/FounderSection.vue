@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-7 text-right">
           <!-- <h2 class="pb-4">کاپیتان این پرواز چه کسی است؟</h2> -->
-          <h2 class="pb-4 section-header">مدرس من کیست؟</h2>
+          <h2 class="pb-4 section-header">بنیانگذار ما</h2>
 
           <p class="CustomParagraph">
             بنیان گذار اسک آریا، خلبان آریا درودیان میباشد.
