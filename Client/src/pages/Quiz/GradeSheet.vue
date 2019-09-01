@@ -1,15 +1,19 @@
 <template>
-  <div class="container">
-    <h1 class="page-title text-right pt-5">کارنامه شما</h1>
-    <div class="card text-center">
-      <div class="quiz-title pt-3 pb-2">
+  <div class="container-fluid">
+    <h1 class="page-title text-right container pt-5">کارنامه شما</h1>
+    <div class="quiz-result-card mb-5">
+      <div class="quiz-title py-3 text-center">
         <h2>Common Noun Quiz</h2>
         <div class="pt-2">
           <router-link to="/courses/دوره-ی-گرامر-انگلیسی">General English Course</router-link>
         </div>
       </div>
 
-      <div class="d-flex justify-content-center py-5 text-center">
+      <div class="grade-section text-center">
+        <h2 class="grade">78%</h2>
+      </div>
+
+      <div class="d-flex justify-content-center py-3 text-center">
         <div class="pl-5">
           <h3 class="quiz-info">
             <span>20 دقیقه</span>
@@ -25,7 +29,7 @@
         </div>
       </div>
 
-      <p class="pt-3 exam-description">
+      <p class="py-3 exam-description">
         آزمون تعیین سطح انگلیسی حاضر آزمون استانداری است که توسط دانشگاه کمبریج طراحی شده است. این آزمون تعیین سطح شامل 25 سوال چند گزینه ای است که همه آنها مربوط به انگلیسی عمومی می باشند.
         با پاسخ دادن به هر سوال یک امتیاز دریافت خواهید کرد و مجموع امتیازات هم 25 است. در نظر داشته باشید برای اتمام آزمون باید به تمامی سوالات پاسخ داده شود.
         با انجام این آزمون تعیین سطح آنلاین کاملا رایگان، از سطح تقریبی زبان خود آگاه خواهید شد. به طور کلی (طبق دانشگاه کمبریج) امتیازات کسب شده را می توان به با سطوح زیر تفسیر کرد:
@@ -55,9 +59,10 @@ export default {};
   color: #667eea !important;
 }
 
-.white-content .card:not(.card-white) {
-  border-radius: 30px;
-  padding: 2em;
+.quiz-result-card {
+  border-radius: 20px;
+  padding: 1em;
+  margin: 0 8em;
   background-color: #7f53ac;
   background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
@@ -80,7 +85,7 @@ export default {};
     font-size: 1.5em;
   }
   a:hover {
-    color: rgb(38, 204, 52) !important;
+    color: rgb(0, 230, 19) !important;
     text-decoration: underline;
   }
 }
@@ -96,11 +101,14 @@ export default {};
     font-family: IranSansBold;
   }
 }
+
 .exam-description {
   font-size: 1.2em;
-  text-align: center;
+  text-align: right;
   color: rgb(255, 255, 255) !important;
+  padding: 1em;
 }
+
 .btn {
   color: #fff !important;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -116,7 +124,23 @@ export default {};
   color: rgb(0, 255, 255) !important;
   box-shadow: transparent !important;
 }
+
+.grade {
+  font-size: 3em;
+  font-family: IranSansBold;
+  color: rgb(34, 241, 34) !important;
+}
+
+@media (max-width: 760px) {
+  .quiz-result-card {
+    margin: 0 1em;
+  }
+  .exam-description {
+    padding: 0.5em;
+  }
+
+  .quiz-title {
+    font-size: 0.8em;
+  }
+}
 </style>
-
-
-
