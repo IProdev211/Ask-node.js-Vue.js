@@ -115,9 +115,9 @@ export default {
 .userSection {
   padding: 2em 0 0.8em 0;
   .userFullName {
+    font-family: IranSansBold;
     color: #fff;
     font-size: 1.3em !important;
-    font-weight: 600;
   }
 }
 .avatar {

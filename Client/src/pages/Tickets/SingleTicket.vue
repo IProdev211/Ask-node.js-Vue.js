@@ -7,7 +7,7 @@
       </h1>
     </div>
     <div class="my-5">
-      <h2 class="ticket-desc text-center py-5">{{ticket.title}}</h2>
+      <h2 class="ticket-desc text-center py-3">{{ticket.title}}</h2>
       <div
         v-for="message of messages"
         :key="message.id"
@@ -16,12 +16,14 @@
       >
         <div class="ticket-meta d-flex justify-content-between row">
           <p class="ticket-user">
-            <img
+            <img :src="message.user.avatar" class="user-avatar avatar" v-if="message.user.avatar" />
+
+            <!-- ORIGINAL CODE <img
               :src="message.user.avatar"
               :alt="message.user.name"
               class="user-avatar avatar"
               v-if="message.user.avatar"
-            />
+            />-->
             <i class="pl-1 text-danger far fa-user" v-else></i>
             {{message.user.name}}
           </p>
@@ -430,9 +432,8 @@ export default {
   }
 
   .ticket-user {
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    font-size: 1.2em;
+    font-family: IranSans;
+    font-size: 1.1em;
     color: rgba(0, 0, 0, 0.75);
   }
 
