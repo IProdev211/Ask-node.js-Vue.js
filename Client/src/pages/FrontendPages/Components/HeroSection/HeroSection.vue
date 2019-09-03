@@ -1,22 +1,59 @@
 <template>
   <section class="hero-content-homepage">
-    <div class="hero-text-section text-center">
-      <!-- <h1 class="hero-title pb-3">آیا میخواهید مثل یک بومی انگلیسی حرف بزنید؟</h1> -->
-      <h1 class="hero-title pb-3">اسک آریا سریع ترین راه یادگیری زبان</h1>
+    <div class="container d-none d-md-block">
+      <div class="row d-flex align-items-center">
+        <div class="col-md-5">
+          <div class="hero-text-section">
+            <h1 class="hero-title text-right pb-3">اسک آریا سریع ترین راه یادگیری زبان</h1>
+            <p
+              class="text-right hero-subtitle py-3"
+            >ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان برای شما در موثر ترین و کوتاه ترین زمان ممکن صورت گیرد.</p>
+
+            <div class="pt-3 row button-section">
+              <router-link to="dashboard">
+                <base-button
+                  native-type="submit"
+                  type="warning"
+                  class="btn animation-on-hover"
+                >ورود به پنل کاربری</base-button>
+              </router-link>
+
+              <div class="pr-3">
+                <router-link to="allcourses">
+                  <base-button
+                    native-type="submit"
+                    type="primary"
+                    class="btn animation-on-hover"
+                  >مشاهده همه دوره ها</base-button>
+                </router-link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <img
+            class="image img-fluid"
+            src="/img/frontend/loginscreenbg.svg"
+            alt="Picture of our fearless leader 2"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-text-section-s container d-sm-none px-4">
+      <h1 class="hero-title text-right pb-2">اسک آریا سریع ترین راه یادگیری زبان</h1>
       <p
-        class="text-center hero-subtitle py-3"
+        class="text-right hero-subtitle py-3"
       >ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان برای شما در موثر ترین و کوتاه ترین زمان ممکن صورت گیرد.</p>
 
-      <div class="pt-3 d-flex justify-content-center text-center">
-        <div>
-          <router-link to="dashboard">
-            <base-button
-              native-type="submit"
-              type="warning"
-              class="btn animation-on-hover"
-            >ورود به پنل کاربری</base-button>
-          </router-link>
-        </div>
+      <div class="pt-3 row text-right">
+        <router-link to="dashboard">
+          <base-button
+            native-type="submit"
+            type="warning"
+            class="btn animation-on-hover"
+          >ورود به پنل کاربری</base-button>
+        </router-link>
 
         <div class="pr-3">
           <router-link to="allcourses">
@@ -37,40 +74,45 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+.image {
+  width: 500px !important;
+  padding-top: 3em;
+}
+
 .hero-content-homepage {
   background-color: #6e72fc;
-  background: linear-gradient(315deg, #ad1debee 0%, #6e73fce7 74%),
-    url(/img/frontend/london-bg-opt.jpg);
+  background: linear-gradient(315deg, #ad1debee 0%, #6e73fce7 74%);
   background-color: #6e72fc;
+  // background-color: #6e72fc;
+  // background: linear-gradient(315deg, #ad1debee 0%, #6e73fce7 74%),
+  // url(/img/frontend/london-bg-opt.jpg);
+  // background-color: #6e72fc;
   background-size: cover;
   background-position: bottom;
-  height: 60vh !important;
+  min-height: 55vh !important;
   width: 100%;
-  // -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0 100%);
-  // clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0 100%);
 
-  .hero-text-section {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0 10%;
-  }
+  // .hero-text-section {
+  //   position: relative;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  //   padding: 0 10%;
+  // }
 
   .hero-title {
-    font-size: 4.5em;
+    font-size: 3.5em;
     line-height: inherit;
     font-family: IranSansBold !important;
     color: #fff !important;
-    padding: 0;
-    margin: 0;
+    // padding: 0;
+    // margin: 0;
     text-shadow: 2px 2px #300a3f27;
   }
 
   .hero-subtitle {
-    font-size: 1.3em;
-    // text-shadow: 1px 1px #79797949;
-    line-height: 1.6em;
+    font-size: 1.2em;
+    line-height: 1.5em;
     font-family: IranSans;
     color: rgba(255, 255, 255, 0.9) !important;
   }
@@ -85,21 +127,25 @@ export default {};
 }
 
 @media screen and (max-width: 730px) {
+  .button-section {
+    -webkit-box-pack: center !important;
+    justify-content: center !important;
+  }
+
   .hero-content-homepage {
-    background: linear-gradient(225deg, #e6158fc7, #462bbdd2),
+    background: linear-gradient(225deg, #ad1debee, #6e73fce7),
       url(/img/frontend/london-bg-opt.jpg);
     background-size: cover;
     background-position: bottom;
-    min-height: 65vh !important;
+    min-height: 62vh !important;
     background-position: bottom right;
-    // -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5vw), 0 100%);
-    // clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5vw), 0 100%);
 
     .hero-title {
       font-size: 2.6em;
       line-height: inherit;
       color: #fff !important;
       text-align: right !important;
+      padding-top: 1em;
     }
     .hero-subtitle {
       padding-left: 1.1em;
