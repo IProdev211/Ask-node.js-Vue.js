@@ -3,7 +3,7 @@
     <h3 slot="header" class="card-title">{{ 'وضعیت پرداخت' }}</h3>
     <div>
       <div class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"></div>
-      <el-table :data="queriedData">
+      <el-table :data="tableData">
         <el-table-column
           v-for="column in tableColumns"
           :key="column.label"
@@ -21,7 +21,8 @@
         class="pagination-no-border text-rtl"
         v-model="pagination.currentPage"
         :per-page="pagination.perPage"
-        :total="total"
+        :total="pagination.total"
+        @input="changePageListener"
       ></base-pagination>
 
       <!-- <div class>
@@ -35,6 +36,7 @@ import { Table, TableColumn, Select, Option } from 'element-ui';
 import { BasePagination } from 'src/components';
 import moment from 'jalali-moment';
 import Fuse from 'fuse.js';
+import backend from '../../../backend';
 
 export default {
   components: {
@@ -48,13 +50,6 @@ export default {
     /***
      * Returns a page from the searched data or the whole data. Search is performed in the watch section below
      */
-    queriedData() {
-      let result = this.tableData;
-      if (this.searchedData.length > 0) {
-        result = this.searchedData;
-      }
-      return result.slice(this.from, this.to);
-    },
     to() {
       let highBound = this.from + this.pagination.perPage;
       if (this.total < highBound) {
@@ -70,16 +65,9 @@ export default {
         ? this.searchedData.length
         : this.tableData.length;
     },
-    pagination() {
-      return {
-        perPage: 20,
-        currentPage: this.payments.page,
-        total: this.payments.total
-      };
-    },
     tableData() {
       const data = [];
-      for (const payment of this.payments.docs) {
+      for (const payment of this.docs) {
         let product = '';
         if (payment.course) {
           product = payment.course.title;
@@ -135,7 +123,13 @@ export default {
         }
       ],
       searchedData: [],
-      fuseSearch: null
+      fuseSearch: null,
+      docs: [],
+      pagination: {
+        perPage: 0,
+        currentPage: 0,
+        total: 0
+      },
     };
   },
   props: ['payments'],
@@ -145,6 +139,31 @@ export default {
       keys: ['name', 'email'],
       threshold: 0.3
     });
+  },
+  methods: {
+    dataLoad(page) {
+      backend
+        .get(
+          '/dashboard/payments?page=' + page + '&limit=' + this.pagination.perPage
+        )
+        .then(response => {
+          this.docs = response.data.docs;
+          this.pagination.currentPage = parseInt(response.data.page, 10);
+          this.pagination.total = response.data.totalDocs;
+          this.pagination.perPage = response.data.limit;
+        });
+    },
+    changePageListener(page) {
+      this.dataLoad(page);
+    },
+  },
+  watch: {
+    payments: function(newValue, oldValue) {
+      this.docs = newValue.docs;
+      this.pagination.currentPage = parseInt(newValue.page, 10);
+      this.pagination.total = newValue.totalDocs;
+      this.pagination.perPage = newValue.limit;
+    }
   }
 };
 </script>

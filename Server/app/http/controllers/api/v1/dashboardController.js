@@ -13,7 +13,7 @@ class dashboardController extends controller {
     let page = req.query.page || 1;
     let condition = {};
     const isVip = req.user.vipTime && new Date(req.user.vipTime) > new Date();
-    if (true || isVip) {
+    if (isVip) {
       condition = {
         $or: [{ _id: { $in: req.user.learning } }, { type: 'VIP' }]
       };
@@ -21,7 +21,6 @@ class dashboardController extends controller {
       condition = { _id: { $in: req.user.learning } };
     }
     const courses = await Course.find(condition, '_id').exec();
-    console.log('courses', courses);
     const promises = [
       Episode.countDocuments().exec(),
       Episode.countDocuments({
@@ -36,7 +35,7 @@ class dashboardController extends controller {
         {
           page: page,
           sort: { createdAt: -1 },
-          limit: 20,
+          limit: 3,
           populate: {
             path: 'course',
             select: '_id title images thumb price vip'
@@ -113,6 +112,27 @@ class dashboardController extends controller {
     const data = {
       ...logs,
       docs: logs.docs.map(this.filterLogData)
+    };
+    res.json(data);
+  }
+  async payments(req, res) {
+    const page = req.query.page || 1;
+    const limit = req.query.limit || 2;
+    const payments = await Payment.paginate(
+      { user: req.user.id },
+      {
+        page: page,
+        sort: { createdAt: -1 },
+        limit: limit,
+        populate: {
+          path: 'course',
+          select: '_id title images thumb price vip'
+        },
+        select: '_id createdAt price payment course vip'
+      }
+    )
+    const data = {
+      ...payments,
     };
     res.json(data);
   }

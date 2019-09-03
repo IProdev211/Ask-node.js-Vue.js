@@ -27,6 +27,7 @@ router.get('/user', HomeController.user);
 router.get('/user/history', HomeController.history);
 router.get('/dashboard', DashboardController.index);
 router.get('/dashboard/logs', DashboardController.logs);
+router.get('/dashboard/payments', DashboardController.payments);
 router.get('/logout', AuthController.logout);
 router.put(
   '/profile',
