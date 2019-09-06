@@ -39,7 +39,7 @@
               class="pb-3 text-right"
               :class="{'has-danger': fieldErrors.terms !== undefined, 'terms-checkbox': true}"
             >
-              <router-link to="/terms">
+              <router-link class="tc" to="/terms">
                 <i class="fas fa-info-circle pl-1"></i>
                 شرایط را قبول دارم
               </router-link>
@@ -235,6 +235,10 @@ export default {
   font-family: IranSansBold;
   // font-size: 3em !important;
   color: #fff !important;
+}
+
+.tc {
+  color: #3a3a3a;
 }
 
 .image-bg {

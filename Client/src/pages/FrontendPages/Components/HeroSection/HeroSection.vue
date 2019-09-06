@@ -77,6 +77,7 @@ export default {};
 .image {
   width: 500px !important;
   padding-top: 3em;
+  padding-bottom: 2em;
 }
 
 .hero-content-homepage {
@@ -89,7 +90,7 @@ export default {};
   // background-color: #6e72fc;
   background-size: cover;
   background-position: bottom;
-  min-height: 55vh !important;
+  min-height: 45vh !important;
   width: 100%;
 
   // .hero-text-section {
@@ -138,7 +139,7 @@ export default {};
     background-size: cover;
     background-position: bottom;
     min-height: 62vh !important;
-    background-position: bottom right;
+    background-position: right;
 
     .hero-title {
       font-size: 2.6em;
