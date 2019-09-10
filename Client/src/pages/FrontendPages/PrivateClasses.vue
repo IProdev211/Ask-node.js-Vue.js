@@ -96,6 +96,46 @@
   </div>
 </template>
 
+<script>
+export default {
+  metaInfo: {
+    title: 'کلاس های خصوصی | اسک آریا',
+    titleTemplate: 'کلاس های خصوصی | اسک آریا',
+    htmlAttrs: {
+      lang: 'fa',
+      amp: true
+    },
+
+    meta: [
+      // OpenGraph data (Most widely used)
+      { property: 'og:title', content: 'اسک آریا' },
+      { property: 'og:site_name', content: 'اسک آریا' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:url',
+        content: 'https://www.askarya.ir/'
+      },
+      {
+        property: 'og:image',
+        content: 'https://www.askarya.ir/img/askarya-logo.png'
+      },
+      {
+        property: 'og:description',
+        content:
+          'ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان آموزان در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.'
+      },
+      { itemprop: 'name', content: 'اسک آریا' },
+      {
+        itemprop: 'description',
+        content:
+          'ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان آموزان در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.'
+      }
+    ],
+    link: [{ rel: 'canonical', href: 'https://www.askarya.ir/' }]
+  }
+};
+</script>
+
 <style lang="scss" scoped>
 .private-classes-background {
   background: url(/img/frontend/SVG-Background-4.svg) no-repeat;

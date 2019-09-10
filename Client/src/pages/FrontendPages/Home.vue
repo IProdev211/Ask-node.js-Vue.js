@@ -134,18 +134,17 @@ export default {
   },
 
   metaInfo: {
-    title: 'Ask Arya English',
-    titleTemplate: '%s ← Learn English Like a Native, From a Native!',
+    title: 'اسک آریا | یادگیری زبان سریع',
+    titleTemplate: 'اسک آریا | یادگیری زبان سریع',
     htmlAttrs: {
       lang: 'fa',
       amp: true
-    }
-  },
-  metaInfo: {
+    },
+
     meta: [
       // OpenGraph data (Most widely used)
-      { property: 'og:title', content: 'Ask Arya English' },
-      { property: 'og:site_name', content: 'Ask Arya English' },
+      { property: 'og:title', content: 'اسک آریا' },
+      { property: 'og:site_name', content: 'اسک آریا' },
       { property: 'og:type', content: 'website' },
       {
         property: 'og:url',
@@ -160,15 +159,15 @@ export default {
         content:
           'ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان آموزان در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.'
       },
-      { itemprop: 'name', content: 'Ask Arya English' },
+      { itemprop: 'name', content: 'اسک آریا' },
       {
         itemprop: 'description',
         content:
           'ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان آموزان در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.'
       }
-    ]
-  },
-  link: [{ rel: 'canonical', href: 'https://www.askarya.ir/' }]
+    ],
+    link: [{ rel: 'canonical', href: 'https://www.askarya.ir/' }]
+  }
 };
 </script>
 
