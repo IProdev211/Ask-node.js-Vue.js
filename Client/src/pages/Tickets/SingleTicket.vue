@@ -210,7 +210,8 @@ export default {
       if (!client) {
         client = backend;
       }
-      client.get(`tickets/view/${this.$route.params.ticket}`).then(
+
+      client.get(`tickets/view/${this.$route.params.ticket}?${Date.now()}`).then(
         response => {
           this.ticket = response.data.ticket;
           this.messages = response.data.messages;
