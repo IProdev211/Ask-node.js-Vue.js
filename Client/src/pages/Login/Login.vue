@@ -208,6 +208,41 @@ export default {
   },
   destroyed() {
     document.getElementById('recaptchaScript').remove();
+  },
+  metaInfo: {
+    title: 'ورود به سایت | اسک آریا',
+    titleTemplate: 'ورود به سایت | اسک آریا',
+    htmlAttrs: {
+      lang: 'fa',
+      amp: true
+    },
+
+    meta: [
+      // OpenGraph data (Most widely used)
+      { property: 'og:title', content: 'اسک آریا' },
+      { property: 'og:site_name', content: 'اسک آریا' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:url',
+        content: 'https://www.askarya.ir/'
+      },
+      {
+        property: 'og:image',
+        content: 'https://www.askarya.ir/img/askarya-logo.png'
+      },
+      {
+        property: 'og:description',
+        content:
+          'ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان آموزان در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.'
+      },
+      { itemprop: 'name', content: 'اسک آریا' },
+      {
+        itemprop: 'description',
+        content:
+          'ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان آموزان در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.'
+      }
+    ],
+    link: [{ rel: 'canonical', href: 'https://www.askarya.ir/' }]
   }
 };
 </script>

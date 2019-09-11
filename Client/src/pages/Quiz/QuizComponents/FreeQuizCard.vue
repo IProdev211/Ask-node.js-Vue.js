@@ -55,7 +55,7 @@ export default {};
   padding: 2em;
   margin-bottom: 15px;
   background-color: #6e72fc;
-  background-image: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%) !important;
+  background-image: linear-gradient(315deg, #6e72fc, #ad1deb) !important;
   border-radius: 1.2em !important;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
 }

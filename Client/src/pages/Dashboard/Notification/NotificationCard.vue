@@ -62,13 +62,13 @@ export default {
       switch (type) {
         case 'logout':
         case 'login':
-          return 'fa-shield-alt';
+          return 'fa-shield-alt ';
         case 'register':
           return 'fa-user-tie';
         case 'buy_course':
-          return 'fa-shopping-basket';
+          return 'fa-shopping-basket text-success';
         default:
-          return 'fa-history';
+          return 'fa-history text-success';
       }
     },
     changePageListener(page) {

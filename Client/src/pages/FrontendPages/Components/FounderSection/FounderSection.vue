@@ -44,7 +44,7 @@
 }
 
 .CustomParagraph {
-  font-size: 1.3em;
+  font-size: 1.15em;
   line-height: 1.9em !important;
   color: rgb(0, 0, 0) !important;
 }

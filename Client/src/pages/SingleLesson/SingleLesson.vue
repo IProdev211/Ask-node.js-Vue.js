@@ -79,7 +79,7 @@
                 <base-button
                   @click="openBuyCourse"
                   native-type="button"
-                  class="btn-sm btn-danger btn mr-2"
+                  class="btn btn-round btn-danger btn mr-2 buy-btn"
                 >تهیه درس</base-button>
               </p>
             </div>
@@ -499,6 +499,10 @@ export default {
   // border-radius: 15px;
   // margin: 3em;
   // width: 20%;
+}
+
+.buy-btn {
+  font-family: IranSansBold;
 }
 
 .custom-padding {

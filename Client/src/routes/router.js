@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import routes from './routes';
+import Meta from 'vue-meta';
 
 Vue.use(VueRouter);
+Vue.use(Meta);
 
 // configure router
 const router = new VueRouter({

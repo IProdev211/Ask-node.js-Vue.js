@@ -15,31 +15,28 @@
       <template v-if="addLink">
         <span class="sidebar-mini-icon">{{ linkPrefix }}</span>
         <span class="sidebar-normal">
-          {{ link.name }} <b class="caret"></b>
+          {{ link.name }}
+          <b class="caret"></b>
         </span>
       </template>
       <template v-else>
         <i :class="link.icon"></i>
-        <p>{{ link.name }} <b class="caret"></b></p>
+        <p>
+          {{ link.name }}
+          <b class="caret"></b>
+        </p>
       </template>
     </a>
 
     <collapse-transition>
-      <div
-        v-if="$slots.default || this.isMenu"
-        v-show="!collapsed"
-        class="collapse show"
-      >
+      <div v-if="$slots.default || this.isMenu" v-show="!collapsed" class="collapse show">
         <ul class="nav">
           <slot></slot>
         </ul>
       </div>
     </collapse-transition>
 
-    <slot
-      name="title"
-      v-if="children.length === 0 && !$slots.default && link.path"
-    >
+    <slot name="title" v-if="children.length === 0 && !$slots.default && link.path">
       <component
         :to="link.path"
         @click.native="linkClick"

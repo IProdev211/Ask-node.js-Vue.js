@@ -134,7 +134,7 @@ export default {
   .course-title {
     font-size: 1rem;
     font-family: IranSansBold;
-    color: #424242;
+    color: #333333;
   }
 
   .CourseCard__courseimage {
@@ -146,7 +146,7 @@ export default {
   }
 
   .courseTime {
-    color: rgb(78, 78, 78);
+    color: rgb(66, 66, 66);
     padding-right: 0.7rem;
     font-size: 1.2rem;
     font-family: IranSansBold;
@@ -154,11 +154,11 @@ export default {
 
   .courseTimeSpan {
     font-size: 0.73rem;
-    color: #3f3f3f;
+    color: #696969;
   }
 
   .unitsAvailable {
-    color: rgb(78, 78, 78);
+    color: rgb(66, 66, 66);
     padding-left: 0.7rem;
     font-size: 1.2rem;
     font-family: IranSansBold;
@@ -166,7 +166,7 @@ export default {
 
   .unitsAvailableSpan {
     font-size: 0.73rem;
-    color: #3f3f3f;
+    color: #696969;
   }
 
   .bottom-section {

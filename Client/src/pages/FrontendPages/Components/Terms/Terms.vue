@@ -1,7 +1,7 @@
 <template>
   <section class="container text-center py-5">
     <div class="top-section">
-      <h1 class="title pb-5">قوانین و مقررات سایت</h1>
+      <h1 class="title pb-5 text-danger">قوانین و مقررات سایت</h1>
       <!-- <p>در این صفحه شرایط استفاده از وبسایت اسک آریا را مشاهده میکنید</p> -->
     </div>
     <div class="main-section card px-4 text-right">
@@ -154,26 +154,66 @@
 </template>
 
 <script>
-export default {};
+export default {
+  metaInfo: {
+    title: 'قوانین و مقررات سایت | اسک آریا',
+    titleTemplate: 'قوانین و مقررات سایت | اسک آریا',
+    htmlAttrs: {
+      lang: 'fa',
+      amp: true
+    },
+
+    meta: [
+      // OpenGraph data (Most widely used)
+      { property: 'og:title', content: 'اسک آریا' },
+      { property: 'og:site_name', content: 'اسک آریا' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:url',
+        content: 'https://www.askarya.ir/'
+      },
+      {
+        property: 'og:image',
+        content: 'https://www.askarya.ir/img/askarya-logo.png'
+      },
+      {
+        property: 'og:description',
+        content:
+          'ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان آموزان در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.'
+      },
+      { itemprop: 'name', content: 'اسک آریا' },
+      {
+        itemprop: 'description',
+        content:
+          'ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان آموزان در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.'
+      }
+    ],
+    link: [{ rel: 'canonical', href: 'https://www.askarya.ir/' }]
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 .title {
   font-family: IranSansBold;
+  font-size: 3em;
 }
+
 p {
-  font-size: 1.1rem;
+  font-size: 1.2em;
 }
+
 li {
-  font-size: 1rem;
+  font-size: 1.1em;
 }
+
 .notice {
-  font-size: 1.2rem;
+  font-size: 1.3em;
   font-family: IranSansBold;
 }
 
 .subtitle {
-  font-size: 1.7rem;
+  font-size: 1.7em;
   font-family: IranSansBold;
 }
 

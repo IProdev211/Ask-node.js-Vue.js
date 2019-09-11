@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row">
-      <div class="col-md-8 m-md-auto col-12 card-background card-body text-center my-3">
+      <div class="col-md-8 m-md-auto col-12 card-background card-body text-center">
         <div v-if="pymentStatus.loading">
           <h2 class="text-center my-3">
             <i class="fa fa-5x fa-spinner fa-pulse fa-fw"></i>
@@ -12,9 +12,9 @@
           <h2 class="text-center my-3">
             <i class="fa fa-5x fa-check-circle text-success"></i>
           </h2>
-          <h3 class="mt-3 mb-2">تراکنش موفق</h3>
-          <p class="text-light">خرید دوره با موفقیت انجام شد.</p>
-          <p>
+          <h3 class="mt-3 mb-2 payment-status">تراکنش موفق</h3>
+          <p class="status-payment-text">خرید دوره با موفقیت انجام شد.</p>
+          <p class="pt-3">
             <router-link v-if="course.id" :to="`/courses/${course.slug}`">
               <i class="fas fa-angle-double-left"></i>
               <span class="return-text">برگشت به دوره</span>
@@ -25,8 +25,8 @@
           <h2 class="text-center my-3">
             <i class="fa fa-5x fa-exclamation-circle text-danger"></i>
           </h2>
-          <h3 class="mt-4 mb-2 text-danger">تراکنش ناموفق</h3>
-          <p class="text-light text-right text-rtl">
+          <h3 class="mt-4 mb-3 text-danger payment-status">تراکنش ناموفق</h3>
+          <p class="text-right text-rtl status-payment-text">
             تراکنش شما با موفقیت پرداخت نشد.
             <br />درصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی طی 48 ساعت آینده مرجوع خواهد شد.
           </p>
@@ -97,8 +97,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.payment-status {
+  font-family: IranSansBold;
+  font-size: 2.2em;
+}
+
+.status-payment-text {
+  color: rgb(148, 148, 148);
+  font-size: 1.2em;
+  padding-top: 10px;
+}
+
 .return-text {
-  font-size: 1.2rem;
+  font-size: 1.4em;
   text-decoration: underline;
 }
 

@@ -22,7 +22,7 @@ export default {};
 <style lang="scss" scoped>
 .bg {
   background-color: #ee8e6b;
-  background-image: linear-gradient(315deg, #ef6d89ee 0%, #ee8e6bf1 74%),
+  background-image: linear-gradient(315deg, #ef6d89f5 0%, #ee8e6bf6 74%),
     url(/img/frontend/london-seemless-bg.svg);
   border-radius: 30px;
   margin: 2% 12%;

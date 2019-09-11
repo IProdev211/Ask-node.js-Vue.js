@@ -182,15 +182,15 @@ h1 {
   .ticket-card {
     padding: 1.8em 2.5em;
     margin-bottom: 20px;
-    background-color: #6e6e6e;
+    background-color: #aaaaaa;
     background-image: linear-gradient(
       270deg,
       rgb(238, 238, 238) 0%,
-      rgb(231, 231, 231) 70%
+      rgb(238, 238, 238) 70%
     );
     // background-color: rgb(226, 226, 226);
     border-radius: 15px;
-    border: 1px solid rgb(216, 216, 216);
+    border: 1px solid rgb(228, 228, 228);
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.19),
       0 6px 6px rgba(158, 158, 158, 0.23) !important;
 
