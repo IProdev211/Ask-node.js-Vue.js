@@ -124,6 +124,7 @@ import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
+import Direction from 'ckeditor5-direction/src/direction';
 
 export default {
   components: {
@@ -166,7 +167,8 @@ export default {
             ImageToolbar,
             ImageCaption,
             ImageStyle,
-            imageupload
+            imageupload,
+            Direction
           ],
           fontSize: {
             options: [9, 11, 13, 'default', 17, 19, 21]
@@ -188,6 +190,8 @@ export default {
             'bulletedList',
             'numberedList',
             'blockQuote',
+            'direction:ltr',
+            'direction:rtl',
             'alignment',
             'undo',
             'redo',
@@ -198,7 +202,7 @@ export default {
             'imageTextAlternative',
             '|',
             'imageStyle:full',
-            'imageStyle:side'
+            'imageStyle:side',
           ]
         }
       }

@@ -113,6 +113,7 @@ import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Font from '@ckeditor/ckeditor5-font/src/font';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import Direction from 'ckeditor5-direction/src/direction';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
 import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar';
@@ -180,7 +181,8 @@ export default {
 						ImageToolbar,
 						ImageCaption,
 						ImageStyle,
-						imageupload,
+            imageupload,
+            Direction,
 					],
 					fontSize: {
 						options: [
@@ -199,6 +201,7 @@ export default {
 						'bold', 'italic', 'underline', 'strikethrough', 'code', 'subscript', 'superscript',
 						'link',
 						'bulletedList', 'numberedList', 'blockQuote',
+            'direction:ltr', 'direction:rtl',
 						'alignment',
 						'undo', 'redo',
 						'fontSize', 'fontColor', 'fontBackgroundColor',
