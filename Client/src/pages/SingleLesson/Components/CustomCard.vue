@@ -198,7 +198,7 @@ pie-chart {
   }
 
   .subtitle {
-    font-size: 1em !important;
+    font-size: 0.9em !important;
   }
 }
 </style>

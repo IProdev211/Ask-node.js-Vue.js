@@ -13,14 +13,17 @@
         </div>
       </div>
     </div>
-    <div class="main-blog-section container">
-      <h3 class="post-title">{{post.name}}</h3>
-      <div class="row">
-        <div class="main-blog-text col-lg-9 col-md-6">
-          <div v-html="post.content"></div>
-        </div>
-        <div class="sticky col-lg-3 col-md-6">
-          <custom-card :class="sticky" />
+    <div class="container">
+      <div class="main-blog-section">
+        <h3 class="post-title">{{post.name}}</h3>
+        <div class="row">
+          <div class="card main-blog-text col-lg-9 col-md-6">
+            <div v-html="post.content"></div>
+          </div>
+
+          <div class="sticky col-lg-3 col-md-6">
+            <custom-card :class="sticky" />
+          </div>
         </div>
       </div>
     </div>
@@ -92,10 +95,19 @@ export default {
 
 .main-blog-text {
   // margin: 0 15%;
-  padding: 0 10%;
+  padding: 4%;
   font-size: 1.3em !important;
   line-height: 2.1em !important;
   direction: ltr !important;
+  font-family: IranSans;
+}
+
+.white-content .card:not(.card-white) {
+  margin-top: 1em;
+  background: #ffffff;
+  -webkit-box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.2);
+  box-shadow: 0 1px 15px 0 rgba(155, 155, 155, 0.3);
+  border-radius: 15px;
 }
 
 .sticky {
@@ -103,6 +115,7 @@ export default {
   position: sticky;
   margin-top: 1em;
   top: 7em;
+  padding: 0 1.3em;
 }
 
 .small-devices {
