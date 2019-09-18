@@ -2,7 +2,7 @@
   <section class="hero-content-homepage">
     <div class="container d-none d-md-block">
       <div class="row d-flex align-items-center">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <div class="hero-text-section">
             <h1 class="hero-title text-right pb-3">اسک آریا سریع ترین راه یادگیری زبان</h1>
             <p
@@ -30,7 +30,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-6">
           <img
             class="image img-fluid"
             src="/img/frontend/loginscreenbg.svg"
@@ -84,30 +84,16 @@ export default {};
   background-color: #6e72fc;
   background: linear-gradient(315deg, #ad1debee 0%, #6e73fce7 74%);
   background-color: #6e72fc;
-  // background-color: #6e72fc;
-  // background: linear-gradient(315deg, #ad1debee 0%, #6e73fce7 74%),
-  // url(/img/frontend/london-bg-opt.jpg);
-  // background-color: #6e72fc;
   background-size: cover;
   background-position: bottom;
   min-height: 45vh !important;
   width: 100%;
-
-  // .hero-text-section {
-  //   position: relative;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: translate(-50%, -50%);
-  //   padding: 0 10%;
-  // }
 
   .hero-title {
     font-size: 3.5em;
     line-height: inherit;
     font-family: IranSansBold !important;
     color: #fff !important;
-    // padding: 0;
-    // margin: 0;
     text-shadow: 2px 2px #300a3f27;
   }
 
@@ -128,18 +114,13 @@ export default {};
 }
 
 @media screen and (max-width: 730px) {
-  .button-section {
-    -webkit-box-pack: center !important;
-    justify-content: center !important;
-  }
-
   .hero-content-homepage {
     background: linear-gradient(225deg, #ad1debee, #6e73fce7),
-      url(/img/frontend/london-bg-opt.jpg);
+      url(/img/frontend/london-bg-1-mobile.jpg);
+    // background: linear-gradient(315deg, #ad1debee 0%, #6e73fce7 74%);
     background-size: cover;
-    background-position: bottom;
-    min-height: 62vh !important;
-    background-position: right;
+    background-position: top;
+    min-height: 45vh !important;
 
     .hero-title {
       font-size: 2.6em;
@@ -148,18 +129,26 @@ export default {};
       text-align: right !important;
       padding-top: 1em;
     }
+
     .hero-subtitle {
       padding-left: 1.1em;
       font-size: 1.1em;
       text-align: right !important;
     }
+
     .btn {
       font-weight: inherit;
       border-radius: 30px;
       padding: 14px 15px;
       font-size: 0.9em;
       font-family: IranSansBold;
+      margin-bottom: 2.5em;
     }
+  }
+
+  .button-section {
+    -webkit-box-pack: center !important;
+    justify-content: center !important;
   }
 
   .top-courses-section {
@@ -172,8 +161,8 @@ export default {};
 
 @media screen and (max-width: 330px) {
   .hero-content-homepage {
-    min-height: 80vh !important;
-    background-position: bottom right;
+    min-height: 65vh !important;
+    background-position: top;
     .hero-text-section {
       position: relative;
       top: 45%;
@@ -186,16 +175,46 @@ export default {};
       font-size: 2.3em;
       padding-top: 30px;
     }
+
     .hero-subtitle {
       padding-left: 1.1em;
       font-size: 1.1em;
       text-align: right !important;
     }
+
     .btn {
       padding: 14px 15px;
       font-size: 0.7em;
       font-family: IranSansBold;
+      margin-bottom: 2.5em;
     }
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .hero-title {
+    font-size: 2em;
+    padding-top: 30px;
+    line-height: inherit;
+  }
+
+  .hero-subtitle {
+    padding-left: 1.1em;
+    font-size: 1.1em;
+    text-align: right !important;
+  }
+
+  .image {
+    width: 400px !important;
+    padding-top: 3em;
+    padding-bottom: 2em;
+  }
+
+  .btn {
+    padding: 8px !important;
+    margin-bottom: 40px;
+    font-size: 0.7em;
+    font-family: IranSansBold;
   }
 }
 
