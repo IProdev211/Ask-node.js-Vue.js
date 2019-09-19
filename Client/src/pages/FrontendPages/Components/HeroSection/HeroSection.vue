@@ -4,7 +4,8 @@
       <div class="row d-flex align-items-center">
         <div class="col-md-6">
           <div class="hero-text-section">
-            <h1 class="hero-title text-right pb-3">اسک آریا سریع ترین راه یادگیری زبان</h1>
+            <h1 class="hero-title text-right pb-3">سریع ترین راه اموزش زبان انگلیسی</h1>
+            <!-- <h1 class="hero-title text-right pb-3">اسک آریا سریع ترین راه یادگیری زبان</h1> -->
             <p
               class="text-right hero-subtitle py-3"
             >ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان برای شما در موثر ترین و کوتاه ترین زمان ممکن صورت گیرد.</p>
@@ -41,7 +42,7 @@
     </div>
 
     <div class="hero-text-section-s container d-sm-none px-4">
-      <h1 class="hero-title text-right pb-2">اسک آریا سریع ترین راه یادگیری زبان</h1>
+      <h1 class="hero-title text-right pb-2">سریع ترین راه اموزش زبان انگلیسی</h1>
       <p
         class="text-right hero-subtitle py-3"
       >ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان برای شما در موثر ترین و کوتاه ترین زمان ممکن صورت گیرد.</p>
@@ -90,7 +91,7 @@ export default {};
   width: 100%;
 
   .hero-title {
-    font-size: 3.5em;
+    font-size: 4em;
     line-height: inherit;
     font-family: IranSansBold !important;
     color: #fff !important;
@@ -115,16 +116,15 @@ export default {};
 
 @media screen and (max-width: 730px) {
   .hero-content-homepage {
-    background: linear-gradient(225deg, #ad1debee, #6e73fce7),
-      url(/img/frontend/london-bg-1-mobile.jpg);
-    // background: linear-gradient(315deg, #ad1debee 0%, #6e73fce7 74%);
+    background: linear-gradient(225deg, #ad1debf1, #6e73fcee),
+      url(/img/frontend/westminsterlondon-opt.jpeg);
     background-size: cover;
     background-position: top;
     min-height: 45vh !important;
 
     .hero-title {
-      font-size: 2.6em;
-      line-height: inherit;
+      font-size: 3em;
+      // line-height: inherit;
       color: #fff !important;
       text-align: right !important;
       padding-top: 1em;

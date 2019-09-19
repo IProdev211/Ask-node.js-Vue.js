@@ -17,11 +17,11 @@
       <div class="main-blog-section">
         <h3 class="post-title">{{post.name}}</h3>
         <div class="row">
-          <div class="card main-blog-text col-lg-9 col-md-6">
+          <div class="card main-blog-text col-lg-9 col-md-12">
             <div v-html="post.content"></div>
           </div>
 
-          <div class="sticky col-lg-3 col-md-6">
+          <div class="sticky col-lg-3 col-md-12">
             <custom-card :class="sticky" />
           </div>
         </div>
@@ -105,8 +105,8 @@ export default {
 .white-content .card:not(.card-white) {
   margin-top: 1em;
   background: #ffffff;
-  -webkit-box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.2);
-  box-shadow: 0 1px 15px 0 rgba(155, 155, 155, 0.3);
+  -webkit-box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.137);
+  box-shadow: 0 1px 15px 0 rgba(155, 155, 155, 0.158);
   border-radius: 15px;
 }
 
