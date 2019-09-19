@@ -4,10 +4,10 @@
       <div class="row d-flex align-items-center">
         <div class="col-md-6">
           <div class="hero-text-section">
-            <h1 class="hero-title text-right pb-3">سریع ترین راه اموزش زبان انگلیسی</h1>
+            <h1 class="hero-title text-right">سریع ترین راه آموزش زبان انگلیسی</h1>
             <!-- <h1 class="hero-title text-right pb-3">اسک آریا سریع ترین راه یادگیری زبان</h1> -->
             <p
-              class="text-right hero-subtitle py-3"
+              class="text-right hero-subtitle py-1"
             >ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان برای شما در موثر ترین و کوتاه ترین زمان ممکن صورت گیرد.</p>
 
             <div class="pt-3 row button-section">
@@ -42,9 +42,9 @@
     </div>
 
     <div class="hero-text-section-s container d-sm-none px-4">
-      <h1 class="hero-title text-right pb-2">سریع ترین راه اموزش زبان انگلیسی</h1>
+      <h1 class="hero-title text-right">سریع ترین راه آموزش زبان انگلیسی</h1>
       <p
-        class="text-right hero-subtitle py-3"
+        class="text-right hero-subtitle pb-3"
       >ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان برای شما در موثر ترین و کوتاه ترین زمان ممکن صورت گیرد.</p>
 
       <div class="pt-3 row text-right">
@@ -91,7 +91,7 @@ export default {};
   width: 100%;
 
   .hero-title {
-    font-size: 4em;
+    font-size: 4.2em;
     line-height: inherit;
     font-family: IranSansBold !important;
     color: #fff !important;
@@ -116,15 +116,14 @@ export default {};
 
 @media screen and (max-width: 730px) {
   .hero-content-homepage {
-    background: linear-gradient(225deg, #ad1debf1, #6e73fcee),
+    background: linear-gradient(225deg, #ad1debe8, #6569ece5),
       url(/img/frontend/westminsterlondon-opt.jpeg);
     background-size: cover;
     background-position: top;
     min-height: 45vh !important;
 
     .hero-title {
-      font-size: 3em;
-      // line-height: inherit;
+      font-size: 3.3em;
       color: #fff !important;
       text-align: right !important;
       padding-top: 1em;

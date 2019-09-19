@@ -86,7 +86,7 @@ export default {
 .post-title {
   text-align: center;
   font-family: IranSansBold;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
 }
 
 .main-blog-section {
@@ -94,20 +94,21 @@ export default {
 }
 
 .main-blog-text {
-  // margin: 0 15%;
   padding: 4%;
   font-size: 1.3em !important;
   line-height: 2.1em !important;
   direction: ltr !important;
   font-family: IranSans;
+  color: black !important;
 }
 
 .white-content .card:not(.card-white) {
-  margin-top: 1em;
+  margin-top: 1.5em;
   background: #ffffff;
   -webkit-box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.137);
   box-shadow: 0 1px 15px 0 rgba(155, 155, 155, 0.158);
   border-radius: 15px;
+  color: black !important;
 }
 
 .sticky {
@@ -115,7 +116,7 @@ export default {
   position: sticky;
   margin-top: 1em;
   top: 7em;
-  padding: 0 1.3em;
+  padding: 0 1.2em;
 }
 
 .small-devices {
@@ -123,6 +124,15 @@ export default {
 }
 
 @media only screen and (max-width: 767px) {
+  .white-content .card:not(.card-white) {
+    margin-top: 1em;
+    background: #ffffff;
+    -webkit-box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0);
+    box-shadow: 0 1px 15px 0 rgba(155, 155, 155, 0);
+    border-radius: 0;
+    color: black !important;
+  }
+
   .heading-section {
     border-bottom-left-radius: 1%;
     border-bottom-right-radius: 1%;
@@ -136,9 +146,11 @@ export default {
   .main-blog-section {
     padding: 0 3% 8% 3%;
   }
+
   .main-blog-text {
     margin: 0 !important;
     font-size: 1.2em !important;
+    color: black !important;
   }
 
   .sticky {
