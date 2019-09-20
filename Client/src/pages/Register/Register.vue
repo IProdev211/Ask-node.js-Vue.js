@@ -234,11 +234,11 @@ export default {
         property: 'og:image',
         content: 'https://www.askarya.ir/img/askarya-logo.png'
       },
-      {
-        property: 'og:description',
-        content:
-          'ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان آموزان در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.'
-      },
+      // {
+      //   property: 'og:description',
+      //   content:
+      //     'ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان آموزان در موثر ترین و کوتاه ترین زمان ممکن صورت بگیرد.'
+      // },
       { itemprop: 'name', content: 'اسک آریا' },
       {
         itemprop: 'description',
