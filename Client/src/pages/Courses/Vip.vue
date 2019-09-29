@@ -132,13 +132,14 @@ export default {
 }
 
 .dropdown-menu .dropdown-item {
-  color: #222222;
+  color: #181818;
   font-size: 1.1em;
   font-family: IranSans;
 
   span {
     color: #260574;
     font-family: IranSansBold;
+    font-size: 1.2em;
   }
 }
 
@@ -150,7 +151,7 @@ export default {
 }
 
 .vip-title {
-  font-size: 1.2em;
+  font-size: 1.3em;
   color: black;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;

@@ -28,7 +28,7 @@
 
         <!-- <router-link class="nav-item" tag="li" to="/comingsoon">
           <a :class="getNavClass('comingsoon')">{{ 'میت آپ' }}</a>
-        </router-link> -->
+        </router-link>-->
 
         <router-link class="nav-item" tag="li" to="/contact">
           <a :class="getNavClass('contact')">{{ 'تماس با ما' }}</a>
