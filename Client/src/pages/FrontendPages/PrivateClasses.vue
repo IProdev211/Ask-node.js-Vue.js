@@ -36,7 +36,7 @@
                 <h3 class="text-white titleSize py-3">سيلور</h3>
               </div>
               <div class="pricing-field">
-                <span class="price">۱۷۵,۰۰۰ تومان</span>
+                <span class="price">۱۵۰,۰۰۰ تومان</span>
                 <p class="py-0 my-0 smalltext">هر جلسه</p>
               </div>
               <div class="pricing-features pt-3">
@@ -70,8 +70,9 @@
               </div>
               <div class="pricing-features pt-3">
                 <ul>
+                  <li>تمرين مكالمه</li>
                   <li>بحث آزاد</li>
-                  <li>تمرين ليسنينگ و مكالمه</li>
+                  <li>تمرين ليسنينگ</li>
                   <li>يادگيری لغات، تلفظ و گرامر</li>
                   <li>برگزاری ۲ آزمون در طول ترم</li>
                   <li>برگزاری آزمون تعين سطح</li>
