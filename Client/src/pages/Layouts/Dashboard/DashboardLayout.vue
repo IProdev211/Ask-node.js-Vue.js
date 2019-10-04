@@ -40,7 +40,6 @@
     <div class="main-panel" :data="sidebarBackground">
       <dashboard-navbar></dashboard-navbar>
       <router-view name="header"></router-view>
-
       <div :class="{ content: !$route.meta.hideContent }" @click="toggleSidebar">
         <zoom-center-transition :duration="200" mode="out-in">
           <!-- your content here -->
