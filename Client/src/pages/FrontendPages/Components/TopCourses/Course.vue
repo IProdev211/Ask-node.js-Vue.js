@@ -1,7 +1,7 @@
 <template>
   <div class="CourseCard hover mb-4" @click="onClick">
     <div class="CourseCard__courseimage">
-      <img class="CourseCard__courseimage" :src="thumb" />
+      <img class="CourseCard__courseimage" alt="askarya-image" :src="thumb" />
     </div>
     <div>
       <h4 class="text-center course-title pt-3">{{ title }}</h4>

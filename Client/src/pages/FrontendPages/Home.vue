@@ -38,7 +38,7 @@
     </div>
 
     <!--Improvement Banner 1-->
-    <div class="row pt-5">
+    <div class="pt-5">
       <ImprovementBanner1></ImprovementBanner1>
     </div>
 
@@ -56,25 +56,6 @@
     <div class="founder-section-homepage py-5">
       <founder-section></founder-section>
     </div>
-
-    <!-- <base-button
-        v-scroll-to="{
-              el: '#hero',
-              duration: 900,
-              easing: 'linear',
-              offset: -1000,
-              force: true,
-              cancelable: true,
-              onStart: onStart,
-              onDone: onDone,
-              onCancel: onCancel,
-              x: false,
-              y: true
-            }"
-        native-type="submit"
-        type="success"
-        class="btn btn-lg btn-round go-to-top animation-on-hover"
-    ></base-button>-->
   </div>
 </template>
 
