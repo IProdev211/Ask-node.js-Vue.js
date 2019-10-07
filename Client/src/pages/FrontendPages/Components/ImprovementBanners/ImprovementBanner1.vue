@@ -50,12 +50,12 @@ export default {};
     url(/img/frontend/confused-banner.svg) no-repeat;
   background-position: bottom left;
   background-size: cover;
-  border-radius: 30px;
-  margin: 2% 12%;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  // border-radius: 30px;
+  // margin: 2% 12%;
+  // box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  // -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  // -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  // -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
 
 .text-section {
@@ -85,13 +85,13 @@ export default {};
 }
 
 @media (max-width: 680px) {
-  .bg {
-    margin: 1.2em;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-    -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  }
+  // .bg {
+  //   margin: 1.2em;
+  //   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  //   -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  //   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  //   -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  // }
   .text-section {
     padding: 2em 0.5em;
 

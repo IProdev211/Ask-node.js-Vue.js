@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <div class="hero-text-section-s container d-sm-none px-4">
+    <div class="hero-text-section-s container d-md-none px-4">
       <h1 class="hero-title text-right">سریع ترین راه آموزش زبان انگلیسی</h1>
       <p
         class="text-right hero-subtitle pb-3"
@@ -108,15 +108,48 @@ export default {};
   .btn {
     font-weight: inherit;
     border-radius: 30px;
-    padding: 14px 25px;
+    padding: 13px 23px !important;
     font-size: 1.1em;
     font-family: IranSansBold;
   }
 }
 
-@media screen and (max-width: 730px) {
+@media only screen and (min-width: 1500px) {
   .hero-content-homepage {
-    background: linear-gradient(225deg, #ad1debe8, #6569ece5),
+    height: 55vh !important;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .hero-title {
+    font-size: 2em;
+    padding-top: 30px;
+    line-height: inherit;
+  }
+
+  .hero-subtitle {
+    padding-left: 1.1em;
+    font-size: 1.1em;
+    text-align: right !important;
+  }
+
+  .image {
+    width: 400px !important;
+    padding-top: 3em;
+    padding-bottom: 2em;
+  }
+
+  .btn {
+    padding: 8px !important;
+    margin-bottom: 40px;
+    font-size: 0.7em;
+    font-family: IranSansBold;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hero-content-homepage {
+    background: linear-gradient(225deg, #d223e9f6, #5e62dff1),
       url(/img/frontend/westminsterlondon-opt.jpeg);
     background-size: cover;
     background-position: top;
@@ -126,7 +159,7 @@ export default {};
       font-size: 3.3em;
       color: #fff !important;
       text-align: right !important;
-      padding-top: 1em;
+      padding-top: 0.5em;
     }
 
     .hero-subtitle {
@@ -187,39 +220,6 @@ export default {};
       font-family: IranSansBold;
       margin-bottom: 2.5em;
     }
-  }
-}
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  .hero-title {
-    font-size: 2em;
-    padding-top: 30px;
-    line-height: inherit;
-  }
-
-  .hero-subtitle {
-    padding-left: 1.1em;
-    font-size: 1.1em;
-    text-align: right !important;
-  }
-
-  .image {
-    width: 400px !important;
-    padding-top: 3em;
-    padding-bottom: 2em;
-  }
-
-  .btn {
-    padding: 8px !important;
-    margin-bottom: 40px;
-    font-size: 0.7em;
-    font-family: IranSansBold;
-  }
-}
-
-@media only screen and (min-width: 1500px) {
-  .hero-content-homepage {
-    height: 55vh !important;
   }
 }
 </style>
