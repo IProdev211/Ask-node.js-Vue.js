@@ -47,7 +47,7 @@
     "request-promise": "^4.2.4",
     "rss": "^1.2.2",
     "sharp": "^0.23.1",
-    "sitemap": "^4.1.1",
+    "sitemap": "^5.0.0",
     "sprintf-js": "^1.1.2",
     "striptags": "^3.1.1",
     "sweetalert2": "^8.18.1",

@@ -5,7 +5,6 @@
         <div class="col-md-6">
           <div class="hero-text-section">
             <h1 class="hero-title text-right">سریع ترین راه آموزش زبان انگلیسی</h1>
-            <!-- <h1 class="hero-title text-right pb-3">اسک آریا سریع ترین راه یادگیری زبان</h1> -->
             <p
               class="text-right hero-subtitle py-1"
             >ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان برای شما در موثر ترین و کوتاه ترین زمان ممکن صورت گیرد.</p>
@@ -76,7 +75,7 @@ export default {};
 
 <style lang="scss" scoped>
 .image {
-  width: 500px !important;
+  width: 440px !important;
   padding-top: 3em;
   padding-bottom: 2em;
 }
@@ -87,7 +86,7 @@ export default {};
   background-color: #6e72fc;
   background-size: cover;
   background-position: bottom;
-  min-height: 45vh !important;
+  min-height: 42vh !important;
   width: 100%;
 
   .hero-title {
@@ -116,7 +115,7 @@ export default {};
 
 @media only screen and (min-width: 1500px) {
   .hero-content-homepage {
-    height: 55vh !important;
+    height: 48vh !important;
   }
 }
 

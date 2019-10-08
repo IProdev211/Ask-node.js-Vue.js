@@ -1,6 +1,6 @@
 <template>
-  <section class="bg">
-    <div class="container">
+  <section class="container">
+    <div class="bg">
       <div class="text-section">
         <h2 class="pb-5">راه حل؟ دوره های آموزشی مجازی اسک آریا.</h2>
         <p class="main-text">
@@ -10,6 +10,16 @@
           <br />
           <br />زبان آموز برای درک درست مفاهیم زبان، یادگیری کاربردی جملات و اصطلاحات نیاز به تمرین در محیطی سازنده همراه با استادی نیتیو و با تجربه دارد. ما این محیط را برای شما فراهم کرده ایم.
         </p>
+
+        <div class="text-left pt-3">
+          <router-link to="allcourses">
+            <base-button
+              native-type="submit"
+              type="warning"
+              class="btn btn-round animation-on-hover"
+            >مشاهده همه دوره ها</base-button>
+          </router-link>
+        </div>
       </div>
     </div>
   </section>
@@ -25,7 +35,7 @@ export default {};
   background-image: linear-gradient(315deg, #ef6d89f5 0%, #ee8e6bf6 74%),
     url(/img/frontend/london-seemless-bg.svg);
   border-radius: 30px;
-  margin: 2% 12%;
+  // margin: 2% 12%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
@@ -51,6 +61,11 @@ export default {};
     line-height: 1.7em !important;
   }
 }
+
+.btn {
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
 @media (max-width: 680px) {
   .bg {
     margin: 1.2em;
@@ -58,6 +73,10 @@ export default {};
     -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
     -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
     -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  }
+
+  .text-left {
+    text-align: center !important;
   }
 
   .text-section {

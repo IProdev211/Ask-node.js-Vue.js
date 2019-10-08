@@ -127,8 +127,8 @@ export default {
 .CourseCard {
   background-color: #f7f7f7;
   // border: 1px solid rgba(224, 224, 224, 0.6);
-  -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.3);
-  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
 
   .course-title {
@@ -196,23 +196,18 @@ export default {
   }
 
   .fadeline {
-    height: 1px;
-    background-image: linear-gradient(
-      90deg,
-      rgba(255, 0, 0, 0) 30% rgba(168, 168, 168, 0.1) 50%,
-      rgba(255, 0, 0, 0) 30%
-    ) !important ;
+    border-top: 2px solid rgba(199, 199, 199, 0.2);
     margin: 0;
   }
 }
 
 .hover:hover,
 .hover:focus {
-  -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.6);
-  box-shadow: 40px rgba(121, 121, 121, 0.6);
-  transition: transform 0.6s;
-  -webkit-transform: translateY(-10px);
-  transform: translateY(-10px);
+  -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.65);
+  box-shadow: 40px rgba(121, 121, 121, 0.65);
+  transition: transform 0.8s !important;
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
   cursor: pointer;
 
   .buyCourseTitle {
