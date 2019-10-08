@@ -106,7 +106,7 @@
 
 .el-carousel__item--card.is-active {
   z-index: 2;
-  transform: translateX(65px) scale(1) !important;
+  transform: translateX(55px) scale(1) !important;
 }
 
 .swal-title {

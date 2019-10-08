@@ -12,7 +12,7 @@
         v-for="message of messages"
         :key="message.id"
         class="card-custom my-3"
-        :class="message.user.id == ticket.user.id ? 'mr-5' : 'ml-5'"
+        :class="message.user.id == ticket.user.id ? 'ml-5' : 'mr-5'"
       >
         <div class="ticket-meta d-flex justify-content-between row">
           <p class="ticket-user">

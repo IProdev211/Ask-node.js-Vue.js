@@ -17,7 +17,10 @@
               native-type="submit"
               type="warning"
               class="btn btn-round animation-on-hover"
-            >مشاهده همه دوره ها</base-button>
+            >
+              <i class="fas fa-graduation-cap ml-2"></i>
+              مشاهده همه دوره ها
+            </base-button>
           </router-link>
         </div>
       </div>
@@ -32,19 +35,18 @@ export default {};
 <style lang="scss" scoped>
 .bg {
   background-color: #ee8e6b;
-  background-image: linear-gradient(315deg, #ef6d89f5 0%, #ee8e6bf6 74%),
+  background-image: linear-gradient(315deg, #ef6d89fa 0%, #ee8e6bfa 74%),
     url(/img/frontend/london-seemless-bg.svg);
   border-radius: 30px;
-  // margin: 2% 12%;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 .text-section {
   text-align: right;
-  padding: 3em 2em;
+  padding: 3em 2.5em 2em 2.5em;
 
   h2 {
     font-size: 2em;
@@ -67,12 +69,16 @@ export default {};
 }
 
 @media (max-width: 680px) {
+  .container {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
   .bg {
-    margin: 1.2em;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-    -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    border-radius: 0px !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1) !important;
   }
 
   .text-left {
@@ -80,9 +86,11 @@ export default {};
   }
 
   .text-section {
-    padding: 2em 0.5em;
+    padding: 1.6em;
+
     h2 {
       font-size: 1.6em;
+      padding-top: 15px;
     }
     .main-text {
       font-size: 1.1em;

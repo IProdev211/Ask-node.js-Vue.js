@@ -42,15 +42,13 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.card .card-footer {
-  background-color: transparent;
-  border-top: 1px solid rgba(158, 158, 158, 0.1);
-  padding: 1em 1.2em 0 1.2em;
-
-  .card-footer-text {
-    color: #646464 !important;
-    font-size: 1em;
-  }
+.home-blog .card {
+  border-radius: 25px !important;
+  background: transparent;
+  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2) !important;
+  -moz-box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2) !important;
+  -webkit-box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2) !important;
+  -o-box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2) !important;
 }
 
 .blogBox {
@@ -58,14 +56,7 @@ export default {
 }
 
 .home-blog .card-img-top {
-  border-radius: 10px 10px 0 0;
-}
-
-.home-blog .card {
-  border: 1px solid rgba(218, 218, 218, 0.582);
-  border-radius: 15px;
-  background: transparent;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 25px 25px 0 0;
 }
 
 .card-body {
@@ -96,12 +87,13 @@ export default {
 .home-blog .category {
   top: 1em;
   left: 1em;
-  border-radius: 10px;
+  border-radius: 15px;
   position: absolute;
-  padding: 4px 11px;
+  padding: 4px 12px;
   color: rgb(54, 54, 54) !important;
   background-color: #fff !important;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center !important;
 }
 
 .home-blog .card:hover .card-title {
@@ -114,5 +106,16 @@ export default {
 
 .title-ltr {
   direction: ltr;
+}
+
+.card .card-footer {
+  background-color: transparent;
+  border-top: 1px solid rgba(158, 158, 158, 0.1);
+  padding: 1em 1.2em 0 1.2em;
+
+  .card-footer-text {
+    color: #646464 !important;
+    font-size: 1em;
+  }
 }
 </style>

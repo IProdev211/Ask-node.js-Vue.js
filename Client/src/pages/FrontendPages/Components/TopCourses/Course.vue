@@ -8,7 +8,7 @@
     </div>
     <hr class="fadeline" />
     <div class="bottom-section">
-      <div class="CourseCard__course__info d-flex justify-content-between text-center py-1">
+      <div class="CourseCard__course__info d-flex justify-content-between text-center pt-1">
         <div>
           <p class="courseTime">
             {{ minutes }}
@@ -25,7 +25,7 @@
         </div>
       </div>
       <hr class="fadeline" v-if="! purchased" />
-      <div class="px-4 py-3 text-center" v-if="! purchased">
+      <div class="px-4 price-section text-center" v-if="! purchased">
         <div class="row">
           <div class="col-12 text-center pricehighlight" v-if="isVip">اعضای ویژه</div>
           <div class="col-12 text-center pricehighlight" v-else-if="isFree">رایگان</div>
@@ -126,10 +126,11 @@ export default {
 <style lang="scss" scoped>
 .CourseCard {
   background-color: #f7f7f7;
-  // border: 1px solid rgba(224, 224, 224, 0.6);
-  -webkit-box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
+  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2);
 
   .course-title {
     font-size: 1rem;
@@ -196,9 +197,13 @@ export default {
   }
 
   .fadeline {
-    border-top: 2px solid rgba(199, 199, 199, 0.2);
+    border-top: 2px solid rgba(190, 190, 190, 0.2);
     margin: 0;
   }
+}
+
+.price-section {
+  padding: 0.8em 0;
 }
 
 .hover:hover,
