@@ -27,9 +27,9 @@
               <router-link to="/mycourses" class="nav-item dropdown-item">در حال یادگیری</router-link>
             </li>
 
-            <li class="nav-link border-bottom">
+            <!-- <li class="nav-link border-bottom">
               <router-link to="/quizzes" class="nav-item dropdown-item">امتحان ها</router-link>
-            </li>
+            </li> -->
 
             <li class="nav-link border-bottom">
               <router-link to="/tickets" class="nav-item dropdown-item">پشتیبانی</router-link>
