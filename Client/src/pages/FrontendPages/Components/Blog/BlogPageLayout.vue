@@ -63,6 +63,42 @@ export default {
   },
   mounted() {
     this.dataLoad();
+  },
+
+  metaInfo: {
+    title: 'کلاس های خصوصی | اسک آریا',
+    titleTemplate: 'کلاس های خصوصی | اسک آریا',
+    htmlAttrs: {
+      lang: 'fa',
+      amp: true
+    },
+
+    meta: [
+      // OpenGraph data (Most widely used)
+      { property: 'og:title', content: 'اسک آریا' },
+      { property: 'og:site_name', content: 'اسک آریا' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:url',
+        content: 'https://www.askarya.ir/'
+      },
+      {
+        property: 'og:image',
+        content: 'https://www.askarya.ir/img/askarya-logo.png'
+      },
+      {
+        property: 'og:description',
+        content:
+          'ما از سريع ترین روش و متد آموزشی استفاده میکنیم که با استانداردهای آموزشی اروپا طراحی شده، تا یادگیری برای شما آسانتر و موثر تر واقع شود.'
+      },
+      { itemprop: 'name', content: 'اسک آریا' },
+      {
+        itemprop: 'description',
+        content:
+          'ما از سريع ترین روش و متد آموزشی استفاده میکنیم که با استانداردهای آموزشی اروپا طراحی شده، تا یادگیری برای شما آسانتر و موثر تر واقع شود.'
+      }
+    ],
+    link: [{ rel: 'canonical', href: 'https://www.askarya.ir/' }]
   }
 };
 </script>
