@@ -84,6 +84,21 @@ export default {
   }
 }
 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .home-blog .card-title[data-v-0d9ddf47] {
+    font-size: 0.9em !important;
+  }
+
+  .card .card-footer .card-footer-text {
+    font-size: 0.9em !important;
+  }
+
+  .category,
+  .card-category {
+    font-size: 0.75em;
+  }
+}
+
 .home-blog .category {
   top: 1em;
   left: 1em;

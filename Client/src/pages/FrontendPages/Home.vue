@@ -17,7 +17,7 @@
           >
             <Course v-bind="course"></Course>
           </div>
-          <div class="d-sm-none">
+          <div class="d-md-none">
             <el-carousel type="card" :autoplay="true" :interval="2000" arrow="always">
               <el-carousel-item v-for="course in topCourses" :key="course.id">
                 <Course v-bind="course"></Course>

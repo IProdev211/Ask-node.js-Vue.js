@@ -237,6 +237,32 @@ export default {
   }
 }
 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .CourseCard .course-title {
+    font-size: 1em !important;
+  }
+
+  .CourseCard .pricehighlight {
+    font-size: 0.8em;
+  }
+
+  .CourseCard .oldPrice {
+    font-size: 0.8em;
+  }
+
+  .CourseCard .courseTime[data-v-81edaea2] {
+    font-size: 1.1em;
+  }
+
+  .CourseCard .unitsAvailable[data-v-81edaea2] {
+    font-size: 1.1em;
+  }
+
+  .CourseCard .buyCourseTitle[data-v-81edaea2] {
+    font-size: 1em;
+  }
+}
+
 @media (max-width: 768px) {
   .CourseCard {
     -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0);

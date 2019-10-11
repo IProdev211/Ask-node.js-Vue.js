@@ -370,7 +370,21 @@ export default {
   color: white;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
+  .navbar-nav {
+    font-size: 1rem;
+    color: #fff;
+    padding: 22px 0 0 0;
+  }
+  .navbar-nav li {
+    padding: 7px 0 !important;
+    border-bottom: 1px solid #c7c7c765 !important;
+    font-size: 1em !important;
+  }
+  .login-register-buttons {
+    padding: 10px 0;
+  }
+
   .go-to-top {
     bottom: 15px; /* Place the button at the bottom of the page */
     left: 15px; /* Place the button 30px from the left */
@@ -404,7 +418,7 @@ export default {
 
 @media (min-width: 990px) and (max-width: 1050px) {
   .navbar-collapse .navbar-nav .nav-link {
-    font-size: 0.8em !important;
+    font-size: 1.2em !important;
   }
   .navbar-nav li {
     font-size: 0.9em !important;
@@ -501,21 +515,6 @@ p,
   font-family: IranSansBold;
   font-size: 1.1rem;
   color: white;
-}
-
-@media (max-width: 768px) {
-  .navbar-nav {
-    font-size: 1rem;
-    color: #fff;
-    padding: 22px 0 0 0;
-  }
-  .navbar-nav li {
-    padding: 10px 0 !important;
-    border-bottom: 1px solid #c7c7c765 !important;
-  }
-  .login-register-buttons {
-    padding: 10px 0;
-  }
 }
 
 .navbar.auth-navbar {
