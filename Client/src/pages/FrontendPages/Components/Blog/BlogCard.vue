@@ -85,8 +85,8 @@ export default {
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .home-blog .card-title[data-v-0d9ddf47] {
-    font-size: 0.9em !important;
+  .home-blog .card-title {
+    font-size: 0.87em !important;
   }
 
   .card .card-footer .card-footer-text {

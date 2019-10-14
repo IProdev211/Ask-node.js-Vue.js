@@ -163,8 +163,8 @@ export default {
   .white-content .card:not(.card-white) {
     margin-top: 1em;
     background: #ffffff;
-    -webkit-box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0);
-    box-shadow: 0 1px 15px 0 rgba(155, 155, 155, 0);
+    // -webkit-box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0);
+    // box-shadow: 0 1px 15px 0 rgba(155, 155, 155, 0);
     border-radius: 0;
     color: black !important;
   }
