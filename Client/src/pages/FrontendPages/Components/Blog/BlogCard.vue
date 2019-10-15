@@ -43,7 +43,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .home-blog .card {
-  border-radius: 25px !important;
+  border-radius: 15px !important;
   background: transparent;
   box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2) !important;
   -moz-box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2) !important;
@@ -56,7 +56,7 @@ export default {
 }
 
 .home-blog .card-img-top {
-  border-radius: 25px 25px 0 0;
+  border-radius: 15px 15px 0 0;
 }
 
 .card-body {
