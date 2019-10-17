@@ -1,6 +1,6 @@
 <template>
   <div class="bg">
-    <div class="col-lg-3 col-md-5 col-sm-12 register-section">
+    <div class="col-lg-4 col-md-6 col-sm-12 register-section">
       <div class="container">
         <form @submit="checkForm" id="register-form">
           <h1 class="login-title pt-5 pb-3">فرم عضویت</h1>
@@ -74,7 +74,7 @@
         </form>
       </div>
     </div>
-    <div class="col-lg-9 col-md-7 col-sm-12 d-none d-md-block">
+    <div class="col-lg-8 col-md-6 col-sm-12 d-none d-md-block">
       <div class="image-bg text-center">
         <h1 class="new-content-title pt-5">محتوای جدید هر هفته اضافه می شود!</h1>
         <img
