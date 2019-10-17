@@ -19,7 +19,7 @@
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "csurf": "^1.10.0",
-    "dotenv": "^8.1.0",
+    "dotenv": "^8.2.0",
     "ejs": "^2.7.1",
     "express": "^4.17.0",
     "express-ejs-layouts": "^2.5.0",
@@ -50,12 +50,12 @@
     "sitemap": "^5.0.0",
     "sprintf-js": "^1.1.2",
     "striptags": "^3.1.1",
-    "sweetalert2": "^8.18.3",
+    "sweetalert2": "^8.18.4",
     "unique-string": "^2.0.0",
     "validator": "^11.1.0",
     "zarinpal-checkout": "^0.2.7"
   },
   "devDependencies": {
-    "nodemon": "^1.19.3"
+    "nodemon": "^1.19.4"
   }
 }
