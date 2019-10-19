@@ -1,8 +1,8 @@
 <template>
   <section class="container text-center py-5">
     <div class="top-section">
-      <h1 class="title pb-5 text-underline text-danger">قوانین و مقررات سایت</h1>
-      <!-- <p>در این صفحه شرایط استفاده از وبسایت اسک آریا را مشاهده میکنید</p> -->
+      <h1 class="title text-danger">قوانین و مقررات سایت</h1>
+      <p class="text-muted pb-5">در این صفحه شرایط استفاده از وبسایت اسک آریا را مشاهده میکنید</p>
     </div>
     <div class="main-section card px-4 text-right">
       <div class="notice">

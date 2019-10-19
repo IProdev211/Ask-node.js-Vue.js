@@ -242,7 +242,7 @@ ul {
 
   .pricing-features li {
     padding: 6px 0;
-    font-size: 0.85rem;
+    font-size: 1em;
   }
 
   .pricing-action {
@@ -286,6 +286,16 @@ ul {
   }
   .text-black {
     color: black;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .private-classes .pricing {
+    padding: 0 20%;
+  }
+
+  .pricing-features li {
+    font-size: 1.2em !important;
   }
 }
 </style>

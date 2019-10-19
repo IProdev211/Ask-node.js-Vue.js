@@ -132,12 +132,12 @@
             </div>
           </div>
           <div class="row login-register-buttons" v-else>
-            <div class="pr-3">
+            <div class="pr-3 register-button">
               <router-link to="/register">
                 <base-button native-type="submit" type="info" class="btn-simple btn">عضویت</base-button>
               </router-link>
             </div>
-            <div class="pr-3">
+            <div class="pr-3 login-button">
               <router-link to="/login">
                 <base-button native-type="submit" type="danger" class="btn-simple btn">ورود کاربر</base-button>
               </router-link>
@@ -386,8 +386,8 @@ export default {
   }
 
   .go-to-top {
-    bottom: 15px; /* Place the button at the bottom of the page */
-    left: 15px; /* Place the button 30px from the left */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    left: 20px; /* Place the button 30px from the left */
     z-index: 99; /* Make sure it does not overlap */
     padding: 0.3em; /* Some padding */
     font-size: 1.6em; /* Increase font size */
@@ -462,6 +462,12 @@ export default {
   color: rgb(0, 0, 0);
 }
 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .navbar-nav li {
+    font-size: 1.2em !important;
+  }
+}
+
 .navbar-nav li a {
   padding: 9px 0 9px 10px !important;
   font-size: 0.95em;
@@ -503,6 +509,11 @@ p,
   border-bottom: 1px solid #fcfcfc;
 }
 
+@media (min-width: 768px) {
+  .navbar-nav {
+    float: none !important;
+  }
+}
 .sidebar
   .nav
   li.active

@@ -17,7 +17,7 @@
       <div class="main-blog-section">
         <h3 class="post-title">{{post.name}}</h3>
         <div class="row">
-          <div class="card main-blog-text col-lg-9 col-md-12">
+          <div class="main-blog-text col-lg-9 col-md-12">
             <div v-html="post.content"></div>
           </div>
 
@@ -135,15 +135,6 @@ export default {
   line-height: 2.1em !important;
   direction: ltr !important;
   font-family: IranSans;
-  color: black !important;
-}
-
-.white-content .card:not(.card-white) {
-  margin-top: 1.5em;
-  background: #ffffff;
-  -webkit-box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.137);
-  box-shadow: 0 1px 15px 0 rgba(155, 155, 155, 0.158);
-  border-radius: 15px;
   color: black !important;
 }
 

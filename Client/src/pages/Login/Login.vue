@@ -318,13 +318,6 @@ export default {
   color: #fff !important;
 }
 
-.login-title {
-  font-size: 2.8em;
-  font-family: IranSansBold;
-  // color: #080768 !important;
-  text-align: center;
-}
-
 .googleicon {
   font-size: 2rem;
   margin: 0;
@@ -362,10 +355,6 @@ export default {
     background-attachment: fixed;
     background-size: cover;
   }
-
-  // .login-title {
-  //   color: white !important;
-  // }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -375,9 +364,9 @@ export default {
     line-height: 1.4em;
   }
 
-  .image-bg[data-v-2a2af8af] {
-    height: 18em;
-    width: 18em;
+  .image-bg {
+    height: 18em !important;
+    width: 18em !important;
   }
 }
 </style>
