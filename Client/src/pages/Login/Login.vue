@@ -1,9 +1,9 @@
 <template>
   <div class="bg">
-    <div class="col-lg-4 col-md-6 col-sm-12 login-section">
+    <div class="col-lg-3 col-md-6 col-sm-12 login-section">
       <div class="container">
         <form @submit="checkForm">
-          <h1 class="login-title pt-5 pb-3">ورود به سایت</h1>
+          <h1 class="login-title pt-5 pb-3">ورود</h1>
           <div class="row">
             <div class="col-12">
               <base-input
@@ -45,9 +45,9 @@
             </a>
             <p class="google-text">شما میتوانید با اکانت گوگل وارد سایت شوید</p>
           </div>
-          <div class="py-2 d-flex justify-content-center">
+          <!-- <div class="py-2 d-flex justify-content-center">
             <vue-recaptcha :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
-          </div>
+          </div>-->
           <div class="text-right pt-2" v-if="formErrors.length">
             <p class="pb-1 text-danger font-weight-bold">لطفا اشتباهات زیر را تصحیح کنید:</p>
             <ul>
@@ -80,7 +80,7 @@
         </form>
       </div>
     </div>
-    <div class="col-lg-8 col-md-6 col-sm-12 d-none d-md-block">
+    <div class="col-lg-9 col-md-6 col-sm-12 d-none d-md-block">
       <div class="image-bg text-center">
         <h1 class="new-content-title pt-5">محتوای جدید هر هفته اضافه می شود!</h1>
         <img
@@ -93,13 +93,13 @@
   </div>
 </template>
 <script>
-import VueRecaptcha from 'vue-recaptcha';
+// import VueRecaptcha from 'vue-recaptcha';
 import backend from '../../backend';
-import config from '../../config';
+// import config from '../../config';
 import Swal from 'sweetalert';
 
 export default {
-  components: { VueRecaptcha },
+  // components: { VueRecaptcha },
   data() {
     return {
       fieldErrors: {},
@@ -108,25 +108,25 @@ export default {
       formErrors: [],
       loading: false,
       remember: false,
-      sitekey: config.recaptcha.sitekey,
-      recaptcha: '',
+      // sitekey: config.recaptcha.sitekey,
+      // recaptcha: '',
       googleAuthUrl: '/auth/google',
       registerUrl: '/register'
     };
   },
   methods: {
-    verifyRecaptcha(response) {
-      this.recaptcha = response;
-    },
-    createRecaptcha() {
-      const script = document.createElement('script');
-      script.setAttribute('async', '');
-      script.setAttribute('defer', '');
-      script.id = 'recaptchaScript';
-      script.src =
-        'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit';
-      document.getElementsByTagName('head')[0].appendChild(script);
-    },
+    // verifyRecaptcha(response) {
+    //   this.recaptcha = response;
+    // },
+    // createRecaptcha() {
+    //   const script = document.createElement('script');
+    //   script.setAttribute('async', '');
+    //   script.setAttribute('defer', '');
+    //   script.id = 'recaptchaScript';
+    //   script.src =
+    //     'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit';
+    //   document.getElementsByTagName('head')[0].appendChild(script);
+    // },
     checkForm(e) {
       e.preventDefault();
       this.fieldErrors = {};
@@ -157,8 +157,8 @@ export default {
         .post('login', {
           email: this.email,
           password: this.password,
-          remember: this.remember ? 1 : 0,
-          'g-recaptcha-response': this.recaptcha
+          remember: this.remember ? 1 : 0
+          // 'g-recaptcha-response': this.recaptcha
         })
         .then(response => {
           this.loading = false;
@@ -181,7 +181,7 @@ export default {
     }
   },
   mounted() {
-    this.createRecaptcha();
+    // this.createRecaptcha();
     if (this.$route.query.hasOwnProperty('backTo')) {
       this.googleAuthUrl += `?backTo=${this.$route.query.backTo}`;
       this.registerUrl += `?backTo=${this.$route.query.backTo}`;
@@ -206,9 +206,9 @@ export default {
       }
     }
   },
-  destroyed() {
-    document.getElementById('recaptchaScript').remove();
-  },
+  // destroyed() {
+  //   document.getElementById('recaptchaScript').remove();
+  // },
   metaInfo: {
     title: 'ورود به سایت | اسک آریا',
     titleTemplate: 'ورود به سایت | اسک آریا',

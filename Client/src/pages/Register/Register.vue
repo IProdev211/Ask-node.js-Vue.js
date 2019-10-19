@@ -1,9 +1,9 @@
 <template>
   <div class="bg">
-    <div class="col-lg-4 col-md-6 col-sm-12 register-section">
+    <div class="col-lg-3 col-md-6 col-sm-12 register-section">
       <div class="container">
         <form @submit="checkForm" id="register-form">
-          <h1 class="login-title pt-5 pb-3">فرم عضویت</h1>
+          <h1 class="login-title pt-5 pb-3">ثبت نام</h1>
           <div class="row">
             <div class="col-md-12 text-rtl">
               <base-input
@@ -53,9 +53,9 @@
             </a>
             <p class="google-text">شما میتوانید بدون ثبت نام با اکانت گوگل وارد سایت شوید.</p>
           </div>
-          <div class="d-flex justify-content-center py-3">
+          <!-- <div class="d-flex justify-content-center py-3">
             <vue-recaptcha :sitekey="sitekey" @verify="verifyRecaptcha"></vue-recaptcha>
-          </div>
+          </div>-->
           <div class="text-right pt-2" v-if="formErrors.length">
             <p class="pb-1 text-danger font-weight-bold">لطفا اشتباهات زیر را تصحیح کنید:</p>
             <ul>
@@ -70,11 +70,11 @@
             block
             size="lg"
             class="mb-3 animation-on-hover"
-          >عضویت</base-button>
+          >ثبت نام</base-button>
         </form>
       </div>
     </div>
-    <div class="col-lg-8 col-md-6 col-sm-12 d-none d-md-block">
+    <div class="col-lg-9 col-md-6 col-sm-12 d-none d-md-block">
       <div class="image-bg text-center">
         <h1 class="new-content-title pt-5">محتوای جدید هر هفته اضافه می شود!</h1>
         <img
@@ -87,16 +87,16 @@
   </div>
 </template>
 <script>
-import VueRecaptcha from 'vue-recaptcha';
+// import VueRecaptcha from 'vue-recaptcha';
 import backend from '../../backend';
-import config from '../../config';
+// import config from '../../config';
 import { BaseCheckbox } from 'src/components';
 import Swal from 'sweetalert';
 
 export default {
   components: {
-    BaseCheckbox,
-    VueRecaptcha
+    BaseCheckbox
+    // VueRecaptcha
   },
   data() {
     return {
@@ -107,24 +107,24 @@ export default {
       formErrors: [],
       loading: false,
       terms: false,
-      sitekey: config.recaptcha.sitekey,
-      recaptcha: '',
+      // sitekey: config.recaptcha.sitekey,
+      // recaptcha: '',
       googleAuthUrl: '/auth/google'
     };
   },
   methods: {
-    verifyRecaptcha(response) {
-      this.recaptcha = response;
-    },
-    createRecaptcha() {
-      const script = document.createElement('script');
-      script.setAttribute('async', '');
-      script.setAttribute('defer', '');
-      script.id = 'recaptchaScript';
-      script.src =
-        'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit';
-      document.getElementsByTagName('head')[0].appendChild(script);
-    },
+    // verifyRecaptcha(response) {
+    //   this.recaptcha = response;
+    // },
+    // createRecaptcha() {
+    //   const script = document.createElement('script');
+    //   script.setAttribute('async', '');
+    //   script.setAttribute('defer', '');
+    //   script.id = 'recaptchaScript';
+    //   script.src =
+    //     'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit';
+    //   document.getElementsByTagName('head')[0].appendChild(script);
+    // },
     checkForm(e) {
       e.preventDefault();
       this.fieldErrors = {};
@@ -164,8 +164,8 @@ export default {
         .post('register', {
           name: this.name,
           email: this.email,
-          password: this.password,
-          'g-recaptcha-response': this.recaptcha
+          password: this.password
+          // 'g-recaptcha-response': this.recaptcha
         })
         .then(response => {
           this.loading = false;
@@ -205,14 +205,14 @@ export default {
     }
   },
   mounted() {
-    this.createRecaptcha();
+    // this.createRecaptcha();
     if (this.$route.query.hasOwnProperty('backTo')) {
       this.googleAuthUrl += `?backTo=${this.$route.query.backTo}`;
     }
   },
-  destroyed() {
-    document.getElementById('recaptchaScript').remove();
-  },
+  // destroyed() {
+  //   document.getElementById('recaptchaScript').remove();
+  // },
   metaInfo: {
     title: 'فرم عضویت | اسک آریا',
     titleTemplate: 'فرم عضویت | اسک آریا',
@@ -274,6 +274,7 @@ export default {
 
 .tc {
   color: #3a3a3a;
+  text-decoration: underline;
 }
 
 .image-bg {

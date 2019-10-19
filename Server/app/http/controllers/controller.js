@@ -7,33 +7,33 @@ const sprintf = require('sprintf-js').sprintf;
 module.exports = class controller {
   constructor() {
     autoBind(this);
-    this.recaptchaConfig();
+    // this.recaptchaConfig();
   }
 
-  recaptchaConfig() {
-    this.recaptcha = new Recaptcha(
-      config.service.recaptcha.client_key,
-      config.service.recaptcha.secret_key,
-      { ...config.service.recaptcha.options }
-    );
-  }
+  // recaptchaConfig() {
+  //   this.recaptcha = new Recaptcha(
+  //     config.service.recaptcha.client_key,
+  //     config.service.recaptcha.secret_key,
+  //     { ...config.service.recaptcha.options }
+  //   );
+  // }
 
-  recaptchaValidation(req, res) {
-    return new Promise((resolve, reject) => {
-      this.recaptcha.verify(req, (err, data) => {
-        if (err) {
-          req.flash(
-            'errors',
-            'گزینه امنیتی مربوط به شناسایی روبات خاموش است، لطفا از فعال بودن آن اطمینان حاصل نمایید و مجدد امتحان کنید'
-          );
-          resolve(false);
-          this.back(req, res);
-        } else {
-          resolve(true);
-        }
-      });
-    });
-  }
+  // recaptchaValidation(req, res) {
+  //   return new Promise((resolve, reject) => {
+  //     this.recaptcha.verify(req, (err, data) => {
+  //       if (err) {
+  //         req.flash(
+  //           'errors',
+  //           'گزینه امنیتی مربوط به شناسایی روبات خاموش است، لطفا از فعال بودن آن اطمینان حاصل نمایید و مجدد امتحان کنید'
+  //         );
+  //         resolve(false);
+  //         this.back(req, res);
+  //       } else {
+  //         resolve(true);
+  //       }
+  //     });
+  //   });
+  // }
 
   async validationData(req) {
     const result = validationResult(req);
