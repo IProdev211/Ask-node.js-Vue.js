@@ -1,9 +1,9 @@
 <template>
-  <div class="bg">
-    <div class="col-lg-3 col-md-6 col-sm-12 login-section">
-      <div class="container">
+  <div class="full-height">
+    <div class="col-lg-4 col-md-6 col-sm-12 login-section d-flex align-items-center">
+      <div class="container login-boxes">
         <form @submit="checkForm">
-          <h1 class="login-title pt-5 pb-3">ورود</h1>
+          <h1 class="login-title text-primary pb-2">ورود</h1>
           <div class="row">
             <div class="col-12">
               <base-input
@@ -26,7 +26,7 @@
               ></base-input>
             </div>
           </div>
-          <div class="text-right text-rtl">
+          <div class="text-right">
             <base-checkbox
               class="pb-3"
               name="remember"
@@ -64,30 +64,30 @@
               :loading="loading"
               block
             >ورود</base-button>
-            <div class="pt-2 d-flex justify-content-around">
-              <div class="pull-right">
-                <h6>
-                  <router-link to="/forgotpassword" class="footer-link">رمز عبور را فراموش کرده ام</router-link>
-                </h6>
-              </div>
-              <div class="pull-left">
+            <div class="pt-2 text-center">
+              <h6>
+                <router-link to="/forgotpassword" class="footer-link">رمز عبور را فراموش کرده ام</router-link>
+              </h6>
+              <!-- <div class="pull-left">
                 <h6>
                   <router-link class="footer-link" :to="registerUrl">فرم عضویت</router-link>
                 </h6>
-              </div>
+              </div>-->
             </div>
           </div>
         </form>
       </div>
     </div>
-    <div class="col-lg-9 col-md-6 col-sm-12 d-none d-md-block">
-      <div class="image-bg text-center">
-        <h1 class="new-content-title pt-5">محتوای جدید هر هفته اضافه می شود!</h1>
-        <img
-          class="login-image img-fluid"
-          src="/img/frontend/loginscreenbg.svg"
-          alt="Picture of our fearless leader 2"
-        />
+    <div class="col-lg-8 col-md-6 col-sm-12 d-none d-md-block bg">
+      <div class="product">
+        <div class="centre-div d-flex justify-content-center row">
+          <img
+            class="image-bg img-fluid pt-3 w-100"
+            src="/img/frontend/loginscreenbg.svg"
+            alt="Picture of our fearless leader 2"
+          />
+          <h1 class="new-content-title pt-5">محتوای جدید هر هفته اضافه می شود!</h1>
+        </div>
       </div>
     </div>
   </div>
@@ -247,14 +247,65 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.full-height {
+  height: 84vh !important;
+}
+
+@media only screen and (min-width: 1500px) {
+  .full-height {
+    height: 77vh !important;
+  }
+}
+
 .bg {
-  height: 100vh;
+  height: 100%;
   background-color: rgb(8, 7, 104);
 }
 
+.product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  height: calc(100% - 160px);
+  margin-top: 80px;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.centre-div {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center !important;
+}
+
+.image-bg {
+  height: 25em;
+  width: 25em;
+}
+
 .login-section {
-  height: 100vh;
+  height: 100%;
   background-color: #f5f7fa;
+}
+
+.login-boxes {
+  max-width: 330px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .card-title {
@@ -263,21 +314,14 @@ export default {
 
 .new-content-title {
   font-family: IranSansBold;
-  // font-size: 3em !important;
+  font-size: 2em !important;
   color: #fff !important;
-}
-
-.image-bg {
-  .login-image {
-    height: 40em;
-    width: 40em;
-  }
 }
 
 .login-title {
   font-size: 2.8em;
   font-family: IranSansBold;
-  color: #080768 !important;
+  // color: #080768 !important;
   text-align: center;
 }
 
@@ -298,16 +342,42 @@ export default {
 
 .google-text {
   font-size: 0.8rem;
-  color: rgb(94, 94, 94) !important;
+  color: rgb(167, 167, 167) !important;
 }
 
 .footer-link {
   font-size: 0.9rem;
-  color: rgb(128, 128, 128) !important;
+  color: rgb(92, 92, 92) !important;
 }
 
 .footer-link:hover {
   color: #cc51e1 !important;
   font-family: IranSansBold;
+}
+
+@media screen and (max-width: 767px) {
+  .login-section {
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(240)'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%23ffffff'/%3E%3C/linearGradient%3E%3Cpattern patternUnits='userSpaceOnUse' id='b' width='540' height='450' x='0' y='0' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.01'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect x='0' y='0' fill='url(%23b)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  // .login-title {
+  //   color: white !important;
+  // }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .new-content-title {
+    font-size: 20px;
+    padding: 0 10px;
+    line-height: 1.4em;
+  }
+
+  .image-bg[data-v-2a2af8af] {
+    height: 18em;
+    width: 18em;
+  }
 }
 </style>
