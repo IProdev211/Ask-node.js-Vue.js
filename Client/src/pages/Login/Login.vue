@@ -1,6 +1,6 @@
 <template>
   <div class="full-height">
-    <div class="col-lg-4 col-md-6 col-sm-12 login-section d-flex align-items-center">
+    <div class="col-lg-4 col-md-12 col-sm-12 login-section d-flex align-items-center">
       <div class="container login-boxes">
         <form @submit="checkForm">
           <h1 class="login-title text-primary pb-2">ورود</h1>
@@ -78,7 +78,7 @@
         </form>
       </div>
     </div>
-    <div class="col-lg-8 col-md-6 col-sm-12 d-none d-md-block bg">
+    <div class="col-lg-8 col-md-12 col-sm-12 d-none d-lg-block bg">
       <div class="product">
         <div class="centre-div d-flex justify-content-center row">
           <img
@@ -302,6 +302,13 @@ export default {
   background-color: #f5f7fa;
 }
 
+.login-title {
+  font-size: 2.8em;
+  font-family: IranSansBold;
+  // color: #080768 !important;
+  text-align: center;
+}
+
 .login-boxes {
   max-width: 330px;
   margin-right: auto;
@@ -358,6 +365,13 @@ export default {
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  // .login-section {
+  //   background: url(/img/frontend/SVG-Background-4.svg) no-repeat;
+  //   background-position: top;
+  //   // height: 90vh;
+  //   position: inherit;
+  // }
+
   .new-content-title {
     font-size: 20px;
     padding: 0 10px;

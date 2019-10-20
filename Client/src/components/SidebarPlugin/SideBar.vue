@@ -124,10 +124,10 @@ export default {
   width: 5em !important;
   height: 5em !important;
 }
-@media (min-width: 992px) {
-  .navbar-search-form-mobile,
-  .nav-mobile-menu {
-    display: none;
-  }
-}
+// @media (min-width: 992px) {
+//   .navbar-search-form-mobile,
+//   .nav-mobile-menu {
+//     display: none;
+//   }
+// }
 </style>

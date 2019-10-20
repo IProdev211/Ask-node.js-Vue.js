@@ -298,4 +298,14 @@ ul {
     font-size: 1.2em !important;
   }
 }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .private-classes .pricing {
+    padding: 0%;
+  }
+
+  .pricing-features li {
+    font-size: 0.9em !important;
+  }
+}
 </style>

@@ -468,6 +468,12 @@ export default {
   }
 }
 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .navbar-nav li {
+    font-size: 0.95em !important;
+  }
+}
+
 .navbar-nav li a {
   padding: 9px 0 9px 10px !important;
   font-size: 0.95em;

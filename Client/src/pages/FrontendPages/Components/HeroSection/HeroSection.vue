@@ -119,6 +119,22 @@ export default {};
   }
 }
 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .hero-content-homepage .hero-title {
+    font-size: 3.8em;
+  }
+
+  .hero-content-homepage .hero-subtitle {
+    font-size: 1.2em;
+  }
+
+  .hero-content-homepage .btn {
+    padding: 13px 23px !important;
+    font-size: 1em;
+    font-family: IranSansBold;
+  }
+}
+
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .hero-title {
     font-size: 2em;

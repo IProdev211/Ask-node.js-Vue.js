@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper" :class="{ 'nav-open': $sidebar.showSidebar }">
-    <div class="container">
+    <div class="container text-center">
       <notifications></notifications>
     </div>
     <side-bar :background-color="sidebarBackground">
@@ -152,7 +152,7 @@ export default {
 
 .content {
   background-color: #f5f4f4 !important;
-  min-height: 100vh !important;
+  height: 90vh !important;
 }
 .sidebar
   .nav

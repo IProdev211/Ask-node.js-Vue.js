@@ -97,5 +97,11 @@ export default {};
     }
   }
 }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .text-section .main-text {
+    font-size: 1.15em;
+  }
+}
 </style>
 

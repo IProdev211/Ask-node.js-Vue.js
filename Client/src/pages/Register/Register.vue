@@ -1,6 +1,6 @@
 <template>
   <div class="full-height">
-    <div class="col-lg-4 col-md-6 col-sm-12 register-section d-flex align-items-center">
+    <div class="col-lg-4 col-md-12 col-sm-12 register-section d-flex align-items-center">
       <div class="container register-boxes">
         <form @submit="checkForm" id="register-form">
           <h1 class="register-title text-primary pb-2">ثبت نام</h1>
@@ -77,7 +77,7 @@
         </form>
       </div>
     </div>
-    <div class="col-lg-8 col-md-6 col-sm-12 d-none d-md-block bg">
+    <div class="col-lg-8 col-md-12 col-sm-12 d-none d-lg-block bg">
       <div class="product">
         <div class="centre-div d-flex justify-content-center row">
           <img
