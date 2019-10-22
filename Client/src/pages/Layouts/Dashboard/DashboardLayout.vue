@@ -152,7 +152,7 @@ export default {
 
 .content {
   background-color: #f5f4f4 !important;
-  height: 90vh !important;
+  min-height: 80vh !important;
 }
 .sidebar
   .nav

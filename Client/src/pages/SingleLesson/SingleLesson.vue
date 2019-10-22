@@ -1,10 +1,10 @@
 <template>
   <div>
     <div v-if="id" :key="id">
-      <div class="top-banner" id="top">
+      <div class="top-banner">
         <div class="container">
           <!-- Course Title & Description -->
-          <div class="text-center px-5 py-5">
+          <div class="text-center px-3 py-5">
             <h1 class="course-title">{{ title }}</h1>
             <!-- Course Image -->
             <img class="course-image rounded-circle img-fluid py-4" :src="course.image" />
@@ -13,50 +13,52 @@
           </div>
           <div class="py-3 d-flex justify-content-around text-center">
             <!-- COURSE CREATED AT -->
-            <div class="co">
+            <div class="text-center d-none d-md-block">
               <h5 class="icon-data">
-                <i class="pl-1 icon far fa-calendar-alt"></i>
-                <span class="icon-text pr-1 d-none d-md-block">ایجاد شده در</span>
+                <i class="icon far fa-calendar-alt"></i>
                 {{ getEpisodeCreateDate() }}
+                <span
+                  class="icon-text pr-1"
+                >ایجاد شده در</span>
               </h5>
             </div>
 
             <!-- COURSE LENGTH -->
-            <div class="co">
+            <div class="text-center">
               <h5 class="icon-data">
-                <i class="pl-1 icon far fa-clock"></i>
-                <span
-                  class="icon-text pr-1 d-none d-md-block"
-                >{{ episode.time ? "زمان این درس" : "زمان کل دوره" }}</span>
+                <i class="icon far fa-clock"></i>
                 {{ episode.time ? episodeTime : courseTime }}
+                <span
+                  class="icon-text pr-1"
+                >{{ episode.time ? "زمان این درس" : "زمان کل دوره" }}</span>
               </h5>
             </div>
 
-            <!-- COURSE USERS  -->
-            <div class="co" v-if="notEnrolled">
+            <!----------------- COURSE USERS  ----------------->
+            <!-- <div  v-if="notEnrolled">
               <h5 class="icon-data">
-                <i class="pl-1 icon fas fa-users"></i>
-                <span class="icon-text pr-1 d-none d-md-block">تعداد شرکت کنندگان</span>
+                <i class=" icon fas fa-users"></i>
                 {{ enrolledCount }}
+                <span class="icon-text pr-1 d-none d-md-block">تعداد شرکت کنندگان</span>
               </h5>
-            </div>
+            </div>-->
 
             <!-- COURSE PRICE  -->
-            <!-- <div class="co" v-if="notEnrolled && type == 'paid'"> -->
-            <div class="co" v-if="notEnrolled">
+            <!-- <div  v-if="notEnrolled && type == 'paid'"> -->
+            <div class="text-center" v-if="notEnrolled">
               <h5 class="icon-data">
-                <i class="pl-1 icon fas fa-money-check-alt"></i>
-                <span class="icon-text pr-1 d-none d-md-block">قیمت</span>
+                <i class="icon fas fa-money-check-alt"></i>
                 {{ getCoursePrice() }}
+                <span class="icon-text pr-1">قیمت دوره</span>
               </h5>
             </div>
 
             <!-- INSTRUCTOR -->
-            <div class="co">
+            <div class="text-center">
               <h5 class="icon-data">
-                <i class="pl-1 icon fas fa-chalkboard-teacher"></i>
-                <span class="icon-text pr-1 d-none d-md-block">مدرس</span>
+                <i class="icon fas fa-chalkboard-teacher"></i>
                 {{ course.user.name }}
+                <span class="icon-text pr-1">مدرس دوره</span>
               </h5>
             </div>
           </div>
@@ -73,14 +75,14 @@
             خرید را دنبال کنید.-->
             <div class="text-center" v-if="type.toLowerCase() == 'paid'">
               <!-- <div class="w-100 d-md-none pt-2"></div> -->
-              <p class="text-center pay-text">
+              <base-button
+                @click="openBuyCourse"
+                native-type="button"
+                class="btn btn-round btn-danger btn mt-3 mr-2 buy-btn"
+              >تهیه درس</base-button>
+              <p class="text-center pay-text pt-2">
                 برای دسترسی به این درس لطفا لینک
                 خرید را دنبال کنید.
-                <base-button
-                  @click="openBuyCourse"
-                  native-type="button"
-                  class="btn btn-round btn-danger btn mr-2 buy-btn"
-                >تهیه درس</base-button>
               </p>
             </div>
             <!-- </p> -->
@@ -151,7 +153,7 @@
         <p>{{ this.$root._data.user ? "پرداخت از درگاه بانک با استفاده از کلیه کارت‌های عضو شتاب." : "برای ثبت نام در این دوره باید حتما به حساب کاربری اسک آریا وارد شوید." }}</p>
         <ul class="list-group">
           <li class="list-group-item">
-            <strong class="float-right text-dark">قیمت دوره</strong>
+            <p class="float-right text-dark course-price-title">قیمت دوره</p>
             <span class="float-left text-danger">{{ getCoursePrice() }}</span>
           </li>
         </ul>
@@ -164,22 +166,6 @@
         >{{ this.$root._data.user ? "پرداخت از درگاه" : "ورود" }}</base-button>
       </div>
     </modal>
-    <i
-      v-scroll-to="{
-              el: '#top',
-              duration: 900,
-              easing: 'linear',
-              offset: -1000,
-              force: true,
-              cancelable: true,
-              onStart: onStart,
-              onDone: onDone,
-              onCancel: onCancel,
-              x: false,
-              y: true
-            }"
-      class="fas fa-chevron-up go-to-top"
-    ></i>
   </div>
 </template>
 <script>
@@ -494,11 +480,6 @@ export default {
 <style lang="scss" scoped>
 .top-banner {
   background-image: linear-gradient(270deg, #870eb8, #351dbd);
-  // -webkit-box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.2);
-  // box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.2);
-  // border-radius: 15px;
-  // margin: 3em;
-  // width: 20%;
 }
 
 .buy-btn {
@@ -516,6 +497,10 @@ export default {
 
 .course-title-modal {
   font-family: IranSansDNBold;
+}
+
+.course-price-title {
+  font-family: IranSansBold;
 }
 
 .course-title {
@@ -541,7 +526,7 @@ export default {
 .body {
   /deep/ p {
     color: rgb(255, 255, 255) !important;
-    font-size: 1.1em !important;
+    font-size: 1.2em !important;
     line-height: inherit !important;
   }
 }
@@ -555,25 +540,30 @@ export default {
 }
 
 .icon {
-  font-size: 1.4em;
+  font-size: 1.7em;
   color: rgba(255, 255, 255, 1) !important;
   display: block;
-  padding-bottom: 8px;
+  padding-bottom: 15px;
+}
+
+.icon-data {
+  font-size: 1.2em;
+  font-family: IranSansBold;
+  color: rgba(255, 255, 255, 1) !important;
 }
 
 .icon-text {
   font-size: 0.75em;
-  color: rgba(255, 255, 255, 0.5) !important;
-  font-family: IranSans;
+  color: rgba(255, 255, 255, 0.568) !important;
+  font-family: IranSans !important;
   padding-left: 0;
   display: block;
-  padding-bottom: 4px;
 }
 
-.icon-data {
-  font-size: 1.1em;
-  font-family: IranSansBold;
-  color: rgba(255, 255, 255, 1) !important;
+.pay-text {
+  font-size: 0.7em !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-family: IranSans;
 }
 
 @media (max-width: 768px) {
@@ -584,14 +574,13 @@ export default {
   }
 
   .icon {
-    font-size: 0.9rem;
+    font-size: 1.6em;
     display: block;
     padding-bottom: 10px;
   }
 
   .icon-data {
-    font-size: 0.85em;
-    font-family: IranSans;
+    font-size: 1em;
   }
 
   .icon-text {
@@ -599,23 +588,13 @@ export default {
     padding-left: 0;
   }
 
-  .pay-text {
-    font-size: 0.7em !important;
-  }
-
   .body {
     /deep/ p {
       color: #fff !important;
-      font-size: 1em !important;
+      font-size: 1.1em !important;
       line-height: inherit !important;
     }
   }
-}
-
-.pay-text {
-  font-size: 0.85em;
-  font-family: IranSans;
-  color: #fff !important;
 }
 
 .pay-icon {

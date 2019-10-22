@@ -10,7 +10,7 @@
     </div>
 
     <!-- Stats Cards Section -->
-    <div class="col-lg-4 col-md-6 ml-auto mr-auto" v-for="card in statsCards" :key="card.title">
+    <div class="col-lg-4 col-md-4 ml-auto mr-auto" v-for="card in statsCards" :key="card.title">
       <stats-card
         :title="card.title"
         :sub-title="card.subTitle"
@@ -61,7 +61,9 @@ export default {
       this.statsCards = [
         {
           title: courses.toString(),
-          subTitle: 'دوره های تهیه شده ی سما',
+          subTitle: 'دوره های من',
+          // subTitle: 'دوره های تهیه شده ی سما',
+
           type: 'warning',
           icon: 'tim-icons icon-book-bookmark',
           footer:
@@ -111,9 +113,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.rtl .main-panel .content {
-  padding: 75px 300px 20px 50px;
-}
+// .rtl .main-panel .content {
+//   padding: 75px 300px 20px 50px;
+// }
 
 .coloredLink {
   color: #de4dc7;
@@ -126,5 +128,19 @@ export default {
 .form-horizontal .col-form-label,
 .form-horizontal .label-on-right {
   text-align: left !important;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .white-content .card:not(.card-pricing).card-stats .card-category {
+    font-size: 0.9em !important;
+  }
+
+  .white-content .card:not(.card-pricing).card-stats .card-title {
+    font-size: 1.35em !important;
+  }
+
+  .card-stats .stats {
+    font-size: 0.8em !important;
+  }
 }
 </style>
