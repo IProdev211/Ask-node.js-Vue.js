@@ -63,7 +63,7 @@ class ticketController extends controller {
         id: message.user.id,
         name: message.user.name,
         isAdmin: message.user.admin,
-        avatar: message.user.avatar,
+        avatar: message.user.avatar
       },
       message: message.message,
       createdAt: message.createdAt,

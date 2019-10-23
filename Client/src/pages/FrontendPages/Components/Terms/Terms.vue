@@ -4,7 +4,7 @@
       <h1 class="title text-danger">قوانین و مقررات سایت</h1>
       <p class="text-muted pb-5">در این صفحه شرایط استفاده از وبسایت اسک آریا را مشاهده میکنید</p>
     </div>
-    <div class="main-section card px-4 text-right">
+    <div class="main-section px-4 text-right">
       <div class="notice">
         <h3 class="notice text-danger container py-5">
           <span>
@@ -194,13 +194,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.white-content .card:not(.card-white) {
-  background: #ffffff;
-  -webkit-box-shadow: 0 1px 7px 0 rgba(123, 123, 123, 0.05);
-  box-shadow: 0 1px 7px 0 rgba(123, 123, 123, 0.05);
-  border-radius: 15px;
-}
-
 .title {
   font-family: IranSansBold;
   font-size: 3em;

@@ -65,9 +65,9 @@ export default {
 }
 
 .home-blog .card:hover {
-  -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.6);
-  box-shadow: 40px rgba(121, 121, 121, 0.6);
-  transition: transform 0.6s;
+  -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.5);
+  box-shadow: 40px rgba(121, 121, 121, 0.5);
+  transition: transform 0.8s;
   -webkit-transform: translateY(-5px);
   transform: translateY(-5px);
   cursor: pointer;
@@ -75,9 +75,8 @@ export default {
 
 .home-blog .card-title {
   color: #292929;
-  font-size: 1rem;
+  font-size: 1.15em;
   font-family: IranSansBold;
-  line-height: inherit !important;
 
   @media (max-width: 680px) {
     font-size: 1.1em;
@@ -104,11 +103,20 @@ export default {
   left: 1em;
   border-radius: 15px;
   position: absolute;
-  padding: 4px 12px;
-  color: rgb(54, 54, 54) !important;
-  background-color: #fff !important;
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 3px 10px;
+  color: rgb(53, 53, 53) !important;
+  background: rgb(241, 241, 241) !important;
+  font-family: IranSans;
   text-align: center !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.card:hover .category {
+  color: #000285 !important;
+  font-family: IranSansBold;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .home-blog .card:hover .card-title {
@@ -130,7 +138,7 @@ export default {
 
   .card-footer-text {
     color: #646464 !important;
-    font-size: 1em;
+    font-size: 0.95em;
   }
 }
 </style>
