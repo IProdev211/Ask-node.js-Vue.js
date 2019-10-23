@@ -1,6 +1,6 @@
 <template>
   <div class="full-height">
-    <div class="col-lg-4 col-md-12 col-sm-12 login-section d-flex align-items-center">
+    <div class="col-lg-3 col-md-12 col-sm-12 login-section d-flex align-items-center">
       <div class="container login-boxes">
         <form @submit="checkForm">
           <h1 class="login-title text-primary pb-2">ورود</h1>
@@ -78,7 +78,7 @@
         </form>
       </div>
     </div>
-    <div class="col-lg-8 col-md-12 col-sm-12 d-none d-lg-block bg">
+    <div class="col-lg-9 col-md-12 col-sm-12 d-none d-lg-block bg">
       <div class="product">
         <div class="centre-div d-flex justify-content-center row">
           <img
