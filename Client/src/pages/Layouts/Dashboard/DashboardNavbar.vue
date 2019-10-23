@@ -35,7 +35,7 @@
               <router-link to="/tickets" class="nav-item dropdown-item">پشتیبانی</router-link>
             </li>
 
-            <li class="nav-link border-bottom">
+            <li v-if="isAdmin" class="nav-link border-bottom">
               <router-link to="/managementpage" class="nav-item dropdown-item">پنل مدیریت</router-link>
             </li>
 
