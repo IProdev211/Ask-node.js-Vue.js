@@ -51,6 +51,12 @@ export default {
   -o-box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2) !important;
 }
 
+.home-blog h3 {
+  font-size: 1rem;
+  font-family: IranSansBold;
+  color: #333333;
+}
+
 .blogBox {
   border-radius: 10px;
 }
@@ -103,7 +109,7 @@ export default {
   left: 1em;
   border-radius: 15px;
   position: absolute;
-  padding: 3px 10px;
+  padding: 4px 10px;
   color: rgb(53, 53, 53) !important;
   background: rgb(241, 241, 241) !important;
   font-family: IranSans;
@@ -113,23 +119,19 @@ export default {
 }
 
 .card:hover .category {
-  color: #000285 !important;
-  font-family: IranSansBold;
+  background: #00b35f !important;
+  color: white !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .home-blog .card:hover .card-title {
-  color: #000285;
+  color: #00b35f !important;
 }
 
-.home-blog h3 {
-  color: #27408b;
-}
-
-.title-ltr {
-  direction: ltr;
-}
+// .title-ltr {
+//   direction: ltr;
+// }
 
 .card .card-footer {
   background-color: transparent;

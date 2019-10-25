@@ -188,7 +188,7 @@ export default {
               title: `شما با موفقیت ثبت نام کردید!`,
               text:
                 'ایمیل حاوی لینک فعال سازی به ایمیل شما ارسال شد. بعد از تایید آدرس ایمیل میتوانید از قسمت ورود با اطلاعاتی که وارد کردید وارد شوید.',
-              className: 'text-center',
+              className: 'text-center text-rtl',
               button: 'بسیار خوب'
             });
           } else {
@@ -196,7 +196,7 @@ export default {
             Swal({
               icon: 'success',
               title: `شما با موفقیت ثبت نام کردید!`,
-              className: 'text-center',
+              className: 'text-center text-rtl',
               text: '',
               button: 'بسیار خوب'
             });
