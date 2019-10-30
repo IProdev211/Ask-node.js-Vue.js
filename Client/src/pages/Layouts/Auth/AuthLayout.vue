@@ -113,7 +113,7 @@
                     </router-link>
                   </li>
 
-                  <li class="nav-link">
+                  <li v-if="isAdmin" class="nav-link">
                     <router-link to="/managementpage" class="nav-item dropdown-item">
                       <i class="fas fa-tools pl-2"></i>
                       پنل مدیریت
@@ -254,6 +254,13 @@ export default {
         (this.$root.$data.user ? this.$root.$data.user.avatar : undefined) ||
         '/img/default-avatar.png'
       );
+    },
+    isAdmin() {
+      console.log(
+        'isAdmin = ',
+        this.$root.$data.user && this.$root.$data.user.admin
+      );
+      return this.$root.$data.user && this.$root.$data.user.admin;
     }
   },
   methods: {
