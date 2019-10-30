@@ -39,11 +39,11 @@
           <div class="text-right pb-2">
             <base-checkbox
               v-model="terms"
-              class="pb-3 text-right"
+              class="pb-3"
               :class="{'has-danger': fieldErrors.terms !== undefined, 'terms-checkbox': true}"
             >
               <router-link class="tc" to="/terms">
-                <i class="fas fa-info-circle pl-1"></i>
+                <!-- <i class="fas fa-info-circle pl-1"></i> -->
                 شرایط را قبول دارم
               </router-link>
             </base-checkbox>
@@ -331,23 +331,21 @@ export default {
 .register-title {
   font-size: 2.8em;
   font-family: IranSansBold;
-  // color: #080768 !important;
   text-align: center;
 }
 
 .tc {
   color: #3a3a3a;
-  // text-decoration: underline;
 }
 
 .googleicon {
-  font-size: 2rem;
+  font-size: 1.2em !important;
   margin: 0;
   padding: 0;
 }
 
 .icon {
-  font-size: 1.8rem;
+  font-size: 1.8em !important;
   color: #d557d9 !important;
 }
 

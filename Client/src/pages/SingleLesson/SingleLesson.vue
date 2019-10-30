@@ -11,22 +11,20 @@
             <p class="episode-title" v-if="episode.id">{{ course.title }}</p>
             <div class="body pt-3" v-html="body"></div>
           </div>
-          <div class="py-3 d-flex justify-content-around text-center">
+          <div class="py-3 row">
             <!-- COURSE CREATED AT -->
-            <div class="text-center d-none d-md-block">
-              <h5 class="icon-data">
-                <i class="icon far fa-calendar-alt"></i>
+            <div class="col d-none d-md-block text-center">
+              <i class="icon far fa-calendar-alt"></i>
+              <p class="icon-data">
                 {{ getEpisodeCreateDate() }}
-                <span
-                  class="icon-text pr-1"
-                >ایجاد شده در</span>
-              </h5>
+                <span class="icon-text pr-1">ایجاد شده در</span>
+              </p>
             </div>
 
             <!-- COURSE LENGTH -->
-            <div class="text-center">
+            <div class="col text-center">
+              <i class="icon far fa-clock"></i>
               <h5 class="icon-data">
-                <i class="icon far fa-clock"></i>
                 {{ episode.time ? episodeTime : courseTime }}
                 <span
                   class="icon-text pr-1"
@@ -45,18 +43,18 @@
 
             <!-- COURSE PRICE  -->
             <!-- <div  v-if="notEnrolled && type == 'paid'"> -->
-            <div class="text-center" v-if="notEnrolled">
+            <div class="col text-center" v-if="notEnrolled">
+              <i class="icon fas fa-money-check-alt"></i>
               <h5 class="icon-data">
-                <i class="icon fas fa-money-check-alt"></i>
                 {{ getCoursePrice() }}
                 <span class="icon-text pr-1">قیمت دوره</span>
               </h5>
             </div>
 
             <!-- INSTRUCTOR -->
-            <div class="text-center">
+            <div class="col text-center">
+              <i class="icon fas fa-chalkboard-teacher"></i>
               <h5 class="icon-data">
-                <i class="icon fas fa-chalkboard-teacher"></i>
                 {{ course.user.name }}
                 <span class="icon-text pr-1">مدرس دوره</span>
               </h5>
@@ -540,10 +538,9 @@ export default {
 }
 
 .icon {
-  font-size: 1.7em;
+  font-size: 1.8em !important;
   color: rgba(255, 255, 255, 1) !important;
-  display: block;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 
 .icon-data {
