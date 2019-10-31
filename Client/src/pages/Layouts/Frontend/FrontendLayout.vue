@@ -99,12 +99,12 @@
                     </router-link>
                   </li>
 
-                  <li class="nav-link">
+                  <!-- <li class="nav-link">
                     <router-link to="/quizzes" class="nav-item dropdown-item">
                       <i class="far fa-check-square pl-2"></i>
                       امتحان ها
                     </router-link>
-                  </li>
+                  </li>-->
 
                   <li class="nav-link">
                     <router-link to="/tickets" class="nav-item dropdown-item">

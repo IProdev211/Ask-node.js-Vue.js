@@ -105,7 +105,9 @@ module.exports = {
     //		svgRule.uses.clear();
     //
     // * or exclude ckeditor directory from node_modules:
-    svgRule.exclude.add(path.join(__dirname, 'node_modules', 'ckeditor5-direction'));
+    svgRule.exclude.add(
+      path.join(__dirname, 'node_modules', 'ckeditor5-direction')
+    );
     svgRule.exclude.add(path.join(__dirname, 'node_modules', '@ckeditor'));
 
     // Add an entry for *.svg files belonging to CKEditor. You can either:

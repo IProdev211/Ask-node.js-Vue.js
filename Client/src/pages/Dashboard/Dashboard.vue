@@ -79,12 +79,12 @@ export default {
             '<i class="tim-icons icon-video-66 pl-2"></i> مجموع درس های موجود'
         },
         {
-          title: '15 / 2',
+          title: 'به زودی',
           subTitle: 'امتحان های من',
           type: 'primary',
           icon: 'far fa-check-square',
           footer:
-            '<a href="/quizzes"><i class="far fa-check-square pl-2"></i> امتحان های شما</a>'
+            '<a href="/comingsoon"><i class="far fa-check-square pl-2"></i> امتحان های شما</a>'
         }
         // {
         //   title: '0',

@@ -5,16 +5,9 @@
         <img slot="header" src="img/emilyz.jpg" alt="..." />
 
         <h4 class="card-title">Joe Gardner</h4>
-        <base-input
-          type="password"
-          placeholder="Password"
-          addon-left-icon="tim-icons icon-key-25"
-        >
-        </base-input>
+        <base-input type="password" placeholder="Password" addon-left-icon="tim-icons icon-key-25"></base-input>
 
-        <base-button slot="footer" type="primary" size="lg" round>
-          Unlock
-        </base-button>
+        <base-button slot="footer" type="primary" size="lg" round>Unlock</base-button>
       </card>
     </div>
   </div>
