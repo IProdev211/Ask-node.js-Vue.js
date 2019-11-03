@@ -37,6 +37,7 @@ module.exports = class Application {
     mongoose.Promise = global.Promise;
     mongoose.connect(config.database.url, {
       useNewUrlParser: true,
+      useUnifiedTopology: true,
       useCreateIndex: true
     });
   }
