@@ -77,7 +77,10 @@
                 @click="openBuyCourse"
                 native-type="button"
                 class="btn btn-round btn-danger btn mt-3 mr-2 buy-btn"
-              >تهیه درس</base-button>
+              >
+                <i class="fas fa-shopping-basket pl-2"></i>
+                تهیه دوره
+              </base-button>
               <p class="text-center pay-text pt-2">
                 برای دسترسی به این درس لطفا لینک
                 خرید را دنبال کنید.

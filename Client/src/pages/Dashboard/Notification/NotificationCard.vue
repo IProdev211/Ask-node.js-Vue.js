@@ -61,12 +61,13 @@ export default {
     getLogIcon(type) {
       switch (type) {
         case 'logout':
+          return 'fa-shield-alt text-danger';
         case 'login':
-          return 'fa-shield-alt ';
+          return 'fa-shield-alt text-success';
         case 'register':
           return 'fa-user-tie';
         case 'buy_course':
-          return 'fa-shopping-basket text-success';
+          return 'fa-shopping-basket text-primary';
         default:
           return 'fa-history text-success';
       }

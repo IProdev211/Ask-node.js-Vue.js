@@ -54,15 +54,9 @@ router.post(
   courseController.markAsNotDoneEpisode
 );
 
-router.get(
-  '/tickets',
-  ticketController.search
-);
+router.get('/tickets', ticketController.search);
 
-router.get(
-  '/tickets/view/:ticket',
-  ticketController.singleTicket
-);
+router.get('/tickets/view/:ticket', ticketController.singleTicket);
 
 router.post(
   '/tickets/add',
@@ -79,10 +73,7 @@ router.post(
   ticketController.reply
 );
 
-router.get(
-  '/tickets/view/:message/:filename',
-  ticketController.downloadFile
-);
+router.get('/tickets/view/:message/:filename', ticketController.downloadFile);
 
 // Admin section
 

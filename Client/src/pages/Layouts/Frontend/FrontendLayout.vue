@@ -237,7 +237,6 @@
 <script>
 import { BaseNav } from 'src/components';
 import { ZoomCenterTransition } from 'vue2-transitions';
-
 import TopBanner from './Components/TopBanner.vue';
 import backend from '../../../backend';
 
@@ -258,7 +257,7 @@ export default {
       showMenu: false,
       menuTransitionDuration: 250,
       pageTransitionDuration: 200,
-      year: new Date().getFullYear(),
+      // year: new Date().getFullYear(),
       pageClass: 'login-page'
     };
   },
