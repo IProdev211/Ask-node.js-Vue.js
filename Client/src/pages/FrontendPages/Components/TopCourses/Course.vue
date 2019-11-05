@@ -149,7 +149,7 @@ export default {
   .courseTime {
     color: rgb(66, 66, 66);
     padding-right: 0.7rem;
-    font-size: 1.2rem;
+    font-size: 1.4em !important;
     font-family: IranSansBold;
   }
 
@@ -161,7 +161,7 @@ export default {
   .unitsAvailable {
     color: rgb(66, 66, 66);
     padding-left: 0.7rem;
-    font-size: 1.2rem;
+    font-size: 1.4em !important;
     font-family: IranSansBold;
   }
 

@@ -54,7 +54,7 @@ export default {};
 
 .text-section {
   text-align: right;
-  padding: 3em 2em 2em 2em;
+  padding: 5em 0em 4em 0;
 
   h2 {
     font-size: 2em;

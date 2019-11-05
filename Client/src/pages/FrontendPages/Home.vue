@@ -4,7 +4,7 @@
     <HeroSection />
 
     <!-- Top Courses Section -->
-    <div class="container pt-5 pb-2">
+    <div class="container pt-5 pb-4">
       <div class="top-courses-section">
         <div class="d-flex justify-content-between">
           <p class="text-right top-section-header pt-1 pb-4">پیشنهادهای ویژه اسک آریا برای شما</p>
@@ -25,11 +25,11 @@
             </el-carousel>
           </div>
         </div>
-        <div>
+        <div class="text-center">
           <router-link to="allcourses">
             <base-button
               native-type="submit"
-              type="default"
+              type="warning"
               class="btn btn-round animation-on-hover mt-4"
             >مشاهده همه دوره ها</base-button>
           </router-link>

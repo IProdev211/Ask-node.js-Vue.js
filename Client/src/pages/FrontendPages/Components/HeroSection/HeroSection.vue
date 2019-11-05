@@ -86,7 +86,7 @@ export default {};
   background-color: #6e72fc;
   background-size: cover;
   background-position: bottom;
-  min-height: 42vh !important;
+  min-height: 44vh !important;
   width: 100%;
 
   .hero-title {
@@ -94,7 +94,7 @@ export default {};
     line-height: inherit;
     font-family: IranSansBold !important;
     color: #fff !important;
-    text-shadow: 2px 2px #300a3f27;
+    // text-shadow: 2px 2px #300a3f27;
   }
 
   .hero-subtitle {
