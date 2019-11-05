@@ -247,8 +247,8 @@ export default {
             //  title: `You ${
             //   ticket.isHighlight ? 'hightlighted' : 'removed hightlight of'
             // }  ${ticket.ticket_id}: ${ticket.title}`,
-            icon: 'success',
-            className: 'text-ltr'
+            icon: 'danger',
+            className: 'text-ltr '
           });
         },
         err => {
@@ -525,7 +525,7 @@ export default {
   width: 200px;
 }
 .fa-heart {
-  color: red;
+  color: red !important;
 }
 
 .white-content .el-table table > thead > tr > th {

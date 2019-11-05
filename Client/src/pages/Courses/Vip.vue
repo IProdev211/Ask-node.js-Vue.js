@@ -144,7 +144,7 @@ export default {
 }
 
 .widget-vip {
-  background-image: linear-gradient(270deg, #bf953f, #fcf6ba);
+  background-image: linear-gradient(270deg, #e2aa3b, #fcf6ba);
   border-radius: 15px;
   -webkit-box-shadow: 0 10px 30px -5px rgba(117, 117, 117, 0.3);
   box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.12);
@@ -152,10 +152,9 @@ export default {
 
 .vip-title {
   font-size: 1.3em;
-  color: black;
+  color: white;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 600;
+  font-family: Helvetica, sans-serif !important;
   .icon {
     font-size: 1.2em;
   }

@@ -11,8 +11,6 @@ import NProgress from 'nprogress';
 import VueMeta from 'vue-meta';
 var VueScrollTo = require('vue-scrollto');
 // import ElementUI from 'element-ui';
-// import '@fortawesome/fontawesome-free/css/all.css';
-// import '@fortawesome/fontawesome-free/js/all.js';
 
 // plugin setup
 Vue.use(DashboardPlugin);

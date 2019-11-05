@@ -2,6 +2,9 @@ const path = require('path');
 const CKEditorWebpackPlugin = require('@ckeditor/ckeditor5-dev-webpack-plugin');
 const { styles } = require('@ckeditor/ckeditor5-dev-utils');
 
+const PurgecssPlugin = require('purgecss-webpack-plugin');
+const glob = require('glob-all');
+
 function resolveSrc(_path) {
   return path.join(__dirname, _path);
 }
@@ -60,6 +63,13 @@ module.exports = {
       new CKEditorWebpackPlugin({
         // See https://ckeditor.com/docs/ckeditor5/latest/features/ui-language.html
         language: 'en'
+      }),
+      new PurgecssPlugin({
+        paths: glob.sync([
+          path.join(__dirname, './src/index.html'),
+          path.join(__dirname, './**/*.vue'),
+          path.join(__dirname, './src/**/*.js')
+        ])
       })
     ]
   },
@@ -91,6 +101,7 @@ module.exports = {
       }
     }
   },
+
   // Vue CLI would normally use its own loader to load .svg and .css files, however:
   //	1. The icons used by CKEditor must be loaded using raw-loader,
   //	2. The CSS used by CKEditor must be transpiled using PostCSS to load properly.
