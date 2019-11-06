@@ -202,7 +202,7 @@ export default {
             'imageTextAlternative',
             '|',
             'imageStyle:full',
-            'imageStyle:side',
+            'imageStyle:side'
           ]
         }
       }
@@ -217,13 +217,15 @@ export default {
         client = backend;
       }
 
-      client.get(`tickets/view/${this.$route.params.ticket}?${Date.now()}`).then(
-        response => {
-          this.ticket = response.data.ticket;
-          this.messages = response.data.messages;
-        },
-        error => {}
-      );
+      client
+        .get(`tickets/view/${this.$route.params.ticket}?${Date.now()}`)
+        .then(
+          response => {
+            this.ticket = response.data.ticket;
+            this.messages = response.data.messages;
+          },
+          error => {}
+        );
     },
     getDate(date) {
       return moment(date).format('YYYY/MM/DD');

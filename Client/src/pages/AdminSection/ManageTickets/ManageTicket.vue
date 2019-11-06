@@ -82,7 +82,6 @@
           <file-upload v-if="isAdmin && !data.id" @change="onFileSelect" class="animation-on-hover"/>
           <image-upload v-else-if="!data.id" @change="onFileSelect" select-text="پیوست فایل" class="animation-on-hover mb-0"/>
           <base-button class="animation-on-hover mr-3" type="danger" native-type="Submit" :loading="loading">
-            <!-- <i class="pl-2 far fa-paper-plane"></i> -->
             {{ data.id ? "ویرایش" : "ارسال" }}
           </base-button>
         </div>

@@ -82,23 +82,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media (max-width: 768px) {
-  .course-section {
-    padding: 0 7%;
-  }
-}
-
 .headerDigits {
-  padding: 0 35%;
+  padding: 0 36%;
 }
 
 .headerDigitsText {
   font-size: 1.1rem;
 }
 
+.headerStyling {
+  font-size: 4em;
+  font-family: IranSansBold;
+  color: rgb(17, 207, 144);
+  padding: 0px;
+  margin: 0px;
+}
+
 .bullet-point {
   font-size: 2rem;
-  color: #3cecb173;
+  color: rgb(17, 207, 144);
 }
 
 @media only screen and (max-width: 768px) {
@@ -109,11 +111,10 @@ export default {
     font-size: 0.9rem;
   }
 }
-.headerStyling {
-  font-size: 3rem;
-  font-family: IranSansBold;
-  color: rgb(17, 207, 144);
-  padding: 0px;
-  margin: 0px;
+
+@media (max-width: 768px) {
+  .course-section {
+    padding: 0 7%;
+  }
 }
 </style>

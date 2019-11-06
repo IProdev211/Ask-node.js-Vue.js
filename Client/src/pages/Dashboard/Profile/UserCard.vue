@@ -197,19 +197,13 @@ export default {
 
 
 <style lang="scss" scoped>
-.avatar {
-  width: 9em;
-  height: 9em;
-}
-
 .btn {
   padding: 10px 15px;
 }
 
 .title {
   font-size: 2em;
-  // font-family: Arial, Helvetica, sans-serif;
-  font-family: IranSansBold;
+  font-family: IranSansBold, sans-serif;
 }
 
 .description {

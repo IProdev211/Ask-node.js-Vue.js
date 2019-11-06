@@ -98,10 +98,15 @@ export default {
   background-image: linear-gradient(#97288c, #f37335);
 }
 
+.white-content p {
+  font-size: 1em !important;
+}
+
 .iconSize {
-  font-size: 1rem;
+  font-size: 1.1em;
   padding-left: 10px;
 }
+
 .pagination {
   .page-pre {
     &.next-page {
