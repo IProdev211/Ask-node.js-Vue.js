@@ -20,6 +20,7 @@
                 class="text-rtl"
                 placeholder="کلمه عبور"
                 type="password"
+                autocomplete="current-password"
                 v-model="password"
                 :required="true"
                 :error="fieldErrors.password"
