@@ -272,10 +272,10 @@ export default {
       );
     },
     isAdmin() {
-      console.log(
-        'isAdmin = ',
-        this.$root.$data.user && this.$root.$data.user.admin
-      );
+      // console.log(
+      //   'isAdmin = ',
+      //   this.$root.$data.user && this.$root.$data.user.admin
+      // );
       return this.$root.$data.user && this.$root.$data.user.admin;
     }
   },

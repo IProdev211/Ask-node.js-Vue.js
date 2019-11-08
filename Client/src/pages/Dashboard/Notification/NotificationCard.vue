@@ -69,7 +69,7 @@ export default {
         case 'buy_course':
           return 'fa-shopping-basket text-primary';
         default:
-          return 'fa-history text-success';
+          return 'fa-star text-success';
       }
     },
     changePageListener(page) {

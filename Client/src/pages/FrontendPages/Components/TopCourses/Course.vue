@@ -70,8 +70,8 @@ export default {
       if (!this.tags) {
         this.tags = '';
       }
-      console.log('salam', this.tags.toLowerCase().search('coming soon'));
-      console.log('salam', this.tags);
+      // console.log('salam', this.tags.toLowerCase().search('coming soon'));
+      // console.log('salam', this.tags);
       if (this.tags.toLowerCase().search('coming soon') >= 0) {
         Swal({
           title: 'وضعیت دوره: در حال برگزاری',

@@ -156,7 +156,7 @@ class authController extends controller {
     mail.sendMail(mailOptions, err => {
       if (err) {
         this.failed('متاسفانه امکان ارسال ایمیل وجود ندارد.', res, 500);
-        console.log(err);
+        // console.log(err);
         return;
       }
       res.json({
@@ -221,10 +221,10 @@ class authController extends controller {
     mail.sendMail(mailOptions, (err, info) => {
       if (err) {
         this.failed('متاسفانه امکان ارسال ایمیل وجود ندارد.', res, 500);
-        console.log('sendMail.err', err);
+        // console.log('sendMail.err', err);
         return;
       }
-      console.log('Message Sent : %s', info.messageId);
+      // console.log('Message Sent : %s', info.messageId);
       return res.json({
         data: 'ایمیل حاوی لینک فعال سازی به ایمیل شما ارسال شد',
         status: 'success'

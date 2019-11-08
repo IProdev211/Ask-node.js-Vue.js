@@ -300,7 +300,7 @@ export default {
           response => {
             this.course = response.data.data.course;
             this.notEnrolled = !response.data.data.enrolled;
-            console.log('this.notEnrolled', this.notEnrolled);
+            // console.log('this.notEnrolled', this.notEnrolled);
             this.enrolledCount = response.data.data.enrolledCount;
             this.id = this.course.id;
             this.title = this.course.title;
@@ -335,7 +335,7 @@ export default {
         .format('YYYY/MM/DD');
     },
     getCoursePrice() {
-      console.log('this.course.type.price', this.course.type);
+      // console.log('this.course.type.price', this.course.type);
       switch (this.type.toLowerCase()) {
         case 'free':
           return 'رایگان !';
@@ -408,7 +408,7 @@ export default {
       ) {
         this.openBuyCourse();
       } else {
-        console.log('this.prevEpisode', this.prevEpisode);
+        // console.log('this.prevEpisode', this.prevEpisode);
         this.loadingPrev = true;
         this.$router.push(
           '/courses/' + this.course.slug + '/unit-' + this.prevEpisode.number
