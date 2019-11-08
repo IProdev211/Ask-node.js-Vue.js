@@ -168,4 +168,8 @@ export default {
 .btn {
   font-weight: inherit;
 }
+
+.blog-section {
+  margin: 3em 0 3em 0;
+}
 </style>

@@ -55,7 +55,8 @@
             <div class="col text-center">
               <i class="icon fas fa-chalkboard-teacher"></i>
               <h5 class="icon-data">
-                {{ course.user.name }}
+                آریا درودیان
+                <!-- {{ course.user.name }} -->
                 <span class="icon-text pr-1">مدرس دوره</span>
               </h5>
             </div>
@@ -338,7 +339,7 @@ export default {
       // console.log('this.course.type.price', this.course.type);
       switch (this.type.toLowerCase()) {
         case 'free':
-          return 'رایگان !';
+          return 'رایگان';
         case 'cash':
         case 'paid':
           return this.course.price + ' تومان';

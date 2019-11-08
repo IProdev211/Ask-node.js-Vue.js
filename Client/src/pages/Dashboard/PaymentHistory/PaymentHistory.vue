@@ -129,7 +129,7 @@ export default {
         perPage: 0,
         currentPage: 0,
         total: 0
-      },
+      }
     };
   },
   props: ['payments'],
@@ -144,7 +144,10 @@ export default {
     dataLoad(page) {
       backend
         .get(
-          '/dashboard/payments?page=' + page + '&limit=' + this.pagination.perPage
+          '/dashboard/payments?page=' +
+            page +
+            '&limit=' +
+            this.pagination.perPage
         )
         .then(response => {
           this.docs = response.data.docs;
@@ -155,7 +158,7 @@ export default {
     },
     changePageListener(page) {
       this.dataLoad(page);
-    },
+    }
   },
   watch: {
     payments: function(newValue, oldValue) {
