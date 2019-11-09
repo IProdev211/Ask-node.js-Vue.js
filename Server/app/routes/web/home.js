@@ -53,7 +53,6 @@ router.get('/user/panel/vip', userController.vip);
 router.post('/user/panel/vip/payment', userController.vipPayment);
 router.get('/user/panel/vip/payment/check', userController.vipPaymentCheck);
 
-router.get('/sitemap.xml', homeController.sitemap);
 router.get('/feed/courses', homeController.feedCourses);
 router.get('/feed/episodes', homeController.feedEpisodes);
 

@@ -9,14 +9,14 @@
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+<!-- 
   <link rel="stylesheet" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/css/bootstrap-rtl.min.css" />
   <link rel="stylesheet" href="/css/vazir.css">
   <% if(req.getLocale() == 'fa') { %>
   <link rel="stylesheet" href="/css/home.css">
   <% } else if(req.getLocale() == 'en') { %>
-  <link rel="stylesheet" href="/css/home-en.css">
+  <link rel="stylesheet" href="/css/home-en.css"> -->
   <% } %>
   <%- style %>
 </head>
@@ -74,10 +74,10 @@
     <%- body %>
   </div>
 
-  <script src="/js/jquery-3.3.1.min.js"></script>
+  <!-- <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/js/popper.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script> -->
 
   <% let sweetalert = req.flash('sweetalert')
         if(sweetalert.length) {

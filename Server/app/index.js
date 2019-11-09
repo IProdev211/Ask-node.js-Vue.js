@@ -11,9 +11,10 @@ const passport = require('passport');
 const Helpers = require('./helpers');
 const methodOverride = require('method-override');
 const gate = require('app/helpers/gate');
-const i18n = require('i18n');
 const rememberLogin = require('app/http/middleware/rememberLogin');
 const helmet = require('helmet');
+const compression = require('compression');
+
 const csrf = require('csurf');
 const csrfErrorHandler = require('app/http/middleware/csrfErrorHandler');
 const activeUser = require('app/http/middleware/activeUser');
@@ -52,6 +53,7 @@ module.exports = class Application {
 
     app.enable('trust proxy');
     app.use(helmet());
+    // app.use(compression());
     app.use(express.static(config.layout.public_dir));
     app.set('view engine', config.layout.view_engine);
     app.set('views', config.layout.view_dir);
@@ -75,15 +77,6 @@ module.exports = class Application {
     app.use(passport.session());
     app.use(rememberLogin.handle);
     app.use(gate.middleware());
-    i18n.configure({
-      locales: ['en', 'fa'],
-      directory: config.layout.locales_directory,
-      defaultLocale: 'fa',
-      cookie: 'lang',
-      objectNotation: true
-    });
-
-    app.use(i18n.init);
 
     app.use((req, res, next) => {
       app.locals = new Helpers(req, res).getObjects();
