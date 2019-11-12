@@ -1,11 +1,7 @@
 <template>
   <div class="CourseCard hover mb-4" @click="onClick">
-    <div class="CourseCard__courseimage">
-      <img class="CourseCard__courseimage" alt="askarya-image" :src="thumb" />
-    </div>
-    <div>
-      <h4 class="text-center course-title pt-3">{{ title }}</h4>
-    </div>
+    <img class="CourseCard__courseimage" alt="askarya-coursecard-image" :src="thumb" />
+    <h4 class="text-center course-title pt-3">{{ title }}</h4>
     <hr class="fadeline" />
     <div class="bottom-section">
       <div class="CourseCard__course__info d-flex justify-content-between text-center pt-1">
@@ -197,7 +193,7 @@ export default {
   }
 
   .fadeline {
-    border-top: 2px solid rgba(190, 190, 190, 0.2);
+    border-top: 2px solid rgba(207, 207, 207, 0.2);
     margin: 0;
   }
 }

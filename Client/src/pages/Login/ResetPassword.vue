@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-    <div class="col-lg-6 col-md-9 ml-auto mr-auto pt-5">
+      <div class="col-lg-6 col-md-9 ml-auto mr-auto pt-5">
         <form @submit="checkForm">
           <card class="card-login">
             <template slot="header">
@@ -9,38 +9,42 @@
             </template>
             <div class="pt-4">
               <label class="pull-right">پست الکترونیک</label>
-              <base-input placeholder="پست الکترونیک" 
-                v-model="email" 
-                :required="true" 
-                :error="fieldErrors.email">
-              </base-input>
-            </div>     
+              <base-input
+                placeholder="پست الکترونیک"
+                v-model="email"
+                :required="true"
+                :error="fieldErrors.email"
+              ></base-input>
+            </div>
             <div class="pt-4">
               <label class="pull-right">کلمه عبور جدید</label>
-              <base-input
-                v-model="password" 
-                :required="true" 
-                :error="fieldErrors.password">
-              </base-input>
-            </div>     
-            
-            <p class="text-right" v-if="formErrors.length">
+              <base-input v-model="password" :required="true" :error="fieldErrors.password"></base-input>
+            </div>
+
+            <div class="text-right" v-if="formErrors.length">
               <b>لطفا اشتباهات زیر را تصحیح کنید:</b>
               <ul>
                 <li v-for="(error, key) in formErrors" :key="key">{{ error }}</li>
               </ul>
-            </p>
+            </div>
             <div slot="footer">
-              <base-button type="primary" nativeType="submit" class="mb-3" size="lg" :loading="loading" block>بازیابی پسورد</base-button>
+              <base-button
+                type="primary"
+                nativeType="submit"
+                class="mb-3"
+                size="lg"
+                :loading="loading"
+                block
+              >بازیابی پسورد</base-button>
             </div>
           </card>
         </form>
-    </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
-import backend from "../../backend";
+import backend from '../../backend';
 
 export default {
   data() {
@@ -50,7 +54,6 @@ export default {
       password: null,
       formErrors: [],
       loading: false
-
     };
   },
   methods: {
@@ -71,32 +74,46 @@ export default {
       if (haveError) {
         return;
       }
-      const errorHandler = (response) => {
-        if (response && response.data && response.data.status === "error") {
-          this.formErrors = Array.isArray(response.data.data) ? response.data.data : [response.data.data];
-          return;
-        };
-      }
-      this.loading = true;
-      backend.post("password/reset/" + this.$route.params.token, {
-        email: this.email,
-        password: this.password,
-      }).then((response) => {
-        this.loading = false;
-        if (response.data.status === "error") {
-          errorHandler(response);
+      const errorHandler = response => {
+        if (response && response.data && response.data.status === 'error') {
+          this.formErrors = Array.isArray(response.data.data)
+            ? response.data.data
+            : [response.data.data];
           return;
         }
-        this.$router.push("/login");
-      }).catch((error) => {
-        this.loading = false;
-        errorHandler(error.response);
-      });
+      };
+      this.loading = true;
+      backend
+        .post('password/reset/' + this.$route.params.token, {
+          email: this.email,
+          password: this.password
+        })
+        .then(response => {
+          this.loading = false;
+          if (response.data.status === 'error') {
+            errorHandler(response);
+            return;
+          }
+          this.$router.push('/login');
+        })
+        .catch(error => {
+          this.loading = false;
+          errorHandler(error.response);
+        });
     }
   }
 };
 </script>
 <style scoped>
+.card {
+  background: rgb(241, 241, 241) !important;
+}
+
+.white-content .card:not(.card-white) label:not(.btn) {
+  color: #344675 !important;
+  font-size: 0.9rem;
+}
+
 .login-card {
   padding-top: 20%;
 }

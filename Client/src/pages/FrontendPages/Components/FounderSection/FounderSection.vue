@@ -27,11 +27,11 @@
 </template>
 
 <style lang="scss" scoped>
-// .bg {
-//   background-color: #ee8e6b;
-//   background-image: linear-gradient(315deg, #ef6d89ee 0%, #ee8e6bf1 74%),
-//     url(/img/frontend/london-seemless-bg.svg);
-// }
+@media only screen and (min-width: 1100px) {
+  .bg {
+    margin: 4em 0;
+  }
+}
 
 .section-header {
   font-size: 2em;
