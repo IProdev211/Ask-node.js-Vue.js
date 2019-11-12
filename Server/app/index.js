@@ -53,7 +53,7 @@ module.exports = class Application {
 
     app.enable('trust proxy');
     app.use(helmet());
-    // app.use(compression());
+    app.use(compression());
     app.use(express.static(config.layout.public_dir));
     app.set('view engine', config.layout.view_engine);
     app.set('views', config.layout.view_dir);
