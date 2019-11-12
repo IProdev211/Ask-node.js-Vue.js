@@ -6,18 +6,18 @@
           <h2 class="text-center my-3">
             <i class="fa fa-5x fa-spinner fa-pulse fa-fw"></i>
           </h2>
-          <p class="text-light">لطفا منتظر باشید ...</p>
+          <p class="text-light please-wait pt-5">لطفا منتظر باشید ...</p>
         </div>
         <div v-if="pymentStatus.success">
           <h2 class="text-center my-3">
-            <i class="fa fa-5x fa-check-circle text-success"></i>
+            <i class="fa fa-4x fa-check-circle text-success"></i>
           </h2>
-          <h3 class="mt-3 mb-2 payment-status">تراکنش موفق</h3>
-          <p class="status-payment-text">خرید دوره با موفقیت انجام شد.</p>
-          <p class="pt-3">
+          <h3 class="mt-4 payment-status text-success">تراکنش موفق</h3>
+          <p class="status-payment-text pt-3">خرید دوره با موفقیت انجام شد.</p>
+          <p class="pt-5">
             <router-link v-if="course.id" :to="`/courses/${course.slug}`">
-              <i class="fas fa-angle-double-left"></i>
               <span class="return-text">برگشت به دوره</span>
+              <i class="fas fa-angle-double-left pr-3"></i>
             </router-link>
           </p>
         </div>
@@ -26,9 +26,11 @@
             <i class="fa fa-5x fa-exclamation-circle text-danger"></i>
           </h2>
           <h3 class="mt-4 mb-3 text-danger payment-status">تراکنش ناموفق</h3>
-          <p class="text-right text-rtl status-payment-text">
-            تراکنش شما با موفقیت پرداخت نشد.
-            <br />درصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی طی 48 ساعت آینده مرجوع خواهد شد.
+          <p class="text-right text-rtl status-payment-text pt-5">
+            <span class="payment-error-text">تراکنش شما با موفقیت پرداخت نشد.</span>
+            <br />
+            <br />درصورتی که مبلغی از حساب بانکی شما کسر شده، توسط سیستم بانکی
+            طی 48 ساعت آینده مرجوع خواهد شد.
           </p>
           <p>
             <router-link v-if="course.id" :to="`/courses/${course.slug}`">
@@ -97,19 +99,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.please-wait {
+  font-size: 1.4em;
+}
+
 .payment-status {
   font-family: IranSansBold;
-  font-size: 2.2em;
+  font-size: 2.6em;
+  padding: 0;
+  margin: 0;
 }
 
 .status-payment-text {
-  color: rgb(148, 148, 148);
+  color: rgb(78, 78, 78);
   font-size: 1.2em;
-  padding-top: 10px;
+}
+
+.payment-error-text {
+  font-family: IranSansBold;
+  font-size: 1.4em;
 }
 
 .return-text {
-  font-size: 1.4em;
+  font-family: IranSans;
+  font-size: 2em;
   text-decoration: underline;
 }
 

@@ -8,7 +8,7 @@
       :closedTickets="closedTickets"
     ></ticket-data>
 
-    <h2 class="text-center">Manage Tickets</h2>
+    <h2 class="text-center pt-5">Manage Tickets</h2>
     <div class="mt-5">
       <!-- <card card-body-classes="table-full-width"> -->
       <div class="d-flex justify-content-between mb-5">
