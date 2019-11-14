@@ -154,11 +154,10 @@ const NotFoundPage = () =>
 let frontendpages = {
   path: '/',
   component: FrontendLayout,
-  name: 'Frontend',
   children: [
     {
       path: '/',
-      name: 'Home',
+      name: 'Frontend',
       component: Home
     },
     {
@@ -232,7 +231,6 @@ const routes = [
     path: '/',
     component: DashboardLayout,
     redirect: '/dashboard',
-    name: 'Dashboard',
     meta: {
       auth: true
     },

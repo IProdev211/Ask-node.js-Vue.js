@@ -40,7 +40,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() { 
+    return {
+      onStart: () => {},
+      onDone: () => {},
+      onCancel: () => {}
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>

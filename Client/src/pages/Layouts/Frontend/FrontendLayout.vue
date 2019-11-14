@@ -3,7 +3,7 @@
     <TopBanner id="top"></TopBanner>
     <base-nav
       v-model="showMenu"
-      type="custom"
+      type="white"
       :transparent="false"
       menu-classes
       class="auth-navbar sticky-top"
@@ -258,7 +258,10 @@ export default {
       menuTransitionDuration: 250,
       pageTransitionDuration: 200,
       // year: new Date().getFullYear(),
-      pageClass: 'login-page'
+      pageClass: 'login-page',
+      onStart: () => {},
+      onDone: () => {},
+      onCancel: () => {}
     };
   },
   computed: {

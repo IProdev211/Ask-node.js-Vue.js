@@ -85,7 +85,7 @@ export default {
   mounted() {
     this.dataLoad();
   },
-  watch() {},
+  watch: {},
   components: {
     HeroSection,
     FounderSection,

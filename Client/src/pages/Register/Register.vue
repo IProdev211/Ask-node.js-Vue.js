@@ -20,6 +20,7 @@
                 class="text-rtl pb-1"
                 placeholder="پست الکترونیک"
                 v-model="email"
+                autocomplete="username"
                 :required="true"
                 :error="fieldErrors.email"
               ></base-input>

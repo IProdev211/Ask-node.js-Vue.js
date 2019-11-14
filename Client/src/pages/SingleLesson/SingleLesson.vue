@@ -108,7 +108,7 @@
       <div class="pt-5">
         <vue-plyr class="plyr--video" :key="id">
           <video>
-            <source :src="`/api/v1${download}`" type="video/mp4" size="720" />
+            <source :src="`/api/v1/${download}`" type="video/mp4" size="720" />
           </video>
         </vue-plyr>
       </div>
@@ -146,7 +146,7 @@
         >"تا زمانی که متوقف نشوید، مهم نیست که چقدر آهسته حرکت می کنید."</p>
       </div>
     </div>
-    <modal ref="buymodal" centered="true" footerClasses="justify-content-center" type="notice">
+    <modal ref="buymodal" v-bind:centered="true" footerClasses="justify-content-center" type="notice">
       <h5 slot="header" class="modal-title">
         خرید دوره:
         <span class="course-title-modal text-danger">{{ course.title }}</span>

@@ -9,6 +9,7 @@
               <base-input
                 class="text-rtl pb-2"
                 placeholder="پست الکترونیک"
+                autocomplete="username"
                 v-model="email"
                 :required="true"
                 :error="fieldErrors.email"
