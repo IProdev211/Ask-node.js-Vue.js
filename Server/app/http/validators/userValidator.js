@@ -37,7 +37,7 @@ class userValidator extends validator {
         .withMessage('فیلد نام کاربر نمیتواند خالی بماند'),
 
       check('xp').custom(async (value, { req }) => {
-        if (value === undefined || value === "undefined" || ! value) return;
+        if (value === undefined || value === 'undefined' || !value) return;
         if (parseInt(value, 10) < 0)
           throw new Error('امتیاز کاربر نمیتواند کمتر از 0 باشد');
       }),
@@ -50,7 +50,7 @@ class userValidator extends validator {
         .withMessage('کلمه عبور نمیتواند کمتر از 8 کاراکتر باشد'),
 
       check('vipTime').custom(async (value, { req }) => {
-        if (value === undefined || value === "undefined" || ! value) return;
+        if (value === undefined || value === 'undefined' || !value) return;
         const date = moment(value);
         if (!date.isValid()) {
           throw new Error('مقدار وارد شده برای پایان زمان VIP نامعتبر است.');
@@ -58,7 +58,7 @@ class userValidator extends validator {
         req.body.vipTime = date.toISOString();
       }),
       check('vipFrom').custom(async (value, { req }) => {
-        if (value === undefined || value === "undefined" || ! value) return;
+        if (value === undefined || value === 'undefined' || !value) return;
         const date = moment(value);
         if (!date.isValid()) {
           throw new Error('مقدار وارد شده برای شروع زمان VIP نامعتبر است.');
@@ -66,13 +66,19 @@ class userValidator extends validator {
         req.body.vipFrom = date.toISOString();
       }),
       check('courses').custom(async (value, { req }) => {
-        if (value === undefined || value === "undefined" || ! value || ! value.length) return;
+        if (
+          value === undefined ||
+          value === 'undefined' ||
+          !value ||
+          !value.length
+        )
+          return;
         const courses = await Course.find({ _id: { $in: value } }).exec();
-        if (! courses || courses.length != value.length) {
+        if (!courses || courses.length != value.length) {
           throw new Error('دوره های مشخص شده نامعتبر هستند');
         }
         req.body.courses = courses;
-      }),
+      })
     ];
   }
   handleUpdate() {
@@ -108,12 +114,12 @@ class userValidator extends validator {
         .withMessage('فیلد نام کاربر نمیتواند خالی بماند'),
 
       check('xp').custom(async (value, { req }) => {
-        if (value === undefined || value === "undefined" || ! value) return;
+        if (value === undefined || value === 'undefined' || !value) return;
         if (value < 0) throw new Error('امتیاز کاربر نمیتواند کمتر از 0 باشد');
       }),
 
       check('password').custom(async (value, { req }) => {
-        if (value === undefined || value === "undefined" || ! value) return;
+        if (value === undefined || value === 'undefined' || !value) return;
         if (value.length < 8) {
           throw new Error('کلمه عبور نمیتواند کمتر از 8 کاراکتر باشد');
         }
@@ -141,13 +147,19 @@ class userValidator extends validator {
           req.body.vipFrom = value.toDate().toISOString();
         }),
       check('courses').custom(async (value, { req }) => {
-        if (value === undefined || value === "undefined" || ! value || ! value.length) return;
+        if (
+          value === undefined ||
+          value === 'undefined' ||
+          !value ||
+          !value.length
+        )
+          return;
         const courses = await Course.find({ _id: { $in: value } }).exec();
-        if (! courses || courses.length != value.length) {
+        if (!courses || courses.length != value.length) {
           throw new Error('دوره های مشخص شده نامعتبر هستند');
         }
         req.body.courses = courses;
-      }),
+      })
     ];
   }
 

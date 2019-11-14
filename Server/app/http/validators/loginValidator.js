@@ -9,8 +9,8 @@ class registerValidator extends validator {
         .withMessage('فیلد ایمیل معتبر نیست'),
 
       check('password')
-        .isLength({ min: 8 })
-        .withMessage('فیلد پسورد نمیتواند کمتر از 8 کاراکتر باشد')
+        .isLength({ min: 6 })
+        .withMessage('فیلد پسورد نمیتواند کمتر از 6 کاراکتر باشد')
     ];
   }
 }

@@ -134,7 +134,7 @@
           <div class="row login-register-buttons" v-else>
             <div class="pr-3 register-button">
               <router-link to="/register">
-                <base-button native-type="submit" type="info" class="btn-simple btn">عضویت</base-button>
+                <base-button native-type="submit" type="info" class="btn-simple btn">ثبت نام</base-button>
               </router-link>
             </div>
             <div class="pr-3 login-button">
