@@ -12,15 +12,6 @@ function resolveSrc(_path) {
 module.exports = {
   lintOnSave: undefined,
 
-  configureWebpack: {
-    // Set up all the aliases we use in our app.
-    resolve: {
-      alias: {
-        src: resolveSrc('src'),
-        assets: resolveSrc('src/assets')
-      }
-    }
-  },
   pluginOptions: {},
 
   css: {
@@ -55,10 +46,22 @@ module.exports = {
         'chart.js': 'chart.js/dist/Chart.js'
       }
     },
+
     plugins: [
       new webpack.optimize.LimitChunkCountPlugin({
         maxChunks: 6
       }),
+
+      // new webpack.optimize.UglifyJsPlugin({
+      //   compress: {
+      //     warnings: false
+      //   }
+      // }),
+
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('production')
+      }),
+
       // CKEditor needs its own plugin to be built using webpack.
       new CKEditorWebpackPlugin({
         // See https://ckeditor.com/docs/ckeditor5/latest/features/ui-language.html

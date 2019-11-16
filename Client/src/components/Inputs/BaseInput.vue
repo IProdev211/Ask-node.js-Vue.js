@@ -10,12 +10,14 @@
   >
     <div class="mb-0" :class="{'input-group': hasIcon}">
       <slot name="label">
-        <label v-if="label"> {{ label }} {{ required ? '*' : '' }} </label>
+        <label v-if="label">{{ label }} {{ required ? '*' : '' }}</label>
       </slot>
       <slot name="addonLeft">
-      <span v-if="addonLeftIcon" class="input-group-prepend">
-        <div class="input-group-text"><i :class="addonLeftIcon"></i></div>
-      </span>
+        <span v-if="addonLeftIcon" class="input-group-prepend">
+          <div class="input-group-text">
+            <i :class="addonLeftIcon"></i>
+          </div>
+        </span>
       </slot>
       <slot>
         <input
@@ -34,7 +36,9 @@
 
     <slot name="addonRight">
       <span v-if="addonRightIcon" class="input-group-append">
-        <div class="input-group-text"><i :class="addonRightIcon"></i></div>
+        <div class="input-group-text">
+          <i :class="addonRightIcon"></i>
+        </div>
       </span>
     </slot>
     <slot name="helperText"></slot>
@@ -113,4 +117,6 @@ export default {
   }
 };
 </script>
-<style></style>
+
+<style lang="scss" scoped>
+</style>

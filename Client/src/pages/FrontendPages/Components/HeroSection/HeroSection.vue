@@ -82,7 +82,7 @@ export default {};
 
 .hero-content-homepage {
   background-color: #6e72fc;
-  background: linear-gradient(315deg, #ad1debee 0%, #6e73fce7 74%);
+  background: linear-gradient(315deg, #ad1debee 0%, #6e73fce7 84%, #ad1deb75);
   background-color: #6e72fc;
   background-size: cover;
   background-position: bottom;

@@ -18,15 +18,8 @@
         </button>
       </slot>
 
-      <CollapseTransition
-        @after-leave="onTransitionEnd"
-        @before-enter="onTransitionStart"
-      >
-        <div
-          class="collapse navbar-collapse show"
-          :class="menuClasses"
-          v-show="show"
-        >
+      <CollapseTransition @after-leave="onTransitionEnd" @before-enter="onTransitionStart">
+        <div class="collapse navbar-collapse show" :class="menuClasses" v-show="show">
           <slot></slot>
         </div>
       </CollapseTransition>
@@ -79,7 +72,8 @@ export default {
           'white',
           'primary',
           'info',
-          'vue'
+          'vue',
+          'custom'
         ].includes(value);
       },
       description: 'Navbar color type'
@@ -131,11 +125,11 @@ export default {
       this.transitionFinished = true;
     }
   },
-  watch:{
-    $route (to, from){
+  watch: {
+    $route(to, from) {
       this.show = false;
-    },
-  },
+    }
+  }
 };
 </script>
 <style></style>

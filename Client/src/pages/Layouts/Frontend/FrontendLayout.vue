@@ -3,7 +3,7 @@
     <TopBanner id="top"></TopBanner>
     <base-nav
       v-model="showMenu"
-      type="white"
+      type="custom"
       :transparent="false"
       menu-classes
       class="auth-navbar sticky-top"
@@ -318,7 +318,7 @@ export default {
           break;
       }
       if (isActive) {
-        classes += ' text-danger ';
+        classes += ' text-danger';
       }
       return classes;
     },
