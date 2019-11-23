@@ -39,7 +39,8 @@ class userController extends controller {
 
       req.logIn(user, err => {
         user.setRememberToken(res);
-        return res.redirect('/dashboard?error=اکانت شما فعال شد');
+        return res.redirect('/dashboard');
+        // return res.redirect('/dashboard?error=اکانت شما فعال شد');
       });
     } catch (err) {
       next(err);

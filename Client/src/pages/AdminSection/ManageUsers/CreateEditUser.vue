@@ -463,8 +463,8 @@ export default {
 }
 .card {
 	.avatar {
-		width: 64px;
-		height: 64px;
+		width: 9em;
+		height: 9em	;
 	}
 }
 .autocomplete {
