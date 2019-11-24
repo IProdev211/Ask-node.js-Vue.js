@@ -22,7 +22,7 @@ Vue.use(VueMeta);
 
 // Vue.use(ElementUI);
 
-import 'vue-plyr/dist/vue-plyr.css';
+// import 'vue-plyr/dist/vue-plyr.css';
 import 'nprogress/nprogress.css';
 import './assets/sass/nprogress.scss';
 

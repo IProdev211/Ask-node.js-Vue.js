@@ -61,10 +61,10 @@
   -moz-osx-font-smoothing: grayscale;
 } */
 
-.plyr .plyr__controls .plyr__controls__item.plyr__progress__container {
-  display: flex;
-  flex: auto;
-}
+/* .plyr .plyr__controls .plyr__controls__item.plyr__progress__container {
+  display: flex !important;
+  flex: auto !important;
+} */
 
 .white-content .el-table table > thead > tr > th {
   font-family: IranSans !important;
