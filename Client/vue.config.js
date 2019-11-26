@@ -1,35 +1,12 @@
+const webpack = require('webpack');
 const path = require('path');
 const CKEditorWebpackPlugin = require('@ckeditor/ckeditor5-dev-webpack-plugin');
 const { styles } = require('@ckeditor/ckeditor5-dev-utils');
 
-// const PurgecssPlugin = require('purgecss-webpack-plugin');
-// const glob = require('glob-all');
-
 function resolveSrc(_path) {
   return path.join(__dirname, _path);
 }
-// vue.config.js
-module.exports = {
-  lintOnSave: undefined,
 
-  pluginOptions: {},
-
-  css: {
-    sourceMap: true
-  },
-
-  publicPath: undefined,
-  outputDir: undefined,
-  assetsDir: undefined,
-  runtimeCompiler: undefined,
-  productionSourceMap: undefined,
-  parallel: undefined
-};
-const webpack = require('webpack');
-
-function resolveSrc(_path) {
-  return path.join(__dirname, _path);
-}
 // vue.config.js
 module.exports = {
   // The source of CKEditor is encapsulated in ES6 modules. By default, the code
@@ -37,6 +14,13 @@ module.exports = {
   // the CLI tools to transpile JavaScript files in all ckeditor5-* modules.
   transpileDependencies: [/ckeditor5-[^/\\]+[/\\]src[/\\].+\.js$/],
   lintOnSave: true,
+  publicPath: undefined,
+  outputDir: undefined,
+  assetsDir: undefined,
+  runtimeCompiler: undefined,
+  productionSourceMap: undefined,
+  parallel: undefined,
+
   configureWebpack: {
     // Set up all the aliases we use in our app.
     resolve: {
@@ -83,11 +67,14 @@ module.exports = {
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: '#344675'
   },
+
   pluginOptions: {},
+
   css: {
     // Enable CSS source maps.
     sourceMap: process.env.NODE_ENV !== 'production'
   },
+
   devServer: {
     proxy: {
       '^/api': {

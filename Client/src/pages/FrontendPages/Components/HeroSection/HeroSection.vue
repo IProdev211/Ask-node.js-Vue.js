@@ -4,12 +4,12 @@
       <div class="row d-flex align-items-center">
         <div class="col-md-6">
           <div class="hero-text-section">
-            <h1 class="hero-title text-right">سریع ترین راه آموزش زبان انگلیسی</h1>
+            <h1 class="hero-title text-right">سریع ترین راه آموزش زبان انگلیسی.</h1>
             <p
               class="text-right hero-subtitle py-1"
             >ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان برای شما در موثر ترین و کوتاه ترین زمان ممکن صورت گیرد.</p>
 
-            <div class="pt-3 row button-section">
+            <div class="py-2 row button-section">
               <router-link to="dashboard">
                 <base-button
                   native-type="submit"
@@ -41,7 +41,7 @@
     </div>
 
     <div class="hero-text-section-s container d-md-none px-4">
-      <h1 class="hero-title text-right">سریع ترین راه آموزش زبان انگلیسی</h1>
+      <h1 class="hero-title text-right">سریع ترین راه آموزش زبان انگلیسی.</h1>
       <p
         class="text-right hero-subtitle pb-3"
       >ما از سریع ترین روش های آموزشی استفاده میکنیم تا یادگیری زبان برای شما در موثر ترین و کوتاه ترین زمان ممکن صورت گیرد.</p>
