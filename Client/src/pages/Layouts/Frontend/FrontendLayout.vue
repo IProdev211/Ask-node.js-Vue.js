@@ -297,6 +297,7 @@ export default {
     getNavClass(nav) {
       let classes = 'nav-link';
       let isActive = false;
+
       switch (nav) {
         case 'home':
           isActive = this.$route.name == 'Home';

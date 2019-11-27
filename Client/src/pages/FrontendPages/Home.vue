@@ -29,7 +29,7 @@
           <router-link to="allcourses">
             <base-button
               native-type="submit"
-              type="warning"
+              type="success"
               class="btn btn-round animation-on-hover mt-4"
             >مشاهده همه دوره ها</base-button>
           </router-link>
