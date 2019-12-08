@@ -1,5 +1,4 @@
 // Core
-
 @import 'dashboard/custom/functions';
 @import '~bootstrap/scss/functions';
 
@@ -10,7 +9,6 @@
 @import '~bootstrap/scss/mixins';
 
 // Bootstrap components
-
 @import '~bootstrap/scss/root';
 @import '~bootstrap/scss/reboot';
 @import '~bootstrap/scss/type';
@@ -45,7 +43,6 @@
 @import '~bootstrap/scss/print';
 
 // Custom components
-
 @import 'dashboard/custom/reboot.scss';
 @import 'dashboard/custom/global.scss';
 @import 'dashboard/custom/utilities.scss';
@@ -80,7 +77,6 @@
 @import 'dashboard/custom/timeline.scss';
 
 // Vendor / Plugins
-
 @import 'dashboard/custom/vendor/plugin-datetimepicker.scss';
 @import 'dashboard/custom/vendor/plugin-nouislider.scss';
 @import 'dashboard/custom/vendor/plugin-fullcalendar.scss';
@@ -103,15 +99,12 @@
 @import 'dashboard/custom/vendor/element-ui/plugin-datepicker';
 
 // example pages and sections
-
 @import 'dashboard/custom/example-pages.scss';
 
 // light mode
-
 @import 'dashboard/custom/white-content.scss';
 
 // Cards
-
 @import 'dashboard/custom/card';
 @import 'dashboard/custom/cards/card-chart';
 @import 'dashboard/custom/cards/card-map';
@@ -131,9 +124,7 @@
 @import 'dashboard/custom/cards/card-wizard';
 
 // RTL
-
 @import 'dashboard/custom/rtl.scss';
 
 // CKEDITOR
-
 @import 'dashboard/custom/ck-editor';

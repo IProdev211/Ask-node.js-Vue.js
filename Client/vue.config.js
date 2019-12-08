@@ -14,12 +14,12 @@ module.exports = {
   // the CLI tools to transpile JavaScript files in all ckeditor5-* modules.
   transpileDependencies: [/ckeditor5-[^/\\]+[/\\]src[/\\].+\.js$/],
   lintOnSave: true,
-  publicPath: undefined,
-  outputDir: undefined,
-  assetsDir: undefined,
-  runtimeCompiler: undefined,
-  productionSourceMap: undefined,
-  parallel: undefined,
+  // publicPath: undefined,
+  // outputDir: undefined,
+  // assetsDir: undefined,
+  // runtimeCompiler: undefined,
+  // productionSourceMap: undefined,
+  // parallel: undefined,
 
   configureWebpack: {
     // Set up all the aliases we use in our app.
@@ -36,12 +36,6 @@ module.exports = {
         maxChunks: 6
       }),
 
-      // new webpack.optimize.UglifyJsPlugin({
-      //   compress: {
-      //     warnings: false
-      //   }
-      // }),
-
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production')
       }),
@@ -51,15 +45,9 @@ module.exports = {
         // See https://ckeditor.com/docs/ckeditor5/latest/features/ui-language.html
         language: 'en'
       })
-      // new PurgecssPlugin({
-      //   paths: glob.sync([
-      //     path.join(__dirname, './src/index.html'),
-      //     path.join(__dirname, './**/*.vue'),
-      //     path.join(__dirname, './src/**/*.js')
-      //   ])
-      // })
     ]
   },
+
   pwa: {
     name: 'Ask Arya Website',
     themeColor: '#344675',
@@ -100,11 +88,8 @@ module.exports = {
     const svgRule = config.module.rule('svg');
 
     // Then you can either:
-    //
     // * clear all loaders for existing 'svg' rule:
-    //
     //		svgRule.uses.clear();
-    //
     // * or exclude ckeditor directory from node_modules:
     svgRule.exclude.add(
       path.join(__dirname, 'node_modules', 'ckeditor5-direction')
@@ -112,11 +97,8 @@ module.exports = {
     svgRule.exclude.add(path.join(__dirname, 'node_modules', '@ckeditor'));
 
     // Add an entry for *.svg files belonging to CKEditor. You can either:
-    //
     // * modify the existing 'svg' rule:
-    //
     //		svgRule.use( 'raw-loader' ).loader( 'raw-loader' );
-    //
     // * or add a new one:
     config.module
       .rule('cke-svg')
