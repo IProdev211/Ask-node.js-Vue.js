@@ -2,7 +2,7 @@ let ConnectRoles = require('connect-roles');
 const Permission = require('app/models/permission');
 
 let gate = new ConnectRoles({
-  failureHandler: function(req, res, action) {
+  failureHandler: function (req, res, action) {
     // optional function to customise code that runs when
     // user fails authorisation
     var accept = req.headers.accept || '';
