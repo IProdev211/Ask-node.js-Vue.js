@@ -17,7 +17,9 @@ class ticketController extends controller {
           answerAt: -1
         },
         limit: 4,
-        populate: [{ path: 'user' }]
+        populate: [{
+          path: 'user'
+        }]
       });
       res.json({
         ...tickets,
@@ -111,7 +113,12 @@ class ticketController extends controller {
     if (req.file) {
       file = this.getUrlFile(`${req.file.destination}/${req.file.filename}`);
     }
-    let { title, message, priority, department } = req.body;
+    let {
+      title,
+      message,
+      priority,
+      department
+    } = req.body;
 
     const ticket = await new Ticket({
       title,

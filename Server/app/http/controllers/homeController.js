@@ -6,11 +6,17 @@ const striptags = require('striptags');
 
 class homeController extends controller {
   async index(req, res) {
-    let courses = await Course.find({ lang: req.getLocale() })
-      .sort({ createdAt: 1 })
+    let courses = await Course.find({
+        lang: req.getLocale()
+      })
+      .sort({
+        createdAt: 1
+      })
       .limit(8)
       .exec();
-    res.render('home/index', { courses });
+    res.render('home/index', {
+      courses
+    });
   }
 
   async about(req, res) {
@@ -39,7 +45,9 @@ class homeController extends controller {
     try {
       let courses = await Course.find({})
         .populate('user')
-        .sort({ createdAt: -1 })
+        .sort({
+          createdAt: -1
+        })
         .exec();
       courses.forEach(course => {
         feed.item({
@@ -61,8 +69,13 @@ class homeController extends controller {
   async feedEpisodes(req, res, next) {
     try {
       let episodes = await Episode.find({})
-        .populate({ path: 'course', populate: 'user' })
-        .sort({ createdAt: -1 })
+        .populate({
+          path: 'course',
+          populate: 'user'
+        })
+        .sort({
+          createdAt: -1
+        })
         .exec();
       episodes.forEach(episode => {
         feed.item({

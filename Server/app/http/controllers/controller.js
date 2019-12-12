@@ -1,6 +1,8 @@
 const autoBind = require('auto-bind');
 // const Recaptcha = require('express-recaptcha').Recaptcha;
-const { validationResult } = require('express-validator/check');
+const {
+  validationResult
+} = require('express-validator/check');
 const isMongoId = require('validator/lib/isMongoId');
 const sprintf = require('sprintf-js').sprintf;
 
@@ -103,7 +105,13 @@ module.exports = class controller {
       button = data.button || null,
       timer = data.timer || 2000;
 
-    req.flash('sweetalert', { title, message, type, button, timer });
+    req.flash('sweetalert', {
+      title,
+      message,
+      type,
+      button,
+      timer
+    });
   }
 
   alertAndBack(req, res, data) {

@@ -1,6 +1,8 @@
 const autoBind = require('auto-bind');
 // const Recaptcha = require('express-recaptcha').Recaptcha;
-const { validationResult } = require('express-validator/check');
+const {
+  validationResult
+} = require('express-validator/check');
 const isMongoId = require('validator/lib/isMongoId');
 
 module.exports = class controller {

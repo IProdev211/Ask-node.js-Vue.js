@@ -70,7 +70,9 @@ module.exports = class Application {
     );
     app.use(methodOverride('_method'));
     app.use(validator());
-    app.use(session({ ...config.session }));
+    app.use(session({
+      ...config.session
+    }));
     app.use(cookieParser(config.cookie_secretkey));
     app.use(flash());
     app.use(passport.initialize());

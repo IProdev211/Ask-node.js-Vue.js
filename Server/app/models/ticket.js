@@ -11,21 +11,52 @@ const ANSWERED = 3;
 const ONHOLD = 4;
 const CLOSED = 5;
 
-const ticketSchema = Schema(
-  {
-    ticket_id: { type: Number },
-    user: { type: Schema.Types.ObjectId, ref: 'User' },
-    title: { type: String, required: true },
-    answerAt: { type: Date, default: Date.now() },
-    department: { type: String, required: true },
-    priority: { type: String, required: true },
-    priority: { type: String, required: true },
-    status: { type: Number, default: OPEN },
-    files: { type: [String], default: null },
-    isHighlight: { type: Boolean, default: false }
+const ticketSchema = Schema({
+  ticket_id: {
+    type: Number
   },
-  { timestamps: true, toJSON: { virtuals: true } }
-);
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  answerAt: {
+    type: Date,
+    default: Date.now()
+  },
+  department: {
+    type: String,
+    required: true
+  },
+  priority: {
+    type: String,
+    required: true
+  },
+  priority: {
+    type: String,
+    required: true
+  },
+  status: {
+    type: Number,
+    default: OPEN
+  },
+  files: {
+    type: [String],
+    default: null
+  },
+  isHighlight: {
+    type: Boolean,
+    default: false
+  }
+}, {
+  timestamps: true,
+  toJSON: {
+    virtuals: true
+  }
+});
 
 ticketSchema.plugin(mongoosePaginate);
 ticketSchema.plugin(autoIncrement.plugin, {

@@ -31,7 +31,9 @@ export default {
     Vue.use(RTLPlugin);
     Vue.use(SideBar);
     Vue.use(Notifications);
-    Vue.use(VeeValidate, { fieldsBagName: 'veeFields' });
+    Vue.use(VeeValidate, {
+      fieldsBagName: 'veeFields'
+    });
     Vue.use(require('jalali-moment'));
   }
 };

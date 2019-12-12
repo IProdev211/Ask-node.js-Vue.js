@@ -10,15 +10,26 @@ class userController extends controller {
     let filter = {};
     if (req.query.filter) {
       filter = {
-        $or: [
-          { name: { $regex: req.query.filter, $options: 'i' } },
-          { email: { $regex: req.query.filter, $options: 'i' } }
+        $or: [{
+            name: {
+              $regex: req.query.filter,
+              $options: 'i'
+            }
+          },
+          {
+            email: {
+              $regex: req.query.filter,
+              $options: 'i'
+            }
+          }
         ]
       };
     }
     const users = await User.paginate(filter, {
       page,
-      sort: { createdAt: 1 },
+      sort: {
+        createdAt: 1
+      },
       limit: parseInt(limit, 10)
     });
     const docs = [];
@@ -32,7 +43,9 @@ class userController extends controller {
       };
     }
     const payments = await Payment.find({
-      user: { $in: userIds },
+      user: {
+        $in: userIds
+      },
       payment: true
     }).populate('course');
     for (const payment of payments) {
@@ -91,7 +104,13 @@ class userController extends controller {
       });
       delete req.body.courses;
     }
-    let { name, email, password, xp, active } = req.body;
+    let {
+      name,
+      email,
+      password,
+      xp,
+      active
+    } = req.body;
 
     const newUser = new User({
       name: name,
@@ -165,11 +184,12 @@ class userController extends controller {
     }
     delete req.body.file;
     user = await User.findByIdAndUpdate(
-      req.params.id,
-      {
-        $set: { ...req.body, ...objForUpdate }
-      },
-      {
+      req.params.id, {
+        $set: {
+          ...req.body,
+          ...objForUpdate
+        }
+      }, {
         new: true
       }
     );

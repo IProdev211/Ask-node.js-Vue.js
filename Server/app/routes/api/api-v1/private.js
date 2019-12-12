@@ -80,7 +80,8 @@ router.get('/tickets/view/:message/:filename', ticketController.downloadFile);
 router.get(
   '/admin/courses',
   redirectIfNotAdmin.handle,
-  /** gate.can('show-courses'), */ adminCourseController.index
+  /** gate.can('show-courses'), */
+  adminCourseController.index
 );
 router.post(
   '/admin/courses/create',
@@ -106,7 +107,8 @@ router.post(
 router.get(
   '/admin/users',
   redirectIfNotAdmin.handle,
-  /** gate.can('show-users'), */ userController.index
+  /** gate.can('show-users'), */
+  userController.index
 );
 router.post(
   '/admin/users/create',
@@ -166,7 +168,8 @@ router.post(
 router.get(
   '/admin/episodes',
   redirectIfNotAdmin.handle,
-  /** gate.can('show-episodes'), */ adminEpisodeController.index
+  /** gate.can('show-episodes'), */
+  adminEpisodeController.index
 );
 router.post(
   '/admin/courses/:course/insert/episode/number',

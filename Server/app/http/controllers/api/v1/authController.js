@@ -17,15 +17,16 @@ class authController extends controller {
     if (!(await this.validationData(req, res))) return;
 
     passport.authenticate(
-      'local.login',
-      { session: true },
+      'local.login', {
+        session: true
+      },
       async (err, user) => {
         if (err) return this.failed(err.message, res);
         if (!user) return this.failed('چنین کاربری وجود ندارد', res, 404);
         if (!user.active) {
           const activeCode = await ActivationCode.findOne({
-            user: user.id
-          })
+              user: user.id
+            })
             .gt('expire', new Date())
             .sort({
               createdAt: 1
@@ -42,11 +43,15 @@ class authController extends controller {
             return this.sendActivateEmail(res, user);
           }
         } else {
-          req.login(user, { session: true }, async err => {
+          req.login(user, {
+            session: true
+          }, async err => {
             if (err) return this.failed(err.message, res);
 
             // create token
-            const token = jwt.sign({ id: user.id }, config.jwt.secret_key, {
+            const token = jwt.sign({
+              id: user.id
+            }, config.jwt.secret_key, {
               expiresIn: 60 * 60 * 24
             });
             if (req.body.remember) {
@@ -65,7 +70,9 @@ class authController extends controller {
               .populate({
                 path: 'roles',
                 select: 'name label permissions',
-                populate: [{ path: 'permissions' }]
+                populate: [{
+                  path: 'permissions'
+                }]
               })
               .execPopulate();
             return res.json({
@@ -86,8 +93,9 @@ class authController extends controller {
     // }
     if (!(await this.validationData(req, res))) return;
     passport.authenticate(
-      'local.register',
-      { failWithError: true },
+      'local.register', {
+        failWithError: true
+      },
       async (err, user) => {
         if (err) return this.failed(err.message, res);
         if (!user)
@@ -131,7 +139,9 @@ class authController extends controller {
     });
   }
   async sendPasswordResetLink(req, res, next) {
-    const user = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({
+      email: req.body.email
+    });
     if (!user) {
       this.failed('چنین کاربری وجود ندارد', res);
       return this.back(req, res);
@@ -168,7 +178,9 @@ class authController extends controller {
     if (!(await this.validationData(req, res))) {
       return;
     }
-    const field = await PasswordReset.findOne({ token: req.params.token });
+    const field = await PasswordReset.findOne({
+      token: req.params.token
+    });
     if (!field) {
       return this.failed('اطلاعات وارد شده صحیح نیست لطفا دقت کنید', res, 403);
     }
@@ -181,18 +193,19 @@ class authController extends controller {
       );
     }
 
-    const user = await User.findOneAndUpdate(
-      { email: field.email },
-      {
-        $set: {
-          password: req.body.password
-        }
+    const user = await User.findOneAndUpdate({
+      email: field.email
+    }, {
+      $set: {
+        password: req.body.password
       }
-    );
+    });
     if (!user) {
       return this.failed('اپدیت شدن انجام نشد', res, 500);
     }
-    await field.updateOne({ use: true });
+    await field.updateOne({
+      use: true
+    });
     res.json({
       status: 'success'
     });

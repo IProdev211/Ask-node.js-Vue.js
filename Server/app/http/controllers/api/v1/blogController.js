@@ -3,12 +3,14 @@ const Post = require('app/models/blogPost');
 
 class blogController extends controller {
   async bySlug(req, res) {
-    const post = await Post.findOneAndUpdate(
-      { slug: req.params.slug },
-      { $inc: { views: 1 } }
-    )
-      .populate([
-        {
+    const post = await Post.findOneAndUpdate({
+        slug: req.params.slug
+      }, {
+        $inc: {
+          views: 1
+        }
+      })
+      .populate([{
           path: 'author',
           select: 'id name'
         },

@@ -2,25 +2,26 @@ const passport = require('passport');
 const googleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('app/models/user');
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
+passport.deserializeUser(function (id, done) {
+  User.findById(id, function (err, user) {
     done(err, user);
   });
 });
 
 passport.use(
-  new googleStrategy(
-    {
+  new googleStrategy({
       clientID: config.service.google.client_key,
       clientSecret: config.service.google.secret_key,
       callbackURL: config.service.google.callback_url
     },
     (token, refreshToken, profile, done) => {
-      User.findOne({ email: profile.emails[0].value }, (err, user) => {
+      User.findOne({
+        email: profile.emails[0].value
+      }, (err, user) => {
         if (err) return done(err);
         if (user) return done(err, user);
 

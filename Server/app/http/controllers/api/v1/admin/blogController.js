@@ -11,9 +11,15 @@ class blogController extends controller {
     let filter = {};
     if (req.query.filter) {
       filter = {
-        $or: [
-          { id: req.query.filter },
-          { name: { $regex: req.query.filter, $options: 'i' } }
+        $or: [{
+            id: req.query.filter
+          },
+          {
+            name: {
+              $regex: req.query.filter,
+              $options: 'i'
+            }
+          }
         ]
       };
     }
@@ -23,10 +29,18 @@ class blogController extends controller {
         createdAt: 1
       },
       limit: parseInt(limit, 10),
-      populate: [
-        { path: 'author', select: 'id name' },
-        { path: 'tags', select: 'name' },
-        { path: 'categories', select: 'name' }
+      populate: [{
+          path: 'author',
+          select: 'id name'
+        },
+        {
+          path: 'tags',
+          select: 'name'
+        },
+        {
+          path: 'categories',
+          select: 'name'
+        }
       ]
     });
     const data = {
@@ -59,7 +73,13 @@ class blogController extends controller {
     if (req.file) {
       image = this.getUrlImage(`${req.file.destination}/${req.file.filename}`);
     }
-    let { name, author, content, tags, categories } = req.body;
+    let {
+      name,
+      author,
+      content,
+      tags,
+      categories
+    } = req.body;
     const tagObjects = [];
     if (typeof tags == 'string') {
       tags = tags.split(',');
@@ -68,7 +88,9 @@ class blogController extends controller {
       categories = categories.split(',');
     }
     for (const tag of tags) {
-      let obj = await blogTag.findOne({ name: tag }).exec();
+      let obj = await blogTag.findOne({
+        name: tag
+      }).exec();
       if (!obj) {
         obj = new blogTag({
           name: tag.trim(),
@@ -80,7 +102,9 @@ class blogController extends controller {
     }
     const coategoryObjects = [];
     for (const category of categories) {
-      let obj = await blogCategory.findOne({ name: category }).exec();
+      let obj = await blogCategory.findOne({
+        name: category
+      }).exec();
       if (!obj) {
         obj = new blogCategory({
           name: category.trim(),
@@ -122,7 +146,10 @@ class blogController extends controller {
         `${req.file.destination}/${req.file.filename}`
       );
     }
-    let { tags, categories } = req.body;
+    let {
+      tags,
+      categories
+    } = req.body;
     const tagObjects = [];
     if (typeof tags == 'string') {
       tags = tags.split(',');
@@ -131,7 +158,9 @@ class blogController extends controller {
       categories = categories.split(',');
     }
     for (const tag of tags) {
-      let obj = await blogTag.findOne({ name: tag }).exec();
+      let obj = await blogTag.findOne({
+        name: tag
+      }).exec();
       if (!obj) {
         obj = new blogTag({
           name: tag.trim(),
@@ -145,7 +174,9 @@ class blogController extends controller {
     objForUpdate.tags = tagObjects.map(tag => tag.id);
     const coategoryObjects = [];
     for (const category of categories) {
-      let obj = await blogCategory.findOne({ name: category }).exec();
+      let obj = await blogCategory.findOne({
+        name: category
+      }).exec();
       if (!obj) {
         obj = new blogCategory({
           name: category.trim(),
@@ -159,11 +190,12 @@ class blogController extends controller {
     objForUpdate.slug = this.slug(req.body.name);
     objForUpdate.categories = coategoryObjects.map(category => category.id);
     post = await blogPost.findByIdAndUpdate(
-      req.params.id,
-      {
-        $set: { ...req.body, ...objForUpdate }
-      },
-      {
+      req.params.id, {
+        $set: {
+          ...req.body,
+          ...objForUpdate
+        }
+      }, {
         new: true
       }
     );

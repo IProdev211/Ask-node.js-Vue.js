@@ -17,24 +17,23 @@ class homeController extends controller {
         viewCount: 'desc'
       })
       .exec();
-    const user = req.user
-      ? req.user
-          .populate({
-            path: 'roles',
-            select: 'name label permissions',
-            populate: [
-              {
-                path: 'permissions'
-              }
-            ]
-          })
-          .execPopulate()
-      : undefined;
+    const user = req.user ?
+      req.user
+      .populate({
+        path: 'roles',
+        select: 'name label permissions',
+        populate: [{
+          path: 'permissions'
+        }]
+      })
+      .execPopulate() :
+      undefined;
     const topBlogPosts = Post.find()
       .limit(8)
-      .sort({ viewCount: 'desc' })
-      .populate([
-        {
+      .sort({
+        viewCount: 'desc'
+      })
+      .populate([{
           path: 'author',
           select: 'id name'
         },
@@ -74,11 +73,9 @@ class homeController extends controller {
       .populate({
         path: 'roles',
         select: 'name label permissions',
-        populate: [
-          {
-            path: 'permissions'
-          }
-        ]
+        populate: [{
+          path: 'permissions'
+        }]
       })
       .execPopulate();
 
@@ -91,27 +88,23 @@ class homeController extends controller {
   async history(req, res) {
     try {
       let page = req.query.page || 1;
-      let payments = await Payment.paginate(
-        {
-          user: req.user.id
+      let payments = await Payment.paginate({
+        user: req.user.id
+      }, {
+        page,
+        sort: {
+          createdAt: -1
         },
-        {
-          page,
-          sort: {
-            createdAt: -1
+        limit: 20,
+        populate: [{
+            path: 'course'
           },
-          limit: 20,
-          populate: [
-            {
-              path: 'course'
-            },
-            {
-              path: 'user',
-              select: 'name email'
-            }
-          ]
-        }
-      );
+          {
+            path: 'user',
+            select: 'name email'
+          }
+        ]
+      });
 
       res.json({
         data: this.filterPaymentData(payments),
@@ -151,20 +144,19 @@ class homeController extends controller {
       vipType: user.vipType,
       lang: user.lang,
       avatar: user.avatar,
-      roles: user.roles
-        ? user.roles.map(role => {
-            return {
-              name: role.name,
-              label: role.label,
-              permissions: role.permissions.map(per => {
-                return {
-                  name: per.name,
-                  label: per.label
-                };
-              })
-            };
-          })
-        : undefined
+      roles: user.roles ?
+        user.roles.map(role => {
+          return {
+            name: role.name,
+            label: role.label,
+            permissions: role.permissions.map(per => {
+              return {
+                name: per.name,
+                label: per.label
+              };
+            })
+          };
+        }) : undefined
     };
   }
 }

@@ -1,20 +1,26 @@
 const validator = require('./validator');
-const { check } = require('express-validator/check');
+const {
+  check
+} = require('express-validator/check');
 
 class registerValidator extends validator {
   handle() {
     return [
       check('name')
-        .isLength({ min: 4 })
-        .withMessage('فیلد نام نمیتواند کمتر از 4 کاراکتر باشد'),
+      .isLength({
+        min: 4
+      })
+      .withMessage('فیلد نام نمیتواند کمتر از 4 کاراکتر باشد'),
 
       check('email')
-        .isEmail()
-        .withMessage('فیلد ایمیل معتبر نیست'),
+      .isEmail()
+      .withMessage('فیلد ایمیل معتبر نیست'),
 
       check('password')
-        .isLength({ min: 6 })
-        .withMessage('فیلد پسورد نمیتواند کمتر از 6 کاراکتر باشد')
+      .isLength({
+        min: 6
+      })
+      .withMessage('فیلد پسورد نمیتواند کمتر از 6 کاراکتر باشد')
     ];
   }
 }

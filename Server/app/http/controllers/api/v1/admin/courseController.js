@@ -13,7 +13,10 @@ class courseController extends controller {
       let filter = {};
       if (req.query.filter) {
         filter = {
-          title: { $regex: req.query.filter, $options: 'i' }
+          title: {
+            $regex: req.query.filter,
+            $options: 'i'
+          }
         };
       }
       const courses = await Course.paginate(filter, {
@@ -22,11 +25,18 @@ class courseController extends controller {
           createdAt: 1
         },
         limit: parseInt(limit, 10),
-        populate: [
-          { path: 'user' },
-          { path: 'commentsCount' },
-          { path: 'usersCount' },
-          { path: 'Category' }
+        populate: [{
+            path: 'user'
+          },
+          {
+            path: 'commentsCount'
+          },
+          {
+            path: 'usersCount'
+          },
+          {
+            path: 'Category'
+          }
         ]
       });
       const data = {
@@ -123,11 +133,12 @@ class courseController extends controller {
     objForUpdate.slug = this.slug(req.body.title);
 
     const newCourse = await Course.findByIdAndUpdate(
-      req.params.id,
-      {
-        $set: { ...req.body, ...objForUpdate }
-      },
-      {
+      req.params.id, {
+        $set: {
+          ...req.body,
+          ...objForUpdate
+        }
+      }, {
         new: true
       }
     );
@@ -168,10 +179,13 @@ class courseController extends controller {
   }
   async getInsertEpisodeNumber(req, res) {
     this.isMongoId(req, req.params.course);
-    const episode = await Episode.findOne(
-      { course: req.params.course },
+    const episode = await Episode.findOne({
+        course: req.params.course
+      },
       'number'
-    ).sort({ number: -1 });
+    ).sort({
+      number: -1
+    });
     let number = 1;
     if (episode) {
       number = episode.number + 1;

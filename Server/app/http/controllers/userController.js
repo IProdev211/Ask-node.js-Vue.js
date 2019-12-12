@@ -7,8 +7,8 @@ class userController extends controller {
   async activation(req, res, next) {
     try {
       let activationCode = await ActivationCode.findOne({
-        code: req.params.code
-      })
+          code: req.params.code
+        })
         .populate('user')
         .exec();
 
@@ -31,8 +31,12 @@ class userController extends controller {
       }
 
       let user = activationCode.user;
-      user.$set({ active: true });
-      activationCode.$set({ used: true });
+      user.$set({
+        active: true
+      });
+      activationCode.$set({
+        used: true
+      });
 
       await user.save();
       await activationCode.save();
@@ -48,7 +52,9 @@ class userController extends controller {
   }
   async index(req, res, next) {
     try {
-      res.render('home/panel/index', { title: 'پنل کاربری' });
+      res.render('home/panel/index', {
+        title: 'پنل کاربری'
+      });
     } catch (err) {
       next(err);
     }
@@ -57,12 +63,21 @@ class userController extends controller {
   async history(req, res, next) {
     try {
       let page = req.query.page || 1;
-      let payments = await Payment.paginate(
-        { user: req.user.id },
-        { page, sort: { createdAt: -1 }, limit: 20, populate: 'course' }
-      );
+      let payments = await Payment.paginate({
+        user: req.user.id
+      }, {
+        page,
+        sort: {
+          createdAt: -1
+        },
+        limit: 20,
+        populate: 'course'
+      });
 
-      res.render('home/panel/history', { title: 'پرداختی ها', payments });
+      res.render('home/panel/history', {
+        title: 'پرداختی ها',
+        payments
+      });
     } catch (err) {
       next(err);
     }
@@ -157,7 +172,9 @@ class userController extends controller {
       request(options)
         .then(async data => {
           if (data.Status == 100) {
-            payment.set({ payment: true });
+            payment.set({
+              payment: true
+            });
 
             let time = 0,
               type = '';
@@ -187,12 +204,15 @@ class userController extends controller {
               return res.redirect('/user/panel/vip');
             }
 
-            let vipTime = req.user.isVip()
-              ? new Date(req.user.vipTime)
-              : new Date();
+            let vipTime = req.user.isVip() ?
+              new Date(req.user.vipTime) :
+              new Date();
             vipTime.setMonth(vipTime.getMonth() + time);
 
-            req.user.set({ vipTime, vipType: type });
+            req.user.set({
+              vipTime,
+              vipType: type
+            });
             await req.user.save();
 
             await payment.save();

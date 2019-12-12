@@ -12,7 +12,11 @@ const request = require('request-promise');
 class courseController extends controller {
   async index(req, res) {
     let query = {};
-    let { search, type, category } = req.query;
+    let {
+      search,
+      type,
+      category
+    } = req.query;
 
     if (search) query.title = new RegExp(search, 'gi');
 
@@ -74,8 +78,7 @@ class courseController extends controller {
       ) {
         return this.alertAndBack(req, res, {
           title: 'دقت کنید',
-          message:
-            'این دوره مخصوص اعضای ویژه یا رایگان است و قابل خریداری نیست',
+          message: 'این دوره مخصوص اعضای ویژه یا رایگان است و قابل خریداری نیست',
           type: 'error',
           button: 'خیلی خوب'
         });
@@ -125,8 +128,8 @@ class courseController extends controller {
         });
 
       let payment = await Payment.findOne({
-        resnumber: req.query.Authority
-      })
+          resnumber: req.query.Authority
+        })
         .populate('course')
         .exec();
 
@@ -183,18 +186,14 @@ class courseController extends controller {
   }
 
   async single(req, res) {
-    let course = await Course.findOneAndUpdate(
-      {
+    let course = await Course.findOneAndUpdate({
         slug: req.params.course
-      },
-      {
+      }, {
         $inc: {
           viewCount: 1
         }
-      }
-    )
-      .populate([
-        {
+      })
+      .populate([{
           path: 'user',
           select: 'name'
         },
@@ -207,35 +206,32 @@ class courseController extends controller {
           }
         }
       ])
-      .populate([
-        {
-          path: 'comments',
-          match: {
-            parent: null,
-            approved: true
+      .populate([{
+        path: 'comments',
+        match: {
+          parent: null,
+          approved: true
+        },
+        populate: [{
+            path: 'user',
+            select: 'name'
           },
-          populate: [
-            {
+          {
+            path: 'comments',
+            match: {
+              approved: true
+            },
+            populate: {
               path: 'user',
               select: 'name'
-            },
-            {
-              path: 'comments',
-              match: {
-                approved: true
-              },
-              populate: {
-                path: 'user',
-                select: 'name'
-              }
             }
-          ]
-        }
-      ]);
+          }
+        ]
+      }]);
 
     let categories = await Category.find({
-      parent: null
-    })
+        parent: null
+      })
       .populate('childs')
       .exec();
 

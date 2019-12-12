@@ -7,8 +7,7 @@ const JWTStrategy = passportJWT.Strategy;
 
 passport.use(
   'jwt',
-  new JWTStrategy(
-    {
+  new JWTStrategy({
       jwtFromRequest: ExtractJWT.fromExtractors([
         ExtractJWT.fromUrlQueryParameter('api_token')
       ]),
@@ -24,7 +23,9 @@ passport.use(
             message: 'شما اجازه دسترسی به این لینک را ندارید'
           });
       } catch (err) {
-        done(null, false, { message: err.message });
+        done(null, false, {
+          message: err.message
+        });
       }
     }
   )

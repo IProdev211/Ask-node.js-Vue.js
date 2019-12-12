@@ -10,16 +10,33 @@ class ticketController extends controller {
     let filter = {};
     if (req.query.filter) {
       filter = {
-        $or: [
-          { title: { $regex: req.query.filter, $options: 'i' } },
-          { department: { $regex: req.query.filter, $options: 'i' } }
+        $or: [{
+            title: {
+              $regex: req.query.filter,
+              $options: 'i'
+            }
+          },
+          {
+            department: {
+              $regex: req.query.filter,
+              $options: 'i'
+            }
+          }
         ]
       };
-      const users = await User.find(
-        {
-          $or: [
-            { name: { $regex: req.query.filter, $options: 'i' } },
-            { email: { $regex: req.query.filter, $options: 'i' } }
+      const users = await User.find({
+          $or: [{
+              name: {
+                $regex: req.query.filter,
+                $options: 'i'
+              }
+            },
+            {
+              email: {
+                $regex: req.query.filter,
+                $options: 'i'
+              }
+            }
           ]
         },
         '_id'
@@ -35,17 +52,19 @@ class ticketController extends controller {
       }
     }
     const promises = [
-      Ticket.aggregate([
-        {
-          $group: {
-            _id: '$status',
-            count: { $sum: 1 }
+      Ticket.aggregate([{
+        $group: {
+          _id: '$status',
+          count: {
+            $sum: 1
           }
         }
-      ]).exec(),
+      }]).exec(),
       Ticket.paginate(filter, {
         page,
-        sort: { answerAt: -1 },
+        sort: {
+          answerAt: -1
+        },
         limit: parseInt(limit, 10),
         populate: 'user'
       })
@@ -95,7 +114,13 @@ class ticketController extends controller {
     if (req.file) {
       file = this.getUrlFile(`${req.file.destination}/${req.file.filename}`);
     }
-    let { title, user, message, priority, department } = req.body;
+    let {
+      title,
+      user,
+      message,
+      priority,
+      department
+    } = req.body;
 
     const ticket = await new Ticket({
       title,
@@ -153,15 +178,15 @@ class ticketController extends controller {
     if (!ticket) {
       return this.failed('چنین تیکتی وجود ندارد.', res, 404);
     }
-    ticket = await Ticket.findByIdAndUpdate(
-      { _id: req.params.ticket },
-      {
-        $set: { ...req.body }
-      },
-      {
-        new: true
+    ticket = await Ticket.findByIdAndUpdate({
+      _id: req.params.ticket
+    }, {
+      $set: {
+        ...req.body
       }
-    );
+    }, {
+      new: true
+    });
     ticket.user = await User.findById(req.body.user);
 
     res.json({

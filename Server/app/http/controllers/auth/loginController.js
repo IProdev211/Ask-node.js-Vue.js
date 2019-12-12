@@ -30,8 +30,8 @@ class loginController extends controller {
       if (!user.active) {
         // create activationCode
         let activeCode = await ActivationCode.find({
-          user: user.id
-        })
+            user: user.id
+          })
           .gt('expire', new Date())
           .sort({
             createdAt: 1
@@ -43,8 +43,7 @@ class loginController extends controller {
         if (activeCode.length) {
           this.alertAndBack(req, res, {
             title: 'توجه کنید',
-            message:
-              'لینک فعال سازی اکانت به ایمیل شما ارسال شده برای ارسال دوباره لطفا 10 دقیقه صبر کنید و دوباره اقدام به ورود کنید تا لینک جدید به ایمیل شما ارسال شود',
+            message: 'لینک فعال سازی اکانت به ایمیل شما ارسال شده برای ارسال دوباره لطفا 10 دقیقه صبر کنید و دوباره اقدام به ورود کنید تا لینک جدید به ایمیل شما ارسال شود',
             button: 'بسیار خوب'
           });
           return;
