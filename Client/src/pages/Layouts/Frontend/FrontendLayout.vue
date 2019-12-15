@@ -26,10 +26,6 @@
           <a :class="getNavClass('privateclasses')">{{ 'کلاس های حضوری' }}</a>
         </router-link>
 
-        <!-- <router-link class="nav-item" tag="li" to="/comingsoon">
-          <a :class="getNavClass('comingsoon')">{{ 'میت آپ' }}</a>
-        </router-link>-->
-
         <router-link class="nav-item" tag="li" to="/contact">
           <a :class="getNavClass('contact')">{{ 'تماس با ما' }}</a>
         </router-link>
@@ -50,10 +46,10 @@
         <div class="row">
           <div v-if="this.$root.$data.user !== undefined">
             <div class="row">
-              <ul class="navbar-nav text-right" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'">
+              <ul class="navbar-nav text-right">
+                <!-- <ul class="navbar-nav text-right" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'"> -->
                 <base-dropdown
                   tag="li"
-                  :menu-on-right="!$rtl.isRTL"
                   title-tag="a"
                   class="nav-item"
                   menu-classes="dropdown-navbar"
@@ -120,12 +116,15 @@
                     </router-link>
                   </li>
 
-                  <li class="nav-link pr-3">
+                  <li class="nav-link nav-link-exit">
                     <router-link
                       class="nav-item dropdown-item"
                       to="#"
                       @click.native="logoutListener"
-                    >خروج</router-link>
+                    >
+                      <i class="fas fa-sign-out-alt pl-2"></i>
+                      خروج
+                    </router-link>
                   </li>
                 </base-dropdown>
               </ul>
@@ -380,6 +379,11 @@ export default {
   color: white;
 }
 
+.dropdown-menu .dropdown-item:hover {
+  background-color: rgba(222, 222, 222, 0) !important;
+  color: #a053ee !important;
+}
+
 @media (max-width: 768px) {
   .navbar-nav {
     font-size: 1rem;
@@ -412,10 +416,9 @@ export default {
 }
 
 @media (min-width: 768px) and (max-width: 1000px) {
-  .ipad-fix {
-    width: 100% !important;
-    // padding: 30px 0;
-  }
+  // .ipad-fix {
+  //   width: 100% !important;
+  // }
 
   .user-item {
     padding-right: 2em !important;
@@ -521,8 +524,14 @@ p,
 }
 
 .navbar-collapse .navbar-nav .nav-link .dropdown-item {
+  font-size: 0.85em !important;
   color: rgb(49, 49, 49);
   border-bottom: 1px solid #fcfcfc;
+}
+
+.navbar-collapse .navbar-nav .nav-link-exit .dropdown-item {
+  color: rgb(49, 49, 49);
+  border-bottom: 1px solid #fcfcfc00 !important;
 }
 
 @media (min-width: 768px) {

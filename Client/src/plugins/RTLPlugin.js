@@ -25,9 +25,7 @@ export default {
         toggleBootstrapRTL(value) {
           for (let i = 0; i < document.styleSheets.length; i++) {
             let styleSheet = document.styleSheets[i];
-            let {
-              href
-            } = styleSheet;
+            let { href } = styleSheet;
             if (href && href.endsWith('bootstrap-rtl.css')) {
               styleSheet.disabled = !value;
             }

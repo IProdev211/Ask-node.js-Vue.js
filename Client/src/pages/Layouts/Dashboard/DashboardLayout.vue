@@ -202,12 +202,12 @@ export default {
   a
   .sidebar-normal {
   font-family: IranSansBold;
-  font-size: 1.1rem;
+  font-size: 1.1rem !important;
   color: white;
 }
 
 .rtl .sidebar .nav a {
-  font-size: 0.95rem;
+  font-size: 0.95rem !important;
   color: rgb(216, 216, 216);
 }
 

@@ -13,7 +13,7 @@
           fileExists ? changeText : selectText
           }}
         </span>
-        <input type="hidden" value name>
+        <input type="hidden" value name />
         <input
           accept="image/*"
           @change="handlePreview"
@@ -22,12 +22,12 @@
           class="valid"
           :multiple="false"
           aria-invalid="false"
-        >
+        />
       </span>
-      <base-button v-if="fileExists" @click="removeFile" round type="danger">
+      <div v-if="fileExists" @click="removeFile" round class="btn-sm" type="danger">
         <i class="fas fa-times"></i>
-        {{ removeText }}
-      </base-button>
+        <!-- {{ removeText }} -->
+      </div>
     </div>
   </div>
 </template>
@@ -51,7 +51,7 @@ export default {
     },
     changeText: {
       type: String,
-      default: 'Change'
+      default: 'تصویر دیگری'
     },
     removeText: {
       type: String,
@@ -87,4 +87,5 @@ export default {
   }
 };
 </script>
-<style></style>
+<style scoped >
+</style>

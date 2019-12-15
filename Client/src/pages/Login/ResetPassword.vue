@@ -19,7 +19,12 @@
             </div>
             <div class="pt-4">
               <label class="pull-right">کلمه عبور جدید</label>
-              <base-input v-model="password" :required="true" :error="fieldErrors.password"></base-input>
+              <base-input
+                type="password"
+                v-model="password"
+                :required="true"
+                :error="fieldErrors.password"
+              ></base-input>
             </div>
 
             <div class="text-right" v-if="formErrors.length">
@@ -95,12 +100,12 @@ export default {
             errorHandler(response);
             return;
           }
-          this.$router.push('/login');
         })
         .catch(error => {
           this.loading = false;
           errorHandler(error.response);
         });
+      this.$router.push('/login');
     }
   }
 };
@@ -108,6 +113,10 @@ export default {
 <style scoped>
 .card {
   background: rgb(241, 241, 241) !important;
+}
+
+.card-title {
+  font-family: IranSansBold !important;
 }
 
 .white-content .card:not(.card-white) label:not(.btn) {

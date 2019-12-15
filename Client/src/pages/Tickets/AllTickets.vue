@@ -27,7 +27,7 @@
 
         <div class="ticket-date">
           <h3>زمان</h3>
-          <p>{{ date(ticket.date) }}</p>
+          <p>{{ ticket.date }}</p>
         </div>
 
         <div class="ticket-status">

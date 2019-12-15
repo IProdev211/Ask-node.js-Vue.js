@@ -2,7 +2,7 @@
   <base-nav v-model="showMenu" class="navbar-absolute top-navbar" type="custom" :transparent="true">
     <ul class="navbar-nav">
       <!-- <a class="navbar-brand d-none d-md-block" href="/">اسک آریا</a> -->
-      <base-dropdown tag="li" title-tag="a" class="nav-item" menu-classes="dropdown-navbar ">
+      <base-dropdown tag="li" title-tag="a" class="nav-item" menu-classes="dropdown-navbar">
         <a
           slot="title"
           href="#"

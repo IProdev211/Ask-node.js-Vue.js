@@ -67,7 +67,7 @@
                 :error="fieldErrors.name"
               ></base-input>
             </div>
-            <div class="col-md-4 text-ltr">
+            <!-- <div class="col-md-4 text-ltr">
               <label class="pull-right">پست الکترونیک</label>
               <base-input
                 type="email"
@@ -75,7 +75,7 @@
                 v-model="email"
                 :error="fieldErrors.email"
               ></base-input>
-            </div>
+            </div>-->
             <div class="col-md-4 text-ltr">
               <label class="pull-right">تغییر رمز عبور</label>
               <base-input
@@ -89,7 +89,7 @@
               <image-upload type="avatar" select-text="+ آپلود عکس" @change="onAvatarChange" />
             </div>
             <div class="col-md-2 mt-3 mr-auto">
-              <base-button native-type="submit" type="info" class="btn btn-success">ذخیره</base-button>
+              <base-button native-type="submit" type="info" class="btn btn-danger">ذخیره</base-button>
             </div>
           </div>
         </form>
@@ -181,7 +181,7 @@ export default {
             message: `مشخصات شما با موفقیت به روز شده!`,
             icon: 'tim-icons icon-bell-55'
           });
-          this.$router.push('dashboard');
+          // this.$router.push('/dashboard');
         })
         .catch(error => {
           this.loading = false;
@@ -197,19 +197,13 @@ export default {
 
 
 <style lang="scss" scoped>
-.avatar {
-  width: 9em;
-  height: 9em;
-}
-
 .btn {
   padding: 10px 15px;
 }
 
 .title {
   font-size: 2em;
-  // font-family: Arial, Helvetica, sans-serif;
-  font-family: IranSansBold;
+  font-family: IranSansBold, sans-serif;
 }
 
 .description {
