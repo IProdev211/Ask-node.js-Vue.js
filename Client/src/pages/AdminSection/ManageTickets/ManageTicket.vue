@@ -318,6 +318,8 @@ export default {
           this.loading = false;
           errorHandler(error.response);
         });
+      /////////////// ADDED BY ARYA
+      this.$router.push('/tickets');
     },
     reset() {
       for (const key in this.data) {
