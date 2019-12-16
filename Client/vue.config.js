@@ -1,9 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const CKEditorWebpackPlugin = require('@ckeditor/ckeditor5-dev-webpack-plugin');
-const {
-  styles
-} = require('@ckeditor/ckeditor5-dev-utils');
+const { styles } = require('@ckeditor/ckeditor5-dev-utils');
 
 function resolveSrc(_path) {
   return path.join(__dirname, _path);
@@ -65,6 +63,7 @@ module.exports = {
     sourceMap: process.env.NODE_ENV !== 'production'
   },
 
+  outputDir: path.resolve(__dirname, '../server/dist'),
   devServer: {
     proxy: {
       '^/api': {

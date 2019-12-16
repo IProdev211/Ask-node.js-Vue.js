@@ -54,6 +54,18 @@ module.exports = class Application {
     app.enable('trust proxy');
     app.use(helmet());
     app.use(compression());
+
+    //////////////////////////////////////////////////////////////////////
+    ///////////////////////// Handle Production  /////////////////////////
+    //////////////////////////////////////////////////////////////////////
+    // if (process.env.NODE_ENV === 'production') {
+    ////// Static Folder
+    // app.use(express.static(__dirname + '/dist/'));
+
+    ////// Handle SPA
+    //   app.get(/.*/, (req, res) => res.sendFile(__dirname + '/dist/index.html'));
+    // }
+
     app.use(express.static(config.layout.public_dir));
     // app.set('view engine', config.layout.view_engine);
     // app.set('views', config.layout.view_dir);
@@ -70,9 +82,11 @@ module.exports = class Application {
     );
     app.use(methodOverride('_method'));
     app.use(validator());
-    app.use(session({
-      ...config.session
-    }));
+    app.use(
+      session({
+        ...config.session
+      })
+    );
     app.use(cookieParser(config.cookie_secretkey));
     app.use(flash());
     app.use(passport.initialize());
