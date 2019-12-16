@@ -2,27 +2,27 @@
   <div class="container text-ltr">
     <div class="row text-center d-flex justify-content-center">
       <div class="col-md-2 col-sm-12 pb-3">
-        <h2 class="headerStyling1">{{openTickets}}</h2>
+        <h2 class="headerStyling1">{{ openTickets }}</h2>
         <p class="subheader">Open</p>
       </div>
 
       <div class="col-md-2 col-sm-12 pb-3">
-        <h2 class="headerStyling3">{{answeredTickets}}</h2>
+        <h2 class="headerStyling3">{{ answeredTickets }}</h2>
         <p class="subheader">Answered</p>
       </div>
 
       <div class="col-md-2 col-sm-12 pb-3">
-        <h2 class="headerStyling2">{{inprogressTickets}}</h2>
+        <h2 class="headerStyling2">{{ inprogressTickets }}</h2>
         <p class="subheader">In Progress</p>
       </div>
 
       <div class="col-md-2 col-sm-12 pb-3">
-        <h2 class="headerStyling4">{{onHoldTickets}}</h2>
+        <h2 class="headerStyling4">{{ onHoldTickets }}</h2>
         <p class="subheader">On Hold</p>
       </div>
 
       <div class="col-md-2 col-sm-12 pb-3">
-        <h2 class="headerStyling5">{{closedTickets}}</h2>
+        <h2 class="headerStyling5">{{ closedTickets }}</h2>
         <p class="subheader">Closed</p>
       </div>
     </div>

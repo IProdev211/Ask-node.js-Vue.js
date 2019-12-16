@@ -248,7 +248,7 @@ export default {
             //   ticket.isHighlight ? 'hightlighted' : 'removed hightlight of'
             // }  ${ticket.ticket_id}: ${ticket.title}`,
             icon: 'danger',
-            className: 'text-ltr '
+            className: 'text-ltr'
           });
         },
         err => {
