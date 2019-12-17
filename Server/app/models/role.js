@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
+const Permission = require('./permission')
 const mongoosePaginate = require('mongoose-paginate-v2');
 
 const roleSchema = Schema({

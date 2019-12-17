@@ -1,13 +1,13 @@
-const controller = require('app/http/controllers/api/controller');
-const Course = require('app/models/course');
-const Episode = require('app/models/episode');
-const Comment = require('app/models/comment');
-const request = require('request');
-const ZarinpalCheckout = require('zarinpal-checkout');
-const Payment = require('app/models/payment');
-const DoneEpisode = require('app/models/doneEpisode');
-const User = require('app/models/user');
-const Log = require('app/models/log');
+const controller = require("app/http/controllers/api/controller");
+const Course = require("app/models/course");
+const Episode = require("app/models/episode");
+const Comment = require("app/models/comment");
+const request = require("request");
+const ZarinpalCheckout = require("zarinpal-checkout");
+const Payment = require("app/models/payment");
+const DoneEpisode = require("app/models/doneEpisode");
+const User = require("app/models/user");
+const Log = require("app/models/log");
 
 class courseController extends controller {
   async courses(req, res, next) {
@@ -15,25 +15,29 @@ class courseController extends controller {
       const page = req.query.page || 1;
       const promises = [];
       promises.push(
-        Course.paginate({}, {
-          page,
-          sort: {
-            createdAt: 1
-          },
-          limit: 4,
-          populate: [{
-              path: 'categories'
+        Course.paginate(
+          {},
+          {
+            page,
+            sort: {
+              createdAt: 1
             },
-            {
-              path: 'user'
-            },
-            {
-              path: 'episodesCount'
-            }
-          ]
-        })
+            limit: 4,
+            populate: [
+              {
+                path: "categories"
+              },
+              {
+                path: "user"
+              },
+              {
+                path: "episodesCount"
+              }
+            ]
+          }
+        )
       );
-      promises.push(Episode.find({}, 'time').exec());
+      promises.push(Episode.find({}, "time").exec());
       const results = await Promise.all(promises);
       const courses = results[0];
       const episodes = results[1];
@@ -75,25 +79,29 @@ class courseController extends controller {
       oldPrice: course.oldPrice,
       createdAt: course.createdAt,
       time: course.time,
-      tags: course.tags || '',
+      tags: course.tags || "",
       episodes: course.episodesCount
     };
   }
 
   async singleCourse(req, res) {
     try {
-      const course = await Course.findOneAndUpdate({
-        slug: req.params.slug
-      }, {
-        $inc: {
-          viewCount: 1
-        }
-      }).populate([{
-          path: 'user',
-          select: 'name'
+      const course = await Course.findOneAndUpdate(
+        {
+          slug: req.params.slug
         },
         {
-          path: 'episodes',
+          $inc: {
+            viewCount: 1
+          }
+        }
+      ).populate([
+        {
+          path: "user",
+          select: "name"
+        },
+        {
+          path: "episodes",
           options: {
             sort: {
               number: 1
@@ -101,14 +109,14 @@ class courseController extends controller {
           }
         },
         {
-          path: 'categories',
-          select: 'name slug'
+          path: "categories",
+          select: "name slug"
         },
         {
-          path: 'usersCount'
+          path: "usersCount"
         }
       ]);
-      if (!course) return this.failed('چنین دوره ای یافت نشد', res, 404);
+      if (!course) return this.failed("چنین دوره ای یافت نشد", res, 404);
       const user = req.user ? await User.findById(req.user.id) : undefined;
       res.json({
         data: {
@@ -116,7 +124,7 @@ class courseController extends controller {
           enrolled: user && (user.admin || user.checkLearning(course.id)),
           enrolledCount: course.usersCount
         },
-        status: 'success'
+        status: "success"
       });
     } catch (err) {
       this.failed(err.message, res);
@@ -179,12 +187,13 @@ class courseController extends controller {
     try {
       const course = await Course.findOne({
         slug: req.params.slug
-      }).populate([{
-          path: 'user',
-          select: 'name'
+      }).populate([
+        {
+          path: "user",
+          select: "name"
         },
         {
-          path: 'episodes',
+          path: "episodes",
           options: {
             sort: {
               number: 1
@@ -192,11 +201,11 @@ class courseController extends controller {
           }
         },
         {
-          path: 'categories',
-          select: 'name slug'
+          path: "categories",
+          select: "name slug"
         },
         {
-          path: 'usersCount'
+          path: "usersCount"
         }
       ]);
       let episode = undefined;
@@ -206,7 +215,7 @@ class courseController extends controller {
           break;
         }
       }
-      if (!episode) return this.failed('چنین درسی یافت نشد', res, 404);
+      if (!episode) return this.failed("چنین درسی یافت نشد", res, 404);
       episode.updateOne({
         $inc: {
           viewCount: 1
@@ -217,51 +226,65 @@ class courseController extends controller {
         data: {
           episode: await this.filterEpisodeData(episode, user),
           course: await this.filterCourseData(course, user),
-          enrolled: user && (user.admin || user.checkLearning(episode.course.id)),
+          enrolled:
+            user && (user.admin || user.checkLearning(episode.course.id)),
           enrolledCount: episode.course.usersCount
         },
-        status: 'success'
+        status: "success"
       });
     } catch (err) {
       this.failed(err.message, res);
     }
   }
   async downloadCourse(req, res) {
-    const mac = req.query.mac;
-    const t = req.query.t;
-    if (!mac || !t || new Date() >= t) {
-      return this.failed('چنین دوره ای یافت نشد', res, 404);
+    try {
+      const mac = req.query.mac;
+      const t = req.query.t;
+      if (!mac || !t || new Date() >= t) {
+        return this.failed("چنین دوره ای یافت نشد", res, 404);
+      }
+      const course = await Course.findById(req.params.id);
+      if (!course || !course.id || !course.validateDownload(mac, t)) {
+        return this.failed("چنین دوره ای یافت نشد", res, 404);
+      }
+      const reqo = request(course.videoUrl).on("error", error => {
+        this.failed(error.message, res);
+      });
+
+      req.pipe(reqo);
+      reqo.pipe(res);
+    } catch (error) {
+      this.failed(err.message, res);
     }
-    const course = await Course.findById(req.params.id);
-    if (!course || !course.id || !course.validateDownload(mac, t)) {
-      return this.failed('چنین دوره ای یافت نشد', res, 404);
-    }
-    const reqo = request(course.videoUrl);
-    req.pipe(reqo);
-    reqo.pipe(res);
   }
   async downloadEpisode(req, res) {
-    const mac = req.query.mac;
-    const t = req.query.t;
-    if (!mac || !t || new Date() >= t) {
-      return this.failed('چنین درسی یافت نشد', res, 404);
-    }
-    let episode;
+    try {
+      const mac = req.query.mac;
+      const t = req.query.t;
+      if (!mac || !t || new Date() >= t) {
+        return this.failed("چنین درسی یافت نشد", res, 404);
+      }
+      let episode;
 
-    if (req.user) {
-      episode = await Episode.findById(req.params.id);
-    } else {
-      episode = await Episode.find({
-        type: 'free',
-        id: req.params.id
-      }).exec();
+      if (req.user) {
+        episode = await Episode.findById(req.params.id);
+      } else {
+        episode = await Episode.find({
+          type: "free",
+          id: req.params.id
+        }).exec();
+      }
+      if (!episode || !episode.id || !episode.validateDownload(mac, t)) {
+        return this.failed("چنین درسی یافت نشد", res, 404);
+      }
+      const reqo = request(episode.videoUrl).on("error", error => {
+        this.failed(error.message, res);
+      });
+      req.pipe(reqo);
+      reqo.pipe(res);
+    } catch (error) {
+      this.failed(err.message, res);
     }
-    if (!episode || !episode.id || !episode.validateDownload(mac, t)) {
-      return this.failed('چنین درسی یافت نشد', res, 404);
-    }
-    const reqo = request(episode.videoUrl);
-    req.pipe(reqo);
-    reqo.pipe(res);
   }
   async commentForSingleCourse(req, res) {
     try {
@@ -269,18 +292,19 @@ class courseController extends controller {
         course: req.params.course,
         parent: null,
         approved: true
-      }).populate([{
-          path: 'user',
-          select: 'name'
+      }).populate([
+        {
+          path: "user",
+          select: "name"
         },
         {
-          path: 'comments',
+          path: "comments",
           match: {
             approved: true
           },
           populate: {
-            path: 'user',
-            select: 'name'
+            path: "user",
+            select: "name"
           }
         }
       ]);
@@ -292,26 +316,26 @@ class courseController extends controller {
   async buy(req, res) {
     const course = await Course.findById(req.params.course);
     if (!course) {
-      return this.failed('چنین دوره ای یافت نشد !', res, 404);
+      return this.failed("چنین دوره ای یافت نشد !", res, 404);
     }
-    if (course.price == 0 || (course.type == 'vip' || course.type == 'free')) {
+    if (course.price == 0 || course.type == "vip" || course.type == "free") {
       return this.failed(
-        'این دوره مخصوص اعضای ویژه یا رایگان است و قابل خریداری نیست .',
+        "این دوره مخصوص اعضای ویژه یا رایگان است و قابل خریداری نیست .",
         res,
         403
       );
     }
     if (await req.user.checkLearning(course)) {
-      return this.failed('شما قبلا در این دوره ثبت نام کرده اید .', res, 403);
+      return this.failed("شما قبلا در این دوره ثبت نام کرده اید .", res, 403);
     }
     const zarinpal = ZarinpalCheckout.create(
       config.service.zarinpal.merchant_id,
       true
     );
-    const price = parseInt(course.price.replace(/,/g, ''), 10);
+    const price = parseInt(course.price.replace(/,/g, ""), 10);
     const timeout = setTimeout(() => {
       this.failed(
-        'ارتباط با سامانه برقرار نشد. لطفا از اتصال اینترنت خود اطمینان کسب و سپس امتحان کنید.',
+        "ارتباط با سامانه برقرار نشد. لطفا از اتصال اینترنت خود اطمینان کسب و سپس امتحان کنید.",
         res,
         408
       );
@@ -320,7 +344,7 @@ class courseController extends controller {
       .PaymentRequest({
         Amount: price,
         CallbackURL: `${config.siteurl}/courses/payments/verification`,
-        Description: 'خرید دوره ' + course.title
+        Description: "خرید دوره " + course.title
       })
       .then(response => {
         if (timeout) {
@@ -339,7 +363,7 @@ class courseController extends controller {
             }
             return res.json({
               redirect: response.url,
-              status: 'success'
+              status: "success"
             });
           });
         }
@@ -352,25 +376,28 @@ class courseController extends controller {
       });
   }
   async verification(req, res) {
-    if (!req.body.hasOwnProperty('status') || req.body.status !== 'OK') {
-      return this.failed('پرداخت شما با موفقیت انجام نشد', res, 500);
+    if (!req.body.hasOwnProperty("status") || req.body.status !== "OK") {
+      return this.failed("پرداخت شما با موفقیت انجام نشد", res, 500);
     }
     const payment = await Payment.findOne({
-        resnumber: req.body.authority
-      })
-      .populate([{
-        path: 'course'
-      }, {
-        path: 'user'
-      }])
+      resnumber: req.body.authority
+    })
+      .populate([
+        {
+          path: "course"
+        },
+        {
+          path: "user"
+        }
+      ])
       .exec();
 
     if (!payment.course) {
-      return this.failed('دوره ای که شما پرداخت کرده اید وجود ندارد', res, 500);
+      return this.failed("دوره ای که شما پرداخت کرده اید وجود ندارد", res, 500);
     }
     const timeout = setTimeout(() => {
       this.failed(
-        'ارتباط با سامانه برقرار نشد. لطفا از اتصال اینترنت خود اطمینان کسب و سپس امتحان کنید.',
+        "ارتباط با سامانه برقرار نشد. لطفا از اتصال اینترنت خود اطمینان کسب و سپس امتحان کنید.",
         res,
         408
       );
@@ -395,11 +422,11 @@ class courseController extends controller {
           payment.payment = true;
           payment.save();
           const ip =
-            req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+            req.headers["x-forwarded-for"] || req.connection.remoteAddress;
           const buyCourseLog = new Log({
             ip: ip,
             user: payment.user.id,
-            type: 'buy_course',
+            type: "buy_course",
             title: ` با تشکر از حسن انتخاب شما, خرید دوره ${payment.course.title} با موفقیت انجام شد و هم اکنون می توانید بصورت کامل از این دوره استفاده کنید. `
           });
           buyCourseLog.save();
@@ -408,11 +435,11 @@ class courseController extends controller {
               id: payment.course.id,
               slug: payment.course.slug
             },
-            message: 'پرداخت شما با موفقیت انجام شد',
+            message: "پرداخت شما با موفقیت انجام شد",
             status: true
           });
         } else {
-          return this.failed('پرداخت شما با موفقیت انجام نشد', res, 500);
+          return this.failed("پرداخت شما با موفقیت انجام نشد", res, 500);
         }
       })
       .catch(err => {
@@ -429,13 +456,16 @@ class courseController extends controller {
     let condition = {};
     if (user.vipTime && new Date(user.vipTime) > new Date()) {
       condition = {
-        $or: [{
-          _id: {
-            $in: user.learning
+        $or: [
+          {
+            _id: {
+              $in: user.learning
+            }
+          },
+          {
+            type: "VIP"
           }
-        }, {
-          type: 'VIP'
-        }]
+        ]
       };
     } else {
       condition = {
@@ -450,14 +480,15 @@ class courseController extends controller {
         createdAt: 1
       },
       limit: 24,
-      populate: [{
-          path: 'categories'
+      populate: [
+        {
+          path: "categories"
         },
         {
-          path: 'user'
+          path: "user"
         },
         {
-          path: 'episodesCount'
+          path: "episodesCount"
         }
       ]
     });
@@ -484,24 +515,26 @@ class courseController extends controller {
   }
   async markAsDoneEpisode(req, res) {
     if (!req.user.id) {
-      return this.failed('پیدا نشد!', res, 404);
+      return this.failed("پیدا نشد!", res, 404);
     }
     const episode = await Episode.findById(req.params.episode).populate({
-      path: 'course',
-      populate: [{
-        path: 'episodes',
-        options: {
-          sort: {
-            number: 1
+      path: "course",
+      populate: [
+        {
+          path: "episodes",
+          options: {
+            sort: {
+              number: 1
+            }
           }
         }
-      }]
+      ]
     });
     if (
       !episode ||
       (!req.user.learning.indexOf(episode.course.id) !== -1 && !req.user.admin)
     ) {
-      return this.failed('چنین دوره ای یافت نشد !', res, 404);
+      return this.failed("چنین دوره ای یافت نشد !", res, 404);
     }
     const has = await this.hasDoneEpisode(episode, req.id);
     if (!has) {
@@ -514,29 +547,31 @@ class courseController extends controller {
     const done = await this.getCourseDonePercentage(episode.course, req.user);
     return res.json({
       done: done,
-      status: 'success'
+      status: "success"
     });
   }
   async markAsNotDoneEpisode(req, res) {
     if (!req.user.id) {
-      return this.failed('پیدا نشد!', res, 404);
+      return this.failed("پیدا نشد!", res, 404);
     }
     const episode = await Episode.findById(req.params.episode).populate({
-      path: 'course',
-      populate: [{
-        path: 'episodes',
-        options: {
-          sort: {
-            number: 1
+      path: "course",
+      populate: [
+        {
+          path: "episodes",
+          options: {
+            sort: {
+              number: 1
+            }
           }
         }
-      }]
+      ]
     });
     if (
       !episode ||
       (!req.user.learning.indexOf(episode.course.id) !== -1 && !req.user.admin)
     ) {
-      return this.failed('چنین دوره ای یافت نشد !', res, 404);
+      return this.failed("چنین دوره ای یافت نشد !", res, 404);
     }
     const has = await this.hasDoneEpisode(episode, req.user);
     if (has) {
@@ -548,7 +583,7 @@ class courseController extends controller {
     const done = await this.getCourseDonePercentage(episode.course, req.user);
     return res.json({
       done: done,
-      status: 'success'
+      status: "success"
     });
   }
   async hasDoneEpisode(episode, user) {
