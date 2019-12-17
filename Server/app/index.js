@@ -1,25 +1,25 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const http = require("http");
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
-const validator = require("express-validator");
-const session = require("express-session");
-const mongoose = require("mongoose");
-const flash = require("connect-flash");
-const passport = require("passport");
-const Helpers = require("./helpers");
-const methodOverride = require("method-override");
-const gate = require("app/helpers/gate");
-const rememberLogin = require("app/http/middleware/rememberLogin");
-const helmet = require("helmet");
-const compression = require("compression");
-const path = require("path");
+const http = require('http');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const validator = require('express-validator');
+const session = require('express-session');
+const mongoose = require('mongoose');
+const flash = require('connect-flash');
+const passport = require('passport');
+const Helpers = require('./helpers');
+const methodOverride = require('method-override');
+const gate = require('app/helpers/gate');
+const rememberLogin = require('app/http/middleware/rememberLogin');
+const helmet = require('helmet');
+const compression = require('compression');
+const path = require('path');
 
-const csrf = require("csurf");
-const csrfErrorHandler = require("app/http/middleware/csrfErrorHandler");
-const activeUser = require("app/http/middleware/activeUser");
-const redirectIfAuthenticated = require("app/http/middleware/redirectIfAuthenticated");
+const csrf = require('csurf');
+const csrfErrorHandler = require('app/http/middleware/csrfErrorHandler');
+const activeUser = require('app/http/middleware/activeUser');
+const redirectIfAuthenticated = require('app/http/middleware/redirectIfAuthenticated');
 module.exports = class Application {
   constructor() {
     this.setupExpress();
@@ -48,32 +48,21 @@ module.exports = class Application {
    * Express Config
    */
   setConfig() {
-    require("app/passport/passport-local");
-    require("app/passport/passport-google");
-    require("app/passport/passport-jwt");
+    require('app/passport/passport-local');
+    require('app/passport/passport-google');
+    require('app/passport/passport-jwt');
 
-    app.enable("trust proxy");
+    app.enable('trust proxy');
     app.use(helmet());
     app.use(compression());
 
-    //////////////////////////////////////////////////////////////////////
-    ///////////////////////// Handle Production  /////////////////////////
-    //////////////////////////////////////////////////////////////////////
-    // if (process.env.NODE_ENV === 'production') {
-    // //// Static Folder
-    // app.use(express.static(__dirname + '/dist/'));
-
-    // //// Handle SPA
-    //   app.get(/.*/, (req, res) => res.sendFile(__dirname + '/dist/index.html'));
-    // }
-
     app.use(express.static(config.layout.public_dir));
-    app.set("view engine", config.layout.view_engine);
-    app.set("views", config.layout.view_dir);
+    app.set('view engine', config.layout.view_engine);
+    app.set('views', config.layout.view_dir);
     app.use(config.layout.ejs.expressLayouts);
-    app.set("layout extractScripts", config.layout.ejs.extractScripts);
-    app.set("layout extractStyles", config.layout.ejs.extractStyles);
-    app.set("layout", config.layout.ejs.master);
+    app.set('layout extractScripts', config.layout.ejs.extractScripts);
+    app.set('layout extractStyles', config.layout.ejs.extractStyles);
+    app.set('layout', config.layout.ejs.master);
 
     app.use(bodyParser.json());
     app.use(
@@ -81,7 +70,7 @@ module.exports = class Application {
         extended: true
       })
     );
-    app.use(methodOverride("_method"));
+    app.use(methodOverride('_method'));
     app.use(validator());
     app.use(
       session({
@@ -103,7 +92,7 @@ module.exports = class Application {
 
   setRouters() {
     app.use(activeUser.handle);
-    app.use(require("app/routes/api"));
+    app.use(require('app/routes/api'));
 
     // app.use(
     //   csrf({
@@ -113,16 +102,20 @@ module.exports = class Application {
     // );
     // Auth Router
     app.use(
-      "/auth",
+      '/auth',
       redirectIfAuthenticated.handle,
-      require("app/routes/web/auth")
+      require('app/routes/web/auth')
     );
     app.use(csrfErrorHandler.handle);
-    
-    app.use(express.static(path.join(__dirname, "..", "dist/")));
-    app.get(/.*/, (req, res) =>
-      res.sendFile(path.join(__dirname, "..", "dist/index.html"))
-    );
-   
+
+    // Handle Production
+    if (process.env.NODE_ENV === 'production') {
+      // Static Folder
+      app.use(express.static(path.join(__dirname, '..', 'dist/')));
+      // Handle SPA
+      app.get(/.*/, (req, res) =>
+        res.sendFile(path.join(__dirname, '..', 'dist/index.html'))
+      );
+    }
   }
 };
