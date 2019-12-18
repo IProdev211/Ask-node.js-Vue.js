@@ -1,6 +1,6 @@
 # Ask Arya App
 
-> Ask Arya's Full Website: Vue.js & Express.js
+> Ask Arya's Full Website - Vue.js & Express.js
 
 ## Steps to start Development Server
 
