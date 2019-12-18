@@ -14,13 +14,10 @@
     "sourceType": "module"
   },
   "rules": {
-    "no-multiple-empty-lines": [
-      2,
-      {
-        "max": 2,
-        "maxEOF": 1
-      }
-    ],
+    "no-multiple-empty-lines": [2, {
+      "max": 2,
+      "maxEOF": 1
+    }],
     "no-mixed-operators": 0,
     "no-debugger": 0,
     "no-const-assign": "warn",
@@ -34,5 +31,8 @@
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   "extends": "standard",
   // required to lint *.vue files
-  "plugins": ["html"]
+  "plugins": [
+    "html"
+  ]
 }
+// http://eslint.org/docs/user-guide/configuring

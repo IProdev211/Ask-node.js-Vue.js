@@ -1,7 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 const CKEditorWebpackPlugin = require('@ckeditor/ckeditor5-dev-webpack-plugin');
-const { styles } = require('@ckeditor/ckeditor5-dev-utils');
+const {
+  styles
+} = require('@ckeditor/ckeditor5-dev-utils');
 
 function resolveSrc(_path) {
   return path.join(__dirname, _path);
@@ -9,18 +11,9 @@ function resolveSrc(_path) {
 
 // vue.config.js
 module.exports = {
-  // The source of CKEditor is encapsulated in ES6 modules. By default, the code
-  // from the node_modules directory is not transpiled, so you must explicitly tell
   // the CLI tools to transpile JavaScript files in all ckeditor5-* modules.
   transpileDependencies: [/ckeditor5-[^/\\]+[/\\]src[/\\].+\.js$/],
   lintOnSave: true,
-  // publicPath: undefined,
-  // outputDir: undefined,
-  // assetsDir: undefined,
-  // runtimeCompiler: undefined,
-  // productionSourceMap: undefined,
-  // parallel: undefined,
-
   configureWebpack: {
     // Set up all the aliases we use in our app.
     resolve: {

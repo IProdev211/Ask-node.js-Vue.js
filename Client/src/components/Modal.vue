@@ -30,7 +30,11 @@
             modalContentClasses
           ]"
         >
-          <div class="modal-header" :class="[headerClasses]" v-if="$slots.header">
+          <div
+            class="modal-header"
+            :class="[headerClasses]"
+            v-if="$slots.header"
+          >
             <slot name="header"></slot>
             <slot name="close-button">
               <button
@@ -127,7 +131,6 @@ export default {
   },
   methods: {
     closeModal() {
-      this.show = false;
       this.$emit('update:show', false);
       this.$emit('close');
     },
@@ -160,13 +163,8 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style>
 .modal.show {
   background-color: rgba(0, 0, 0, 0.3);
-  .close {
-    right: auto;
-    left: 0px;
-    top: 18px;
-  }
 }
 </style>

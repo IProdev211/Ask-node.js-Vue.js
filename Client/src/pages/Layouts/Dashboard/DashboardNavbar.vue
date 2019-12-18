@@ -54,6 +54,8 @@ import { CollapseTransition } from 'vue2-transitions';
 import { BaseNav, Modal } from '@/components';
 // import SidebarToggleButton from './SidebarToggleButton';
 import { ZoomCenterTransition } from 'vue2-transitions';
+import backend from '../../../backend';
+
 
 export default {
   components: {

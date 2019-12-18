@@ -10,10 +10,9 @@
     border-radius: 50%;
     vertical-align: middle;
     overflow: hidden;
-
-    img {
-      width: 100%;
-    }
+      img{
+        width: 100%;
+      }
   }
 
   .navbar-wrapper {
@@ -25,47 +24,46 @@
     color: $white;
   }
 
-  .btn {
+  .btn{
     margin: 0 5px 0 10px;
   }
 
-  &.navbar-absolute {
+  &.navbar-absolute{
     position: absolute;
     z-index: 1050;
   }
 
-  &.navbar-transparent {
+
+  &.navbar-transparent{
     background: transparent !important;
   }
 
-  &.bg-white {
-    .navbar-nav {
-      .search-bar.input-group {
-        i {
+  &.bg-white{
+    .navbar-nav{
+      .search-bar.input-group{
+        i{
           color: $black;
         }
-
         i:hover {
           color: $primary;
         }
       }
 
-      .search-bar.input-group .form-control {
-        background: rgba($black, 0.1);
+      .search-bar.input-group .form-control{
+        background: rgba($black,0.1);
         border-radius: 4px;
       }
 
-      a.nav-link {
+      a.nav-link{
         color: $black !important;
-
-        p {
+        p{
           color: $black;
         }
       }
+
     }
 
-    .navbar-text,
-    .navbar-brand {
+    .navbar-text, .navbar-brand{
       color: $black;
     }
 
@@ -76,16 +74,11 @@
     .form-control::placeholder {
       color: $dark-gray !important;
     }
+
   }
 
   &.bg-dark {
     background: $black !important;
-  }
-
-  &.bg-custom {
-    background: #f8f8f8 !important;
-    box-shadow: 0 4px 2px -2px rgba(153, 153, 153, 0.6);
-    // box-shadow: 0px 1px 10px 0px #999;
   }
 
   &.bg-primary {
@@ -110,219 +103,210 @@
 
   .navbar-brand {
     position: relative;
-    padding-top: 0.3125rem;
-    padding-bottom: 0.3125rem;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
     color: $white;
     margin-left: 17px;
     text-transform: uppercase;
     font-size: $font-paragraph;
   }
 
-  .navbar-toggle button:focus,
-  .navbar-toggler {
+  .navbar-toggle button:focus, .navbar-toggler{
     outline: none;
-    margin-right: auto;
   }
+
 }
 
 .navbar-minimize-fixed {
-  position: fixed;
+	position: fixed;
   margin-left: 40px;
   margin-top: 14px;
-  transition: 0.3s ease;
-  color: white;
-  z-index: 20;
-  opacity: 0;
-  transition: 0.2s ease;
-
-  button {
-    i {
-      font-size: 20px;
-    }
-  }
+	transition: 0.3s ease;
+	color: white;
+	z-index: 20;
+	opacity: 0;
+	transition: 0.2s ease;
+	button{
+		i {
+			font-size: 20px;
+		}
+	}
 }
 
 .notification {
   background: $danger;
-  color: $white;
-  border-radius: $border-radius-xl;
-  height: 6px;
-  width: 6px;
-  position: absolute;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 800;
+	color: $white;
+	border-radius: $border-radius-xl;
+	height: 6px;
+	width: 6px;
+	position: absolute;
+	text-align: center;
+	font-size: 12px;
+	font-weight: 800;
   top: 10px;
   right: 10px;
-  border: 1px solid $danger;
+	border: 1px solid $danger;
 }
 
-.navbar-nav li {
+.navbar-nav li{
   padding: 0 10px;
-
-  a {
+  a{
     color: $white;
   }
-
-  i {
+  i{
     vertical-align: middle;
     font-size: 20px;
   }
 }
 
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down(md){
   .navbar {
     top: -70px;
   }
 
-  .navbar {
-    .container-fluid {
-      padding-right: 15px;
-      padding-left: 15px;
-    }
-
-    .navbar-collapse {
-      .input-group {
-        margin: 0;
-        margin-top: 5px;
+  .navbar{
+      .container-fluid{
+          padding-right: 15px;
+          padding-left: 15px;
       }
-    }
 
-    .navbar-nav {
-      .btn {
-        margin-left: -3px;
-        display: flex;
-
-        i {
-          margin-right: 12px;
-        }
-
-        span {
+      .navbar-collapse{
+        .input-group{
           margin: 0;
-          text-transform: uppercase;
-          font-weight: 300;
+          margin-top: 5px;
+        }
+      }
 
-          &,
-          &:hover,
-          &:focus,
-          &:active,
-          &:active:focus {
-            color: $black !important;
+      .navbar-nav{
+
+        .btn{
+          margin-left: -3px;
+          display: flex;
+
+          i {
+            margin-right: 12px;
+          }
+
+          span {
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 300;
+
+            &,
+            &:hover,
+            &:focus,
+            &:active,
+            &:active:focus {
+              color: $black !important;
+            }
           }
         }
-      }
 
-      a.nav-link {
-        i {
-          opacity: 1;
-          margin-left: 4px;
-          margin-right: 5px;
-        }
-
-        p {
-          display: inline-block;
-          text-transform: uppercase;
-          margin-left: 7px;
-        }
-      }
-
-      .modal-search .modal-dialog {
-        padding: 0 40px;
-      }
-
-      .dropdown {
-        margin: 5px 0;
-
-        .nav-link {
-          padding-bottom: 0;
-        }
-
-        .dropdown-menu {
-          .dropdown-item {
-            margin-top: 0;
-            padding-left: 24px;
-            font-size: 0.9rem;
-            text-align: right;
+          a.nav-link{
+            i{
+              opacity: 1;
+              margin-left: 4px;
+              margin-right: 5px;
+            }
+            p{
+              display: inline-block;
+              text-transform: uppercase;
+              margin-left: 7px;
+            }
           }
-        }
-      }
-    }
 
-    .dropdown.show .dropdown-menu {
-      display: block;
-    }
-
-    .dropdown .dropdown-menu {
-      display: none;
-
-      li a {
-        color: $black;
-      }
-    }
-
-    .dropdown.show .dropdown-menu,
-    .dropdown .dropdown-menu {
-      background-color: transparent;
-      border: 0;
-      transition: none;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-      width: auto;
-      margin: 0px 1rem;
-      padding-top: 0;
-      margin-top: 0px;
-
-      &:before {
-        display: none;
-      }
-    }
-
-    .dropdown-menu .dropdown-item:focus,
-    .dropdown-menu .dropdown-item:hover {
-      color: $white;
-    }
-
-    &.bg-white .dropdown-menu .dropdown-item:focus,
-    &.bg-white .dropdown-menu .dropdown-item:hover {
-      color: $default;
-    }
-
-    .navbar-toggler-bar {
-      display: block;
-      position: relative;
-      width: 22px;
-      height: 1px;
-      border-radius: 1px;
-      background: black;
-
-      &.navbar-kebab {
-        height: 3px;
-        width: 25px;
-        margin-bottom: 4px;
-        // border-radius: 50%;
+          .modal-search .modal-dialog{
+            padding: 0 40px;
+          }
+          .dropdown{
+            margin: 5px 0;
+            .nav-link{
+              padding-bottom: 0;
+            }
+            .dropdown-menu{
+              .dropdown-item{
+                margin-top: 0;
+                padding-left: 24px;
+              }
+            }
+          }
       }
 
-      & + .navbar-toggler-bar {
-        margin-top: 7px;
+      .dropdown.show .dropdown-menu{
+          display: block;
+
       }
 
-      & + .navbar-toggler-bar.navbar-kebab {
-        margin-top: 0px;
+      .dropdown .dropdown-menu{
+          display: none;
+          li a{
+            color: $black;
+          }
       }
 
-      &.bar2 {
-        width: 17px;
-        transition: width 0.2s linear;
+      .dropdown.show .dropdown-menu,
+      .dropdown .dropdown-menu{
+          background-color: transparent;
+          border: 0;
+          transition: none;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          width: auto;
+          margin: 0px 1rem;
+          padding-top: 0;
+          margin-top: 0px;
+
+          &:before{
+              display: none;
+          }
       }
-    }
 
-    &.bg-white:not(.navbar-transparent) .navbar-toggler-bar {
-      background-color: $default;
-    }
+      .dropdown-menu .dropdown-item:focus,
+      .dropdown-menu .dropdown-item:hover{
+          color: $white;
+      }
 
-    & .toggled .navbar-toggler-bar {
-      width: 24px;
-    }
+      &.bg-white .dropdown-menu .dropdown-item:focus,
+      &.bg-white .dropdown-menu .dropdown-item:hover{
+          color: $default;
+      }
+
+      .navbar-toggler-bar{
+          display: block;
+          position: relative;
+          width: 22px;
+          height: 1px;
+          border-radius: 1px;
+          background: $white;
+
+          &.navbar-kebab{
+            height: 4px;
+            width: 4px;
+            margin-bottom: 3px;
+            border-radius: 50%;
+          }
+
+          & + .navbar-toggler-bar{
+              margin-top: 7px;
+          }
+
+          & + .navbar-toggler-bar.navbar-kebab{
+              margin-top: 0px;
+          }
+
+          &.bar2{
+              width: 17px;
+              transition: width .2s linear;
+          }
+      }
+
+      &.bg-white:not(.navbar-transparent) .navbar-toggler-bar{
+          background-color: $default;
+      }
+
+      & .toggled .navbar-toggler-bar{
+          width: 24px;
+      }
   }
 
   .bar1,
@@ -330,30 +314,24 @@
   .bar3 {
     outline: 1px solid transparent;
   }
-
   .bar1 {
     top: 0px;
     @include bar-animation($topbar-back);
   }
-
   .bar2 {
     opacity: 1;
   }
-
   .bar3 {
     bottom: 0px;
     @include bar-animation($bottombar-back);
   }
-
   .toggled .bar1 {
     top: 6px;
     @include bar-animation($topbar-x);
   }
-
   .toggled .bar2 {
     opacity: 0;
   }
-
   .toggled .bar3 {
     bottom: 9px;
     @include bar-animation($bottombar-x);
@@ -365,61 +343,46 @@
   @include bottombar-back-rotation();
 
   @-webkit-keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
+    0% {opacity: 0;}
+    100% {opacity: 1;}
   }
-
   @-moz-keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
+    0% {opacity: 0;}
+    100% {opacity: 1;}
   }
-
   @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
+    0% {opacity: 0;}
+    100% {opacity: 1;}
   }
 
-  .navbar-nav {
-    .nav-link {
-      i.fa,
-      i.tim-icons {
-        opacity: 0.5;
+  .navbar-nav{
+      .nav-link{
+          i.fa,
+          i.tim-icons{
+              opacity: .5;
+          }
       }
-    }
   }
+
 }
 
 @include media-breakpoint-up(lg) {
   .navbar-collapse {
-    background: none !important;
+      background: none !important;
   }
 
   .navbar .navbar-toggle {
-    display: none;
+      display: none;
+
   }
 
   .navbar-nav {
-    .nav-link {
-      &.profile-photo {
-        padding: 0;
-        margin: 7px $padding-base-horizontal;
+      .nav-link {
+          &.profile-photo {
+              padding: 0;
+              margin: 7px $padding-base-horizontal;
+          }
       }
-    }
   }
 
   .navbar {
@@ -435,6 +398,7 @@
     padding-right: $list-inline-padding;
     padding-left: $list-inline-padding;
   }
+
 }
 
 @include media-breakpoint-down(xs) {
@@ -442,38 +406,33 @@
     margin-left: 0;
     margin-right: 0;
   }
+
 }
 
-@include media-breakpoint-between(md, lg) {
+@include media-breakpoint-between (md, lg){
   .bar1,
   .bar2,
   .bar3 {
     outline: 1px solid transparent;
   }
-
   .bar1 {
     top: 0px;
     @include bar-animation($topbar-back);
   }
-
   .bar2 {
     opacity: 1;
   }
-
   .bar3 {
     bottom: 0px;
     @include bar-animation($bottombar-back);
   }
-
   .toggled .bar1 {
     top: 7px;
     @include bar-animation($topbar-x);
   }
-
   .toggled .bar2 {
     opacity: 0;
   }
-
   .toggled .bar3 {
     bottom: 9px;
     @include bar-animation($bottombar-x);
@@ -485,39 +444,22 @@
   @include bottombar-back-rotation();
 
   @-webkit-keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
+    0% {opacity: 0;}
+    100% {opacity: 1;}
   }
-
   @-moz-keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
+    0% {opacity: 0;}
+    100% {opacity: 1;}
   }
-
   @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
+    0% {opacity: 0;}
+    100% {opacity: 1;}
   }
 
   .navbar .navbar-toggler-bar.bar2 {
     width: 17px;
-    transition: width 0.2s linear;
-  }
+    transition: width .2s linear;
+}
 
   .navbar .navbar-toggler-bar {
     display: block;
@@ -525,18 +467,17 @@
     width: 22px;
     height: 1px;
     border-radius: 1px;
-    background: black;
+    background: $white;
   }
-
-  .navbar .navbar-toggler-bar + .navbar-toggler-bar {
+  .navbar .navbar-toggler-bar+.navbar-toggler-bar {
     margin-top: 7px;
   }
 
-  .navbar .navbar-toggle .navbar-toggler {
+  .navbar .navbar-toggle .navbar-toggler{
     display: block;
   }
 
-  .navbar-minimize-fixed {
+  .navbar-minimize-fixed{
     display: none;
   }
 }

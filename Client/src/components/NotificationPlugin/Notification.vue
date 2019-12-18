@@ -119,15 +119,19 @@ export default {
     customPosition() {
       let initialMargin = 20;
       let alertHeight = this.elmHeight + 10;
-      let sameAlertsCount = this.$notifications.state.filter(alert => {
+      let sameAlerts = this.$notifications.state.filter(alert => {
         return (
           alert.horizontalAlign === this.horizontalAlign &&
-          alert.verticalAlign === this.verticalAlign &&
-          alert.timestamp <= this.timestamp
+          alert.verticalAlign === this.verticalAlign
         );
-      }).length;
+      });
+      let sameAlertsCount = 1
+      let currentIndex = sameAlerts.findIndex(n => n.timestamp === this.timestamp)
       if (this.$notifications.settings.overlap) {
         sameAlertsCount = 1;
+      }
+      if (currentIndex !== -1) {
+        sameAlertsCount = currentIndex + 1
       }
       let pixels = (sameAlertsCount - 1) * alertHeight + initialMargin;
       let styles = {};

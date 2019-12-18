@@ -5,7 +5,7 @@
     border-color: $color !important;
   }
   .el-tag,
-  .el-tag.el-tag--#{$type} {
+  span.el-tag.el-tag--#{$type} {
     .el-tag__close {
       color: white;
     }
@@ -13,19 +13,19 @@
       background-color: white;
       color: $color;
     }
-    background-color: $color !important;
+    background-color: $color;
+    border-color: $color;
     color: white;
-
   }
 }
-.el-tag{
-  border-radius: 12px !important;
+span.el-tag{
+  border-radius: 12px;
   margin-left:10px;
   margin-bottom:5px;
 }
-.input-new-tag{
+input.input-new-tag{
   margin-left:10px;
-  width: 150px !important;
+  width: 150px;
   height: 32px;
   display: inline;
 

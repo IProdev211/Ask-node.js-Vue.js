@@ -386,9 +386,9 @@ export default {
 
 @media (max-width: 768px) {
   .navbar-nav {
-    font-size: 1rem;
-    color: #fff;
-    padding: 22px 0 0 0;
+    font-size: 1rem !important;
+    color: #fff !important;
+    padding: 22px 0 0 0 !important;
   }
   .navbar-nav li {
     padding: 7px 0 !important;
@@ -396,7 +396,7 @@ export default {
     font-size: 1em !important;
   }
   .login-register-buttons {
-    padding: 10px 0;
+    padding: 10px 0 !important;
   }
 
   .go-to-top {
@@ -555,6 +555,8 @@ p,
 
 .navbar.auth-navbar {
   top: 0;
+  background-color: #fff;
+  font-family: IranSans;
 }
 
 $scaleSize: 0.8;

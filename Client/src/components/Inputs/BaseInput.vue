@@ -5,18 +5,17 @@
       'input-group-focus': focused,
       'has-danger': error,
       'has-success': !error && touched,
-      'has-label': label
+      'has-label': label,
+      'has-icon': hasIcon,
     }"
   >
+    <slot name="label">
+      <label v-if="label"> {{ label }} {{ required ? '*' : '' }} </label>
+    </slot>
     <div class="mb-0" :class="{'input-group': hasIcon}">
-      <slot name="label">
-        <label v-if="label">{{ label }} {{ required ? '*' : '' }}</label>
-      </slot>
       <slot name="addonLeft">
         <span v-if="addonLeftIcon" class="input-group-prepend">
-          <div class="input-group-text">
-            <i :class="addonLeftIcon"></i>
-          </div>
+          <div class="input-group-text"><i :class="addonLeftIcon"></i></div>
         </span>
       </slot>
       <slot>
@@ -28,18 +27,15 @@
           aria-describedby="addon-right addon-left"
         />
       </slot>
+      <slot name="addonRight">
+        <span v-if="addonRightIcon" class="input-group-append">
+          <div class="input-group-text"><i :class="addonRightIcon"></i></div>
+        </span>
+      </slot>
     </div>
 
     <slot name="error" v-if="error || $slots.error">
       <label class="error">{{ error }}</label>
-    </slot>
-
-    <slot name="addonRight">
-      <span v-if="addonRightIcon" class="input-group-append">
-        <div class="input-group-text">
-          <i :class="addonRightIcon"></i>
-        </div>
-      </span>
     </slot>
     <slot name="helperText"></slot>
   </div>
@@ -84,12 +80,20 @@ export default {
   },
   computed: {
     hasIcon() {
-      const { addonRight, addonLeft } = this.$slots;
+      return this.hasLeftAddon || this.hasRightAddon
+    },
+    hasLeftAddon() {
+      const { addonLeft } = this.$slots;
+      return (
+        addonLeft !== undefined ||
+        this.addonLeftIcon !== undefined
+      );
+    },
+    hasRightAddon() {
+      const { addonRight } = this.$slots;
       return (
         addonRight !== undefined ||
-        addonLeft !== undefined ||
-        this.addonRightIcon !== undefined ||
-        this.addonLeftIcon !== undefined
+        this.addonRightIcon !== undefined
       );
     },
     listeners() {
@@ -108,15 +112,15 @@ export default {
       }
       this.$emit('input', evt.target.value);
     },
-    onFocus() {
+    onFocus(evt) {
       this.focused = true;
+      this.$emit('focus', evt)
     },
-    onBlur() {
+    onBlur(evt) {
       this.focused = false;
+      this.$emit('blur', evt)
     }
   }
 };
 </script>
-
-<style lang="scss" scoped>
-</style>
+<style></style>

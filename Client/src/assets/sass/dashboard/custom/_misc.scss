@@ -1,3 +1,4 @@
+
 /* Animations */
 .nav-pills .nav-link,
 .navbar,
@@ -9,25 +10,24 @@
 .animation-transition-general,
 .tag,
 .tag [data-role="remove"],
-.animation-transition-general {
-  @include transitions($general-transition-time, $transition-ease);
+.animation-transition-general{
+    @include transitions($general-transition-time, $transition-ease);
 }
 
 //transition for dropdown caret
 .bootstrap-switch-label:before,
-.caret {
-  @include transitions($fast-transition-time, $transition-ease);
+.caret{
+    @include transitions($fast-transition-time, $transition-ease);
 }
 
 .dropdown-toggle[aria-expanded="true"]:after,
 a[data-toggle="collapse"][aria-expanded="true"] .caret,
 .card-collapse .card a[data-toggle="collapse"][aria-expanded="true"] i,
-.card-collapse .card a[data-toggle="collapse"].expanded i {
-  // @include rotate-180();
-  margin-top: 5px;
+.card-collapse .card a[data-toggle="collapse"].expanded i{
+    @include rotate-180();
 }
 
-.caret {
+.caret{
   width: 0;
   height: 0;
   vertical-align: middle;
@@ -40,11 +40,10 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
   margin-left: 5px;
 }
 
-.pull-left {
+.pull-left{
   float: left;
 }
-
-.pull-right {
+.pull-right{
   float: right;
 }
 
@@ -53,7 +52,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 
 .card {
   form {
-    label+.form-control {
+    label + .form-control {
       margin-bottom: 20px;
     }
   }
@@ -63,7 +62,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 
 .offline-doc {
   .page-header:before {
-    background: rgba(0, 0, 0, .75);
+    background: rgba(0,0,0,.75);
   }
 
   .navbar {
@@ -86,18 +85,17 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
     color: $white;
   }
 
-  .table {
-    tr td {
-      p.title {
-        padding-top: 7px;
-        margin-bottom: 0;
+    .table {
+      tr td {
+        p.title {
+          padding-top: 7px;
+          margin-bottom: 0;
+        }
       }
     }
-  }
 
 
   &.card-chart {
-
     .gmnoprint,
     .gm-style-cc {
       display: none !important;
@@ -109,16 +107,8 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 
 .bd-docs {
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul li,
-  ol li {
-    color: #2c2c2c;
+  h1,h2,h3,h4,h5,h6,p,ul li,ol li{
+    color:#2c2c2c;
   }
 
 
@@ -127,14 +117,11 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 
   }
 
-  .blockquote,
-  .blockquote p,
-  .card p {
-    color: rgba($white, 0.8);
+  .blockquote, .blockquote p, .card p{
+    color: rgba($white,0.8);
   }
-
   .bd-example {
-    background: linear-gradient(#1e1e2f, #1e1e24);
+    background: linear-gradient(#1e1e2f,#1e1e24);
 
   }
 
@@ -142,27 +129,26 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
     border-top: none;
 
     .navbar-nav .nav-link {
-      color: rgba(255, 255, 255, .8) !important;
+      color: rgba(255,255,255,.8) !important;
     }
   }
 
   .bd-example {
 
-    .btn {
+    .btn{
       margin: 4px 0;
     }
-
     .btn .badge {
       display: inline-block;
     }
 
-    .tim-icons {
+    .tim-icons{
       color: $white;
     }
 
     .popover .popover-header {
-      color: hsla(0, 0%, 71%, .6);
-    }
+    color: hsla(0,0%,71%,.6);
+  }
 
 
     .popover-body {
@@ -171,71 +157,57 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
       }
     }
 
-    &.tooltip-demo p {
-      color: rgba($white, .8);
+    &.tooltip-demo p{
+      color: rgba($white,.8);
     }
   }
 
   .card.card-body,
   .card .card-body {
-    color: hsla(0, 0%, 100%, .8);
+    color: hsla(0,0%,100%,.8);
   }
 
   label,
   .form-check {
-    color: hsla(0, 0%, 100%, .8);
+    color: hsla(0,0%,100%,.8);
   }
 
-  .form-check+.btn {
+  .form-check + .btn {
     margin-top: 20px;
   }
 
   .bd-example,
   table {
     thead th {
-      color: hsla(0, 0%, 100%, .8);
+      color: hsla(0,0%,100%,.8);
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    .h1,
-    .h2,
-    .h3,
-    .h4,
-    .h5,
-    .h6 {
-      color: hsla(0, 0%, 100%, .8);
+    h1, h2, h3, h4, h5, h6,
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+      color: hsla(0,0%,100%,.8);
     }
 
-    .datepicker {
-
-      thead th,
-      table thead th,
-      .tim-icons {
+    .datepicker{
+      thead th, table thead th,.tim-icons{
         color: $primary;
       }
 
     }
 
-    .picker-switch .tim-icons {
+    .picker-switch .tim-icons{
       color: $primary;
     }
   }
 
   .footer {
-    .container-fluid>nav {
+    .container-fluid > nav {
       display: inline-block;
     }
   }
 }
-
 .modal.show .modal-dialog {
-  -webkit-transform: translate(0, 30%);
-  transform: translate(0, 30%);
+  -webkit-transform: translate(0,30%);
+  transform: translate(0,30%);
 }
 
 code {

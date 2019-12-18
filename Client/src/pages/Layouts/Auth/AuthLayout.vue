@@ -479,6 +479,7 @@ p,
 
 .navbar.auth-navbar {
   top: 0;
+  background: #fcfcfc !important;
 }
 
 $scaleSize: 0.8;

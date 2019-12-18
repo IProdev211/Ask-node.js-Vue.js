@@ -1,6 +1,6 @@
 {
   "name": "askarya",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Ask Arya Website & Dashboard",
   "author": "Arya Doroudian",
@@ -36,7 +36,11 @@
     "datamaps": "^0.5.9",
     "element-ui": "^2.13.0",
     "es6-promise": "^4.2.8",
-    "fullcalendar": "^3.10.1",
+    "@fullcalendar/core": "^4.3.1",
+    "@fullcalendar/daygrid": "^4.3.0",
+    "@fullcalendar/interaction": "^4.3.0",
+    "@fullcalendar/timegrid": "^4.3.0",
+    "@fullcalendar/vue": "^4.3.1",
     "fuse.js": "^3.4.6",
     "google-maps": "^3.2.1",
     "jalali-moment": "^3.3.3",
@@ -73,8 +77,8 @@
     "babel-plugin-component": "^1.1.0",
     "glob-all": "^3.1.0",
     "node-sass": "^4.13.0",
-    "purgecss-webpack-plugin": "^1.6.0",
     "sass-loader": "^8.0.0",
+    "purgecss-webpack-plugin": "^1.6.0",
     "vue-template-compiler": "^2.6.11"
   },
   "postcss": {

@@ -9,7 +9,8 @@ const NotificationStore = {
     type: 'info',
     timeout: 5000,
     closeOnClick: true,
-    showClose: true
+    showClose: true,
+    order: 'reverse' // normal | reverse (When reverse, each notification will be added on top)
   },
   setOptions(options) {
     this.settings = Object.assign(this.settings, options);
@@ -29,7 +30,11 @@ const NotificationStore = {
       notification.timestamp.getMilliseconds() + this.state.length
     );
     notification = Object.assign({}, this.settings, notification);
-    this.state.push(notification);
+    if (this.settings.order === 'reverse') {
+      this.state.unshift(notification)
+    } else {
+      this.state.push(notification)
+    }
   },
   notify(notification) {
     if (Array.isArray(notification)) {

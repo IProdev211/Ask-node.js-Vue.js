@@ -11,6 +11,7 @@ h6,
 .h5,
 .h6 {
   line-height: $headings-line-height;
+
 }
 
 button,
@@ -18,9 +19,11 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: $font-family-base;
+  font-family: IranSans !important;
 }
+
 .card {
+
   h1,
   h2,
   h3,
@@ -31,6 +34,7 @@ textarea {
     color: $opacity-8;
   }
 }
+
 h1,
 h2,
 h3,
@@ -44,11 +48,13 @@ h6 {
 a {
   color: $primary-states;
   font-weight: $font-weight-light;
+
   &:hover,
   &:focus {
     color: $primary;
   }
 }
+
 h1,
 .h1 {
   line-height: 1.05;
@@ -57,39 +63,47 @@ h1,
   small {
     font-weight: $font-weight-bold;
     text-transform: uppercase;
-    opacity: 0.8;
+    opacity: .8;
   }
+
 }
+
 h2,
 .h2 {
   margin-bottom: $margin-base-vertical * 2;
   line-height: 1.2;
+
 }
+
 h3,
 .h3 {
   margin-bottom: $margin-base-vertical * 2;
   line-height: 1.4em;
 }
+
 h4,
 .h4 {
   line-height: 1.45em;
   margin-bottom: $margin-base-vertical;
 
-  & + .category,
-  &.title + .category {
+  &+.category,
+  &.title+.category {
     margin-top: -10px;
   }
 }
+
 h5,
 .h5 {
   line-height: 1.4em;
   margin-bottom: 15px;
 }
+
 h6,
 .h6 {
   text-transform: uppercase;
   font-weight: $font-weight-bold;
 }
+
 p {
   color: $opacity-8;
   margin-bottom: 5px;
@@ -99,8 +113,10 @@ p {
   }
 }
 
+
 .title {
   font-weight: $font-weight-bold;
+
   &.title-up {
     text-transform: uppercase;
 
@@ -109,7 +125,8 @@ p {
       text-decoration: none;
     }
   }
-  & + .category {
+
+  &+.category {
     margin-top: -10px;
   }
 }
@@ -121,6 +138,7 @@ p {
   color: $dark-gray;
   font-weight: $font-weight-light;
 }
+
 .category,
 .card-category {
   text-transform: capitalize;

@@ -1,3 +1,5 @@
+@import '~@fullcalendar/daygrid/main.css';
+@import '~@fullcalendar/timegrid/main.css';
 .fc {
 	direction: ltr;
 	text-align: left;
@@ -98,14 +100,14 @@ NOTE: use percentage font sizes or else old IE chokes
 	position: relative;
 }
 
-.fc-icon-left-single-arrow:after {
+.fc-icon-chevron-left:after {
 	content: "\02039";
 	font-weight: bold;
 	font-size: 200%;
 	top: -7%;
 }
 
-.fc-icon-right-single-arrow:after {
+.fc-icon-chevron-right:after {
 	content: "\0203A";
 	font-weight: bold;
 	font-size: 200%;
@@ -188,8 +190,8 @@ NOTE: use percentage font sizes or else old IE chokes
 
 }
 
-.fc-state-default { /* non-theme */
-	border: 1px solid;
+.fc-button:not(.fc-button-active) { /* non-theme */
+	border: 1px solid $primary;
 	opacity: 0.5;
 	&:hover{
 		opacity: 1;
@@ -952,7 +954,7 @@ a.fc-more:hover {
 	padding-bottom: 1em; /* ensure a space at bottom of cell for user selecting/clicking */
 }
 
-.fc-basic-view .fc-body .fc-row {
+.fc-dayGrid-view  .fc-body .fc-row {
 	min-height: 4em; /* ensure that all rows are at least this tall */
 }
 
@@ -975,24 +977,24 @@ a.fc-more:hover {
 	opacity: 0.3;
 }
 
-.fc-basic-view .fc-week-number,
-.fc-basic-view .fc-day-number {
+.fc-dayGrid-view .fc-week-number,
+.fc-dayGrid-view .fc-day-number {
 	padding: 2px;
 	color: $white;
 }
 
-.fc-basic-view th.fc-week-number,
-.fc-basic-view th.fc-day-number {
+.fc-dayGrid-view  th.fc-week-number,
+.fc-dayGrid-view  th.fc-day-number {
 	padding: 0 2px; /* column headers can't have as much v space */
 }
 
-.fc-ltr .fc-basic-view .fc-day-top .fc-day-number { float: right; }
-.fc-rtl .fc-basic-view .fc-day-top .fc-day-number { float: left; }
+.fc-ltr .fc-dayGrid-view  .fc-day-top .fc-day-number { float: right; }
+.fc-rtl .fc-dayGrid-view  .fc-day-top .fc-day-number { float: left; }
 
-.fc-ltr .fc-basic-view .fc-day-top .fc-week-number { float: left; border-radius: 0 0 3px 0; }
-.fc-rtl .fc-basic-view .fc-day-top .fc-week-number { float: right; border-radius: 0 0 0 3px; }
+.fc-ltr .fc-dayGrid-view  .fc-day-top .fc-week-number { float: left; border-radius: 0 0 3px 0; }
+.fc-rtl .fc-dayGrid-view  .fc-day-top .fc-week-number { float: right; border-radius: 0 0 0 3px; }
 
-.fc-basic-view .fc-day-top .fc-week-number {
+.fc-dayGrid-view  .fc-day-top .fc-week-number {
 	min-width: 1.5em;
 	text-align: center;
 	background-color: #f2f2f2;
@@ -1001,11 +1003,11 @@ a.fc-more:hover {
 
 /* when week/day number have own column */
 
-.fc-basic-view td.fc-week-number {
+.fc-dayGrid-view  td.fc-week-number {
 	text-align: center;
 }
 
-.fc-basic-view td.fc-week-number > * {
+.fc-dayGrid-view  td.fc-week-number > * {
 	/* work around the way we do column resizing and ensure a minimum width */
 	display: inline-block;
 	min-width: 1.25em;
@@ -1470,8 +1472,8 @@ be a descendant of the grid when it is being dragged.
     .fc td:last-child{
         border-right: 0;
     }
-    .fc-basic-view td:last-child.fc-week-number span,
-    .fc-basic-view td:last-child.fc-day-number{
+    .fc-dayGrid-view  td:last-child.fc-week-number span,
+    .fc-dayGrid-view  td:last-child.fc-day-number{
         // padding-right: $padding-default-horizontal;
     }
     .fc .fc-day-header:last-child{

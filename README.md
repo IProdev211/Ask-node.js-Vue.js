@@ -30,6 +30,10 @@
 7. npm run dev
 ```
 
+```bash
+8. URL should be 8080
+```
+
 ## Steps to prepare for Deployment
 
 1. Copy .envProduction content to .env file

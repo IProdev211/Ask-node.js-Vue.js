@@ -1,19 +1,17 @@
 <template>
   <div class="fileinput text-center">
-    <!-- <div
+    <div
       class="fileinput-new thumbnail"
       :class="{ 'img-circle': type === 'avatar' }"
     >
       <img :src="image" alt="preview" />
-    </div>-->
+    </div>
     <div>
       <span class="btn btn-primary btn-simple btn-file">
-        <span class="fileinput-new">
-          {{
+        <span class="fileinput-new">{{
           fileExists ? changeText : selectText
-          }}
-        </span>
-        <input type="hidden" value name />
+        }}</span>
+        <input type="hidden" value="" name="" />
         <input
           accept="image/*"
           @change="handlePreview"
@@ -24,10 +22,9 @@
           aria-invalid="false"
         />
       </span>
-      <div v-if="fileExists" @click="removeFile" round class="btn-sm" type="danger">
-        <i class="fas fa-times"></i>
-        <!-- {{ removeText }} -->
-      </div>
+      <base-button v-if="fileExists" @click="removeFile" round type="danger">
+        <i class="fas fa-times"></i> {{ removeText }}
+      </base-button>
     </div>
   </div>
 </template>
@@ -51,7 +48,7 @@ export default {
     },
     changeText: {
       type: String,
-      default: 'تصویر دیگری'
+      default: 'Change'
     },
     removeText: {
       type: String,
@@ -87,5 +84,4 @@ export default {
   }
 };
 </script>
-<style scoped >
-</style>
+<style></style>

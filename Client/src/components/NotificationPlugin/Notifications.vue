@@ -7,7 +7,8 @@
         :clickHandler="notification.onClick"
         :key="notification.timestamp.getTime()"
         @close="removeNotification"
-      ></notification>
+      >
+      </notification>
     </transition-group>
   </div>
 </template>
@@ -54,8 +55,6 @@ export default {
 </script>
 <style lang="scss">
 .notifications {
-  text-align: right;
-
   .list-move {
     transition: transform 0.3s, opacity 0.4s;
   }

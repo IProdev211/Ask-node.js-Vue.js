@@ -18,7 +18,7 @@
     </div>-->
 
     <div class="progress mt-auto mb-4">
-      <!-- PLEASE USE THIS PROGRESS BAR - https://demos.creative-tim.com/vue-black-dashboard-pro/documentation/components/progress.html  -->
+      <!-- PLEASE USE THIS PROGRESS BAR - vue-black-dashboard-pro/documentation/components/progress.html  -->
       <div
         class="progress-bar"
         role="progressbar"

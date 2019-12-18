@@ -41,7 +41,7 @@
 
 <script>
 export default {
-  data() { 
+  data() {
     return {
       onStart: () => {},
       onDone: () => {},
@@ -60,6 +60,10 @@ export default {
   background-size: cover;
 }
 
+p {
+  font-family: IranSans !important;
+}
+
 .text-section {
   text-align: right;
   padding: 5em 0em 4em 0;
@@ -74,6 +78,7 @@ export default {
   }
 
   .main-text {
+    font-family: IranSans !important;
     color: #fff !important;
     font-size: 1.3em;
     line-height: 1.7em !important;
