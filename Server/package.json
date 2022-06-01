@@ -44,7 +44,7 @@
     "passport-local": "^1.0.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.5",
-    "sharp": "^0.23.4",
+    "sharp": "^0.30.5",
     "sprintf-js": "^1.1.2",
     "striptags": "^3.1.1",
     "unique-string": "^2.0.0",
